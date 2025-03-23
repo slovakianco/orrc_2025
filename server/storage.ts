@@ -120,7 +120,11 @@ export class MemStorage implements IStorage {
 
   async createRace(race: InsertRace): Promise<Race> {
     const id = this.raceId++;
-    const newRace: Race = { ...race, id };
+    const newRace: Race = { 
+      ...race, 
+      id,
+      imageUrl: race.imageUrl || null 
+    };
     this.races.set(id, newRace);
     return newRace;
   }
@@ -178,6 +182,8 @@ export class MemStorage implements IStorage {
       id,
       bibNumber,
       registrationDate: now,
+      status: participant.status || "pending",
+      medicalInfo: participant.medicalInfo || null
     };
     
     this.participants.set(id, newParticipant);
@@ -238,7 +244,11 @@ export class MemStorage implements IStorage {
 
   async createProgramEvent(event: InsertProgramEvent): Promise<ProgramEvent> {
     const id = this.programEventId++;
-    const newEvent: ProgramEvent = { ...event, id };
+    const newEvent: ProgramEvent = { 
+      ...event, 
+      id,
+      endTime: event.endTime || null 
+    };
     this.programEvents.set(id, newEvent);
     return newEvent;
   }
@@ -607,4 +617,4 @@ export class MemStorage implements IStorage {
 import { PostgresStorage } from './postgres-storage';
 
 // Use PostgresStorage instead of MemStorage
-export const storage = new PostgresStorage();
+export const storage = new MemStorage();

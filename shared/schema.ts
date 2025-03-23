@@ -70,7 +70,7 @@ export const contactInquiries = pgTable("contact_inquiries", {
   email: text("email").notNull(),
   subject: text("subject").notNull(),
   message: text("message").notNull(),
-  createdAt: timestamp("createdAt").defaultNow(),
+  createdAt: timestamp("createdat").defaultNow(),
 });
 
 export const insertContactInquirySchema = createInsertSchema(contactInquiries).omit({
@@ -82,14 +82,14 @@ export const insertContactInquirySchema = createInsertSchema(contactInquiries).o
 export const faqs = pgTable("faqs", {
   id: serial("id").primaryKey(),
   question: text("question").notNull(),
-  questionRo: text("questionRo").notNull(),
-  questionFr: text("questionFr").notNull(),
-  questionDe: text("questionDe").notNull(),
+  questionRo: text("questionro").notNull(),
+  questionFr: text("questionfr").notNull(),
+  questionDe: text("questionde").notNull(),
   answer: text("answer").notNull(),
-  answerRo: text("answerRo").notNull(),
-  answerFr: text("answerFr").notNull(),
-  answerDe: text("answerDe").notNull(),
-  order: integer("\"order\"").notNull(),
+  answerRo: text("answerro").notNull(),
+  answerFr: text("answerfr").notNull(),
+  answerDe: text("answerde").notNull(),
+  order: integer("order_index").notNull(),
 });
 
 export const insertFaqSchema = createInsertSchema(faqs).omit({
@@ -100,18 +100,18 @@ export const insertFaqSchema = createInsertSchema(faqs).omit({
 export const programEvents = pgTable("program_events", {
   id: serial("id").primaryKey(),
   date: text("date").notNull(), // ISO date string
-  startTime: text("startTime").notNull(), // HH:MM format
-  endTime: text("endTime"), // HH:MM format, optional for events with no specific end time
+  startTime: text("starttime").notNull(), // HH:MM format
+  endTime: text("endtime"), // HH:MM format, optional for events with no specific end time
   title: text("title").notNull(),
-  titleRo: text("titleRo").notNull(),
-  titleFr: text("titleFr").notNull(),
-  titleDe: text("titleDe").notNull(),
+  titleRo: text("titlero").notNull(),
+  titleFr: text("titlefr").notNull(),
+  titleDe: text("titlede").notNull(),
   description: text("description").notNull(),
-  descriptionRo: text("descriptionRo").notNull(),
-  descriptionFr: text("descriptionFr").notNull(),
-  descriptionDe: text("descriptionDe").notNull(),
+  descriptionRo: text("descriptionro").notNull(),
+  descriptionFr: text("descriptionfr").notNull(),
+  descriptionDe: text("descriptionde").notNull(),
   location: text("location").notNull(),
-  order: integer("\"order\"").notNull(),
+  order: integer("order_index").notNull(),
 });
 
 export const insertProgramEventSchema = createInsertSchema(programEvents).omit({
@@ -123,13 +123,13 @@ export const sponsors = pgTable("sponsors", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
   description: text("description").notNull(),
-  descriptionRo: text("descriptionRo").notNull(),
-  descriptionFr: text("descriptionFr").notNull(),
-  descriptionDe: text("descriptionDe").notNull(),
-  logoPlaceholder: text("logoPlaceholder").notNull(), // Text for placeholder
+  descriptionRo: text("descriptionro").notNull(),
+  descriptionFr: text("descriptionfr").notNull(),
+  descriptionDe: text("descriptionde").notNull(),
+  logoPlaceholder: text("logoplaceholder").notNull(), // Text for placeholder
   website: text("website").notNull(),
   level: text("level").notNull(), // premium or standard
-  order: integer("\"order\"").notNull(),
+  order: integer("order_index").notNull(),
 });
 
 export const insertSponsorSchema = createInsertSchema(sponsors).omit({
