@@ -32,23 +32,23 @@ const RacesSection = ({ title, fullPage = false }: RacesSectionProps) => {
   };
 
   return (
-    <section id="races" className={`py-16 bg-neutral-light/30 ${fullPage ? 'min-h-screen' : ''}`}>
+    <section id="races" className={`py-10 md:py-16 bg-neutral-light/30 ${fullPage ? 'min-h-screen' : ''}`}>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-primary">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-4xl font-heading font-bold mb-3 md:mb-4 text-primary">
             {title || t('races.title')}
           </h2>
-          <p className="text-lg text-neutral-dark/80 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-neutral-dark/80 max-w-3xl mx-auto">
             {t('races.subtitle')}
           </p>
         </div>
         
         {/* Race Filters */}
-        <div className="mb-10 flex flex-wrap justify-center gap-4">
+        <div className="mb-8 md:mb-10 flex flex-wrap justify-center gap-2 md:gap-4">
           {difficultyOptions.map((option) => (
             <button
               key={option.value || 'all'}
-              className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 ${
+              className={`px-3 md:px-4 py-1.5 md:py-2 text-sm md:text-base rounded-full font-medium transition-colors duration-200 ${
                 difficulty === option.value 
                   ? option.value === 'beginner' 
                     ? 'bg-difficulty-beginner text-white' 
@@ -74,41 +74,41 @@ const RacesSection = ({ title, fullPage = false }: RacesSectionProps) => {
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
           </div>
         ) : races && races.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
             {races.map((race) => (
               <div key={race.id} className="race-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
-                <div className="h-48 relative overflow-hidden">
+                <div className="h-40 sm:h-48 relative overflow-hidden">
                   <img 
                     src={race.imageUrl || `https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80`} 
                     alt={getLocalizedRaceName(race, i18n.language as any)} 
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" 
                   />
-                  <div className={`absolute top-4 left-4 py-1 px-3 rounded-full text-sm font-bold bg-difficulty-${race.difficulty} text-white`}>
+                  <div className={`absolute top-3 left-3 md:top-4 md:left-4 py-1 px-2 md:px-3 rounded-full text-xs md:text-sm font-bold bg-difficulty-${race.difficulty} text-white`}>
                     {t(`races.difficulty.${race.difficulty}`)}
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="font-heading font-bold text-xl mb-2 text-primary">{getLocalizedRaceName(race, i18n.language as any)}</h3>
-                  <div className="flex items-center mb-4">
-                    <div className="flex items-center mr-4">
-                      <Map className="text-secondary mr-2 h-4 w-4" />
+                <div className="p-4 md:p-6">
+                  <h3 className="font-heading font-bold text-lg md:text-xl mb-2 text-primary line-clamp-1">{getLocalizedRaceName(race, i18n.language as any)}</h3>
+                  <div className="flex flex-wrap items-center mb-3 md:mb-4 text-sm md:text-base">
+                    <div className="flex items-center mr-3 md:mr-4 mb-1">
+                      <Map className="text-secondary mr-1 md:mr-2 h-3 w-3 md:h-4 md:w-4" />
                       <span className="text-neutral-dark">{race.distance} km</span>
                     </div>
-                    <div className="flex items-center mr-4">
-                      <Mountain className="text-secondary mr-2 h-4 w-4" />
+                    <div className="flex items-center mr-3 md:mr-4 mb-1">
+                      <Mountain className="text-secondary mr-1 md:mr-2 h-3 w-3 md:h-4 md:w-4" />
                       <span className="text-neutral-dark">{race.elevation} m D+</span>
                     </div>
-                    <div className="flex items-center">
-                      <Calendar className="text-secondary mr-2 h-4 w-4" />
+                    <div className="flex items-center mb-1">
+                      <Calendar className="text-secondary mr-1 md:mr-2 h-3 w-3 md:h-4 md:w-4" />
                       <span className="text-neutral-dark">{t(`races.dates.${race.date.split('-')[2]}`)}</span>
                     </div>
                   </div>
-                  <div className="elevation-chart mb-4 h-[60px] bg-gradient-to-r from-primary/20 to-secondary/30 relative overflow-hidden rounded-md"></div>
-                  <p className="text-neutral-dark/80 mb-6">{getLocalizedRaceDescription(race, i18n.language as any)}</p>
+                  <div className="elevation-chart mb-3 md:mb-4 h-[40px] md:h-[60px] bg-gradient-to-r from-primary/20 to-secondary/30 relative overflow-hidden rounded-md"></div>
+                  <p className="text-neutral-dark/80 text-sm md:text-base mb-4 md:mb-6 line-clamp-3 md:line-clamp-4">{getLocalizedRaceDescription(race, i18n.language as any)}</p>
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-primary">{formatCurrency(race.price)}</span>
-                    <Link href={`/races/${race.id}`} className="text-accent hover:text-accent-dark font-bold flex items-center">
-                      {t('races.viewDetails')} <span className="ml-2">→</span>
+                    <Link href={`/races/${race.id}`} className="text-accent hover:text-accent-dark font-bold text-sm md:text-base flex items-center">
+                      {t('races.viewDetails')} <span className="ml-1 md:ml-2">→</span>
                     </Link>
                   </div>
                 </div>

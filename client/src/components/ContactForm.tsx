@@ -80,78 +80,78 @@ const ContactForm = () => {
   ];
 
   return (
-    <section id="contact" className="py-16 bg-neutral-light/30">
+    <section id="contact" className="py-10 md:py-16 bg-neutral-light/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-primary">{t('contact.title')}</h2>
-          <p className="text-lg text-neutral-dark/80 max-w-3xl mx-auto">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-4xl font-heading font-bold mb-3 md:mb-4 text-primary">{t('contact.title')}</h2>
+          <p className="text-base md:text-lg text-neutral-dark/80 max-w-3xl mx-auto">
             {t('contact.subtitle')}
           </p>
         </div>
         
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 md:gap-8">
             {/* Contact Information */}
             <div className="lg:col-span-1">
               <div className="bg-white rounded-lg p-8 shadow-md h-full">
                 <h3 className="font-heading font-bold text-xl mb-6 text-primary">{t('contact.info.title')}</h3>
                 
-                <div className="space-y-6">
+                <div className="space-y-5 md:space-y-6">
                   <div className="flex items-start">
-                    <div className="bg-secondary rounded-full p-3 mr-4 text-white">
-                      <Mail className="h-5 w-5" />
+                    <div className="bg-secondary rounded-full p-2 md:p-3 mr-3 md:mr-4 text-white">
+                      <Mail className="h-4 w-4 md:h-5 md:w-5" />
                     </div>
                     <div>
-                      <h4 className="font-bold mb-1 text-neutral-dark">{t('contact.info.email')}</h4>
-                      <a href="mailto:info@trailrun.com" className="text-secondary hover:text-secondary-dark transition-colors">info@trailrun.com</a>
+                      <h4 className="font-bold mb-0.5 md:mb-1 text-sm md:text-base text-neutral-dark">{t('contact.info.email')}</h4>
+                      <a href="mailto:info@trailrun.com" className="text-secondary hover:text-secondary-dark transition-colors text-sm md:text-base">info@trailrun.com</a>
                     </div>
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="bg-secondary rounded-full p-3 mr-4 text-white">
-                      <Phone className="h-5 w-5" />
+                    <div className="bg-secondary rounded-full p-2 md:p-3 mr-3 md:mr-4 text-white">
+                      <Phone className="h-4 w-4 md:h-5 md:w-5" />
                     </div>
                     <div>
-                      <h4 className="font-bold mb-1 text-neutral-dark">{t('contact.info.phone')}</h4>
-                      <a href="tel:+40123456789" className="text-secondary hover:text-secondary-dark transition-colors">+40 123 456 789</a>
+                      <h4 className="font-bold mb-0.5 md:mb-1 text-sm md:text-base text-neutral-dark">{t('contact.info.phone')}</h4>
+                      <a href="tel:+40123456789" className="text-secondary hover:text-secondary-dark transition-colors text-sm md:text-base">+40 123 456 789</a>
                     </div>
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="bg-secondary rounded-full p-3 mr-4 text-white">
-                      <MapPin className="h-5 w-5" />
+                    <div className="bg-secondary rounded-full p-2 md:p-3 mr-3 md:mr-4 text-white">
+                      <MapPin className="h-4 w-4 md:h-5 md:w-5" />
                     </div>
                     <div>
-                      <h4 className="font-bold mb-1 text-neutral-dark">{t('contact.info.location')}</h4>
-                      <p className="text-neutral-dark/80">{t('contact.info.address')}</p>
+                      <h4 className="font-bold mb-0.5 md:mb-1 text-sm md:text-base text-neutral-dark">{t('contact.info.location')}</h4>
+                      <p className="text-neutral-dark/80 text-sm md:text-base">{t('contact.info.address')}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="bg-secondary rounded-full p-3 mr-4 text-white">
-                      <Clock className="h-5 w-5" />
+                    <div className="bg-secondary rounded-full p-2 md:p-3 mr-3 md:mr-4 text-white">
+                      <Clock className="h-4 w-4 md:h-5 md:w-5" />
                     </div>
                     <div>
-                      <h4 className="font-bold mb-1 text-neutral-dark">{t('contact.info.hours')}</h4>
-                      <p className="text-neutral-dark/80">{t('contact.info.weekdays')}<br/>{t('contact.info.weekend')}</p>
+                      <h4 className="font-bold mb-0.5 md:mb-1 text-sm md:text-base text-neutral-dark">{t('contact.info.hours')}</h4>
+                      <p className="text-neutral-dark/80 text-sm md:text-base">{t('contact.info.weekdays')}<br/>{t('contact.info.weekend')}</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="mt-8">
-                  <h4 className="font-bold mb-3 text-neutral-dark">{t('contact.info.social')}</h4>
-                  <div className="flex space-x-4">
-                    <a href="#" className="bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors duration-300 w-10 h-10 rounded-full flex items-center justify-center">
-                      <Facebook className="h-5 w-5" />
+                <div className="mt-6 md:mt-8">
+                  <h4 className="font-bold mb-3 text-sm md:text-base text-neutral-dark">{t('contact.info.social')}</h4>
+                  <div className="flex space-x-3 md:space-x-4">
+                    <a href="#" className="bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors duration-300 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center">
+                      <Facebook className="h-4 w-4 md:h-5 md:w-5" />
                     </a>
-                    <a href="#" className="bg-secondary/10 text-secondary hover:bg-secondary hover:text-white transition-colors duration-300 w-10 h-10 rounded-full flex items-center justify-center">
-                      <Instagram className="h-5 w-5" />
+                    <a href="#" className="bg-secondary/10 text-secondary hover:bg-secondary hover:text-white transition-colors duration-300 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center">
+                      <Instagram className="h-4 w-4 md:h-5 md:w-5" />
                     </a>
-                    <a href="#" className="bg-accent/10 text-accent hover:bg-accent hover:text-white transition-colors duration-300 w-10 h-10 rounded-full flex items-center justify-center">
-                      <Twitter className="h-5 w-5" />
+                    <a href="#" className="bg-accent/10 text-accent hover:bg-accent hover:text-white transition-colors duration-300 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center">
+                      <Twitter className="h-4 w-4 md:h-5 md:w-5" />
                     </a>
-                    <a href="#" className="bg-accent-dark/10 text-accent-dark hover:bg-accent-dark hover:text-white transition-colors duration-300 w-10 h-10 rounded-full flex items-center justify-center">
-                      <Youtube className="h-5 w-5" />
+                    <a href="#" className="bg-accent-dark/10 text-accent-dark hover:bg-accent-dark hover:text-white transition-colors duration-300 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center">
+                      <Youtube className="h-4 w-4 md:h-5 md:w-5" />
                     </a>
                   </div>
                 </div>
@@ -247,8 +247,8 @@ const ContactForm = () => {
           </div>
           
           {/* FAQ Section */}
-          <div className="mt-16">
-            <h3 className="font-heading font-bold text-2xl mb-8 text-center text-primary">{t('contact.faq.title')}</h3>
+          <div className="mt-10 md:mt-16">
+            <h3 className="font-heading font-bold text-xl md:text-2xl mb-6 md:mb-8 text-center text-primary">{t('contact.faq.title')}</h3>
             
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <Accordion
@@ -260,10 +260,10 @@ const ContactForm = () => {
               >
                 {faqItems.map((faq, index) => (
                   <AccordionItem key={index} value={`item-${index}`} className="border-b border-neutral-light">
-                    <AccordionTrigger className="p-6 text-left font-bold text-primary hover:text-secondary">
+                    <AccordionTrigger className="p-4 md:p-6 text-left text-sm md:text-base font-bold text-primary hover:text-secondary">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="px-6 pb-6 text-neutral-dark/80">
+                    <AccordionContent className="px-4 md:px-6 pb-4 md:pb-6 text-sm md:text-base text-neutral-dark/80">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>

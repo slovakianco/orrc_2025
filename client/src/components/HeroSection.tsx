@@ -22,33 +22,33 @@ const HeroSection = ({ imageUrl = "https://images.unsplash.com/photo-14837213100
       <div className="container mx-auto px-4 h-full flex items-center relative z-20">
         <div className="max-w-3xl">
           {/* Event date badge */}
-          <span className="inline-block bg-accent text-white px-4 py-1.5 rounded-full text-sm font-bold mb-6 shadow-md">
+          <span className="inline-block bg-accent text-white px-3 py-1 md:px-4 md:py-1.5 rounded-full text-xs md:text-sm font-bold mb-4 md:mb-6 shadow-md">
             {t('hero.date')}
           </span>
           
           {/* Main title with gradient text */}
-          <h1 className="text-5xl md:text-7xl font-heading font-bold text-white mb-6 leading-tight">
-            <span className="inline-block bg-gradient-to-r from-white to-neutral-light bg-clip-text text-transparent mb-2">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-white mb-4 md:mb-6 leading-tight">
+            <span className="inline-block bg-gradient-to-r from-white to-neutral-light bg-clip-text text-transparent mb-1 md:mb-2">
               {t('hero.title')}
             </span>
           </h1>
           
           {/* Subtitle */}
-          <p className="text-xl text-white text-opacity-90 mb-10 max-w-2xl leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-white text-opacity-90 mb-6 md:mb-10 max-w-2xl leading-relaxed">
             {t('hero.subtitle')}
           </p>
           
           {/* Action buttons */}
-          <div className="flex flex-wrap gap-5">
+          <div className="flex flex-wrap gap-3 md:gap-5">
             <Link 
               href="/registration" 
-              className="bg-accent hover:bg-accent-dark text-white font-bold py-3.5 px-8 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="bg-accent hover:bg-accent-dark text-white font-bold py-2.5 md:py-3.5 px-6 md:px-8 text-sm md:text-base rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               {t('hero.registerButton')}
             </Link>
             <Link 
               href="/races" 
-              className="bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 font-bold py-3.5 px-8 rounded-lg transition-all duration-300 backdrop-blur-sm shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 font-bold py-2.5 md:py-3.5 px-6 md:px-8 text-sm md:text-base rounded-lg transition-all duration-300 backdrop-blur-sm shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               {t('hero.exploreButton')}
             </Link>
