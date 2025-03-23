@@ -1,0 +1,366 @@
+{
+  "navbar": {
+    "home": "Startseite",
+    "races": "Rennen",
+    "registration": "Anmeldung",
+    "participants": "Teilnehmer",
+    "rules": "Regeln",
+    "program": "Programm",
+    "contact": "Kontakt",
+    "sponsors": "Sponsoren"
+  },
+  "footer": {
+    "tagline": "Erleben Sie den ultimativen Trail-Running-Wettbewerb im Herzen der Natur",
+    "quickLinks": "Schnelllinks",
+    "contactUs": "Kontaktieren Sie uns",
+    "newsletter": "Newsletter",
+    "subscribeMessage": "Abonnieren Sie unseren Newsletter für Updates und Neuigkeiten",
+    "emailPlaceholder": "Ihre E-Mail",
+    "copyright": "© {year} TrailRunPro. Alle Rechte vorbehalten."
+  },
+  "home": {
+    "hero": {
+      "title": "Bergpfad-Herausforderung 2023",
+      "subtitle": "Erleben Sie den ultimativen Trail-Running-Wettbewerb im Herzen der Natur",
+      "registerButton": "Jetzt Registrieren",
+      "exploreButton": "Rennen Erkunden"
+    },
+    "highlights": {
+      "title": "Veranstaltungs-Highlights",
+      "date": "15.-17. Juli 2023",
+      "dateDescription": "Drei Tage anspruchsvolle Rennen auf wunderschönen Bergpfaden",
+      "categories": "5 Rennkategorien",
+      "categoriesDescription": "Vom 10K-Sprint bis zum 80K-Ultra, geeignet für alle Erfahrungsstufen",
+      "prize": "25.000$ Preispool",
+      "prizeDescription": "Wetteifern Sie um beträchtliche Preise in mehreren Kategorien"
+    },
+    "featuredRaces": {
+      "title": "Ausgewählte Rennen",
+      "viewDetails": "Details Anzeigen",
+      "viewAllButton": "Alle Rennen Anzeigen",
+      "raceDate1": "17. Juli",
+      "raceDate2": "16. Juli",
+      "raceDate3": "15. Juli"
+    },
+    "testimonials": {
+      "title": "Was Teilnehmer Sagen",
+      "quote1": "Eine der herausforderndsten und schönsten Strecken, die ich je gelaufen bin. Die Organisation war erstklassig und die Ausblicke waren unglaublich!",
+      "quote2": "Perfekte Kombination aus technischem Gelände und glatten Pfaden. Werde nächstes Jahr definitiv mit mehr Freunden wiederkommen!",
+      "quote3": "Mein erstes Trail-Rennen und ich bin begeistert! Die Verpflegungsstationen waren gut ausgestattet und die Freiwilligen waren sehr ermutigend."
+    },
+    "sponsors": {
+      "title": "Unsere Sponsoren"
+    }
+  },
+  "races": {
+    "title": "Rennen",
+    "subtitle": "Entdecken Sie unsere anspruchsvollen Trail-Running-Rennen",
+    "filterBy": "Filtern nach",
+    "details": "Details",
+    "register": "Anmelden"
+  },
+  "race": {
+    "filter": {
+      "all": "Alle",
+      "ultra": "Ultra",
+      "marathon": "Marathon",
+      "half": "Halbmarathon",
+      "25k": "25K",
+      "10k": "10K"
+    },
+    "ultra": {
+      "name": "Berg-Ultra 80K"
+    },
+    "marathon": {
+      "name": "Marathon-Herausforderung"
+    },
+    "half": {
+      "name": "Wald-Halbmarathon"
+    },
+    "25k": {
+      "name": "Dämmerung 25K"
+    },
+    "10k": {
+      "name": "Sonnenaufgang 10K"
+    },
+    "elevation": "Höhenunterschied: {elevation}m",
+    "difficulty": {
+      "label": "Schwierigkeit",
+      "beginner": "Anfänger",
+      "intermediate": "Mittel",
+      "expert": "Experte"
+    },
+    "dates": {
+      "july15": "15. Juli",
+      "july16": "16. Juli",
+      "july17": "17. Juli"
+    }
+  },
+  "registration": {
+    "title": "Anmeldung",
+    "subtitle": "Melden Sie sich für unseren Trail-Running-Wettbewerb an",
+    "formTitle": "Anmeldeformular",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "email": "E-Mail",
+    "phone": "Telefonnummer",
+    "country": "Land",
+    "selectCountry": "Land auswählen",
+    "dateOfBirth": "Geburtsdatum",
+    "raceCategory": "Rennkategorie",
+    "selectRace": "Rennkategorie auswählen",
+    "emergencyName": "Name des Notfallkontakts",
+    "emergencyPhone": "Telefonnummer des Notfallkontakts",
+    "termsText": "Ich stimme den",
+    "termsLink": "Allgemeinen Geschäftsbedingungen",
+    "andText": "und der",
+    "privacyLink": "Datenschutzrichtlinie",
+    "submitButton": "Anmeldung Abschließen",
+    "submitting": "Wird verarbeitet...",
+    "successTitle": "Anmeldung Erfolgreich!",
+    "successMessage": "Vielen Dank für Ihre Anmeldung. Sie erhalten in Kürze eine Bestätigungs-E-Mail."
+  },
+  "participants": {
+    "title": "Teilnehmer",
+    "subtitle": "Sehen Sie die registrierten Teilnehmer für unseren Trail-Running-Wettbewerb",
+    "searchLabel": "Teilnehmer Suchen",
+    "searchPlaceholder": "Nach Namen suchen...",
+    "filterByCategory": "Nach Kategorie filtern",
+    "allCategories": "Alle Kategorien",
+    "bibNumber": "Startnr.",
+    "name": "Name",
+    "country": "Land",
+    "raceCategory": "Rennkategorie",
+    "errorLoading": "Fehler beim Laden der Teilnehmer. Bitte versuchen Sie es später erneut.",
+    "noParticipants": "Keine Teilnehmer gefunden, die Ihren Kriterien entsprechen."
+  },
+  "rules": {
+    "title": "Regeln",
+    "subtitle": "Wettbewerbsregeln und -vorschriften",
+    "important": "Wichtiger Hinweis",
+    "importantDescription": "Alle Teilnehmer müssen diese Regeln einhalten, um einen sicheren und fairen Wettbewerb für alle zu gewährleisten.",
+    "introduction": "Die folgenden Regeln wurden festgelegt, um die Sicherheit aller Teilnehmer zu gewährleisten und die Integrität des Wettbewerbs zu wahren. Bitte lesen Sie sie sorgfältig durch.",
+    "general": {
+      "title": "Allgemeine Regeln",
+      "item1": "Teilnehmer müssen am Renntag mindestens 18 Jahre alt sein.",
+      "item2": "Die Anmeldung ist persönlich und kann nicht auf eine andere Person übertragen werden.",
+      "item3": "Startnummern müssen während des Rennens jederzeit sichtbar sein.",
+      "item4": "Teilnehmer müssen jederzeit der markierten Strecke folgen.",
+      "item5": "Die Entscheidungen des Renndirektors sind endgültig."
+    },
+    "equipment": {
+      "title": "Erforderliche Ausrüstung",
+      "item1": "Mobiltelefon mit gespeicherten Notfallnummern (bei der Anmeldung bereitgestellt).",
+      "item2": "Wasserbehälter mit Mindestkapazität von 1 Liter (Ultra-Rennen) oder 500ml (andere).",
+      "item3": "Pfeife für Notfallsituationen.",
+      "item4": "Wetterangepasste Kleidung (Details werden näher am Renntag bereitgestellt)."
+    },
+    "conduct": {
+      "title": "Verhalten der Teilnehmer",
+      "item1": "Abfallentsorgung auf der Strecke ist strengstens verboten. Nutzen Sie die dafür vorgesehenen Abfallbehälter an den Verpflegungsstationen.",
+      "item2": "Respektieren Sie andere Teilnehmer, Mitarbeiter, Freiwillige und die Umwelt.",
+      "item3": "Helfen Sie Mitläufern in Notfallsituationen.",
+      "item4": "Die Verwendung persönlicher Musikplayer mit Kopfhörern wird aus Sicherheitsgründen nicht empfohlen."
+    },
+    "safety": {
+      "title": "Sicherheitsverfahren",
+      "item1": "Medizinische Kontrollen können an verschiedenen Punkten während des Rennens durchgeführt werden.",
+      "item2": "Teilnehmer, die Anzeichen von übermäßiger Ermüdung oder Verletzungen zeigen, können vom medizinischen Personal gestoppt werden.",
+      "item3": "Im Notfall kontaktieren Sie die Rennoffiziellen oder nutzen Sie die bereitgestellte Notfallnummer.",
+      "item4": "Rennoffizielle können das Rennen aufgrund extremer Wetterbedingungen aussetzen oder absagen."
+    },
+    "environment": {
+      "title": "Umweltschutz",
+      "item1": "Bleiben Sie auf markierten Wegen, um Bodenerosion und Schäden an der Vegetation zu vermeiden.",
+      "item2": "Stören Sie keine Wildtiere und beschädigen Sie keine Pflanzen.",
+      "item3": "Nehmen Sie allen Müll mit, bis Sie ihn ordnungsgemäß entsorgen können."
+    },
+    "contactQuestion": "Haben Sie Fragen zu den Regeln?",
+    "contactEmail": "rules@trailrunpro.com"
+  },
+  "program": {
+    "title": "Programm",
+    "subtitle": "Zeitplan der Veranstaltungen für das Wettbewerbswochenende",
+    "schedule": "Veranstaltungsplan",
+    "downloadPDF": "PDF Herunterladen",
+    "downloadStarted": "Download gestartet. Wenn nichts passiert, überprüfen Sie bitte Ihre Browser-Einstellungen.",
+    "day1": "Tag 1 (15. Juli)",
+    "day2": "Tag 2 (16. Juli)",
+    "day3": "Tag 3 (17. Juli)",
+    "day1": {
+      "event1": {
+        "title": "Teilnehmer Check-in & Ausgabe der Startnummern",
+        "location": "Veranstaltungszentrum - Zentralplatz",
+        "description": "Alle Teilnehmer müssen sich anmelden und ihre Startnummern und Rennpakete abholen."
+      },
+      "event2": {
+        "title": "Rennbesprechung - 10K & 25K",
+        "location": "Konferenzraum - Veranstaltungszentrum",
+        "description": "Obligatorische Rennbesprechung für Teilnehmer der 10K- und 25K-Rennen."
+      },
+      "event3": {
+        "title": "Willkommenszeremonie & Pasta-Party",
+        "location": "Veranstaltungszentrum - Gartenbereich",
+        "description": "Willkommen für alle Teilnehmer mit einem Pasta-Dinner und Eröffnungszeremonie."
+      }
+    },
+    "day2": {
+      "event1": {
+        "title": "Vor-Rennen Aufwärmen",
+        "location": "Startbereich - Waldeingang",
+        "description": "Geführte Aufwärmsession für alle heute startenden Läufer."
+      },
+      "event2": {
+        "title": "10K Rennstart",
+        "location": "Startlinie - Waldweg",
+        "description": "Offizieller Start des Sonnenaufgang 10K-Rennens."
+      },
+      "event3": {
+        "title": "25K Rennstart",
+        "location": "Startlinie - Waldweg",
+        "description": "Offizieller Start des Dämmerung 25K-Rennens."
+      },
+      "event4": {
+        "title": "Tag 1 Siegerehrung",
+        "location": "Veranstaltungszentrum - Hauptbühne",
+        "description": "Siegerehrung für 10K- und 25K-Rennen."
+      }
+    },
+    "day3": {
+      "event1": {
+        "title": "Vor-Rennen Aufwärmen",
+        "location": "Startbereich - Bergbasis",
+        "description": "Geführte Aufwärmsession für alle heute startenden Läufer."
+      },
+      "event2": {
+        "title": "80K Ultra & Marathon Start",
+        "location": "Startlinie - Bergbasis",
+        "description": "Offizieller Start der Ultra 80K- und Marathon-Herausforderungs-Rennen."
+      },
+      "event3": {
+        "title": "Halbmarathon Start",
+        "location": "Startlinie - Waldkreuzung",
+        "description": "Offizieller Start des Wald-Halbmarathons."
+      },
+      "event4": {
+        "title": "Abschlusszeremonie & Siegerehrung",
+        "location": "Veranstaltungszentrum - Hauptbühne",
+        "description": "Finale Siegerehrung und Abschluss der Bergpfad-Herausforderung 2023."
+      }
+    },
+    "notes": {
+      "title": "Wichtige Hinweise",
+      "note1": "Der Zeitplan kann aufgrund der Wetterbedingungen leichten Anpassungen unterliegen.",
+      "note2": "Alle Teilnehmer müssen sich mindestens 1 Stunde vor ihrer Rennstartzeit anmelden.",
+      "note3": "Die Ausgabe der Startnummern ist nur während der festgelegten Check-in-Zeiten am Tag 1 verfügbar."
+    }
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Nehmen Sie Kontakt mit unserem Team auf",
+    "info": {
+      "title": "Kontaktinformationen",
+      "addressTitle": "Standort",
+      "emailTitle": "E-Mail",
+      "phoneTitle": "Telefon"
+    },
+    "form": {
+      "title": "Senden Sie uns eine Nachricht",
+      "name": "Ihr Name",
+      "email": "Ihre E-Mail",
+      "subject": "Betreff",
+      "message": "Nachricht",
+      "send": "Nachricht Senden",
+      "sending": "Wird gesendet...",
+      "successTitle": "Nachricht Gesendet!",
+      "successMessage": "Vielen Dank für Ihre Nachricht. Wir werden so schnell wie möglich antworten."
+    },
+    "faq": {
+      "title": "Häufig Gestellte Fragen",
+      "q1": "Wie kann ich meine Anmeldung ändern?",
+      "a1": "Sie können Ihre Anmeldung ändern, indem Sie sich in Ihrem Konto auf unserer Website anmelden. Wenn Sie kein Konto haben, kontaktieren Sie uns bitte direkt unter info@trailrunpro.com mit Ihrer Anfrage.",
+      "q2": "Was passiert, wenn die Veranstaltung aufgrund des Wetters abgesagt wird?",
+      "a2": "Wenn wir die Veranstaltung aufgrund schwerer Wetterbedingungen absagen müssen, wird den Teilnehmern entweder eine vollständige Rückerstattung oder eine vorrangige Anmeldung für die Veranstaltung im nächsten Jahr angeboten.",
+      "q3": "Gibt es Altersbeschränkungen für die Rennen?",
+      "a3": "Ja, Teilnehmer müssen für die Ultra 80K- und Marathon-Kategorien mindestens 18 Jahre alt sein. Für die Halbmarathon-, 25K- und 10K-Rennen müssen Teilnehmer mindestens 16 Jahre alt sein und eine Einverständniserklärung der Eltern vorliegen.",
+      "q4": "Welche Verpflegungsstationen wird es auf der Strecke geben?",
+      "a4": "Verpflegungsstationen befinden sich je nach Rennkategorie etwa alle 5-10 km. Alle Stationen bieten Wasser, Elektrolyte und grundlegende Nahrungsmittel. Hauptverpflegungsstationen (auf Rennkarten markiert) bieten auch umfangreichere Ernährungsoptionen.",
+      "q5": "Kann ich ein Unterstützungsteam mitbringen?",
+      "a5": "Unterstützungsteams sind erlaubt, können den Läufern jedoch nur an den ausgewiesenen Verpflegungsstationen helfen. Zugangspunkte für Teams werden auf den Karten markiert, die im Rennpaket enthalten sind."
+    }
+  },
+  "sponsors": {
+    "title": "Sponsoren",
+    "subtitle": "Unsere geschätzten Partner und Unterstützer",
+    "currentSponsors": "Aktuelle Sponsoren",
+    "visitWebsite": "Website Besuchen",
+    "tiers": {
+      "gold": "Gold-Sponsor",
+      "silver": "Silber-Sponsor",
+      "bronze": "Bronze-Sponsor"
+    },
+    "becomeASponsor": "Werden Sie Sponsor",
+    "becomeASponsorText": "Unterstützen Sie mit uns die Trail-Running-Community. Wir bieten verschiedene Sponsoring-Pakete an, die auf unterschiedliche Marketingziele und Budgets zugeschnitten sind.",
+    "packages": {
+      "gold": {
+        "title": "Gold-Paket",
+        "benefit1": "Große Logo-Platzierung auf allen Veranstaltungsmaterialien",
+        "benefit2": "Premium-Standplatz auf der Veranstaltungsexpo",
+        "benefit3": "Logo auf Startnummern",
+        "benefit4": "Social Media und Website-Promotion",
+        "benefit5": "10 kostenlose Renneinträge"
+      },
+      "silver": {
+        "title": "Silber-Paket",
+        "benefit1": "Mittlere Logo-Platzierung auf Veranstaltungsmaterialien",
+        "benefit2": "Stand auf der Veranstaltungsexpo",
+        "benefit3": "Social Media und Website-Promotion",
+        "benefit4": "5 kostenlose Renneinträge"
+      },
+      "bronze": {
+        "title": "Bronze-Paket",
+        "benefit1": "Kleine Logo-Platzierung auf Veranstaltungsmaterialien",
+        "benefit2": "Website-Listing",
+        "benefit3": "2 kostenlose Renneinträge"
+      }
+    },
+    "contactUs": "Kontaktieren Sie Uns",
+    "moreInfo": "Benötigen Sie Weitere Informationen?",
+    "downloadBrochure": "Sponsoring-Broschüre Herunterladen",
+    "scheduleCall": "Telefonat Vereinbaren",
+    "emailUs": "E-Mail an Uns",
+    "sponsor1": {
+      "description": "Führender Anbieter von Hochleistungs-Trail-Running-Ausrüstung und -Zubehör."
+    },
+    "sponsor2": {
+      "description": "Premium natürliche Energiegetränke speziell für Ausdauersportler formuliert."
+    },
+    "sponsor3": {
+      "description": "Innovative GPS- und Tracking-Technologie für Trail-Läufer konzipiert."
+    },
+    "sponsor4": {
+      "description": "Outdoor-Bekleidungs- und Ausrüstungshändler, spezialisiert auf Wandern und Trail-Running."
+    },
+    "sponsor5": {
+      "description": "Professionelle Trainingsprogramme und Coaching für Trail-Läufer aller Leistungsstufen."
+    },
+    "sponsor6": {
+      "description": "Fitness-Magazin für Outdoor- und Trail-Sportarten."
+    }
+  },
+  "validation": {
+    "firstName": "Vorname muss mindestens 2 Zeichen lang sein",
+    "lastName": "Nachname muss mindestens 2 Zeichen lang sein",
+    "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+    "phone": "Telefonnummer muss mindestens 6 Zeichen lang sein",
+    "country": "Bitte wählen Sie Ihr Land aus",
+    "dateOfBirth": "Bitte geben Sie Ihr Geburtsdatum ein",
+    "raceCategory": "Bitte wählen Sie eine Rennkategorie",
+    "emergencyContactName": "Name des Notfallkontakts muss mindestens 2 Zeichen lang sein",
+    "emergencyContactPhone": "Telefonnummer des Notfallkontakts muss mindestens 6 Zeichen lang sein",
+    "termsAccepted": "Sie müssen die Allgemeinen Geschäftsbedingungen akzeptieren",
+    "name": "Name muss mindestens 2 Zeichen lang sein",
+    "subject": "Betreff muss mindestens 2 Zeichen lang sein",
+    "message": "Nachricht muss mindestens 10 Zeichen lang sein"
+  }
+}
