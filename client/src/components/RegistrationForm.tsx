@@ -82,16 +82,33 @@ const RegistrationForm = () => {
     }
   });
 
+  // Function to calculate age from birthDate
+  const calculateAge = (birthDate: string): number => {
+    const birthDateObj = new Date(birthDate);
+    const today = new Date();
+    let age = today.getFullYear() - birthDateObj.getFullYear();
+    const m = today.getMonth() - birthDateObj.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDateObj.getDate())) {
+      age--;
+    }
+    return age;
+  };
+
   const onSubmit: SubmitHandler<RegistrationFormInputs> = async (data) => {
     // Remove termsAccepted as it's not part of the API schema
     const { termsAccepted, ...apiData } = data;
     
+    // Calculate age from birthDate
+    const age = calculateAge(apiData.birthDate);
+    
     // Convert raceId from string to number if needed
     const formattedData = {
       ...apiData,
-      raceId: typeof apiData.raceId === 'string' ? parseInt(apiData.raceId) : apiData.raceId
+      raceId: typeof apiData.raceId === 'string' ? parseInt(apiData.raceId) : apiData.raceId,
+      age // Add calculated age
     };
     
+    console.log("Submitting registration with data:", formattedData);
     await registerMutation.mutate(formattedData);
   };
 
