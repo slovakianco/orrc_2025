@@ -11,6 +11,47 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
+        // Trail Running Theme Colors
+        primary: {
+          DEFAULT: "#2E5B3E", // Forest Green
+          light: "#4A7A5F",
+          dark: "#1E3B2E",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "#3A7CA5", // Mountain Blue
+          light: "#5B9CC5",
+          dark: "#2A5C85",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        accent: {
+          DEFAULT: "#D56F3E", // Terracotta
+          light: "#E58F5E",
+          dark: "#B54F1E",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        neutral: {
+          light: "#DADDD8", // Stone Gray
+          DEFAULT: "#DADDD8",
+          dark: "#252A34", // Deep Charcoal
+        },
+        highlight: {
+          DEFAULT: "#F1D302", // Summit Yellow
+          light: "#F3DB32",
+          dark: "#D1B302",
+        },
+        alert: {
+          DEFAULT: "#D64550", // Alpine Red
+          light: "#E66570",
+          dark: "#B62530",
+        },
+        difficulty: {
+          beginner: "#7FB069",
+          intermediate: "#3A7CA5",
+          advanced: "#D56F3E",
+          ultra: "#D64550",
+        },
+        // Original shadcn colors
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -21,21 +62,9 @@ export default {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
         },
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",

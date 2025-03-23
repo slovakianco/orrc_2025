@@ -20,30 +20,30 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-primary text-white py-12">
+    <footer className="bg-neutral-dark text-neutral-light py-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center mb-4">
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-3">
+              <div className="w-10 h-10 bg-highlight rounded-full flex items-center justify-center mr-3">
                 <Mountain className="text-primary text-lg" />
               </div>
-              <span className="font-heading font-bold text-xl">TRAIL<span className="text-accent-light">RUN</span></span>
+              <span className="font-heading font-bold text-xl">TRAIL<span className="text-accent">RUN</span></span>
             </div>
-            <p className="text-white text-opacity-80 mb-4">
+            <p className="text-neutral-light text-opacity-80 mb-4">
               {t('footer.about')}
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-white hover:text-accent-light transition-colors duration-300">
+              <a href="#" className="text-neutral-light hover:text-accent transition-colors duration-300">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-white hover:text-accent-light transition-colors duration-300">
+              <a href="#" className="text-neutral-light hover:text-accent transition-colors duration-300">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-white hover:text-accent-light transition-colors duration-300">
+              <a href="#" className="text-neutral-light hover:text-accent transition-colors duration-300">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-white hover:text-accent-light transition-colors duration-300">
+              <a href="#" className="text-neutral-light hover:text-accent transition-colors duration-300">
                 <Youtube className="h-5 w-5" />
               </a>
             </div>
@@ -53,32 +53,32 @@ const Footer = () => {
             <h4 className="font-heading font-bold text-lg mb-4">{t('footer.quickLinks')}</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-white text-opacity-80 hover:text-accent-light transition-colors duration-300">
+                <Link href="/" className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300">
                   {t('nav.home')}
                 </Link>
               </li>
               <li>
-                <Link href="/races" className="text-white text-opacity-80 hover:text-accent-light transition-colors duration-300">
+                <Link href="/races" className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300">
                   {t('nav.races')}
                 </Link>
               </li>
               <li>
-                <Link href="/registration" className="text-white text-opacity-80 hover:text-accent-light transition-colors duration-300">
+                <Link href="/registration" className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300">
                   {t('nav.registration')}
                 </Link>
               </li>
               <li>
-                <Link href="/participants" className="text-white text-opacity-80 hover:text-accent-light transition-colors duration-300">
+                <Link href="/participants" className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300">
                   {t('nav.participants')}
                 </Link>
               </li>
               <li>
-                <Link href="/rules" className="text-white text-opacity-80 hover:text-accent-light transition-colors duration-300">
+                <Link href="/rules" className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300">
                   {t('nav.rules')}
                 </Link>
               </li>
               <li>
-                <Link href="/program" className="text-white text-opacity-80 hover:text-accent-light transition-colors duration-300">
+                <Link href="/program" className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300">
                   {t('nav.program')}
                 </Link>
               </li>
@@ -89,32 +89,32 @@ const Footer = () => {
             <h4 className="font-heading font-bold text-lg mb-4">{t('footer.resources')}</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-white text-opacity-80 hover:text-accent-light transition-colors duration-300">
+                <a href="#" className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300">
                   {t('footer.resources1')}
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white text-opacity-80 hover:text-accent-light transition-colors duration-300">
+                <a href="#" className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300">
                   {t('footer.resources2')}
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white text-opacity-80 hover:text-accent-light transition-colors duration-300">
+                <a href="#" className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300">
                   {t('footer.resources3')}
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white text-opacity-80 hover:text-accent-light transition-colors duration-300">
+                <a href="#" className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300">
                   {t('footer.resources4')}
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white text-opacity-80 hover:text-accent-light transition-colors duration-300">
+                <a href="#" className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300">
                   {t('footer.resources5')}
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white text-opacity-80 hover:text-accent-light transition-colors duration-300">
+                <a href="#" className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300">
                   {t('footer.resources6')}
                 </a>
               </li>

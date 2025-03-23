@@ -25,15 +25,15 @@ const NavigationHeader = () => {
   };
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-40">
+    <header className="bg-primary shadow-md sticky top-0 z-40">
       <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center mr-3">
-                <Mountain className="text-white text-lg" />
+              <div className="w-10 h-10 bg-highlight rounded-full flex items-center justify-center mr-3">
+                <Mountain className="text-primary text-lg" />
               </div>
-              <span className="font-heading font-bold text-xl text-primary">TRAIL<span className="text-accent">RUN</span></span>
+              <span className="font-heading font-bold text-xl text-neutral-light">TRAIL<span className="text-highlight">RUN</span></span>
             </Link>
           </div>
           
@@ -43,8 +43,8 @@ const NavigationHeader = () => {
               <Link 
                 key={item.path} 
                 href={item.path} 
-                className={`nav-item font-medium transition-all duration-200 hover:transform hover:-translate-y-1 ${
-                  item.isActive ? "active text-accent font-semibold" : ""
+                className={`nav-item font-medium transition-all duration-200 text-neutral-light hover:text-white hover:transform hover:-translate-y-1 ${
+                  item.isActive ? "active text-highlight font-semibold border-b-2 border-highlight" : ""
                 }`}
               >
                 {item.label}
@@ -60,7 +60,7 @@ const NavigationHeader = () => {
           
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <button onClick={toggleMenu} className="text-neutral-gray focus:outline-none">
+            <button onClick={toggleMenu} className="text-neutral-light focus:outline-none">
               {isMenuOpen ? (
                 <X className="text-2xl" />
               ) : (
@@ -79,8 +79,8 @@ const NavigationHeader = () => {
                   key={item.path} 
                   href={item.path} 
                   onClick={() => setIsMenuOpen(false)}
-                  className={`nav-item font-medium py-2 border-b border-neutral-light ${
-                    item.isActive ? "active text-accent font-semibold" : ""
+                  className={`nav-item font-medium py-2 border-b border-primary-light text-neutral-light ${
+                    item.isActive ? "active text-highlight font-semibold" : ""
                   }`}
                 >
                   {item.label}
