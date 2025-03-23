@@ -56,7 +56,7 @@ const RegistrationForm = () => {
   
   // Set default race if available and not already selected
   useEffect(() => {
-    if (races && races.length > 0 && !selectedRaceId) {
+    if (races && races.length > 0 && (!selectedRaceId || selectedRaceId === 0)) {
       setValue("raceId", races[0].id);
     }
   }, [races, selectedRaceId, setValue]);
@@ -250,15 +250,17 @@ const RegistrationForm = () => {
                     <div 
                       key={race.id}
                       className={`bg-white border-2 rounded-lg p-4 cursor-pointer transition-colors duration-200 ${
-                        Number(selectedRaceId) === race.id ? 'border-primary' : 'border-neutral-light hover:border-primary'
+                        Number(selectedRaceId) === race.id ? 'border-primary bg-primary/5' : 'border-neutral-light hover:border-primary hover:bg-primary/5'
                       }`}
+                      onClick={() => setValue("raceId", race.id)}
                     >
                       <label htmlFor={`race${race.id}`} className="flex items-start cursor-pointer">
                         <input 
                           type="radio" 
                           id={`race${race.id}`} 
                           value={race.id} 
-                          {...register("raceId", { valueAsNumber: true })}
+                          checked={Number(selectedRaceId) === race.id}
+                          onChange={() => setValue("raceId", race.id)}
                           className="hidden"
                         />
                         <span className={`w-5 h-5 border-2 rounded-full flex-shrink-0 mr-2 mt-1 ${
