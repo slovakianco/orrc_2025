@@ -1,30 +1,42 @@
-import type { Express } from "express";
+import express, { type Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertParticipantSchema } from "@shared/schema";
+import { insertParticipantSchema, insertContactInquirySchema } from "@shared/schema";
+import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // API routes with /api prefix
+  const apiRouter = express.Router();
   
-  // Get all races
-  app.get("/api/races", async (req, res) => {
+  // API Routes - all prefixed with /api
+  
+  // Races
+  apiRouter.get("/races", async (req: Request, res: Response) => {
     try {
-      const category = req.query.category as string || 'all';
-      const races = await storage.getRacesByCategory(category);
+      const difficulty = req.query.difficulty as string | undefined;
+      
+      let races;
+      if (difficulty) {
+        races = await storage.getRacesByDifficulty(difficulty);
+      } else {
+        races = await storage.getRaces();
+      }
+      
       res.json(races);
     } catch (error) {
       console.error("Error fetching races:", error);
       res.status(500).json({ message: "Failed to fetch races" });
     }
   });
-
-  // Get specific race by id
-  app.get("/api/races/:id", async (req, res) => {
+  
+  apiRouter.get("/races/:id", async (req: Request, res: Response) => {
     try {
       const id = parseInt(req.params.id);
-      const race = await storage.getRaceById(id);
+      if (isNaN(id)) {
+        return res.status(400).json({ message: "Invalid race ID" });
+      }
       
+      const race = await storage.getRaceById(id);
       if (!race) {
         return res.status(404).json({ message: "Race not found" });
       }
@@ -35,50 +47,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ message: "Failed to fetch race" });
     }
   });
-
-  // Register a participant
-  app.post("/api/register", async (req, res) => {
+  
+  // Participants
+  apiRouter.get("/participants", async (req: Request, res: Response) => {
     try {
-      // Validate the request body using zod schema
-      const result = insertParticipantSchema.safeParse(req.body);
+      const raceId = req.query.raceId ? parseInt(req.query.raceId as string) : undefined;
+      const country = req.query.country as string | undefined;
+      const search = req.query.search as string | undefined;
       
-      if (!result.success) {
-        const validationError = fromZodError(result.error);
-        return res.status(400).json({ 
-          message: "Validation error", 
-          errors: validationError.details 
-        });
-      }
-      
-      // Create the participant
-      const participant = await storage.createParticipant(result.data);
-      
-      res.status(201).json({ 
-        message: "Registration successful", 
-        participant 
-      });
-    } catch (error) {
-      console.error("Error registering participant:", error);
-      res.status(500).json({ message: "Failed to register participant" });
-    }
-  });
-
-  // Get all participants
-  app.get("/api/participants", async (req, res) => {
-    try {
       let participants;
       
-      // Filter by race category if provided
-      if (req.query.category && req.query.category !== 'all') {
-        participants = await storage.getParticipantsByRaceCategory(req.query.category as string);
+      if (raceId) {
+        participants = await storage.getParticipantsByRace(raceId);
+      } else if (country) {
+        participants = await storage.getParticipantsByCountry(country);
+      } else if (search) {
+        participants = await storage.searchParticipants(search);
       } else {
         participants = await storage.getParticipants();
-      }
-      
-      // Search by name if provided
-      if (req.query.search) {
-        const searchResults = await storage.searchParticipants(req.query.search as string);
-        participants = searchResults;
       }
       
       res.json(participants);
@@ -87,43 +73,119 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ message: "Failed to fetch participants" });
     }
   });
-
-  // Get specific participant by id
-  app.get("/api/participants/:id", async (req, res) => {
+  
+  apiRouter.post("/participants", async (req: Request, res: Response) => {
     try {
-      const id = parseInt(req.params.id);
-      const participant = await storage.getParticipantById(id);
+      const result = insertParticipantSchema.safeParse(req.body);
       
-      if (!participant) {
-        return res.status(404).json({ message: "Participant not found" });
+      if (!result.success) {
+        const validationError = fromZodError(result.error);
+        return res.status(400).json({ 
+          message: "Invalid participant data", 
+          errors: validationError.details 
+        });
       }
       
-      res.json(participant);
-    } catch (error) {
-      console.error("Error fetching participant:", error);
-      res.status(500).json({ message: "Failed to fetch participant" });
-    }
-  });
-
-  // Contact form submission (just a mock endpoint in this case)
-  app.post("/api/contact", (req, res) => {
-    try {
-      // Validate the contact form data
-      const { name, email, subject, message } = req.body;
-      
-      if (!name || !email || !subject || !message) {
-        return res.status(400).json({ message: "All fields are required" });
+      // Check if the race exists
+      const race = await storage.getRaceById(result.data.raceId);
+      if (!race) {
+        return res.status(400).json({ message: "Invalid race selected" });
       }
       
-      // In a real application, this would send an email or store the message
-      console.log("Contact form submission:", { name, email, subject, message });
+      // Calculate age from birthdate
+      const birthDate = new Date(result.data.birthDate);
+      const today = new Date();
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const m = today.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
       
-      res.json({ message: "Message received. We'll get back to you soon!" });
+      // Create participant with calculated age
+      const participant = await storage.createParticipant({
+        ...result.data,
+        age
+      });
+      
+      res.status(201).json(participant);
     } catch (error) {
-      console.error("Error processing contact form:", error);
-      res.status(500).json({ message: "Failed to process contact form" });
+      console.error("Error creating participant:", error);
+      res.status(500).json({ message: "Failed to create participant" });
     }
   });
+  
+  // FAQs
+  apiRouter.get("/faqs", async (req: Request, res: Response) => {
+    try {
+      const faqs = await storage.getFAQs();
+      res.json(faqs);
+    } catch (error) {
+      console.error("Error fetching FAQs:", error);
+      res.status(500).json({ message: "Failed to fetch FAQs" });
+    }
+  });
+  
+  // Program Events
+  apiRouter.get("/program", async (req: Request, res: Response) => {
+    try {
+      const date = req.query.date as string | undefined;
+      
+      let events;
+      if (date) {
+        events = await storage.getProgramEventsByDate(date);
+      } else {
+        events = await storage.getProgramEvents();
+      }
+      
+      res.json(events);
+    } catch (error) {
+      console.error("Error fetching program events:", error);
+      res.status(500).json({ message: "Failed to fetch program events" });
+    }
+  });
+  
+  // Sponsors
+  apiRouter.get("/sponsors", async (req: Request, res: Response) => {
+    try {
+      const level = req.query.level as string | undefined;
+      
+      let sponsors;
+      if (level) {
+        sponsors = await storage.getSponsorsByLevel(level);
+      } else {
+        sponsors = await storage.getSponsors();
+      }
+      
+      res.json(sponsors);
+    } catch (error) {
+      console.error("Error fetching sponsors:", error);
+      res.status(500).json({ message: "Failed to fetch sponsors" });
+    }
+  });
+  
+  // Contact Form
+  apiRouter.post("/contact", async (req: Request, res: Response) => {
+    try {
+      const result = insertContactInquirySchema.safeParse(req.body);
+      
+      if (!result.success) {
+        const validationError = fromZodError(result.error);
+        return res.status(400).json({ 
+          message: "Invalid contact inquiry data", 
+          errors: validationError.details 
+        });
+      }
+      
+      const inquiry = await storage.createContactInquiry(result.data);
+      res.status(201).json({ message: "Contact inquiry submitted successfully", id: inquiry.id });
+    } catch (error) {
+      console.error("Error creating contact inquiry:", error);
+      res.status(500).json({ message: "Failed to submit contact inquiry" });
+    }
+  });
+  
+  // Mount the API router
+  app.use("/api", apiRouter);
 
   const httpServer = createServer(app);
   return httpServer;

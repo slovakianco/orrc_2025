@@ -1,0 +1,278 @@
+{
+  "common": {
+    "loading": "Se încarcă...",
+    "submitting": "Se trimite...",
+    "error": "A apărut o eroare",
+    "success": "Succes!",
+    "notAvailable": "Indisponibil"
+  },
+  "nav": {
+    "home": "Acasă",
+    "races": "Curse",
+    "registration": "Înregistrare",
+    "participants": "Participanți",
+    "rules": "Reguli",
+    "program": "Program",
+    "contact": "Contact",
+    "sponsors": "Sponsori",
+    "registerButton": "Înregistrează-te acum"
+  },
+  "hero": {
+    "title": "Provocarea Munților",
+    "subtitle": "Experimentează emoția alergării montane prin peisaje montane incredibile. Alătură-te alergătorilor din întreaga lume în această competiție de neuitat.",
+    "date": "15-17 Iunie, 2024",
+    "registerButton": "Înregistrează-te acum",
+    "exploreButton": "Explorează cursele",
+    "imageAlt": "Alergare montană în munți"
+  },
+  "quickInfo": {
+    "location": {
+      "title": "Locație",
+      "content": "Munții Carpați, România",
+      "linkText": "Vezi pe hartă"
+    },
+    "date": {
+      "title": "Data",
+      "content": "15-17 Iunie, 2024",
+      "linkText": "Vezi programul complet"
+    },
+    "participants": {
+      "title": "Participanți",
+      "content": "Peste 1.500 de alergători din 30+ țări",
+      "linkText": "Vezi participanții"
+    }
+  },
+  "home": {
+    "featuredRaces": "Curse Recomandate"
+  },
+  "races": {
+    "title": "Explorează Cursele Noastre",
+    "subtitle": "De la trasee prietenoase pentru începători până la ultra-maratoane montane provocatoare, găsește cursa perfectă pentru nivelul și ambiția ta.",
+    "filters": {
+      "all": "Toate Cursele",
+      "beginner": "Începător",
+      "intermediate": "Intermediar",
+      "advanced": "Avansat",
+      "ultra": "Ultra"
+    },
+    "difficulty": {
+      "beginner": "Începător",
+      "intermediate": "Intermediar",
+      "advanced": "Avansat",
+      "ultra": "Ultra"
+    },
+    "dates": {
+      "15": "15 Iunie",
+      "16": "16 Iunie",
+      "17": "17 Iunie"
+    },
+    "viewDetails": "Vezi Detalii",
+    "viewAllButton": "Vezi Toate Cursele",
+    "noRacesFound": "Nu s-au găsit curse"
+  },
+  "registration": {
+    "title": "Înregistrare pentru Competiție",
+    "subtitle": "Completează formularul de mai jos pentru a-ți asigura un loc într-una din cursele noastre. Înregistrarea timpurie asigură cele mai bune tarife.",
+    "form": {
+      "firstName": "Prenume",
+      "lastName": "Nume",
+      "email": "Adresă de Email",
+      "phone": "Număr de Telefon",
+      "country": "Țară",
+      "selectCountry": "Selectează țara ta",
+      "birthDate": "Data Nașterii",
+      "gender": "Gen",
+      "male": "Masculin",
+      "female": "Feminin",
+      "selectRace": "Selectează Cursa",
+      "medical": "Informații Medicale",
+      "medicalPlaceholder": "Te rugăm să împărtășești orice informație medicală relevantă (alergii, afecțiuni, etc.)",
+      "termsText": "Am citit și sunt de acord cu",
+      "termsLink": "termenii și condițiile",
+      "andText": "și",
+      "privacyLink": "politica de confidențialitate",
+      "riskText": "Înțeleg riscurile asociate cu alergarea montană.",
+      "submitButton": "Finalizează Înregistrarea"
+    },
+    "success": {
+      "title": "Înregistrare Reușită",
+      "message": "Îți mulțumim pentru înregistrare! Vei primi un email de confirmare în curând."
+    },
+    "error": {
+      "title": "Înregistrare Eșuată",
+      "message": "A apărut o eroare la procesarea înregistrării tale. Te rugăm să încerci din nou."
+    }
+  },
+  "participants": {
+    "title": "Participanți Înregistrați",
+    "subtitle": "Navighează prin lista participanților înregistrați în prezent. Verifică cine participă la fiecare cursă și găsește prieteni sau competitori.",
+    "searchPlaceholder": "Caută după nume sau țară...",
+    "allRaces": "Toate Cursele",
+    "allCountries": "Toate Țările",
+    "noParticipants": "Nu s-au găsit participanți",
+    "table": {
+      "name": "Nume",
+      "country": "Țară",
+      "race": "Cursă",
+      "bib": "Nr. Bib",
+      "status": "Status"
+    },
+    "status": {
+      "confirmed": "Confirmat",
+      "pending": "În așteptare",
+      "cancelled": "Anulat"
+    },
+    "unknownRace": "Cursă Necunoscută",
+    "pagination": {
+      "showing": "Se afișează",
+      "to": "până la",
+      "of": "din",
+      "entries": "înregistrări"
+    }
+  },
+  "rules": {
+    "title": "Reguli și Regulamente",
+    "subtitle": "Familiarizează-te cu regulile competiției pentru a asigura o cursă sigură și corectă pentru toată lumea.",
+    "downloadButton": "Descarcă Regulamentul Complet PDF",
+    "sections": {
+      "general": {
+        "title": "Reguli Generale",
+        "rules": {
+          "1": "Participanții trebuie să urmeze traseul marcat în permanență. Scurtăturile sunt strict interzise și vor duce la descalificare.",
+          "2": "Numărul de concurs trebuie să fie vizibil în orice moment în timpul cursei.",
+          "3": "Aruncarea gunoaielor pe traseu este strict interzisă. Folosește coșurile de gunoi desemnate la punctele de alimentare.",
+          "4": "În caz de urgență, participanții trebuie să ajute alți alergători și să alerteze oficialii cursei imediat."
+        }
+      },
+      "equipment": {
+        "title": "Echipament Obligatoriu",
+        "rules": {
+          "1": "Recipient de apă (minim 1L pentru 10km, 1.5L pentru 21km, 2L pentru 50km).",
+          "2": "Telefon mobil cu contactele organizatorilor salvate.",
+          "3": "Pătură termică și fluier (doar pentru cursa de 50km).",
+          "4": "Frontală cu baterii de schimb (doar pentru cursa de 50km)."
+        }
+      },
+      "timeLimits": {
+        "title": "Limite de Timp & Puncte de Control",
+        "rules": {
+          "1": "Exploratorul Montan (10km): limită totală de timp 3 ore.",
+          "2": "Provocarea Pădurii (21km): limită totală de timp 5 ore cu punct de control la mijloc la 2.5 ore.",
+          "3": "Ultra Vârf (50km): limită totală de timp 12 ore cu puncte de control la 20km (4 ore) și 35km (8 ore)."
+        }
+      },
+      "penalties": {
+        "title": "Penalizări & Descalificare",
+        "rules": {
+          "1": "Echipament obligatoriu lipsă: penalizare de 30 de minute.",
+          "2": "Scurtături pe traseu: descalificare.",
+          "3": "Aruncare de gunoi: penalizare de 1 oră pentru prima abatere, descalificare pentru a doua abatere.",
+          "4": "Neacordarea de ajutor unui alergător aflat în dificultate: descalificare."
+        }
+      }
+    }
+  },
+  "program": {
+    "title": "Programul Evenimentului",
+    "subtitle": "Planifică-ți weekendul de cursă cu programul nostru detaliat al tuturor evenimentelor și activităților.",
+    "downloadButton": "Descarcă Programul Complet PDF",
+    "day": "Ziua",
+    "dayTitles": {
+      "day1": "Înregistrare & Briefing",
+      "day2": "Exploratorul Montan & Provocarea Pădurii",
+      "day3": "Ultra Vârf & Închidere"
+    }
+  },
+  "contact": {
+    "title": "Contactează-ne",
+    "subtitle": "Ai întrebări despre competiție? Ia legătura cu echipa noastră pentru asistență.",
+    "info": {
+      "title": "Informații de Contact",
+      "email": "Email",
+      "phone": "Telefon",
+      "location": "Cartierul General al Cursei",
+      "address": "Centrul Montan Resort\nMunții Carpați\nRomânia",
+      "hours": "Program Suport",
+      "weekdays": "Luni - Vineri: 9:00 - 17:00",
+      "weekend": "Weekend: 10:00 - 15:00",
+      "social": "Urmărește-ne"
+    },
+    "form": {
+      "title": "Trimite-ne un Mesaj",
+      "name": "Numele Tău",
+      "email": "Adresă de Email",
+      "subject": "Subiect",
+      "message": "Mesaj",
+      "submitButton": "Trimite Mesaj",
+      "success": {
+        "title": "Mesaj Trimis",
+        "message": "Mulțumim pentru mesajul tău. Îți vom răspunde cât mai curând posibil."
+      },
+      "error": {
+        "title": "Mesajul nu a fost trimis",
+        "message": "A apărut o eroare la trimiterea mesajului tău. Te rugăm să încerci din nou."
+      }
+    },
+    "faq": {
+      "title": "Întrebări Frecvente",
+      "registration": {
+        "question": "Cum mă înregistrez pentru competiție?",
+        "answer": "Înregistrarea este disponibilă online prin intermediul site-ului nostru. Accesează secțiunea Înregistrare, alege cursa, completează formularul și efectuează plata. Vei primi un e-mail de confirmare cu toate detaliile."
+      },
+      "equipment": {
+        "question": "Ce ar trebui să aduc în ziua cursei?",
+        "answer": "Adu actul de identitate, e-mailul de confirmare și tot echipamentul necesar pentru cursa ta. Verifică secțiunea Reguli pentru echipamentul specific necesar pentru distanța ta de cursă. Nu uita să te îmbraci corespunzător pentru condițiile meteorologice."
+      },
+      "stations": {
+        "question": "Există puncte de alimentare pe traseu?",
+        "answer": "Da, există puncte de alimentare de-a lungul tuturor traseelor. Cursa de 10 km are 2 puncte, cursa de 21 km are 4 puncte, iar cursa de 50 km are 8 puncte. Fiecare punct oferă apă, băuturi energizante și diverse gustări."
+      },
+      "change": {
+        "question": "Pot schimba cursa după înregistrare?",
+        "answer": "Schimbările de cursă sunt posibile cu până la 30 de zile înainte de eveniment, în funcție de disponibilitate. Pentru a schimba cursa, te rugăm să contactezi echipa noastră de suport prin e-mail. Reține că schimbarea la o cursă mai scumpă necesită o plată suplimentară, în timp ce schimbarea la o cursă mai ieftină nu oferă o rambursare a diferenței."
+      }
+    }
+  },
+  "sponsors": {
+    "title": "Sponsorii Noștri",
+    "subtitle": "Suntem recunoscători sponsorilor noștri care ajută la realizarea acestui eveniment. Sprijinul lor contribuie la o experiență excepțională de alergare montană.",
+    "premiumTitle": "Parteneri Premium",
+    "standardTitle": "Parteneri de Susținere",
+    "visitWebsite": "Vizitează Website-ul",
+    "visit": "Vizitează",
+    "becomeButton": "Devino Sponsor"
+  },
+  "footer": {
+    "about": "Alătură-te nouă pentru o experiență de alergare montană de neuitat în frumoșii Munți Carpați.",
+    "quickLinks": "Link-uri Rapide",
+    "resources": "Resurse",
+    "resources1": "Hărți Trasee",
+    "resources2": "Sfaturi de Antrenament",
+    "resources3": "Ghid Echipament",
+    "resources4": "Informații de Călătorie",
+    "resources5": "Cazare",
+    "resources6": "Galerie Foto",
+    "subscribe": "Abonează-te",
+    "subscribeText": "Rămâi la curent cu cele mai recente știri și actualizări despre competiție.",
+    "emailPlaceholder": "Adresa ta de email",
+    "privacyNotice": "Prin abonare, ești de acord cu politica noastră de confidențialitate și consimți să primești actualizări de la echipa noastră.",
+    "copyright": "© 2024 Competiția de Alergare Montană. Toate drepturile rezervate.",
+    "privacy": "Politica de Confidențialitate",
+    "terms": "Termeni și Condiții",
+    "cookies": "Politica de Cookie-uri"
+  },
+  "months": {
+    "0": "Ianuarie",
+    "1": "Februarie",
+    "2": "Martie",
+    "3": "Aprilie",
+    "4": "Mai",
+    "5": "Iunie",
+    "6": "Iulie",
+    "7": "August",
+    "8": "Septembrie",
+    "9": "Octombrie",
+    "10": "Noiembrie",
+    "11": "Decembrie"
+  }
+}
