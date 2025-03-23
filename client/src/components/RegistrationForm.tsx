@@ -35,7 +35,7 @@ const RegistrationForm = () => {
     queryKey: ['/api/races'],
   });
 
-  const { register, handleSubmit, reset, watch, formState: { errors, isSubmitting } } = useForm<RegistrationFormInputs>({
+  const { register, handleSubmit, reset, watch, setValue, formState: { errors, isSubmitting } } = useForm<RegistrationFormInputs>({
     resolver: zodResolver(registrationFormSchema),
     defaultValues: {
       firstName: "",
@@ -53,6 +53,13 @@ const RegistrationForm = () => {
 
   const selectedRaceId = watch("raceId");
   const selectedRace = races?.find(race => race.id === Number(selectedRaceId));
+  
+  // Set default race if available and not already selected
+  useEffect(() => {
+    if (races && races.length > 0 && !selectedRaceId) {
+      setValue("raceId", races[0].id);
+    }
+  }, [races, selectedRaceId, setValue]);
 
   const registerMutation = useMutation({
     mutationFn: async (data: Omit<RegistrationFormInputs, "termsAccepted">) => {
