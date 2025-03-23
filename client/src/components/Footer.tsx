@@ -20,8 +20,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-neutral-dark text-neutral-light py-8 md:py-12">
-      <div className="container mx-auto px-4">
+    <footer className="bg-neutral-dark bg-opacity-95 backdrop-blur-sm text-neutral-light py-12 md:py-16">
+      <div className="page-container">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           <div>
             <div className="flex items-center mb-3 md:mb-4">
