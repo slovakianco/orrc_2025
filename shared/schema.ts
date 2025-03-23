@@ -20,19 +20,19 @@ export const difficultyEnum = pgEnum('difficulty', ['beginner', 'intermediate', 
 export const races = pgTable("races", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
-  nameRo: text("name_ro").notNull(),
-  nameFr: text("name_fr").notNull(),
-  nameDe: text("name_de").notNull(),
+  nameRo: text("nameRo").notNull(),
+  nameFr: text("nameFr").notNull(),
+  nameDe: text("nameDe").notNull(),
   description: text("description").notNull(),
-  descriptionRo: text("description_ro").notNull(),
-  descriptionFr: text("description_fr").notNull(),
-  descriptionDe: text("description_de").notNull(),
+  descriptionRo: text("descriptionRo").notNull(),
+  descriptionFr: text("descriptionFr").notNull(),
+  descriptionDe: text("descriptionDe").notNull(),
   distance: integer("distance").notNull(), // in km
   elevation: integer("elevation").notNull(), // in meters
   difficulty: difficultyEnum("difficulty").notNull(),
   date: text("date").notNull(), // ISO date string
   price: integer("price").notNull(), // in EUR
-  imageUrl: text("image_url"),
+  imageUrl: text("imageUrl"),
 });
 
 export const insertRaceSchema = createInsertSchema(races).omit({
@@ -42,17 +42,17 @@ export const insertRaceSchema = createInsertSchema(races).omit({
 // Participant schema
 export const participants = pgTable("participants", {
   id: serial("id").primaryKey(),
-  firstName: text("first_name").notNull(),
-  lastName: text("last_name").notNull(),
+  firstName: text("firstName").notNull(),
+  lastName: text("lastName").notNull(),
   email: text("email").notNull(),
-  phoneNumber: text("phone_number").notNull(),
+  phoneNumber: text("phoneNumber").notNull(),
   country: text("country").notNull(),
-  birthDate: text("birth_date").notNull(), // ISO date string
-  raceId: integer("race_id").notNull(),
-  bibNumber: text("bib_number"),
+  birthDate: text("birthDate").notNull(), // ISO date string
+  raceId: integer("raceId").notNull(),
+  bibNumber: text("bibNumber"),
   status: text("status").notNull().default("pending"), // pending, confirmed, cancelled
-  medicalInfo: text("medical_info"),
-  registrationDate: timestamp("registration_date").defaultNow(),
+  medicalInfo: text("medicalInfo"),
+  registrationDate: timestamp("registrationDate").defaultNow(),
   gender: text("gender").notNull(), // M or F
   age: integer("age").notNull(),
 });
@@ -70,7 +70,7 @@ export const contactInquiries = pgTable("contact_inquiries", {
   email: text("email").notNull(),
   subject: text("subject").notNull(),
   message: text("message").notNull(),
-  createdAt: timestamp("created_at").defaultNow(),
+  createdAt: timestamp("createdAt").defaultNow(),
 });
 
 export const insertContactInquirySchema = createInsertSchema(contactInquiries).omit({
@@ -82,14 +82,14 @@ export const insertContactInquirySchema = createInsertSchema(contactInquiries).o
 export const faqs = pgTable("faqs", {
   id: serial("id").primaryKey(),
   question: text("question").notNull(),
-  questionRo: text("question_ro").notNull(),
-  questionFr: text("question_fr").notNull(),
-  questionDe: text("question_de").notNull(),
+  questionRo: text("questionRo").notNull(),
+  questionFr: text("questionFr").notNull(),
+  questionDe: text("questionDe").notNull(),
   answer: text("answer").notNull(),
-  answerRo: text("answer_ro").notNull(),
-  answerFr: text("answer_fr").notNull(),
-  answerDe: text("answer_de").notNull(),
-  order: integer("order").notNull(),
+  answerRo: text("answerRo").notNull(),
+  answerFr: text("answerFr").notNull(),
+  answerDe: text("answerDe").notNull(),
+  order: integer("\"order\"").notNull(),
 });
 
 export const insertFaqSchema = createInsertSchema(faqs).omit({
@@ -100,18 +100,18 @@ export const insertFaqSchema = createInsertSchema(faqs).omit({
 export const programEvents = pgTable("program_events", {
   id: serial("id").primaryKey(),
   date: text("date").notNull(), // ISO date string
-  startTime: text("start_time").notNull(), // HH:MM format
-  endTime: text("end_time"), // HH:MM format, optional for events with no specific end time
+  startTime: text("startTime").notNull(), // HH:MM format
+  endTime: text("endTime"), // HH:MM format, optional for events with no specific end time
   title: text("title").notNull(),
-  titleRo: text("title_ro").notNull(),
-  titleFr: text("title_fr").notNull(),
-  titleDe: text("title_de").notNull(),
+  titleRo: text("titleRo").notNull(),
+  titleFr: text("titleFr").notNull(),
+  titleDe: text("titleDe").notNull(),
   description: text("description").notNull(),
-  descriptionRo: text("description_ro").notNull(),
-  descriptionFr: text("description_fr").notNull(),
-  descriptionDe: text("description_de").notNull(),
+  descriptionRo: text("descriptionRo").notNull(),
+  descriptionFr: text("descriptionFr").notNull(),
+  descriptionDe: text("descriptionDe").notNull(),
   location: text("location").notNull(),
-  order: integer("order").notNull(),
+  order: integer("\"order\"").notNull(),
 });
 
 export const insertProgramEventSchema = createInsertSchema(programEvents).omit({
@@ -123,13 +123,13 @@ export const sponsors = pgTable("sponsors", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
   description: text("description").notNull(),
-  descriptionRo: text("description_ro").notNull(),
-  descriptionFr: text("description_fr").notNull(),
-  descriptionDe: text("description_de").notNull(),
-  logoPlaceholder: text("logo_placeholder").notNull(), // Text for placeholder
+  descriptionRo: text("descriptionRo").notNull(),
+  descriptionFr: text("descriptionFr").notNull(),
+  descriptionDe: text("descriptionDe").notNull(),
+  logoPlaceholder: text("logoPlaceholder").notNull(), // Text for placeholder
   website: text("website").notNull(),
   level: text("level").notNull(), // premium or standard
-  order: integer("order").notNull(),
+  order: integer("\"order\"").notNull(),
 });
 
 export const insertSponsorSchema = createInsertSchema(sponsors).omit({

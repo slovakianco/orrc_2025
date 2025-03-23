@@ -7,7 +7,7 @@ import {
   ProgramEvent, InsertProgramEvent, programEvents,
   Sponsor, InsertSponsor, sponsors
 } from "@shared/schema";
-import { eq, like, desc, asc, ilike } from 'drizzle-orm';
+import { eq, like, desc, asc, ilike, or, and, sql } from 'drizzle-orm';
 import { db } from './db';
 import { IStorage } from './storage';
 
@@ -209,16 +209,17 @@ export class PostgresStorage implements IStorage {
   async searchParticipants(query: string): Promise<Participant[]> {
     const lowerQuery = `%${query.toLowerCase()}%`;
     
-    // Since we can't use .or() chaining in drizzle-orm, we need a different approach
+    // Use the or() operator to combine multiple conditions
     return await db.select().from(participants)
       .where(
-        ilike(participants.firstName, lowerQuery)
+        or(
+          ilike(participants.firstName, lowerQuery),
+          ilike(participants.lastName, lowerQuery),
+          ilike(participants.country, lowerQuery),
+          ilike(participants.bibNumber || '', lowerQuery)
+        )
       )
       .orderBy(asc(participants.id));
-      
-    // Note: This is a simplified implementation.
-    // In a production app, you would use SQL.raw or a more complex condition
-    // to properly handle the OR conditions with a WHERE clause
   }
   
   async createParticipant(participant: InsertParticipant): Promise<Participant> {

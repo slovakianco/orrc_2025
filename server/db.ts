@@ -1,9 +1,15 @@
-import { neon } from '@neondatabase/serverless';
-import { drizzle } from 'drizzle-orm/neon-serverless';
+import pkg from 'pg';
+import { drizzle } from 'drizzle-orm/node-postgres';
 
-// Create connection to Neon PostgreSQL
-const sql = neon(process.env.DATABASE_URL || '');
-// @ts-ignore - Type issue with the neon-serverless package
-export const db = drizzle(sql);
+// Use ESM compatible import for pg
+const { Pool } = pkg;
+
+// Create a PostgreSQL connection pool instead of using neon directly
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL
+});
+
+// Create a drizzle instance
+export const db = drizzle(pool);
 
 // Export database connection for use in storage.ts
