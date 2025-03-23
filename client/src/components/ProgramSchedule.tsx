@@ -37,7 +37,7 @@ const ProgramSchedule = () => {
             {t('program.subtitle')}
           </p>
         </div>
-        
+
         <div className="max-w-4xl mx-auto">
           {sortedDates.map((date, dateIndex) => (
             <div key={date} className="relative mb-12">
@@ -53,34 +53,32 @@ const ProgramSchedule = () => {
                   </h3>
                 </div>
               </div>
-              
+
               <div className="ml-28 space-y-6">
                 {eventsByDate[date].map((event) => (
-                  <div key={event.id} className="bg-white rounded-lg p-6 shadow-md relative">
+                  <div key={event.id} className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative">
                     <div className="absolute -left-16 top-6 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white">
                       <Clock className="h-4 w-4" />
                     </div>
-                    <div className="flex items-start">
-                      <div className="flex-shrink-0 w-24">
-                        <span className="text-primary font-bold">
-                          {event.startTime}{event.endTime ? `-${event.endTime}` : ''}
-                        </span>
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+                      <div className="flex items-center">
+                        <Clock className="w-5 h-5 mr-2 text-primary" />
+                        <span className="text-base font-medium text-gray-700">{event.startTime}{event.endTime ? `-${event.endTime}` : ''}</span>
                       </div>
                       <div>
-                        <h4 className="font-heading font-bold text-lg mb-1">
-                          {getLocalizedEventTitle(event, language)}
-                        </h4>
-                        <p className="text-neutral-gray">
-                          {getLocalizedEventDescription(event, language)}
-                        </p>
+                        <h4 className="text-xl font-semibold">{getLocalizedEventTitle(event, language)}</h4>
                       </div>
+                    </div>
+                    <div className="space-y-3">
+                      <p className="text-primary-dark font-medium">{event.location}</p>
+                      <p className="text-gray-600 leading-relaxed">{getLocalizedEventDescription(event, language)}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
           ))}
-          
+
           <div className="mt-12 text-center">
             <a 
               href="#" 
