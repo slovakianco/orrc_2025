@@ -155,18 +155,18 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-white border-opacity-20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-sm text-white text-opacity-60 mb-4 md:mb-0">
+        <div className="border-t border-neutral-light border-opacity-20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <div className="text-sm text-neutral-light text-opacity-80 mb-4 md:mb-0">
             {t('footer.copyright')}
           </div>
           <div className="flex space-x-6 text-sm">
-            <a href="#" className="text-white text-opacity-60 hover:text-accent-light transition-colors duration-300">
+            <a href="#" className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300">
               {t('footer.privacy')}
             </a>
-            <a href="#" className="text-white text-opacity-60 hover:text-accent-light transition-colors duration-300">
+            <a href="#" className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300">
               {t('footer.terms')}
             </a>
-            <a href="#" className="text-white text-opacity-60 hover:text-accent-light transition-colors duration-300">
+            <a href="#" className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300">
               {t('footer.cookies')}
             </a>
           </div>

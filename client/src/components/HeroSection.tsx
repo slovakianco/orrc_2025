@@ -10,32 +10,54 @@ const HeroSection = ({ imageUrl = "https://images.unsplash.com/photo-14837213100
 
   return (
     <section className="relative h-screen min-h-[600px]">
-      <div className="absolute inset-0 bg-gray-900 opacity-50 z-10"></div>
+      {/* Overlay with gradient */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary-dark/70 z-10"></div>
+      
+      {/* Background image */}
       <div className="absolute inset-0 z-0">
         <img src={imageUrl} alt={t('hero.imageAlt')} className="w-full h-full object-cover" />
       </div>
+      
+      {/* Content */}
       <div className="container mx-auto px-4 h-full flex items-center relative z-20">
         <div className="max-w-3xl">
-          <span className="inline-block bg-accent text-white px-3 py-1 rounded-full text-sm font-bold mb-4">
+          {/* Event date badge */}
+          <span className="inline-block bg-accent text-white px-4 py-1.5 rounded-full text-sm font-bold mb-6 shadow-md">
             {t('hero.date')}
           </span>
-          <h1 className="text-4xl md:text-6xl font-heading font-bold text-white mb-4">
-            {t('hero.title')}
+          
+          {/* Main title with gradient text */}
+          <h1 className="text-5xl md:text-7xl font-heading font-bold text-white mb-6 leading-tight">
+            <span className="inline-block bg-gradient-to-r from-white to-neutral-light bg-clip-text text-transparent mb-2">
+              {t('hero.title')}
+            </span>
           </h1>
-          <p className="text-xl text-white mb-8 max-w-2xl">
+          
+          {/* Subtitle */}
+          <p className="text-xl text-white text-opacity-90 mb-10 max-w-2xl leading-relaxed">
             {t('hero.subtitle')}
           </p>
-          <div className="flex flex-wrap gap-4">
-            <Link href="/registration" className="bg-accent hover:bg-accent-dark text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 shadow-lg">
+          
+          {/* Action buttons */}
+          <div className="flex flex-wrap gap-5">
+            <Link 
+              href="/registration" 
+              className="bg-accent hover:bg-accent-dark text-white font-bold py-3.5 px-8 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
               {t('hero.registerButton')}
             </Link>
-            <Link href="/races" className="bg-white hover:bg-neutral-light text-primary font-bold py-3 px-6 rounded-lg transition-colors duration-300 shadow-lg">
+            <Link 
+              href="/races" 
+              className="bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 font-bold py-3.5 px-8 rounded-lg transition-all duration-300 backdrop-blur-sm shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
               {t('hero.exploreButton')}
             </Link>
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-24 opacity-70 z-10"></div>
+      
+      {/* Bottom gradient */}
+      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary-dark to-transparent h-32 opacity-80 z-10"></div>
     </section>
   );
 };
