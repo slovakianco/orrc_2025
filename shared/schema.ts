@@ -20,19 +20,19 @@ export const difficultyEnum = pgEnum('difficulty', ['beginner', 'intermediate', 
 export const races = pgTable("races", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
-  nameRo: text("nameRo").notNull(),
-  nameFr: text("nameFr").notNull(),
-  nameDe: text("nameDe").notNull(),
+  nameRo: text("namero").notNull(),
+  nameFr: text("namefr").notNull(),
+  nameDe: text("namede").notNull(),
   description: text("description").notNull(),
-  descriptionRo: text("descriptionRo").notNull(),
-  descriptionFr: text("descriptionFr").notNull(),
-  descriptionDe: text("descriptionDe").notNull(),
+  descriptionRo: text("descriptionro").notNull(),
+  descriptionFr: text("descriptionfr").notNull(),
+  descriptionDe: text("descriptionde").notNull(),
   distance: integer("distance").notNull(), // in km
   elevation: integer("elevation").notNull(), // in meters
   difficulty: difficultyEnum("difficulty").notNull(),
   date: text("date").notNull(), // ISO date string
   price: integer("price").notNull(), // in EUR
-  imageUrl: text("imageUrl"),
+  imageUrl: text("imageurl"),
 });
 
 export const insertRaceSchema = createInsertSchema(races).omit({
@@ -42,17 +42,17 @@ export const insertRaceSchema = createInsertSchema(races).omit({
 // Participant schema
 export const participants = pgTable("participants", {
   id: serial("id").primaryKey(),
-  firstName: text("firstName").notNull(),
-  lastName: text("lastName").notNull(),
+  firstName: text("firstname").notNull(),
+  lastName: text("lastname").notNull(),
   email: text("email").notNull(),
-  phoneNumber: text("phoneNumber").notNull(),
+  phoneNumber: text("phonenumber").notNull(),
   country: text("country").notNull(),
-  birthDate: text("birthDate").notNull(), // ISO date string
-  raceId: integer("raceId").notNull(),
-  bibNumber: text("bibNumber"),
+  birthDate: text("birthdate").notNull(), // ISO date string
+  raceId: integer("raceid").notNull(),
+  bibNumber: text("bibnumber"),
   status: text("status").notNull().default("pending"), // pending, confirmed, cancelled
-  medicalInfo: text("medicalInfo"),
-  registrationDate: timestamp("registrationDate").defaultNow(),
+  medicalInfo: text("medicalinfo"),
+  registrationDate: timestamp("registrationdate").defaultNow(),
   gender: text("gender").notNull(), // M or F
   age: integer("age").notNull(),
 });
