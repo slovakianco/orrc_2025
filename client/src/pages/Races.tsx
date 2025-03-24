@@ -14,53 +14,27 @@ export default function Races() {
   const races = [
     { 
       id: 1, 
-      name: "race.ultra.name", 
-      category: "ultra", 
-      elevation: 3500, 
-      difficulty: "race.difficulty.expert", 
-      date: "race.dates.july17" 
+      name: "race.33k.name", 
+      category: "33k", 
+      elevation: 1500, 
+      difficulty: "race.difficulty.intermediate", 
+      date: "race.dates.july16",
+      traceDeTrailIframe: "https://tracedetrail.fr/en/iframe/6296"
     },
     { 
       id: 2, 
-      name: "race.half.name", 
-      category: "half", 
-      elevation: 850, 
-      difficulty: "race.difficulty.intermediate", 
-      date: "race.dates.july16" 
-    },
-    { 
-      id: 3, 
-      name: "race.10k.name", 
-      category: "10k", 
-      elevation: 350, 
+      name: "race.11k.name", 
+      category: "11k", 
+      elevation: 500, 
       difficulty: "race.difficulty.beginner", 
-      date: "race.dates.july15" 
-    },
-    { 
-      id: 4, 
-      name: "race.marathon.name", 
-      category: "marathon", 
-      elevation: 1200, 
-      difficulty: "race.difficulty.intermediate", 
-      date: "race.dates.july16" 
-    },
-    { 
-      id: 5, 
-      name: "race.25k.name", 
-      category: "25k", 
-      elevation: 600, 
-      difficulty: "race.difficulty.intermediate", 
       date: "race.dates.july15" 
     }
   ];
 
   const filterCategories: { value: RaceCategory; label: string }[] = [
     { value: "all", label: "race.filter.all" },
-    { value: "ultra", label: "race.filter.ultra" },
-    { value: "marathon", label: "race.filter.marathon" },
-    { value: "half", label: "race.filter.half" },
-    { value: "25k", label: "race.filter.25k" },
-    { value: "10k", label: "race.filter.10k" },
+    { value: "33k", label: "race.filter.33k" },
+    { value: "11k", label: "race.filter.11k" }
   ];
 
   return (
@@ -101,7 +75,16 @@ export default function Races() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {races
+            {races.map(race => (
+              <div key={race.id} className="bg-white rounded-lg shadow-md overflow-hidden">
+                {race.traceDeTrailIframe && (
+                  <iframe 
+                    src={race.traceDeTrailIframe} 
+                    allowFullScreen 
+                    style={{ border: 0, width: '100%', height: '800px' }} 
+                    scrolling="no"
+                  />
+                )}
               .filter((race) => filter === "all" || filter === race.category)
               .map((race) => (
                 <Card key={race.id} className="bg-neutral-light rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
