@@ -5,14 +5,14 @@ import { useTranslation } from "react-i18next";
 import { Menu, X } from "lucide-react";
 
 const routes = [
-  { href: "/", label: "navbar.home" },
-  { href: "/races", label: "navbar.races" },
-  { href: "/registration", label: "navbar.registration" },
-  { href: "/participants", label: "navbar.participants" },
-  { href: "/rules", label: "navbar.rules" },
-  { href: "/program", label: "navbar.program" },
-  { href: "/contact", label: "navbar.contact" },
-  { href: "/sponsors", label: "navbar.sponsors" },
+  { href: "/", label: "nav.home" },
+  { href: "/races", label: "nav.races" },
+  { href: "/registration", label: "nav.registration" },
+  { href: "/participants", label: "nav.participants" },
+  { href: "/rules", label: "nav.rules" },
+  { href: "/program", label: "nav.program" },
+  { href: "/contact", label: "nav.contact" },
+  { href: "/sponsors", label: "nav.sponsors" },
 ];
 
 export default function Navbar() {

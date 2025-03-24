@@ -1,4 +1,15 @@
 {
+  "nav": {
+    "home": "Home",
+    "races": "Races",
+    "registration": "Registration",
+    "participants": "Participants",
+    "rules": "Rules",
+    "program": "Program",
+    "contact": "Contact",
+    "sponsors": "Sponsors",
+    "registerButton": "Register Now"
+  },
   "navbar": {
     "home": "Home",
     "races": "Races",
@@ -16,7 +27,21 @@
     "newsletter": "Newsletter",
     "subscribeMessage": "Subscribe to our newsletter for updates and news",
     "emailPlaceholder": "Your email",
-    "copyright": "© {year} TrailRunPro. All rights reserved."
+    "copyright": "© {year} TrailRunPro. All rights reserved.",
+    "about": "About Us",
+    "resources": "Resources",
+    "resources1": "Trail Maps",
+    "resources2": "Training Plans",
+    "resources3": "Equipment Guide",
+    "resources4": "Race Calendar",
+    "resources5": "Community Forum",
+    "resources6": "Photos & Videos",
+    "subscribe": "Subscribe",
+    "subscribeText": "Get the latest updates on races, training tips, and special offers",
+    "privacyNotice": "Privacy Notice",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "cookies": "Cookie Policy"
   },
   "home": {
     "hero": {
@@ -102,6 +127,8 @@
       "label": "Difficulty",
       "beginner": "Beginner",
       "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "ultra": "Ultra",
       "expert": "Expert"
     },
     "dates": {
