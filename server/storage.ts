@@ -123,7 +123,8 @@ export class MemStorage implements IStorage {
     const newRace: Race = { 
       ...race, 
       id,
-      imageUrl: race.imageUrl || null 
+      imageUrl: race.imageUrl || null,
+      raceMap: race.raceMap || null
     };
     this.races.set(id, newRace);
     return newRace;

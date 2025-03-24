@@ -1,5 +1,7 @@
 import express, { type Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
+import fs from "fs";
+import path from "path";
 import { storage } from "./storage";
 import { insertParticipantSchema, insertContactInquirySchema } from "@shared/schema";
 import { z } from "zod";

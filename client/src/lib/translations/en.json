@@ -57,7 +57,21 @@
     "subtitle": "Discover our challenging trail running races",
     "filterBy": "Filter by",
     "details": "Details",
-    "register": "Register"
+    "register": "Register",
+    "backToList": "Back to Races",
+    "details": {
+      "about": "About this Race",
+      "map": "Trail Map",
+      "info": "Race Information",
+      "price": "Price",
+      "date": "Date",
+      "distance": "Distance",
+      "elevation": "Elevation",
+      "difficulty": "Difficulty",
+      "aidStations": "Aid Stations",
+      "registerButton": "Register for this Race",
+      "downloadGPX": "Download GPX File"
+    }
   },
   "race": {
     "filter": {
