@@ -22,9 +22,7 @@ const RacesSection = ({ title, fullPage = false }: RacesSectionProps) => {
   const difficultyOptions = [
     { label: t('races.filters.all'), value: null },
     { label: t('races.filters.beginner'), value: 'beginner' },
-    { label: t('races.filters.intermediate'), value: 'intermediate' },
-    { label: t('races.filters.advanced'), value: 'advanced' },
-    { label: t('races.filters.ultra'), value: 'ultra' }
+    { label: t('races.filters.advanced'), value: 'advanced' }
   ];
 
   const handleFilterChange = (value: string | null) => {

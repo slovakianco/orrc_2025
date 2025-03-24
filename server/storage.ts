@@ -305,7 +305,7 @@ export class MemStorage implements IStorage {
       elevation: 1800,
       difficulty: "advanced",
       date: "2024-06-15",
-      price: 75,
+      price: 40, // 200 lei
       imageUrl: "https://images.unsplash.com/photo-1590136500603-a143a477b815",
       raceMap: '<iframe src="https://tracedetrail.fr/en/iframe/6296" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>'
     } as InsertRace);
@@ -323,7 +323,7 @@ export class MemStorage implements IStorage {
       elevation: 550,
       difficulty: "beginner",
       date: "2024-06-15",
-      price: 45,
+      price: 30, // 150 lei
       imageUrl: "https://images.unsplash.com/photo-1551632811-561732d1e306",
       raceMap: '<iframe src="https://tracedetrail.fr/en/iframe/6297" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>'
     } as InsertRace);
