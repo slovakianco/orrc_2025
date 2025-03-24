@@ -4,31 +4,14 @@
     "submitting": "Se trimite...",
     "error": "A apărut o eroare",
     "success": "Succes!",
-    "notAvailable": "Indisponibil",
-    "filter": "Filtrează",
-    "search": "Caută",
-    "clear": "Șterge",
-    "view": "Vizualizare",
-    "sort": "Sortează",
-    "sortBy": "Sortează după",
-    "ascending": "Crescător",
-    "descending": "Descrescător",
-    "name": "Nume",
-    "date": "Data",
-    "apply": "Aplică",
-    "cancel": "Anulează",
-    "notFound": "Nu a fost găsit",
-    "notFoundDescription": "Pagina pe care o cauți nu există.",
-    "goBack": "Înapoi",
-    "goHome": "Mergi la pagina principală",
-    "languageSelector": "Selector de limbă"
+    "notAvailable": "Indisponibil"
   },
   "nav": {
     "home": "Acasă",
     "races": "Curse",
     "registration": "Înregistrare",
     "participants": "Participanți",
-    "rules": "Reguli",
+    "rules": "Regulament",
     "program": "Program",
     "contact": "Contact",
     "sponsors": "Sponsori",
@@ -37,7 +20,7 @@
   "hero": {
     "title": "Provocarea Munților",
     "subtitle": "Experimentează emoția alergării montane prin peisaje montane incredibile. Alătură-te alergătorilor din întreaga lume în această competiție de neuitat.",
-    "date": "15-17 Iunie, 2024",
+    "date": "4-5 Iulie, 2025",
     "registerButton": "Înregistrează-te acum",
     "exploreButton": "Explorează cursele",
     "imageAlt": "Alergare montană în munți"
@@ -45,17 +28,17 @@
   "quickInfo": {
     "location": {
       "title": "Locație",
-      "content": "Munții Carpați, România",
+      "content": "Stana de Vale, România",
       "linkText": "Vezi pe hartă"
     },
     "date": {
       "title": "Data",
-      "content": "15-17 Iunie, 2024",
+      "content": "4-6 Iulie, 2025",
       "linkText": "Vezi programul complet"
     },
     "participants": {
       "title": "Participanți",
-      "content": "Peste 1.500 de alergători din 30+ țări",
+      "content": "Peste 500 de alergători din 30+ țări",
       "linkText": "Vezi participanții"
     }
   },
@@ -63,44 +46,29 @@
     "featuredRaces": "Curse Recomandate"
   },
   "races": {
-    "title": "Curse",
-    "subtitle": "Descoperă cursele noastre provocatoare de alergare pe traseu",
-    "filterTitle": "Filtrează Curse",
-    "filterBy": "Filtrează după",
-    "filter": {
-      "all": "Toate Cursele",
-      "beginner": "Pentru Începători",
-      "advanced": "Trasee Avansate"
-    },
+    "title": "Explorează Cursele Noastre",
+    "subtitle": "De la trasee prietenoase pentru începători până la ultra-maratoane montane provocatoare, găsește cursa perfectă pentru nivelul și ambiția ta.",
     "filters": {
-      "all": "Toate",
+      "all": "Toate Cursele",
       "beginner": "Începător",
       "intermediate": "Intermediar",
       "advanced": "Avansat",
       "ultra": "Ultra"
     },
     "difficulty": {
-      "label": "Dificultate",
       "beginner": "Începător",
       "intermediate": "Intermediar",
       "advanced": "Avansat",
       "ultra": "Ultra"
     },
-    "viewDetails": "Vezi Detalii",
-    "viewAllButton": "Vezi Toate Cursele",
-    "elevation": "Elevație",
-    "distance": "Distanță",
-    "price": "Preț",
-    "loading": "Se încarcă cursele...",
-    "noRacesFound": "Nu s-au găsit curse",
-    "tryDifferentFilter": "Încearcă un alt filtru",
     "dates": {
-      "15": "15 Iunie",
-      "16": "16 Iunie",
-      "17": "17 Iunie"
+      "4": "4 Iulie",
+      "5": "5 Iulie",
+      "6": "6 Iulie"
     },
-    "raceDetail": {
-      "details": "Detalii Cursă",
+    "details": {
+      "about": "Despre",
+      "info": "Informații Cursă",
       "description": "Descriere",
       "date": "Data",
       "distance": "Distanță",
@@ -113,8 +81,13 @@
       "aidStations": "Puncte de Hidratare",
       "cutoffTime": "Timp Limită",
       "startTime": "Ora de Start",
-      "loading": "Se încarcă detaliile cursei..."
-    }
+      "loading": "Se încarcă detaliile cursei...",
+      "downloadGpx": "Descarcă GPX",
+      "map": "Harta"
+    },
+    "viewDetails": "Vezi Detalii",
+    "viewAllButton": "Vezi Toate Cursele",
+    "noRacesFound": "Nu s-au găsit curse"
   },
   "registration": {
     "title": "Înregistrare pentru Competiție",
@@ -152,38 +125,21 @@
   "participants": {
     "title": "Participanți Înregistrați",
     "subtitle": "Navighează prin lista participanților înregistrați în prezent. Verifică cine participă la fiecare cursă și găsește prieteni sau competitori.",
-    "searchPlaceholder": "Caută după nume...",
-    "filterByCountry": "Filtrează după Țară",
-    "filterByRace": "Filtrează după Cursă",
+    "searchPlaceholder": "Caută după nume sau țară...",
     "allRaces": "Toate Cursele",
     "allCountries": "Toate Țările",
-    "clearFilters": "Șterge Filtrele",
-    "participantsFound": "participanți găsiți",
-    "filterApplied": "filtre aplicate",
-    "tableView": "Vizualizare Tabel",
-    "cardView": "Vizualizare Carduri",
-    "loading": "Se încarcă participanții...",
-    "noParticipantsFound": "Nu s-au găsit participanți",
-    "tryDifferentFilter": "Încearcă un alt filtru sau șterge căutarea",
     "noParticipants": "Nu s-au găsit participanți",
     "table": {
       "name": "Nume",
       "country": "Țară",
       "race": "Cursă",
       "bib": "Nr. Bib",
-      "bibNumber": "Număr Concurs",
-      "status": "Status",
-      "age": "Vârstă", 
-      "gender": "Gen"
+      "status": "Status"
     },
     "status": {
       "confirmed": "Confirmat",
       "pending": "În așteptare",
       "cancelled": "Anulat"
-    },
-    "gender": {
-      "male": "Masculin",
-      "female": "Feminin"
     },
     "unknownRace": "Cursă Necunoscută",
     "pagination": {

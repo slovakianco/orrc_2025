@@ -433,7 +433,7 @@ export class MemStorage implements IStorage {
 
     // Program Events - Day 1
     this.createProgramEvent({
-      date: "2024-06-15",
+      date: "2025-07-04",
       startTime: "09:00",
       endTime: "18:00",
       title: "Registration & Bib Collection",
@@ -453,7 +453,7 @@ export class MemStorage implements IStorage {
     });
 
     this.createProgramEvent({
-      date: "2024-06-15",
+      date: "2025-07-04",
       startTime: "14:00",
       endTime: "16:00",
       title: "Expo & Sponsor Showcase",
@@ -473,7 +473,7 @@ export class MemStorage implements IStorage {
     });
 
     this.createProgramEvent({
-      date: "2024-06-15",
+      date: "2025-07-04",
       startTime: "17:00",
       endTime: "18:30",
       title: "Race Briefing: Mountain Explorer",
@@ -494,7 +494,7 @@ export class MemStorage implements IStorage {
 
     // Program Events - Day 2
     this.createProgramEvent({
-      date: "2024-06-16",
+      date: "2025-07-05",
       startTime: "07:00",
       endTime: null,
       title: "Mountain Explorer Race Start",
@@ -510,7 +510,7 @@ export class MemStorage implements IStorage {
     });
 
     this.createProgramEvent({
-      date: "2024-06-16",
+      date: "2025-07-05",
       startTime: "09:00",
       endTime: null,
       title: "Forest Challenge Race Start",
@@ -527,7 +527,7 @@ export class MemStorage implements IStorage {
 
     // Program Events - Day 3
     this.createProgramEvent({
-      date: "2024-06-17",
+      date: "2025-07-06",
       startTime: "05:00",
       endTime: null,
       title: "Summit Ultra Race Start",
@@ -543,7 +543,7 @@ export class MemStorage implements IStorage {
     });
 
     this.createProgramEvent({
-      date: "2024-06-17",
+      date: "2025-07-05",
       startTime: "18:00",
       endTime: "20:00",
       title: "Award Ceremony & Closing Party",
