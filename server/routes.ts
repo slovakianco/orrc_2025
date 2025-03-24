@@ -6,6 +6,7 @@ import { storage } from "./storage";
 import { insertParticipantSchema, insertContactInquirySchema } from "@shared/schema";
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
+import { sendRegistrationConfirmationEmail } from "./email";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   const apiRouter = express.Router();
@@ -108,6 +109,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
         ...result.data,
         age
       });
+      
+      // Get the language preference from request if available
+      const preferredLanguage = req.header('Accept-Language')?.split(',')[0]?.split('-')[0] || 'en';
+      
+      // Send confirmation email 
+      const raceCategory = `${race.distance}km ${race.difficulty}`;
+      try {
+        await sendRegistrationConfirmationEmail(
+          participant.email,
+          participant.firstName,
+          participant.lastName,
+          raceCategory,
+          preferredLanguage
+        );
+      } catch (emailError) {
+        console.error("Error sending confirmation email:", emailError);
+        // We don't fail the request if email sending fails
+      }
       
       res.status(201).json(participant);
     } catch (error) {
