@@ -1,11 +1,25 @@
-import { 
-  User, InsertUser, users,
-  Race, InsertRace, races,
-  Participant, InsertParticipant, participants,
-  ContactInquiry, InsertContactInquiry, contactInquiries,
-  FAQ, InsertFAQ, faqs,
-  ProgramEvent, InsertProgramEvent, programEvents,
-  Sponsor, InsertSponsor, sponsors
+import {
+  User,
+  InsertUser,
+  users,
+  Race,
+  InsertRace,
+  races,
+  Participant,
+  InsertParticipant,
+  participants,
+  ContactInquiry,
+  InsertContactInquiry,
+  contactInquiries,
+  FAQ,
+  InsertFAQ,
+  faqs,
+  ProgramEvent,
+  InsertProgramEvent,
+  programEvents,
+  Sponsor,
+  InsertSponsor,
+  sponsors,
 } from "@shared/schema";
 
 export interface IStorage {
@@ -27,7 +41,10 @@ export interface IStorage {
   getParticipantsByCountry(country: string): Promise<Participant[]>;
   searchParticipants(query: string): Promise<Participant[]>;
   createParticipant(participant: InsertParticipant): Promise<Participant>;
-  updateParticipantStatus(id: number, status: string): Promise<Participant | undefined>;
+  updateParticipantStatus(
+    id: number,
+    status: string,
+  ): Promise<Participant | undefined>;
 
   // Contact Inquiries
   createContactInquiry(inquiry: InsertContactInquiry): Promise<ContactInquiry>;
@@ -56,7 +73,7 @@ export class MemStorage implements IStorage {
   private faqs: Map<number, FAQ>;
   private programEvents: Map<number, ProgramEvent>;
   private sponsors: Map<number, Sponsor>;
-  
+
   private userId: number;
   private raceId: number;
   private participantId: number;
@@ -73,7 +90,7 @@ export class MemStorage implements IStorage {
     this.faqs = new Map();
     this.programEvents = new Map();
     this.sponsors = new Map();
-    
+
     this.userId = 1;
     this.raceId = 1;
     this.participantId = 1;
@@ -92,7 +109,7 @@ export class MemStorage implements IStorage {
 
   async getUserByUsername(username: string): Promise<User | undefined> {
     return Array.from(this.users.values()).find(
-      (user) => user.username === username
+      (user) => user.username === username,
     );
   }
 
@@ -114,17 +131,17 @@ export class MemStorage implements IStorage {
 
   async getRacesByDifficulty(difficulty: string): Promise<Race[]> {
     return Array.from(this.races.values()).filter(
-      (race) => race.difficulty === difficulty
+      (race) => race.difficulty === difficulty,
     );
   }
 
   async createRace(race: InsertRace): Promise<Race> {
     const id = this.raceId++;
-    const newRace: Race = { 
-      ...race, 
+    const newRace: Race = {
+      ...race,
       id,
       imageUrl: race.imageUrl || null,
-      raceMap: race.raceMap || null
+      raceMap: race.raceMap || null,
     };
     this.races.set(id, newRace);
     return newRace;
@@ -141,67 +158,77 @@ export class MemStorage implements IStorage {
 
   async getParticipantsByRace(raceId: number): Promise<Participant[]> {
     return Array.from(this.participants.values()).filter(
-      (participant) => participant.raceId === raceId
+      (participant) => participant.raceId === raceId,
     );
   }
 
   async getParticipantsByCountry(country: string): Promise<Participant[]> {
     return Array.from(this.participants.values()).filter(
-      (participant) => participant.country.toLowerCase() === country.toLowerCase()
+      (participant) =>
+        participant.country.toLowerCase() === country.toLowerCase(),
     );
   }
 
   async searchParticipants(query: string): Promise<Participant[]> {
     const lowercaseQuery = query.toLowerCase();
     return Array.from(this.participants.values()).filter(
-      (participant) => 
+      (participant) =>
         participant.firstName.toLowerCase().includes(lowercaseQuery) ||
         participant.lastName.toLowerCase().includes(lowercaseQuery) ||
-        participant.country.toLowerCase().includes(lowercaseQuery)
+        participant.country.toLowerCase().includes(lowercaseQuery),
     );
   }
 
-  async createParticipant(participant: InsertParticipant): Promise<Participant> {
+  async createParticipant(
+    participant: InsertParticipant,
+  ): Promise<Participant> {
     const id = this.participantId++;
-    
+
     // Generate bib number based on race
     const race = await this.getRaceById(participant.raceId);
-    const raceCode = race ? this.getRaceCodeForBib(race) : 'X';
-    
+    const raceCode = race ? this.getRaceCodeForBib(race) : "X";
+
     // Count participants in the same race to determine number
-    const raceParticipants = await this.getParticipantsByRace(participant.raceId);
+    const raceParticipants = await this.getParticipantsByRace(
+      participant.raceId,
+    );
     const participantNumber = raceParticipants.length + 1;
-    
+
     // Format: "X-001", "E-023", etc.
-    const bibNumber = `${raceCode}-${participantNumber.toString().padStart(3, '0')}`;
-    
+    const bibNumber = `${raceCode}-${participantNumber.toString().padStart(3, "0")}`;
+
     // Current timestamp for registrationDate
     const now = new Date();
-    
-    const newParticipant: Participant = { 
-      ...participant, 
+
+    const newParticipant: Participant = {
+      ...participant,
       id,
       bibNumber,
       registrationDate: now,
       status: participant.status || "pending",
-      medicalInfo: participant.medicalInfo || null
+      medicalInfo: participant.medicalInfo || null,
     };
-    
+
     this.participants.set(id, newParticipant);
     return newParticipant;
   }
 
-  async updateParticipantStatus(id: number, status: string): Promise<Participant | undefined> {
+  async updateParticipantStatus(
+    id: number,
+    status: string,
+  ): Promise<Participant | undefined> {
     const participant = await this.getParticipantById(id);
     if (!participant) return undefined;
-    
+
     const updatedParticipant: Participant = { ...participant, status };
     this.participants.set(id, updatedParticipant);
     return updatedParticipant;
   }
 
   // Contact Inquiries
-  async createContactInquiry(inquiry: InsertContactInquiry): Promise<ContactInquiry> {
+  async createContactInquiry(
+    inquiry: InsertContactInquiry,
+  ): Promise<ContactInquiry> {
     const id = this.contactInquiryId++;
     const now = new Date();
     const newInquiry: ContactInquiry = { ...inquiry, id, createdAt: now };
@@ -229,9 +256,10 @@ export class MemStorage implements IStorage {
   async getProgramEvents(): Promise<ProgramEvent[]> {
     return Array.from(this.programEvents.values()).sort((a, b) => {
       // First sort by date
-      const dateCompare = new Date(a.date).getTime() - new Date(b.date).getTime();
+      const dateCompare =
+        new Date(a.date).getTime() - new Date(b.date).getTime();
       if (dateCompare !== 0) return dateCompare;
-      
+
       // If same date, sort by order
       return a.order - b.order;
     });
@@ -245,10 +273,10 @@ export class MemStorage implements IStorage {
 
   async createProgramEvent(event: InsertProgramEvent): Promise<ProgramEvent> {
     const id = this.programEventId++;
-    const newEvent: ProgramEvent = { 
-      ...event, 
+    const newEvent: ProgramEvent = {
+      ...event,
       id,
-      endTime: event.endTime || null 
+      endTime: event.endTime || null,
     };
     this.programEvents.set(id, newEvent);
     return newEvent;
@@ -275,17 +303,17 @@ export class MemStorage implements IStorage {
   // Helper methods
   private getRaceCodeForBib(race: Race): string {
     const difficulty = race.difficulty;
-    
+
     switch (difficulty) {
-      case 'beginner':
-        return 'E'; // Explorer
-      case 'intermediate':
-        return 'F'; // Forest
-      case 'advanced':
-      case 'ultra':
-        return 'U'; // Ultra
+      case "beginner":
+        return "E"; // Explorer
+      case "intermediate":
+        return "F"; // Forest
+      case "advanced":
+      case "ultra":
+        return "U"; // Ultra
       default:
-        return 'X';
+        return "X";
     }
   }
 
@@ -297,17 +325,22 @@ export class MemStorage implements IStorage {
       nameRo: "Traseu 33K",
       nameFr: "Trail 33K",
       nameDe: "Trail 33K",
-      description: "A challenging 33km mountain trail with significant elevation gain, offering stunning panoramic views. This race features technical sections and requires good mountain running experience.",
-      descriptionRo: "Un traseu montan provocator de 33 km cu creștere semnificativă de elevație, oferind priveliști panoramice uimitoare. Această cursă conține secțiuni tehnice și necesită experiență bună de alergare montană.",
-      descriptionFr: "Un sentier de montagne exigeant de 33 km avec un dénivelé important, offrant des vues panoramiques à couper le souffle. Cette course comprend des sections techniques et nécessite une bonne expérience de course en montagne.",
-      descriptionDe: "Ein anspruchsvoller 33 km langer Bergpfad mit erheblichem Höhenunterschied und atemberaubenden Panoramablicken. Dieses Rennen enthält technische Abschnitte und erfordert gute Berglauferfahrung.",
+      description:
+        "A challenging 33km mountain trail with significant elevation gain, offering stunning panoramic views. This race features technical sections and requires good mountain running experience.",
+      descriptionRo:
+        "Un traseu montan provocator de 33 km cu creștere semnificativă de elevație, oferind priveliști panoramice uimitoare. Această cursă conține secțiuni tehnice și necesită experiență bună de alergare montană.",
+      descriptionFr:
+        "Un sentier de montagne exigeant de 33 km avec un dénivelé important, offrant des vues panoramiques à couper le souffle. Cette course comprend des sections techniques et nécessite une bonne expérience de course en montagne.",
+      descriptionDe:
+        "Ein anspruchsvoller 33 km langer Bergpfad mit erheblichem Höhenunterschied und atemberaubenden Panoramablicken. Dieses Rennen enthält technische Abschnitte und erfordert gute Berglauferfahrung.",
       distance: 33,
       elevation: 1800,
       difficulty: "advanced",
       date: "2024-06-15",
       price: 40, // 200 lei
       imageUrl: "https://images.unsplash.com/photo-1590136500603-a143a477b815",
-      raceMap: '<iframe src="https://tracedetrail.fr/en/iframe/6296" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>'
+      raceMap:
+        '<iframe src="https://tracedetrail.fr/en/iframe/6296" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>',
     } as InsertRace);
 
     this.createRace({
@@ -315,17 +348,22 @@ export class MemStorage implements IStorage {
       nameRo: "Traseu 11K",
       nameFr: "Trail 11K",
       nameDe: "Trail 11K",
-      description: "A beautiful 11km trail perfect for beginners and intermediate runners. This scenic route takes you through forests and gentle hills with moderate elevation gain.",
-      descriptionRo: "Un traseu frumos de 11 km perfect pentru începători și alergători de nivel intermediar. Această rută pitorească vă poartă prin păduri și dealuri line cu elevație moderată.",
-      descriptionFr: "Un magnifique sentier de 11 km parfait pour les débutants et les coureurs de niveau intermédiaire. Cet itinéraire pittoresque vous fait traverser des forêts et des collines douces avec un dénivelé modéré.",
-      descriptionDe: "Ein schöner 11 km langer Trail, perfekt für Anfänger und fortgeschrittene Läufer. Diese malerische Route führt durch Wälder und sanfte Hügel mit mäßigem Höhenunterschied.",
+      description:
+        "A beautiful 11km trail perfect for beginners and intermediate runners. This scenic route takes you through forests and gentle hills with moderate elevation gain.",
+      descriptionRo:
+        "Un traseu frumos de 11 km perfect pentru începători și alergători de nivel intermediar. Această rută pitorească vă poartă prin păduri și dealuri line cu elevație moderată.",
+      descriptionFr:
+        "Un magnifique sentier de 11 km parfait pour les débutants et les coureurs de niveau intermédiaire. Cet itinéraire pittoresque vous fait traverser des forêts et des collines douces avec un dénivelé modéré.",
+      descriptionDe:
+        "Ein schöner 11 km langer Trail, perfekt für Anfänger und fortgeschrittene Läufer. Diese malerische Route führt durch Wälder und sanfte Hügel mit mäßigem Höhenunterschied.",
       distance: 11,
       elevation: 550,
       difficulty: "beginner",
       date: "2024-06-15",
       price: 30, // 150 lei
       imageUrl: "https://images.unsplash.com/photo-1551632811-561732d1e306",
-      raceMap: '<iframe src="https://tracedetrail.fr/en/iframe/6297" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>'
+      raceMap:
+        '<iframe src="https://tracedetrail.fr/en/iframe/6297" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>',
     } as InsertRace);
 
     // Sample FAQs
@@ -334,11 +372,15 @@ export class MemStorage implements IStorage {
       questionRo: "Cum mă înscriu pentru competiție?",
       questionFr: "Comment puis-je m'inscrire à la compétition?",
       questionDe: "Wie melde ich mich für den Wettbewerb an?",
-      answer: "Registration is available online through our website. Simply go to the Registration section, choose your race, fill out the form, and complete the payment. You'll receive a confirmation email with all the details.",
-      answerRo: "Înregistrarea este disponibilă online prin intermediul site-ului nostru. Accesați secțiunea Înregistrare, alegeți cursa, completați formularul și efectuați plata. Veți primi un e-mail de confirmare cu toate detaliile.",
-      answerFr: "L'inscription est disponible en ligne sur notre site web. Accédez simplement à la section Inscription, choisissez votre course, remplissez le formulaire et effectuez le paiement. Vous recevrez un email de confirmation avec tous les détails.",
-      answerDe: "Die Registrierung ist online über unsere Website verfügbar. Gehen Sie einfach zum Registrierungsbereich, wählen Sie Ihr Rennen aus, füllen Sie das Formular aus und führen Sie die Zahlung durch. Sie erhalten eine Bestätigungs-E-Mail mit allen Details.",
-      order: 1
+      answer:
+        "Registration is available online through our website. Simply go to the Registration section, choose your race, fill out the form, and complete the payment. You'll receive a confirmation email with all the details.",
+      answerRo:
+        "Înregistrarea este disponibilă online prin intermediul site-ului nostru. Accesați secțiunea Înregistrare, alegeți cursa, completați formularul și efectuați plata. Veți primi un e-mail de confirmare cu toate detaliile.",
+      answerFr:
+        "L'inscription est disponible en ligne sur notre site web. Accédez simplement à la section Inscription, choisissez votre course, remplissez le formulaire et effectuez le paiement. Vous recevrez un email de confirmation avec tous les détails.",
+      answerDe:
+        "Die Registrierung ist online über unsere Website verfügbar. Gehen Sie einfach zum Registrierungsbereich, wählen Sie Ihr Rennen aus, füllen Sie das Formular aus und führen Sie die Zahlung durch. Sie erhalten eine Bestätigungs-E-Mail mit allen Details.",
+      order: 1,
     });
 
     this.createFAQ({
@@ -346,11 +388,15 @@ export class MemStorage implements IStorage {
       questionRo: "Ce ar trebui să aduc în ziua cursei?",
       questionFr: "Que dois-je apporter le jour de la course?",
       questionDe: "Was sollte ich am Renntag mitbringen?",
-      answer: "Bring your ID, confirmation email, and all the required equipment for your race. Check the Rules section for the specific equipment required for your race distance. Don't forget to dress appropriately for the weather conditions.",
-      answerRo: "Aduceți actul de identitate, e-mailul de confirmare și tot echipamentul necesar pentru cursa dvs. Verificați secțiunea Reguli pentru echipamentul specific necesar pentru distanța de cursă. Nu uitați să vă îmbrăcați corespunzător pentru condițiile meteorologice.",
-      answerFr: "Apportez votre pièce d'identité, votre e-mail de confirmation et tout l'équipement requis pour votre course. Consultez la section Règles pour l'équipement spécifique requis pour la distance de votre course. N'oubliez pas de vous habiller de manière appropriée selon les conditions météorologiques.",
-      answerDe: "Bringen Sie Ihren Ausweis, die Bestätigungs-E-Mail und die gesamte erforderliche Ausrüstung für Ihr Rennen mit. Überprüfen Sie den Regelabschnitt für die spezifische Ausrüstung, die für Ihre Renndistanz erforderlich ist. Vergessen Sie nicht, sich angemessen für die Wetterbedingungen zu kleiden.",
-      order: 2
+      answer:
+        "Bring your ID, confirmation email, and all the required equipment for your race. Check the Rules section for the specific equipment required for your race distance. Don't forget to dress appropriately for the weather conditions.",
+      answerRo:
+        "Aduceți actul de identitate, e-mailul de confirmare și tot echipamentul necesar pentru cursa dvs. Verificați secțiunea Reguli pentru echipamentul specific necesar pentru distanța de cursă. Nu uitați să vă îmbrăcați corespunzător pentru condițiile meteorologice.",
+      answerFr:
+        "Apportez votre pièce d'identité, votre e-mail de confirmation et tout l'équipement requis pour votre course. Consultez la section Règles pour l'équipement spécifique requis pour la distance de votre course. N'oubliez pas de vous habiller de manière appropriée selon les conditions météorologiques.",
+      answerDe:
+        "Bringen Sie Ihren Ausweis, die Bestätigungs-E-Mail und die gesamte erforderliche Ausrüstung für Ihr Rennen mit. Überprüfen Sie den Regelabschnitt für die spezifische Ausrüstung, die für Ihre Renndistanz erforderlich ist. Vergessen Sie nicht, sich angemessen für die Wetterbedingungen zu kleiden.",
+      order: 2,
     });
 
     this.createFAQ({
@@ -358,11 +404,15 @@ export class MemStorage implements IStorage {
       questionRo: "Există stații de ajutor pe traseu?",
       questionFr: "Y a-t-il des postes de ravitaillement sur le parcours?",
       questionDe: "Gibt es Verpflegungsstationen auf der Strecke?",
-      answer: "Yes, there are aid stations along all race routes. The 10km race has 2 aid stations, the 21km race has 4 aid stations, and the 50km race has 8 aid stations. Each aid station provides water, sports drinks, and various snacks.",
-      answerRo: "Da, există stații de ajutor de-a lungul tuturor traseelor de cursă. Cursa de 10 km are 2 stații de ajutor, cursa de 21 km are 4 stații de ajutor, iar cursa de 50 km are 8 stații de ajutor. Fiecare stație de ajutor oferă apă, băuturi sportive și diverse gustări.",
-      answerFr: "Oui, il y a des postes de ravitaillement le long de tous les parcours. La course de 10 km a 2 postes, la course de 21 km a 4 postes, et la course de 50 km a 8 postes. Chaque poste fournit de l'eau, des boissons sportives et diverses collations.",
-      answerDe: "Ja, es gibt Verpflegungsstationen entlang aller Rennstrecken. Das 10-km-Rennen hat 2 Stationen, das 21-km-Rennen hat 4 Stationen und das 50-km-Rennen hat 8 Stationen. Jede Station bietet Wasser, Sportgetränke und verschiedene Snacks.",
-      order: 3
+      answer:
+        "Yes, there are aid stations along all race routes. The 10km race has 2 aid stations, the 21km race has 4 aid stations, and the 50km race has 8 aid stations. Each aid station provides water, sports drinks, and various snacks.",
+      answerRo:
+        "Da, există stații de ajutor de-a lungul tuturor traseelor de cursă. Cursa de 10 km are 2 stații de ajutor, cursa de 21 km are 4 stații de ajutor, iar cursa de 50 km are 8 stații de ajutor. Fiecare stație de ajutor oferă apă, băuturi sportive și diverse gustări.",
+      answerFr:
+        "Oui, il y a des postes de ravitaillement le long de tous les parcours. La course de 10 km a 2 postes, la course de 21 km a 4 postes, et la course de 50 km a 8 postes. Chaque poste fournit de l'eau, des boissons sportives et diverses collations.",
+      answerDe:
+        "Ja, es gibt Verpflegungsstationen entlang aller Rennstrecken. Das 10-km-Rennen hat 2 Stationen, das 21-km-Rennen hat 4 Stationen und das 50-km-Rennen hat 8 Stationen. Jede Station bietet Wasser, Sportgetränke und verschiedene Snacks.",
+      order: 3,
     });
 
     this.createFAQ({
@@ -370,11 +420,15 @@ export class MemStorage implements IStorage {
       questionRo: "Pot schimba cursa după înregistrare?",
       questionFr: "Puis-je changer de course après m'être inscrit?",
       questionDe: "Kann ich mein Rennen nach der Anmeldung ändern?",
-      answer: "Race changes are possible up to 30 days before the event, subject to availability. To change your race, please contact our support team via email. Note that changing to a more expensive race requires an additional payment, while changing to a less expensive race does not offer a refund of the difference.",
-      answerRo: "Schimbările de cursă sunt posibile cu până la 30 de zile înainte de eveniment, în funcție de disponibilitate. Pentru a schimba cursa, vă rugăm să contactați echipa noastră de asistență prin e-mail. Rețineți că schimbarea la o cursă mai scumpă necesită o plată suplimentară, în timp ce schimbarea la o cursă mai puțin costisitoare nu oferă o rambursare a diferenței.",
-      answerFr: "Les changements de course sont possibles jusqu'à 30 jours avant l'événement, sous réserve de disponibilité. Pour changer de course, veuillez contacter notre équipe d'assistance par e-mail. Notez que passer à une course plus chère nécessite un paiement supplémentaire, tandis que passer à une course moins chère n'offre pas de remboursement de la différence.",
-      answerDe: "Rennänderungen sind bis zu 30 Tage vor der Veranstaltung möglich, vorbehaltlich der Verfügbarkeit. Um Ihr Rennen zu ändern, kontaktieren Sie bitte unser Support-Team per E-Mail. Beachten Sie, dass der Wechsel zu einem teureren Rennen eine zusätzliche Zahlung erfordert, während der Wechsel zu einem günstigeren Rennen keine Rückerstattung der Differenz bietet.",
-      order: 4
+      answer:
+        "Race changes are possible up to 30 days before the event, subject to availability. To change your race, please contact our support team via email. Note that changing to a more expensive race requires an additional payment, while changing to a less expensive race does not offer a refund of the difference.",
+      answerRo:
+        "Schimbările de cursă sunt posibile cu până la 30 de zile înainte de eveniment, în funcție de disponibilitate. Pentru a schimba cursa, vă rugăm să contactați echipa noastră de asistență prin e-mail. Rețineți că schimbarea la o cursă mai scumpă necesită o plată suplimentară, în timp ce schimbarea la o cursă mai puțin costisitoare nu oferă o rambursare a diferenței.",
+      answerFr:
+        "Les changements de course sont possibles jusqu'à 30 jours avant l'événement, sous réserve de disponibilité. Pour changer de course, veuillez contacter notre équipe d'assistance par e-mail. Notez que passer à une course plus chère nécessite un paiement supplémentaire, tandis que passer à une course moins chère n'offre pas de remboursement de la différence.",
+      answerDe:
+        "Rennänderungen sind bis zu 30 Tage vor der Veranstaltung möglich, vorbehaltlich der Verfügbarkeit. Um Ihr Rennen zu ändern, kontaktieren Sie bitte unser Support-Team per E-Mail. Beachten Sie, dass der Wechsel zu einem teureren Rennen eine zusätzliche Zahlung erfordert, während der Wechsel zu einem günstigeren Rennen keine Rückerstattung der Differenz bietet.",
+      order: 4,
     });
 
     // Program Events - Day 1
@@ -386,12 +440,16 @@ export class MemStorage implements IStorage {
       titleRo: "Înregistrare și ridicare numere",
       titleFr: "Inscription et collecte des dossards",
       titleDe: "Registrierung und Abholung der Startnummern",
-      description: "Main Event Center - Collect your registration package and race bib.",
-      descriptionRo: "Centrul Principal al Evenimentului - Ridicați pachetul de înregistrare și numărul de concurs.",
-      descriptionFr: "Centre Principal de l'Événement - Récupérez votre pack d'inscription et votre dossard.",
-      descriptionDe: "Hauptveranstaltungszentrum - Holen Sie Ihr Registrierungspaket und Ihre Startnummer ab.",
+      description:
+        "Main Event Center - Collect your registration package and race bib.",
+      descriptionRo:
+        "Centrul Principal al Evenimentului - Ridicați pachetul de înregistrare și numărul de concurs.",
+      descriptionFr:
+        "Centre Principal de l'Événement - Récupérez votre pack d'inscription et votre dossard.",
+      descriptionDe:
+        "Hauptveranstaltungszentrum - Holen Sie Ihr Registrierungspaket und Ihre Startnummer ab.",
       location: "Main Event Center",
-      order: 1
+      order: 1,
     });
 
     this.createProgramEvent({
@@ -402,12 +460,16 @@ export class MemStorage implements IStorage {
       titleRo: "Expoziție și prezentare sponsori",
       titleFr: "Expo et présentation des sponsors",
       titleDe: "Expo und Sponsorenpräsentation",
-      description: "Outdoor Exhibition Area - Visit our sponsors and check out the latest trail running gear.",
-      descriptionRo: "Zona de Expoziție în Aer Liber - Vizitați sponsorii noștri și verificați cele mai recente echipamente de alergare.",
-      descriptionFr: "Zone d'Exposition Extérieure - Visitez nos sponsors et découvrez les derniers équipements de trail running.",
-      descriptionDe: "Außenausstellungsbereich - Besuchen Sie unsere Sponsoren und entdecken Sie die neueste Trailrunning-Ausrüstung.",
+      description:
+        "Outdoor Exhibition Area - Visit our sponsors and check out the latest trail running gear.",
+      descriptionRo:
+        "Zona de Expoziție în Aer Liber - Vizitați sponsorii noștri și verificați cele mai recente echipamente de alergare.",
+      descriptionFr:
+        "Zone d'Exposition Extérieure - Visitez nos sponsors et découvrez les derniers équipements de trail running.",
+      descriptionDe:
+        "Außenausstellungsbereich - Besuchen Sie unsere Sponsoren und entdecken Sie die neueste Trailrunning-Ausrüstung.",
       location: "Outdoor Exhibition Area",
-      order: 2
+      order: 2,
     });
 
     this.createProgramEvent({
@@ -418,12 +480,16 @@ export class MemStorage implements IStorage {
       titleRo: "Briefing cursă: Exploratorul Montan",
       titleFr: "Briefing course: Explorateur de Montagne",
       titleDe: "Rennbriefing: Bergentdecker",
-      description: "Conference Room - Mandatory briefing for all 10km race participants.",
-      descriptionRo: "Sala de Conferințe - Briefing obligatoriu pentru toți participanții la cursa de 10 km.",
-      descriptionFr: "Salle de Conférence - Briefing obligatoire pour tous les participants à la course de 10 km.",
-      descriptionDe: "Konferenzsaal - Obligatorisches Briefing für alle Teilnehmer des 10-km-Rennens.",
+      description:
+        "Conference Room - Mandatory briefing for all 10km race participants.",
+      descriptionRo:
+        "Sala de Conferințe - Briefing obligatoriu pentru toți participanții la cursa de 10 km.",
+      descriptionFr:
+        "Salle de Conférence - Briefing obligatoire pour tous les participants à la course de 10 km.",
+      descriptionDe:
+        "Konferenzsaal - Obligatorisches Briefing für alle Teilnehmer des 10-km-Rennens.",
       location: "Conference Room",
-      order: 3
+      order: 3,
     });
 
     // Program Events - Day 2
@@ -440,7 +506,7 @@ export class MemStorage implements IStorage {
       descriptionFr: "Zone de départ principale - La course de 10 km commence.",
       descriptionDe: "Hauptstartbereich - Das 10-km-Rennen beginnt.",
       location: "Main Starting Area",
-      order: 1
+      order: 1,
     });
 
     this.createProgramEvent({
@@ -456,7 +522,7 @@ export class MemStorage implements IStorage {
       descriptionFr: "Zone de départ principale - La course de 21 km commence.",
       descriptionDe: "Hauptstartbereich - Das 21-km-Rennen beginnt.",
       location: "Main Starting Area",
-      order: 2
+      order: 2,
     });
 
     // Program Events - Day 3
@@ -473,7 +539,7 @@ export class MemStorage implements IStorage {
       descriptionFr: "Zone de départ principale - La course de 50 km commence.",
       descriptionDe: "Hauptstartbereich - Das 50-km-Rennen beginnt.",
       location: "Main Starting Area",
-      order: 1
+      order: 1,
     });
 
     this.createProgramEvent({
@@ -484,74 +550,94 @@ export class MemStorage implements IStorage {
       titleRo: "Ceremonia de premiere și petrecerea de închidere",
       titleFr: "Cérémonie de remise des prix et fête de clôture",
       titleDe: "Preisverleihung & Abschlussfeier",
-      description: "Main Stage - Celebration, awards for all races, and closing festivities.",
-      descriptionRo: "Scena Principală - Festivități, premii pentru toate cursele și festivități de închidere.",
-      descriptionFr: "Scène Principale - Célébration, remise des prix pour toutes les courses et festivités de clôture.",
-      descriptionDe: "Hauptbühne - Feier, Preise für alle Rennen und Abschlussfeierlichkeiten.",
+      description:
+        "Main Stage - Celebration, awards for all races, and closing festivities.",
+      descriptionRo:
+        "Scena Principală - Festivități, premii pentru toate cursele și festivități de închidere.",
+      descriptionFr:
+        "Scène Principale - Célébration, remise des prix pour toutes les courses et festivités de clôture.",
+      descriptionDe:
+        "Hauptbühne - Feier, Preise für alle Rennen und Abschlussfeierlichkeiten.",
       location: "Main Stage",
-      order: 2
+      order: 2,
     });
 
     // Sponsors
     this.createSponsor({
-      name: "Outdoor Gear Co.",
-      description: "Leading provider of premium outdoor and trail running equipment.",
-      descriptionRo: "Furnizor principal de echipamente premium pentru activități în aer liber și alergare montană.",
-      descriptionFr: "Fournisseur principal d'équipements premium pour les activités de plein air et la course en montagne.",
-      descriptionDe: "Führender Anbieter von Premium-Ausrüstung für Outdoor-Aktivitäten und Trailrunning.",
-      logoPlaceholder: "OUTDOOR GEAR CO.",
-      website: "https://example.com/outdoorgearco",
+      name: "Hoka",
+      description:
+        "Innovative running shoes and apparel designed for performance and comfort.",
+      descriptionRo:
+        "Încălțăminte și echipamente inovatoare pentru alergare, proiectate pentru performanță și confort.",
+      descriptionFr:
+        "Chaussures et vêtements de course innovants conçus pour la performance et le confort.",
+      descriptionDe:
+        "Innovative Laufschuhe und Bekleidung für Leistung und Komfort.",
+      logoPlaceholder: "HOKA",
+      website: "https://www.hoka.com/",
       level: "premium",
-      order: 1
+      order: 1,
     });
 
     this.createSponsor({
-      name: "Mountain Energy",
-      description: "Sports nutrition specialists providing energy for trail runners.",
-      descriptionRo: "Specialiști în nutriție sportivă care oferă energie pentru alergătorii montani.",
-      descriptionFr: "Spécialistes en nutrition sportive fournissant de l'énergie aux coureurs de trail.",
-      descriptionDe: "Sportnahrungsspezialisten, die Energie für Trailrunner bereitstellen.",
-      logoPlaceholder: "MOUNTAIN ENERGY",
-      website: "https://example.com/mountainenergy",
+      name: "Nike",
+      description: "Global leader in sports footwear, apparel, and equipment.",
+      descriptionRo:
+        "Lider global în încălțăminte sportivă, îmbrăcăminte și echipamente.",
+      descriptionFr:
+        "Leader mondial des chaussures de sport, vêtements et équipements.",
+      descriptionDe:
+        "Weltweiter Marktführer für Sportschuhe, Bekleidung und Ausrüstung.",
+      logoPlaceholder: "NIKE",
+      website: "https://www.nike.com/",
       level: "premium",
-      order: 2
+      order: 2,
     });
 
     this.createSponsor({
-      name: "Alpine Resorts",
-      description: "Luxury accommodations in the heart of the Carpathian Mountains.",
-      descriptionRo: "Cazare de lux în inima Munților Carpați.",
-      descriptionFr: "Hébergement de luxe au cœur des Carpates.",
-      descriptionDe: "Luxusunterkünfte im Herzen der Karpaten.",
-      logoPlaceholder: "ALPINE RESORTS",
-      website: "https://example.com/alpineresorts",
+      name: "Adidas Terrex",
+      description:
+        "High-performance outdoor gear built for extreme conditions.",
+      descriptionRo:
+        "Echipament outdoor de înaltă performanță, creat pentru condiții extreme.",
+      descriptionFr:
+        "Équipement de plein air haute performance conçu pour des conditions extrêmes.",
+      descriptionDe: "Hochleistungs-Outdoorausrüstung für extreme Bedingungen.",
+      logoPlaceholder: "ADIDAS TERREX",
+      website: "https://www.adidas.com/us/terrex",
       level: "premium",
-      order: 3
+      order: 3,
     });
 
     // Standard sponsors
     this.createSponsor({
       name: "Trail Shoes",
       description: "Specialized footwear for trail running enthusiasts.",
-      descriptionRo: "Încălțăminte specializată pentru entuziaștii de alergare montană.",
-      descriptionFr: "Chaussures spécialisées pour les passionnés de course en montagne.",
+      descriptionRo:
+        "Încălțăminte specializată pentru entuziaștii de alergare montană.",
+      descriptionFr:
+        "Chaussures spécialisées pour les passionnés de course en montagne.",
       descriptionDe: "Spezialisiertes Schuhwerk für Trailrunning-Enthusiasten.",
       logoPlaceholder: "TRAIL SHOES",
       website: "https://example.com/trailshoes",
       level: "standard",
-      order: 1
+      order: 1,
     });
 
     this.createSponsor({
       name: "Hydro Pack",
-      description: "Premium hydration solutions for runners and outdoor enthusiasts.",
-      descriptionRo: "Soluții premium de hidratare pentru alergători și entuziaști ai activităților în aer liber.",
-      descriptionFr: "Solutions d'hydratation premium pour coureurs et passionnés d'activités de plein air.",
-      descriptionDe: "Premium-Hydrationslösungen für Läufer und Outdoor-Enthusiasten.",
+      description:
+        "Premium hydration solutions for runners and outdoor enthusiasts.",
+      descriptionRo:
+        "Soluții premium de hidratare pentru alergători și entuziaști ai activităților în aer liber.",
+      descriptionFr:
+        "Solutions d'hydratation premium pour coureurs et passionnés d'activités de plein air.",
+      descriptionDe:
+        "Premium-Hydrationslösungen für Läufer und Outdoor-Enthusiasten.",
       logoPlaceholder: "HYDRO PACK",
       website: "https://example.com/hydropack",
       level: "standard",
-      order: 2
+      order: 2,
     });
 
     // Sample Participants
@@ -566,7 +652,7 @@ export class MemStorage implements IStorage {
       medicalInfo: "No allergies",
       status: "confirmed",
       gender: "M",
-      age: 32
+      age: 32,
     });
 
     this.createParticipant({
@@ -580,7 +666,7 @@ export class MemStorage implements IStorage {
       medicalInfo: "Mild pollen allergy",
       status: "confirmed",
       gender: "F",
-      age: 29
+      age: 29,
     });
 
     this.createParticipant({
@@ -594,13 +680,13 @@ export class MemStorage implements IStorage {
       medicalInfo: "Previous knee injury, fully healed",
       status: "pending",
       gender: "M",
-      age: 45
+      age: 45,
     });
   }
 }
 
 // Import PostgresStorage
-import { PostgresStorage } from './postgres-storage';
+import { PostgresStorage } from "./postgres-storage";
 
 // Use PostgresStorage instead of MemStorage
 export const storage = new MemStorage();

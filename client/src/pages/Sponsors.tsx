@@ -10,7 +10,7 @@ export default function Sponsors() {
   const sponsors = [
     {
       id: 1,
-      name: "SportGear Pro",
+      name: "Primaria Budureasa",
       logo: "SPONSOR 1",
       tier: "gold",
       description: "sponsors.sponsor1.description",

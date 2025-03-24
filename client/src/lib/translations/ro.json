@@ -1,13 +1,10 @@
 {
-  "navbar": {
-    "home": "Acasă",
-    "races": "Curse",
-    "registration": "Înregistrare",
-    "participants": "Participanți",
-    "rules": "Reguli",
-    "program": "Program",
-    "contact": "Contact",
-    "sponsors": "Sponsori"
+  "common": {
+    "loading": "Se încarcă...",
+    "submitting": "Se trimite...",
+    "error": "A apărut o eroare",
+    "success": "Succes!",
+    "notAvailable": "Indisponibil"
   },
   "nav": {
     "home": "Acasă",
@@ -18,69 +15,35 @@
     "program": "Program",
     "contact": "Contact",
     "sponsors": "Sponsori",
-    "registerButton": "Înregistrare Acum"
+    "registerButton": "Înregistrează-te acum"
   },
-  "footer": {
-    "tagline": "Experimentează competiția ultimă de alergare pe trasee, în inima naturii",
-    "quickLinks": "Linkuri Rapide",
-    "contactUs": "Contactați-ne",
-    "newsletter": "Newsletter",
-    "subscribeMessage": "Abonează-te la newsletter pentru actualizări și știri",
-    "emailPlaceholder": "Email-ul tău",
-    "copyright": "© {year} TrailRunPro. Toate drepturile rezervate."
+  "hero": {
+    "title": "Provocarea Munților",
+    "subtitle": "Experimentează emoția alergării montane prin peisaje montane incredibile. Alătură-te alergătorilor din întreaga lume în această competiție de neuitat.",
+    "date": "15-17 Iunie, 2024",
+    "registerButton": "Înregistrează-te acum",
+    "exploreButton": "Explorează cursele",
+    "imageAlt": "Alergare montană în munți"
+  },
+  "quickInfo": {
+    "location": {
+      "title": "Locație",
+      "content": "Munții Carpați, România",
+      "linkText": "Vezi pe hartă"
+    },
+    "date": {
+      "title": "Data",
+      "content": "15-17 Iunie, 2024",
+      "linkText": "Vezi programul complet"
+    },
+    "participants": {
+      "title": "Participanți",
+      "content": "Peste 1.500 de alergători din 30+ țări",
+      "linkText": "Vezi participanții"
+    }
   },
   "home": {
-    "hero": {
-      "title": "Provocarea Traseelor Montane 2023",
-      "subtitle": "Experimentează competiția ultimă de alergare pe trasee, în inima naturii",
-      "registerButton": "Înregistrează-te Acum",
-      "exploreButton": "Explorează Cursele",
-      "imageAlt": "Alergător pe traseu în peisaj montan",
-      "date": "15-17 Iulie 2023"
-    },
-    "quickInfo": {
-      "location": {
-        "title": "Locație",
-        "content": "Munții Carpați, Transilvania",
-        "linkText": "Vezi Harta"
-      },
-      "date": {
-        "title": "Data Evenimentului",
-        "content": "15-17 Iulie 2023",
-        "linkText": "Program Complet"
-      },
-      "participants": {
-        "title": "Participanți",
-        "content": "Alătură-te celor peste 500 de alergători",
-        "linkText": "Vezi Participanții"
-      }
-    },
-    "highlights": {
-      "title": "Informații Importante",
-      "date": "15-17 Iulie, 2023",
-      "dateDescription": "Trei zile de curse provocatoare pe trasee montane spectaculoase",
-      "categories": "5 Categorii de Curse",
-      "categoriesDescription": "De la sprint de 10K la ultra de 80K, potrivite pentru toate nivelurile de experiență",
-      "prize": "Premii de 25.000$",
-      "prizeDescription": "Concurează pentru premii substanțiale în mai multe categorii"
-    },
-    "featuredRaces": {
-      "title": "Curse Recomandate",
-      "viewDetails": "Vezi Detalii",
-      "viewAllButton": "Vezi Toate Cursele",
-      "raceDate1": "17 Iulie",
-      "raceDate2": "16 Iulie",
-      "raceDate3": "15 Iulie"
-    },
-    "testimonials": {
-      "title": "Ce Spun Participanții",
-      "quote1": "Unul dintre cele mai provocatoare și frumoase trasee pe care le-am alergat vreodată. Organizarea a fost de primă clasă, iar priveliștile au fost incredibile!",
-      "quote2": "Combinație perfectă de teren tehnic și trasee line. Cu siguranță voi reveni anul viitor cu mai mulți prieteni!",
-      "quote3": "Prima mea cursă pe traseu și sunt captivat! Stațiile de ajutor au fost bine aprovizionate, iar voluntarii au fost foarte încurajatori."
-    },
-    "sponsors": {
-      "title": "Sponsorii Noștri"
-    }
+    "featuredRaces": "Curse Recomandate"
   },
   "races": {
     "title": "Curse",
@@ -124,362 +87,209 @@
       "downloadGPX": "Descarcă fișier GPX"
     }
   },
-  "race": {
-    "filter": {
-      "all": "Toate",
-      "ultra": "Ultra",
-      "marathon": "Maraton",
-      "half": "Semi-maraton",
-      "25k": "25K",
-      "10k": "10K"
-    },
-    "ultra": {
-      "name": "Ultra Montan 80K"
-    },
-    "marathon": {
-      "name": "Provocarea Maratonului"
-    },
-    "half": {
-      "name": "Semi-maraton în Pădure"
-    },
-    "25k": {
-      "name": "25K la Amurg"
-    },
-    "10k": {
-      "name": "10K la Răsărit"
-    },
-    "elevation": "Elevație: {elevation}m",
-    "difficulty": {
-      "label": "Dificultate",
-      "beginner": "Începător",
-      "intermediate": "Intermediar",
-      "expert": "Expert"
-    },
-    "dates": {
-      "july15": "15 Iulie",
-      "july16": "16 Iulie",
-      "july17": "17 Iulie"
-    }
-  },
   "registration": {
-    "title": "Înregistrare",
-    "subtitle": "Înscrie-te la competiția noastră de alergare pe traseu",
-    "formTitle": "Formular de Înregistrare",
-    "firstName": "Prenume",
-    "lastName": "Nume",
-    "email": "Email",
-    "phone": "Număr de Telefon",
-    "country": "Țară",
-    "selectCountry": "Selectează țara",
-    "dateOfBirth": "Data Nașterii",
-    "raceCategory": "Categoria Cursei",
-    "selectRace": "Selectează categoria cursei",
-    "emergencyName": "Nume Contact de Urgență",
-    "emergencyPhone": "Telefon Contact de Urgență",
-    "termsText": "Sunt de acord cu",
-    "termsLink": "Termenii și Condițiile",
-    "andText": "și",
-    "privacyLink": "Politica de Confidențialitate",
-    "submitButton": "Finalizează Înregistrarea",
-    "submitting": "Se procesează...",
-    "successTitle": "Înregistrare Reușită!",
-    "successMessage": "Mulțumim pentru înregistrare. Vei primi un email de confirmare în curând.",
-    "email": {
-      "title": "Email de confirmare trimis",
-      "message": "Te rugăm să verifici căsuța de email pentru detaliile de confirmare a înregistrării."
+    "title": "Înregistrare pentru Competiție",
+    "subtitle": "Completează formularul de mai jos pentru a-ți asigura un loc într-una din cursele noastre. Înregistrarea timpurie asigură cele mai bune tarife.",
+    "form": {
+      "firstName": "Prenume",
+      "lastName": "Nume",
+      "email": "Adresă de Email",
+      "phone": "Număr de Telefon",
+      "country": "Țară",
+      "selectCountry": "Selectează țara ta",
+      "birthDate": "Data Nașterii",
+      "gender": "Gen",
+      "male": "Masculin",
+      "female": "Feminin",
+      "selectRace": "Selectează Cursa",
+      "medical": "Informații Medicale",
+      "medicalPlaceholder": "Te rugăm să împărtășești orice informație medicală relevantă (alergii, afecțiuni, etc.)",
+      "termsText": "Am citit și sunt de acord cu",
+      "termsLink": "termenii și condițiile",
+      "andText": "și",
+      "privacyLink": "politica de confidențialitate",
+      "riskText": "Înțeleg riscurile asociate cu alergarea montană.",
+      "submitButton": "Finalizează Înregistrarea"
+    },
+    "success": {
+      "title": "Înregistrare Reușită",
+      "message": "Îți mulțumim pentru înregistrare! Vei primi un email de confirmare în curând."
+    },
+    "error": {
+      "title": "Înregistrare Eșuată",
+      "message": "A apărut o eroare la procesarea înregistrării tale. Te rugăm să încerci din nou."
     }
   },
   "participants": {
-    "title": "Participanți",
-    "subtitle": "Vezi participanții înregistrați pentru competiția noastră",
-    "searchLabel": "Caută Participanți",
-    "searchPlaceholder": "Caută după nume...",
-    "filterByCategory": "Filtrează după Categorie",
-    "allCategories": "Toate Categoriile",
-    "bibNumber": "Nr. Bib",
-    "name": "Nume",
-    "country": "Țară",
-    "raceCategory": "Categoria Cursei",
-    "errorLoading": "Eroare la încărcarea participanților. Te rugăm să încerci din nou mai târziu.",
-    "noParticipants": "Nu au fost găsiți participanți care să corespundă criteriilor tale."
+    "title": "Participanți Înregistrați",
+    "subtitle": "Navighează prin lista participanților înregistrați în prezent. Verifică cine participă la fiecare cursă și găsește prieteni sau competitori.",
+    "searchPlaceholder": "Caută după nume sau țară...",
+    "allRaces": "Toate Cursele",
+    "allCountries": "Toate Țările",
+    "noParticipants": "Nu s-au găsit participanți",
+    "table": {
+      "name": "Nume",
+      "country": "Țară",
+      "race": "Cursă",
+      "bib": "Nr. Bib",
+      "status": "Status"
+    },
+    "status": {
+      "confirmed": "Confirmat",
+      "pending": "În așteptare",
+      "cancelled": "Anulat"
+    },
+    "unknownRace": "Cursă Necunoscută",
+    "pagination": {
+      "showing": "Se afișează",
+      "to": "până la",
+      "of": "din",
+      "entries": "înregistrări"
+    }
   },
   "rules": {
-    "title": "Reguli",
-    "subtitle": "Regulile și regulamentele competiției",
-    "important": "Notificare Importantă",
-    "importantDescription": "Toți participanții trebuie să respecte aceste reguli pentru a asigura o competiție sigură și echitabilă pentru toată lumea.",
-    "introduction": "Următoarele reguli au fost stabilite pentru a asigura siguranța tuturor participanților și pentru a menține integritatea competiției. Vă rugăm să le citiți cu atenție.",
-    "general": {
-      "title": "Reguli Generale",
-      "item1": "Participanții trebuie să aibă cel puțin 18 ani în ziua cursei.",
-      "item2": "Înregistrarea este personală și nu poate fi transferată unei alte persoane.",
-      "item3": "Numerele de concurs trebuie să fie vizibile în orice moment în timpul cursei.",
-      "item4": "Participanții trebuie să urmeze traseul marcat în orice moment.",
-      "item5": "Deciziile directorului de cursă sunt definitive."
-    },
-    "equipment": {
-      "title": "Echipament Necesar",
-      "item1": "Telefon mobil cu numere de urgență salvate (oferite la înregistrare).",
-      "item2": "Container de apă cu o capacitate minimă de 1 litru (curse ultra) sau 500ml (altele).",
-      "item3": "Fluier pentru situații de urgență.",
-      "item4": "Îmbrăcăminte adecvată condițiilor meteorologice (detalii furnizate aproape de ziua cursei)."
-    },
-    "conduct": {
-      "title": "Conduita Participanților",
-      "item1": "Aruncarea gunoaielor pe traseu este strict interzisă. Folosiți coșurile de gunoi desemnate la stațiile de ajutor.",
-      "item2": "Respectați ceilalți participanți, personalul, voluntarii și mediul înconjurător.",
-      "item3": "Ajutați colegii participanți în situații de urgență.",
-      "item4": "Utilizarea dispozitivelor personale de muzică cu căști este descurajată din motive de siguranță."
-    },
-    "safety": {
-      "title": "Proceduri de Siguranță",
-      "item1": "Verificările medicale pot fi efectuate în diverse puncte în timpul cursei.",
-      "item2": "Participanții care prezintă semne de oboseală excesivă sau vătămare pot fi opriți de personalul medical.",
-      "item3": "În caz de urgență, contactați oficialii cursei sau folosiți numărul de urgență furnizat.",
-      "item4": "Oficialii cursei pot suspenda sau anula cursa din cauza condițiilor meteorologice extreme."
-    },
-    "environment": {
-      "title": "Protecția Mediului",
-      "item1": "Rămâneți pe traseele marcate pentru a preveni eroziunea solului și deteriorarea vegetației.",
-      "item2": "Nu deranjați viața sălbatică și nu deteriorați flora.",
-      "item3": "Luați cu voi toate deșeurile până când le puteți arunca în mod corespunzător."
-    },
-    "contactQuestion": "Aveți întrebări despre reguli?",
-    "contactEmail": "rules@trailrunpro.com"
+    "title": "Reguli și Regulamente",
+    "subtitle": "Familiarizează-te cu regulile competiției pentru a asigura o cursă sigură și corectă pentru toată lumea.",
+    "downloadButton": "Descarcă Regulamentul Complet PDF",
+    "sections": {
+      "general": {
+        "title": "Reguli Generale",
+        "rules": {
+          "1": "Participanții trebuie să urmeze traseul marcat în permanență. Scurtăturile sunt strict interzise și vor duce la descalificare.",
+          "2": "Numărul de concurs trebuie să fie vizibil în orice moment în timpul cursei.",
+          "3": "Aruncarea gunoaielor pe traseu este strict interzisă. Folosește coșurile de gunoi desemnate la punctele de alimentare.",
+          "4": "În caz de urgență, participanții trebuie să ajute alți alergători și să alerteze oficialii cursei imediat."
+        }
+      },
+      "equipment": {
+        "title": "Echipament Obligatoriu",
+        "rules": {
+          "1": "Recipient de apă (minim 1L pentru 10km, 1.5L pentru 21km, 2L pentru 50km).",
+          "2": "Telefon mobil cu contactele organizatorilor salvate.",
+          "3": "Pătură termică și fluier (doar pentru cursa de 50km).",
+          "4": "Frontală cu baterii de schimb (doar pentru cursa de 50km)."
+        }
+      },
+      "timeLimits": {
+        "title": "Limite de Timp & Puncte de Control",
+        "rules": {
+          "1": "Exploratorul Montan (10km): limită totală de timp 3 ore.",
+          "2": "Provocarea Pădurii (21km): limită totală de timp 5 ore cu punct de control la mijloc la 2.5 ore.",
+          "3": "Ultra Vârf (50km): limită totală de timp 12 ore cu puncte de control la 20km (4 ore) și 35km (8 ore)."
+        }
+      },
+      "penalties": {
+        "title": "Penalizări & Descalificare",
+        "rules": {
+          "1": "Echipament obligatoriu lipsă: penalizare de 30 de minute.",
+          "2": "Scurtături pe traseu: descalificare.",
+          "3": "Aruncare de gunoi: penalizare de 1 oră pentru prima abatere, descalificare pentru a doua abatere.",
+          "4": "Neacordarea de ajutor unui alergător aflat în dificultate: descalificare."
+        }
+      }
+    }
   },
   "program": {
-    "title": "Program",
-    "subtitle": "Programul evenimentelor pentru weekend-ul competiției",
-    "schedule": "Programul Evenimentelor",
-    "downloadPDF": "Descarcă PDF",
-    "downloadStarted": "Descărcarea a început. Dacă nu se întâmplă nimic, vă rugăm să verificați setările browserului.",
-    "day1": "Ziua 1 (15 Iulie)",
-    "day2": "Ziua 2 (16 Iulie)",
-    "day3": "Ziua 3 (17 Iulie)",
-    "day1": {
-      "event1": {
-        "title": "Check-in Participanți & Ridicare Numere",
-        "location": "Centrul Evenimentului - Plaza Centrală",
-        "description": "Toți participanții trebuie să se înregistreze și să-și ridice numerele de concurs și pachetele de cursă."
-      },
-      "event2": {
-        "title": "Briefing Cursă - 10K & 25K",
-        "location": "Sala de Conferințe - Centrul Evenimentului",
-        "description": "Briefing obligatoriu pentru cei care participă la cursele de 10K și 25K."
-      },
-      "event3": {
-        "title": "Ceremonia de Bun Venit & Cina cu Paste",
-        "location": "Centrul Evenimentului - Zona Grădină",
-        "description": "Întâmpinăm toți participanții cu o cină cu paste și ceremonia de deschidere."
-      }
-    },
-    "day2": {
-      "event1": {
-        "title": "Încălzire Pre-Cursă",
-        "location": "Zona de Start - Intrarea în Pădure",
-        "description": "Sesiune de încălzire ghidată pentru toți alergătorii care încep astăzi."
-      },
-      "event2": {
-        "title": "Start Cursă 10K",
-        "location": "Linia de Start - Traseu Pădure",
-        "description": "Startul oficial al cursei 10K la Răsărit."
-      },
-      "event3": {
-        "title": "Start Cursă 25K",
-        "location": "Linia de Start - Traseu Pădure",
-        "description": "Startul oficial al cursei 25K la Amurg."
-      },
-      "event4": {
-        "title": "Ceremonia de Premiere Ziua 1",
-        "location": "Centrul Evenimentului - Scena Principală",
-        "description": "Ceremonia de premiere pentru cursele de 10K și 25K."
-      }
-    },
-    "day3": {
-      "event1": {
-        "title": "Încălzire Pre-Cursă",
-        "location": "Zona de Start - Baza Muntelui",
-        "description": "Sesiune de încălzire ghidată pentru toți alergătorii care încep astăzi."
-      },
-      "event2": {
-        "title": "Start Ultra 80K & Maraton",
-        "location": "Linia de Start - Baza Muntelui",
-        "description": "Startul oficial al curselor Ultra 80K și Provocarea Maratonului."
-      },
-      "event3": {
-        "title": "Start Semi-Maraton",
-        "location": "Linia de Start - Joncțiunea Pădurii",
-        "description": "Startul oficial al Semi-maratonului în Pădure."
-      },
-      "event4": {
-        "title": "Ceremonia de Închidere & Premiere",
-        "location": "Centrul Evenimentului - Scena Principală",
-        "description": "Ceremonia finală de premiere și închiderea Provocării Traseelor Montane 2023."
-      }
-    },
-    "notes": {
-      "title": "Note Importante",
-      "note1": "Programul poate suferi ușoare ajustări în funcție de condițiile meteorologice.",
-      "note2": "Toți participanții trebuie să se înregistreze cu cel puțin 1 oră înainte de ora de start a cursei lor.",
-      "note3": "Ridicarea numerelor de concurs este disponibilă doar în timpul perioadelor de check-in desemnate în Ziua 1."
+    "title": "Programul Evenimentului",
+    "subtitle": "Planifică-ți weekendul de cursă cu programul nostru detaliat al tuturor evenimentelor și activităților.",
+    "downloadButton": "Descarcă Programul Complet PDF",
+    "day": "Ziua",
+    "dayTitles": {
+      "day1": "Înregistrare & Briefing",
+      "day2": "Exploratorul Montan & Provocarea Pădurii",
+      "day3": "Ultra Vârf & Închidere"
     }
   },
   "contact": {
-    "title": "Contact",
-    "subtitle": "Intră în legătură cu echipa noastră",
+    "title": "Contactează-ne",
+    "subtitle": "Ai întrebări despre competiție? Ia legătura cu echipa noastră pentru asistență.",
     "info": {
       "title": "Informații de Contact",
-      "addressTitle": "Locație",
-      "emailTitle": "Email",
-      "phoneTitle": "Telefon",
-      "email": "info@trailrunpro.com",
-      "phone": "+40 123 456 789",
-      "location": "Munții Carpați, Transilvania",
-      "address": "123 Bulevardul Alergătorilor, Brașov, România",
-      "hours": "Program de Lucru",
-      "weekdays": "Luni-Vineri: 9:00 - 17:00",
-      "weekend": "Sâmbătă-Duminică: Închis",
+      "email": "Email",
+      "phone": "Telefon",
+      "location": "Cartierul General al Cursei",
+      "address": "Centrul Montan Resort\nMunții Carpați\nRomânia",
+      "hours": "Program Suport",
+      "weekdays": "Luni - Vineri: 9:00 - 17:00",
+      "weekend": "Weekend: 10:00 - 15:00",
       "social": "Urmărește-ne"
     },
     "form": {
       "title": "Trimite-ne un Mesaj",
       "name": "Numele Tău",
-      "email": "Email-ul Tău",
+      "email": "Adresă de Email",
       "subject": "Subiect",
       "message": "Mesaj",
-      "send": "Trimite Mesaj",
-      "sending": "Se trimite...",
-      "successTitle": "Mesaj Trimis!",
-      "successMessage": "Mulțumim pentru mesaj. Vom răspunde cât mai curând posibil.",
-      "submitButton": "Trimite Mesaj"
+      "submitButton": "Trimite Mesaj",
+      "success": {
+        "title": "Mesaj Trimis",
+        "message": "Mulțumim pentru mesajul tău. Îți vom răspunde cât mai curând posibil."
+      },
+      "error": {
+        "title": "Mesajul nu a fost trimis",
+        "message": "A apărut o eroare la trimiterea mesajului tău. Te rugăm să încerci din nou."
+      }
     },
     "faq": {
       "title": "Întrebări Frecvente",
-      "q1": "Cum îmi modific înregistrarea?",
-      "a1": "Poți modifica înregistrarea accesând contul tău pe site-ul nostru. Dacă nu ai un cont, te rugăm să ne contactezi direct la info@trailrunpro.com cu cererea ta.",
-      "q2": "Ce se întâmplă dacă evenimentul este anulat din cauza vremii?",
-      "a2": "Dacă trebuie să anulăm evenimentul din cauza condițiilor meteorologice severe, participanților li se va oferi fie o rambursare completă, fie înregistrare prioritară pentru evenimentul de anul viitor.",
-      "q3": "Există restricții de vârstă pentru curse?",
-      "a3": "Da, participanții trebuie să aibă cel puțin 18 ani pentru categoriile Ultra 80K și Maraton. Pentru Semi-Maraton, 25K și 10K, participanții trebuie să aibă cel puțin 16 ani cu acordul părinților.",
-      "q4": "Ce stații de ajutor vor fi disponibile pe traseu?",
-      "a4": "Stațiile de ajutor sunt poziționate la aproximativ fiecare 5-10km, în funcție de categoria cursei. Toate stațiile oferă apă, electroliți și mâncare de bază. Stațiile de ajutor majore (marcate pe hărțile de cursă) oferă, de asemenea, opțiuni de nutriție mai consistente.",
-      "q5": "Pot aduce o echipă de suport?",
-      "a5": "Echipele de suport sunt permise, dar pot asista alergătorii doar la stațiile de ajutor desemnate. Punctele de acces pentru echipe vor fi marcate pe hărțile furnizate în pachetul de cursă.",
       "registration": {
-        "question": "Cum mă înregistrez pentru eveniment?",
-        "answer": "Te poți înregistra online prin pagina noastră de Înregistrare. Completează formularul cu datele tale, selectează categoria de cursă și finalizează procesul de plată."
+        "question": "Cum mă înregistrez pentru competiție?",
+        "answer": "Înregistrarea este disponibilă online prin intermediul site-ului nostru. Accesează secțiunea Înregistrare, alege cursa, completează formularul și efectuează plata. Vei primi un e-mail de confirmare cu toate detaliile."
       },
       "equipment": {
-        "question": "Ce echipament este necesar pentru cursă?",
-        "answer": "Echipamentul necesar include un recipient pentru apă, telefon mobil, fluier și îmbrăcăminte adecvată. Pentru distanțele ultra, pot fi necesare articole suplimentare. Consultă pagina Reguli pentru detalii complete."
+        "question": "Ce ar trebui să aduc în ziua cursei?",
+        "answer": "Adu actul de identitate, e-mailul de confirmare și tot echipamentul necesar pentru cursa ta. Verifică secțiunea Reguli pentru echipamentul specific necesar pentru distanța ta de cursă. Nu uita să te îmbraci corespunzător pentru condițiile meteorologice."
       },
       "stations": {
-        "question": "Cum sunt organizate stațiile de ajutor?",
-        "answer": "Stațiile de ajutor sunt poziționate la fiecare 5-10km de-a lungul traseului, în funcție de distanța cursei. Toate oferă apă, electroliți și nutriție de bază. Stațiile principale oferă și asistență medicală."
+        "question": "Există puncte de alimentare pe traseu?",
+        "answer": "Da, există puncte de alimentare de-a lungul tuturor traseelor. Cursa de 10 km are 2 puncte, cursa de 21 km are 4 puncte, iar cursa de 50 km are 8 puncte. Fiecare punct oferă apă, băuturi energizante și diverse gustări."
       },
       "change": {
-        "question": "Pot schimba categoria de cursă după înregistrare?",
-        "answer": "Da, îți poți schimba categoria de cursă cu până la 30 de zile înainte de eveniment. Te rugăm să ne contactezi direct pentru asistență cu acest proces."
+        "question": "Pot schimba cursa după înregistrare?",
+        "answer": "Schimbările de cursă sunt posibile cu până la 30 de zile înainte de eveniment, în funcție de disponibilitate. Pentru a schimba cursa, te rugăm să contactezi echipa noastră de suport prin e-mail. Reține că schimbarea la o cursă mai scumpă necesită o plată suplimentară, în timp ce schimbarea la o cursă mai ieftină nu oferă o rambursare a diferenței."
       }
     }
   },
   "sponsors": {
-    "title": "Sponsori",
-    "subtitle": "Partenerii și susținătorii noștri valoroși",
-    "currentSponsors": "Sponsori Actuali",
-    "visitWebsite": "Vizitează Site-ul",
-    "tiers": {
-      "gold": "Sponsor Gold",
-      "silver": "Sponsor Silver",
-      "bronze": "Sponsor Bronze"
-    },
-    "becomeASponsor": "Devino Sponsor",
-    "becomeASponsorText": "Alătură-te nouă în sprijinirea comunității de alergare pe traseu. Oferim diverse pachete de sponsorizare pentru a se potrivi diferitelor obiective de marketing și bugete.",
-    "packages": {
-      "gold": {
-        "title": "Pachet Gold",
-        "benefit1": "Amplasare logo mare pe toate materialele evenimentului",
-        "benefit2": "Locație premium pentru stand la expoziția evenimentului",
-        "benefit3": "Logo pe numerele de concurs",
-        "benefit4": "Promovare pe social media și website",
-        "benefit5": "10 înscrieri gratuite la cursă"
-      },
-      "silver": {
-        "title": "Pachet Silver",
-        "benefit1": "Amplasare logo mediu pe materialele evenimentului",
-        "benefit2": "Stand la expoziția evenimentului",
-        "benefit3": "Promovare pe social media și website",
-        "benefit4": "5 înscrieri gratuite la cursă"
-      },
-      "bronze": {
-        "title": "Pachet Bronze",
-        "benefit1": "Amplasare logo mic pe materialele evenimentului",
-        "benefit2": "Listare pe website",
-        "benefit3": "2 înscrieri gratuite la cursă"
-      }
-    },
-    "contactUs": "Contactează-ne",
-    "moreInfo": "Ai Nevoie de Mai Multe Informații?",
-    "downloadBrochure": "Descarcă Broșura de Sponsorizare",
-    "scheduleCall": "Programează un Apel",
-    "emailUs": "Trimite-ne un Email",
-    "sponsor1": {
-      "description": "Furnizor principal de echipamente și accesorii de înaltă performanță pentru alergare pe traseu."
-    },
-    "sponsor2": {
-      "description": "Băuturi energizante naturale premium, special formulate pentru atleții de anduranță."
-    },
-    "sponsor3": {
-      "description": "Tehnologie inovatoare GPS și de urmărire concepută pentru alergătorii pe traseu."
-    },
-    "sponsor4": {
-      "description": "Retailer de îmbrăcăminte și echipamente pentru exterior, specializat în drumeții și alergare pe traseu."
-    },
-    "sponsor5": {
-      "description": "Programe profesionale de antrenament și coaching pentru alergători pe traseu de toate nivelurile."
-    },
-    "sponsor6": {
-      "description": "Revistă de fitness dedicată sporturilor în aer liber și pe traseu."
-    }
+    "title": "Sponsorii Noștri",
+    "subtitle": "Suntem recunoscători sponsorilor noștri care ajută la realizarea acestui eveniment. Sprijinul lor contribuie la o experiență excepțională de alergare montană.",
+    "premiumTitle": "Parteneri Premium",
+    "standardTitle": "Parteneri de Susținere",
+    "visitWebsite": "Vizitează Website-ul",
+    "visit": "Vizitează",
+    "becomeButton": "Devino Sponsor"
   },
-  "validation": {
-    "firstName": "Prenumele trebuie să aibă cel puțin 2 caractere",
-    "lastName": "Numele trebuie să aibă cel puțin 2 caractere",
-    "email": "Te rugăm să introduci o adresă de email validă",
-    "phone": "Numărul de telefon trebuie să aibă cel puțin 6 caractere",
-    "country": "Te rugăm să selectezi țara ta",
-    "dateOfBirth": "Te rugăm să introduci data ta de naștere",
-    "raceCategory": "Te rugăm să selectezi o categorie de cursă",
-    "emergencyContactName": "Numele contactului de urgență trebuie să aibă cel puțin 2 caractere",
-    "emergencyContactPhone": "Telefonul contactului de urgență trebuie să aibă cel puțin 6 caractere",
-    "termsAccepted": "Trebuie să accepți termenii și condițiile",
-    "name": "Numele trebuie să aibă cel puțin 2 caractere",
-    "subject": "Subiectul trebuie să aibă cel puțin 2 caractere",
-    "message": "Mesajul trebuie să aibă cel puțin 10 caractere"
+  "footer": {
+    "about": "Alătură-te nouă pentru o experiență de alergare montană de neuitat în frumoșii Munți Carpați.",
+    "quickLinks": "Link-uri Rapide",
+    "resources": "Resurse",
+    "resources1": "Hărți Trasee",
+    "resources2": "Sfaturi de Antrenament",
+    "resources3": "Ghid Echipament",
+    "resources4": "Informații de Călătorie",
+    "resources5": "Cazare",
+    "resources6": "Galerie Foto",
+    "subscribe": "Abonează-te",
+    "subscribeText": "Rămâi la curent cu cele mai recente știri și actualizări despre competiție.",
+    "emailPlaceholder": "Adresa ta de email",
+    "privacyNotice": "Prin abonare, ești de acord cu politica noastră de confidențialitate și consimți să primești actualizări de la echipa noastră.",
+    "copyright": "© 2024 Competiția de Alergare Montană. Toate drepturile rezervate.",
+    "privacy": "Politica de Confidențialitate",
+    "terms": "Termeni și Condiții",
+    "cookies": "Politica de Cookie-uri"
   },
-  "hero": {
-    "imageAlt": "Imagine de fundal traseu montan",
-    "date": "15-17 Iulie 2024",
-    "title": "Trail Run Pro - Competiție de Alergare Montană",
-    "subtitle": "Alergare pe trasee montane spectaculoase în Carpații României",
-    "registerButton": "Înregistrează-te Acum",
-    "exploreButton": "Explorează Traseele"
-  },
-  "quickInfo": {
-    "location": {
-      "title": "Locație",
-      "content": "Carpații României",
-      "linkText": "Vezi Harta"
-    },
-    "date": {
-      "title": "Data",
-      "content": "15-17 Iulie 2024",
-      "linkText": "Vezi Programul"
-    },
-    "participants": {
-      "title": "Participanți",
-      "content": "Peste 500 de alergători",
-      "linkText": "Vezi Lista"
-    }
+  "months": {
+    "0": "Ianuarie",
+    "1": "Februarie",
+    "2": "Martie",
+    "3": "Aprilie",
+    "4": "Mai",
+    "5": "Iunie",
+    "6": "Iulie",
+    "7": "August",
+    "8": "Septembrie",
+    "9": "Octombrie",
+    "10": "Noiembrie",
+    "11": "Decembrie"
   }
 }

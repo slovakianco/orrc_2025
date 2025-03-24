@@ -1,4 +1,11 @@
 {
+  "common": {
+    "loading": "Loading...",
+    "submitting": "Submitting...",
+    "error": "An error occurred",
+    "success": "Success!",
+    "notAvailable": "Not available"
+  },
   "nav": {
     "home": "Home",
     "races": "Races",
@@ -10,101 +17,39 @@
     "sponsors": "Sponsors",
     "registerButton": "Register Now"
   },
-  "navbar": {
-    "home": "Home",
-    "races": "Races",
-    "registration": "Registration",
-    "participants": "Participants",
-    "rules": "Rules",
-    "program": "Program",
-    "contact": "Contact",
-    "sponsors": "Sponsors"
+  "hero": {
+    "title": "Challenge The Mountains",
+    "subtitle": "Experience the thrill of trail running through breathtaking mountain landscapes. Join runners from around the world in this unforgettable competition.",
+    "date": "June 15-17, 2024",
+    "registerButton": "Register Now",
+    "exploreButton": "Explore Races",
+    "imageAlt": "Trail running in mountains"
   },
-  "footer": {
-    "tagline": "Experience the ultimate trail running competition in the heart of nature",
-    "quickLinks": "Quick Links",
-    "contactUs": "Contact Us",
-    "newsletter": "Newsletter",
-    "subscribeMessage": "Subscribe to our newsletter for updates and news",
-    "emailPlaceholder": "Your email",
-    "copyright": "© {year} TrailRunPro. All rights reserved.",
-    "about": "About Us",
-    "resources": "Resources",
-    "resources1": "Trail Maps",
-    "resources2": "Training Plans",
-    "resources3": "Equipment Guide",
-    "resources4": "Race Calendar",
-    "resources5": "Community Forum",
-    "resources6": "Photos & Videos",
-    "subscribe": "Subscribe",
-    "subscribeText": "Get the latest updates on races, training tips, and special offers",
-    "privacyNotice": "Privacy Notice",
-    "privacy": "Privacy Policy",
-    "terms": "Terms & Conditions",
-    "cookies": "Cookie Policy"
-  },
-  "home": {
-    "hero": {
-      "title": "Mountain Trail Challenge 2023",
-      "subtitle": "Experience the ultimate trail running competition in the heart of nature",
-      "registerButton": "Register Now",
-      "exploreButton": "Explore Races",
-      "imageAlt": "Trail runner in mountain landscape",
-      "date": "July 15-17, 2023"
+  "quickInfo": {
+    "location": {
+      "title": "Location",
+      "content": "Carpathian Mountains, Romania",
+      "linkText": "View on map"
     },
-    "quickInfo": {
-      "location": {
-        "title": "Location",
-        "content": "Carpathian Mountains, Transylvania",
-        "linkText": "View Map"
-      },
-      "date": {
-        "title": "Event Date",
-        "content": "July 15-17, 2023",
-        "linkText": "Full Schedule"
-      },
-      "participants": {
-        "title": "Participants",
-        "content": "Join 500+ trail runners",
-        "linkText": "View Participants"
-      }
+    "date": {
+      "title": "Date",
+      "content": "June 15-17, 2024",
+      "linkText": "View full program"
     },
-    "highlights": {
-      "title": "Event Highlights",
-      "date": "July 15-17, 2023",
-      "dateDescription": "Three days of challenging races across beautiful mountain trails",
-      "categories": "5 Race Categories",
-      "categoriesDescription": "From 10K sprint to 80K ultra, suitable for all experience levels",
-      "prize": "$25,000 Prize Pool",
-      "prizeDescription": "Compete for substantial prizes across multiple categories"
-    },
-    "featuredRaces": {
-      "title": "Featured Races",
-      "viewDetails": "View Details",
-      "viewAllButton": "View All Races",
-      "raceDate1": "July 17",
-      "raceDate2": "July 16",
-      "raceDate3": "July 15"
-    },
-    "testimonials": {
-      "title": "What Participants Say",
-      "quote1": "One of the most challenging and beautiful courses I've ever run. The organization was top-notch and the views were incredible!",
-      "quote2": "Perfect combination of technical terrain and smooth trails. Will definitely be coming back next year with more friends!",
-      "quote3": "My first trail race and I'm hooked! The aid stations were well-stocked and the volunteers were so encouraging."
-    },
-    "sponsors": {
-      "title": "Our Sponsors"
+    "participants": {
+      "title": "Participants",
+      "content": "Over 1,500 runners from 30+ countries",
+      "linkText": "See participants"
     }
   },
+  "home": {
+    "featuredRaces": "Featured Races"
+  },
   "races": {
-    "title": "Races",
-    "subtitle": "Discover our challenging trail running races",
-    "filterBy": "Filter by",
-    "details": "Details",
-    "register": "Register",
-    "backToList": "Back to Races",
+    "title": "Explore Our Races",
+    "subtitle": "From beginner-friendly trails to challenging mountain ultras, find the perfect race for your level and ambition.",
     "filters": {
-      "all": "All",
+      "all": "All Races",
       "beginner": "Beginner",
       "intermediate": "Intermediate",
       "advanced": "Advanced",
@@ -116,361 +61,218 @@
       "advanced": "Advanced",
       "ultra": "Ultra"
     },
-    "viewDetails": "View Details",
-    "viewAllButton": "View All Races",
-    "noRacesFound": "No races found matching your criteria",
     "dates": {
       "15": "June 15",
       "16": "June 16",
       "17": "June 17"
     },
-    "details": {
-      "about": "About this Race",
-      "map": "Trail Map",
-      "info": "Race Information",
-      "price": "Price",
-      "date": "Date",
-      "distance": "Distance",
-      "elevation": "Elevation",
-      "difficulty": "Difficulty",
-      "aidStations": "Aid Stations",
-      "registerButton": "Register for this Race",
-      "downloadGPX": "Download GPX File"
-    }
-  },
-  "race": {
-    "filter": {
-      "all": "All",
-      "ultra": "Ultra",
-      "marathon": "Marathon",
-      "half": "Half Marathon",
-      "25k": "25K",
-      "10k": "10K"
-    },
-    "ultra": {
-      "name": "Mountain Ultra 80K"
-    },
-    "marathon": {
-      "name": "Marathon Challenge"
-    },
-    "half": {
-      "name": "Forest Half Marathon"
-    },
-    "25k": {
-      "name": "Twilight 25K"
-    },
-    "10k": {
-      "name": "Sunrise 10K"
-    },
-    "elevation": "Elevation: {elevation}m",
-    "difficulty": {
-      "label": "Difficulty",
-      "beginner": "Beginner",
-      "intermediate": "Intermediate",
-      "advanced": "Advanced",
-      "ultra": "Ultra",
-      "expert": "Expert"
-    },
-    "dates": {
-      "july15": "July 15",
-      "july16": "July 16",
-      "july17": "July 17"
-    }
+    "viewDetails": "View Details",
+    "viewAllButton": "View All Races",
+    "noRacesFound": "No races found"
   },
   "registration": {
-    "title": "Registration",
-    "subtitle": "Sign up for our trail running competition",
-    "formTitle": "Registration Form",
-    "firstName": "First Name",
-    "lastName": "Last Name",
-    "email": "Email",
-    "phone": "Phone Number",
-    "country": "Country",
-    "selectCountry": "Select your country",
-    "dateOfBirth": "Date of Birth",
-    "raceCategory": "Race Category",
-    "selectRace": "Select race category",
-    "emergencyName": "Emergency Contact Name",
-    "emergencyPhone": "Emergency Contact Phone",
-    "termsText": "I agree to the",
-    "termsLink": "Terms and Conditions",
-    "andText": "and",
-    "privacyLink": "Privacy Policy",
-    "submitButton": "Complete Registration",
-    "submitting": "Processing...",
-    "successTitle": "Registration Successful!",
-    "successMessage": "Thank you for registering. You will receive a confirmation email shortly.",
-    "email": {
-      "title": "Email Confirmation Sent",
-      "message": "Please check your email inbox for registration confirmation details."
+    "title": "Register for the Competition",
+    "subtitle": "Complete the form below to secure your spot in one of our races. Early registration ensures the best rates.",
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "country": "Country",
+      "selectCountry": "Select your country",
+      "birthDate": "Date of Birth",
+      "gender": "Gender",
+      "male": "Male",
+      "female": "Female",
+      "selectRace": "Select Your Race",
+      "medical": "Medical Information",
+      "medicalPlaceholder": "Please share any relevant medical information (allergies, conditions, etc.)",
+      "termsText": "I have read and agree to the",
+      "termsLink": "terms and conditions",
+      "andText": "and",
+      "privacyLink": "privacy policy",
+      "riskText": "I understand the risks associated with trail running.",
+      "submitButton": "Complete Registration"
+    },
+    "success": {
+      "title": "Registration Successful",
+      "message": "Thank you for registering! You will receive a confirmation email shortly."
+    },
+    "error": {
+      "title": "Registration Failed",
+      "message": "There was an error processing your registration. Please try again."
     }
   },
   "participants": {
-    "title": "Participants",
-    "subtitle": "View registered participants for our trail running competition",
-    "searchLabel": "Search Participants",
-    "searchPlaceholder": "Search by name...",
-    "filterByCategory": "Filter by Category",
-    "allCategories": "All Categories",
-    "bibNumber": "Bib #",
-    "name": "Name",
-    "country": "Country",
-    "raceCategory": "Race Category",
-    "errorLoading": "Error loading participants. Please try again later.",
-    "noParticipants": "No participants found matching your criteria."
+    "title": "Registered Participants",
+    "subtitle": "Browse the list of currently registered runners. Check who's joining each race and find friends or competitors.",
+    "searchPlaceholder": "Search by name or country...",
+    "allRaces": "All Races",
+    "allCountries": "All Countries",
+    "noParticipants": "No participants found",
+    "table": {
+      "name": "Name",
+      "country": "Country",
+      "race": "Race",
+      "bib": "Bib #",
+      "status": "Status"
+    },
+    "status": {
+      "confirmed": "Confirmed",
+      "pending": "Pending",
+      "cancelled": "Cancelled"
+    },
+    "unknownRace": "Unknown Race",
+    "pagination": {
+      "showing": "Showing",
+      "to": "to",
+      "of": "of",
+      "entries": "entries"
+    }
   },
   "rules": {
-    "title": "Rules",
-    "subtitle": "Competition rules and regulations",
-    "important": "Important Notice",
-    "importantDescription": "All participants must abide by these rules to ensure a safe and fair competition for everyone.",
-    "introduction": "The following rules have been established to ensure the safety of all participants and to maintain the integrity of the competition. Please read them carefully.",
-    "general": {
-      "title": "General Rules",
-      "item1": "Participants must be at least 18 years old on race day.",
-      "item2": "Registration is personal and cannot be transferred to another person.",
-      "item3": "Bibs must be visible at all times during the race.",
-      "item4": "Participants must follow the marked course at all times.",
-      "item5": "The race director's decisions are final."
-    },
-    "equipment": {
-      "title": "Required Equipment",
-      "item1": "Mobile phone with emergency numbers saved (provided at registration).",
-      "item2": "Water container with minimum capacity of 1 liter (ultra races) or 500ml (others).",
-      "item3": "Whistle for emergency situations.",
-      "item4": "Weather-appropriate clothing (details provided closer to race day)."
-    },
-    "conduct": {
-      "title": "Participant Conduct",
-      "item1": "Littering on the course is strictly prohibited. Use designated waste bins at aid stations.",
-      "item2": "Respect other participants, staff, volunteers, and the environment.",
-      "item3": "Help fellow participants in emergency situations.",
-      "item4": "The use of personal music players with headphones is discouraged for safety reasons."
-    },
-    "safety": {
-      "title": "Safety Procedures",
-      "item1": "Medical checks may be performed at various points during the race.",
-      "item2": "Participants showing signs of excessive fatigue or injury may be stopped by medical staff.",
-      "item3": "In case of emergency, contact race officials or use the emergency number provided.",
-      "item4": "Race officials may suspend or cancel the race due to extreme weather conditions."
-    },
-    "environment": {
-      "title": "Environmental Protection",
-      "item1": "Stay on marked trails to prevent soil erosion and damage to vegetation.",
-      "item2": "Do not disturb wildlife or damage plant life.",
-      "item3": "Pack in, pack out - carry all your trash until you can dispose of it properly."
-    },
-    "contactQuestion": "Have questions about the rules?",
-    "contactEmail": "rules@trailrunpro.com"
+    "title": "Rules & Regulations",
+    "subtitle": "Familiarize yourself with the competition rules to ensure a safe and fair race for everyone.",
+    "downloadButton": "Download Full Rules PDF",
+    "sections": {
+      "general": {
+        "title": "General Rules",
+        "rules": {
+          "1": "Participants must follow the marked trail at all times. Taking shortcuts is strictly prohibited and will result in disqualification.",
+          "2": "Bib numbers must be visible at all times during the race.",
+          "3": "Littering on the trail is strictly prohibited. Use designated trash bins at aid stations.",
+          "4": "In case of emergency, participants must assist fellow runners and alert race officials immediately."
+        }
+      },
+      "equipment": {
+        "title": "Required Equipment",
+        "rules": {
+          "1": "Water container (minimum 1L for 10km, 1.5L for 21km, 2L for 50km).",
+          "2": "Mobile phone with race organization contacts saved.",
+          "3": "Thermal blanket and whistle (50km race only).",
+          "4": "Headlamp with spare batteries (50km race only)."
+        }
+      },
+      "timeLimits": {
+        "title": "Time Limits & Cut-offs",
+        "rules": {
+          "1": "Mountain Explorer (10km): 3 hours total time limit.",
+          "2": "Forest Challenge (21km): 5 hours total time limit with a mid-point cut-off at 2.5 hours.",
+          "3": "Summit Ultra (50km): 12 hours total time limit with cut-offs at 20km (4 hours) and 35km (8 hours)."
+        }
+      },
+      "penalties": {
+        "title": "Penalties & Disqualification",
+        "rules": {
+          "1": "Missing required equipment: 30 minute time penalty.",
+          "2": "Shortcutting the course: disqualification.",
+          "3": "Littering: 1 hour time penalty for first offense, disqualification for second offense.",
+          "4": "Failure to assist a runner in distress: disqualification."
+        }
+      }
+    }
   },
   "program": {
-    "title": "Program",
-    "subtitle": "Schedule of events for the competition weekend",
-    "schedule": "Event Schedule",
-    "downloadPDF": "Download PDF",
-    "downloadStarted": "Download started. If nothing happens, please check your browser settings.",
-    "day1": "Day 1 (July 15)",
-    "day2": "Day 2 (July 16)",
-    "day3": "Day 3 (July 17)",
-    "day1": {
-      "event1": {
-        "title": "Participant Check-in & Bib Collection",
-        "location": "Event Center - Central Plaza",
-        "description": "All participants must check in and collect their race bibs and race packages."
-      },
-      "event2": {
-        "title": "Race Briefing - 10K & 25K",
-        "location": "Conference Room - Event Center",
-        "description": "Mandatory race briefing for those participating in the 10K and 25K races."
-      },
-      "event3": {
-        "title": "Welcome Ceremony & Pasta Party",
-        "location": "Event Center - Garden Area",
-        "description": "Welcome all participants with a pasta dinner and opening ceremony."
-      }
-    },
-    "day2": {
-      "event1": {
-        "title": "Pre-race Warm-up",
-        "location": "Start Area - Forest Entrance",
-        "description": "Guided warm-up session for all racers starting today."
-      },
-      "event2": {
-        "title": "10K Race Start",
-        "location": "Start Line - Forest Trail",
-        "description": "Official start of the Sunrise 10K race."
-      },
-      "event3": {
-        "title": "25K Race Start",
-        "location": "Start Line - Forest Trail",
-        "description": "Official start of the Twilight 25K race."
-      },
-      "event4": {
-        "title": "Day 1 Awards Ceremony",
-        "location": "Event Center - Main Stage",
-        "description": "Awards ceremony for 10K and 25K races."
-      }
-    },
-    "day3": {
-      "event1": {
-        "title": "Pre-race Warm-up",
-        "location": "Start Area - Mountain Base",
-        "description": "Guided warm-up session for all racers starting today."
-      },
-      "event2": {
-        "title": "80K Ultra & Marathon Start",
-        "location": "Start Line - Mountain Base",
-        "description": "Official start of the Ultra 80K and Marathon Challenge races."
-      },
-      "event3": {
-        "title": "Half Marathon Start",
-        "location": "Start Line - Forest Junction",
-        "description": "Official start of the Forest Half Marathon."
-      },
-      "event4": {
-        "title": "Closing Ceremony & Awards",
-        "location": "Event Center - Main Stage",
-        "description": "Final awards ceremony and closing of the Mountain Trail Challenge 2023."
-      }
-    },
-    "notes": {
-      "title": "Important Notes",
-      "note1": "Schedule may be subject to slight adjustments based on weather conditions.",
-      "note2": "All participants must check in at least 1 hour before their race start time.",
-      "note3": "Bib collection is only available during the designated check-in times on Day 1."
+    "title": "Event Program",
+    "subtitle": "Plan your race weekend with our detailed schedule of all events and activities.",
+    "downloadButton": "Download Full Program PDF",
+    "day": "Day",
+    "dayTitles": {
+      "day1": "Registration & Briefings",
+      "day2": "Mountain Explorer & Forest Challenge",
+      "day3": "Summit Ultra & Closing"
     }
   },
   "contact": {
-    "title": "Contact",
-    "subtitle": "Get in touch with our team",
+    "title": "Contact Us",
+    "subtitle": "Have questions about the competition? Get in touch with our team for assistance.",
     "info": {
       "title": "Contact Information",
-      "addressTitle": "Location",
-      "emailTitle": "Email",
-      "phoneTitle": "Phone",
-      "email": "info@trailrunpro.com",
-      "phone": "+40 123 456 789",
-      "location": "Carpathian Mountains, Transylvania",
-      "address": "123 Trail Runner Blvd, Brasov, Romania",
-      "hours": "Office Hours",
-      "weekdays": "Mon-Fri: 9AM - 5PM",
-      "weekend": "Sat-Sun: Closed",
-      "social": "Follow us"
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Race Headquarters",
+      "address": "Mountain Resort Center\nCarpathian Mountains\nRomania",
+      "hours": "Support Hours",
+      "weekdays": "Monday - Friday: 9:00 - 17:00",
+      "weekend": "Weekend: 10:00 - 15:00",
+      "social": "Follow Us"
     },
     "form": {
-      "title": "Send us a Message",
+      "title": "Send Us a Message",
       "name": "Your Name",
-      "email": "Your Email",
+      "email": "Email Address",
       "subject": "Subject",
       "message": "Message",
-      "send": "Send Message",
-      "sending": "Sending...",
-      "successTitle": "Message Sent!",
-      "successMessage": "Thank you for your message. We'll respond as soon as possible.",
-      "submitButton": "Send Message"
+      "submitButton": "Send Message",
+      "success": {
+        "title": "Message Sent",
+        "message": "Thank you for your message. We'll get back to you as soon as possible."
+      },
+      "error": {
+        "title": "Message Not Sent",
+        "message": "There was an error sending your message. Please try again."
+      }
     },
     "faq": {
       "title": "Frequently Asked Questions",
-      "q1": "How do I modify my registration?",
-      "a1": "You can modify your registration by logging into your account on our website. If you don't have an account, please contact us directly at info@trailrunpro.com with your request.",
-      "q2": "What happens if the event is canceled due to weather?",
-      "a2": "If we need to cancel the event due to severe weather conditions, participants will be offered either a full refund or priority registration for next year's event.",
-      "q3": "Are there age restrictions for the races?",
-      "a3": "Yes, participants must be at least 18 years old for the Ultra 80K and Marathon categories. For the Half Marathon, 25K, and 10K races, participants must be at least 16 years old with parental consent.",
-      "q4": "What aid stations will be available on the course?",
-      "a4": "Aid stations are positioned approximately every 5-10km depending on the race category. All stations provide water, electrolytes, and basic food. Major aid stations (marked on race maps) also provide more substantial nutrition options.",
-      "q5": "Can I bring a support crew?",
-      "a5": "Support crews are allowed but can only assist runners at designated aid stations. Crew access points will be marked on maps provided in the race package.",
       "registration": {
-        "question": "How do I register for the event?",
-        "answer": "You can register online through our Registration page. Simply fill out the form with your details, select your race category, and complete the payment process."
+        "question": "How do I register for the competition?",
+        "answer": "Registration is available online through our website. Simply go to the Registration section, choose your race, fill out the form, and complete the payment. You'll receive a confirmation email with all the details."
       },
       "equipment": {
-        "question": "What equipment is required for the race?",
-        "answer": "Required equipment includes a water container, mobile phone, whistle, and appropriate clothing. For ultra distances, additional items may be required. See the Rules page for complete details."
+        "question": "What should I bring on race day?",
+        "answer": "Bring your ID, confirmation email, and all the required equipment for your race. Check the Rules section for the specific equipment required for your race distance. Don't forget to dress appropriately for the weather conditions."
       },
       "stations": {
-        "question": "How are aid stations organized?",
-        "answer": "Aid stations are positioned every 5-10km along the course, depending on the race distance. All provide water, electrolytes, and basic nutrition. Major stations also offer medical support."
+        "question": "Are there aid stations on the course?",
+        "answer": "Yes, there are aid stations along all race routes. The 10km race has 2 aid stations, the 21km race has 4 aid stations, and the 50km race has 8 aid stations. Each aid station provides water, sports drinks, and various snacks."
       },
       "change": {
-        "question": "Can I change my race category after registration?",
-        "answer": "Yes, you can change your race category up to 30 days before the event. Please contact us directly for assistance with this process."
+        "question": "Can I change my race after registering?",
+        "answer": "Race changes are possible up to 30 days before the event, subject to availability. To change your race, please contact our support team via email. Note that changing to a more expensive race requires an additional payment, while changing to a less expensive race does not offer a refund of the difference."
       }
     }
   },
   "sponsors": {
-    "title": "Sponsors",
-    "subtitle": "Our valued partners and supporters",
-    "currentSponsors": "Current Sponsors",
+    "title": "Our Sponsors",
+    "subtitle": "We're grateful to our sponsors who help make this event possible. Their support contributes to an exceptional trail running experience.",
+    "premiumTitle": "Premium Partners",
+    "standardTitle": "Supporting Partners",
     "visitWebsite": "Visit Website",
-    "tiers": {
-      "gold": "Gold Sponsor",
-      "silver": "Silver Sponsor",
-      "bronze": "Bronze Sponsor"
-    },
-    "becomeASponsor": "Become a Sponsor",
-    "becomeASponsorText": "Join us in supporting the trail running community. We offer various sponsorship packages to suit different marketing objectives and budgets.",
-    "packages": {
-      "gold": {
-        "title": "Gold Package",
-        "benefit1": "Large logo placement on all event materials",
-        "benefit2": "Premium booth location at the event expo",
-        "benefit3": "Logo on race bibs",
-        "benefit4": "Social media and website promotion",
-        "benefit5": "10 complimentary race entries"
-      },
-      "silver": {
-        "title": "Silver Package",
-        "benefit1": "Medium logo placement on event materials",
-        "benefit2": "Booth at the event expo",
-        "benefit3": "Social media and website promotion",
-        "benefit4": "5 complimentary race entries"
-      },
-      "bronze": {
-        "title": "Bronze Package",
-        "benefit1": "Small logo placement on event materials",
-        "benefit2": "Website listing",
-        "benefit3": "2 complimentary race entries"
-      }
-    },
-    "contactUs": "Contact Us",
-    "moreInfo": "Need More Information?",
-    "downloadBrochure": "Download Sponsorship Brochure",
-    "scheduleCall": "Schedule a Call",
-    "emailUs": "Email Us",
-    "sponsor1": {
-      "description": "Leading provider of high-performance trail running gear and equipment."
-    },
-    "sponsor2": {
-      "description": "Premium natural energy drinks specially formulated for endurance athletes."
-    },
-    "sponsor3": {
-      "description": "Innovative GPS and tracking technology designed for trail runners."
-    },
-    "sponsor4": {
-      "description": "Outdoor clothing and gear retailer specializing in hiking and trail running."
-    },
-    "sponsor5": {
-      "description": "Professional training programs and coaching for trail runners of all levels."
-    },
-    "sponsor6": {
-      "description": "Fitness magazine dedicated to outdoor and trail sports."
-    }
+    "visit": "Visit",
+    "becomeButton": "Become a Sponsor"
   },
-  "validation": {
-    "firstName": "First name must be at least 2 characters",
-    "lastName": "Last name must be at least 2 characters",
-    "email": "Please enter a valid email address",
-    "phone": "Phone number must be at least 6 characters",
-    "country": "Please select your country",
-    "dateOfBirth": "Please enter your date of birth",
-    "raceCategory": "Please select a race category",
-    "emergencyContactName": "Emergency contact name must be at least 2 characters",
-    "emergencyContactPhone": "Emergency contact phone must be at least 6 characters",
-    "termsAccepted": "You must accept the terms and conditions",
-    "name": "Name must be at least 2 characters",
-    "subject": "Subject must be at least 2 characters",
-    "message": "Message must be at least 10 characters"
+  "footer": {
+    "about": "Join us for an unforgettable trail running experience in the beautiful Carpathian Mountains.",
+    "quickLinks": "Quick Links",
+    "resources": "Resources",
+    "resources1": "Trail Maps",
+    "resources2": "Training Tips",
+    "resources3": "Equipment Guide",
+    "resources4": "Travel Information",
+    "resources5": "Accommodation",
+    "resources6": "Photo Gallery",
+    "subscribe": "Subscribe",
+    "subscribeText": "Stay up to date with the latest news and updates about the competition.",
+    "emailPlaceholder": "Your email address",
+    "privacyNotice": "By subscribing, you agree to our privacy policy and consent to receive updates from our team.",
+    "copyright": "© 2024 Trail Running Competition. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "cookies": "Cookie Policy"
+  },
+  "months": {
+    "0": "January",
+    "1": "February",
+    "2": "March",
+    "3": "April",
+    "4": "May",
+    "5": "June",
+    "6": "July",
+    "7": "August",
+    "8": "September",
+    "9": "October",
+    "10": "November",
+    "11": "December"
   }
 }

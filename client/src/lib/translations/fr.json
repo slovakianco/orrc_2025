@@ -1,13 +1,10 @@
 {
-  "navbar": {
-    "home": "Accueil",
-    "races": "Courses",
-    "registration": "Inscription",
-    "participants": "Participants",
-    "rules": "Règles",
-    "program": "Programme",
-    "contact": "Contact",
-    "sponsors": "Sponsors"
+  "common": {
+    "loading": "Chargement...",
+    "submitting": "Envoi en cours...",
+    "error": "Une erreur est survenue",
+    "success": "Succès !",
+    "notAvailable": "Non disponible"
   },
   "nav": {
     "home": "Accueil",
@@ -18,79 +15,41 @@
     "program": "Programme",
     "contact": "Contact",
     "sponsors": "Sponsors",
-    "registerButton": "S'inscrire Maintenant"
+    "registerButton": "S'inscrire"
   },
-  "footer": {
-    "tagline": "Découvrez la compétition ultime de trail running au cœur de la nature",
-    "quickLinks": "Liens Rapides",
-    "contactUs": "Contactez-nous",
-    "newsletter": "Newsletter",
-    "subscribeMessage": "Abonnez-vous à notre newsletter pour les mises à jour et les nouvelles",
-    "emailPlaceholder": "Votre email",
-    "copyright": "© {year} TrailRunPro. Tous droits réservés."
+  "hero": {
+    "title": "Défiez Les Montagnes",
+    "subtitle": "Découvrez le frisson de la course sur sentier à travers des paysages montagneux à couper le souffle. Rejoignez des coureurs du monde entier dans cette compétition inoubliable.",
+    "date": "15-17 Juin, 2024",
+    "registerButton": "S'inscrire",
+    "exploreButton": "Explorer les Courses",
+    "imageAlt": "Course de trail en montagne"
   },
-  "home": {
-    "hero": {
-      "title": "Défi des Sentiers de Montagne 2023",
-      "subtitle": "Découvrez la compétition ultime de trail running au cœur de la nature",
-      "registerButton": "Inscrivez-vous Maintenant",
-      "exploreButton": "Explorer les Courses",
-      "imageAlt": "Coureur de trail dans un paysage montagneux",
-      "date": "15-17 Juillet, 2023"
+  "quickInfo": {
+    "location": {
+      "title": "Lieu",
+      "content": "Montagnes des Carpates, Roumanie",
+      "linkText": "Voir sur la carte"
     },
-    "quickInfo": {
-      "location": {
-        "title": "Emplacement",
-        "content": "Montagnes des Carpates, Transylvanie",
-        "linkText": "Voir la Carte"
-      },
-      "date": {
-        "title": "Date de l'Événement",
-        "content": "15-17 Juillet, 2023",
-        "linkText": "Programme Complet"
-      },
-      "participants": {
-        "title": "Participants",
-        "content": "Rejoignez plus de 500 coureurs",
-        "linkText": "Voir les Participants"
-      }
+    "date": {
+      "title": "Date",
+      "content": "15-17 Juin, 2024",
+      "linkText": "Voir le programme complet"
     },
-    "highlights": {
-      "title": "Points Forts de l'Événement",
-      "date": "15-17 Juillet, 2023",
-      "dateDescription": "Trois jours de courses exigeantes sur de magnifiques sentiers de montagne",
-      "categories": "5 Catégories de Course",
-      "categoriesDescription": "Du sprint 10K à l'ultra 80K, adapté à tous les niveaux d'expérience",
-      "prize": "25 000$ de Prix",
-      "prizeDescription": "Concourez pour des prix substantiels dans plusieurs catégories"
-    },
-    "featuredRaces": {
-      "title": "Courses en Vedette",
-      "viewDetails": "Voir les Détails",
-      "viewAllButton": "Voir Toutes les Courses",
-      "raceDate1": "17 Juillet",
-      "raceDate2": "16 Juillet",
-      "raceDate3": "15 Juillet"
-    },
-    "testimonials": {
-      "title": "Ce que Disent les Participants",
-      "quote1": "L'un des parcours les plus difficiles et magnifiques que j'ai jamais courus. L'organisation était excellente et les vues étaient incroyables!",
-      "quote2": "Combinaison parfaite de terrain technique et de sentiers fluides. Je reviendrai certainement l'année prochaine avec plus d'amis!",
-      "quote3": "Ma première course de trail et je suis accro! Les postes de ravitaillement étaient bien approvisionnés et les bénévoles étaient très encourageants."
-    },
-    "sponsors": {
-      "title": "Nos Sponsors"
+    "participants": {
+      "title": "Participants",
+      "content": "Plus de 1 500 coureurs de 30+ pays",
+      "linkText": "Voir les participants"
     }
   },
+  "home": {
+    "featuredRaces": "Courses Vedettes"
+  },
   "races": {
-    "title": "Courses",
-    "subtitle": "Découvrez nos courses de trail running stimulantes",
-    "filterBy": "Filtrer par",
-    "details": "Détails",
-    "register": "S'inscrire",
-    "backToList": "Retour aux courses",
+    "title": "Explorez Nos Courses",
+    "subtitle": "Des sentiers adaptés aux débutants jusqu'aux ultras montagneux difficiles, trouvez la course parfaite pour votre niveau et ambition.",
     "filters": {
-      "all": "Tous",
+      "all": "Toutes les Courses",
       "beginner": "Débutant",
       "intermediate": "Intermédiaire",
       "advanced": "Avancé",
@@ -102,380 +61,218 @@
       "advanced": "Avancé",
       "ultra": "Ultra"
     },
-    "viewDetails": "Voir les détails",
-    "viewAllButton": "Voir toutes les courses",
-    "noRacesFound": "Aucune course ne correspond à vos critères",
     "dates": {
       "15": "15 Juin",
       "16": "16 Juin",
       "17": "17 Juin"
     },
-    "details": {
-      "about": "À propos de cette course",
-      "map": "Carte du parcours",
-      "info": "Informations sur la course",
-      "price": "Prix",
-      "date": "Date",
-      "distance": "Distance",
-      "elevation": "Dénivelé",
-      "difficulty": "Difficulté",
-      "aidStations": "Ravitaillements",
-      "registerButton": "S'inscrire à cette course",
-      "downloadGPX": "Télécharger le fichier GPX"
-    }
-  },
-  "race": {
-    "filter": {
-      "all": "Tous",
-      "ultra": "Ultra",
-      "marathon": "Marathon",
-      "half": "Semi-marathon",
-      "25k": "25K",
-      "10k": "10K"
-    },
-    "ultra": {
-      "name": "Ultra Montagne 80K"
-    },
-    "marathon": {
-      "name": "Défi Marathon"
-    },
-    "half": {
-      "name": "Semi-marathon Forestier"
-    },
-    "25k": {
-      "name": "25K au Crépuscule"
-    },
-    "10k": {
-      "name": "10K au Lever du Soleil"
-    },
-    "elevation": "Dénivelé: {elevation}m",
-    "difficulty": {
-      "label": "Difficulté",
-      "beginner": "Débutant",
-      "intermediate": "Intermédiaire",
-      "expert": "Expert"
-    },
-    "dates": {
-      "july15": "15 Juillet",
-      "july16": "16 Juillet",
-      "july17": "17 Juillet"
-    }
+    "viewDetails": "Voir les Détails",
+    "viewAllButton": "Voir Toutes les Courses",
+    "noRacesFound": "Aucune course trouvée"
   },
   "registration": {
-    "title": "Inscription",
-    "subtitle": "Inscrivez-vous à notre compétition de trail running",
-    "formTitle": "Formulaire d'Inscription",
-    "firstName": "Prénom",
-    "lastName": "Nom",
-    "email": "Email",
-    "phone": "Numéro de Téléphone",
-    "country": "Pays",
-    "selectCountry": "Sélectionnez votre pays",
-    "dateOfBirth": "Date de Naissance",
-    "raceCategory": "Catégorie de Course",
-    "selectRace": "Sélectionnez la catégorie de course",
-    "emergencyName": "Nom du Contact d'Urgence",
-    "emergencyPhone": "Téléphone du Contact d'Urgence",
-    "termsText": "J'accepte les",
-    "termsLink": "Termes et Conditions",
-    "andText": "et la",
-    "privacyLink": "Politique de Confidentialité",
-    "submitButton": "Terminer l'Inscription",
-    "submitting": "Traitement en cours...",
-    "successTitle": "Inscription Réussie!",
-    "successMessage": "Merci pour votre inscription. Vous recevrez un email de confirmation sous peu.",
-    "email": {
-      "title": "Email de Confirmation Envoyé",
-      "message": "Veuillez vérifier votre boîte de réception pour les détails de confirmation d'inscription."
-    },
+    "title": "Inscription à la Compétition",
+    "subtitle": "Remplissez le formulaire ci-dessous pour réserver votre place dans l'une de nos courses. L'inscription anticipée garantit les meilleurs tarifs.",
     "form": {
       "firstName": "Prénom",
       "lastName": "Nom",
-      "email": "Email",
+      "email": "Adresse Email",
       "phone": "Numéro de Téléphone",
       "country": "Pays",
       "selectCountry": "Sélectionnez votre pays",
       "birthDate": "Date de Naissance",
       "gender": "Genre",
-      "male": "Homme",
-      "female": "Femme",
-      "selectRace": "Sélectionnez la course",
+      "male": "Masculin",
+      "female": "Féminin",
+      "selectRace": "Sélectionnez Votre Course",
       "medical": "Informations Médicales",
-      "medicalPlaceholder": "Veuillez nous informer de toute condition médicale pertinente",
-      "termsText": "J'accepte les",
-      "termsLink": "Termes et Conditions",
+      "medicalPlaceholder": "Veuillez partager toute information médicale pertinente (allergies, conditions, etc.)",
+      "termsText": "J'ai lu et j'accepte les",
+      "termsLink": "conditions générales",
       "andText": "et la",
-      "privacyLink": "Politique de Confidentialité",
-      "riskText": "Je comprends les risques associés à la participation à cette épreuve.",
-      "submitButton": "Terminer l'Inscription"
+      "privacyLink": "politique de confidentialité",
+      "riskText": "Je comprends les risques associés à la course de trail.",
+      "submitButton": "Finaliser l'Inscription"
+    },
+    "success": {
+      "title": "Inscription Réussie",
+      "message": "Merci pour votre inscription ! Vous recevrez un email de confirmation sous peu."
+    },
+    "error": {
+      "title": "Échec de l'Inscription",
+      "message": "Une erreur est survenue lors du traitement de votre inscription. Veuillez réessayer."
     }
   },
   "participants": {
-    "title": "Participants",
-    "subtitle": "Voir les participants inscrits à notre compétition de trail running",
-    "searchLabel": "Rechercher des Participants",
-    "searchPlaceholder": "Rechercher par nom...",
-    "filterByCategory": "Filtrer par Catégorie",
-    "allCategories": "Toutes les Catégories",
-    "bibNumber": "Dossard #",
-    "name": "Nom",
-    "country": "Pays",
-    "raceCategory": "Catégorie de Course",
-    "errorLoading": "Erreur lors du chargement des participants. Veuillez réessayer plus tard.",
-    "noParticipants": "Aucun participant trouvé correspondant à vos critères."
+    "title": "Participants Inscrits",
+    "subtitle": "Parcourez la liste des coureurs actuellement inscrits. Vérifiez qui rejoint chaque course et trouvez des amis ou des concurrents.",
+    "searchPlaceholder": "Rechercher par nom ou pays...",
+    "allRaces": "Toutes les Courses",
+    "allCountries": "Tous les Pays",
+    "noParticipants": "Aucun participant trouvé",
+    "table": {
+      "name": "Nom",
+      "country": "Pays",
+      "race": "Course",
+      "bib": "Dossard #",
+      "status": "Statut"
+    },
+    "status": {
+      "confirmed": "Confirmé",
+      "pending": "En attente",
+      "cancelled": "Annulé"
+    },
+    "unknownRace": "Course Inconnue",
+    "pagination": {
+      "showing": "Affichage de",
+      "to": "à",
+      "of": "sur",
+      "entries": "entrées"
+    }
   },
   "rules": {
-    "title": "Règles",
-    "subtitle": "Règles et règlements de la compétition",
-    "important": "Avis Important",
-    "importantDescription": "Tous les participants doivent se conformer à ces règles pour assurer une compétition sûre et équitable pour tous.",
-    "introduction": "Les règles suivantes ont été établies pour assurer la sécurité de tous les participants et maintenir l'intégrité de la compétition. Veuillez les lire attentivement.",
-    "general": {
-      "title": "Règles Générales",
-      "item1": "Les participants doivent avoir au moins 18 ans le jour de la course.",
-      "item2": "L'inscription est personnelle et ne peut être transférée à une autre personne.",
-      "item3": "Les dossards doivent être visibles à tout moment pendant la course.",
-      "item4": "Les participants doivent suivre le parcours balisé à tout moment.",
-      "item5": "Les décisions du directeur de course sont définitives."
-    },
-    "equipment": {
-      "title": "Équipement Requis",
-      "item1": "Téléphone portable avec numéros d'urgence enregistrés (fournis lors de l'inscription).",
-      "item2": "Contenant d'eau avec capacité minimale de 1 litre (courses ultra) ou 500ml (autres).",
-      "item3": "Sifflet pour les situations d'urgence.",
-      "item4": "Vêtements adaptés aux conditions météorologiques (détails fournis à l'approche du jour de course)."
-    },
-    "conduct": {
-      "title": "Conduite des Participants",
-      "item1": "Il est strictement interdit de jeter des déchets sur le parcours. Utilisez les poubelles désignées aux postes de ravitaillement.",
-      "item2": "Respectez les autres participants, le personnel, les bénévoles et l'environnement.",
-      "item3": "Aidez les autres participants en cas d'urgence.",
-      "item4": "L'utilisation de lecteurs de musique personnels avec écouteurs est déconseillée pour des raisons de sécurité."
-    },
-    "safety": {
-      "title": "Procédures de Sécurité",
-      "item1": "Des contrôles médicaux peuvent être effectués à différents points pendant la course.",
-      "item2": "Les participants montrant des signes de fatigue excessive ou de blessure peuvent être arrêtés par le personnel médical.",
-      "item3": "En cas d'urgence, contactez les officiels de la course ou utilisez le numéro d'urgence fourni.",
-      "item4": "Les officiels de la course peuvent suspendre ou annuler la course en raison de conditions météorologiques extrêmes."
-    },
-    "environment": {
-      "title": "Protection de l'Environnement",
-      "item1": "Restez sur les sentiers balisés pour éviter l'érosion du sol et les dommages à la végétation.",
-      "item2": "Ne dérangez pas la faune et n'endommagez pas la flore.",
-      "item3": "Emportez tous vos déchets jusqu'à ce que vous puissiez les éliminer correctement."
-    },
-    "contactQuestion": "Vous avez des questions sur les règles?",
-    "contactEmail": "rules@trailrunpro.com"
+    "title": "Règles et Règlements",
+    "subtitle": "Familiarisez-vous avec les règles de la compétition pour assurer une course sûre et équitable pour tous.",
+    "downloadButton": "Télécharger les Règles Complètes PDF",
+    "sections": {
+      "general": {
+        "title": "Règles Générales",
+        "rules": {
+          "1": "Les participants doivent suivre le sentier balisé à tout moment. Les raccourcis sont strictement interdits et entraîneront une disqualification.",
+          "2": "Les numéros de dossard doivent être visibles à tout moment pendant la course.",
+          "3": "Il est strictement interdit de jeter des déchets sur le sentier. Utilisez les poubelles désignées aux postes de ravitaillement.",
+          "4": "En cas d'urgence, les participants doivent aider leurs compagnons coureurs et alerter immédiatement les officiels de course."
+        }
+      },
+      "equipment": {
+        "title": "Équipement Requis",
+        "rules": {
+          "1": "Contenant d'eau (minimum 1L pour 10km, 1,5L pour 21km, 2L pour 50km).",
+          "2": "Téléphone portable avec les contacts de l'organisation de course enregistrés.",
+          "3": "Couverture thermique et sifflet (course de 50km uniquement).",
+          "4": "Lampe frontale avec piles de rechange (course de 50km uniquement)."
+        }
+      },
+      "timeLimits": {
+        "title": "Limites de Temps et Barrières Horaires",
+        "rules": {
+          "1": "Explorateur de Montagne (10km): limite de temps totale de 3 heures.",
+          "2": "Défi Forestier (21km): limite de temps totale de 5 heures avec barrière horaire à mi-parcours à 2,5 heures.",
+          "3": "Ultra Sommet (50km): limite de temps totale de 12 heures avec barrières horaires à 20km (4 heures) et 35km (8 heures)."
+        }
+      },
+      "penalties": {
+        "title": "Pénalités et Disqualification",
+        "rules": {
+          "1": "Équipement requis manquant: pénalité de 30 minutes.",
+          "2": "Raccourci sur le parcours: disqualification.",
+          "3": "Jet de déchets: pénalité d'1 heure pour la première infraction, disqualification pour la deuxième infraction.",
+          "4": "Non-assistance à un coureur en détresse: disqualification."
+        }
+      }
+    }
   },
   "program": {
-    "title": "Programme",
-    "subtitle": "Calendrier des événements pour le week-end de compétition",
-    "schedule": "Calendrier des Événements",
-    "downloadPDF": "Télécharger PDF",
-    "downloadStarted": "Téléchargement démarré. Si rien ne se passe, veuillez vérifier les paramètres de votre navigateur.",
-    "day1": "Jour 1 (15 Juillet)",
-    "day2": "Jour 2 (16 Juillet)",
-    "day3": "Jour 3 (17 Juillet)",
-    "day1": {
-      "event1": {
-        "title": "Enregistrement des Participants & Distribution des Dossards",
-        "location": "Centre d'Événement - Place Centrale",
-        "description": "Tous les participants doivent s'enregistrer et récupérer leurs dossards et packs de course."
-      },
-      "event2": {
-        "title": "Briefing de Course - 10K & 25K",
-        "location": "Salle de Conférence - Centre d'Événement",
-        "description": "Briefing obligatoire pour les participants aux courses 10K et 25K."
-      },
-      "event3": {
-        "title": "Cérémonie de Bienvenue & Dîner de Pâtes",
-        "location": "Centre d'Événement - Zone Jardin",
-        "description": "Accueil de tous les participants avec un dîner de pâtes et cérémonie d'ouverture."
-      }
-    },
-    "day2": {
-      "event1": {
-        "title": "Échauffement Pré-Course",
-        "location": "Zone de Départ - Entrée de la Forêt",
-        "description": "Session d'échauffement guidée pour tous les coureurs démarrant aujourd'hui."
-      },
-      "event2": {
-        "title": "Départ du 10K",
-        "location": "Ligne de Départ - Sentier Forestier",
-        "description": "Départ officiel de la course 10K au Lever du Soleil."
-      },
-      "event3": {
-        "title": "Départ du 25K",
-        "location": "Ligne de Départ - Sentier Forestier",
-        "description": "Départ officiel de la course 25K au Crépuscule."
-      },
-      "event4": {
-        "title": "Cérémonie de Remise des Prix Jour 1",
-        "location": "Centre d'Événement - Scène Principale",
-        "description": "Cérémonie de remise des prix pour les courses 10K et 25K."
-      }
-    },
-    "day3": {
-      "event1": {
-        "title": "Échauffement Pré-Course",
-        "location": "Zone de Départ - Base de la Montagne",
-        "description": "Session d'échauffement guidée pour tous les coureurs démarrant aujourd'hui."
-      },
-      "event2": {
-        "title": "Départ Ultra 80K & Marathon",
-        "location": "Ligne de Départ - Base de la Montagne",
-        "description": "Départ officiel des courses Ultra 80K et Défi Marathon."
-      },
-      "event3": {
-        "title": "Départ Semi-Marathon",
-        "location": "Ligne de Départ - Jonction Forestière",
-        "description": "Départ officiel du Semi-marathon Forestier."
-      },
-      "event4": {
-        "title": "Cérémonie de Clôture & Remise des Prix",
-        "location": "Centre d'Événement - Scène Principale",
-        "description": "Cérémonie finale de remise des prix et clôture du Défi des Sentiers de Montagne 2023."
-      }
-    },
-    "notes": {
-      "title": "Notes Importantes",
-      "note1": "Le programme peut être sujet à de légères modifications en fonction des conditions météorologiques.",
-      "note2": "Tous les participants doivent s'enregistrer au moins 1 heure avant l'heure de départ de leur course.",
-      "note3": "La distribution des dossards n'est disponible que pendant les heures d'enregistrement désignées le Jour 1."
+    "title": "Programme de l'Événement",
+    "subtitle": "Planifiez votre week-end de course avec notre programme détaillé de tous les événements et activités.",
+    "downloadButton": "Télécharger le Programme Complet PDF",
+    "day": "Jour",
+    "dayTitles": {
+      "day1": "Inscription et Briefings",
+      "day2": "Explorateur de Montagne et Défi Forestier",
+      "day3": "Ultra Sommet et Clôture"
     }
   },
   "contact": {
-    "title": "Contact",
-    "subtitle": "Entrez en contact avec notre équipe",
+    "title": "Contactez-Nous",
+    "subtitle": "Vous avez des questions sur la compétition ? Contactez notre équipe pour obtenir de l'aide.",
     "info": {
       "title": "Informations de Contact",
-      "addressTitle": "Emplacement",
-      "emailTitle": "Email",
-      "phoneTitle": "Téléphone",
-      "email": "info@trailrunpro.com",
-      "phone": "+40 123 456 789",
-      "location": "Montagnes des Carpates, Transylvanie",
-      "address": "123 Boulevard du Trail Runner, Brasov, Roumanie",
-      "hours": "Heures d'Ouverture",
-      "weekdays": "Lun-Ven: 9h - 17h",
-      "weekend": "Sam-Dim: Fermé",
-      "social": "Suivez-nous"
+      "email": "Email",
+      "phone": "Téléphone",
+      "location": "Quartier Général de la Course",
+      "address": "Centre de Villégiature Montagnard\nMontagnes des Carpates\nRoumanie",
+      "hours": "Heures d'Assistance",
+      "weekdays": "Lundi - Vendredi: 9h00 - 17h00",
+      "weekend": "Week-end: 10h00 - 15h00",
+      "social": "Suivez-Nous"
     },
     "form": {
-      "title": "Envoyez-nous un Message",
+      "title": "Envoyez-Nous un Message",
       "name": "Votre Nom",
-      "email": "Votre Email",
+      "email": "Adresse Email",
       "subject": "Sujet",
       "message": "Message",
-      "send": "Envoyer le Message",
-      "sending": "Envoi en cours...",
-      "successTitle": "Message Envoyé!",
-      "successMessage": "Merci pour votre message. Nous répondrons dès que possible.",
-      "submitButton": "Envoyer le Message"
+      "submitButton": "Envoyer le Message",
+      "success": {
+        "title": "Message Envoyé",
+        "message": "Merci pour votre message. Nous vous répondrons dès que possible."
+      },
+      "error": {
+        "title": "Message Non Envoyé",
+        "message": "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer."
+      }
     },
     "faq": {
       "title": "Questions Fréquemment Posées",
-      "q1": "Comment puis-je modifier mon inscription?",
-      "a1": "Vous pouvez modifier votre inscription en vous connectant à votre compte sur notre site web. Si vous n'avez pas de compte, veuillez nous contacter directement à info@trailrunpro.com avec votre demande.",
-      "q2": "Que se passe-t-il si l'événement est annulé en raison des conditions météorologiques?",
-      "a2": "Si nous devons annuler l'événement en raison de conditions météorologiques sévères, les participants se verront proposer soit un remboursement complet, soit une inscription prioritaire pour l'événement de l'année prochaine.",
-      "q3": "Y a-t-il des restrictions d'âge pour les courses?",
-      "a3": "Oui, les participants doivent avoir au moins 18 ans pour les catégories Ultra 80K et Marathon. Pour les courses Semi-Marathon, 25K et 10K, les participants doivent avoir au moins 16 ans avec le consentement parental.",
-      "q4": "Quels postes de ravitaillement seront disponibles sur le parcours?",
-      "a4": "Les postes de ravitaillement sont positionnés environ tous les 5-10km selon la catégorie de course. Tous les postes fournissent de l'eau, des électrolytes et de la nourriture de base. Les postes de ravitaillement principaux (marqués sur les cartes de course) offrent également des options de nutrition plus substantielles.",
-      "q5": "Puis-je avoir une équipe de soutien?",
-      "a5": "Les équipes de soutien sont autorisées mais ne peuvent assister les coureurs qu'aux postes de ravitaillement désignés. Les points d'accès pour les équipes seront marqués sur les cartes fournies dans le package de course.",
       "registration": {
-        "question": "Comment puis-je m'inscrire à l'événement?",
-        "answer": "Vous pouvez vous inscrire en ligne via notre page d'Inscription. Remplissez simplement le formulaire avec vos coordonnées, sélectionnez votre catégorie de course et complétez le processus de paiement."
+        "question": "Comment puis-je m'inscrire à la compétition?",
+        "answer": "L'inscription est disponible en ligne sur notre site web. Accédez simplement à la section Inscription, choisissez votre course, remplissez le formulaire et effectuez le paiement. Vous recevrez un email de confirmation avec tous les détails."
       },
       "equipment": {
-        "question": "Quel équipement est requis pour la course?",
-        "answer": "L'équipement requis comprend un contenant d'eau, un téléphone mobile, un sifflet et des vêtements appropriés. Pour les distances ultra, des articles supplémentaires peuvent être nécessaires. Consultez la page Règles pour les détails complets."
+        "question": "Que dois-je apporter le jour de la course?",
+        "answer": "Apportez votre pièce d'identité, votre email de confirmation et tout l'équipement requis pour votre course. Consultez la section Règles pour l'équipement spécifique requis pour la distance de votre course. N'oubliez pas de vous habiller de manière appropriée selon les conditions météorologiques."
       },
       "stations": {
-        "question": "Comment sont organisés les postes de ravitaillement?",
-        "answer": "Les postes de ravitaillement sont positionnés tous les 5-10km le long du parcours, selon la distance de course. Tous fournissent de l'eau, des électrolytes et une nutrition de base. Les postes principaux offrent également un soutien médical."
+        "question": "Y a-t-il des postes de ravitaillement sur le parcours?",
+        "answer": "Oui, il y a des postes de ravitaillement le long de tous les parcours. La course de 10 km a 2 postes, la course de 21 km a 4 postes, et la course de 50 km a 8 postes. Chaque poste fournit de l'eau, des boissons sportives et diverses collations."
       },
       "change": {
-        "question": "Puis-je changer ma catégorie de course après l'inscription?",
-        "answer": "Oui, vous pouvez changer votre catégorie de course jusqu'à 30 jours avant l'événement. Veuillez nous contacter directement pour obtenir de l'aide avec ce processus."
+        "question": "Puis-je changer de course après m'être inscrit?",
+        "answer": "Les changements de course sont possibles jusqu'à 30 jours avant l'événement, sous réserve de disponibilité. Pour changer de course, veuillez contacter notre équipe d'assistance par email. Notez que passer à une course plus chère nécessite un paiement supplémentaire, tandis que passer à une course moins chère n'offre pas de remboursement de la différence."
       }
     }
   },
   "sponsors": {
-    "title": "Sponsors",
-    "subtitle": "Nos partenaires et soutiens de valeur",
-    "currentSponsors": "Sponsors Actuels",
-    "visitWebsite": "Visiter le Site",
-    "tiers": {
-      "gold": "Sponsor Or",
-      "silver": "Sponsor Argent",
-      "bronze": "Sponsor Bronze"
-    },
-    "becomeASponsor": "Devenez Sponsor",
-    "becomeASponsorText": "Rejoignez-nous pour soutenir la communauté de trail running. Nous proposons divers forfaits de parrainage adaptés à différents objectifs de marketing et budgets.",
-    "packages": {
-      "gold": {
-        "title": "Forfait Or",
-        "benefit1": "Grand placement de logo sur tous les supports de l'événement",
-        "benefit2": "Emplacement premium pour stand à l'expo de l'événement",
-        "benefit3": "Logo sur les dossards de course",
-        "benefit4": "Promotion sur les réseaux sociaux et le site web",
-        "benefit5": "10 inscriptions gratuites à la course"
-      },
-      "silver": {
-        "title": "Forfait Argent",
-        "benefit1": "Placement de logo moyen sur les supports de l'événement",
-        "benefit2": "Stand à l'expo de l'événement",
-        "benefit3": "Promotion sur les réseaux sociaux et le site web",
-        "benefit4": "5 inscriptions gratuites à la course"
-      },
-      "bronze": {
-        "title": "Forfait Bronze",
-        "benefit1": "Petit placement de logo sur les supports de l'événement",
-        "benefit2": "Mention sur le site web",
-        "benefit3": "2 inscriptions gratuites à la course"
-      }
-    },
-    "contactUs": "Contactez-nous",
-    "moreInfo": "Besoin de Plus d'Informations?",
-    "downloadBrochure": "Télécharger la Brochure de Parrainage",
-    "scheduleCall": "Planifier un Appel",
-    "emailUs": "Envoyez-nous un Email",
-    "sponsor1": {
-      "description": "Fournisseur leader d'équipements et de matériel de trail running haute performance."
-    },
-    "sponsor2": {
-      "description": "Boissons énergétiques naturelles premium spécialement formulées pour les athlètes d'endurance."
-    },
-    "sponsor3": {
-      "description": "Technologie GPS et de suivi innovante conçue pour les coureurs de trail."
-    },
-    "sponsor4": {
-      "description": "Détaillant de vêtements et d'équipements de plein air spécialisé dans la randonnée et le trail running."
-    },
-    "sponsor5": {
-      "description": "Programmes d'entraînement professionnels et coaching pour coureurs de trail de tous niveaux."
-    },
-    "sponsor6": {
-      "description": "Magazine de fitness dédié aux sports de plein air et de trail."
-    }
+    "title": "Nos Sponsors",
+    "subtitle": "Nous sommes reconnaissants envers nos sponsors qui aident à rendre cet événement possible. Leur soutien contribue à une expérience exceptionnelle de course de trail.",
+    "premiumTitle": "Partenaires Premium",
+    "standardTitle": "Partenaires de Soutien",
+    "visitWebsite": "Visiter le Site Web",
+    "visit": "Visiter",
+    "becomeButton": "Devenir Sponsor"
   },
-  "validation": {
-    "firstName": "Le prénom doit comporter au moins 2 caractères",
-    "lastName": "Le nom doit comporter au moins 2 caractères",
-    "email": "Veuillez entrer une adresse email valide",
-    "phone": "Le numéro de téléphone doit comporter au moins 6 caractères",
-    "country": "Veuillez sélectionner votre pays",
-    "dateOfBirth": "Veuillez entrer votre date de naissance",
-    "raceCategory": "Veuillez sélectionner une catégorie de course",
-    "emergencyContactName": "Le nom du contact d'urgence doit comporter au moins 2 caractères",
-    "emergencyContactPhone": "Le téléphone du contact d'urgence doit comporter au moins 6 caractères",
-    "termsAccepted": "Vous devez accepter les termes et conditions",
-    "name": "Le nom doit comporter au moins 2 caractères",
-    "subject": "Le sujet doit comporter au moins 2 caractères",
-    "message": "Le message doit comporter au moins 10 caractères"
+  "footer": {
+    "about": "Rejoignez-nous pour une expérience inoubliable de course de trail dans les magnifiques Montagnes des Carpates.",
+    "quickLinks": "Liens Rapides",
+    "resources": "Ressources",
+    "resources1": "Cartes des Sentiers",
+    "resources2": "Conseils d'Entraînement",
+    "resources3": "Guide d'Équipement",
+    "resources4": "Informations de Voyage",
+    "resources5": "Hébergement",
+    "resources6": "Galerie Photos",
+    "subscribe": "S'abonner",
+    "subscribeText": "Restez à jour avec les dernières nouvelles et mises à jour concernant la compétition.",
+    "emailPlaceholder": "Votre adresse email",
+    "privacyNotice": "En vous abonnant, vous acceptez notre politique de confidentialité et consentez à recevoir des mises à jour de notre équipe.",
+    "copyright": "© 2024 Compétition de Course de Trail. Tous droits réservés.",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions Générales",
+    "cookies": "Politique de Cookies"
+  },
+  "months": {
+    "0": "Janvier",
+    "1": "Février",
+    "2": "Mars",
+    "3": "Avril",
+    "4": "Mai",
+    "5": "Juin",
+    "6": "Juillet",
+    "7": "Août",
+    "8": "Septembre",
+    "9": "Octobre",
+    "10": "Novembre",
+    "11": "Décembre"
   }
 }
