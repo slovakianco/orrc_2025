@@ -1,144 +1,94 @@
 import { useTranslation } from "react-i18next";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Search } from "lucide-react";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useQuery } from "@tanstack/react-query";
-import { Skeleton } from "@/components/ui/skeleton";
-
-interface Participant {
-  id: number;
-  firstName: string;
-  lastName: string;
-  country: string;
-  raceCategory: string;
-  bibNumber: number;
-}
 
 export default function Participants() {
   const { t } = useTranslation();
-  const [searchQuery, setSearchQuery] = useState("");
-  const [categoryFilter, setCategoryFilter] = useState("all");
+  const [searchTerm, setSearchTerm] = useState("");
 
-  // Get the participants data from the API
-  const { data: participants, isLoading, error } = useQuery({
-    queryKey: ["/api/participants"],
-    refetchInterval: false,
-  });
-
-  // Filter participants based on search query and category
-  const filteredParticipants = participants?.filter((participant: Participant) => {
-    const matchesSearch = searchQuery === "" || 
-      participant.firstName.toLowerCase().includes(searchQuery.toLowerCase()) || 
-      participant.lastName.toLowerCase().includes(searchQuery.toLowerCase());
-    
-    const matchesCategory = categoryFilter === "all" || participant.raceCategory === categoryFilter;
-    
-    return matchesSearch && matchesCategory;
-  }) || [];
+  // Mock data - replace with actual data fetching
+  const participants = [
+    { id: 1, name: "John Doe", country: "USA", race: "33K", status: "confirmed" },
+    { id: 2, name: "Jane Smith", country: "UK", race: "11K", status: "confirmed" },
+  ];
 
   return (
-    <div>
-      <section className="py-8 bg-[#2E7D32] text-white">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <section className="py-12 bg-[#2E7D32] text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-heading font-bold mb-2">
+          <h1 className="text-4xl font-heading font-bold mb-4">
             {t("participants.title")}
           </h1>
-          <p className="text-lg opacity-90">
+          <p className="text-xl opacity-90 max-w-2xl">
             {t("participants.subtitle")}
           </p>
         </div>
       </section>
-      
-      <section className="py-12 bg-white">
+
+      <section className="py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8 flex flex-col md:flex-row gap-4 md:items-end">
-            <div className="w-full md:w-1/3">
-              <Label htmlFor="search" className="text-sm font-medium mb-2 block">
-                {t("participants.searchLabel")}
-              </Label>
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-                <Input
-                  id="search"
-                  type="text"
-                  placeholder={t("participants.searchPlaceholder")}
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10"
-                />
-              </div>
-            </div>
-            <div className="w-full md:w-1/4">
-              <Label htmlFor="category" className="text-sm font-medium mb-2 block">
-                {t("participants.filterByCategory")}
-              </Label>
-              <Select
-                value={categoryFilter}
-                onValueChange={setCategoryFilter}
-              >
-                <SelectTrigger id="category">
-                  <SelectValue placeholder={t("participants.allCategories")} />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">{t("participants.allCategories")}</SelectItem>
-                  <SelectItem value="ultra">{t("race.ultra.name")}</SelectItem>
-                  <SelectItem value="marathon">{t("race.marathon.name")}</SelectItem>
-                  <SelectItem value="half">{t("race.half.name")}</SelectItem>
-                  <SelectItem value="25k">{t("race.25k.name")}</SelectItem>
-                  <SelectItem value="10k">{t("race.10k.name")}</SelectItem>
-                </SelectContent>
-              </Select>
+          <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              <Input
+                type="text"
+                placeholder={t("participants.searchPlaceholder")}
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10 pr-4 py-3 w-full rounded-lg border-2 border-gray-100 focus:border-[#2E7D32] focus:ring-2 focus:ring-[#2E7D32]/20 transition-all"
+              />
             </div>
           </div>
-          
-          <div className="bg-neutral-light rounded-lg shadow-md overflow-hidden">
-            {isLoading ? (
-              <div className="p-8">
-                <div className="space-y-3">
-                  <Skeleton className="h-5 w-full" />
-                  <Skeleton className="h-5 w-full" />
-                  <Skeleton className="h-5 w-full" />
-                  <Skeleton className="h-5 w-full" />
-                  <Skeleton className="h-5 w-full" />
-                </div>
-              </div>
-            ) : error ? (
-              <div className="p-8 text-center text-red-500">
-                <p>{t("participants.errorLoading")}</p>
-              </div>
-            ) : filteredParticipants.length === 0 ? (
-              <div className="p-8 text-center text-gray-500">
-                <p>{t("participants.noParticipants")}</p>
-              </div>
-            ) : (
-              <div className="overflow-x-auto">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead className="font-accent">{t("participants.bibNumber")}</TableHead>
-                      <TableHead className="font-accent">{t("participants.name")}</TableHead>
-                      <TableHead className="font-accent">{t("participants.country")}</TableHead>
-                      <TableHead className="font-accent">{t("participants.raceCategory")}</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {filteredParticipants.map((participant: Participant) => (
-                      <TableRow key={participant.id}>
-                        <TableCell className="font-semibold">{participant.bibNumber}</TableCell>
-                        <TableCell>{`${participant.firstName} ${participant.lastName}`}</TableCell>
-                        <TableCell>{participant.country}</TableCell>
-                        <TableCell>
-                          {t(`race.${participant.raceCategory}.name`)}
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </div>
-            )}
+
+          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-gray-50 border-b border-gray-100">
+                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">
+                      {t("participants.table.name")}
+                    </th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">
+                      {t("participants.table.country")}
+                    </th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">
+                      {t("participants.table.race")}
+                    </th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600">
+                      {t("participants.table.status")}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {participants.map((participant) => (
+                    <tr 
+                      key={participant.id}
+                      className="hover:bg-gray-50 transition-colors"
+                    >
+                      <td className="px-6 py-4 text-sm text-gray-800">
+                        {participant.name}
+                      </td>
+                      <td className="px-6 py-4 text-sm text-gray-800">
+                        {participant.country}
+                      </td>
+                      <td className="px-6 py-4 text-sm text-gray-800">
+                        {participant.race}
+                      </td>
+                      <td className="px-6 py-4">
+                        <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
+                          participant.status === "confirmed" 
+                            ? "bg-green-100 text-green-800"
+                            : "bg-gray-100 text-gray-800"
+                        }`}>
+                          {t(`participants.status.${participant.status}`)}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
