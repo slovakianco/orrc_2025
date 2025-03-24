@@ -199,7 +199,11 @@
     "submitButton": "Complete Registration",
     "submitting": "Processing...",
     "successTitle": "Registration Successful!",
-    "successMessage": "Thank you for registering. You will receive a confirmation email shortly."
+    "successMessage": "Thank you for registering. You will receive a confirmation email shortly.",
+    "email": {
+      "title": "Email Confirmation Sent",
+      "message": "Please check your email inbox for registration confirmation details."
+    }
   },
   "participants": {
     "title": "Participants",

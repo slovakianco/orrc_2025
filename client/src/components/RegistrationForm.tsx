@@ -70,6 +70,14 @@ const RegistrationForm = () => {
         title: t('registration.success.title'),
         description: t('registration.success.message'),
       });
+      // Show a follow-up toast about the confirmation email
+      setTimeout(() => {
+        toast({
+          title: t('registration.email.title', 'Email Confirmation Sent'),
+          description: t('registration.email.message', 'Please check your email inbox for registration confirmation details.'),
+          variant: "default"
+        });
+      }, 1000);
       reset();
       queryClient.invalidateQueries({ queryKey: ['/api/participants'] });
     },

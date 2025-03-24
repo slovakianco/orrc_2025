@@ -183,7 +183,11 @@
     "submitButton": "Finalizează Înregistrarea",
     "submitting": "Se procesează...",
     "successTitle": "Înregistrare Reușită!",
-    "successMessage": "Mulțumim pentru înregistrare. Vei primi un email de confirmare în curând."
+    "successMessage": "Mulțumim pentru înregistrare. Vei primi un email de confirmare în curând.",
+    "email": {
+      "title": "Email de confirmare trimis",
+      "message": "Te rugăm să verifici căsuța de email pentru detaliile de confirmare a înregistrării."
+    }
   },
   "participants": {
     "title": "Participanți",
