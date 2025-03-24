@@ -84,6 +84,27 @@
     "details": "Details",
     "register": "Register",
     "backToList": "Back to Races",
+    "filters": {
+      "all": "All",
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "ultra": "Ultra"
+    },
+    "difficulty": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "ultra": "Ultra"
+    },
+    "viewDetails": "View Details",
+    "viewAllButton": "View All Races",
+    "noRacesFound": "No races found matching your criteria",
+    "dates": {
+      "15": "June 15",
+      "16": "June 16",
+      "17": "June 17"
+    },
     "details": {
       "about": "About this Race",
       "map": "Trail Map",

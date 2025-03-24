@@ -59,6 +59,27 @@
     "details": "Détails",
     "register": "S'inscrire",
     "backToList": "Retour aux courses",
+    "filters": {
+      "all": "Tous",
+      "beginner": "Débutant",
+      "intermediate": "Intermédiaire",
+      "advanced": "Avancé",
+      "ultra": "Ultra"
+    },
+    "difficulty": {
+      "beginner": "Débutant",
+      "intermediate": "Intermédiaire",
+      "advanced": "Avancé",
+      "ultra": "Ultra"
+    },
+    "viewDetails": "Voir les détails",
+    "viewAllButton": "Voir toutes les courses",
+    "noRacesFound": "Aucune course ne correspond à vos critères",
+    "dates": {
+      "15": "15 Juin",
+      "16": "16 Juin",
+      "17": "17 Juin"
+    },
     "details": {
       "about": "À propos de cette course",
       "map": "Carte du parcours",

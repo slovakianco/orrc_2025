@@ -59,6 +59,27 @@
     "details": "Detalii",
     "register": "Înregistrare",
     "backToList": "Înapoi la Curse",
+    "filters": {
+      "all": "Toate",
+      "beginner": "Începător",
+      "intermediate": "Intermediar",
+      "advanced": "Avansat",
+      "ultra": "Ultra"
+    },
+    "difficulty": {
+      "beginner": "Începător",
+      "intermediate": "Intermediar",
+      "advanced": "Avansat",
+      "ultra": "Ultra"
+    },
+    "viewDetails": "Vezi Detalii",
+    "viewAllButton": "Vezi Toate Cursele",
+    "noRacesFound": "Nu s-au găsit curse care să corespundă criteriilor tale",
+    "dates": {
+      "15": "15 Iunie",
+      "16": "16 Iunie",
+      "17": "17 Iunie"
+    },
     "details": {
       "about": "Despre această cursă",
       "map": "Harta Traseului",
