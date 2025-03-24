@@ -34,7 +34,26 @@
       "title": "Provocarea Traseelor Montane 2023",
       "subtitle": "Experimentează competiția ultimă de alergare pe trasee, în inima naturii",
       "registerButton": "Înregistrează-te Acum",
-      "exploreButton": "Explorează Cursele"
+      "exploreButton": "Explorează Cursele",
+      "imageAlt": "Alergător pe traseu în peisaj montan",
+      "date": "15-17 Iulie 2023"
+    },
+    "quickInfo": {
+      "location": {
+        "title": "Locație",
+        "content": "Munții Carpați, Transilvania",
+        "linkText": "Vezi Harta"
+      },
+      "date": {
+        "title": "Data Evenimentului",
+        "content": "15-17 Iulie 2023",
+        "linkText": "Program Complet"
+      },
+      "participants": {
+        "title": "Participanți",
+        "content": "Alătură-te celor peste 500 de alergători",
+        "linkText": "Vezi Participanții"
+      }
     },
     "highlights": {
       "title": "Informații Importante",

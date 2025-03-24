@@ -34,7 +34,26 @@
       "title": "Bergpfad-Herausforderung 2023",
       "subtitle": "Erleben Sie den ultimativen Trail-Running-Wettbewerb im Herzen der Natur",
       "registerButton": "Jetzt Registrieren",
-      "exploreButton": "Rennen Erkunden"
+      "exploreButton": "Rennen Erkunden",
+      "imageAlt": "Trail-Läufer in Berglandschaft",
+      "date": "15.-17. Juli 2023"
+    },
+    "quickInfo": {
+      "location": {
+        "title": "Standort",
+        "content": "Karpaten, Siebenbürgen",
+        "linkText": "Karte Ansehen"
+      },
+      "date": {
+        "title": "Veranstaltungsdatum",
+        "content": "15.-17. Juli 2023",
+        "linkText": "Vollständiger Zeitplan"
+      },
+      "participants": {
+        "title": "Teilnehmer",
+        "content": "Treten Sie über 500 Läufern bei",
+        "linkText": "Teilnehmer Ansehen"
+      }
     },
     "highlights": {
       "title": "Veranstaltungs-Highlights",
