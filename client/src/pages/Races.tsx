@@ -75,19 +75,18 @@ export default function Races() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {races.map(race => (
-              <div key={race.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                {race.traceDeTrailIframe && (
-                  <iframe 
-                    src={race.traceDeTrailIframe} 
-                    allowFullScreen 
-                    style={{ border: 0, width: '100%', height: '800px' }} 
-                    scrolling="no"
-                  />
-                )}
+            {races
               .filter((race) => filter === "all" || filter === race.category)
               .map((race) => (
                 <Card key={race.id} className="bg-neutral-light rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+                  {race.traceDeTrailIframe && (
+                    <iframe 
+                      src={race.traceDeTrailIframe} 
+                      allowFullScreen 
+                      style={{ border: 0, width: '100%', height: '800px' }} 
+                      scrolling="no"
+                    />
+                  )}
                   <div 
                     className="h-40 bg-cover bg-center" 
                     style={{ backgroundImage: `url('https://source.unsplash.com/random/800x400?trail,mountains,running&${race.id}')` }}
