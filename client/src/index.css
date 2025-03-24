@@ -60,6 +60,39 @@
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-secondary;
   }
+  
+  /* Difficulty Colors */
+  .bg-difficulty-beginner {
+    background-color: #4CAF50; /* Green */
+  }
+  
+  .bg-difficulty-intermediate {
+    background-color: #FF9800; /* Orange */
+  }
+  
+  .bg-difficulty-advanced {
+    background-color: #E91E63; /* Pink/Red */
+  }
+  
+  .bg-difficulty-ultra {
+    background-color: #9C27B0; /* Purple */
+  }
+  
+  .text-difficulty-beginner {
+    color: #4CAF50; /* Green */
+  }
+  
+  .text-difficulty-intermediate {
+    color: #FF9800; /* Orange */
+  }
+  
+  .text-difficulty-advanced {
+    color: #E91E63; /* Pink/Red */
+  }
+  
+  .text-difficulty-ultra {
+    color: #9C27B0; /* Purple */
+  }
 }
 
 /* Custom scrollbar */
