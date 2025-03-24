@@ -18,6 +18,7 @@ export interface Race {
   date: string;
   price: number;
   imageUrl?: string;
+  raceMap?: string; // Embedded iframe code for the race map
 }
 
 // Participant types

@@ -292,54 +292,39 @@ export class MemStorage implements IStorage {
   private initializeSampleData() {
     // Sample Races
     this.createRace({
-      name: "Mountain Explorer",
-      nameRo: "Exploratorul Montan",
-      nameFr: "Explorateur de Montagne",
-      nameDe: "Bergentdecker",
-      description: "Perfect for beginners, this scenic route offers beautiful mountain views without extreme technical challenges.",
-      descriptionRo: "Perfect pentru începători, acest traseu scenic oferă priveliști montane frumoase fără provocări tehnice extreme.",
-      descriptionFr: "Parfait pour les débutants, cet itinéraire pittoresque offre de magnifiques vues sur la montagne sans défis techniques extrêmes.",
-      descriptionDe: "Perfekt für Anfänger, diese malerische Route bietet wunderschöne Bergpanoramen ohne extreme technische Herausforderungen.",
-      distance: 10,
-      elevation: 350,
+      name: "Trail Run 33K",
+      nameRo: "Traseu 33K",
+      nameFr: "Trail 33K",
+      nameDe: "Trail 33K",
+      description: "A challenging 33km mountain trail with significant elevation gain, offering stunning panoramic views. This race features technical sections and requires good mountain running experience.",
+      descriptionRo: "Un traseu montan provocator de 33 km cu creștere semnificativă de elevație, oferind priveliști panoramice uimitoare. Această cursă conține secțiuni tehnice și necesită experiență bună de alergare montană.",
+      descriptionFr: "Un sentier de montagne exigeant de 33 km avec un dénivelé important, offrant des vues panoramiques à couper le souffle. Cette course comprend des sections techniques et nécessite une bonne expérience de course en montagne.",
+      descriptionDe: "Ein anspruchsvoller 33 km langer Bergpfad mit erheblichem Höhenunterschied und atemberaubenden Panoramablicken. Dieses Rennen enthält technische Abschnitte und erfordert gute Berglauferfahrung.",
+      distance: 33,
+      elevation: 1800,
+      difficulty: "advanced",
+      date: "2024-06-15",
+      price: 75,
+      imageUrl: "https://images.unsplash.com/photo-1590136500603-a143a477b815",
+      raceMap: '<iframe src="https://tracedetrail.fr/en/iframe/6296" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>'
+    });
+
+    this.createRace({
+      name: "Trail Run 11K",
+      nameRo: "Traseu 11K",
+      nameFr: "Trail 11K",
+      nameDe: "Trail 11K",
+      description: "A beautiful 11km trail perfect for beginners and intermediate runners. This scenic route takes you through forests and gentle hills with moderate elevation gain.",
+      descriptionRo: "Un traseu frumos de 11 km perfect pentru începători și alergători de nivel intermediar. Această rută pitorească vă poartă prin păduri și dealuri line cu elevație moderată.",
+      descriptionFr: "Un magnifique sentier de 11 km parfait pour les débutants et les coureurs de niveau intermédiaire. Cet itinéraire pittoresque vous fait traverser des forêts et des collines douces avec un dénivelé modéré.",
+      descriptionDe: "Ein schöner 11 km langer Trail, perfekt für Anfänger und fortgeschrittene Läufer. Diese malerische Route führt durch Wälder und sanfte Hügel mit mäßigem Höhenunterschied.",
+      distance: 11,
+      elevation: 550,
       difficulty: "beginner",
       date: "2024-06-15",
       price: 45,
-      imageUrl: "https://images.unsplash.com/photo-1551632811-561732d1e306"
-    });
-
-    this.createRace({
-      name: "Forest Challenge",
-      nameRo: "Provocarea Pădurii",
-      nameFr: "Défi Forestier",
-      nameDe: "Waldherausforderung",
-      description: "A beautiful half-marathon through dense forests and rolling hills, suitable for intermediate runners.",
-      descriptionRo: "Un semi-maraton frumos prin păduri dense și dealuri line, potrivit pentru alergători de nivel intermediar.",
-      descriptionFr: "Un magnifique semi-marathon à travers des forêts denses et des collines vallonnées, adapté aux coureurs intermédiaires.",
-      descriptionDe: "Ein schöner Halbmarathon durch dichte Wälder und sanfte Hügel, geeignet für Läufer mit mittlerem Niveau.",
-      distance: 21,
-      elevation: 850,
-      difficulty: "intermediate",
-      date: "2024-06-16",
-      price: 65,
-      imageUrl: "https://images.unsplash.com/photo-1510111652602-195fc654aa83"
-    });
-
-    this.createRace({
-      name: "Summit Ultra",
-      nameRo: "Ultra Vârf",
-      nameFr: "Ultra Sommet",
-      nameDe: "Gipfel Ultra",
-      description: "The ultimate challenge with technical terrain and breathtaking summit views. For experienced trail runners.",
-      descriptionRo: "Provocarea supremă cu teren tehnic și vederi uimitoare ale vârfurilor. Pentru alergători cu experiență.",
-      descriptionFr: "Le défi ultime avec un terrain technique et des vues imprenables sur les sommets. Pour les coureurs expérimentés.",
-      descriptionDe: "Die ultimative Herausforderung mit technischem Gelände und atemberaubenden Gipfelblicken. Für erfahrene Trailläufer.",
-      distance: 50,
-      elevation: 2500,
-      difficulty: "advanced",
-      date: "2024-06-17",
-      price: 95,
-      imageUrl: "https://images.unsplash.com/photo-1590136500603-a143a477b815"
+      imageUrl: "https://images.unsplash.com/photo-1551632811-561732d1e306",
+      raceMap: '<iframe src="https://tracedetrail.fr/en/iframe/6297" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>'
     });
 
     // Sample FAQs

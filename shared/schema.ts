@@ -33,6 +33,7 @@ export const races = pgTable("races", {
   date: text("date").notNull(), // ISO date string
   price: integer("price").notNull(), // in EUR
   imageUrl: text("imageurl"),
+  raceMap: text("racemap"), // Embedded iframe code for the race map
 });
 
 export const insertRaceSchema = createInsertSchema(races).omit({

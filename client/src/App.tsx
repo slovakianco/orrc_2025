@@ -10,6 +10,7 @@ import i18n from "./lib/i18n";
 // Import Pages
 import HomePage from "@/pages/HomePage";
 import RacesPage from "@/pages/RacesPage";
+import RaceDetail from "@/pages/RaceDetail";
 import RegistrationPage from "@/pages/RegistrationPage";
 import ParticipantsPage from "@/pages/ParticipantsPage";
 import RulesPage from "@/pages/RulesPage";
@@ -31,6 +32,7 @@ function Router() {
         <Switch>
           <Route path="/" component={HomePage} />
           <Route path="/races" component={RacesPage} />
+          <Route path="/races/:id" component={RaceDetail} />
           <Route path="/registration" component={RegistrationPage} />
           <Route path="/participants" component={ParticipantsPage} />
           <Route path="/rules" component={RulesPage} />
