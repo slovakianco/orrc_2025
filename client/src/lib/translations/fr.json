@@ -57,7 +57,21 @@
     "subtitle": "Découvrez nos courses de trail running stimulantes",
     "filterBy": "Filtrer par",
     "details": "Détails",
-    "register": "S'inscrire"
+    "register": "S'inscrire",
+    "backToList": "Retour aux courses",
+    "details": {
+      "about": "À propos de cette course",
+      "map": "Carte du parcours",
+      "info": "Informations sur la course",
+      "price": "Prix",
+      "date": "Date",
+      "distance": "Distance",
+      "elevation": "Dénivelé",
+      "difficulty": "Difficulté",
+      "aidStations": "Ravitaillements",
+      "registerButton": "S'inscrire à cette course",
+      "downloadGPX": "Télécharger le fichier GPX"
+    }
   },
   "race": {
     "filter": {

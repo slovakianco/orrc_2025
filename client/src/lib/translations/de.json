@@ -57,7 +57,21 @@
     "subtitle": "Entdecken Sie unsere anspruchsvollen Trail-Running-Rennen",
     "filterBy": "Filtern nach",
     "details": "Details",
-    "register": "Anmelden"
+    "register": "Anmelden",
+    "backToList": "Zurück zur Rennliste",
+    "details": {
+      "about": "Über dieses Rennen",
+      "map": "Streckenkarte",
+      "info": "Renninformationen",
+      "price": "Preis",
+      "date": "Datum",
+      "distance": "Distanz",
+      "elevation": "Höhenmeter",
+      "difficulty": "Schwierigkeitsgrad",
+      "aidStations": "Verpflegungsstationen",
+      "registerButton": "Für dieses Rennen anmelden",
+      "downloadGPX": "GPX-Datei herunterladen"
+    }
   },
   "race": {
     "filter": {
