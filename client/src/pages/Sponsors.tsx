@@ -92,6 +92,8 @@ export default function Sponsors() {
         "sponsors.packages.bronze.benefit3"
       ]
     }
+]
+    }
   ];
 
   return (
