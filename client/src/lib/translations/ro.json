@@ -4,7 +4,24 @@
     "submitting": "Se trimite...",
     "error": "A apărut o eroare",
     "success": "Succes!",
-    "notAvailable": "Indisponibil"
+    "notAvailable": "Indisponibil",
+    "filter": "Filtrează",
+    "search": "Caută",
+    "clear": "Șterge",
+    "view": "Vizualizare",
+    "sort": "Sortează",
+    "sortBy": "Sortează după",
+    "ascending": "Crescător",
+    "descending": "Descrescător",
+    "name": "Nume",
+    "date": "Data",
+    "apply": "Aplică",
+    "cancel": "Anulează",
+    "notFound": "Nu a fost găsit",
+    "notFoundDescription": "Pagina pe care o cauți nu există.",
+    "goBack": "Înapoi",
+    "goHome": "Mergi la pagina principală",
+    "languageSelector": "Selector de limbă"
   },
   "nav": {
     "home": "Acasă",
@@ -48,10 +65,13 @@
   "races": {
     "title": "Curse",
     "subtitle": "Descoperă cursele noastre provocatoare de alergare pe traseu",
+    "filterTitle": "Filtrează Curse",
     "filterBy": "Filtrează după",
-    "details": "Detalii",
-    "register": "Înregistrare",
-    "backToList": "Înapoi la Curse",
+    "filter": {
+      "all": "Toate Cursele",
+      "beginner": "Pentru Începători",
+      "advanced": "Trasee Avansate"
+    },
     "filters": {
       "all": "Toate",
       "beginner": "Începător",
@@ -60,6 +80,7 @@
       "ultra": "Ultra"
     },
     "difficulty": {
+      "label": "Dificultate",
       "beginner": "Începător",
       "intermediate": "Intermediar",
       "advanced": "Avansat",
@@ -67,24 +88,32 @@
     },
     "viewDetails": "Vezi Detalii",
     "viewAllButton": "Vezi Toate Cursele",
-    "noRacesFound": "Nu s-au găsit curse care să corespundă criteriilor tale",
+    "elevation": "Elevație",
+    "distance": "Distanță",
+    "price": "Preț",
+    "loading": "Se încarcă cursele...",
+    "noRacesFound": "Nu s-au găsit curse",
+    "tryDifferentFilter": "Încearcă un alt filtru",
     "dates": {
       "15": "15 Iunie",
       "16": "16 Iunie",
       "17": "17 Iunie"
     },
-    "details": {
-      "about": "Despre această cursă",
-      "map": "Harta Traseului",
-      "info": "Informații despre cursă",
-      "price": "Preț",
+    "raceDetail": {
+      "details": "Detalii Cursă",
+      "description": "Descriere",
       "date": "Data",
       "distance": "Distanță",
-      "elevation": "Elevație",
+      "elevation": "Diferență de Nivel",
       "difficulty": "Dificultate",
-      "aidStations": "Puncte de hidratare",
-      "registerButton": "Înregistrare pentru această cursă",
-      "downloadGPX": "Descarcă fișier GPX"
+      "price": "Taxă de Participare",
+      "trailMap": "Harta Traseului",
+      "registerButton": "Înregistrează-te Acum",
+      "backToRaces": "Înapoi la Toate Cursele",
+      "aidStations": "Puncte de Hidratare",
+      "cutoffTime": "Timp Limită",
+      "startTime": "Ora de Start",
+      "loading": "Se încarcă detaliile cursei..."
     }
   },
   "registration": {
@@ -123,21 +152,38 @@
   "participants": {
     "title": "Participanți Înregistrați",
     "subtitle": "Navighează prin lista participanților înregistrați în prezent. Verifică cine participă la fiecare cursă și găsește prieteni sau competitori.",
-    "searchPlaceholder": "Caută după nume sau țară...",
+    "searchPlaceholder": "Caută după nume...",
+    "filterByCountry": "Filtrează după Țară",
+    "filterByRace": "Filtrează după Cursă",
     "allRaces": "Toate Cursele",
     "allCountries": "Toate Țările",
+    "clearFilters": "Șterge Filtrele",
+    "participantsFound": "participanți găsiți",
+    "filterApplied": "filtre aplicate",
+    "tableView": "Vizualizare Tabel",
+    "cardView": "Vizualizare Carduri",
+    "loading": "Se încarcă participanții...",
+    "noParticipantsFound": "Nu s-au găsit participanți",
+    "tryDifferentFilter": "Încearcă un alt filtru sau șterge căutarea",
     "noParticipants": "Nu s-au găsit participanți",
     "table": {
       "name": "Nume",
       "country": "Țară",
       "race": "Cursă",
       "bib": "Nr. Bib",
-      "status": "Status"
+      "bibNumber": "Număr Concurs",
+      "status": "Status",
+      "age": "Vârstă", 
+      "gender": "Gen"
     },
     "status": {
       "confirmed": "Confirmat",
       "pending": "În așteptare",
       "cancelled": "Anulat"
+    },
+    "gender": {
+      "male": "Masculin",
+      "female": "Feminin"
     },
     "unknownRace": "Cursă Necunoscută",
     "pagination": {
