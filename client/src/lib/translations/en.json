@@ -20,17 +20,6 @@
     "contact": "Contact",
     "sponsors": "Sponsors"
   },
-  "nav": {
-    "home": "Home",
-    "races": "Races",
-    "registration": "Registration",
-    "participants": "Participants",
-    "rules": "Rules",
-    "program": "Program",
-    "contact": "Contact",
-    "sponsors": "Sponsors",
-    "registerButton": "Register Now"
-  },
   "footer": {
     "tagline": "Experience the ultimate trail running competition in the heart of nature",
     "quickLinks": "Quick Links",
@@ -59,7 +48,26 @@
       "title": "Mountain Trail Challenge 2023",
       "subtitle": "Experience the ultimate trail running competition in the heart of nature",
       "registerButton": "Register Now",
-      "exploreButton": "Explore Races"
+      "exploreButton": "Explore Races",
+      "imageAlt": "Trail runner in mountain landscape",
+      "date": "July 15-17, 2023"
+    },
+    "quickInfo": {
+      "location": {
+        "title": "Location",
+        "content": "Carpathian Mountains, Transylvania",
+        "linkText": "View Map"
+      },
+      "date": {
+        "title": "Event Date",
+        "content": "July 15-17, 2023",
+        "linkText": "Full Schedule"
+      },
+      "participants": {
+        "title": "Participants",
+        "content": "Join 500+ trail runners",
+        "linkText": "View Participants"
+      }
     },
     "highlights": {
       "title": "Event Highlights",
@@ -335,7 +343,15 @@
       "title": "Contact Information",
       "addressTitle": "Location",
       "emailTitle": "Email",
-      "phoneTitle": "Phone"
+      "phoneTitle": "Phone",
+      "email": "info@trailrunpro.com",
+      "phone": "+40 123 456 789",
+      "location": "Carpathian Mountains, Transylvania",
+      "address": "123 Trail Runner Blvd, Brasov, Romania",
+      "hours": "Office Hours",
+      "weekdays": "Mon-Fri: 9AM - 5PM",
+      "weekend": "Sat-Sun: Closed",
+      "social": "Follow us"
     },
     "form": {
       "title": "Send us a Message",
@@ -346,7 +362,8 @@
       "send": "Send Message",
       "sending": "Sending...",
       "successTitle": "Message Sent!",
-      "successMessage": "Thank you for your message. We'll respond as soon as possible."
+      "successMessage": "Thank you for your message. We'll respond as soon as possible.",
+      "submitButton": "Send Message"
     },
     "faq": {
       "title": "Frequently Asked Questions",
@@ -359,7 +376,23 @@
       "q4": "What aid stations will be available on the course?",
       "a4": "Aid stations are positioned approximately every 5-10km depending on the race category. All stations provide water, electrolytes, and basic food. Major aid stations (marked on race maps) also provide more substantial nutrition options.",
       "q5": "Can I bring a support crew?",
-      "a5": "Support crews are allowed but can only assist runners at designated aid stations. Crew access points will be marked on maps provided in the race package."
+      "a5": "Support crews are allowed but can only assist runners at designated aid stations. Crew access points will be marked on maps provided in the race package.",
+      "registration": {
+        "question": "How do I register for the event?",
+        "answer": "You can register online through our Registration page. Simply fill out the form with your details, select your race category, and complete the payment process."
+      },
+      "equipment": {
+        "question": "What equipment is required for the race?",
+        "answer": "Required equipment includes a water container, mobile phone, whistle, and appropriate clothing. For ultra distances, additional items may be required. See the Rules page for complete details."
+      },
+      "stations": {
+        "question": "How are aid stations organized?",
+        "answer": "Aid stations are positioned every 5-10km along the course, depending on the race distance. All provide water, electrolytes, and basic nutrition. Major stations also offer medical support."
+      },
+      "change": {
+        "question": "Can I change my race category after registration?",
+        "answer": "Yes, you can change your race category up to 30 days before the event. Please contact us directly for assistance with this process."
+      }
     }
   },
   "sponsors": {

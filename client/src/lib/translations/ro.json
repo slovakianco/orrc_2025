@@ -308,7 +308,15 @@
       "title": "Informații de Contact",
       "addressTitle": "Locație",
       "emailTitle": "Email",
-      "phoneTitle": "Telefon"
+      "phoneTitle": "Telefon",
+      "email": "info@trailrunpro.com",
+      "phone": "+40 123 456 789",
+      "location": "Munții Carpați, Transilvania",
+      "address": "123 Bulevardul Alergătorilor, Brașov, România",
+      "hours": "Program de Lucru",
+      "weekdays": "Luni-Vineri: 9:00 - 17:00",
+      "weekend": "Sâmbătă-Duminică: Închis",
+      "social": "Urmărește-ne"
     },
     "form": {
       "title": "Trimite-ne un Mesaj",
@@ -319,7 +327,8 @@
       "send": "Trimite Mesaj",
       "sending": "Se trimite...",
       "successTitle": "Mesaj Trimis!",
-      "successMessage": "Mulțumim pentru mesaj. Vom răspunde cât mai curând posibil."
+      "successMessage": "Mulțumim pentru mesaj. Vom răspunde cât mai curând posibil.",
+      "submitButton": "Trimite Mesaj"
     },
     "faq": {
       "title": "Întrebări Frecvente",
@@ -332,7 +341,23 @@
       "q4": "Ce stații de ajutor vor fi disponibile pe traseu?",
       "a4": "Stațiile de ajutor sunt poziționate la aproximativ fiecare 5-10km, în funcție de categoria cursei. Toate stațiile oferă apă, electroliți și mâncare de bază. Stațiile de ajutor majore (marcate pe hărțile de cursă) oferă, de asemenea, opțiuni de nutriție mai consistente.",
       "q5": "Pot aduce o echipă de suport?",
-      "a5": "Echipele de suport sunt permise, dar pot asista alergătorii doar la stațiile de ajutor desemnate. Punctele de acces pentru echipe vor fi marcate pe hărțile furnizate în pachetul de cursă."
+      "a5": "Echipele de suport sunt permise, dar pot asista alergătorii doar la stațiile de ajutor desemnate. Punctele de acces pentru echipe vor fi marcate pe hărțile furnizate în pachetul de cursă.",
+      "registration": {
+        "question": "Cum mă înregistrez pentru eveniment?",
+        "answer": "Te poți înregistra online prin pagina noastră de Înregistrare. Completează formularul cu datele tale, selectează categoria de cursă și finalizează procesul de plată."
+      },
+      "equipment": {
+        "question": "Ce echipament este necesar pentru cursă?",
+        "answer": "Echipamentul necesar include un recipient pentru apă, telefon mobil, fluier și îmbrăcăminte adecvată. Pentru distanțele ultra, pot fi necesare articole suplimentare. Consultă pagina Reguli pentru detalii complete."
+      },
+      "stations": {
+        "question": "Cum sunt organizate stațiile de ajutor?",
+        "answer": "Stațiile de ajutor sunt poziționate la fiecare 5-10km de-a lungul traseului, în funcție de distanța cursei. Toate oferă apă, electroliți și nutriție de bază. Stațiile principale oferă și asistență medicală."
+      },
+      "change": {
+        "question": "Pot schimba categoria de cursă după înregistrare?",
+        "answer": "Da, îți poți schimba categoria de cursă cu până la 30 de zile înainte de eveniment. Te rugăm să ne contactezi direct pentru asistență cu acest proces."
+      }
     }
   },
   "sponsors": {
