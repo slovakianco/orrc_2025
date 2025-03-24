@@ -39,11 +39,11 @@ export function formatCurrency(value: number, currency: string = 'EUR', locale: 
 export function getLocalizedRaceName(race: Race, language: Language): string {
   switch (language) {
     case 'ro':
-      return race.nameRo;
+      return race.nameRo || race.name;
     case 'fr':
-      return race.nameFr;
+      return race.nameFr || race.name;
     case 'de':
-      return race.nameDe;
+      return race.nameDe || race.name;
     default:
       return race.name;
   }
@@ -53,11 +53,11 @@ export function getLocalizedRaceName(race: Race, language: Language): string {
 export function getLocalizedRaceDescription(race: Race, language: Language): string {
   switch (language) {
     case 'ro':
-      return race.descriptionRo;
+      return race.descriptionRo || race.description;
     case 'fr':
-      return race.descriptionFr;
+      return race.descriptionFr || race.description;
     case 'de':
-      return race.descriptionDe;
+      return race.descriptionDe || race.description;
     default:
       return race.description;
   }
@@ -67,11 +67,11 @@ export function getLocalizedRaceDescription(race: Race, language: Language): str
 export function getLocalizedEventTitle(event: ProgramEvent, language: Language): string {
   switch (language) {
     case 'ro':
-      return event.titleRo;
+      return event.titleRo || event.title;
     case 'fr':
-      return event.titleFr;
+      return event.titleFr || event.title;
     case 'de':
-      return event.titleDe;
+      return event.titleDe || event.title;
     default:
       return event.title;
   }
@@ -81,11 +81,11 @@ export function getLocalizedEventTitle(event: ProgramEvent, language: Language):
 export function getLocalizedEventDescription(event: ProgramEvent, language: Language): string {
   switch (language) {
     case 'ro':
-      return event.descriptionRo;
+      return event.descriptionRo || event.description;
     case 'fr':
-      return event.descriptionFr;
+      return event.descriptionFr || event.description;
     case 'de':
-      return event.descriptionDe;
+      return event.descriptionDe || event.description;
     default:
       return event.description;
   }
@@ -95,11 +95,11 @@ export function getLocalizedEventDescription(event: ProgramEvent, language: Lang
 export function getLocalizedFAQQuestion(faq: FAQ, language: Language): string {
   switch (language) {
     case 'ro':
-      return faq.questionRo;
+      return faq.questionRo || faq.question;
     case 'fr':
-      return faq.questionFr;
+      return faq.questionFr || faq.question;
     case 'de':
-      return faq.questionDe;
+      return faq.questionDe || faq.question;
     default:
       return faq.question;
   }
@@ -109,11 +109,11 @@ export function getLocalizedFAQQuestion(faq: FAQ, language: Language): string {
 export function getLocalizedFAQAnswer(faq: FAQ, language: Language): string {
   switch (language) {
     case 'ro':
-      return faq.answerRo;
+      return faq.answerRo || faq.answer;
     case 'fr':
-      return faq.answerFr;
+      return faq.answerFr || faq.answer;
     case 'de':
-      return faq.answerDe;
+      return faq.answerDe || faq.answer;
     default:
       return faq.answer;
   }
@@ -123,28 +123,45 @@ export function getLocalizedFAQAnswer(faq: FAQ, language: Language): string {
 export function getLocalizedSponsorDescription(sponsor: Sponsor, language: Language): string {
   switch (language) {
     case 'ro':
-      return sponsor.descriptionRo;
+      return sponsor.descriptionRo || sponsor.description;
     case 'fr':
-      return sponsor.descriptionFr;
+      return sponsor.descriptionFr || sponsor.description;
     case 'de':
-      return sponsor.descriptionDe;
+      return sponsor.descriptionDe || sponsor.description;
     default:
       return sponsor.description;
   }
 }
 
-// Get difficulty badge color
+// Get difficulty badge color for background
 export function getDifficultyColor(difficulty: string): string {
   switch (difficulty) {
     case 'beginner':
-      return 'bg-accent text-white'; // Orange
+      return 'bg-green-600 text-white';
     case 'intermediate':
-      return 'bg-secondary text-white'; // Green
+      return 'bg-yellow-600 text-white';
     case 'advanced':
+      return 'bg-orange-600 text-white';
     case 'ultra':
-      return 'bg-primary-dark text-white'; // Dark Blue
+      return 'bg-red-600 text-white';
     default:
-      return 'bg-neutral-gray text-white';
+      return 'bg-blue-600 text-white';
+  }
+}
+
+// Get difficulty badge color for inline badges
+export function getDifficultyBadgeColor(difficulty: string): string {
+  switch (difficulty) {
+    case 'beginner':
+      return 'bg-green-100/80 text-green-800';
+    case 'intermediate':
+      return 'bg-yellow-100/80 text-yellow-800';
+    case 'advanced':
+      return 'bg-orange-100/80 text-orange-800';
+    case 'ultra':
+      return 'bg-red-100/80 text-red-800';
+    default:
+      return 'bg-blue-100/80 text-blue-800';
   }
 }
 
@@ -152,19 +169,29 @@ export function getDifficultyColor(difficulty: string): string {
 export function getStatusColor(status: string): string {
   switch (status) {
     case 'confirmed':
-      return 'bg-status-success bg-opacity-10 text-status-success'; // Green
-    case 'cancelled':
-      return 'bg-status-error bg-opacity-10 text-status-error'; // Red
+      return 'bg-green-100 text-green-800 border-green-200';
     case 'pending':
-      return 'bg-status-warning bg-opacity-10 text-status-warning'; // Orange
+      return 'bg-yellow-100 text-yellow-800 border-yellow-200';
+    case 'cancelled':
+      return 'bg-red-100 text-red-800 border-red-200';
     default:
-      return 'bg-neutral-gray bg-opacity-10 text-neutral-gray';
+      return 'bg-gray-100 text-gray-800 border-gray-200';
   }
 }
 
 // Format time (HH:MM)
 export function formatTime(time: string): string {
-  return time;
+  if (!time) return '';
+  
+  try {
+    return new Date(`2023-01-01T${time}`).toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    });
+  } catch (e) {
+    return time;
+  }
 }
 
 // Group program events by date
@@ -181,6 +208,54 @@ export function groupEventsByDate(events: ProgramEvent[]): { [key: string]: Prog
 
 // Get country flag emoji from country code
 export function getCountryFlag(countryCode: string): string {
-  const countryCodeUpperCase = countryCode.toUpperCase();
-  return `https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/${countryCodeUpperCase}.svg`;
+  if (!countryCode) return '🌍';
+  
+  // Use emoji flags instead of images for better compatibility
+  const countryToFlag: { [key: string]: string } = {
+    'RO': '🇷🇴',
+    'FR': '🇫🇷',
+    'DE': '🇩🇪',
+    'UK': '🇬🇧',
+    'US': '🇺🇸',
+    'IT': '🇮🇹',
+    'ES': '🇪🇸',
+    'PT': '🇵🇹',
+    'BE': '🇧🇪',
+    'NL': '🇳🇱',
+    'CH': '🇨🇭',
+    'AT': '🇦🇹',
+    'HU': '🇭🇺',
+    'PL': '🇵🇱',
+    'CZ': '🇨🇿'
+  };
+  
+  const code = countryCode.toUpperCase();
+  return countryToFlag[code] || '🌍';
+}
+
+// Helper function to truncate text with ellipsis
+export function truncateText(text: string, maxLength: number): string {
+  if (!text) return '';
+  if (text.length <= maxLength) return text;
+  return text.substring(0, maxLength) + '...';
+}
+
+// Format distance with km suffix
+export function formatDistance(distance: number): string {
+  return distance + ' km';
+}
+
+// Generate initials from full name
+export function getInitials(firstName: string, lastName: string): string {
+  const firstInitial = firstName?.charAt(0) || '';
+  const lastInitial = lastName?.charAt(0) || '';
+  return (firstInitial + lastInitial).toUpperCase();
+}
+
+// Format date for mobile display (shorter version)
+export function formatMobileDate(date: string, locale: string = 'en-US'): string {
+  return new Date(date).toLocaleDateString(locale, {
+    month: 'short',
+    day: 'numeric'
+  });
 }

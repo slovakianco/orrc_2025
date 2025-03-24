@@ -48,6 +48,13 @@
   "races": {
     "title": "Explore Our Races",
     "subtitle": "From beginner-friendly trails to challenging mountain ultras, find the perfect race for your level and ambition.",
+    "filterTitle": "Filter Races",
+    "filterBy": "Filter by",
+    "filter": {
+      "all": "All Races",
+      "beginner": "Beginner Friendly",
+      "advanced": "Advanced Trails"
+    },
     "filters": {
       "all": "All Races",
       "beginner": "Beginner",
@@ -56,6 +63,7 @@
       "ultra": "Ultra"
     },
     "difficulty": {
+      "label": "Difficulty",
       "beginner": "Beginner",
       "intermediate": "Intermediate",
       "advanced": "Advanced",
@@ -68,7 +76,28 @@
     },
     "viewDetails": "View Details",
     "viewAllButton": "View All Races",
-    "noRacesFound": "No races found"
+    "elevation": "Elevation",
+    "distance": "Distance",
+    "price": "Price",
+    "loading": "Loading races...",
+    "noRacesFound": "No races found",
+    "tryDifferentFilter": "Try a different filter option",
+    "raceDetail": {
+      "details": "Race Details",
+      "description": "Description",
+      "date": "Date",
+      "distance": "Distance",
+      "elevation": "Elevation Gain",
+      "difficulty": "Difficulty",
+      "price": "Entry Fee",
+      "trailMap": "Trail Map",
+      "registerButton": "Register Now",
+      "backToRaces": "Back to All Races",
+      "aidStations": "Aid Stations",
+      "cutoffTime": "Cutoff Time",
+      "startTime": "Start Time",
+      "loading": "Loading race details..."
+    }
   },
   "registration": {
     "title": "Register for the Competition",
@@ -106,21 +135,38 @@
   "participants": {
     "title": "Registered Participants",
     "subtitle": "Browse the list of currently registered runners. Check who's joining each race and find friends or competitors.",
-    "searchPlaceholder": "Search by name or country...",
+    "searchPlaceholder": "Search by name...",
+    "filterByCountry": "Filter by Country",
+    "filterByRace": "Filter by Race",
     "allRaces": "All Races",
     "allCountries": "All Countries",
+    "clearFilters": "Clear Filters",
+    "participantsFound": "participants found",
+    "filterApplied": "filters applied",
+    "tableView": "Table View",
+    "cardView": "Card View",
+    "loading": "Loading participants...",
+    "noParticipantsFound": "No participants found",
+    "tryDifferentFilter": "Try a different filter or clear your search",
     "noParticipants": "No participants found",
     "table": {
       "name": "Name",
       "country": "Country",
       "race": "Race",
       "bib": "Bib #",
-      "status": "Status"
+      "bibNumber": "Bib Number",
+      "status": "Status",
+      "age": "Age", 
+      "gender": "Gender"
     },
     "status": {
       "confirmed": "Confirmed",
       "pending": "Pending",
       "cancelled": "Cancelled"
+    },
+    "gender": {
+      "male": "Male",
+      "female": "Female"
     },
     "unknownRace": "Unknown Race",
     "pagination": {
