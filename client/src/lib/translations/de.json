@@ -183,7 +183,32 @@
     "submitButton": "Anmeldung Abschließen",
     "submitting": "Wird verarbeitet...",
     "successTitle": "Anmeldung Erfolgreich!",
-    "successMessage": "Vielen Dank für Ihre Anmeldung. Sie erhalten in Kürze eine Bestätigungs-E-Mail."
+    "successMessage": "Vielen Dank für Ihre Anmeldung. Sie erhalten in Kürze eine Bestätigungs-E-Mail.",
+    "email": {
+      "title": "Bestätigungs-E-Mail Gesendet",
+      "message": "Bitte überprüfen Sie Ihren Posteingang für Anmeldebestätigungsdetails."
+    },
+    "form": {
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "email": "E-Mail",
+      "phone": "Telefonnummer",
+      "country": "Land",
+      "selectCountry": "Wählen Sie Ihr Land",
+      "birthDate": "Geburtsdatum",
+      "gender": "Geschlecht",
+      "male": "Männlich",
+      "female": "Weiblich",
+      "selectRace": "Wählen Sie den Lauf",
+      "medical": "Medizinische Informationen",
+      "medicalPlaceholder": "Bitte teilen Sie uns alle relevanten medizinischen Bedingungen mit",
+      "termsText": "Ich akzeptiere die",
+      "termsLink": "Allgemeinen Geschäftsbedingungen",
+      "andText": "und die",
+      "privacyLink": "Datenschutzrichtlinie",
+      "riskText": "Ich verstehe die Risiken, die mit der Teilnahme an diesem Rennen verbunden sind.",
+      "submitButton": "Anmeldung Abschließen"
+    }
   },
   "participants": {
     "title": "Teilnehmer",

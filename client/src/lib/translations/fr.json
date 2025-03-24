@@ -183,7 +183,32 @@
     "submitButton": "Terminer l'Inscription",
     "submitting": "Traitement en cours...",
     "successTitle": "Inscription Réussie!",
-    "successMessage": "Merci pour votre inscription. Vous recevrez un email de confirmation sous peu."
+    "successMessage": "Merci pour votre inscription. Vous recevrez un email de confirmation sous peu.",
+    "email": {
+      "title": "Email de Confirmation Envoyé",
+      "message": "Veuillez vérifier votre boîte de réception pour les détails de confirmation d'inscription."
+    },
+    "form": {
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "Email",
+      "phone": "Numéro de Téléphone",
+      "country": "Pays",
+      "selectCountry": "Sélectionnez votre pays",
+      "birthDate": "Date de Naissance",
+      "gender": "Genre",
+      "male": "Homme",
+      "female": "Femme",
+      "selectRace": "Sélectionnez la course",
+      "medical": "Informations Médicales",
+      "medicalPlaceholder": "Veuillez nous informer de toute condition médicale pertinente",
+      "termsText": "J'accepte les",
+      "termsLink": "Termes et Conditions",
+      "andText": "et la",
+      "privacyLink": "Politique de Confidentialité",
+      "riskText": "Je comprends les risques associés à la participation à cette épreuve.",
+      "submitButton": "Terminer l'Inscription"
+    }
   },
   "participants": {
     "title": "Participants",
