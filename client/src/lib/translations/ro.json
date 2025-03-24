@@ -57,7 +57,21 @@
     "subtitle": "Descoperă cursele noastre provocatoare de alergare pe traseu",
     "filterBy": "Filtrează după",
     "details": "Detalii",
-    "register": "Înregistrare"
+    "register": "Înregistrare",
+    "backToList": "Înapoi la Curse",
+    "details": {
+      "about": "Despre această cursă",
+      "map": "Harta Traseului",
+      "info": "Informații despre cursă",
+      "price": "Preț",
+      "date": "Data",
+      "distance": "Distanță",
+      "elevation": "Elevație",
+      "difficulty": "Dificultate",
+      "aidStations": "Puncte de hidratare",
+      "registerButton": "Înregistrare pentru această cursă",
+      "downloadGPX": "Descarcă fișier GPX"
+    }
   },
   "race": {
     "filter": {

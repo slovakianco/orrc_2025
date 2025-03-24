@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import { useParams, Link } from "wouter";
-import { Calendar, Map, Mountain, Clock, Flag, ChevronLeft } from "lucide-react";
+import { Calendar, Map, Mountain, Clock, Flag, ChevronLeft, Download } from "lucide-react";
 import { Race } from "@/lib/types";
 import { getDifficultyColor, getLocalizedRaceName, getLocalizedRaceDescription, formatCurrency, formatDate } from "@/lib/utils";
 
@@ -136,10 +136,18 @@ const RaceDetail = () => {
                     </div>
                   </div>
                   
-                  <div className="mt-6">
+                  <div className="mt-6 space-y-3">
                     <Link href="/registration" className="block w-full bg-accent hover:bg-accent-dark text-white font-bold py-3 rounded-lg transition-colors duration-300 text-center shadow-md hover:shadow-lg">
                       {t('races.details.registerButton')}
                     </Link>
+                    
+                    <a 
+                      href={`/api/races/${race.id}/gpx`} 
+                      download
+                      className="flex items-center justify-center w-full bg-primary/10 hover:bg-primary/20 text-primary font-medium py-2.5 rounded-lg transition-colors duration-300 text-center border border-primary/20">
+                      <Download className="h-4 w-4 mr-2" />
+                      {t('races.details.downloadGPX')}
+                    </a>
                   </div>
                 </div>
               </div>

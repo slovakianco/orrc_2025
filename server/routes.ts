@@ -186,6 +186,48 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
   
+  // GPX file download
+  apiRouter.get("/races/:id/gpx", async (req: Request, res: Response) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) {
+        return res.status(400).json({ message: "Invalid race ID" });
+      }
+      
+      const race = await storage.getRaceById(id);
+      if (!race) {
+        return res.status(404).json({ message: "Race not found" });
+      }
+      
+      // Determine which GPX file to serve based on race distance
+      let gpxFileName;
+      if (race.distance >= 30) {
+        gpxFileName = 'long-trail-33km.gpx';
+      } else {
+        gpxFileName = 'short-trail-11km.gpx';
+      }
+      
+      const gpxFilePath = path.join(process.cwd(), 'attached_assets', gpxFileName);
+      
+      // Check if file exists
+      if (!fs.existsSync(gpxFilePath)) {
+        return res.status(404).json({ message: "GPX file not found" });
+      }
+      
+      // Set appropriate headers
+      res.setHeader('Content-Type', 'application/gpx+xml');
+      res.setHeader('Content-Disposition', `attachment; filename="${gpxFileName}"`);
+      
+      // Stream the file
+      const fileStream = fs.createReadStream(gpxFilePath);
+      fileStream.pipe(res);
+      
+    } catch (error) {
+      console.error("Error downloading GPX file:", error);
+      res.status(500).json({ message: "Failed to download GPX file" });
+    }
+  });
+
   // Mount the API router
   app.use("/api", apiRouter);
 
