@@ -452,7 +452,9 @@
     "name": "Numele trebuie să aibă cel puțin 2 caractere",
     "subject": "Subiectul trebuie să aibă cel puțin 2 caractere",
     "message": "Mesajul trebuie să aibă cel puțin 10 caractere"
-  },
+  }
+}
+{
   "hero": {
     "imageAlt": "Imagine de fundal traseu montan",
     "date": "15-17 Iulie 2024",
