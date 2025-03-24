@@ -20,6 +20,17 @@
     "contact": "Contact",
     "sponsors": "Sponsors"
   },
+  "nav": {
+    "home": "Home",
+    "races": "Races",
+    "registration": "Registration",
+    "participants": "Participants",
+    "rules": "Rules",
+    "program": "Program",
+    "contact": "Contact",
+    "sponsors": "Sponsors",
+    "registerButton": "Register Now"
+  },
   "footer": {
     "tagline": "Experience the ultimate trail running competition in the heart of nature",
     "quickLinks": "Quick Links",

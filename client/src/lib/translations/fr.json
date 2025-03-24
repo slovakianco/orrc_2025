@@ -9,6 +9,17 @@
     "contact": "Contact",
     "sponsors": "Sponsors"
   },
+  "nav": {
+    "home": "Accueil",
+    "races": "Courses",
+    "registration": "Inscription",
+    "participants": "Participants",
+    "rules": "Règles",
+    "program": "Programme",
+    "contact": "Contact",
+    "sponsors": "Sponsors",
+    "registerButton": "S'inscrire Maintenant"
+  },
   "footer": {
     "tagline": "Découvrez la compétition ultime de trail running au cœur de la nature",
     "quickLinks": "Liens Rapides",

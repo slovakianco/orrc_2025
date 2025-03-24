@@ -9,6 +9,17 @@
     "contact": "Contact",
     "sponsors": "Sponsori"
   },
+  "nav": {
+    "home": "Acasă",
+    "races": "Curse",
+    "registration": "Înregistrare",
+    "participants": "Participanți",
+    "rules": "Reguli",
+    "program": "Program",
+    "contact": "Contact",
+    "sponsors": "Sponsori",
+    "registerButton": "Înregistrare Acum"
+  },
   "footer": {
     "tagline": "Experimentează competiția ultimă de alergare pe trasee, în inima naturii",
     "quickLinks": "Linkuri Rapide",

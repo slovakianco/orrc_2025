@@ -9,6 +9,17 @@
     "contact": "Kontakt",
     "sponsors": "Sponsoren"
   },
+  "nav": {
+    "home": "Startseite",
+    "races": "Rennen",
+    "registration": "Anmeldung",
+    "participants": "Teilnehmer",
+    "rules": "Regeln",
+    "program": "Programm",
+    "contact": "Kontakt",
+    "sponsors": "Sponsoren",
+    "registerButton": "Jetzt Anmelden"
+  },
   "footer": {
     "tagline": "Erleben Sie den ultimativen Trail-Running-Wettbewerb im Herzen der Natur",
     "quickLinks": "Schnelllinks",
@@ -59,6 +70,27 @@
     "details": "Details",
     "register": "Anmelden",
     "backToList": "Zurück zur Rennliste",
+    "filters": {
+      "all": "Alle",
+      "beginner": "Anfänger",
+      "intermediate": "Fortgeschritten",
+      "advanced": "Experte",
+      "ultra": "Ultra"
+    },
+    "difficulty": {
+      "beginner": "Anfänger",
+      "intermediate": "Fortgeschritten",
+      "advanced": "Experte",
+      "ultra": "Ultra"
+    },
+    "viewDetails": "Details ansehen",
+    "viewAllButton": "Alle Rennen ansehen",
+    "noRacesFound": "Keine Rennen gefunden, die Ihren Kriterien entsprechen",
+    "dates": {
+      "15": "15. Juni",
+      "16": "16. Juni",
+      "17": "17. Juni"
+    },
     "details": {
       "about": "Über dieses Rennen",
       "map": "Streckenkarte",
