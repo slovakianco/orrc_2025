@@ -9,6 +9,8 @@ import { fromZodError } from "zod-validation-error";
 import { sendRegistrationConfirmationEmail } from "./email";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Serve static files from public directory
+  app.use(express.static(path.join(process.cwd(), 'public')));
   const apiRouter = express.Router();
   
   // API Routes - all prefixed with /api
