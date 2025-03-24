@@ -454,3 +454,30 @@
     "message": "Mesajul trebuie să aibă cel puțin 10 caractere"
   }
 }
+{
+  "hero": {
+    "imageAlt": "Imagine de fundal traseu montan",
+    "date": "15-17 Iulie 2024",
+    "title": "Trail Run Pro - Competiție de Alergare Montană",
+    "subtitle": "Alergare pe trasee montane spectaculoase în Carpații României",
+    "registerButton": "Înregistrează-te Acum",
+    "exploreButton": "Explorează Traseele"
+  },
+  "quickInfo": {
+    "location": {
+      "title": "Locație",
+      "content": "Carpații României",
+      "linkText": "Vezi Harta"
+    },
+    "date": {
+      "title": "Data",
+      "content": "15-17 Iulie 2024",
+      "linkText": "Vezi Programul"
+    },
+    "participants": {
+      "title": "Participanți",
+      "content": "Peste 500 de alergători",
+      "linkText": "Vezi Lista"
+    }
+  }
+}
