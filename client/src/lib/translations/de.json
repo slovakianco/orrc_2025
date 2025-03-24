@@ -308,7 +308,15 @@
       "title": "Kontaktinformationen",
       "addressTitle": "Standort",
       "emailTitle": "E-Mail",
-      "phoneTitle": "Telefon"
+      "phoneTitle": "Telefon",
+      "email": "info@trailrunpro.com",
+      "phone": "+40 123 456 789",
+      "location": "Karpaten, Siebenbürgen",
+      "address": "123 Trail Runner Blvd, Brasov, Rumänien",
+      "hours": "Öffnungszeiten",
+      "weekdays": "Mo-Fr: 9:00 - 17:00 Uhr",
+      "weekend": "Sa-So: Geschlossen",
+      "social": "Folgen Sie uns"
     },
     "form": {
       "title": "Senden Sie uns eine Nachricht",
@@ -319,7 +327,8 @@
       "send": "Nachricht Senden",
       "sending": "Wird gesendet...",
       "successTitle": "Nachricht Gesendet!",
-      "successMessage": "Vielen Dank für Ihre Nachricht. Wir werden so schnell wie möglich antworten."
+      "successMessage": "Vielen Dank für Ihre Nachricht. Wir werden so schnell wie möglich antworten.",
+      "submitButton": "Nachricht Senden"
     },
     "faq": {
       "title": "Häufig Gestellte Fragen",
@@ -332,7 +341,23 @@
       "q4": "Welche Verpflegungsstationen wird es auf der Strecke geben?",
       "a4": "Verpflegungsstationen befinden sich je nach Rennkategorie etwa alle 5-10 km. Alle Stationen bieten Wasser, Elektrolyte und grundlegende Nahrungsmittel. Hauptverpflegungsstationen (auf Rennkarten markiert) bieten auch umfangreichere Ernährungsoptionen.",
       "q5": "Kann ich ein Unterstützungsteam mitbringen?",
-      "a5": "Unterstützungsteams sind erlaubt, können den Läufern jedoch nur an den ausgewiesenen Verpflegungsstationen helfen. Zugangspunkte für Teams werden auf den Karten markiert, die im Rennpaket enthalten sind."
+      "a5": "Unterstützungsteams sind erlaubt, können den Läufern jedoch nur an den ausgewiesenen Verpflegungsstationen helfen. Zugangspunkte für Teams werden auf den Karten markiert, die im Rennpaket enthalten sind.",
+      "registration": {
+        "question": "Wie melde ich mich für die Veranstaltung an?",
+        "answer": "Sie können sich online über unsere Registrierungsseite anmelden. Füllen Sie einfach das Formular mit Ihren Daten aus, wählen Sie Ihre Rennkategorie und schließen Sie den Zahlungsvorgang ab."
+      },
+      "equipment": {
+        "question": "Welche Ausrüstung wird für das Rennen benötigt?",
+        "answer": "Die erforderliche Ausrüstung umfasst einen Wasserbehälter, ein Mobiltelefon, eine Pfeife und angemessene Kleidung. Für Ultra-Distanzen können zusätzliche Artikel erforderlich sein. Auf der Regeln-Seite finden Sie vollständige Details."
+      },
+      "stations": {
+        "question": "Wie sind die Verpflegungsstationen organisiert?",
+        "answer": "Die Verpflegungsstationen befinden sich je nach Renndistanz alle 5-10 km entlang der Strecke. Alle bieten Wasser, Elektrolyte und Grundnahrung. Die Hauptstationen bieten auch medizinische Unterstützung."
+      },
+      "change": {
+        "question": "Kann ich meine Rennkategorie nach der Anmeldung ändern?",
+        "answer": "Ja, Sie können Ihre Rennkategorie bis zu 30 Tage vor der Veranstaltung ändern. Bitte kontaktieren Sie uns direkt für Hilfe bei diesem Prozess."
+      }
     }
   },
   "sponsors": {

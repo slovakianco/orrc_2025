@@ -34,7 +34,26 @@
       "title": "Défi des Sentiers de Montagne 2023",
       "subtitle": "Découvrez la compétition ultime de trail running au cœur de la nature",
       "registerButton": "Inscrivez-vous Maintenant",
-      "exploreButton": "Explorer les Courses"
+      "exploreButton": "Explorer les Courses",
+      "imageAlt": "Coureur de trail dans un paysage montagneux",
+      "date": "15-17 Juillet, 2023"
+    },
+    "quickInfo": {
+      "location": {
+        "title": "Emplacement",
+        "content": "Montagnes des Carpates, Transylvanie",
+        "linkText": "Voir la Carte"
+      },
+      "date": {
+        "title": "Date de l'Événement",
+        "content": "15-17 Juillet, 2023",
+        "linkText": "Programme Complet"
+      },
+      "participants": {
+        "title": "Participants",
+        "content": "Rejoignez plus de 500 coureurs",
+        "linkText": "Voir les Participants"
+      }
     },
     "highlights": {
       "title": "Points Forts de l'Événement",
@@ -308,7 +327,15 @@
       "title": "Informations de Contact",
       "addressTitle": "Emplacement",
       "emailTitle": "Email",
-      "phoneTitle": "Téléphone"
+      "phoneTitle": "Téléphone",
+      "email": "info@trailrunpro.com",
+      "phone": "+40 123 456 789",
+      "location": "Montagnes des Carpates, Transylvanie",
+      "address": "123 Boulevard du Trail Runner, Brasov, Roumanie",
+      "hours": "Heures d'Ouverture",
+      "weekdays": "Lun-Ven: 9h - 17h",
+      "weekend": "Sam-Dim: Fermé",
+      "social": "Suivez-nous"
     },
     "form": {
       "title": "Envoyez-nous un Message",
@@ -319,7 +346,8 @@
       "send": "Envoyer le Message",
       "sending": "Envoi en cours...",
       "successTitle": "Message Envoyé!",
-      "successMessage": "Merci pour votre message. Nous répondrons dès que possible."
+      "successMessage": "Merci pour votre message. Nous répondrons dès que possible.",
+      "submitButton": "Envoyer le Message"
     },
     "faq": {
       "title": "Questions Fréquemment Posées",
@@ -332,7 +360,23 @@
       "q4": "Quels postes de ravitaillement seront disponibles sur le parcours?",
       "a4": "Les postes de ravitaillement sont positionnés environ tous les 5-10km selon la catégorie de course. Tous les postes fournissent de l'eau, des électrolytes et de la nourriture de base. Les postes de ravitaillement principaux (marqués sur les cartes de course) offrent également des options de nutrition plus substantielles.",
       "q5": "Puis-je avoir une équipe de soutien?",
-      "a5": "Les équipes de soutien sont autorisées mais ne peuvent assister les coureurs qu'aux postes de ravitaillement désignés. Les points d'accès pour les équipes seront marqués sur les cartes fournies dans le package de course."
+      "a5": "Les équipes de soutien sont autorisées mais ne peuvent assister les coureurs qu'aux postes de ravitaillement désignés. Les points d'accès pour les équipes seront marqués sur les cartes fournies dans le package de course.",
+      "registration": {
+        "question": "Comment puis-je m'inscrire à l'événement?",
+        "answer": "Vous pouvez vous inscrire en ligne via notre page d'Inscription. Remplissez simplement le formulaire avec vos coordonnées, sélectionnez votre catégorie de course et complétez le processus de paiement."
+      },
+      "equipment": {
+        "question": "Quel équipement est requis pour la course?",
+        "answer": "L'équipement requis comprend un contenant d'eau, un téléphone mobile, un sifflet et des vêtements appropriés. Pour les distances ultra, des articles supplémentaires peuvent être nécessaires. Consultez la page Règles pour les détails complets."
+      },
+      "stations": {
+        "question": "Comment sont organisés les postes de ravitaillement?",
+        "answer": "Les postes de ravitaillement sont positionnés tous les 5-10km le long du parcours, selon la distance de course. Tous fournissent de l'eau, des électrolytes et une nutrition de base. Les postes principaux offrent également un soutien médical."
+      },
+      "change": {
+        "question": "Puis-je changer ma catégorie de course après l'inscription?",
+        "answer": "Oui, vous pouvez changer votre catégorie de course jusqu'à 30 jours avant l'événement. Veuillez nous contacter directement pour obtenir de l'aide avec ce processus."
+      }
     }
   },
   "sponsors": {
