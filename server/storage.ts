@@ -307,7 +307,7 @@ export class MemStorage implements IStorage {
       price: 75,
       imageUrl: "https://images.unsplash.com/photo-1590136500603-a143a477b815",
       raceMap: '<iframe src="https://tracedetrail.fr/en/iframe/6296" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>'
-    });
+    } as InsertRace);
 
     this.createRace({
       name: "Trail Run 11K",
@@ -325,7 +325,7 @@ export class MemStorage implements IStorage {
       price: 45,
       imageUrl: "https://images.unsplash.com/photo-1551632811-561732d1e306",
       raceMap: '<iframe src="https://tracedetrail.fr/en/iframe/6297" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>'
-    });
+    } as InsertRace);
 
     // Sample FAQs
     this.createFAQ({
