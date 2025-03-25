@@ -245,13 +245,13 @@ export class PostgresStorage implements IStorage {
   // Program event methods
   async getProgramEvents(): Promise<ProgramEvent[]> {
     return await db.select().from(programEvents)
-      .orderBy(asc(programEvents.date), asc(programEvents.order_index));
+      .orderBy(asc(programEvents.date), asc(programEvents.order));
   }
   
   async getProgramEventsByDate(date: string): Promise<ProgramEvent[]> {
     return await db.select().from(programEvents)
       .where(eq(programEvents.date, date))
-      .orderBy(asc(programEvents.order_index));
+      .orderBy(asc(programEvents.order));
   }
   
   async createProgramEvent(event: InsertProgramEvent): Promise<ProgramEvent> {
@@ -261,13 +261,13 @@ export class PostgresStorage implements IStorage {
   
   // Sponsor methods
   async getSponsors(): Promise<Sponsor[]> {
-    return await db.select().from(sponsors).orderBy(asc(sponsors.order_index));
+    return await db.select().from(sponsors).orderBy(asc(sponsors.order));
   }
   
   async getSponsorsByLevel(level: string): Promise<Sponsor[]> {
     return await db.select().from(sponsors)
       .where(eq(sponsors.level, level))
-      .orderBy(asc(sponsors.order_index));
+      .orderBy(asc(sponsors.order));
   }
   
   async createSponsor(sponsor: InsertSponsor): Promise<Sponsor> {
