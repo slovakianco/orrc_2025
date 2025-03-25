@@ -1,6 +1,5 @@
 import { IStorage, MemStorage } from "./storage";
-import { db } from "./db";
-import { eq, ilike, or, sql } from "drizzle-orm";
+import { PostgresStorage } from "./postgres-storage";
 import { 
   User, InsertUser, 
   Race, InsertRace, 
@@ -8,17 +7,17 @@ import {
   ContactInquiry, InsertContactInquiry, 
   FAQ, InsertFAQ, 
   ProgramEvent, InsertProgramEvent, 
-  Sponsor, InsertSponsor,
-  participants 
+  Sponsor, InsertSponsor
 } from "@shared/schema";
 
-// Let's create a simplified version that just uses MemStorage
-// but demonstrates that we're ready to store participants in a database
+// HybridStorage uses PostgresStorage for participants and MemStorage for other entities
 export class HybridStorage implements IStorage {
   private memStorage: MemStorage;
+  private postgresStorage: PostgresStorage;
   
   constructor() {
     this.memStorage = new MemStorage();
+    this.postgresStorage = new PostgresStorage();
   }
   
   // Users - delegate to MemStorage
@@ -51,34 +50,72 @@ export class HybridStorage implements IStorage {
     return this.memStorage.createRace(race);
   }
 
-  // Participants - also delegate to MemStorage for now
-  // In a real implementation, these would use database access
+  // Participants - use PostgresStorage for database access
   async getParticipants(): Promise<Participant[]> {
-    return this.memStorage.getParticipants();
+    try {
+      // First try to get from PostgreSQL
+      return await this.postgresStorage.getParticipants();
+    } catch (error) {
+      console.error("Error fetching participants from database, falling back to memory:", error);
+      // Fallback to memory if database access fails
+      return this.memStorage.getParticipants();
+    }
   }
   
   async getParticipantById(id: number): Promise<Participant | undefined> {
-    return this.memStorage.getParticipantById(id);
+    try {
+      return await this.postgresStorage.getParticipantById(id);
+    } catch (error) {
+      console.error(`Error fetching participant ${id} from database, falling back to memory:`, error);
+      return this.memStorage.getParticipantById(id);
+    }
   }
   
   async getParticipantsByRace(raceId: number): Promise<Participant[]> {
-    return this.memStorage.getParticipantsByRace(raceId);
+    try {
+      return await this.postgresStorage.getParticipantsByRace(raceId);
+    } catch (error) {
+      console.error(`Error fetching participants for race ${raceId} from database, falling back to memory:`, error);
+      return this.memStorage.getParticipantsByRace(raceId);
+    }
   }
   
   async getParticipantsByCountry(country: string): Promise<Participant[]> {
-    return this.memStorage.getParticipantsByCountry(country);
+    try {
+      return await this.postgresStorage.getParticipantsByCountry(country);
+    } catch (error) {
+      console.error(`Error fetching participants from country ${country} from database, falling back to memory:`, error);
+      return this.memStorage.getParticipantsByCountry(country);
+    }
   }
   
   async searchParticipants(query: string): Promise<Participant[]> {
-    return this.memStorage.searchParticipants(query);
+    try {
+      return await this.postgresStorage.searchParticipants(query);
+    } catch (error) {
+      console.error(`Error searching participants with query ${query} from database, falling back to memory:`, error);
+      return this.memStorage.searchParticipants(query);
+    }
   }
   
   async createParticipant(participant: InsertParticipant): Promise<Participant> {
-    return this.memStorage.createParticipant(participant);
+    try {
+      // Store the participant in PostgreSQL
+      return await this.postgresStorage.createParticipant(participant);
+    } catch (error) {
+      console.error("Error creating participant in database, falling back to memory:", error);
+      // Fallback to memory storage if database access fails
+      return this.memStorage.createParticipant(participant);
+    }
   }
   
   async updateParticipantStatus(id: number, status: string): Promise<Participant | undefined> {
-    return this.memStorage.updateParticipantStatus(id, status);
+    try {
+      return await this.postgresStorage.updateParticipantStatus(id, status);
+    } catch (error) {
+      console.error(`Error updating participant status for ${id} in database, falling back to memory:`, error);
+      return this.memStorage.updateParticipantStatus(id, status);
+    }
   }
 
   // Contact Inquiries - delegate to MemStorage

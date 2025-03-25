@@ -94,6 +94,33 @@ async function main() {
       console.error("Error recreating races table:", e);
     }
     
+    // Drop and recreate participants table
+    try {
+      await pool.query(`
+        DROP TABLE IF EXISTS participants CASCADE;
+        
+        CREATE TABLE participants (
+          id SERIAL PRIMARY KEY,
+          firstname TEXT NOT NULL,
+          lastname TEXT NOT NULL,
+          email TEXT NOT NULL,
+          phonenumber TEXT NOT NULL,
+          country TEXT NOT NULL,
+          birthdate TEXT NOT NULL,
+          raceid INTEGER NOT NULL,
+          bibnumber TEXT,
+          status TEXT NOT NULL DEFAULT 'pending',
+          medicalinfo TEXT,
+          registrationdate TIMESTAMP DEFAULT NOW(),
+          gender TEXT NOT NULL,
+          age INTEGER NOT NULL
+        );
+      `);
+      console.log("- Recreated participants table");
+    } catch (e) {
+      console.error("Error recreating participants table:", e);
+    }
+    
     console.log("Schema update complete");
   } catch (error) {
     console.error("Database error:", error);

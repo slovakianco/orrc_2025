@@ -1,19 +1,30 @@
-import { migrate } from 'drizzle-orm/postgres-js/migrator';
 import { db } from './db';
-import { Pool } from 'pg';
-import { drizzle } from 'drizzle-orm/node-postgres';
+import * as schema from '../shared/schema';
 
 async function main() {
   try {
     console.log("Creating database schema...");
-    
-    // This is a simple script to manually push our schema to the database
-    // In a real application, you would use drizzle-kit migrations
-    
-    // Execute some basic table creation commands if needed
-    // We use raw queries here since drizzle doesn't have a direct "push" method
-    // like drizzle-kit does
-    
+
+    // Create participants table
+    await db.execute(`
+      CREATE TABLE IF NOT EXISTS participants (
+        id SERIAL PRIMARY KEY,
+        firstname TEXT NOT NULL,
+        lastname TEXT NOT NULL,
+        email TEXT NOT NULL,
+        phonenumber TEXT NOT NULL,
+        country TEXT NOT NULL,
+        birthdate TEXT NOT NULL,
+        raceid INTEGER NOT NULL,
+        bibnumber TEXT,
+        status TEXT NOT NULL DEFAULT 'pending',
+        medicalinfo TEXT,
+        registrationdate TIMESTAMP DEFAULT NOW(),
+        gender TEXT NOT NULL,
+        age INTEGER NOT NULL
+      )
+    `);
+
     console.log("Schema creation complete!");
   } catch (error) {
     console.error("Error creating schema:", error);
