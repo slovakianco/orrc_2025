@@ -2,7 +2,8 @@ import express, { type Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
 import fs from "fs";
 import path from "path";
-import { storage } from "./storage";
+// Use the hybridStorage instead of memStorage
+import { hybridStorage as storage } from "./hybrid-storage";
 import { insertParticipantSchema, insertContactInquirySchema } from "@shared/schema";
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
