@@ -338,7 +338,7 @@ export class MemStorage implements IStorage {
       difficulty: "advanced",
       date: "2024-07-06",
       price: 40, // 200 lei
-      imageUrl: "/images/33km.webp",
+      imageUrl: "https://images.unsplash.com/photo-1483721310020-03333e577078",
       raceMap:
         '<iframe src="https://tracedetrail.fr/en/iframe/6296" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>',
     } as InsertRace);
@@ -361,7 +361,7 @@ export class MemStorage implements IStorage {
       difficulty: "beginner",
       date: "2024-07-06",
       price: 30, // 150 lei
-      imageUrl: "/images/11km.webp",
+      imageUrl: "https://images.unsplash.com/photo-1464054313797-e27fb58e90a9",
       raceMap:
         '<iframe src="https://tracedetrail.fr/en/iframe/6297" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>',
     } as InsertRace);
@@ -685,8 +685,5 @@ export class MemStorage implements IStorage {
   }
 }
 
-// Import PostgresStorage
-import { PostgresStorage } from "./postgres-storage";
-
-// Use PostgresStorage instead of MemStorage
+// Use the default MemStorage implementation
 export const storage = new MemStorage();
