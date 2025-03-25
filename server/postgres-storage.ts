@@ -78,7 +78,7 @@ export class PostgresStorage implements IStorage {
           answerRo: "Toți participanții trebuie să aibă un sistem de hidratare, pantofi de alergare pe poteci, îmbrăcăminte adecvată condițiilor meteorologice, un fluier și un telefon mobil. Distanțele ultra necesită echipament obligatoriu suplimentar, inclusiv o lanternă frontală, o pătură de urgență și o trusă de prim ajutor.",
           answerFr: "Tous les participants doivent avoir un système d'hydratation, des chaussures de trail, des vêtements adaptés aux conditions météorologiques, un sifflet et un téléphone portable. Les distances ultra nécessitent un équipement obligatoire supplémentaire, notamment une lampe frontale, une couverture de survie et une trousse de premiers secours.",
           answerDe: "Alle Teilnehmer müssen über ein Hydratationssystem, Trail-Running-Schuhe, wettergerechte Kleidung, eine Pfeife und ein Mobiltelefon verfügen. Ultra-Distanzen erfordern zusätzliche Pflichtausrüstung, darunter eine Stirnlampe, eine Rettungsdecke und ein Erste-Hilfe-Set.",
-          order_index: 1
+          order: 1
         });
         
         await this.createFAQ({
@@ -90,7 +90,7 @@ export class PostgresStorage implements IStorage {
           answerRo: "Anulările făcute cu mai mult de 60 de zile înainte de eveniment vor primi o rambursare de 70%. Anulările cu 30-60 de zile înainte vor primi o rambursare de 50%. Nu sunt disponibile rambursări pentru anulările făcute cu mai puțin de 30 de zile înainte de eveniment, dar puteți transfera înscrierea unui alt alergător pentru o taxă administrativă de 10 €.",
           answerFr: "Les annulations effectuées plus de 60 jours avant l'événement recevront un remboursement de 70%. Les annulations 30 à 60 jours avant recevront un remboursement de 50%. Aucun remboursement n'est disponible pour les annulations moins de 30 jours avant l'événement, mais vous pouvez transférer votre inscription à un autre coureur moyennant des frais administratifs de 10 €.",
           answerDe: "Bei Stornierungen, die mehr als 60 Tage vor der Veranstaltung erfolgen, erhalten Sie eine Rückerstattung von 70%. Bei Stornierungen 30-60 Tage vorher erhalten Sie eine Rückerstattung von 50%. Für Stornierungen weniger als 30 Tage vor der Veranstaltung sind keine Rückerstattungen möglich, aber Sie können Ihre Anmeldung gegen eine Verwaltungsgebühr von 10 € auf einen anderen Läufer übertragen.",
-          order_index: 2
+          order: 2
         });
         
         console.log("Database initialized with sample data.");
@@ -234,7 +234,7 @@ export class PostgresStorage implements IStorage {
   
   // FAQ methods
   async getFAQs(): Promise<FAQ[]> {
-    return await db.select().from(faqs).orderBy(asc(faqs.order_index));
+    return await db.select().from(faqs).orderBy(asc(faqs.order));
   }
   
   async createFAQ(faq: InsertFAQ): Promise<FAQ> {
