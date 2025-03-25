@@ -8,7 +8,7 @@
   },
   "nav": {
     "home": "Acasă",
-    "races": "Trasee",
+    "races": "Curse",
     "registration": "Înregistrare",
     "participants": "Participanți",
     "rules": "Regulament",
@@ -62,11 +62,10 @@
       "ultra": "Ultra"
     },
     "dates": {
-      "04": "4 Iulie",
-      "05": "5 Iulie",
-      "06": "6 Iulie"
+      "4": "4 Iulie",
+      "5": "5 Iulie",
+      "6": "6 Iulie"
     },
-    "backToList": "Înapoi la lista de curse",
     "details": {
       "about": "Despre",
       "info": "Informații Cursă",
@@ -276,7 +275,7 @@
     "subscribeText": "Rămâi la curent cu cele mai recente știri și actualizări despre competiție.",
     "emailPlaceholder": "Adresa ta de email",
     "privacyNotice": "Prin abonare, ești de acord cu politica noastră de confidențialitate și consimți să primești actualizări de la echipa noastră.",
-    "copyright": "© 2025 Competiția de Alergare Montană. Toate drepturile rezervate.",
+    "copyright": "© 2024 Competiția de Alergare Montană. Toate drepturile rezervate.",
     "privacy": "Politica de Confidențialitate",
     "terms": "Termeni și Condiții",
     "cookies": "Politica de Cookie-uri"

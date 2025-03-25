@@ -220,12 +220,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(404).json({ message: "Race not found" });
       }
       
-      // Determine which GPX file to serve - check if race has a raceMap field, otherwise fallback
+      // Determine which GPX file to serve based on race distance
       let gpxFileName;
-      if (race.raceMap) {
-        // Remove any leading slash from the raceMap path
-        gpxFileName = race.raceMap.startsWith('/') ? race.raceMap.substring(1) : race.raceMap;
-      } else if (race.distance >= 30) {
+      if (race.distance >= 30) {
         gpxFileName = 'long-trail-33km.gpx';
       } else {
         gpxFileName = 'short-trail-11km.gpx';
