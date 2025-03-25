@@ -640,53 +640,12 @@ export class MemStorage implements IStorage {
       order: 2,
     });
 
-    // Sample Participants
-    this.createParticipant({
-      firstName: "Alex",
-      lastName: "Muntean",
-      email: "alex.muntean@example.com",
-      phoneNumber: "+40123456789",
-      country: "Romania",
-      birthDate: "1992-05-15",
-      raceId: 3, // Summit Ultra
-      medicalInfo: "No allergies",
-      status: "confirmed",
-      gender: "M",
-      age: 32,
-    });
-
-    this.createParticipant({
-      firstName: "Sophie",
-      lastName: "Dubois",
-      email: "sophie.dubois@example.com",
-      phoneNumber: "+33678901234",
-      country: "France",
-      birthDate: "1995-08-20",
-      raceId: 2, // Forest Challenge
-      medicalInfo: "Mild pollen allergy",
-      status: "confirmed",
-      gender: "F",
-      age: 29,
-    });
-
-    this.createParticipant({
-      firstName: "Markus",
-      lastName: "Klein",
-      email: "markus.klein@example.com",
-      phoneNumber: "+49987654321",
-      country: "Germany",
-      birthDate: "1979-03-10",
-      raceId: 1, // Mountain Explorer
-      medicalInfo: "Previous knee injury, fully healed",
-      status: "pending",
-      gender: "M",
-      age: 45,
-    });
+    // No sample participants - we'll use the database for real entries
   }
 }
 
 // Import PostgresStorage
 import { PostgresStorage } from "./postgres-storage";
 
-// Use PostgresStorage instead of MemStorage
-export const storage = new MemStorage();
+// Use PostgresStorage instead of MemStorage for real database persistence
+export const storage = new PostgresStorage();

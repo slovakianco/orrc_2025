@@ -81,9 +81,6 @@ const NavigationHeader = () => {
             >
               {t("nav.registerButton")}
             </Link>
-            <div className="ml-2">
-              <LanguageSelectorWithFlags />
-            </div>
           </nav>
 
           {/* Mobile Menu Button */}

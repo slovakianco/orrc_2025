@@ -30,89 +30,42 @@ export class PostgresStorage implements IStorage {
         console.log("Initializing database with sample data...");
         
         // Sample races - add them only if no races exist
+        // 11km Short Trail Race
         await this.createRace({
-          name: "Mountain Explorer",
-          nameRo: "Exploratorul Montan",
-          nameFr: "L'Explorateur de Montagne",
-          nameDe: "Bergentdecker",
-          description: "A beautiful trail through mountain forests and alpine meadows, perfect for beginners looking to experience trail running in a safe and supportive environment.",
-          descriptionRo: "Un traseu frumos prin păduri montane și pajiști alpine, perfect pentru începători care doresc să experimenteze alergarea pe poteci într-un mediu sigur și primitor.",
-          descriptionFr: "Un magnifique sentier à travers les forêts de montagne et les prairies alpines, parfait pour les débutants qui souhaitent découvrir la course de trail dans un environnement sûr et encourageant.",
-          descriptionDe: "Ein wunderschöner Pfad durch Bergwälder und Alpenwiesen, perfekt für Anfänger, die das Trail-Running in einer sicheren und unterstützenden Umgebung erleben möchten.",
-          distance: 10,
-          elevation: 350,
+          name: "Short Trail",
+          nameRo: "Traseu Scurt",
+          nameFr: "Trail Court",
+          nameDe: "Kurzer Trail",
+          description: "A beginner-friendly 11km trail with 500m elevation gain. Perfect for those new to trail running or looking for a shorter distance.",
+          descriptionRo: "Un traseu prietenos de 11km cu 500m diferență de nivel. Perfect pentru cei noi în alergarea montană sau care caută o distanță mai scurtă.",
+          descriptionFr: "Un parcours de 11km adapté aux débutants avec 500m de dénivelé. Parfait pour les nouveaux coureurs de trail ou ceux qui recherchent une distance plus courte.",
+          descriptionDe: "Ein anfängerfreundlicher 11km-Trail mit 500m Höhenunterschied. Perfekt für Einsteiger im Trail-Running oder für alle, die eine kürzere Strecke suchen.",
+          distance: 11,
+          elevation: 500,
           difficulty: "beginner",
           date: "2025-06-01",
-          price: 25,
+          price: 30,
+          raceMap: "/short-trail-11km.gpx",
           imageUrl: "https://images.unsplash.com/photo-1580058572459-91d17466ae89?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
         });
         
+        // 33km Long Trail Race
         await this.createRace({
-          name: "Valley Challenge",
-          nameRo: "Provocarea Văii",
-          nameFr: "Le Défi de la Vallée",
-          nameDe: "Tal-Herausforderung",
-          description: "A fast course that takes you through scenic valleys and along riverside trails. Good for intermediate runners looking to improve their time and technique.",
-          descriptionRo: "Un traseu rapid care te poartă prin văi pitorești și de-a lungul potecilor de lângă râu. Bun pentru alergătorii intermediari care doresc să-și îmbunătățească timpul și tehnica.",
-          descriptionFr: "Un parcours rapide qui vous emmène à travers des vallées pittoresques et le long de sentiers au bord de la rivière. Idéal pour les coureurs intermédiaires qui souhaitent améliorer leur temps et leur technique.",
-          descriptionDe: "Eine schnelle Strecke, die durch malerische Täler und entlang von Flussuferwegen führt. Gut für fortgeschrittene Läufer, die ihre Zeit und Technik verbessern möchten.",
-          distance: 25,
-          elevation: 750,
-          difficulty: "intermediate",
+          name: "Long Trail",
+          nameRo: "Traseu Lung",
+          nameFr: "Trail Long",
+          nameDe: "Langer Trail",
+          description: "A challenging 33km trail with 1,600m elevation gain, featuring technical sections and breathtaking mountain views.",
+          descriptionRo: "Un traseu provocator de 33km cu 1,600m diferență de nivel, cu secțiuni tehnice și priveliști montane spectaculoase.",
+          descriptionFr: "Un parcours exigeant de 33km avec 1,600m de dénivelé, comprenant des sections techniques et des vues imprenables sur la montagne.",
+          descriptionDe: "Ein anspruchsvoller 33km-Trail mit 1,600m Höhenunterschied, technischen Abschnitten und atemberaubenden Bergpanoramen.",
+          distance: 33,
+          elevation: 1600,
+          difficulty: "advanced",
           date: "2025-06-01",
           price: 40,
-          imageUrl: "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-        });
-        
-        await this.createRace({
-          name: "Mountain Half Marathon",
-          nameRo: "Semimaraton Montan",
-          nameFr: "Semi-Marathon de Montagne",
-          nameDe: "Berg-Halbmarathon",
-          description: "The classic half marathon distance but with challenging mountain terrain. Experience steep climbs and technical descents with breathtaking views.",
-          descriptionRo: "Distanța clasică de semimaraton, dar cu teren montan provocator. Experimentează urcări abrupte și coborâri tehnice cu priveliști impresionante.",
-          descriptionFr: "La distance classique du semi-marathon mais avec un terrain montagneux difficile. Vivez des montées raides et des descentes techniques avec des vues à couper le souffle.",
-          descriptionDe: "Die klassische Halbmarathon-Distanz, aber mit anspruchsvollem Berggelände. Erleben Sie steile Anstiege und technische Abfahrten mit atemberaubender Aussicht.",
-          distance: 21,
-          elevation: 1100,
-          difficulty: "intermediate",
-          date: "2025-06-01",
-          price: 50,
-          imageUrl: "https://images.unsplash.com/photo-1563109136-c56be64b9eef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-        });
-        
-        await this.createRace({
-          name: "Alpine Marathon",
-          nameRo: "Maraton Alpin",
-          nameFr: "Marathon Alpin",
-          nameDe: "Alpen-Marathon",
-          description: "A full marathon distance taking you through alpine landscapes with technical sections that will test your endurance and mountain running skills.",
-          descriptionRo: "O distanță completă de maraton care te poartă prin peisaje alpine cu secțiuni tehnice care îți vor testa rezistența și abilitățile de alergare montană.",
-          descriptionFr: "Une distance de marathon complète qui vous emmène à travers des paysages alpins avec des sections techniques qui mettront à l'épreuve votre endurance et vos compétences en course de montagne.",
-          descriptionDe: "Eine komplette Marathonstrecke, die Sie durch alpine Landschaften mit technischen Abschnitten führt, die Ihre Ausdauer und Ihre Berglauffähigkeiten auf die Probe stellen werden.",
-          distance: 42,
-          elevation: 2200,
-          difficulty: "advanced",
-          date: "2025-06-02",
-          price: 70,
-          imageUrl: "https://images.unsplash.com/photo-1520962880247-cfaf541c8724?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-        });
-        
-        await this.createRace({
-          name: "Mountain Ultra",
-          nameRo: "Ultra Montan",
-          nameFr: "Ultra Montagne",
-          nameDe: "Berg-Ultra",
-          description: "Our flagship ultra-distance event covering 85km of mountain trails, testing the limits of even the most experienced trail runners with over 4500m of elevation gain.",
-          descriptionRo: "Evenimentul nostru emblematic de ultra-distanță care acoperă 85 km de trasee montane, testând limitele chiar și celor mai experimentați alergători de trail cu peste 4500 m de urcare.",
-          descriptionFr: "Notre événement phare sur ultra-distance couvrant 85 km de sentiers de montagne, testant les limites des coureurs de trail les plus expérimentés avec plus de 4500 m de dénivelé positif.",
-          descriptionDe: "Unser Ultra-Distanz-Flaggschiffrennen über 85 km Bergpfade, das die Grenzen selbst der erfahrensten Trail-Läufer mit über 4500 m Höhenunterschied testet.",
-          distance: 85,
-          elevation: 4500,
-          difficulty: "ultra",
-          date: "2025-06-02",
-          price: 100,
-          imageUrl: "https://images.unsplash.com/photo-1519864967-22b37f31a770?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+          raceMap: "/long-trail-33km.gpx",
+          imageUrl: "/33km.webp"
         });
         
         // Create a few initial FAQs
