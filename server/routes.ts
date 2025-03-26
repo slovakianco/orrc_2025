@@ -2,8 +2,8 @@ import express, { type Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
 import fs from "fs";
 import path from "path";
-// Use the hybridStorage instead of memStorage
-import { hybridStorage as storage } from "./hybrid-storage";
+// Use the storage provider to get the correct storage implementation
+import { getStorage } from "./storage-provider";
 import { insertParticipantSchema, insertContactInquirySchema } from "@shared/schema";
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
@@ -14,6 +14,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.use(express.static(path.join(process.cwd(), 'public')));
   const apiRouter = express.Router();
   
+  // Get the storage instance to use throughout the routes
+  const storage = getStorage();
+  
   // API Routes - all prefixed with /api
   
   // Races
@@ -21,6 +24,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const difficulty = req.query.difficulty as string | undefined;
       
+
       let races;
       if (difficulty) {
         races = await storage.getRacesByDifficulty(difficulty);
