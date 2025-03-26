@@ -55,7 +55,7 @@ const NavigationHeader = () => {
                 <Mountain className="text-primary text-lg" />
               </div>
               <span className="font-heading font-bold text-xl text-neutral-light">
-                Stana de Vale Trail Festival
+                Stana de Vale Trail Race
               </span>
             </Link>
           </div>
