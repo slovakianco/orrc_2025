@@ -346,3 +346,33 @@ DELETE FROM participants WHERE id = 1;
 - In production, the same approach is used to ensure consistency between environments.
 - When Supabase tables are properly set up, participant data will persist between application restarts.
 - To test the full functionality, create the required tables in your Supabase project as described above.
+
+## Production Environment Setup
+
+### Required Environment Variables
+
+For production deployment, you must configure the following environment variables:
+
+| Variable | Description |
+|----------|-------------|
+| `SUPABASE_URL` | Your Supabase project URL (same as development) |
+| `SUPABASE_ANON_KEY` | Your Supabase anon/public key (same as development) |
+
+### Deployment Checklist
+
+1. **Set Environment Variables**: Configure the above environment variables in your production hosting environment.
+
+2. **Database Preparation**: Ensure your Supabase database tables are created using the SQL commands provided earlier in this document.
+
+3. **Error Handling**: The application has built-in error handling for production, showing less detailed errors to end users.
+
+4. **Fallback Mechanism**: The hybrid storage system will automatically fall back to in-memory storage if Supabase is unavailable, ensuring your application remains functional.
+
+### Verifying Production Setup
+
+When your application starts in production, check the logs for:
+
+- "Production Supabase initialized" - Indicates the production environment is detected
+- "Found X participants in Supabase" - Confirms successful connection to your Supabase database
+
+If you see errors like "Missing required environment variable SUPABASE_URL" or "Missing required environment variable SUPABASE_ANON_KEY", you need to set these environment variables in your production environment.

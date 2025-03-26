@@ -5,8 +5,41 @@ import { supabaseStorage } from "./supabase-storage";
 import { IStorage } from "./storage";
 import { setStorage } from "./storage-provider";
 
+// Check required environment variables for production
+function checkRequiredEnvironmentVariables() {
+  const requiredVariables = ['SUPABASE_URL', 'SUPABASE_ANON_KEY'];
+  const missingVariables = [];
+  
+  for (const variable of requiredVariables) {
+    if (!process.env[variable]) {
+      missingVariables.push(variable);
+    }
+  }
+  
+  if (missingVariables.length > 0) {
+    console.error('ERROR: Missing required environment variables for production:');
+    missingVariables.forEach(variable => {
+      console.error(`- Missing required environment variable ${variable}`);
+    });
+    console.error('These variables must be set in your production environment.');
+    console.error('The application will continue with in-memory storage only.');
+    return false;
+  }
+  
+  return true;
+}
+
 // Initialize the Supabase in production
 async function initProductionDatabase() {
+  // First check required environment variables
+  const envVarsConfigured = checkRequiredEnvironmentVariables();
+  
+  if (!envVarsConfigured) {
+    console.warn("Cannot initialize Supabase in production due to missing environment variables.");
+    console.warn("Will continue with in-memory storage for all data.");
+    return;
+  }
+  
   try {
     console.log("Production Supabase initialized");
     
