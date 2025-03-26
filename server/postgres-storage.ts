@@ -329,3 +329,6 @@ export class PostgresStorage implements IStorage {
     return `${difficulty}${distance}`;
   }
 }
+
+// Export a singleton instance
+export const postgresStorage = new PostgresStorage();
