@@ -341,6 +341,8 @@ export class MemStorage implements IStorage {
       imageUrl: "https://images.unsplash.com/photo-1483721310020-03333e577078",
       raceMap:
         '<iframe src="https://tracedetrail.fr/en/iframe/6296" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>',
+      isEMAcertified: true, // Part of 2025 EMA Off-Road Running Circuit
+      isNationalChampionship: true, // Campionatul Naţional de Alergare Montană Masters
     } as InsertRace);
 
     this.createRace({
@@ -364,6 +366,8 @@ export class MemStorage implements IStorage {
       imageUrl: "https://images.unsplash.com/photo-1464054313797-e27fb58e90a9",
       raceMap:
         '<iframe src="https://tracedetrail.fr/en/iframe/6297" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>',
+      isEMAcertified: false, // Not EMA certified
+      isNationalChampionship: true, // Campionat National only
     } as InsertRace);
 
     // Sample FAQs
