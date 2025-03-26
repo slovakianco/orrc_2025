@@ -1,5 +1,5 @@
 import { IStorage, MemStorage } from "./storage";
-import { PostgresSupabaseStorage } from "./postgres-supabase-storage";
+import { SupabaseStorage } from "./supabase-storage";
 import { 
   User, InsertUser, 
   Race, InsertRace, 
@@ -10,14 +10,14 @@ import {
   Sponsor, InsertSponsor
 } from "@shared/schema";
 
-// HybridStorage uses PostgresSupabaseStorage for participants and MemStorage for other entities
+// HybridStorage uses SupabaseStorage for participants and MemStorage for other entities
 export class HybridStorage implements IStorage {
   private memStorage: MemStorage;
-  private dbStorage: PostgresSupabaseStorage;
+  private supabaseStorage: SupabaseStorage;
   
   constructor() {
     this.memStorage = new MemStorage();
-    this.dbStorage = new PostgresSupabaseStorage();
+    this.supabaseStorage = new SupabaseStorage();
   }
   
   // Users - delegate to MemStorage
@@ -53,42 +53,43 @@ export class HybridStorage implements IStorage {
   // Participants - Use PostgresSupabaseStorage for database access with graceful fallback to memory
   async getParticipants(): Promise<Participant[]> {
     try {
-      // First try to get from database
-      return await this.dbStorage.getParticipants();
+      // First try to get from Supabase
+      console.log("Fetching all participants");
+      return await this.supabaseStorage.getParticipants();
     } catch (error) {
-      console.error("Error fetching participants from database:", error);
-      console.warn("Database connection issue detected, using in-memory participants as fallback");
-      // Fallback to memory if database access fails
+      console.error("Error fetching participants from Supabase:", error);
+      console.warn("Supabase connection issue detected, using in-memory participants as fallback");
+      // Fallback to memory if Supabase access fails
       return [];  // Return empty array instead of sample data
     }
   }
   
   async getParticipantById(id: number): Promise<Participant | undefined> {
     try {
-      return await this.dbStorage.getParticipantById(id);
+      return await this.supabaseStorage.getParticipantById(id);
     } catch (error) {
-      console.error(`Error fetching participant ${id} from database:`, error);
-      console.warn("Database connection issue detected, using in-memory fallback");
+      console.error(`Error fetching participant ${id} from Supabase:`, error);
+      console.warn("Supabase connection issue detected, using in-memory fallback");
       return undefined;  // Return undefined instead of sample data
     }
   }
   
   async getParticipantsByRace(raceId: number): Promise<Participant[]> {
     try {
-      return await this.dbStorage.getParticipantsByRace(raceId);
+      return await this.supabaseStorage.getParticipantsByRace(raceId);
     } catch (error) {
-      console.error(`Error fetching participants for race ${raceId} from database:`, error);
-      console.warn("Database connection issue detected, using in-memory fallback");
+      console.error(`Error fetching participants for race ${raceId} from Supabase:`, error);
+      console.warn("Supabase connection issue detected, using in-memory fallback");
       return [];  // Return empty array instead of sample data
     }
   }
   
   async getParticipantsByCountry(country: string): Promise<Participant[]> {
     try {
-      return await this.dbStorage.getParticipantsByCountry(country);
+      return await this.supabaseStorage.getParticipantsByCountry(country);
     } catch (error) {
-      console.error(`Error fetching participants from country ${country} from database:`, error);
-      console.warn("Database connection issue detected, using in-memory fallback");
+      console.error(`Error fetching participants from country ${country} from Supabase:`, error);
+      console.warn("Supabase connection issue detected, using in-memory fallback");
       return [];  // Return empty array instead of sample data
     }
   }
