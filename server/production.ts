@@ -1,20 +1,20 @@
 // This file contains production-specific settings and initializations
 import { type Express, Request, Response, NextFunction } from "express";
 import { hybridStorage } from "./hybrid-storage";
-import { supabaseStorage } from "./supabase-storage";
+import { postgresSupabaseStorage } from "./postgres-supabase-storage";
 import { IStorage } from "./storage";
 import { setStorage } from "./storage-provider";
 
-// Initialize the Supabase database in production
+// Initialize the PostgreSQL database in production
 async function initProductionDatabase() {
   try {
-    console.log("Production Supabase database initialized");
+    console.log("Production PostgreSQL database initialized");
     
-    // Test the connection to Supabase by fetching races
-    const races = await supabaseStorage.getRaces();
-    console.log(`Found ${races.length} races in Supabase database`);
+    // Test the connection to PostgreSQL by fetching races
+    const races = await postgresSupabaseStorage.getRaces();
+    console.log(`Found ${races.length} races in PostgreSQL database`);
   } catch (error) {
-    console.error("Error initializing production Supabase database:", error);
+    console.error("Error initializing production PostgreSQL database:", error);
     console.warn("Will continue with hybrid storage for fallback mechanism");
   }
 }

@@ -1,6 +1,6 @@
 import { IStorage } from './storage';
 import { db } from './db';
-import { eq, like, or } from 'drizzle-orm';
+import { eq, like, or, sql } from 'drizzle-orm';
 import { 
   users, User, InsertUser, 
   races, Race, InsertRace, 
@@ -72,7 +72,8 @@ export class PostgresSupabaseStorage implements IStorage {
 
   async getRacesByDifficulty(difficulty: string): Promise<Race[]> {
     try {
-      return await db.select().from(races).where(eq(races.difficulty, difficulty)).orderBy(races.id);
+      // Using sql`` to create a typed condition for the enum
+      return await db.select().from(races).where(sql`${races.difficulty} = ${difficulty}`).orderBy(races.id);
     } catch (error) {
       console.error(`Error fetching races with difficulty ${difficulty}:`, error);
       return [];
@@ -156,21 +157,31 @@ export class PostgresSupabaseStorage implements IStorage {
       const raceCode = this.getRaceCodeForBib(race);
       
       // Count participants to generate a sequential bib number
-      const participantCount = await db.select({ count: db.fn.count() }).from(participants).where(eq(participants.raceId, participant.raceId));
+      const participantCount = await db.select({ count: sql`count(*)` }).from(participants).where(eq(participants.raceId, participant.raceId));
       const count = Number(participantCount[0].count) || 0;
       
       const bibNumber = `${raceCode}-${count + 1}`;
       
       // Insert the participant with the generated bib number
       const now = new Date().toISOString();
-      const participantWithBib = {
-        ...participant,
-        bibNumber,
-        status: 'pending', 
-        registrationDate: now
-      };
       
-      const result = await db.insert(participants).values(participantWithBib).returning();
+      // Create a new object that conforms to the expected type
+      // Since we're getting TypeScript errors about array properties
+      const result = await db.insert(participants).values({
+        firstName: participant.firstName,
+        lastName: participant.lastName,
+        email: participant.email,
+        phoneNumber: participant.phoneNumber,
+        country: participant.country,
+        birthDate: participant.birthDate, 
+        raceId: participant.raceId,
+        gender: participant.gender,
+        age: participant.age,
+        medicalInfo: participant.medicalInfo || null,
+        bibNumber,
+        status: 'pending',
+        registrationDate: now
+      }).returning();
       if (result.length === 0) {
         throw new Error('Failed to create participant: No data returned');
       }
@@ -196,12 +207,16 @@ export class PostgresSupabaseStorage implements IStorage {
   async createContactInquiry(inquiry: InsertContactInquiry): Promise<ContactInquiry> {
     try {
       const now = new Date().toISOString();
-      const inquiryWithDate = {
-        ...inquiry,
-        createdAt: now
-      };
       
-      const result = await db.insert(contactInquiries).values(inquiryWithDate).returning();
+      // Create a new object with explicit properties to avoid array type mismatch
+      const result = await db.insert(contactInquiries).values({
+        name: inquiry.name,
+        email: inquiry.email,
+        subject: inquiry.subject,
+        message: inquiry.message,
+        createdAt: now
+      }).returning();
+      
       if (result.length === 0) {
         throw new Error('Failed to create contact inquiry: No data returned');
       }
@@ -215,7 +230,7 @@ export class PostgresSupabaseStorage implements IStorage {
 
   async getContactInquiries(): Promise<ContactInquiry[]> {
     try {
-      return await db.select().from(contactInquiries).orderBy(contactInquiries.createdAt, { direction: 'desc' });
+      return await db.select().from(contactInquiries).orderBy(sql`${contactInquiries.createdAt} DESC`);
     } catch (error) {
       console.error('Error fetching contact inquiries:', error);
       return [];
