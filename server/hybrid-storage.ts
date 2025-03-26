@@ -14,10 +14,31 @@ import {
 export class HybridStorage implements IStorage {
   private memStorage: MemStorage;
   private supabaseStorage: SupabaseStorage;
+  private supabaseAvailable: boolean = true;
   
   constructor() {
     this.memStorage = new MemStorage();
     this.supabaseStorage = new SupabaseStorage();
+    
+    // Test Supabase connection
+    this.testSupabaseConnection();
+  }
+  
+  private async testSupabaseConnection() {
+    try {
+      await this.supabaseStorage.getParticipants();
+      this.supabaseAvailable = true;
+      console.log("Supabase connection is available for participants data");
+    } catch (error) {
+      // If we get a "relation does not exist" error, Supabase is available but tables aren't created
+      if (error && typeof error === 'object' && 'code' in error && error.code === '42P01') {
+        this.supabaseAvailable = false;
+        console.warn("Supabase tables not created yet, using memory storage as fallback");
+      } else {
+        this.supabaseAvailable = false;
+        console.error("Supabase connection failed, using memory storage as fallback:", error);
+      }
+    }
   }
   
   // Users - delegate to MemStorage
@@ -50,101 +71,118 @@ export class HybridStorage implements IStorage {
     return this.memStorage.createRace(race);
   }
 
-  // Participants - Use Supabase for storage with graceful fallback to empty arrays
+  // Participants - Use Supabase for storage with graceful fallback to in-memory storage
   async getParticipants(): Promise<Participant[]> {
+    if (!this.supabaseAvailable) {
+      console.log("Supabase not available for participants, using MemStorage");
+      return this.memStorage.getParticipants();
+    }
+
     try {
       // First try to get from Supabase
-      console.log("Fetching all participants");
+      console.log("Fetching all participants from Supabase");
       return await this.supabaseStorage.getParticipants();
     } catch (error) {
       console.error("Error fetching participants from Supabase:", error);
-      console.warn("Supabase connection issue detected, using in-memory participants as fallback");
-      // Fallback to memory if Supabase access fails
-      return [];  // Return empty array instead of sample data
+      console.warn("Falling back to in-memory participants data");
+      return this.memStorage.getParticipants();
     }
   }
   
   async getParticipantById(id: number): Promise<Participant | undefined> {
+    if (!this.supabaseAvailable) {
+      console.log(`Supabase not available, using MemStorage for participant ${id}`);
+      return this.memStorage.getParticipantById(id);
+    }
+
     try {
       return await this.supabaseStorage.getParticipantById(id);
     } catch (error) {
       console.error(`Error fetching participant ${id} from Supabase:`, error);
-      console.warn("Supabase connection issue detected, using in-memory fallback");
-      return undefined;  // Return undefined instead of sample data
+      console.warn("Falling back to in-memory participant data");
+      return this.memStorage.getParticipantById(id);
     }
   }
   
   async getParticipantsByRace(raceId: number): Promise<Participant[]> {
+    if (!this.supabaseAvailable) {
+      console.log(`Supabase not available, using MemStorage for participants in race ${raceId}`);
+      return this.memStorage.getParticipantsByRace(raceId);
+    }
+
     try {
       return await this.supabaseStorage.getParticipantsByRace(raceId);
     } catch (error) {
       console.error(`Error fetching participants for race ${raceId} from Supabase:`, error);
-      console.warn("Supabase connection issue detected, using in-memory fallback");
-      return [];  // Return empty array instead of sample data
+      console.warn("Falling back to in-memory participants data");
+      return this.memStorage.getParticipantsByRace(raceId);
     }
   }
   
   async getParticipantsByCountry(country: string): Promise<Participant[]> {
+    if (!this.supabaseAvailable) {
+      console.log(`Supabase not available, using MemStorage for participants from ${country}`);
+      return this.memStorage.getParticipantsByCountry(country);
+    }
+
     try {
       return await this.supabaseStorage.getParticipantsByCountry(country);
     } catch (error) {
       console.error(`Error fetching participants from country ${country} from Supabase:`, error);
-      console.warn("Supabase connection issue detected, using in-memory fallback");
-      return [];  // Return empty array instead of sample data
+      console.warn("Falling back to in-memory participants data");
+      return this.memStorage.getParticipantsByCountry(country);
     }
   }
   
   async searchParticipants(query: string): Promise<Participant[]> {
+    if (!this.supabaseAvailable) {
+      console.log(`Supabase not available, using MemStorage for participant search: ${query}`);
+      return this.memStorage.searchParticipants(query);
+    }
+
     try {
       return await this.supabaseStorage.searchParticipants(query);
     } catch (error) {
       console.error(`Error searching participants with query ${query} from Supabase:`, error);
-      console.warn("Supabase connection issue detected, using in-memory fallback");
-      return [];  // Return empty array instead of sample data
+      console.warn("Falling back to in-memory participants data");
+      return this.memStorage.searchParticipants(query);
     }
   }
   
   async createParticipant(participant: InsertParticipant): Promise<Participant> {
+    if (!this.supabaseAvailable) {
+      console.log("Supabase not available, storing participant data in memory only");
+      return this.memStorage.createParticipant(participant);
+    }
+
     try {
       // Try to store in Supabase
-      return await this.supabaseStorage.createParticipant(participant);
+      const newParticipant = await this.supabaseStorage.createParticipant(participant);
+      console.log("Participant data successfully stored in Supabase:", newParticipant.id);
+      return newParticipant;
     } catch (error) {
       console.error("Error creating participant in Supabase:", error);
-      console.warn("Supabase connection issue detected. Participant data will NOT be saved.");
+      console.warn("Falling back to in-memory storage for participant data");
       
-      // Create a temporary Participant object that matches the exact type definition
-      // Extract the fields from InsertParticipant and add the required fields for Participant
-      return {
-        // Fields from the insert participant
-        firstName: participant.firstName,
-        lastName: participant.lastName,
-        email: participant.email,
-        phoneNumber: participant.phoneNumber,
-        country: participant.country,
-        birthDate: participant.birthDate,
-        raceId: participant.raceId,
-        gender: participant.gender,
-        age: participant.age,
-        
-        // Optional field with proper null handling
-        medicalInfo: participant.medicalInfo || null,
-        
-        // Required fields for the Participant type that are not in InsertParticipant
-        id: 0,
-        bibNumber: "TMP-0",
-        status: "pending",
-        registrationDate: new Date()
-      };
+      // Store in memory as a fallback
+      return this.memStorage.createParticipant(participant);
     }
   }
   
   async updateParticipantStatus(id: number, status: string): Promise<Participant | undefined> {
+    if (!this.supabaseAvailable) {
+      console.log(`Supabase not available, updating participant ${id} status in memory only`);
+      return this.memStorage.updateParticipantStatus(id, status);
+    }
+
     try {
-      return await this.supabaseStorage.updateParticipantStatus(id, status);
+      const updated = await this.supabaseStorage.updateParticipantStatus(id, status);
+      console.log(`Successfully updated participant ${id} status to ${status} in Supabase`);
+      return updated;
     } catch (error) {
       console.error(`Error updating participant status for ${id} in Supabase:`, error);
-      console.warn("Supabase connection issue detected, status update failed");
-      return undefined;
+      console.warn("Falling back to in-memory storage for status update");
+      return this.memStorage.updateParticipantStatus(id, status);
     }
   }
 
