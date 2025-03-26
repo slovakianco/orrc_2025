@@ -50,72 +50,40 @@ export class HybridStorage implements IStorage {
     return this.memStorage.createRace(race);
   }
 
-  // Participants - use PostgresStorage for database access
+  // Participants - ONLY use PostgresStorage for database access, no memory fallback
   async getParticipants(): Promise<Participant[]> {
-    try {
-      // First try to get from PostgreSQL
-      return await this.postgresStorage.getParticipants();
-    } catch (error) {
-      console.error("Error fetching participants from database, falling back to memory:", error);
-      // Fallback to memory if database access fails
-      return this.memStorage.getParticipants();
-    }
+    // Always use database for participants
+    return await this.postgresStorage.getParticipants();
   }
   
   async getParticipantById(id: number): Promise<Participant | undefined> {
-    try {
-      return await this.postgresStorage.getParticipantById(id);
-    } catch (error) {
-      console.error(`Error fetching participant ${id} from database, falling back to memory:`, error);
-      return this.memStorage.getParticipantById(id);
-    }
+    // Always use database for participants
+    return await this.postgresStorage.getParticipantById(id);
   }
   
   async getParticipantsByRace(raceId: number): Promise<Participant[]> {
-    try {
-      return await this.postgresStorage.getParticipantsByRace(raceId);
-    } catch (error) {
-      console.error(`Error fetching participants for race ${raceId} from database, falling back to memory:`, error);
-      return this.memStorage.getParticipantsByRace(raceId);
-    }
+    // Always use database for participants
+    return await this.postgresStorage.getParticipantsByRace(raceId);
   }
   
   async getParticipantsByCountry(country: string): Promise<Participant[]> {
-    try {
-      return await this.postgresStorage.getParticipantsByCountry(country);
-    } catch (error) {
-      console.error(`Error fetching participants from country ${country} from database, falling back to memory:`, error);
-      return this.memStorage.getParticipantsByCountry(country);
-    }
+    // Always use database for participants
+    return await this.postgresStorage.getParticipantsByCountry(country);
   }
   
   async searchParticipants(query: string): Promise<Participant[]> {
-    try {
-      return await this.postgresStorage.searchParticipants(query);
-    } catch (error) {
-      console.error(`Error searching participants with query ${query} from database, falling back to memory:`, error);
-      return this.memStorage.searchParticipants(query);
-    }
+    // Always use database for participants
+    return await this.postgresStorage.searchParticipants(query);
   }
   
   async createParticipant(participant: InsertParticipant): Promise<Participant> {
-    try {
-      // Store the participant in PostgreSQL
-      return await this.postgresStorage.createParticipant(participant);
-    } catch (error) {
-      console.error("Error creating participant in database, falling back to memory:", error);
-      // Fallback to memory storage if database access fails
-      return this.memStorage.createParticipant(participant);
-    }
+    // Always store participants in database
+    return await this.postgresStorage.createParticipant(participant);
   }
   
   async updateParticipantStatus(id: number, status: string): Promise<Participant | undefined> {
-    try {
-      return await this.postgresStorage.updateParticipantStatus(id, status);
-    } catch (error) {
-      console.error(`Error updating participant status for ${id} in database, falling back to memory:`, error);
-      return this.memStorage.updateParticipantStatus(id, status);
-    }
+    // Always use database for participants
+    return await this.postgresStorage.updateParticipantStatus(id, status);
   }
 
   // Contact Inquiries - delegate to MemStorage
