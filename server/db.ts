@@ -20,7 +20,12 @@ const pool = new Pool({
   // Connection timeout - fail fast if unable to connect
   connectionTimeoutMillis: 10000,
   // Add a statement timeout to prevent long-running queries
-  statement_timeout: 10000
+  statement_timeout: 10000,
+  // Enable SSL for production environment
+  ssl: {
+    // Required for most cloud PostgreSQL providers
+    rejectUnauthorized: false
+  }
 });
 
 // Set up error handler for the pool
