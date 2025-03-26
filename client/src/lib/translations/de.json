@@ -48,6 +48,13 @@
   "races": {
     "title": "Erkunde Unsere Rennen",
     "subtitle": "Von anfängerfreundlichen Strecken bis hin zu anspruchsvollen Bergultra-Läufen, finde das perfekte Rennen für dein Niveau und deine Ambitionen.",
+    "filterTitle": "Rennen filtern",
+    "filterBy": "Filtern nach",
+    "filter": {
+      "all": "Alle Rennen",
+      "beginner": "Anfängerfreundlich",
+      "advanced": "Fortgeschrittene Strecken"
+    },
     "filters": {
       "all": "Alle Rennen",
       "beginner": "Anfänger",
@@ -56,6 +63,7 @@
       "ultra": "Ultra"
     },
     "difficulty": {
+      "label": "Schwierigkeit",
       "beginner": "Anfänger",
       "intermediate": "Mittelstufe",
       "advanced": "Fortgeschritten",
@@ -64,11 +72,43 @@
     "dates": {
       "15": "15. Juni",
       "16": "16. Juni",
-      "17": "17. Juni"
+      "17": "17. Juni",
+      "4": "4. Juli",
+      "5": "5. Juli",
+      "6": "6. Juli",
+      "06": "6. Juli"
     },
     "viewDetails": "Details ansehen",
     "viewAllButton": "Alle Rennen ansehen",
-    "noRacesFound": "Keine Rennen gefunden"
+    "elevation": "Höhenunterschied",
+    "distance": "Distanz",
+    "price": "Preis",
+    "loading": "Rennen werden geladen...",
+    "noRacesFound": "Keine Rennen gefunden",
+    "tryDifferentFilter": "Versuche eine andere Filteroption",
+    "certification": {
+      "ema": "EMA Off-Road Running Circuit 2025",
+      "national": "Nationale Berglaul-Meisterschaft Masters",
+      "nationalShort": "Nationale Meisterschaft"
+    },
+    "raceDetail": {
+      "details": "Renndetails",
+      "description": "Beschreibung",
+      "date": "Datum",
+      "distance": "Distanz",
+      "elevation": "Höhenmeter",
+      "difficulty": "Schwierigkeit",
+      "price": "Startgebühr",
+      "trailMap": "Streckenkarte",
+      "registerButton": "Jetzt anmelden",
+      "backToRaces": "Zurück zu allen Rennen",
+      "aidStations": "Verpflegungsstationen",
+      "cutoffTime": "Zeitlimit",
+      "startTime": "Startzeit",
+      "loading": "Renndetails werden geladen...",
+      "downloadGPX": "GPX herunterladen",
+      "map": "Karte"
+    }
   },
   "registration": {
     "title": "Anmeldung für den Wettbewerb",

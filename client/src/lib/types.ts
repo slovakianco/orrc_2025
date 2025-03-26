@@ -19,6 +19,8 @@ export interface Race {
   price: number;
   imageUrl?: string;
   raceMap?: string; // Embedded iframe code for the race map
+  isEMAcertified?: boolean; // EMA Off-Road Running Circuit certification
+  isNationalChampionship?: boolean; // National Championship status
 }
 
 // Participant types

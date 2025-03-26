@@ -48,6 +48,13 @@
   "races": {
     "title": "Explorez Nos Courses",
     "subtitle": "Des sentiers adaptés aux débutants jusqu'aux ultras montagneux difficiles, trouvez la course parfaite pour votre niveau et ambition.",
+    "filterTitle": "Filtrer les Courses",
+    "filterBy": "Filtrer par",
+    "filter": {
+      "all": "Toutes les Courses",
+      "beginner": "Pour Débutants",
+      "advanced": "Parcours Avancés"
+    },
     "filters": {
       "all": "Toutes les Courses",
       "beginner": "Débutant",
@@ -56,6 +63,7 @@
       "ultra": "Ultra"
     },
     "difficulty": {
+      "label": "Difficulté",
       "beginner": "Débutant",
       "intermediate": "Intermédiaire",
       "advanced": "Avancé",
@@ -64,11 +72,43 @@
     "dates": {
       "15": "15 Juin",
       "16": "16 Juin",
-      "17": "17 Juin"
+      "17": "17 Juin",
+      "4": "4 Juillet",
+      "5": "5 Juillet",
+      "6": "6 Juillet",
+      "06": "6 Juillet"
     },
     "viewDetails": "Voir les Détails",
     "viewAllButton": "Voir Toutes les Courses",
-    "noRacesFound": "Aucune course trouvée"
+    "elevation": "Dénivelé",
+    "distance": "Distance",
+    "price": "Prix",
+    "loading": "Chargement des courses...",
+    "noRacesFound": "Aucune course trouvée",
+    "tryDifferentFilter": "Essayez une option de filtre différente",
+    "certification": {
+      "ema": "Circuit EMA Off-Road Running 2025",
+      "national": "Championnat National de Course en Montagne Masters",
+      "nationalShort": "Championnat National"
+    },
+    "raceDetail": {
+      "details": "Détails de la Course",
+      "description": "Description",
+      "date": "Date",
+      "distance": "Distance",
+      "elevation": "Dénivelé",
+      "difficulty": "Difficulté",
+      "price": "Frais d'Inscription",
+      "trailMap": "Carte du Parcours",
+      "registerButton": "S'inscrire Maintenant",
+      "backToRaces": "Retour à Toutes les Courses",
+      "aidStations": "Postes de Ravitaillement",
+      "cutoffTime": "Barrière Horaire",
+      "startTime": "Heure de Départ",
+      "loading": "Chargement des détails de la course...",
+      "downloadGPX": "Télécharger GPX",
+      "map": "Carte"
+    }
   },
   "registration": {
     "title": "Inscription à la Compétition",
