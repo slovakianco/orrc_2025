@@ -1,5 +1,5 @@
 import { IStorage, MemStorage } from "./storage";
-import { PostgresStorage } from "./postgres-storage";
+import { SupabaseStorage } from "./supabase-storage";
 import { 
   User, InsertUser, 
   Race, InsertRace, 
@@ -10,14 +10,14 @@ import {
   Sponsor, InsertSponsor
 } from "@shared/schema";
 
-// HybridStorage uses PostgresStorage for participants and MemStorage for other entities
+// HybridStorage uses SupabaseStorage for participants and MemStorage for other entities
 export class HybridStorage implements IStorage {
   private memStorage: MemStorage;
-  private postgresStorage: PostgresStorage;
+  private supabaseStorage: SupabaseStorage;
   
   constructor() {
     this.memStorage = new MemStorage();
-    this.postgresStorage = new PostgresStorage();
+    this.supabaseStorage = new SupabaseStorage();
   }
   
   // Users - delegate to MemStorage
@@ -50,11 +50,11 @@ export class HybridStorage implements IStorage {
     return this.memStorage.createRace(race);
   }
 
-  // Participants - Use PostgresStorage for database access with graceful fallback to memory
+  // Participants - Use SupabaseStorage for database access with graceful fallback to memory
   async getParticipants(): Promise<Participant[]> {
     try {
-      // First try to get from PostgreSQL
-      return await this.postgresStorage.getParticipants();
+      // First try to get from Supabase
+      return await this.supabaseStorage.getParticipants();
     } catch (error) {
       console.error("Error fetching participants from database:", error);
       console.warn("Database connection issue detected, using in-memory participants as fallback");
@@ -65,7 +65,7 @@ export class HybridStorage implements IStorage {
   
   async getParticipantById(id: number): Promise<Participant | undefined> {
     try {
-      return await this.postgresStorage.getParticipantById(id);
+      return await this.supabaseStorage.getParticipantById(id);
     } catch (error) {
       console.error(`Error fetching participant ${id} from database:`, error);
       console.warn("Database connection issue detected, using in-memory fallback");
@@ -75,7 +75,7 @@ export class HybridStorage implements IStorage {
   
   async getParticipantsByRace(raceId: number): Promise<Participant[]> {
     try {
-      return await this.postgresStorage.getParticipantsByRace(raceId);
+      return await this.supabaseStorage.getParticipantsByRace(raceId);
     } catch (error) {
       console.error(`Error fetching participants for race ${raceId} from database:`, error);
       console.warn("Database connection issue detected, using in-memory fallback");
@@ -85,7 +85,7 @@ export class HybridStorage implements IStorage {
   
   async getParticipantsByCountry(country: string): Promise<Participant[]> {
     try {
-      return await this.postgresStorage.getParticipantsByCountry(country);
+      return await this.supabaseStorage.getParticipantsByCountry(country);
     } catch (error) {
       console.error(`Error fetching participants from country ${country} from database:`, error);
       console.warn("Database connection issue detected, using in-memory fallback");
@@ -95,7 +95,7 @@ export class HybridStorage implements IStorage {
   
   async searchParticipants(query: string): Promise<Participant[]> {
     try {
-      return await this.postgresStorage.searchParticipants(query);
+      return await this.supabaseStorage.searchParticipants(query);
     } catch (error) {
       console.error(`Error searching participants with query ${query} from database:`, error);
       console.warn("Database connection issue detected, using in-memory fallback");
@@ -105,8 +105,8 @@ export class HybridStorage implements IStorage {
   
   async createParticipant(participant: InsertParticipant): Promise<Participant> {
     try {
-      // Try to store in PostgreSQL
-      return await this.postgresStorage.createParticipant(participant);
+      // Try to store in Supabase
+      return await this.supabaseStorage.createParticipant(participant);
     } catch (error) {
       console.error("Error creating participant in database:", error);
       console.warn("Database connection issue detected. Participant data will NOT be saved.");
@@ -139,7 +139,7 @@ export class HybridStorage implements IStorage {
   
   async updateParticipantStatus(id: number, status: string): Promise<Participant | undefined> {
     try {
-      return await this.postgresStorage.updateParticipantStatus(id, status);
+      return await this.supabaseStorage.updateParticipantStatus(id, status);
     } catch (error) {
       console.error(`Error updating participant status for ${id} in database:`, error);
       console.warn("Database connection issue detected, status update failed");
