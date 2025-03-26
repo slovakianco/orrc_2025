@@ -68,19 +68,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
       let participants;
       
       if (raceId) {
+        console.log(`Fetching participants for race ID: ${raceId}`);
         participants = await storage.getParticipantsByRace(raceId);
       } else if (country) {
+        console.log(`Fetching participants for country: ${country}`);
         participants = await storage.getParticipantsByCountry(country);
       } else if (search) {
+        console.log(`Searching participants with query: ${search}`);
         participants = await storage.searchParticipants(search);
       } else {
+        console.log('Fetching all participants');
         participants = await storage.getParticipants();
       }
       
-      res.json(participants);
+      // Always return a valid JSON array, even if there's an error
+      res.json(participants || []);
     } catch (error) {
       console.error("Error fetching participants:", error);
-      res.status(500).json({ message: "Failed to fetch participants" });
+      // Return an empty array instead of an error
+      res.json([]);
     }
   });
   

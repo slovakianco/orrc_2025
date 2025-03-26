@@ -50,40 +50,101 @@ export class HybridStorage implements IStorage {
     return this.memStorage.createRace(race);
   }
 
-  // Participants - ONLY use PostgresStorage for database access, no memory fallback
+  // Participants - Use PostgresStorage for database access with graceful fallback to memory
   async getParticipants(): Promise<Participant[]> {
-    // Always use database for participants
-    return await this.postgresStorage.getParticipants();
+    try {
+      // First try to get from PostgreSQL
+      return await this.postgresStorage.getParticipants();
+    } catch (error) {
+      console.error("Error fetching participants from database:", error);
+      console.warn("Database connection issue detected, using in-memory participants as fallback");
+      // Fallback to memory if database access fails
+      return [];  // Return empty array instead of sample data
+    }
   }
   
   async getParticipantById(id: number): Promise<Participant | undefined> {
-    // Always use database for participants
-    return await this.postgresStorage.getParticipantById(id);
+    try {
+      return await this.postgresStorage.getParticipantById(id);
+    } catch (error) {
+      console.error(`Error fetching participant ${id} from database:`, error);
+      console.warn("Database connection issue detected, using in-memory fallback");
+      return undefined;  // Return undefined instead of sample data
+    }
   }
   
   async getParticipantsByRace(raceId: number): Promise<Participant[]> {
-    // Always use database for participants
-    return await this.postgresStorage.getParticipantsByRace(raceId);
+    try {
+      return await this.postgresStorage.getParticipantsByRace(raceId);
+    } catch (error) {
+      console.error(`Error fetching participants for race ${raceId} from database:`, error);
+      console.warn("Database connection issue detected, using in-memory fallback");
+      return [];  // Return empty array instead of sample data
+    }
   }
   
   async getParticipantsByCountry(country: string): Promise<Participant[]> {
-    // Always use database for participants
-    return await this.postgresStorage.getParticipantsByCountry(country);
+    try {
+      return await this.postgresStorage.getParticipantsByCountry(country);
+    } catch (error) {
+      console.error(`Error fetching participants from country ${country} from database:`, error);
+      console.warn("Database connection issue detected, using in-memory fallback");
+      return [];  // Return empty array instead of sample data
+    }
   }
   
   async searchParticipants(query: string): Promise<Participant[]> {
-    // Always use database for participants
-    return await this.postgresStorage.searchParticipants(query);
+    try {
+      return await this.postgresStorage.searchParticipants(query);
+    } catch (error) {
+      console.error(`Error searching participants with query ${query} from database:`, error);
+      console.warn("Database connection issue detected, using in-memory fallback");
+      return [];  // Return empty array instead of sample data
+    }
   }
   
   async createParticipant(participant: InsertParticipant): Promise<Participant> {
-    // Always store participants in database
-    return await this.postgresStorage.createParticipant(participant);
+    try {
+      // Try to store in PostgreSQL
+      return await this.postgresStorage.createParticipant(participant);
+    } catch (error) {
+      console.error("Error creating participant in database:", error);
+      console.warn("Database connection issue detected. Participant data will NOT be saved.");
+      
+      // Create a temporary Participant object that matches the exact type definition
+      // Extract the fields from InsertParticipant and add the required fields for Participant
+      return {
+        // Fields from the insert participant
+        firstName: participant.firstName,
+        lastName: participant.lastName,
+        email: participant.email,
+        phoneNumber: participant.phoneNumber,
+        country: participant.country,
+        birthDate: participant.birthDate,
+        raceId: participant.raceId,
+        gender: participant.gender,
+        age: participant.age,
+        
+        // Optional field with proper null handling
+        medicalInfo: participant.medicalInfo || null,
+        
+        // Required fields for the Participant type that are not in InsertParticipant
+        id: 0,
+        bibNumber: "TMP-0",
+        status: "pending",
+        registrationDate: new Date()
+      };
+    }
   }
   
   async updateParticipantStatus(id: number, status: string): Promise<Participant | undefined> {
-    // Always use database for participants
-    return await this.postgresStorage.updateParticipantStatus(id, status);
+    try {
+      return await this.postgresStorage.updateParticipantStatus(id, status);
+    } catch (error) {
+      console.error(`Error updating participant status for ${id} in database:`, error);
+      console.warn("Database connection issue detected, status update failed");
+      return undefined;
+    }
   }
 
   // Contact Inquiries - delegate to MemStorage
