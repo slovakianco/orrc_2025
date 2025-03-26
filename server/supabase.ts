@@ -21,14 +21,18 @@ export const supabase = createClient(
 );
 
 // Test the connection
-supabase.from('races').select('count', { count: 'exact' })
-  .then(({ count, error }) => {
+async function testSupabaseConnection() {
+  try {
+    const { count, error } = await supabase.from('races').select('count', { count: 'exact' });
     if (error) {
       console.error('Failed to connect to Supabase:', error.message);
     } else {
       console.log(`Successfully connected to Supabase. Found ${count} races.`);
     }
-  })
-  .catch((err: Error) => {
+  } catch (err) {
     console.error('Error connecting to Supabase:', err);
-  });
+  }
+}
+
+// Run the test
+testSupabaseConnection();
