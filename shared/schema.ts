@@ -34,6 +34,8 @@ export const races = pgTable("races", {
   price: integer("price").notNull(), // in EUR
   imageUrl: text("imageurl"),
   raceMap: text("racemap"), // Embedded iframe code for the race map
+  isEMAcertified: boolean("isemacertified").default(false), // EMA Off-Road Running Circuit certification
+  isNationalChampionship: boolean("isnationalchampionship").default(false), // National Championship status
 });
 
 export const insertRaceSchema = createInsertSchema(races).omit({

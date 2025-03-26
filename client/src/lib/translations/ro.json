@@ -48,6 +48,13 @@
   "races": {
     "title": "Explorează Cursele Noastre",
     "subtitle": "De la trasee prietenoase pentru începători până la ultra-maratoane montane provocatoare, găsește cursa perfectă pentru nivelul și ambiția ta.",
+    "filterTitle": "Filtrează Cursele",
+    "filterBy": "Filtrează după",
+    "filter": {
+      "all": "Toate Cursele",
+      "beginner": "Pentru Începători",
+      "advanced": "Trasee Avansate"
+    },
     "filters": {
       "all": "Toate Cursele",
       "beginner": "Începător",
@@ -56,6 +63,7 @@
       "ultra": "Ultra"
     },
     "difficulty": {
+      "label": "Dificultate",
       "beginner": "Începător",
       "intermediate": "Intermediar",
       "advanced": "Avansat",
@@ -65,7 +73,23 @@
       "4": "4 Iulie",
       "5": "5 Iulie",
       "6": "6 Iulie",
-      "06": "6 Iulie"
+      "06": "6 Iulie",
+      "15": "15 Iunie",
+      "16": "16 Iunie",
+      "17": "17 Iunie"
+    },
+    "viewDetails": "Vezi Detalii",
+    "viewAllButton": "Vezi Toate Cursele",
+    "elevation": "Altitudine",
+    "distance": "Distanță",
+    "price": "Preț",
+    "loading": "Se încarcă cursele...",
+    "noRacesFound": "Nu s-au găsit curse",
+    "tryDifferentFilter": "Încearcă o opțiune diferită de filtrare",
+    "certification": {
+      "ema": "Parte din Circuitul EMA Off-Road Running 2025",
+      "national": "Campionatul Naţional de Alergare Montană Masters",
+      "nationalShort": "Campionat Național"
     },
     "details": {
       "about": "Despre",
@@ -86,9 +110,24 @@
       "downloadGPX": "Descarcă GPX",
       "map": "Harta"
     },
-    "viewDetails": "Vezi Detalii",
-    "viewAllButton": "Vezi Toate Cursele",
-    "noRacesFound": "Nu s-au găsit curse"
+    "raceDetail": {
+      "details": "Detalii Cursă",
+      "description": "Descriere",
+      "date": "Data",
+      "distance": "Distanță",
+      "elevation": "Diferență de Nivel",
+      "difficulty": "Dificultate",
+      "price": "Taxă de Participare",
+      "trailMap": "Harta Traseului",
+      "registerButton": "Înregistrează-te Acum",
+      "backToRaces": "Înapoi la Toate Cursele",
+      "aidStations": "Puncte de Hidratare",
+      "cutoffTime": "Timp Limită",
+      "startTime": "Ora de Start",
+      "loading": "Se încarcă detaliile cursei...",
+      "downloadGPX": "Descarcă GPX",
+      "map": "Harta"
+    }
   },
   "registration": {
     "title": "Înregistrare pentru Competiție",

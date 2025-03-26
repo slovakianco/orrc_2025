@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { Link } from "wouter";
-import { Map, Mountain, Calendar } from "lucide-react";
+import { Map, Mountain, Calendar, Award, Medal } from "lucide-react";
 import { Race } from "@/lib/types";
 import { getDifficultyColor, getLocalizedRaceName, getLocalizedRaceDescription, formatCurrency } from "@/lib/utils";
 
@@ -84,9 +84,44 @@ const RacesSection = ({ title, fullPage = false }: RacesSectionProps) => {
                   <div className={`absolute top-3 left-3 md:top-4 md:left-4 py-1 px-2 md:px-3 rounded-full text-xs md:text-sm font-bold bg-difficulty-${race.difficulty} text-white`}>
                     {t(`races.difficulty.${race.difficulty}`)}
                   </div>
+                  
+                  {/* Add certification badges */}
+                  {(race.isEMAcertified || race.isNationalChampionship) && (
+                    <div className="absolute bottom-3 right-3 md:bottom-4 md:right-4 flex flex-col gap-2">
+                      {race.isEMAcertified && (
+                        <div className="bg-blue-600 text-white text-xs md:text-sm py-1 px-2 rounded-md font-semibold flex items-center shadow-md">
+                          <Award className="h-3 w-3 md:h-4 md:w-4 mr-1" />
+                          <span>EMA 2025</span>
+                        </div>
+                      )}
+                      {race.isNationalChampionship && (
+                        <div className="bg-red-600 text-white text-xs md:text-sm py-1 px-2 rounded-md font-semibold flex items-center shadow-md">
+                          <Medal className="h-3 w-3 md:h-4 md:w-4 mr-1" />
+                          <span>{t('races.certification.nationalShort')}</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
                 <div className="p-4 md:p-6">
                   <h3 className="font-heading font-bold text-lg md:text-xl mb-2 text-primary line-clamp-1">{getLocalizedRaceName(race, i18n.language as any)}</h3>
+                  
+                  {/* Certification information under title */}
+                  {(race.isEMAcertified || race.isNationalChampionship) && (
+                    <div className="mb-3">
+                      {race.isEMAcertified && (
+                        <div className="text-blue-600 text-xs md:text-sm mb-1 font-medium">
+                          {t('races.certification.ema')}
+                        </div>
+                      )}
+                      {race.isNationalChampionship && (
+                        <div className="text-red-600 text-xs md:text-sm font-medium">
+                          {t('races.certification.national')}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  
                   <div className="flex flex-wrap items-center mb-3 md:mb-4 text-sm md:text-base">
                     <div className="flex items-center mr-3 md:mr-4 mb-1">
                       <Map className="text-secondary mr-1 md:mr-2 h-3 w-3 md:h-4 md:w-4" />

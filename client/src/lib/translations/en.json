@@ -89,7 +89,11 @@
     "dates": {
       "15": "June 15",
       "16": "June 16",
-      "17": "June 17"
+      "17": "June 17",
+      "4": "July 4",
+      "5": "July 5",
+      "6": "July 6",
+      "06": "July 6"
     },
     "viewDetails": "View Details",
     "viewAllButton": "View All Races",
@@ -99,6 +103,11 @@
     "loading": "Loading races...",
     "noRacesFound": "No races found",
     "tryDifferentFilter": "Try a different filter option",
+    "certification": {
+      "ema": "2025 EMA Off-Road Running Circuit",
+      "national": "National Mountain Running Championship Masters",
+      "nationalShort": "National Championship"
+    },
     "raceDetail": {
       "details": "Race Details",
       "description": "Description",
@@ -113,7 +122,9 @@
       "aidStations": "Aid Stations",
       "cutoffTime": "Cutoff Time",
       "startTime": "Start Time",
-      "loading": "Loading race details..."
+      "loading": "Loading race details...",
+      "downloadGPX": "Download GPX",
+      "map": "Map"
     }
   },
   "registration": {
