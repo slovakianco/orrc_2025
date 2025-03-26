@@ -10,7 +10,7 @@ import {
   Sponsor, InsertSponsor
 } from "@shared/schema";
 
-// HybridStorage uses SupabaseStorage for participants and MemStorage for other entities
+// HybridStorage uses Supabase for participants data and in-memory storage for other entities
 export class HybridStorage implements IStorage {
   private memStorage: MemStorage;
   private supabaseStorage: SupabaseStorage;
@@ -50,7 +50,7 @@ export class HybridStorage implements IStorage {
     return this.memStorage.createRace(race);
   }
 
-  // Participants - Use PostgresSupabaseStorage for database access with graceful fallback to memory
+  // Participants - Use Supabase for storage with graceful fallback to empty arrays
   async getParticipants(): Promise<Participant[]> {
     try {
       // First try to get from Supabase
@@ -96,21 +96,21 @@ export class HybridStorage implements IStorage {
   
   async searchParticipants(query: string): Promise<Participant[]> {
     try {
-      return await this.dbStorage.searchParticipants(query);
+      return await this.supabaseStorage.searchParticipants(query);
     } catch (error) {
-      console.error(`Error searching participants with query ${query} from database:`, error);
-      console.warn("Database connection issue detected, using in-memory fallback");
+      console.error(`Error searching participants with query ${query} from Supabase:`, error);
+      console.warn("Supabase connection issue detected, using in-memory fallback");
       return [];  // Return empty array instead of sample data
     }
   }
   
   async createParticipant(participant: InsertParticipant): Promise<Participant> {
     try {
-      // Try to store in database
-      return await this.dbStorage.createParticipant(participant);
+      // Try to store in Supabase
+      return await this.supabaseStorage.createParticipant(participant);
     } catch (error) {
-      console.error("Error creating participant in database:", error);
-      console.warn("Database connection issue detected. Participant data will NOT be saved.");
+      console.error("Error creating participant in Supabase:", error);
+      console.warn("Supabase connection issue detected. Participant data will NOT be saved.");
       
       // Create a temporary Participant object that matches the exact type definition
       // Extract the fields from InsertParticipant and add the required fields for Participant
@@ -140,10 +140,10 @@ export class HybridStorage implements IStorage {
   
   async updateParticipantStatus(id: number, status: string): Promise<Participant | undefined> {
     try {
-      return await this.dbStorage.updateParticipantStatus(id, status);
+      return await this.supabaseStorage.updateParticipantStatus(id, status);
     } catch (error) {
-      console.error(`Error updating participant status for ${id} in database:`, error);
-      console.warn("Database connection issue detected, status update failed");
+      console.error(`Error updating participant status for ${id} in Supabase:`, error);
+      console.warn("Supabase connection issue detected, status update failed");
       return undefined;
     }
   }
