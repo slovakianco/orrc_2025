@@ -39,36 +39,61 @@ const CountdownTimer = ({ targetDate, className = '' }: CountdownTimerProps) => 
     return () => clearInterval(timerId);
   }, [targetDate]);
   
+  // Format the number to always have two digits
+  const formatNumber = (num: number): string => {
+    return num < 10 ? `0${num}` : `${num}`;
+  };
+  
   return (
     <div className={`${className}`}>
-      <h3 className="text-xl font-bold mb-3 text-center">{t('countdown.title')}</h3>
-      <div className="flex justify-center space-x-4">
+      <div className="grid grid-cols-4 gap-3">
+        {/* Days */}
         <div className="flex flex-col items-center">
-          <div className="text-3xl md:text-4xl font-bold bg-alpine text-white w-16 h-16 flex items-center justify-center rounded-lg shadow-lg">
-            {countdown.days}
+          <div className="bg-white/10 backdrop-blur-lg p-4 rounded-xl border border-white/20 w-full aspect-square flex flex-col items-center justify-center">
+            <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+              {formatNumber(countdown.days)}
+            </span>
+            <span className="text-xs md:text-sm text-white/70 uppercase tracking-wider mt-1">
+              {t('countdown.days')}
+            </span>
           </div>
-          <span className="mt-2 text-sm font-medium text-slate-gray">{t('countdown.days')}</span>
         </div>
         
+        {/* Hours */}
         <div className="flex flex-col items-center">
-          <div className="text-3xl md:text-4xl font-bold bg-sky-blue text-white w-16 h-16 flex items-center justify-center rounded-lg shadow-lg">
-            {countdown.hours}
+          <div className="bg-white/10 backdrop-blur-lg p-4 rounded-xl border border-white/20 w-full aspect-square flex flex-col items-center justify-center">
+            <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+              {formatNumber(countdown.hours)}
+            </span>
+            <span className="text-xs md:text-sm text-white/70 uppercase tracking-wider mt-1">
+              {t('countdown.hours')}
+            </span>
           </div>
-          <span className="mt-2 text-sm font-medium text-slate-gray">{t('countdown.hours')}</span>
         </div>
         
+        {/* Minutes */}
         <div className="flex flex-col items-center">
-          <div className="text-3xl md:text-4xl font-bold bg-sunset-orange text-white w-16 h-16 flex items-center justify-center rounded-lg shadow-lg">
-            {countdown.minutes}
+          <div className="bg-white/10 backdrop-blur-lg p-4 rounded-xl border border-white/20 w-full aspect-square flex flex-col items-center justify-center">
+            <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+              {formatNumber(countdown.minutes)}
+            </span>
+            <span className="text-xs md:text-sm text-white/70 uppercase tracking-wider mt-1">
+              {t('countdown.minutes')}
+            </span>
           </div>
-          <span className="mt-2 text-sm font-medium text-slate-gray">{t('countdown.minutes')}</span>
         </div>
         
+        {/* Seconds */}
         <div className="flex flex-col items-center">
-          <div className="text-3xl md:text-4xl font-bold bg-sunrise-yellow text-white w-16 h-16 flex items-center justify-center rounded-lg shadow-lg">
-            {countdown.seconds}
+          <div className="bg-white/10 backdrop-blur-lg p-4 rounded-xl border border-white/20 w-full aspect-square flex flex-col items-center justify-center relative overflow-hidden group">
+            <div className="absolute inset-0 bg-sunset/20 transform scale-0 group-hover:scale-100 transition-transform duration-500 rounded-xl"></div>
+            <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-white relative z-10">
+              {formatNumber(countdown.seconds)}
+            </span>
+            <span className="text-xs md:text-sm text-white/70 uppercase tracking-wider mt-1 relative z-10">
+              {t('countdown.seconds')}
+            </span>
           </div>
-          <span className="mt-2 text-sm font-medium text-slate-gray">{t('countdown.seconds')}</span>
         </div>
       </div>
     </div>

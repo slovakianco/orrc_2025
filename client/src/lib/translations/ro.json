@@ -46,7 +46,11 @@
   },
   "home": {
     "featuredRaces": "Curse Recomandate",
-    "details": "Experimentează frumusețea alergării montane cu cursele noastre de 11km și 33km în Munții Carpați. Cursa de 33km face parte din Circuitul EMA Off-Road Running 2025."
+    "details": "Experimentează frumusețea alergării montane cu cursele noastre de 11km și 33km în Munții Carpați. Cursa de 33km face parte din Circuitul EMA Off-Road Running 2025.",
+    "aboutCompetition": "Despre Competiție",
+    "competitionDescription1": "Alătură-te nouă pentru o experiență de alergare montană de neuitat în minunații Munți Carpați. Cursele noastre oferă trasee provocatoare cu priveliști spectaculoase, concepute atât pentru începători cât și pentru alergători experimentați.",
+    "competitionDescription2": "Cursa de 33km face parte din Circuitul EMA Off-Road Running 2025 și Campionatul Național de Alergare Montană Masters. Cursa de 11km este perfectă pentru cei noi în alergarea montană sau care caută o provocare mai scurtă.",
+    "competitionDescription3": "Ambele curse au loc pe 6 iunie 2025, cu cronometrare profesională, trasee bine marcate și suport complet pe tot parcursul traseului."
   },
   "races": {
     "title": "Explorează Cursele Noastre",
