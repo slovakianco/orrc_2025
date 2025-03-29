@@ -46,31 +46,30 @@ export default function LanguageSelectorWithFlags() {
     <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger asChild>
         <button 
-          className="flex items-center gap-1 px-3 py-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-200 border border-white/20 shadow-md"
+          className="flex items-center gap-1 px-2 py-1 rounded-md bg-sunset/20 hover:bg-sunset/30 transition-colors duration-200 border border-sunset/20 shadow-sm"
           aria-label={`Language: ${getCurrentLanguageName()}`}
         >
-          <Globe className="h-4 w-4 mr-1 text-stone-beige" />
-          <span className="text-lg">{getCurrentLanguageFlag()}</span>
-          <span className="hidden md:inline text-stone-beige font-medium ml-1">{getCurrentLanguageName()}</span>
-          <ChevronDown className="h-4 w-4 text-stone-beige ml-1" />
+          <span className="text-base">{getCurrentLanguageFlag()}</span>
+          <span className="hidden md:inline text-white text-xs font-medium ml-1">{getCurrentLanguageName()}</span>
+          <ChevronDown className="h-3 w-3 text-white ml-1" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-[180px] border-2 border-slate-gray/10 shadow-xl">
+      <DropdownMenuContent align="end" className="w-[150px] border border-slate-gray/20 shadow-xl">
         {Object.keys(languageFlags).map((lang) => (
           <DropdownMenuItem
             key={lang}
             className={cn(
-              "flex items-center gap-3 cursor-pointer py-3 px-4 text-base transition-colors",
+              "flex items-center gap-2 cursor-pointer py-2 px-3 text-sm transition-colors",
               i18n.language === lang 
-                ? "font-bold bg-alpine/10 text-alpine" 
-                : "hover:bg-stone-beige/10"
+                ? "font-bold bg-sunset/10 text-sunset" 
+                : "hover:bg-stone-beige/5"
             )}
             onClick={() => changeLanguage(lang)}
           >
-            <span className="text-xl">{languageFlags[lang]}</span>
+            <span className="text-lg">{languageFlags[lang]}</span>
             <span>{languageNames[lang]}</span>
             {i18n.language === lang && (
-              <Check className="h-4 w-4 ml-auto text-alpine" />
+              <Check className="h-3 w-3 ml-auto text-sunset" />
             )}
           </DropdownMenuItem>
         ))}

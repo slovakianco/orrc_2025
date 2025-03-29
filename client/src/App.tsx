@@ -28,7 +28,6 @@ function Router() {
   return (
     <div className="flex flex-col min-h-screen">
       <NavigationHeader />
-      <LanguageSelector />
       <main className="flex-grow">
         <Switch>
           <Route path="/" component={HomePage} />

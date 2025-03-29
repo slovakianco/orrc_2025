@@ -51,16 +51,16 @@ const NavigationHeader = () => {
   };
 
   return (
-    <header className="bg-alpine shadow-lg sticky top-0 z-40">
+    <header className="bg-slate-gray shadow-lg sticky top-0 z-40">
       <div className="container mx-auto px-4 py-2">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <div className="w-10 h-10 bg-sunset rounded-full flex items-center justify-center mr-3">
-                <Mountain className="text-white text-lg" />
+              <div className="w-8 h-8 bg-sunset rounded-full flex items-center justify-center mr-2">
+                <Mountain className="text-white text-sm" />
               </div>
-              <span className="font-heading font-bold text-lg md:text-xl text-stone-beige">
-                Stana de Vale Trail Race
+              <span className="font-heading font-bold text-sm md:text-base text-white truncate max-w-[140px] md:max-w-[180px]">
+                Stana de Vale
               </span>
             </Link>
           </div>
@@ -74,26 +74,26 @@ const NavigationHeader = () => {
             {/* Mobile menu toggle */}
             <button
               onClick={toggleMenu}
-              className="text-stone-beige focus:outline-none"
+              className="text-white focus:outline-none"
             >
               {isMenuOpen ? (
-                <X className="text-2xl" />
+                <X className="text-xl" />
               ) : (
-                <Menu className="text-2xl" />
+                <Menu className="text-xl" />
               )}
             </button>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center">
-            <nav className="flex space-x-4 lg:space-x-6 items-center mr-4">
+            <nav className="flex space-x-2 lg:space-x-4 items-center mr-2">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   href={item.path}
-                  className={`nav-item font-medium transition-all duration-200 text-stone-beige hover:text-white hover:transform hover:-translate-y-1 text-sm lg:text-base ${
+                  className={`nav-item font-medium transition-all duration-200 text-white hover:text-stone-beige text-xs lg:text-sm py-1 px-2 ${
                     item.isActive
-                      ? "active text-white font-semibold border-b-2 border-sunset"
+                      ? "active bg-sunset/20 font-semibold rounded-md"
                       : ""
                   }`}
                 >
@@ -108,7 +108,7 @@ const NavigationHeader = () => {
             {/* Registration button */}
             <Link
               href="/registration"
-              className="ml-4 bg-sunset hover:bg-sunset-dark text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300 hidden lg:flex items-center"
+              className="ml-2 bg-sunset hover:bg-sunset-dark text-white font-bold py-1 px-3 rounded-lg transition-colors duration-300 hidden lg:flex items-center text-sm"
             >
               {t("nav.registerButton")}
             </Link>
@@ -117,15 +117,15 @@ const NavigationHeader = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 overflow-hidden">
-            <nav className="flex flex-col space-y-3">
+          <div className="md:hidden mt-3 pb-3 overflow-hidden">
+            <nav className="flex flex-col space-y-2">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   href={item.path}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`nav-item font-medium py-2 border-b border-white/10 text-stone-beige transition-colors ${
-                    item.isActive ? "active text-white font-semibold" : ""
+                  className={`nav-item font-medium py-2 border-b border-white/10 text-white transition-colors ${
+                    item.isActive ? "active bg-sunset/20 font-semibold rounded-t-md" : ""
                   }`}
                 >
                   {item.label}
@@ -134,7 +134,7 @@ const NavigationHeader = () => {
               <Link
                 href="/registration"
                 onClick={() => setIsMenuOpen(false)}
-                className="bg-sunset hover:bg-sunset/90 text-white font-bold py-3 px-4 rounded-lg text-center transition-colors duration-300 mt-2 shadow-md"
+                className="bg-sunset hover:bg-sunset/90 text-white font-bold py-2 px-4 rounded-lg text-center transition-colors duration-300 mt-1 shadow-md"
               >
                 {t("nav.registerButton")}
               </Link>
