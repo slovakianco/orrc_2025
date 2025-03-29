@@ -62,7 +62,8 @@
     }
   },
   "home": {
-    "featuredRaces": "Featured Races"
+    "featuredRaces": "Featured Races",
+    "details": "Experience the beauty of trail running with our 11km and 33km races in the Carpathian Mountains. The 33km race is part of the 2025 EMA Off-Road Running Circuit."
   },
   "races": {
     "title": "Explore Our Races",
