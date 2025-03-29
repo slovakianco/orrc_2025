@@ -27,7 +27,7 @@ import LanguageSelector from "@/components/LanguageSelector";
 function Router() {
   return (
     <div className="flex flex-col min-h-screen">
-      <NavigationHeader />
+      <NavigationHeader className="bg-neutral-dark" />
       <main className="flex-grow">
         <Switch>
           <Route path="/" component={HomePage} />
