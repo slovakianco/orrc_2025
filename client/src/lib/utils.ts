@@ -226,11 +226,73 @@ export function getCountryFlag(countryCode: string): string {
     'AT': '🇦🇹',
     'HU': '🇭🇺',
     'PL': '🇵🇱',
-    'CZ': '🇨🇿'
+    'CZ': '🇨🇿',
+    'CA': '🇨🇦',
+    'AU': '🇦🇺',
+    'NZ': '🇳🇿',
+    'JP': '🇯🇵',
+    'CN': '🇨🇳',
+    'IN': '🇮🇳',
+    'RU': '🇷🇺',
+    'BR': '🇧🇷',
+    'MX': '🇲🇽',
+    'ZA': '🇿🇦',
+    'AR': '🇦🇷',
+    'SE': '🇸🇪',
+    'NO': '🇳🇴',
+    'DK': '🇩🇰',
+    'FI': '🇫🇮',
+    'IE': '🇮🇪',
+    'GR': '🇬🇷',
+    'IL': '🇮🇱'
   };
   
   const code = countryCode.toUpperCase();
   return countryToFlag[code] || '🌍';
+}
+
+// Get country name from country code
+export function getCountryName(countryCode: string): string {
+  if (!countryCode) return 'Unknown';
+  
+  const countryNames: { [key: string]: string } = {
+    'RO': 'Romania',
+    'FR': 'France',
+    'DE': 'Germany',
+    'UK': 'United Kingdom',
+    'US': 'United States',
+    'IT': 'Italy',
+    'ES': 'Spain',
+    'PT': 'Portugal',
+    'BE': 'Belgium',
+    'NL': 'Netherlands',
+    'CH': 'Switzerland',
+    'AT': 'Austria',
+    'HU': 'Hungary',
+    'PL': 'Poland',
+    'CZ': 'Czech Republic',
+    'CA': 'Canada',
+    'AU': 'Australia',
+    'NZ': 'New Zealand',
+    'JP': 'Japan',
+    'CN': 'China',
+    'IN': 'India',
+    'RU': 'Russia',
+    'BR': 'Brazil',
+    'MX': 'Mexico',
+    'ZA': 'South Africa',
+    'AR': 'Argentina',
+    'SE': 'Sweden',
+    'NO': 'Norway',
+    'DK': 'Denmark',
+    'FI': 'Finland',
+    'IE': 'Ireland',
+    'GR': 'Greece',
+    'IL': 'Israel'
+  };
+  
+  const code = countryCode.toUpperCase();
+  return countryNames[code] || countryCode;
 }
 
 // Helper function to truncate text with ellipsis

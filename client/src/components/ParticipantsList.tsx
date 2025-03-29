@@ -2,8 +2,8 @@ import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
 import { Race, Participant, ParticipantFilters } from "@/lib/types";
-import { getStatusColor, getCountryFlag, getLocalizedRaceName } from "@/lib/utils";
-import { Search, ChevronLeft, ChevronRight } from "lucide-react";
+import { getStatusColor, getCountryFlag, getCountryName, getLocalizedRaceName } from "@/lib/utils";
+import { Search, ChevronLeft, ChevronRight, Globe, Map, Info } from "lucide-react";
 
 const ParticipantsList = () => {
   const { t, i18n } = useTranslation();
@@ -79,7 +79,9 @@ const ParticipantsList = () => {
   };
 
   // Get countries for filter dropdown
-  const countries = [...new Set(participants?.map(p => p.country) || [])].sort();
+  const countries = participants 
+    ? Array.from(new Set(participants.map(p => p.country))).sort()
+    : [];
 
   // Reset page when filters change
   useEffect(() => {
@@ -205,13 +207,33 @@ const ParticipantsList = () => {
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex items-center">
-                          <img 
-                            src={getCountryFlag(participant.country)} 
-                            alt={participant.country} 
-                            className="w-5 h-auto mr-2" 
-                          />
-                          <span className="text-sm">{participant.country}</span>
+                        <div className="group relative">
+                          <div className="flex items-center cursor-pointer">
+                            <div className="text-2xl mr-2 transform transition-transform group-hover:scale-125">
+                              {getCountryFlag(participant.country)}
+                            </div>
+                            <span className="text-sm">{participant.country}</span>
+                          </div>
+                          
+                          {/* Tooltip that appears on hover */}
+                          <div className="absolute left-0 top-full mt-2 z-10 bg-white p-3 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                            <div className="flex items-center">
+                              <div className="text-3xl mr-3">
+                                {getCountryFlag(participant.country)}
+                              </div>
+                              <div>
+                                <div className="font-bold">{getCountryName(participant.country)}</div>
+                                <div className="text-xs text-slate-gray mt-1">
+                                  <div className="flex items-center">
+                                    <Info className="h-3 w-3 mr-1" />
+                                    <span>{t('participants.countryParticipants', { count: 
+                                      participants?.filter(p => p.country === participant.country).length || 0
+                                    })}</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">

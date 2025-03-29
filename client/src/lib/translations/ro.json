@@ -170,6 +170,7 @@
     "allRaces": "Toate Cursele",
     "allCountries": "Toate Țările",
     "noParticipants": "Nu s-au găsit participanți",
+    "countryParticipants": "{{count}} participanți din această țară",
     "table": {
       "name": "Nume",
       "country": "Țară",
@@ -334,6 +335,13 @@
     "9": "Octombrie",
     "10": "Noiembrie",
     "11": "Decembrie"
+  },
+  "countdown": {
+    "title": "Timp până la Ziua Cursei",
+    "days": "Zile",
+    "hours": "Ore",
+    "minutes": "Min",
+    "seconds": "Sec"
   },
   "emaCircuit": {
     "title": "CIRCUITUL E.M.A. DE ALERGARE OFF-ROAD 2025",

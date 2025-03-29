@@ -178,6 +178,7 @@
     "noParticipantsFound": "No participants found",
     "tryDifferentFilter": "Try a different filter or clear your search",
     "noParticipants": "No participants found",
+    "countryParticipants": "{{count}} participants from this country",
     "table": {
       "name": "Name",
       "country": "Country",
@@ -349,6 +350,13 @@
     "9": "October",
     "10": "November",
     "11": "December"
+  },
+  "countdown": {
+    "title": "Time Until Race Day",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Min",
+    "seconds": "Sec"
   },
   "emaCircuit": {
     "title": "E.M.A. OFF-ROAD RUNNING CIRCUIT 2025",
