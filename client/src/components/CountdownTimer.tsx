@@ -44,55 +44,115 @@ const CountdownTimer = ({ targetDate, className = '' }: CountdownTimerProps) => 
     return num < 10 ? `0${num}` : `${num}`;
   };
   
+  // Calculate percentages for circular progress
+  const getHoursProgress = () => (countdown.hours / 24) * 100;
+  const getMinutesProgress = () => (countdown.minutes / 60) * 100;
+  const getSecondsProgress = () => (countdown.seconds / 60) * 100;
+  
   return (
     <div className={`${className}`}>
-      <div className="grid grid-cols-4 gap-3">
-        {/* Days */}
-        <div className="flex flex-col items-center">
-          <div className="bg-white/10 backdrop-blur-lg p-4 rounded-xl border border-white/20 w-full aspect-square flex flex-col items-center justify-center">
-            <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-              {formatNumber(countdown.days)}
-            </span>
-            <span className="text-xs md:text-sm text-white/70 uppercase tracking-wider mt-1">
-              {t('countdown.days')}
-            </span>
+      <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+        {/* Days - Yellow accent */}
+        <div className="countdown-item">
+          <div className="relative w-16 md:w-24 aspect-square">
+            {/* Outer circle (dark border) */}
+            <div className="absolute inset-0 rounded-full border-4 md:border-[6px] border-slate-gray"></div>
+            
+            {/* Color accent */}
+            <div className="absolute top-0 left-0 w-6 h-6 md:w-8 md:h-8 bg-sunrise-yellow rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+            
+            {/* Inner content */}
+            <div className="absolute inset-1 md:inset-2 bg-stone-beige rounded-full flex flex-col items-center justify-center">
+              <span className="text-lg md:text-3xl font-bold text-slate-gray">{formatNumber(countdown.days)}</span>
+              <span className="text-[8px] md:text-xs uppercase font-medium text-slate-gray/80">{t('countdown.days')}</span>
+            </div>
           </div>
         </div>
         
-        {/* Hours */}
-        <div className="flex flex-col items-center">
-          <div className="bg-white/10 backdrop-blur-lg p-4 rounded-xl border border-white/20 w-full aspect-square flex flex-col items-center justify-center">
-            <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-              {formatNumber(countdown.hours)}
-            </span>
-            <span className="text-xs md:text-sm text-white/70 uppercase tracking-wider mt-1">
-              {t('countdown.hours')}
-            </span>
+        {/* Hours - Blue accent with progress */}
+        <div className="countdown-item">
+          <div className="relative w-16 md:w-24 aspect-square">
+            {/* Outer circle (dark border) */}
+            <div className="absolute inset-0 rounded-full border-4 md:border-[6px] border-slate-gray"></div>
+            
+            {/* Progress circle */}
+            <svg className="absolute inset-0 w-full h-full -rotate-90">
+              <circle 
+                cx="50%" 
+                cy="50%" 
+                r="calc(50% - 2px - 4px)" 
+                strokeWidth="8" 
+                stroke="#4A90BF" 
+                fill="none" 
+                strokeDasharray="100" 
+                strokeDashoffset={100 - getHoursProgress()}
+                className="transition-all duration-500"
+              />
+            </svg>
+            
+            {/* Inner content */}
+            <div className="absolute inset-1 md:inset-2 bg-stone-beige rounded-full flex flex-col items-center justify-center">
+              <span className="text-lg md:text-3xl font-bold text-slate-gray">{formatNumber(countdown.hours)}</span>
+              <span className="text-[8px] md:text-xs uppercase font-medium text-slate-gray/80">{t('countdown.hours')}</span>
+            </div>
           </div>
         </div>
         
-        {/* Minutes */}
-        <div className="flex flex-col items-center">
-          <div className="bg-white/10 backdrop-blur-lg p-4 rounded-xl border border-white/20 w-full aspect-square flex flex-col items-center justify-center">
-            <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-              {formatNumber(countdown.minutes)}
-            </span>
-            <span className="text-xs md:text-sm text-white/70 uppercase tracking-wider mt-1">
-              {t('countdown.minutes')}
-            </span>
+        {/* Minutes - Green accent with progress */}
+        <div className="countdown-item">
+          <div className="relative w-16 md:w-24 aspect-square">
+            {/* Outer circle (dark border) */}
+            <div className="absolute inset-0 rounded-full border-4 md:border-[6px] border-slate-gray"></div>
+            
+            {/* Progress circle */}
+            <svg className="absolute inset-0 w-full h-full -rotate-90">
+              <circle 
+                cx="50%" 
+                cy="50%" 
+                r="calc(50% - 2px - 4px)" 
+                strokeWidth="8" 
+                stroke="#7AB55C" 
+                fill="none" 
+                strokeDasharray="100" 
+                strokeDashoffset={100 - getMinutesProgress()}
+                className="transition-all duration-500"
+              />
+            </svg>
+            
+            {/* Inner content */}
+            <div className="absolute inset-1 md:inset-2 bg-stone-beige rounded-full flex flex-col items-center justify-center">
+              <span className="text-lg md:text-3xl font-bold text-slate-gray">{formatNumber(countdown.minutes)}</span>
+              <span className="text-[8px] md:text-xs uppercase font-medium text-slate-gray/80">{t('countdown.minutes')}</span>
+            </div>
           </div>
         </div>
         
-        {/* Seconds */}
-        <div className="flex flex-col items-center">
-          <div className="bg-white/10 backdrop-blur-lg p-4 rounded-xl border border-white/20 w-full aspect-square flex flex-col items-center justify-center relative overflow-hidden group">
-            <div className="absolute inset-0 bg-sunset/20 transform scale-0 group-hover:scale-100 transition-transform duration-500 rounded-xl"></div>
-            <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-white relative z-10">
-              {formatNumber(countdown.seconds)}
-            </span>
-            <span className="text-xs md:text-sm text-white/70 uppercase tracking-wider mt-1 relative z-10">
-              {t('countdown.seconds')}
-            </span>
+        {/* Seconds - Teal accent with progress */}
+        <div className="countdown-item">
+          <div className="relative w-16 md:w-24 aspect-square">
+            {/* Outer circle (dark border) */}
+            <div className="absolute inset-0 rounded-full border-4 md:border-[6px] border-slate-gray"></div>
+            
+            {/* Progress circle */}
+            <svg className="absolute inset-0 w-full h-full -rotate-90">
+              <circle 
+                cx="50%" 
+                cy="50%" 
+                r="calc(50% - 2px - 4px)" 
+                strokeWidth="8" 
+                stroke="#5DC0B5" 
+                fill="none" 
+                strokeDasharray="100" 
+                strokeDashoffset={100 - getSecondsProgress()}
+                className="transition-all duration-500"
+              />
+            </svg>
+            
+            {/* Inner content */}
+            <div className="absolute inset-1 md:inset-2 bg-stone-beige rounded-full flex flex-col items-center justify-center">
+              <span className="text-lg md:text-3xl font-bold text-slate-gray">{formatNumber(countdown.seconds)}</span>
+              <span className="text-[8px] md:text-xs uppercase font-medium text-slate-gray/80">{t('countdown.seconds')}</span>
+            </div>
           </div>
         </div>
       </div>
