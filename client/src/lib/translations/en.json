@@ -32,6 +32,7 @@
     "program": "Program",
     "contact": "Contact",
     "sponsors": "Sponsors",
+    "emaCircuit": "EMA Circuit 2025",
     "registerButton": "Register Now"
   },
   "hero": {
@@ -348,5 +349,48 @@
     "9": "October",
     "10": "November",
     "11": "December"
+  },
+  "emaCircuit": {
+    "title": "E.M.A. OFF-ROAD RUNNING CIRCUIT 2025",
+    "subtitle": "Experimental Edition",
+    "overview": {
+      "title": "Overview",
+      "content": "European Masters Athletics (EMA) is proud to announce the inaugural experimental edition of the EMA Off-Road Running Circuit, a circuit dedicated to Master athletes featuring mountain, vertical, and off-road running events.",
+      "objectives": "The League's Objectives:",
+      "objectivesList": [
+        "To provide optimal conditions for athletes to achieve outstanding performances.",
+        "To increase competition opportunities in a stimulating and diverse environment.",
+        "To foster greater interaction and cultural exchange among athletes.",
+        "To offer a broad range of participation options throughout the season.",
+        "To promote the diversity of the participating athletes."
+      ],
+      "focus": "The organizational focus will be on delivering well-structured, efficient events that create the best conditions for participants to excel and enjoy the experience."
+    },
+    "participation": {
+      "title": "Participation",
+      "content": "Participation in the EMA Off-Road Running League is open to all athletes who meet the Masters Off-Road running criteria, specifically those aged 35-79, and who hold a valid license from their respective Federation, in accordance with WMA rules.",
+      "note1": "Please note, the EMA Off-Road Running League is not a championship event, and athletes will not officially represent their countries in these events.",
+      "note2": "The League is also open to non-European athletes, who will compete for individual event prizes as well as final awards."
+    },
+    "liability": {
+      "title": "Liability and Insurance",
+      "content": "Participants assume full responsibility for their involvement in any event. The Organizer is not liable for any damages or injury sustained by the Participant, except in cases where the damage is the direct result of the Organizer's intentional actions.",
+      "insurance": "If the Organizer's insurance policy covers the damages, the Organizer's liability will be limited to the amount covered by the insurer. Participants are advised to obtain their own insurance to cover potential risks, such as accidents, illness, or death, that may arise during the event.",
+      "health": "By registering, participants confirm that they are in good physical and mental health, and have undergone appropriate training to compete in the event. It is recommended that participants undergo a medical examination to ensure fitness for participation."
+    },
+    "rankings": {
+      "title": "Rankings",
+      "content": "The EMA Off-Road Running Circuit will feature both individual event rankings and a final overall ranking for the Circuit.",
+      "local": "Each Local Organizing Committee (LOC) may offer one or more events (such as uphill, vertical, mountain run, trail, etc.), with the winners and age category champions awarded prizes according to their local regulations. Each event will have a dedicated section on the EMA website.",
+      "eligibility": "Final Ranking Eligibility: To qualify for the EMA final rankings, athletes must participate in at least two events across different locations.",
+      "points": "Point Allocation: The winner of each event (overall and in each age category) will receive 1 point, with subsequent positions awarded points as follows (2 points for second place, 3 points for third, etc.). EMA will consider the best two performances from each athlete when calculating the final standings.",
+      "specialPrize": "A special prize will be awarded to all athletes who participate in at least three stages of the Circuit, regardless of their overall results.",
+      "ceremony": "The official award ceremony will be held during the 2026 EMA Off-Road Running Championship."
+    },
+    "calendar": {
+      "title": "Calendar",
+      "content": "The events in the 2025 EMA Off-Road Running Circuit will take place according to the schedule provided on the official EMA website."
+    },
+    "downloadButton": "Download Full Regulations PDF"
   }
 }

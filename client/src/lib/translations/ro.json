@@ -15,6 +15,7 @@
     "program": "Program",
     "contact": "Contact",
     "sponsors": "Sponsori",
+    "emaCircuit": "Circuit EMA 2025",
     "registerButton": "Înregistrează-te acum"
   },
   "hero": {
@@ -333,5 +334,48 @@
     "9": "Octombrie",
     "10": "Noiembrie",
     "11": "Decembrie"
+  },
+  "emaCircuit": {
+    "title": "CIRCUITUL E.M.A. DE ALERGARE OFF-ROAD 2025",
+    "subtitle": "Ediție Experimentală",
+    "overview": {
+      "title": "Prezentare Generală",
+      "content": "European Masters Athletics (EMA) este mândru să anunțe ediția experimentală inaugurală a Circuitului EMA de Alergare Off-Road, un circuit dedicat atleților Master care include evenimente de alergare montană, verticală și off-road.",
+      "objectives": "Obiectivele Circuitului:",
+      "objectivesList": [
+        "Să ofere condiții optime pentru ca atleții să atingă performanțe remarcabile.",
+        "Să crească oportunitățile de competiție într-un mediu stimulativ și divers.",
+        "Să încurajeze o mai mare interacțiune și schimb cultural între atleți.",
+        "Să ofere o gamă largă de opțiuni de participare pe tot parcursul sezonului.",
+        "Să promoveze diversitatea atleților participanți."
+      ],
+      "focus": "Concentrarea organizațională va fi pe livrarea de evenimente bine structurate și eficiente care creează cele mai bune condiții pentru ca participanții să exceleze și să se bucure de experiență."
+    },
+    "participation": {
+      "title": "Participare",
+      "content": "Participarea la Circuitul EMA de Alergare Off-Road este deschisă tuturor atleților care îndeplinesc criteriile Masters pentru alergare Off-Road, în special cei cu vârsta între 35-79 de ani, și care dețin o licență validă de la Federația lor respectivă, în conformitate cu regulile WMA.",
+      "note1": "Vă rugăm să rețineți, Circuitul EMA de Alergare Off-Road nu este un eveniment de campionat, iar atleții nu vor reprezenta oficial țările lor în aceste evenimente.",
+      "note2": "Circuitul este, de asemenea, deschis atleților non-europeni, care vor concura atât pentru premiile individuale ale evenimentului, cât și pentru premiile finale."
+    },
+    "liability": {
+      "title": "Responsabilitate și Asigurare",
+      "content": "Participanții își asumă întreaga responsabilitate pentru implicarea lor în orice eveniment. Organizatorul nu este răspunzător pentru niciun prejudiciu sau vătămare suferită de Participant, cu excepția cazurilor în care daunele sunt rezultatul direct al acțiunilor intenționate ale Organizatorului.",
+      "insurance": "Dacă polița de asigurare a Organizatorului acoperă daunele, răspunderea Organizatorului va fi limitată la suma acoperită de asigurător. Participanților li se recomandă să își obțină propria asigurare pentru a acoperi riscurile potențiale, cum ar fi accidentele, boala sau decesul, care pot apărea în timpul evenimentului.",
+      "health": "Prin înregistrare, participanții confirmă că sunt în bună stare fizică și mentală și au urmat un antrenament adecvat pentru a concura în eveniment. Se recomandă ca participanții să se supună unui examen medical pentru a asigura starea de fitness pentru participare."
+    },
+    "rankings": {
+      "title": "Clasamente",
+      "content": "Circuitul EMA de Alergare Off-Road va prezenta atât clasamente individuale ale evenimentelor, cât și un clasament general final pentru Circuit.",
+      "local": "Fiecare Comitet Local de Organizare (LOC) poate oferi unul sau mai multe evenimente (cum ar fi alergare în pantă, verticală, alergare montană, traseu, etc.), cu câștigătorii și campionii pe categorii de vârstă premiați conform reglementărilor lor locale. Fiecare eveniment va avea o secțiune dedicată pe site-ul EMA.",
+      "eligibility": "Eligibilitate pentru Clasamentul Final: Pentru a se califica pentru clasamentele finale EMA, atleții trebuie să participe la cel puțin două evenimente în locații diferite.",
+      "points": "Alocare de Puncte: Câștigătorul fiecărui eveniment (general și în fiecare categorie de vârstă) va primi 1 punct, iar pozițiile următoare vor primi puncte după cum urmează (2 puncte pentru locul doi, 3 puncte pentru locul trei, etc.). EMA va lua în considerare cele mai bune două performanțe ale fiecărui atlet atunci când calculează clasamentele finale.",
+      "specialPrize": "Un premiu special va fi acordat tuturor atleților care participă la cel puțin trei etape ale Circuitului, indiferent de rezultatele lor generale.",
+      "ceremony": "Ceremonia oficială de premiere va avea loc în timpul Campionatului EMA de Alergare Off-Road 2026."
+    },
+    "calendar": {
+      "title": "Calendar",
+      "content": "Evenimentele din Circuitul EMA de Alergare Off-Road 2025 vor avea loc conform programului furnizat pe site-ul oficial EMA."
+    },
+    "downloadButton": "Descarcă Regulamentul Complet PDF"
   }
 }

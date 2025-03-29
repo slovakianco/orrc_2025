@@ -39,6 +39,11 @@ const NavigationHeader = () => {
       path: "/sponsors",
       isActive: location === "/sponsors",
     },
+    {
+      label: t("nav.emaCircuit"),
+      path: "/ema-circuit",
+      isActive: location === "/ema-circuit",
+    },
   ];
 
   const toggleMenu = () => {

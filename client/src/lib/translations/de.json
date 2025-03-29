@@ -15,6 +15,7 @@
     "program": "Programm",
     "contact": "Kontakt",
     "sponsors": "Sponsoren",
+    "emaCircuit": "EMA Circuit 2025",
     "registerButton": "Jetzt anmelden"
   },
   "hero": {
@@ -314,5 +315,48 @@
     "9": "Oktober",
     "10": "November",
     "11": "Dezember"
+  },
+  "emaCircuit": {
+    "title": "E.M.A. OFF-ROAD LAUFCIRCUIT 2025",
+    "subtitle": "Experimentelle Ausgabe",
+    "overview": {
+      "title": "Überblick",
+      "content": "European Masters Athletics (EMA) ist stolz darauf, die experimentelle Erstausgabe des EMA Off-Road Laufcircuits anzukündigen, einen Circuit, der Master-Athleten gewidmet ist und Berg-, Vertikal- und Off-Road-Laufveranstaltungen umfasst.",
+      "objectives": "Die Ziele des Circuits:",
+      "objectivesList": [
+        "Optimale Bedingungen für Athleten zu schaffen, um herausragende Leistungen zu erzielen.",
+        "Mehr Wettkampfmöglichkeiten in einer anregenden und vielfältigen Umgebung zu bieten.",
+        "Eine größere Interaktion und kulturellen Austausch unter den Athleten zu fördern.",
+        "Ein breites Spektrum an Teilnahmemöglichkeiten während der gesamten Saison anzubieten.",
+        "Die Vielfalt der teilnehmenden Athleten zu fördern."
+      ],
+      "focus": "Der organisatorische Fokus wird darauf liegen, gut strukturierte, effiziente Veranstaltungen durchzuführen, die die besten Bedingungen für die Teilnehmer schaffen, um zu glänzen und die Erfahrung zu genießen."
+    },
+    "participation": {
+      "title": "Teilnahme",
+      "content": "Die Teilnahme am EMA Off-Road Laufcircuit steht allen Athleten offen, die die Masters Off-Road Laufkriterien erfüllen, insbesondere denen im Alter von 35-79 Jahren, und die eine gültige Lizenz ihrer jeweiligen Föderation besitzen, gemäß den WMA-Regeln.",
+      "note1": "Bitte beachte, dass der EMA Off-Road Laufcircuit keine Meisterschaftsveranstaltung ist und Athleten ihre Länder bei diesen Veranstaltungen nicht offiziell vertreten werden.",
+      "note2": "Der Circuit steht auch nicht-europäischen Athleten offen, die sowohl um Einzelveranstaltungspreise als auch um Endpreise konkurrieren werden."
+    },
+    "liability": {
+      "title": "Haftung und Versicherung",
+      "content": "Teilnehmer übernehmen die volle Verantwortung für ihre Beteiligung an jeder Veranstaltung. Der Veranstalter haftet nicht für Schäden oder Verletzungen des Teilnehmers, außer in Fällen, in denen der Schaden das direkte Ergebnis absichtlicher Handlungen des Veranstalters ist.",
+      "insurance": "Wenn die Versicherungspolice des Veranstalters die Schäden abdeckt, wird die Haftung des Veranstalters auf den vom Versicherer gedeckten Betrag beschränkt sein. Teilnehmern wird empfohlen, ihre eigene Versicherung abzuschließen, um potenzielle Risiken wie Unfälle, Krankheit oder Tod abzudecken, die während der Veranstaltung auftreten können.",
+      "health": "Durch die Anmeldung bestätigen die Teilnehmer, dass sie in guter körperlicher und geistiger Verfassung sind und ein angemessenes Training für den Wettkampf absolviert haben. Es wird empfohlen, dass Teilnehmer sich einer ärztlichen Untersuchung unterziehen, um ihre Fitness für die Teilnahme sicherzustellen."
+    },
+    "rankings": {
+      "title": "Ranglisten",
+      "content": "Der EMA Off-Road Laufcircuit wird sowohl individuelle Veranstaltungsranglisten als auch eine endgültige Gesamtrangliste für den Circuit umfassen.",
+      "local": "Jedes lokale Organisationskomitee (LOC) kann eine oder mehrere Veranstaltungen anbieten (wie Bergauf-, Vertikal-, Berglauf, Trail usw.), wobei die Sieger und Altersklassen-Champions gemäß ihren lokalen Bestimmungen ausgezeichnet werden. Jede Veranstaltung wird einen eigenen Bereich auf der EMA-Website haben.",
+      "eligibility": "Berechtigung für die Endrangliste: Um sich für die EMA-Endranglisten zu qualifizieren, müssen Athleten an mindestens zwei Veranstaltungen an verschiedenen Orten teilnehmen.",
+      "points": "Punktvergabe: Der Sieger jeder Veranstaltung (gesamt und in jeder Alterskategorie) erhält 1 Punkt, wobei nachfolgende Positionen wie folgt Punkte erhalten (2 Punkte für den zweiten Platz, 3 Punkte für den dritten usw.). EMA wird die zwei besten Leistungen jedes Athleten bei der Berechnung der Endplatzierung berücksichtigen.",
+      "specialPrize": "Ein Sonderpreis wird an alle Athleten vergeben, die an mindestens drei Etappen des Circuits teilnehmen, unabhängig von ihren Gesamtergebnissen.",
+      "ceremony": "Die offizielle Preisverleihung findet während der EMA Off-Road Laufmeisterschaft 2026 statt."
+    },
+    "calendar": {
+      "title": "Kalender",
+      "content": "Die Veranstaltungen im EMA Off-Road Laufcircuit 2025 werden gemäß dem auf der offiziellen EMA-Website bereitgestellten Zeitplan stattfinden."
+    },
+    "downloadButton": "Vollständige Bestimmungen als PDF herunterladen"
   }
 }

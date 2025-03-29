@@ -259,6 +259,31 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ message: "Failed to download GPX file" });
     }
   });
+  
+  // EMA Circuit PDF download
+  apiRouter.get("/ema-circuit/regulations", async (req: Request, res: Response) => {
+    try {
+      const pdfFileName = 'Regulation2025_ORRCircuit.pdf';
+      const pdfFilePath = path.join(process.cwd(), 'attached_assets', pdfFileName);
+      
+      // Check if file exists
+      if (!fs.existsSync(pdfFilePath)) {
+        return res.status(404).json({ message: "PDF file not found" });
+      }
+      
+      // Set appropriate headers
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', `attachment; filename="EMA_Off-Road_Running_Circuit_2025_Regulations.pdf"`);
+      
+      // Stream the file
+      const fileStream = fs.createReadStream(pdfFilePath);
+      fileStream.pipe(res);
+      
+    } catch (error) {
+      console.error("Error downloading EMA Circuit PDF:", error);
+      res.status(500).json({ message: "Failed to download PDF file" });
+    }
+  });
 
   // Mount the API router
   app.use("/api", apiRouter);

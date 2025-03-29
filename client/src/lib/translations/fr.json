@@ -15,6 +15,7 @@
     "program": "Programme",
     "contact": "Contact",
     "sponsors": "Sponsors",
+    "emaCircuit": "Circuit EMA 2025",
     "registerButton": "S'inscrire"
   },
   "hero": {
@@ -314,5 +315,48 @@
     "9": "Octobre",
     "10": "Novembre",
     "11": "Décembre"
+  },
+  "emaCircuit": {
+    "title": "CIRCUIT E.M.A. DE COURSE OFF-ROAD 2025",
+    "subtitle": "Édition Expérimentale",
+    "overview": {
+      "title": "Aperçu",
+      "content": "European Masters Athletics (EMA) est fier d'annoncer l'édition expérimentale inaugurale du Circuit EMA de Course Off-Road, un circuit dédié aux athlètes Masters comprenant des épreuves de course en montagne, verticale et hors-piste.",
+      "objectives": "Les Objectifs du Circuit:",
+      "objectivesList": [
+        "Offrir des conditions optimales aux athlètes pour réaliser des performances exceptionnelles.",
+        "Augmenter les opportunités de compétition dans un environnement stimulant et diversifié.",
+        "Favoriser une plus grande interaction et des échanges culturels entre les athlètes.",
+        "Proposer un large éventail d'options de participation tout au long de la saison.",
+        "Promouvoir la diversité des athlètes participants."
+      ],
+      "focus": "L'accent organisationnel sera mis sur la réalisation d'événements bien structurés et efficaces qui créent les meilleures conditions pour que les participants excellent et profitent de l'expérience."
+    },
+    "participation": {
+      "title": "Participation",
+      "content": "La participation au Circuit EMA de Course Off-Road est ouverte à tous les athlètes qui répondent aux critères des Masters pour la course Off-Road, en particulier ceux âgés de 35 à 79 ans, et qui détiennent une licence valide de leur Fédération respective, conformément aux règles de la WMA.",
+      "note1": "Veuillez noter que le Circuit EMA de Course Off-Road n'est pas un championnat, et les athlètes ne représenteront pas officiellement leurs pays dans ces événements.",
+      "note2": "Le Circuit est également ouvert aux athlètes non-européens, qui concourront pour les prix des événements individuels ainsi que pour les récompenses finales."
+    },
+    "liability": {
+      "title": "Responsabilité et Assurance",
+      "content": "Les participants assument l'entière responsabilité de leur participation à tout événement. L'Organisateur n'est pas responsable des dommages ou blessures subis par le Participant, sauf dans les cas où le dommage est le résultat direct des actions intentionnelles de l'Organisateur.",
+      "insurance": "Si la police d'assurance de l'Organisateur couvre les dommages, la responsabilité de l'Organisateur sera limitée au montant couvert par l'assureur. Il est conseillé aux participants de souscrire leur propre assurance pour couvrir les risques potentiels, tels que les accidents, la maladie ou le décès, qui peuvent survenir pendant l'événement.",
+      "health": "En s'inscrivant, les participants confirment qu'ils sont en bonne santé physique et mentale, et qu'ils ont suivi un entraînement approprié pour participer à l'événement. Il est recommandé que les participants subissent un examen médical pour s'assurer de leur aptitude à participer."
+    },
+    "rankings": {
+      "title": "Classements",
+      "content": "Le Circuit EMA de Course Off-Road comprendra à la fois des classements individuels pour chaque événement et un classement général final pour le Circuit.",
+      "local": "Chaque Comité d'Organisation Local (LOC) peut proposer un ou plusieurs événements (comme la course en montée, verticale, course en montagne, trail, etc.), avec les vainqueurs et champions de catégorie d'âge récompensés selon leurs réglementations locales. Chaque événement aura une section dédiée sur le site web de l'EMA.",
+      "eligibility": "Éligibilité au Classement Final: Pour se qualifier pour les classements finaux de l'EMA, les athlètes doivent participer à au moins deux événements dans des lieux différents.",
+      "points": "Attribution des Points: Le vainqueur de chaque événement (global et dans chaque catégorie d'âge) recevra 1 point, avec des positions suivantes attribuées comme suit (2 points pour la deuxième place, 3 points pour la troisième, etc.). L'EMA considérera les deux meilleures performances de chaque athlète lors du calcul des classements finaux.",
+      "specialPrize": "Un prix spécial sera décerné à tous les athlètes qui participent à au moins trois étapes du Circuit, indépendamment de leurs résultats globaux.",
+      "ceremony": "La cérémonie officielle de remise des prix aura lieu lors du Championnat EMA de Course Off-Road 2026."
+    },
+    "calendar": {
+      "title": "Calendrier",
+      "content": "Les événements du Circuit EMA de Course Off-Road 2025 auront lieu selon le calendrier fourni sur le site web officiel de l'EMA."
+    },
+    "downloadButton": "Télécharger le Règlement Complet PDF"
   }
 }

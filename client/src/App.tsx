@@ -17,6 +17,7 @@ import RulesPage from "@/pages/RulesPage";
 import ProgramPage from "@/pages/ProgramPage";
 import ContactPage from "@/pages/ContactPage";
 import SponsorsPage from "@/pages/SponsorsPage";
+import EmaCircuitPage from "@/pages/EmaCircuitPage";
 
 // Import Components
 import NavigationHeader from "@/components/NavigationHeader";
@@ -39,6 +40,7 @@ function Router() {
           <Route path="/program" component={ProgramPage} />
           <Route path="/contact" component={ContactPage} />
           <Route path="/sponsors" component={SponsorsPage} />
+          <Route path="/ema-circuit" component={EmaCircuitPage} />
           <Route component={NotFound} />
         </Switch>
       </main>
