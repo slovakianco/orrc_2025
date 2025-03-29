@@ -3,13 +3,14 @@ import { useQuery } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
 import { Race, Participant, ParticipantFilters } from "@/lib/types";
 import { getStatusColor, getCountryFlag, getCountryName, getLocalizedRaceName } from "@/lib/utils";
-import { Search, ChevronLeft, ChevronRight, Globe, Map, Info } from "lucide-react";
+import { Search, ChevronLeft, ChevronRight, Globe, Map, Info, List, Grid } from "lucide-react";
 
 const ParticipantsList = () => {
   const { t, i18n } = useTranslation();
   const [filters, setFilters] = useState<ParticipantFilters>({});
   const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(1);
+  const [viewMode, setViewMode] = useState<"table" | "card">("table");
   const pageSize = 10;
 
   // Get all races for filter dropdown
@@ -147,119 +148,217 @@ const ParticipantsList = () => {
                 ))}
               </select>
             </div>
+            
+            {/* View Mode Toggle */}
+            <div className="flex border border-neutral-light rounded-md overflow-hidden">
+              <button 
+                onClick={() => setViewMode("table")} 
+                className={`px-3 py-2 flex items-center ${viewMode === "table" 
+                  ? "bg-primary text-white" 
+                  : "bg-white text-neutral-gray hover:bg-neutral-light"
+                }`}
+              >
+                <List className="h-5 w-5 mr-1" />
+                <span className="hidden sm:inline">{t('participants.tableView')}</span>
+              </button>
+              <button 
+                onClick={() => setViewMode("card")} 
+                className={`px-3 py-2 flex items-center ${viewMode === "card" 
+                  ? "bg-primary text-white" 
+                  : "bg-white text-neutral-gray hover:bg-neutral-light"
+                }`}
+              >
+                <Grid className="h-5 w-5 mr-1" />
+                <span className="hidden sm:inline">{t('participants.cardView')}</span>
+              </button>
+            </div>
           </div>
         </div>
         
-        {/* Participants Table */}
-        <div className="overflow-x-auto bg-white rounded-lg shadow-md">
-          <table className="min-w-full divide-y divide-neutral-light">
-            <thead className="bg-neutral-light bg-opacity-50">
-              <tr>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-neutral-gray uppercase tracking-wider">
-                  {t('participants.table.name')}
-                </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-neutral-gray uppercase tracking-wider">
-                  {t('participants.table.country')}
-                </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-neutral-gray uppercase tracking-wider">
-                  {t('participants.table.race')}
-                </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-neutral-gray uppercase tracking-wider">
-                  {t('participants.table.bib')}
-                </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-neutral-gray uppercase tracking-wider">
-                  {t('participants.table.status')}
-                </th>
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-neutral-light">
-              {isLoading ? (
+        {/* Participants View (Table or Card) */}
+        {viewMode === "table" ? (
+          <div className="overflow-x-auto bg-white rounded-lg shadow-md">
+            <table className="min-w-full divide-y divide-neutral-light">
+              <thead className="bg-neutral-light bg-opacity-50">
                 <tr>
-                  <td colSpan={5} className="px-6 py-4 text-center">
-                    {t('common.loading')}
-                  </td>
+                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-neutral-gray uppercase tracking-wider">
+                    {t('participants.table.name')}
+                  </th>
+                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-neutral-gray uppercase tracking-wider">
+                    {t('participants.table.country')}
+                  </th>
+                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-neutral-gray uppercase tracking-wider">
+                    {t('participants.table.race')}
+                  </th>
+                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-neutral-gray uppercase tracking-wider">
+                    {t('participants.table.bib')}
+                  </th>
+                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-neutral-gray uppercase tracking-wider">
+                    {t('participants.table.status')}
+                  </th>
                 </tr>
-              ) : currentParticipants.length === 0 ? (
-                <tr>
-                  <td colSpan={5} className="px-6 py-4 text-center">
-                    {t('participants.noParticipants')}
-                  </td>
-                </tr>
-              ) : (
-                currentParticipants.map(participant => {
-                  const race = races?.find(r => r.id === participant.raceId);
-                  
-                  return (
-                    <tr key={participant.id} className="hover:bg-neutral-light hover:bg-opacity-20 transition-colors duration-150">
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex items-center">
-                          <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-white">
-                            <span className="font-bold">
-                              {participant.firstName[0]}{participant.lastName[0]}
-                            </span>
-                          </div>
-                          <div className="ml-4">
-                            <div className="text-sm font-medium">{participant.firstName} {participant.lastName}</div>
-                            <div className="text-sm text-neutral-gray">
-                              {participant.gender}, {participant.age}
+              </thead>
+              <tbody className="bg-white divide-y divide-neutral-light">
+                {isLoading ? (
+                  <tr>
+                    <td colSpan={5} className="px-6 py-4 text-center">
+                      {t('common.loading')}
+                    </td>
+                  </tr>
+                ) : currentParticipants.length === 0 ? (
+                  <tr>
+                    <td colSpan={5} className="px-6 py-4 text-center">
+                      {t('participants.noParticipants')}
+                    </td>
+                  </tr>
+                ) : (
+                  currentParticipants.map(participant => {
+                    const race = races?.find(r => r.id === participant.raceId);
+                    
+                    return (
+                      <tr key={participant.id} className="hover:bg-neutral-light hover:bg-opacity-20 transition-colors duration-150">
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="flex items-center">
+                            <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-white">
+                              <span className="font-bold">
+                                {participant.firstName[0]}{participant.lastName[0]}
+                              </span>
+                            </div>
+                            <div className="ml-4">
+                              <div className="text-sm font-medium">{participant.firstName} {participant.lastName}</div>
+                              <div className="text-sm text-neutral-gray">
+                                {participant.gender}, {participant.age}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="group relative">
-                          <div className="flex items-center cursor-pointer">
-                            <div className="text-2xl mr-2 transform transition-transform group-hover:scale-125">
-                              {getCountryFlag(participant.country)}
-                            </div>
-                            <span className="text-sm">{participant.country}</span>
-                          </div>
-                          
-                          {/* Tooltip that appears on hover */}
-                          <div className="absolute left-0 top-full mt-2 z-10 bg-white p-3 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                            <div className="flex items-center">
-                              <div className="text-3xl mr-3">
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="group relative">
+                            <div className="flex items-center cursor-pointer">
+                              <div className="text-2xl mr-2 transform transition-transform group-hover:scale-125">
                                 {getCountryFlag(participant.country)}
                               </div>
-                              <div>
-                                <div className="font-bold">{getCountryName(participant.country)}</div>
-                                <div className="text-xs text-slate-gray mt-1">
-                                  <div className="flex items-center">
-                                    <Info className="h-3 w-3 mr-1" />
-                                    <span>{t('participants.countryParticipants', { count: 
-                                      participants?.filter(p => p.country === participant.country).length || 0
-                                    })}</span>
+                              <span className="text-sm">{participant.country}</span>
+                            </div>
+                            
+                            {/* Tooltip that appears on hover */}
+                            <div className="absolute left-0 top-full mt-2 z-10 bg-white p-3 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                              <div className="flex items-center">
+                                <div className="text-3xl mr-3">
+                                  {getCountryFlag(participant.country)}
+                                </div>
+                                <div>
+                                  <div className="font-bold">{getCountryName(participant.country)}</div>
+                                  <div className="text-xs text-slate-gray mt-1">
+                                    <div className="flex items-center">
+                                      <Info className="h-3 w-3 mr-1" />
+                                      <span>{t('participants.countryParticipants', { count: 
+                                        participants?.filter(p => p.country === participant.country).length || 0
+                                      })}</span>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <span className={`px-2 py-1 text-xs font-medium ${
+                            race?.difficulty === 'beginner' ? 'bg-accent bg-opacity-10 text-accent' :
+                            race?.difficulty === 'intermediate' ? 'bg-secondary bg-opacity-10 text-secondary' :
+                            'bg-primary bg-opacity-10 text-primary'
+                          } rounded-full`}>
+                            {race ? getLocalizedRaceName(race, i18n.language as any) : t('participants.unknownRace')}
+                          </span>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm">
+                          {participant.bibNumber || '-'}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <span className={`px-2 py-1 text-xs font-medium ${getStatusColor(participant.status)} rounded-full`}>
+                            {t(`participants.status.${participant.status}`)}
+                          </span>
+                        </td>
+                      </tr>
+                    );
+                  })
+                )}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <div>
+            {isLoading ? (
+              <div className="bg-white rounded-lg shadow-md p-8 text-center">
+                {t('common.loading')}
+              </div>
+            ) : currentParticipants.length === 0 ? (
+              <div className="bg-white rounded-lg shadow-md p-8 text-center">
+                {t('participants.noParticipants')}
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                {currentParticipants.map(participant => {
+                  const race = races?.find(r => r.id === participant.raceId);
+                  
+                  return (
+                    <div key={participant.id} 
+                         className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:translate-y-[-4px]">
+                      <div className="p-6">
+                        <div className="flex items-center mb-4">
+                          <div className="h-12 w-12 rounded-full bg-primary flex items-center justify-center text-white mr-4">
+                            <span className="font-bold text-lg">
+                              {participant.firstName[0]}{participant.lastName[0]}
+                            </span>
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg">{participant.firstName} {participant.lastName}</h3>
+                            <div className="text-sm text-neutral-gray">
+                              {t(`participants.gender.${participant.gender.toLowerCase()}`)} • {participant.age} {t('participants.table.age')}
+                            </div>
+                          </div>
                         </div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <span className={`px-2 py-1 text-xs font-medium ${
-                          race?.difficulty === 'beginner' ? 'bg-accent bg-opacity-10 text-accent' :
-                          race?.difficulty === 'intermediate' ? 'bg-secondary bg-opacity-10 text-secondary' :
-                          'bg-primary bg-opacity-10 text-primary'
-                        } rounded-full`}>
-                          {race ? getLocalizedRaceName(race, i18n.language as any) : t('participants.unknownRace')}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm">
-                        {participant.bibNumber || '-'}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <span className={`px-2 py-1 text-xs font-medium ${getStatusColor(participant.status)} rounded-full`}>
-                          {t(`participants.status.${participant.status}`)}
-                        </span>
-                      </td>
-                    </tr>
+                        
+                        <div className="space-y-3 mt-4">
+                          <div className="flex items-center">
+                            <div className="text-2xl mr-3 w-8">
+                              {getCountryFlag(participant.country)}
+                            </div>
+                            <span>{getCountryName(participant.country)}</span>
+                          </div>
+                          
+                          <div className="flex items-center">
+                            <Map className="w-5 h-5 mr-3 ml-1.5 text-neutral-gray" />
+                            <div>
+                              <span className={`px-2 py-1 text-xs font-medium ${
+                                race?.difficulty === 'beginner' ? 'bg-accent bg-opacity-10 text-accent' :
+                                race?.difficulty === 'intermediate' ? 'bg-secondary bg-opacity-10 text-secondary' :
+                                'bg-primary bg-opacity-10 text-primary'
+                              } rounded-full`}>
+                                {race ? getLocalizedRaceName(race, i18n.language as any) : t('participants.unknownRace')}
+                              </span>
+                            </div>
+                          </div>
+                          
+                          <div className="flex justify-between">
+                            <div className="flex items-center">
+                              <span className="text-sm text-neutral-gray mr-2">{t('participants.table.bibNumber')}:</span>
+                              <span className="font-medium">{participant.bibNumber || '-'}</span>
+                            </div>
+                            
+                            <span className={`px-2 py-1 text-xs font-medium ${getStatusColor(participant.status)} rounded-full`}>
+                              {t(`participants.status.${participant.status}`)}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   );
-                })
-              )}
-            </tbody>
-          </table>
-        </div>
+                })}
+              </div>
+            )}
+          </div>
+        )}
         
         {/* Pagination */}
         {participants && participants.length > 0 && (

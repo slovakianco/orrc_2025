@@ -24,7 +24,8 @@
     "date": "4-5 Iulie, 2025",
     "registerButton": "Înregistrează-te acum",
     "exploreButton": "Explorează cursele",
-    "imageAlt": "Alergare montană în munți"
+    "imageAlt": "Alergare montană în munți",
+    "enhancedDescription": "Cursa de 33K face parte din Circuitul EMA Off-Road Running 2025 și Campionatul Naţional de Alergare Montană Masters. O experiență de neuitat vă așteaptă în frumoșii Munți Carpați."
   },
   "quickInfo": {
     "location": {
@@ -342,6 +343,18 @@
     "hours": "Ore",
     "minutes": "Min",
     "seconds": "Sec"
+  },
+  "sectionsOverview": {
+    "title": "Explorează Competiția",
+    "subtitle": "Descoperă tot ce trebuie să știi despre competiția noastră de alergare montană",
+    "races": "Vezi cursele noastre provocatoare de alergare montană cu informații detaliate despre distanță, altitudine și dificultate.",
+    "participants": "Vezi cine s-a înregistrat deja și verifică participanții din întreaga lume.",
+    "program": "Explorează programul complet al evenimentelor, inclusiv orele de start ale curselor, ceremoniile de premiere și mai multe.",
+    "rules": "Înțelege regulile competiției, cerințele de echipament și toate reglementările de siguranță.",
+    "emaCircuit": "Află despre Circuitul EMA de Alergare Off-Road 2025 și semnificația sa pentru alergarea montană.",
+    "sponsors": "Descoperă organizațiile și companiile care sprijină acest eveniment de alergare montană.",
+    "registration": "Înregistrează-te pentru cursa aleasă și asigură-ți locul în această provocare montană incitantă.",
+    "contact": "Contactează echipa noastră pentru orice întrebări despre competiție."
   },
   "emaCircuit": {
     "title": "CIRCUITUL E.M.A. DE ALERGARE OFF-ROAD 2025",

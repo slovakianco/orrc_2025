@@ -41,7 +41,8 @@
     "date": "June 15-17, 2024",
     "registerButton": "Register Now",
     "exploreButton": "Explore Races",
-    "imageAlt": "Trail running in mountains"
+    "imageAlt": "Trail running in mountains",
+    "enhancedDescription": "The 33K race is part of the 2025 EMA Off-Road Running Circuit and the National Mountain Running Championship for Masters. An unforgettable experience awaits you in the beautiful Carpathian Mountains."
   },
   "quickInfo": {
     "location": {
@@ -357,6 +358,18 @@
     "hours": "Hours",
     "minutes": "Min",
     "seconds": "Sec"
+  },
+  "sectionsOverview": {
+    "title": "Explore the Competition",
+    "subtitle": "Discover everything you need to know about our trail running competition",
+    "races": "View our challenging trail running races with detailed information about distance, elevation, and difficulty.",
+    "participants": "See who's already registered and check participants from around the world.",
+    "program": "Explore the full schedule of events, including race start times, award ceremonies, and more.",
+    "rules": "Understand the competition rules, equipment requirements, and all safety regulations.",
+    "emaCircuit": "Learn about the EMA Off-Road Running Circuit 2025 and its significance for trail running.",
+    "sponsors": "Discover the organizations and companies supporting this trail running event.",
+    "registration": "Register for your chosen race and secure your spot in this exciting mountain challenge.",
+    "contact": "Get in touch with our team for any questions about the competition."
   },
   "emaCircuit": {
     "title": "E.M.A. OFF-ROAD RUNNING CIRCUIT 2025",
