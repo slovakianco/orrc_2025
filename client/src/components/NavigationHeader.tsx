@@ -56,15 +56,15 @@ const NavigationHeader = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <div className="h-8 w-auto mr-2 overflow-hidden">
+              <div className="h-10 w-auto mr-2 overflow-hidden flex items-center">
                 <img 
                   src="/logo.jpeg" 
                   alt="Stana de Vale Logo" 
-                  className="h-full w-auto object-contain rounded-md"
+                  className="h-full w-auto object-cover rounded-md"
                 />
               </div>
-              <span className="font-heading font-bold text-sm md:text-base text-white truncate max-w-[140px] md:max-w-[180px]">
-                Stana de Vale
+              <span className="font-heading font-bold text-sm md:text-base text-white">
+                Stana de Vale Trail Race
               </span>
             </Link>
           </div>

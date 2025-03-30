@@ -24,7 +24,8 @@
     "date": "15.-17. Juni 2024",
     "registerButton": "Jetzt anmelden",
     "exploreButton": "Rennen erkunden",
-    "imageAlt": "Trail-Laufen in den Bergen"
+    "imageAlt": "Trail-Laufen in den Bergen",
+    "enhancedDescription": "Das 33K-Rennen ist Teil des EMA Off-Road Laufcircuits 2025 und der Nationalen Berglauf-Meisterschaft für Masters. Ein unvergessliches Erlebnis erwartet Sie in den wunderschönen Karpaten."
   },
   "quickInfo": {
     "location": {
@@ -315,6 +316,25 @@
     "9": "Oktober",
     "10": "November",
     "11": "Dezember"
+  },
+  "countdown": {
+    "title": "Zeit bis zum Renntag",
+    "days": "Tage",
+    "hours": "Stunden",
+    "minutes": "Min",
+    "seconds": "Sek"
+  },
+  "sectionsOverview": {
+    "title": "Entdecke den Wettbewerb",
+    "subtitle": "Erfahre alles, was du über unseren Trail-Running-Wettbewerb wissen musst",
+    "races": "Siehe unsere anspruchsvollen Trail-Running-Rennen mit detaillierten Informationen zu Distanz, Höhenmetern und Schwierigkeitsgrad.",
+    "participants": "Sieh nach, wer bereits registriert ist und überprüfe Teilnehmer aus der ganzen Welt.",
+    "program": "Entdecke den vollständigen Veranstaltungsplan, einschließlich Rennstartzeiten, Siegerehrungen und mehr.",
+    "rules": "Verstehe die Wettbewerbsregeln, Ausrüstungsanforderungen und alle Sicherheitsvorschriften.",
+    "emaCircuit": "Erfahre mehr über den EMA Off-Road Laufcircuit 2025 und seine Bedeutung für das Trail-Running.",
+    "sponsors": "Entdecke die Organisationen und Unternehmen, die dieses Trail-Running-Event unterstützen.",
+    "registration": "Melde dich für dein gewähltes Rennen an und sichere dir deinen Platz in dieser aufregenden Bergherausforderung.",
+    "contact": "Nimm Kontakt mit unserem Team auf, wenn du Fragen zum Wettbewerb hast."
   },
   "emaCircuit": {
     "title": "E.M.A. OFF-ROAD LAUFCIRCUIT 2025",

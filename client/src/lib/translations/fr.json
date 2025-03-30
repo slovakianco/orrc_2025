@@ -24,7 +24,8 @@
     "date": "15-17 Juin, 2024",
     "registerButton": "S'inscrire",
     "exploreButton": "Explorer les Courses",
-    "imageAlt": "Course de trail en montagne"
+    "imageAlt": "Course de trail en montagne",
+    "enhancedDescription": "La course de 33K fait partie du Circuit EMA de Course Hors Route 2025 et du Championnat National de Course en Montagne Masters. Une expérience inoubliable vous attend dans les magnifiques Carpates."
   },
   "quickInfo": {
     "location": {
@@ -315,6 +316,25 @@
     "9": "Octobre",
     "10": "Novembre",
     "11": "Décembre"
+  },
+  "countdown": {
+    "title": "Temps avant le jour de course",
+    "days": "Jours",
+    "hours": "Heures",
+    "minutes": "Min",
+    "seconds": "Sec"
+  },
+  "sectionsOverview": {
+    "title": "Découvrez la Compétition",
+    "subtitle": "Apprenez tout ce que vous devez savoir sur notre compétition de course de trail",
+    "races": "Découvrez nos courses de trail exigeantes avec des informations détaillées sur la distance, le dénivelé et la difficulté.",
+    "participants": "Vérifiez qui est déjà inscrit et parcourez la liste des participants du monde entier.",
+    "program": "Découvrez le programme complet de l'événement, y compris les heures de départ des courses, les cérémonies de remise des prix et plus encore.",
+    "rules": "Comprenez les règles de la compétition, les exigences en matière d'équipement et tous les protocoles de sécurité.",
+    "emaCircuit": "En savoir plus sur le Circuit EMA de Course Off-Road 2025 et son importance pour la course de trail.",
+    "sponsors": "Découvrez les organisations et entreprises qui soutiennent cet événement de course de trail.",
+    "registration": "Inscrivez-vous à votre course choisie et réservez votre place dans ce défi montagnard passionnant.",
+    "contact": "Contactez notre équipe si vous avez des questions concernant la compétition."
   },
   "emaCircuit": {
     "title": "CIRCUIT E.M.A. DE COURSE OFF-ROAD 2025",

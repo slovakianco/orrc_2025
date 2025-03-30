@@ -43,7 +43,7 @@ const EmaCircuitPage = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
         <div className="lg:col-span-2">
           <Card className="shadow-md border-primary/20 h-full">
-            <CardHeader className="bg-primary/5">
+            <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Award className="h-6 w-6 text-primary" />
                 {t("emaCircuit.overview.title")}
@@ -68,7 +68,7 @@ const EmaCircuitPage = () => {
 
         <div>
           <Card className="shadow-md border-primary/20 h-full">
-            <CardHeader className="bg-primary/5">
+            <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Users className="h-6 w-6 text-primary" />
                 {t("emaCircuit.participation.title")}
@@ -87,7 +87,7 @@ const EmaCircuitPage = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
         <Card className="shadow-md border-primary/20">
-          <CardHeader className="bg-primary/5">
+          <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <ShieldCheck className="h-6 w-6 text-primary" />
               {t("emaCircuit.liability.title")}
@@ -101,7 +101,7 @@ const EmaCircuitPage = () => {
         </Card>
 
         <Card className="shadow-md border-primary/20">
-          <CardHeader className="bg-primary/5">
+          <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Award className="h-6 w-6 text-primary" />
               {t("emaCircuit.rankings.title")}
@@ -119,7 +119,7 @@ const EmaCircuitPage = () => {
       </div>
 
       <Card className="shadow-md border-primary/20 mb-12">
-        <CardHeader className="bg-primary/5">
+        <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Calendar className="h-6 w-6 text-primary" />
             {t("emaCircuit.calendar.title")}
