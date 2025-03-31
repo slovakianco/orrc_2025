@@ -16,6 +16,7 @@
     "contact": "Contact",
     "sponsors": "Sponsors",
     "emaCircuit": "Circuit EMA 2025",
+    "howToGet": "Comment s'y rendre",
     "registerButton": "S'inscrire"
   },
   "hero": {
@@ -289,7 +290,7 @@
     "quickLinks": "Liens Rapides",
     "resources": "Ressources",
     "resources1": "Cartes des Sentiers",
-    "resources2": "Conseils d'Entraînement",
+    "resources2": "Comment se rendre à Stana de Vale",
     "resources3": "Guide d'Équipement",
     "resources4": "Informations de Voyage",
     "resources5": "Hébergement",
@@ -323,6 +324,108 @@
     "hours": "Heures",
     "minutes": "Min",
     "seconds": "Sec"
+  },
+  "howToGet": {
+    "title": "Comment se rendre à Stana de Vale",
+    "subtitle": "Informations pratiques de voyage pour vous aider à rejoindre la destination de la course.",
+    "introduction": "Stana de Vale est une station de montagne pittoresque située dans les Monts Apuseni en Roumanie, offrant des paysages naturels à couper le souffle et le cadre parfait pour notre compétition de course sur sentier.",
+    "importantNote": "Note Importante",
+    "weatherNote": "Les routes de montagne peuvent être affectées par les conditions météorologiques, particulièrement en hiver et au début du printemps. Vérifiez toujours les conditions routières avant de voyager.",
+    "locationTitle": "Aperçu de l'Emplacement",
+    "locationDescription": "Stana de Vale est située à une altitude d'environ 1 100 mètres dans le comté de Bihor, en Roumanie. Elle est connue pour ses forêts vierges, ses sources de montagne et ses magnifiques sentiers de randonnée.",
+    "byAir": {
+      "title": "Par Avion",
+      "description": "Les aéroports les plus proches de Stana de Vale sont à Oradea et Cluj-Napoca. De là, vous pouvez poursuivre votre voyage en voiture, en train ou en bus.",
+      "oradea": {
+        "title": "Aéroport International d'Oradea (OMR)",
+        "description": "L'aéroport le plus proche de Stana de Vale :",
+        "distance": "Environ 70 km de Stana de Vale",
+        "travelTime": "Environ 1 heure 30 minutes en voiture",
+        "transport": "Taxis et location de voitures disponibles à l'aéroport"
+      },
+      "cluj": {
+        "title": "Aéroport International de Cluj-Napoca (CLJ)",
+        "description": "Un aéroport international majeur avec plus de connexions :",
+        "distance": "Environ 150 km de Stana de Vale",
+        "travelTime": "Environ 2 heures 45 minutes en voiture",
+        "transport": "Taxis, location de voitures et services de navette disponibles"
+      }
+    },
+    "byCar": {
+      "title": "En Voiture",
+      "description": "Voyager en voiture offre de la flexibilité pour atteindre Stana de Vale. La station de montagne est accessible via plusieurs itinéraires, bien que certaines routes puissent être difficiles selon la saison.",
+      "fromOradea": {
+        "title": "Depuis Oradea",
+        "description": "Il y a deux itinéraires principaux depuis Oradea :",
+        "route1": "Itinéraire 1 : Oradea → Beiuș → Budureasa → Stana de Vale (environ 80 km, 1h 45m)",
+        "route2": "Itinéraire 2 : Oradea → Aleșd → Borod → Bratca → Beiuș → Budureasa → Stana de Vale (plus long mais peut offrir de meilleures conditions routières)"
+      },
+      "fromCluj": {
+        "title": "Depuis Cluj-Napoca",
+        "description": "L'itinéraire recommandé depuis Cluj-Napoca :",
+        "route": "Cluj-Napoca → Huedin → Borod → Beiuș → Budureasa → Stana de Vale (environ 3 heures de route)"
+      },
+      "parking": {
+        "title": "Informations sur le Stationnement",
+        "description": "Il y a un grand parking au centre de la station où vous pouvez laisser votre véhicule pendant la compétition. Un stationnement supplémentaire sera disponible près de la zone de départ/arrivée de la course."
+      }
+    },
+    "byTrain": {
+      "title": "En Train",
+      "description": "Le réseau ferroviaire roumain peut vous amener près de Stana de Vale, bien que vous aurez besoin d'un transport supplémentaire pour la dernière partie du voyage.",
+      "connections": {
+        "title": "Connexions Ferroviaires",
+        "connection1": "Depuis Bucarest : Prenez un train jusqu'à Oradea, puis continuez en bus ou en voiture",
+        "connection2": "Depuis Budapest : Prenez un train jusqu'à Oradea, puis continuez en bus ou en voiture"
+      },
+      "lastLeg": {
+        "title": "Connexion Finale",
+        "description": "Depuis Oradea ou Beiuș, vous devrez organiser un transport jusqu'à Stana de Vale car il n'y a pas de service ferroviaire direct vers la station."
+      }
+    },
+    "byBus": {
+      "title": "En Bus",
+      "description": "Les transports en bus publics peuvent vous amener aux villes proches de Stana de Vale, d'où vous devrez organiser la dernière partie de votre voyage.",
+      "services": {
+        "title": "Services de Bus",
+        "service1": "Oradea à Beiuș : Services réguliers de bus tout au long de la journée",
+        "service2": "Cluj-Napoca à Beiuș : Services limités, vérifiez les horaires à l'avance"
+      },
+      "schedules": {
+        "title": "Horaires des Bus",
+        "description": "Les horaires des bus peuvent varier selon les saisons. Nous vous recommandons de vérifier les derniers horaires sur autogari.ro ou directement auprès des compagnies de bus locales."
+      }
+    },
+    "localTransport": {
+      "title": "Transport Local",
+      "description": "Pour la dernière partie de votre voyage vers Stana de Vale, vous pourriez avoir besoin d'utiliser des options de transport local.",
+      "taxis": {
+        "title": "Taxis",
+        "description": "Les taxis sont disponibles à Beiuș et peuvent vous emmener à Stana de Vale. Attendez-vous à payer environ 100-150 RON pour ce trajet."
+      },
+      "shuttles": {
+        "title": "Navettes le Jour de la Course",
+        "description": "Pour la compétition, nous organiserons des services de navette depuis les principales villes voisines. Les détails seront partagés avec les participants inscrits à l'approche de la date de l'événement."
+      }
+    },
+    "accommodation": {
+      "title": "Options d'Hébergement",
+      "description": "Il existe plusieurs options d'hébergement à Stana de Vale et aux alentours pour convenir à différentes préférences et budgets.",
+      "options": {
+        "option1": {
+          "title": "Hôtel de Montagne",
+          "description": "L'hôtel principal à Stana de Vale offre des chambres confortables avec vue sur la montagne, restaurant et installations de spa."
+        },
+        "option2": {
+          "title": "Pensions à Proximité",
+          "description": "Plusieurs pensions familiales dans les environs offrent une hospitalité locale authentique et une cuisine maison."
+        },
+        "option3": {
+          "title": "Camping",
+          "description": "Pour les plus aventureux, il y a des zones de camping désignées près de la station. Apportez votre propre équipement ou louez-en sur place."
+        }
+      }
+    }
   },
   "sectionsOverview": {
     "title": "Découvrez la Compétition",

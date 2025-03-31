@@ -94,9 +94,9 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300 text-sm md:text-base">
+                <Link href="/how-to-get-there" className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300 text-sm md:text-base">
                   {t('footer.resources2')}
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="#" className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300 text-sm md:text-base">

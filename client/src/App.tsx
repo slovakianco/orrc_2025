@@ -18,6 +18,7 @@ import ProgramPage from "@/pages/ProgramPage";
 import ContactPage from "@/pages/ContactPage";
 import SponsorsPage from "@/pages/SponsorsPage";
 import EmaCircuitPage from "@/pages/EmaCircuitPage";
+import HowToGetPage from "@/pages/HowToGetPage";
 
 // Import Components
 import NavigationHeader from "@/components/NavigationHeader";
@@ -27,7 +28,7 @@ import LanguageSelector from "@/components/LanguageSelector";
 function Router() {
   return (
     <div className="flex flex-col min-h-screen">
-      <NavigationHeader className="bg-[#2a6d50]" />
+      <NavigationHeader />
       <main className="flex-grow">
         <Switch>
           <Route path="/" component={HomePage} />
@@ -40,6 +41,7 @@ function Router() {
           <Route path="/contact" component={ContactPage} />
           <Route path="/sponsors" component={SponsorsPage} />
           <Route path="/ema-circuit" component={EmaCircuitPage} />
+          <Route path="/how-to-get-there" component={HowToGetPage} />
           <Route component={NotFound} />
         </Switch>
       </main>

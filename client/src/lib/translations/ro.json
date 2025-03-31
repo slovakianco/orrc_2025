@@ -16,6 +16,7 @@
     "contact": "Contact",
     "sponsors": "Sponsori",
     "emaCircuit": "Circuit EMA 2025",
+    "howToGet": "Cum ajungi aici",
     "registerButton": "Înregistrează-te acum"
   },
   "hero": {
@@ -314,7 +315,7 @@
     "quickLinks": "Link-uri Rapide",
     "resources": "Resurse",
     "resources1": "Hărți Trasee",
-    "resources2": "Sfaturi de Antrenament",
+    "resources2": "Cum să ajungi la Stâna de Vale",
     "resources3": "Ghid Echipament",
     "resources4": "Informații de Călătorie",
     "resources5": "Cazare",
@@ -348,6 +349,108 @@
     "hours": "Ore",
     "minutes": "Min",
     "seconds": "Sec"
+  },
+  "howToGet": {
+    "title": "Cum ajungi la Stâna de Vale",
+    "subtitle": "Informații practice de călătorie pentru a ajunge la destinația cursei.",
+    "introduction": "Stâna de Vale este o stațiune montană pitorească situată în Munții Apuseni din România, oferind peisaje naturale impresionante și cadrul perfect pentru competiția noastră de alergare montană.",
+    "importantNote": "Notă Importantă",
+    "weatherNote": "Drumurile montane pot fi afectate de condițiile meteorologice, în special în timpul iernii și la începutul primăverii. Verifică întotdeauna condițiile drumului înainte de a călători.",
+    "locationTitle": "Prezentare Generală a Locației",
+    "locationDescription": "Stâna de Vale este situată la o altitudine de aproximativ 1.100 de metri în județul Bihor, România. Este cunoscută pentru pădurile sale pristine, izvoarele montane și frumoasele trasee de drumeție.",
+    "byAir": {
+      "title": "Cu Avionul",
+      "description": "Cele mai apropiate aeroporturi de Stâna de Vale sunt în Oradea și Cluj-Napoca. De acolo, îți poți continua călătoria cu mașina, trenul sau autobuzul.",
+      "oradea": {
+        "title": "Aeroportul Internațional Oradea (OMR)",
+        "description": "Cel mai apropiat aeroport de Stâna de Vale:",
+        "distance": "Aproximativ 70 km de Stâna de Vale",
+        "travelTime": "Aproximativ 1 oră și 30 de minute cu mașina",
+        "transport": "Taxiuri și închirieri auto disponibile la aeroport"
+      },
+      "cluj": {
+        "title": "Aeroportul Internațional Cluj-Napoca (CLJ)",
+        "description": "Un aeroport internațional major cu mai multe conexiuni:",
+        "distance": "Aproximativ 150 km de Stâna de Vale",
+        "travelTime": "Aproximativ 2 ore și 45 de minute cu mașina",
+        "transport": "Taxiuri, închirieri auto și servicii de transfer disponibile"
+      }
+    },
+    "byCar": {
+      "title": "Cu Mașina",
+      "description": "Călătoria cu mașina oferă flexibilitate pentru a ajunge la Stâna de Vale. Stațiunea montană este accesibilă prin mai multe rute, deși unele drumuri pot fi provocatoare în funcție de sezon.",
+      "fromOradea": {
+        "title": "Din Oradea",
+        "description": "Există două rute principale din Oradea:",
+        "route1": "Ruta 1: Oradea → Beiuș → Budureasa → Stâna de Vale (aproximativ 80 km, 1h 45m)",
+        "route2": "Ruta 2: Oradea → Aleșd → Borod → Bratca → Beiuș → Budureasa → Stâna de Vale (mai lungă, dar poate oferi condiții de drum mai bune)"
+      },
+      "fromCluj": {
+        "title": "Din Cluj-Napoca",
+        "description": "Ruta recomandată din Cluj-Napoca:",
+        "route": "Cluj-Napoca → Huedin → Borod → Beiuș → Budureasa → Stâna de Vale (aproximativ 3 ore de mers cu mașina)"
+      },
+      "parking": {
+        "title": "Informații despre Parcare",
+        "description": "Există o zonă mare de parcare în centrul stațiunii unde îți poți lăsa vehiculul în timpul competiției. Parcare suplimentară va fi disponibilă în apropierea zonei de start/finish a cursei."
+      }
+    },
+    "byTrain": {
+      "title": "Cu Trenul",
+      "description": "Rețeaua feroviară a României te poate aduce aproape de Stâna de Vale, deși vei avea nevoie de transport suplimentar pentru ultima parte a călătoriei.",
+      "connections": {
+        "title": "Conexiuni Feroviare",
+        "connection1": "Din București: Ia un tren până la Oradea, apoi continuă cu autobuzul sau mașina",
+        "connection2": "Din Budapesta: Ia un tren până la Oradea, apoi continuă cu autobuzul sau mașina"
+      },
+      "lastLeg": {
+        "title": "Conexiunea Finală",
+        "description": "Din Oradea sau Beiuș, va trebui să aranjezi transport până la Stâna de Vale, deoarece nu există serviciu direct de tren până la stațiune."
+      }
+    },
+    "byBus": {
+      "title": "Cu Autobuzul",
+      "description": "Transportul public cu autobuzul te poate duce în orașele din apropierea Stânei de Vale, de unde va trebui să aranjezi ultima parte a călătoriei tale.",
+      "services": {
+        "title": "Servicii de Autobuz",
+        "service1": "Oradea la Beiuș: Servicii regulate de autobuz pe tot parcursul zilei",
+        "service2": "Cluj-Napoca la Beiuș: Servicii limitate, verifică programul în avans"
+      },
+      "schedules": {
+        "title": "Orare Autobuz",
+        "description": "Orarele autobuzelor pot varia sezonier. Îți recomandăm să verifici cele mai recente orare pe autogari.ro sau direct cu companiile locale de autobuz."
+      }
+    },
+    "localTransport": {
+      "title": "Transport Local",
+      "description": "Pentru ultima parte a călătoriei tale către Stâna de Vale, poate fi necesar să folosești opțiuni de transport local.",
+      "taxis": {
+        "title": "Taxiuri",
+        "description": "Taxiurile sunt disponibile în Beiuș și te pot duce la Stâna de Vale. Așteaptă-te să plătești aproximativ 100-150 RON pentru această călătorie."
+      },
+      "shuttles": {
+        "title": "Shuttle-uri în Ziua Cursei",
+        "description": "Pentru competiție, vom aranja servicii de shuttle din principalele orașe din apropiere. Detaliile vor fi împărtășite cu participanții înregistrați aproape de data evenimentului."
+      }
+    },
+    "accommodation": {
+      "title": "Opțiuni de Cazare",
+      "description": "Există mai multe opțiuni de cazare în și în jurul Stânei de Vale pentru a se potrivi diferitelor preferințe și bugete.",
+      "options": {
+        "option1": {
+          "title": "Hotel Resort Montan",
+          "description": "Hotelul principal din Stâna de Vale oferă camere confortabile cu vedere la munte, restaurant și facilități spa."
+        },
+        "option2": {
+          "title": "Pensiuni din Apropiere",
+          "description": "Mai multe pensiuni administrate de familii din vecinătate oferă ospitalitate locală autentică și mâncare de casă."
+        },
+        "option3": {
+          "title": "Camping",
+          "description": "Pentru cei aventuroși, există zone desemnate de camping în apropierea stațiunii. Aduce-ți propriul echipament sau închiriază la fața locului."
+        }
+      }
+    }
   },
   "sectionsOverview": {
     "title": "Explorează Competiția",

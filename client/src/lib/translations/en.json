@@ -33,6 +33,7 @@
     "contact": "Contact",
     "sponsors": "Sponsors",
     "emaCircuit": "EMA Circuit 2025",
+    "howToGet": "How to Get There",
     "registerButton": "Register Now"
   },
   "hero": {
@@ -329,7 +330,7 @@
     "quickLinks": "Quick Links",
     "resources": "Resources",
     "resources1": "Trail Maps",
-    "resources2": "Training Tips",
+    "resources2": "Travel to Stana de Vale",
     "resources3": "Equipment Guide",
     "resources4": "Travel Information",
     "resources5": "Accommodation",
@@ -363,6 +364,108 @@
     "hours": "Hours",
     "minutes": "Min",
     "seconds": "Sec"
+  },
+  "howToGet": {
+    "title": "How to Get to Stana de Vale",
+    "subtitle": "Practical travel information to help you reach the race destination.",
+    "introduction": "Stana de Vale is a picturesque mountain resort located in the Apuseni Mountains of Romania, offering breathtaking natural landscapes and the perfect setting for our trail running competition.",
+    "importantNote": "Important Note",
+    "weatherNote": "Mountain roads can be affected by weather conditions, especially during winter and early spring. Always check road conditions before traveling.",
+    "locationTitle": "Location Overview",
+    "locationDescription": "Stana de Vale is situated at an altitude of approximately 1,100 meters in Bihor County, Romania. It's known for its pristine forests, mountain springs, and beautiful hiking trails.",
+    "byAir": {
+      "title": "By Air",
+      "description": "The closest airports to Stana de Vale are in Oradea and Cluj-Napoca. From there, you can continue your journey by car, train, or bus.",
+      "oradea": {
+        "title": "Oradea International Airport (OMR)",
+        "description": "The closest airport to Stana de Vale:",
+        "distance": "Approximately 70 km from Stana de Vale",
+        "travelTime": "About 1 hour 30 minutes by car",
+        "transport": "Taxis and car rentals available at the airport"
+      },
+      "cluj": {
+        "title": "Cluj-Napoca International Airport (CLJ)",
+        "description": "A major international airport with more connections:",
+        "distance": "Approximately 150 km from Stana de Vale",
+        "travelTime": "About 2 hours 45 minutes by car",
+        "transport": "Taxis, car rentals, and shuttle services available"
+      }
+    },
+    "byCar": {
+      "title": "By Car",
+      "description": "Traveling by car provides flexibility to reach Stana de Vale. The mountain resort is accessible via several routes, though some roads can be challenging depending on the season.",
+      "fromOradea": {
+        "title": "From Oradea",
+        "description": "There are two main routes from Oradea:",
+        "route1": "Route 1: Oradea → Beiuș → Budureasa → Stana de Vale (approximately 80 km, 1h 45m)",
+        "route2": "Route 2: Oradea → Aleșd → Borod → Bratca → Beiuș → Budureasa → Stana de Vale (longer but may offer better road conditions)"
+      },
+      "fromCluj": {
+        "title": "From Cluj-Napoca",
+        "description": "The recommended route from Cluj-Napoca:",
+        "route": "Cluj-Napoca → Huedin → Borod → Beiuș → Budureasa → Stana de Vale (approximately an 3-hour drive)"
+      },
+      "parking": {
+        "title": "Parking Information",
+        "description": "There is a large parking area at the resort center where you can leave your vehicle during the competition. Additional parking will be available near the race start/finish area."
+      }
+    },
+    "byTrain": {
+      "title": "By Train",
+      "description": "Romania's railway network can get you close to Stana de Vale, though you'll need additional transportation for the final leg of the journey.",
+      "connections": {
+        "title": "Train Connections",
+        "connection1": "From Bucharest: Take a train to Oradea, then continue by bus or car",
+        "connection2": "From Budapest: Take a train to Oradea, then continue by bus or car"
+      },
+      "lastLeg": {
+        "title": "Final Connection",
+        "description": "From either Oradea or Beiuș, you will need to arrange transportation to Stana de Vale as there is no direct train service to the resort."
+      }
+    },
+    "byBus": {
+      "title": "By Bus",
+      "description": "Public bus transport can get you to towns near Stana de Vale, from where you'll need to arrange the final part of your journey.",
+      "services": {
+        "title": "Bus Services",
+        "service1": "Oradea to Beiuș: Regular bus services throughout the day",
+        "service2": "Cluj-Napoca to Beiuș: Limited services, check schedules in advance"
+      },
+      "schedules": {
+        "title": "Bus Schedules",
+        "description": "Bus schedules can vary seasonally. We recommend checking the latest timetables at autogari.ro or directly with the local bus companies."
+      }
+    },
+    "localTransport": {
+      "title": "Local Transportation",
+      "description": "For the final leg of your journey to Stana de Vale, you may need to use local transportation options.",
+      "taxis": {
+        "title": "Taxis",
+        "description": "Taxis are available in Beiuș and can take you to Stana de Vale. Expect to pay approximately 100-150 RON for this journey."
+      },
+      "shuttles": {
+        "title": "Race Day Shuttles",
+        "description": "For the competition, we will arrange shuttle services from major nearby towns. Details will be shared with registered participants closer to the event date."
+      }
+    },
+    "accommodation": {
+      "title": "Accommodation Options",
+      "description": "There are several accommodation options in and around Stana de Vale to suit different preferences and budgets.",
+      "options": {
+        "option1": {
+          "title": "Mountain Resort Hotel",
+          "description": "The main hotel in Stana de Vale offers comfortable rooms with mountain views, restaurant, and spa facilities."
+        },
+        "option2": {
+          "title": "Nearby Guesthouses",
+          "description": "Several family-run guesthouses in the vicinity offer authentic local hospitality and homemade food."
+        },
+        "option3": {
+          "title": "Camping",
+          "description": "For the adventurous, there are designated camping areas near the resort. Bring your own equipment or rent on-site."
+        }
+      }
+    }
   },
   "sectionsOverview": {
     "title": "Explore the Competition",

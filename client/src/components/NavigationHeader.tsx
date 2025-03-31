@@ -44,6 +44,11 @@ const NavigationHeader = () => {
       path: "/ema-circuit",
       isActive: location === "/ema-circuit",
     },
+    {
+      label: t("nav.howToGet"),
+      path: "/how-to-get-there",
+      isActive: location === "/how-to-get-there",
+    },
   ];
 
   const toggleMenu = () => {
