@@ -506,7 +506,23 @@
       },
       "shuttles": {
         "title": "Race Day Shuttles",
-        "description": "For the competition, we will arrange shuttle services from major nearby towns. Details will be shared with registered participants closer to the event date."
+        "description": "Transportation organized by the organizers from Beiuș to Stana de Vale and return by bus.",
+        "notice": "IMPORTANT TRANSPORTATION INFORMATION",
+        "shuttle": "Minibus Schedule:",
+        "toDestination": {
+          "title": "Beiuș to Stana de Vale:",
+          "friday": "Friday, July 5:",
+          "fridayTimes": "Departures: 10:00, 13:00, 15:00, 17:00",
+          "saturday": "Saturday, July 6:",
+          "saturdayTimes": "Departures: 07:00, 08:00"
+        },
+        "fromDestination": {
+          "title": "Return from Stana de Vale to Beiuș:",
+          "friday": "Friday, July 5:",
+          "fridayTimes": "Departures: 11:00, 14:00, 16:00, 20:00",
+          "saturday": "Saturday, July 6:",
+          "saturdayTimes": "Departures: 17:00, 22:00"
+        }
       }
     },
     "accommodation": {

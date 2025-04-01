@@ -491,7 +491,23 @@
       },
       "shuttles": {
         "title": "Shuttle-uri în Ziua Cursei",
-        "description": "Pentru competiție, vom aranja servicii de shuttle din principalele orașe din apropiere. Detaliile vor fi împărtășite cu participanții înregistrați aproape de data evenimentului."
+        "description": "Transport organizat de organizatori din Beiuș – Stâna de Vale și retur cu microbuz.",
+        "notice": "INFORMAȚIE IMPORTANTĂ DESPRE TRANSPORT",
+        "shuttle": "Program Microbuz:",
+        "toDestination": {
+          "title": "Beiuș – Stâna de Vale:",
+          "friday": "Vineri, 5 iulie:",
+          "fridayTimes": "Plecări: 10:00, 13:00, 15:00, 17:00",
+          "saturday": "Sâmbătă, 6 iulie:",
+          "saturdayTimes": "Plecări: 07:00, 08:00"
+        },
+        "fromDestination": {
+          "title": "Retur Stâna de Vale – Beiuș:",
+          "friday": "Vineri, 5 iulie:",
+          "fridayTimes": "Plecări: 11:00, 14:00, 16:00, 20:00",
+          "saturday": "Sâmbătă, 6 iulie:",
+          "saturdayTimes": "Plecări: 17:00, 22:00"
+        }
       }
     },
     "accommodation": {

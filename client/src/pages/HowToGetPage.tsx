@@ -337,6 +337,70 @@ const HowToGetPage: React.FC = () => {
           </h2>
           <p className="mb-6 text-sm md:text-base">{t('howToGet.localTransport.description')}</p>
           
+          {/* Important Transportation Notice */}
+          <div className="mb-8 bg-primary/10 border-l-4 border-primary p-6 rounded-lg shadow-md">
+            <h3 className="text-lg md:text-xl font-bold text-primary mb-4">
+              {t('howToGet.localTransport.shuttles.notice')}
+            </h3>
+            <p className="font-medium text-gray-700 mb-3">
+              {t('howToGet.localTransport.shuttles.description')}
+            </p>
+            
+            <div className="mt-4">
+              <p className="font-semibold text-primary-dark mb-4">
+                {t('howToGet.localTransport.shuttles.shuttle')}
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                {/* To Destination */}
+                <Card className="bg-white border-2 border-primary/20">
+                  <CardHeader className="p-4">
+                    <CardTitle className="text-base font-bold">{t('howToGet.localTransport.shuttles.toDestination.title')}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-4 pt-0">
+                    <div className="space-y-3">
+                      <div>
+                        <p className="font-medium text-primary-dark">
+                          {t('howToGet.localTransport.shuttles.toDestination.friday')}
+                        </p>
+                        <p>{t('howToGet.localTransport.shuttles.toDestination.fridayTimes')}</p>
+                      </div>
+                      <div>
+                        <p className="font-medium text-primary-dark">
+                          {t('howToGet.localTransport.shuttles.toDestination.saturday')}
+                        </p>
+                        <p>{t('howToGet.localTransport.shuttles.toDestination.saturdayTimes')}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                {/* From Destination */}
+                <Card className="bg-white border-2 border-primary/20">
+                  <CardHeader className="p-4">
+                    <CardTitle className="text-base font-bold">{t('howToGet.localTransport.shuttles.fromDestination.title')}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-4 pt-0">
+                    <div className="space-y-3">
+                      <div>
+                        <p className="font-medium text-primary-dark">
+                          {t('howToGet.localTransport.shuttles.fromDestination.friday')}
+                        </p>
+                        <p>{t('howToGet.localTransport.shuttles.fromDestination.fridayTimes')}</p>
+                      </div>
+                      <div>
+                        <p className="font-medium text-primary-dark">
+                          {t('howToGet.localTransport.shuttles.fromDestination.saturday')}
+                        </p>
+                        <p>{t('howToGet.localTransport.shuttles.fromDestination.saturdayTimes')}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <Card>
               <CardHeader className="p-4 md:p-6">
@@ -344,15 +408,6 @@ const HowToGetPage: React.FC = () => {
               </CardHeader>
               <CardContent className="p-4 md:p-6 pt-0 md:pt-0">
                 <p className="text-sm md:text-base">{t('howToGet.localTransport.taxis.description')}</p>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardHeader className="p-4 md:p-6">
-                <CardTitle className="text-base md:text-lg">{t('howToGet.localTransport.shuttles.title')}</CardTitle>
-              </CardHeader>
-              <CardContent className="p-4 md:p-6 pt-0 md:pt-0">
-                <p className="text-sm md:text-base">{t('howToGet.localTransport.shuttles.description')}</p>
               </CardContent>
             </Card>
           </div>

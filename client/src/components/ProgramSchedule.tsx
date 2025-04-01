@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import { Download, Clock, MapPin } from "lucide-react";
-import RaceScheduleHeatmap from "./RaceScheduleHeatmap";
 
 const ProgramSchedule = () => {
   const { t } = useTranslation();
@@ -21,10 +20,7 @@ const ProgramSchedule = () => {
           </p>
         </div>
 
-        {/* Interactive Race Schedule Heatmap */}
-        <RaceScheduleHeatmap />
-
-        <div className="max-w-5xl mx-auto mt-12">
+        <div className="max-w-5xl mx-auto">
           <h3 className="text-2xl font-heading font-bold mb-8 text-center">
             {t('program.detailedSchedule')}
           </h3>
