@@ -111,6 +111,8 @@
     "loading": "Loading races...",
     "noRacesFound": "No races found",
     "tryDifferentFilter": "Try a different filter option",
+    "aidStations": "{{count}} Aid Station",
+    "aidStations_plural": "{{count}} Aid Stations",
     "certification": {
       "ema": "2025 EMA Off-Road Running Circuit",
       "national": "National Mountain Running Championship Masters",
@@ -128,11 +130,18 @@
       "registerButton": "Register Now",
       "backToRaces": "Back to All Races",
       "aidStations": "Aid Stations",
+      "aidStationsTitle": "Water & Aid Stations",
+      "aidStationsDescription": "Our races are equipped with well-stocked aid stations to keep you hydrated and energized throughout the course. Each station offers water, sports drinks, and light snacks.",
+      "aidStationsLocations": "Aid Station Locations",
+      "aidStation": "Aid Station",
+      "waterAndSnacks": "Water, sports drinks, and light snacks",
       "cutoffTime": "Cutoff Time",
       "startTime": "Start Time",
       "loading": "Loading race details...",
       "downloadGPX": "Download GPX",
-      "map": "Map"
+      "map": "Map",
+      "about": "About this Race",
+      "info": "Race Information"
     }
   },
   "registration": {

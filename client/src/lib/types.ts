@@ -21,6 +21,12 @@ export interface Race {
   raceMap?: string; // Embedded iframe code for the race map
   isEMAcertified?: boolean; // EMA Off-Road Running Circuit certification
   isNationalChampionship?: boolean; // National Championship status
+  aidStations?: AidStation[]; // List of aid stations
+}
+
+export interface AidStation {
+  kilometer: number; // Location of the aid station in kilometers
+  supplies?: string; // What's available at this aid station
 }
 
 // Participant types

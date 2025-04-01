@@ -137,6 +137,13 @@ const RacesSection = ({ title, fullPage = false }: RacesSectionProps) => {
                     </div>
                   </div>
                   <div className="elevation-chart mb-3 md:mb-4 h-[40px] md:h-[60px] bg-gradient-to-r from-primary/20 to-secondary/30 relative overflow-hidden rounded-md"></div>
+                  <div className="flex items-center gap-1 mb-2 text-xs md:text-sm text-blue-600">
+                    <span className="inline-block">💧</span> 
+                    {race.id === 1 ? 
+                      <span>{t('races.aidStations', { count: 5 })}</span> : 
+                      <span>{t('races.aidStations', { count: 1 })}</span>
+                    }
+                  </div>
                   <p className="text-neutral-dark/80 text-sm md:text-base mb-4 md:mb-6 line-clamp-3 md:line-clamp-4">{getLocalizedRaceDescription(race, i18n.language as any)}</p>
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-primary">{formatCurrency(race.price)}</span>

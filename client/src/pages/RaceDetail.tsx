@@ -93,6 +93,80 @@ const RaceDetail = () => {
                   <p>{getLocalizedRaceDescription(race, i18n.language as any)}</p>
                 </div>
                 
+                {/* Aid Stations Section */}
+                <div className="mb-8">
+                  <h2 className="text-xl md:text-2xl font-heading font-bold mb-4 text-primary flex items-center gap-2">
+                    <span className="inline-flex items-center justify-center w-8 h-8 bg-blue-100 text-blue-600 rounded-full">
+                      <span className="text-sm">💧</span>
+                    </span>
+                    {t('races.details.aidStationsTitle')}
+                  </h2>
+                  
+                  <div className="bg-blue-50 border border-blue-100 rounded-lg p-4 md:p-6">
+                    <p className="text-sm md:text-base mb-4">{t('races.details.aidStationsDescription')}</p>
+                    
+                    {race.id === 1 ? (
+                      <div className="space-y-3">
+                        <h3 className="font-bold text-base md:text-lg text-primary">
+                          {t('races.details.aidStationsLocations')} (33km)
+                        </h3>
+                        <div className="relative pl-8 before:absolute before:left-3 before:top-0 before:bottom-0 before:w-0.5 before:bg-blue-200">
+                          <div className="relative mb-6">
+                            <div className="absolute left-[-24px] top-0 w-6 h-6 bg-white rounded-full border-2 border-blue-400 flex items-center justify-center text-blue-600 text-xs font-bold">1</div>
+                            <div className="bg-white p-3 rounded-lg shadow-sm border border-blue-100">
+                              <p className="font-semibold text-primary">{t('races.details.aidStation')} 1 - km 5.4</p>
+                              <p className="text-sm text-gray-600">{t('races.details.waterAndSnacks')}</p>
+                            </div>
+                          </div>
+                          <div className="relative mb-6">
+                            <div className="absolute left-[-24px] top-0 w-6 h-6 bg-white rounded-full border-2 border-blue-400 flex items-center justify-center text-blue-600 text-xs font-bold">2</div>
+                            <div className="bg-white p-3 rounded-lg shadow-sm border border-blue-100">
+                              <p className="font-semibold text-primary">{t('races.details.aidStation')} 2 - km 10.4</p>
+                              <p className="text-sm text-gray-600">{t('races.details.waterAndSnacks')}</p>
+                            </div>
+                          </div>
+                          <div className="relative mb-6">
+                            <div className="absolute left-[-24px] top-0 w-6 h-6 bg-white rounded-full border-2 border-blue-400 flex items-center justify-center text-blue-600 text-xs font-bold">3</div>
+                            <div className="bg-white p-3 rounded-lg shadow-sm border border-blue-100">
+                              <p className="font-semibold text-primary">{t('races.details.aidStation')} 3 - km 15.5</p>
+                              <p className="text-sm text-gray-600">{t('races.details.waterAndSnacks')}</p>
+                            </div>
+                          </div>
+                          <div className="relative mb-6">
+                            <div className="absolute left-[-24px] top-0 w-6 h-6 bg-white rounded-full border-2 border-blue-400 flex items-center justify-center text-blue-600 text-xs font-bold">4</div>
+                            <div className="bg-white p-3 rounded-lg shadow-sm border border-blue-100">
+                              <p className="font-semibold text-primary">{t('races.details.aidStation')} 4 - km 20.9</p>
+                              <p className="text-sm text-gray-600">{t('races.details.waterAndSnacks')}</p>
+                            </div>
+                          </div>
+                          <div className="relative mb-6">
+                            <div className="absolute left-[-24px] top-0 w-6 h-6 bg-white rounded-full border-2 border-blue-400 flex items-center justify-center text-blue-600 text-xs font-bold">5</div>
+                            <div className="bg-white p-3 rounded-lg shadow-sm border border-blue-100">
+                              <p className="font-semibold text-primary">{t('races.details.aidStation')} 5 - km 26.6</p>
+                              <p className="text-sm text-gray-600">{t('races.details.waterAndSnacks')}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="space-y-3">
+                        <h3 className="font-bold text-base md:text-lg text-primary">
+                          {t('races.details.aidStationsLocations')} (11km)
+                        </h3>
+                        <div className="relative pl-8 before:absolute before:left-3 before:top-0 before:bottom-0 before:w-0.5 before:bg-blue-200">
+                          <div className="relative mb-6">
+                            <div className="absolute left-[-24px] top-0 w-6 h-6 bg-white rounded-full border-2 border-blue-400 flex items-center justify-center text-blue-600 text-xs font-bold">1</div>
+                            <div className="bg-white p-3 rounded-lg shadow-sm border border-blue-100">
+                              <p className="font-semibold text-primary">{t('races.details.aidStation')} 1 - km 5</p>
+                              <p className="text-sm text-gray-600">{t('races.details.waterAndSnacks')}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                
                 {/* Race Map */}
                 {race.raceMap && (
                   <div className="mb-8">
@@ -132,7 +206,9 @@ const RaceDetail = () => {
                     </div>
                     <div className="flex justify-between items-center pb-3 border-b border-neutral-light">
                       <span className="text-neutral-dark">{t('races.details.aidStations')}</span>
-                      <span className="font-medium">{race.distance > 20 ? 4 : 2}</span> {/* This should come from API */}
+                      <span className="font-medium">
+                        {race.id === 1 ? 5 : 1}
+                      </span>
                     </div>
                   </div>
                   
