@@ -54,12 +54,12 @@ const EmaCircuitPage = () => {
               <p className="font-semibold mb-2">{t("emaCircuit.overview.objectives")}</p>
               <ul className="list-disc pl-6 mb-4 space-y-1">
                 {[0, 1, 2, 3, 4].map((index) => (
-                  <li key={index} className="text-neutral-700">
+                  <li key={index}>
                     {t(`emaCircuit.overview.objectivesList.${index}`)}
                   </li>
                 ))}
               </ul>
-              <p className="text-neutral-700 font-medium italic">
+              <p className="font-medium italic">
                 {t("emaCircuit.overview.focus")}
               </p>
             </CardContent>
@@ -77,7 +77,7 @@ const EmaCircuitPage = () => {
             <CardContent className="pt-6">
               <p className="mb-4">{t("emaCircuit.participation.content")}</p>
               <p className="mb-2 font-medium">{t("emaCircuit.participation.note1")}</p>
-              <p className="text-neutral-700">{t("emaCircuit.participation.note2")}</p>
+              <p>{t("emaCircuit.participation.note2")}</p>
             </CardContent>
           </Card>
         </div>

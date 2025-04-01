@@ -19,7 +19,7 @@ const HowToGetPage: React.FC = () => {
       <div className="container mx-auto px-4 py-6 md:py-8 max-w-7xl">
         {/* Introduction */}
         <div className="mb-8 md:mb-10">
-          <p className="text-sm md:text-lg text-gray-700 mb-6 md:mb-8">{t('howToGet.introduction')}</p>
+          <p className="text-base md:text-lg text-gray-700 mb-6 md:mb-8">{t('howToGet.introduction')}</p>
           
           <Alert className="mb-6 md:mb-8 bg-amber-50 border-amber-200">
             <AlertTitle className="flex items-start md:items-center gap-2 text-sm md:text-base">
@@ -30,7 +30,7 @@ const HowToGetPage: React.FC = () => {
               </svg>
               {t('howToGet.importantNote')}
             </AlertTitle>
-            <AlertDescription className="text-xs md:text-sm pl-7 md:pl-0">{t('howToGet.weatherNote')}</AlertDescription>
+            <AlertDescription className="text-base pl-7 md:pl-0">{t('howToGet.weatherNote')}</AlertDescription>
           </Alert>
         </div>
 
