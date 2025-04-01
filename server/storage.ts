@@ -336,7 +336,7 @@ export class MemStorage implements IStorage {
       distance: 33,
       elevation: 1800,
       difficulty: "advanced",
-      date: "2024-07-06",
+      date: "2024-07-05",
       price: 40, // 200 lei
       imageUrl: "https://images.unsplash.com/photo-1483721310020-03333e577078",
       raceMap:
@@ -361,7 +361,7 @@ export class MemStorage implements IStorage {
       distance: 11,
       elevation: 550,
       difficulty: "beginner",
-      date: "2024-07-06",
+      date: "2024-07-05",
       price: 30, // 150 lei
       imageUrl: "https://images.unsplash.com/photo-1464054313797-e27fb58e90a9",
       raceMap:
@@ -531,7 +531,7 @@ export class MemStorage implements IStorage {
 
     // Program Events - Day 3
     this.createProgramEvent({
-      date: "2025-07-06",
+      date: "2025-07-05",
       startTime: "05:00",
       endTime: null,
       title: "Summit Ultra Race Start",

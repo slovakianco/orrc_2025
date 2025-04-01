@@ -30,7 +30,7 @@ const EmaCircuitPage = () => {
           {t("emaCircuit.title")}
         </h1>
         <p className="text-xl font-medium mb-6">{t("emaCircuit.subtitle")}</p>
-        <Button 
+        <Button
           onClick={handleDownloadPDF}
           className="flex items-center gap-2 mx-auto"
           size="lg"
@@ -51,7 +51,9 @@ const EmaCircuitPage = () => {
             </CardHeader>
             <CardContent className="pt-6">
               <p className="mb-4">{t("emaCircuit.overview.content")}</p>
-              <p className="font-semibold mb-2">{t("emaCircuit.overview.objectives")}</p>
+              <p className="font-semibold mb-2">
+                {t("emaCircuit.overview.objectives")}
+              </p>
               <ul className="list-disc pl-6 mb-4 space-y-1">
                 {[0, 1, 2, 3, 4].map((index) => (
                   <li key={index}>
@@ -76,7 +78,9 @@ const EmaCircuitPage = () => {
             </CardHeader>
             <CardContent className="pt-6">
               <p className="mb-4">{t("emaCircuit.participation.content")}</p>
-              <p className="mb-2 font-medium">{t("emaCircuit.participation.note1")}</p>
+              <p className="mb-2 font-medium">
+                {t("emaCircuit.participation.note1")}
+              </p>
               <p>{t("emaCircuit.participation.note2")}</p>
             </CardContent>
           </Card>
@@ -110,9 +114,13 @@ const EmaCircuitPage = () => {
           <CardContent className="pt-6">
             <p className="mb-4">{t("emaCircuit.rankings.content")}</p>
             <p className="mb-4">{t("emaCircuit.rankings.local")}</p>
-            <p className="mb-4 font-medium">{t("emaCircuit.rankings.eligibility")}</p>
+            <p className="mb-4 font-medium">
+              {t("emaCircuit.rankings.eligibility")}
+            </p>
             <p className="mb-4">{t("emaCircuit.rankings.points")}</p>
-            <p className="mb-4 text-primary font-medium">{t("emaCircuit.rankings.specialPrize")}</p>
+            <p className="mb-4 text-primary font-medium">
+              {t("emaCircuit.rankings.specialPrize")}
+            </p>
             <p>{t("emaCircuit.rankings.ceremony")}</p>
           </CardContent>
         </Card>
@@ -124,9 +132,7 @@ const EmaCircuitPage = () => {
             <Calendar className="h-6 w-6 text-primary" />
             {t("emaCircuit.calendar.title")}
           </CardTitle>
-          <CardDescription>
-            Coming Soon
-          </CardDescription>
+          <CardDescription>Coming Soon</CardDescription>
         </CardHeader>
         <CardContent className="pt-6">
           <p>{t("emaCircuit.calendar.content")}</p>
@@ -134,9 +140,8 @@ const EmaCircuitPage = () => {
       </Card>
 
       <div className="flex justify-center mt-8">
-        <Button 
+        <Button
           onClick={handleDownloadPDF}
-          variant="outline" 
           className="flex items-center gap-2"
           size="lg"
         >

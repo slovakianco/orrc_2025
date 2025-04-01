@@ -39,7 +39,7 @@
   "hero": {
     "title": "Challenge The Mountains",
     "subtitle": "Experience the thrill of trail running through breathtaking mountain landscapes. Join runners from around the world in this unforgettable competition.",
-    "date": "June 15-17, 2024",
+    "date": "July 4-5, 2024",
     "registerButton": "Register Now",
     "exploreButton": "Explore Races",
     "imageAlt": "Trail running in mountains",
@@ -53,7 +53,7 @@
     },
     "date": {
       "title": "Date",
-      "content": "June 15-17, 2024",
+      "content": "July 4-5, 2025",
       "linkText": "View full program"
     },
     "participants": {
@@ -193,7 +193,7 @@
       "bib": "Bib #",
       "bibNumber": "Bib Number",
       "status": "Status",
-      "age": "Age", 
+      "age": "Age",
       "gender": "Gender"
     },
     "status": {
@@ -339,7 +339,7 @@
     "subscribeText": "Stay up to date with the latest news and updates about the competition.",
     "emailPlaceholder": "Your email address",
     "privacyNotice": "By subscribing, you agree to our privacy policy and consent to receive updates from our team.",
-    "copyright": "© 2024 Trail Running Competition. All rights reserved.",
+    "copyright": "© 2025 Trail Running Competition. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms & Conditions",
     "cookies": "Cookie Policy"

@@ -270,3 +270,5 @@ p, li, span {
   color: white !important;
   text-decoration: underline;
 }
+
+/* Text-muted-foreground should maintain default color */

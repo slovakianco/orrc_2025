@@ -60,17 +60,17 @@ const HowToGetPage: React.FC = () => {
 
         {/* Transportation Tabs */}
         <Tabs defaultValue="air" className="mb-10">
-          <TabsList className="grid grid-cols-2 gap-2 md:grid-cols-4 mb-6">
-            <TabsTrigger value="air" className="flex items-center gap-1 text-xs md:text-sm">
+          <TabsList className="grid grid-cols-2 gap-2 md:grid-cols-4 mb-6 bg-primary">
+            <TabsTrigger value="air" className="flex items-center gap-1 text-xs md:text-sm text-white data-[state=active]:text-white">
               <Plane className="h-3 w-3 md:h-4 md:w-4" /> {t('howToGet.byAir.title')}
             </TabsTrigger>
-            <TabsTrigger value="car" className="flex items-center gap-1 text-xs md:text-sm">
+            <TabsTrigger value="car" className="flex items-center gap-1 text-xs md:text-sm text-white data-[state=active]:text-white">
               <Car className="h-3 w-3 md:h-4 md:w-4" /> {t('howToGet.byCar.title')}
             </TabsTrigger>
-            <TabsTrigger value="train" className="flex items-center gap-1 text-xs md:text-sm">
+            <TabsTrigger value="train" className="flex items-center gap-1 text-xs md:text-sm text-white data-[state=active]:text-white">
               <Train className="h-3 w-3 md:h-4 md:w-4" /> {t('howToGet.byTrain.title')}
             </TabsTrigger>
-            <TabsTrigger value="bus" className="flex items-center gap-1 text-xs md:text-sm">
+            <TabsTrigger value="bus" className="flex items-center gap-1 text-xs md:text-sm text-white data-[state=active]:text-white">
               <Bus className="h-3 w-3 md:h-4 md:w-4" /> {t('howToGet.byBus.title')}
             </TabsTrigger>
           </TabsList>
@@ -241,7 +241,7 @@ const HowToGetPage: React.FC = () => {
                 <div className="space-y-6">
                   <div>
                     <h3 className="text-base md:text-lg font-medium mb-2 md:mb-3">{t('howToGet.byCar.fromOradea.title')}</h3>
-                    <p className="text-muted-foreground mb-2 text-sm md:text-base">{t('howToGet.byCar.fromOradea.description')}</p>
+                    <p className="mb-2 text-sm md:text-base">{t('howToGet.byCar.fromOradea.description')}</p>
                     <ul className="space-y-2 ml-6 list-disc text-sm md:text-base">
                       <li>{t('howToGet.byCar.fromOradea.route1')}</li>
                       <li>{t('howToGet.byCar.fromOradea.route2')}</li>
@@ -250,7 +250,7 @@ const HowToGetPage: React.FC = () => {
                   
                   <div>
                     <h3 className="text-base md:text-lg font-medium mb-2 md:mb-3">{t('howToGet.byCar.fromCluj.title')}</h3>
-                    <p className="text-muted-foreground mb-2 text-sm md:text-base">{t('howToGet.byCar.fromCluj.description')}</p>
+                    <p className="mb-2 text-sm md:text-base">{t('howToGet.byCar.fromCluj.description')}</p>
                     <ul className="space-y-2 ml-6 list-disc text-sm md:text-base">
                       <li>{t('howToGet.byCar.fromCluj.route')}</li>
                     </ul>
