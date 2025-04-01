@@ -1,393 +1,525 @@
 {
   "common": {
-    "loading": "Cargando...",
-    "submitting": "Enviando...",
-    "error": "Se ha producido un error",
-    "success": "¡Éxito!",
-    "notAvailable": "No disponible",
-    "filter": "Filtrar",
-    "search": "Buscar",
-    "clear": "Limpiar",
-    "view": "Ver",
-    "sort": "Ordenar",
-    "sortBy": "Ordenar por",
-    "ascending": "Ascendente",
-    "descending": "Descendente",
-    "name": "Nombre",
-    "date": "Fecha",
-    "apply": "Aplicar",
-    "cancel": "Cancelar",
-    "notFound": "No encontrado",
-    "notFoundDescription": "La página que estás buscando no existe.",
-    "goBack": "Volver atrás",
-    "goHome": "Ir a la página de inicio",
-    "languageSelector": "Selector de idioma"
+    "loading": "Loading...",
+    "submitting": "Submitting...",
+    "error": "An error occurred",
+    "success": "Success!",
+    "notAvailable": "Not available",
+    "filter": "Filter",
+    "search": "Search",
+    "clear": "Clear",
+    "view": "View",
+    "sort": "Sort",
+    "sortBy": "Sort by",
+    "ascending": "Ascending",
+    "descending": "Descending",
+    "name": "Name",
+    "date": "Date",
+    "apply": "Apply",
+    "cancel": "Cancel",
+    "notFound": "Not found",
+    "notFoundDescription": "The page you're looking for doesn't exist.",
+    "goBack": "Go back",
+    "goHome": "Go to home page",
+    "languageSelector": "Language selector"
   },
   "nav": {
-    "home": "Inicio",
-    "races": "Carreras",
-    "registration": "Inscripción",
-    "participants": "Participantes",
-    "rules": "Reglamento",
-    "program": "Programa",
-    "contact": "Contacto",
-    "sponsors": "Patrocinadores",
-    "emaCircuit": "Circuito EMA",
-    "howToGetThere": "Cómo Llegar"
+    "home": "Home",
+    "races": "Races",
+    "registration": "Registration",
+    "participants": "Participants",
+    "rules": "Rules",
+    "program": "Program",
+    "contact": "Contact",
+    "sponsors": "Sponsors",
+    "emaCircuit": "EMA Circuit 2025",
+    "howToGet": "How to Get There",
+    "registerButton": "Register Now"
   },
   "hero": {
-    "title": "Stana de Vale Trail Race",
-    "subtitle": "Vive la experiencia de trail running en las magníficas montañas de Bihor",
-    "dates": "14-15 Septiembre 2025",
-    "countdown": {
-      "days": "días",
-      "hours": "horas",
-      "minutes": "minutos",
-      "seconds": "segundos",
-      "event": "para la carrera",
-      "registration": "para la apertura de inscripciones"
-    },
-    "registerNow": "Inscríbete Ahora",
-    "learnMore": "Saber más"
+    "title": "Challenge The Mountains",
+    "subtitle": "Experience the thrill of trail running through breathtaking mountain landscapes. Join runners from around the world in this unforgettable competition.",
+    "date": "July 4-5, 2024",
+    "registerButton": "Register Now",
+    "exploreButton": "Explore Races",
+    "imageAlt": "Trail running in mountains",
+    "enhancedDescription": "The 33K race is part of the 2025 EMA Off-Road Running Circuit and the National Mountain Running Championship for Masters. An unforgettable experience awaits you in the beautiful Carpathian Mountains."
   },
-  "races": {
-    "title": "Nuestras Carreras",
-    "viewAll": "Ver todas las carreras",
-    "filter": {
-      "all": "Todas",
-      "beginner": "Principiante",
-      "advanced": "Avanzado"
+  "quickInfo": {
+    "location": {
+      "title": "Location",
+      "content": "Carpathian Mountains, Romania",
+      "linkText": "View on map"
     },
-    "card": {
-      "distance": "Distancia",
-      "elevation": "Desnivel",
-      "date": "Fecha",
-      "difficulty": "Dificultad",
-      "km": "km",
-      "m": "m",
-      "price": "Precio",
-      "emaEvent": "Evento EMA",
-      "nationalChampionship": "Campeonato Nacional",
-      "viewDetails": "Ver detalles"
+    "date": {
+      "title": "Date",
+      "content": "July 4-5, 2025",
+      "linkText": "View full program"
     },
-    "detail": {
-      "title": "Detalles de la Carrera",
-      "description": "Descripción",
-      "distance": "Distancia",
-      "elevation": "Desnivel",
-      "date": "Fecha",
-      "difficulty": "Dificultad",
-      "price": "Precio",
-      "register": "Inscribirse en esta carrera"
-    },
-    "difficulty": {
-      "beginner": "Principiante",
-      "intermediate": "Intermedio", 
-      "advanced": "Avanzado"
+    "participants": {
+      "title": "Participants",
+      "content": "Over 1,500 runners from 30+ countries",
+      "linkText": "See participants"
     }
   },
-  "participants": {
-    "title": "Participantes Inscritos",
-    "search": "Buscar participantes",
+  "home": {
+    "featuredRaces": "Featured Races",
+    "details": "Experience the beauty of trail running with our 11km and 33km races in the Carpathian Mountains. The 33km race is part of the 2025 EMA Off-Road Running Circuit.",
+    "aboutCompetition": "About The Competition",
+    "competitionDescription1": "Join us for an unforgettable trail running experience in the breathtaking Carpathian Mountains. Our races offer challenging terrains with spectacular views, designed for both beginners and experienced trail runners.",
+    "competitionDescription2": "The 33km race is part of the 2025 EMA Off-Road Running Circuit and the National Mountain Running Championship for Masters. The 11km race is perfect for those new to trail running or looking for a shorter challenge.",
+    "competitionDescription3": "Both races take place on June 6, 2025, with professional timing, well-marked trails, and comprehensive support throughout the course."
+  },
+  "races": {
+    "title": "Explore Our Races",
+    "subtitle": "From beginner-friendly trails to challenging mountain ultras, find the perfect race for your level and ambition.",
+    "filterTitle": "Filter Races",
+    "filterBy": "Filter by",
+    "filter": {
+      "all": "All Races",
+      "beginner": "Beginner Friendly",
+      "advanced": "Advanced Trails"
+    },
     "filters": {
-      "all": "Todos",
-      "byRace": "Por carrera",
-      "byCountry": "Por país"
+      "all": "All Races",
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "ultra": "Ultra"
     },
-    "columns": {
-      "name": "Nombre",
-      "country": "País",
-      "race": "Carrera",
-      "age": "Edad",
-      "gender": "Género",
-      "status": "Estado"
+    "difficulty": {
+      "label": "Difficulty",
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "ultra": "Ultra"
     },
-    "status": {
-      "registered": "Inscrito",
-      "pending": "Pendiente",
-      "validated": "Validado",
-      "completed": "Completado"
+    "dates": {
+      "15": "June 15",
+      "16": "June 16",
+      "17": "June 17",
+      "4": "July 4",
+      "5": "July 5",
+      "6": "July 6",
+      "05": "July 5"
     },
-    "details": {
-      "title": "Detalles del Participante",
-      "personalInfo": "Información personal",
-      "raceInfo": "Información de la carrera",
-      "country": "País",
-      "age": "Edad",
-      "gender": "Género",
-      "race": "Carrera"
+    "viewDetails": "View Details",
+    "viewAllButton": "View All Races",
+    "elevation": "Elevation",
+    "distance": "Distance",
+    "price": "Price",
+    "loading": "Loading races...",
+    "noRacesFound": "No races found",
+    "tryDifferentFilter": "Try a different filter option",
+    "certification": {
+      "ema": "2025 EMA Off-Road Running Circuit",
+      "national": "National Mountain Running Championship Masters",
+      "nationalShort": "National Championship"
     },
-    "displayMode": {
-      "table": "Vista de tabla",
-      "cards": "Vista de tarjetas"
+    "raceDetail": {
+      "details": "Race Details",
+      "description": "Description",
+      "date": "Date",
+      "distance": "Distance",
+      "elevation": "Elevation Gain",
+      "difficulty": "Difficulty",
+      "price": "Entry Fee",
+      "trailMap": "Trail Map",
+      "registerButton": "Register Now",
+      "backToRaces": "Back to All Races",
+      "aidStations": "Aid Stations",
+      "cutoffTime": "Cutoff Time",
+      "startTime": "Start Time",
+      "loading": "Loading race details...",
+      "downloadGPX": "Download GPX",
+      "map": "Map"
     }
   },
   "registration": {
-    "title": "Inscripción a la Carrera",
-    "subtitle": "Completa el formulario para inscribirte en una de nuestras carreras",
+    "title": "Register for the Competition",
+    "subtitle": "Complete the form below to secure your spot in one of our races. Early registration ensures the best rates.",
     "form": {
-      "personalInfo": "Información personal",
-      "raceDetails": "Detalles de la carrera",
-      "payment": "Pago",
-      "firstName": "Nombre",
-      "lastName": "Apellidos",
-      "email": "Email",
-      "phone": "Teléfono",
-      "country": "País",
-      "birthDate": "Fecha de nacimiento",
-      "gender": "Género",
-      "race": "Seleccionar carrera",
-      "medicalInfo": "Información médica (opcional)",
-      "terms": "Acepto los términos y condiciones",
-      "submit": "Enviar inscripción",
-      "placeholders": {
-        "firstName": "Introduce tu nombre",
-        "lastName": "Introduce tus apellidos",
-        "email": "Introduce tu email",
-        "phone": "Introduce tu número de teléfono",
-        "selectCountry": "Selecciona tu país",
-        "selectDate": "Selecciona la fecha de nacimiento",
-        "selectGender": "Selecciona el género",
-        "selectRace": "Selecciona una carrera",
-        "medicalInfo": "Cualquier condición médica o alergias"
-      },
-      "validations": {
-        "required": "Este campo es obligatorio",
-        "email": "Introduce un email válido",
-        "phone": "Introduce un número de teléfono válido",
-        "terms": "Debes aceptar los términos y condiciones",
-        "age": "Debes tener al menos 18 años para participar"
-      },
-      "success": "¡Inscripción enviada con éxito!",
-      "error": "Se ha producido un error al enviar la inscripción"
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "country": "Country",
+      "selectCountry": "Select your country",
+      "birthDate": "Date of Birth",
+      "gender": "Gender",
+      "male": "Male",
+      "female": "Female",
+      "selectRace": "Select Your Race",
+      "medical": "Medical Information",
+      "medicalPlaceholder": "Please share any relevant medical information (allergies, conditions, etc.)",
+      "termsText": "I have read and agree to the",
+      "termsLink": "terms and conditions",
+      "andText": "and",
+      "privacyLink": "privacy policy",
+      "riskText": "I understand the risks associated with trail running.",
+      "submitButton": "Complete Registration"
     },
-    "gender": {
-      "male": "Masculino",
-      "female": "Femenino",
-      "other": "Otro",
-      "preferNotToSay": "Prefiero no decirlo"
+    "success": {
+      "title": "Registration Successful",
+      "message": "Thank you for registering! You will receive a confirmation email shortly."
+    },
+    "error": {
+      "title": "Registration Failed",
+      "message": "There was an error processing your registration. Please try again."
     }
   },
-  "contact": {
-    "title": "Contáctanos",
-    "subtitle": "¿Tienes preguntas? Contáctanos y te responderemos lo antes posible",
-    "form": {
-      "name": "Nombre",
-      "email": "Email",
-      "subject": "Asunto",
-      "message": "Mensaje",
-      "submit": "Enviar mensaje",
-      "placeholders": {
-        "name": "Tu nombre",
-        "email": "Tu email",
-        "subject": "Asunto del mensaje",
-        "message": "Tu mensaje"
-      },
-      "validations": {
-        "required": "Este campo es obligatorio",
-        "email": "Introduce un email válido"
-      },
-      "success": "¡Mensaje enviado con éxito!",
-      "error": "Se ha producido un error al enviar el mensaje"
+  "participants": {
+    "title": "Registered Participants",
+    "subtitle": "Browse the list of currently registered runners. Check who's joining each race and find friends or competitors.",
+    "searchPlaceholder": "Search by name...",
+    "filterByCountry": "Filter by Country",
+    "filterByRace": "Filter by Race",
+    "allRaces": "All Races",
+    "allCountries": "All Countries",
+    "clearFilters": "Clear Filters",
+    "participantsFound": "participants found",
+    "filterApplied": "filters applied",
+    "tableView": "Table View",
+    "cardView": "Card View",
+    "loading": "Loading participants...",
+    "noParticipantsFound": "No participants found",
+    "tryDifferentFilter": "Try a different filter or clear your search",
+    "noParticipants": "No participants found",
+    "countryParticipants": "{{count}} participants from this country",
+    "table": {
+      "name": "Name",
+      "country": "Country",
+      "race": "Race",
+      "bib": "Bib #",
+      "bibNumber": "Bib Number",
+      "status": "Status",
+      "age": "Age",
+      "gender": "Gender"
     },
-    "info": {
-      "title": "Información de contacto",
-      "email": "Email",
-      "phone": "Teléfono",
-      "address": "Dirección",
-      "followUs": "Síguenos"
+    "status": {
+      "confirmed": "Confirmed",
+      "pending": "Pending",
+      "cancelled": "Cancelled"
+    },
+    "gender": {
+      "male": "Male",
+      "female": "Female"
+    },
+    "unknownRace": "Unknown Race",
+    "pagination": {
+      "showing": "Showing",
+      "to": "to",
+      "of": "of",
+      "entries": "entries"
     }
   },
   "rules": {
-    "title": "Reglamento",
-    "subtitle": "Normas e información importante para los participantes",
+    "title": "Rules & Regulations",
+    "subtitle": "Familiarize yourself with the competition rules to ensure a safe and fair race for everyone.",
+    "downloadButton": "Download Full Rules PDF",
     "sections": {
-      "eligibility": {
-        "title": "Elegibilidad",
-        "content": "Los participantes deben tener al menos 18 años el día de la carrera. Se requiere un certificado médico válido que certifique la aptitud para la carrera de montaña."
+      "general": {
+        "title": "General Rules",
+        "rules": {
+          "1": "Participants must follow the marked trail at all times. Taking shortcuts is strictly prohibited and will result in disqualification.",
+          "2": "Bib numbers must be visible at all times during the race.",
+          "3": "Littering on the trail is strictly prohibited. Use designated trash bins at aid stations.",
+          "4": "In case of emergency, participants must assist fellow runners and alert race officials immediately."
+        }
       },
       "equipment": {
-        "title": "Equipamiento obligatorio",
-        "content": "Todos los participantes deben llevar: teléfono móvil cargado, chaqueta impermeable, manta térmica, silbato, reserva de agua (mín. 1L), comida, documento de identidad."
+        "title": "Required Equipment",
+        "rules": {
+          "1": "Water container (minimum 1L for 10km, 1.5L for 21km, 2L for 50km).",
+          "2": "Mobile phone with race organization contacts saved.",
+          "3": "Thermal blanket and whistle (50km race only).",
+          "4": "Headlamp with spare batteries (50km race only)."
+        }
       },
-      "safety": {
-        "title": "Seguridad",
-        "content": "Los participantes deben seguir la ruta marcada. Está prohibido tirar basura. Habrá asistencia médica disponible a lo largo de la ruta."
+      "timeLimits": {
+        "title": "Time Limits & Cut-offs",
+        "rules": {
+          "1": "Mountain Explorer (10km): 3 hours total time limit.",
+          "2": "Forest Challenge (21km): 5 hours total time limit with a mid-point cut-off at 2.5 hours.",
+          "3": "Summit Ultra (50km): 12 hours total time limit with cut-offs at 20km (4 hours) and 35km (8 hours)."
+        }
       },
-      "timeLimit": {
-        "title": "Límite de tiempo",
-        "content": "Los participantes deben completar la ruta dentro del límite de tiempo especificado. Los participantes que no cumplan con el límite serán excluidos de la clasificación."
+      "penalties": {
+        "title": "Penalties & Disqualification",
+        "rules": {
+          "1": "Missing required equipment: 30 minute time penalty.",
+          "2": "Shortcutting the course: disqualification.",
+          "3": "Littering: 1 hour time penalty for first offense, disqualification for second offense.",
+          "4": "Failure to assist a runner in distress: disqualification."
+        }
       }
     }
   },
   "program": {
-    "title": "Programa del evento",
-    "subtitle": "Programa detallado del evento",
-    "day": "Día",
-    "time": "Hora",
-    "event": "Evento",
-    "location": "Lugar",
-    "description": "Descripción"
-  },
-  "footer": {
-    "about": {
-      "title": "Quiénes somos",
-      "content": "Stana de Vale Trail Race es un evento de trail running organizado en las montañas de Bihor, Rumanía."
-    },
-    "quickLinks": {
-      "title": "Enlaces rápidos"
-    },
-    "contact": {
-      "title": "Contacto",
-      "email": "Email",
-      "phone": "Teléfono",
-      "address": "Dirección"
-    },
-    "copyright": "© 2025 Stana de Vale Trail Race. Todos los derechos reservados."
-  },
-  "emaCircuit": {
-    "title": "Circuito Europeo de Campeonatos de Montaña (EMA) 2025",
-    "subtitle": "Circuito Off-Road Running - Rama de Rumanía",
-    "downloadButton": "Descargar reglamento",
-    "overview": {
-      "title": "Visión general",
-      "content": "El circuito EMA Off-Road Running 2025 es una competición internacional que promueve el deporte de la carrera de montaña en Europa. La etapa de Stana de Vale forma parte del calendario oficial EMA para 2025.",
-      "objectives": "Objetivos principales:",
-      "objectivesList": {
-        "0": "Promover la carrera de montaña a nivel internacional",
-        "1": "Proporcionar una plataforma para competiciones de alto nivel",
-        "2": "Crear oportunidades para que los atletas compitan con los mejores corredores de montaña",
-        "3": "Valorar los paisajes naturales y las tradiciones locales",
-        "4": "Promover el turismo deportivo sostenible"
-      },
-      "focus": "El enfoque del circuito es la promoción de la excelencia deportiva y el respeto por el entorno natural."
-    },
-    "participation": {
-      "title": "Participación",
-      "content": "La participación está abierta a todos los atletas mayores de edad. Los atletas que representan a federaciones nacionales deben estar debidamente inscritos en su federación.",
-      "note1": "Se requiere un certificado médico válido para la inscripción.",
-      "note2": "Los participantes pueden competir en diferentes categorías según la edad y el género."
-    },
-    "liability": {
-      "title": "Responsabilidad",
-      "content": "La organización no asume ninguna responsabilidad por accidentes o daños que puedan ocurrir durante la competición. Los participantes compiten bajo su propio riesgo.",
-      "insurance": "Se recomienda encarecidamente a los participantes que contraten un seguro personal adecuado que cubra la participación en eventos de carrera de montaña.",
-      "health": "Es responsabilidad de cada participante asegurarse de estar en buena forma física y haber consultado a un médico antes de participar en el evento."
-    },
-    "rankings": {
-      "title": "Clasificaciones",
-      "content": "El circuito EMA cuenta con una clasificación general y clasificaciones por categorías. Los puntos se otorgan según la posición en cada carrera del circuito.",
-      "local": "La carrera de Stana de Vale también otorgará puntos válidos para el campeonato nacional rumano.",
-      "eligibility": "Para clasificarse en la clasificación final del circuito EMA, los atletas deben participar en al menos 3 de las carreras del calendario oficial.",
-      "points": "El sistema de puntuación se basa en la posición: 100 puntos al ganador, 95 al segundo, 90 al tercero, y así sucesivamente.",
-      "specialPrize": "Se otorgará un premio especial al mejor atleta del circuito EMA 2025.",
-      "ceremony": "La ceremonia de premiación final del circuito EMA 2025 se celebrará en noviembre de 2025."
-    },
-    "calendar": {
-      "title": "Calendario 2025",
-      "content": "El calendario completo de las carreras del circuito EMA 2025 se publicará a principios de año. La carrera de Stana de Vale está programada para el 14-15 de septiembre de 2025."
+    "title": "Event Program",
+    "subtitle": "Plan your race weekend with our detailed schedule of all events and activities.",
+    "downloadButton": "Download Full Program PDF",
+    "day": "Day",
+    "dayTitles": {
+      "day1": "Registration & Briefings",
+      "day2": "Mountain Explorer & Forest Challenge",
+      "day3": "Summit Ultra & Closing"
     }
   },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Have questions about the competition? Get in touch with our team for assistance.",
+    "info": {
+      "title": "Contact Information",
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Race Headquarters",
+      "address": "Mountain Resort Center\nCarpathian Mountains\nRomania",
+      "hours": "Support Hours",
+      "weekdays": "Monday - Friday: 9:00 - 17:00",
+      "weekend": "Weekend: 10:00 - 15:00",
+      "social": "Follow Us"
+    },
+    "form": {
+      "title": "Send Us a Message",
+      "name": "Your Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Message",
+      "submitButton": "Send Message",
+      "success": {
+        "title": "Message Sent",
+        "message": "Thank you for your message. We'll get back to you as soon as possible."
+      },
+      "error": {
+        "title": "Message Not Sent",
+        "message": "There was an error sending your message. Please try again."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "registration": {
+        "question": "How do I register for the competition?",
+        "answer": "Registration is available online through our website. Simply go to the Registration section, choose your race, fill out the form, and complete the payment. You'll receive a confirmation email with all the details."
+      },
+      "equipment": {
+        "question": "What should I bring on race day?",
+        "answer": "Bring your ID, confirmation email, and all the required equipment for your race. Check the Rules section for the specific equipment required for your race distance. Don't forget to dress appropriately for the weather conditions."
+      },
+      "stations": {
+        "question": "Are there aid stations on the course?",
+        "answer": "Yes, there are aid stations along all race routes. The 10km race has 2 aid stations, the 21km race has 4 aid stations, and the 50km race has 8 aid stations. Each aid station provides water, sports drinks, and various snacks."
+      },
+      "change": {
+        "question": "Can I change my race after registering?",
+        "answer": "Race changes are possible up to 30 days before the event, subject to availability. To change your race, please contact our support team via email. Note that changing to a more expensive race requires an additional payment, while changing to a less expensive race does not offer a refund of the difference."
+      }
+    }
+  },
+  "sponsors": {
+    "title": "Our Sponsors",
+    "subtitle": "We're grateful to our sponsors who help make this event possible. Their support contributes to an exceptional trail running experience.",
+    "premiumTitle": "Premium Partners",
+    "standardTitle": "Supporting Partners",
+    "visitWebsite": "Visit Website",
+    "visit": "Visit",
+    "becomeButton": "Become a Sponsor"
+  },
+  "footer": {
+    "about": "Join us for an unforgettable trail running experience in the beautiful Carpathian Mountains.",
+    "quickLinks": "Quick Links",
+    "resources": "Resources",
+    "resources1": "Trail Maps",
+    "resources2": "Travel to Stana de Vale",
+    "resources3": "Equipment Guide",
+    "resources4": "Travel Information",
+    "resources5": "Accommodation",
+    "resources6": "Photo Gallery",
+    "subscribe": "Subscribe",
+    "subscribeText": "Stay up to date with the latest news and updates about the competition.",
+    "emailPlaceholder": "Your email address",
+    "privacyNotice": "By subscribing, you agree to our privacy policy and consent to receive updates from our team.",
+    "copyright": "© 2025 Trail Running Competition. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "cookies": "Cookie Policy"
+  },
+  "months": {
+    "0": "January",
+    "1": "February",
+    "2": "March",
+    "3": "April",
+    "4": "May",
+    "5": "June",
+    "6": "July",
+    "7": "August",
+    "8": "September",
+    "9": "October",
+    "10": "November",
+    "11": "December"
+  },
+  "countdown": {
+    "title": "Time Until Race Day",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Min",
+    "seconds": "Sec"
+  },
   "howToGet": {
-    "title": "Cómo Llegar a Stana de Vale",
-    "subtitle": "Toda la información necesaria para llegar al lugar del evento",
-    "introduction": "Stana de Vale es una hermosa localidad situada en las montañas de Bihor, al oeste de Rumanía. Aquí está todo lo que necesitas saber para llegar al lugar del evento.",
-    "importantNote": "Nota importante sobre el viaje",
-    "weatherNote": "Comprueba siempre las condiciones meteorológicas antes de partir, especialmente si viajas durante la temporada de invierno o otoño cuando las carreteras de montaña pueden verse afectadas por las condiciones climáticas.",
-    "locationTitle": "Ubicación",
-    "locationDescription": "Stana de Vale se encuentra en el condado de Bihor, al oeste de Rumanía, a unos 60 km de Oradea y 150 km de Cluj-Napoca.",
+    "title": "How to Get to Stana de Vale",
+    "subtitle": "Practical travel information to help you reach the race destination.",
+    "introduction": "Stana de Vale is a picturesque mountain resort located in the Apuseni Mountains of Romania, offering breathtaking natural landscapes and the perfect setting for our trail running competition.",
+    "importantNote": "Important Note",
+    "weatherNote": "Mountain roads can be affected by weather conditions, especially during winter and early spring. Always check road conditions before traveling.",
+    "locationTitle": "Location Overview",
+    "locationDescription": "Stana de Vale is situated at an altitude of approximately 1,100 meters in Bihor County, Romania. It's known for its pristine forests, mountain springs, and beautiful hiking trails.",
     "byAir": {
-      "title": "En Avión",
-      "description": "Hay varios aeropuertos internacionales cerca de Stana de Vale:",
+      "title": "By Air",
+      "description": "The closest airports to Stana de Vale are in Oradea and Cluj-Napoca. From there, you can continue your journey by car, train, or bus.",
       "oradea": {
-        "title": "Aeropuerto de Oradea (OMR)",
-        "description": "Aeropuerto más cercano a Stana de Vale",
-        "distance": "Distancia: aproximadamente 60 km (37 millas)",
-        "travelTime": "Tiempo de viaje: 1 hora y 15 minutos en coche",
-        "transport": "Conexiones: taxi, alquiler de coches o traslado privado"
+        "title": "Oradea International Airport (OMR)",
+        "description": "The closest airport to Stana de Vale:",
+        "distance": "Approximately 70 km from Stana de Vale",
+        "travelTime": "About 1 hour 30 minutes by car",
+        "transport": "Taxis and car rentals available at the airport"
       },
       "cluj": {
-        "title": "Aeropuerto de Cluj-Napoca (CLJ)",
-        "description": "Aeropuerto internacional con más conexiones",
-        "distance": "Distancia: aproximadamente 150 km (93 millas)",
-        "travelTime": "Tiempo de viaje: 2,5 horas en coche",
-        "transport": "Conexiones: taxi, alquiler de coches, autobús o traslado privado"
+        "title": "Cluj-Napoca International Airport (CLJ)",
+        "description": "A major international airport with more connections:",
+        "distance": "Approximately 150 km from Stana de Vale",
+        "travelTime": "About 2 hours 45 minutes by car",
+        "transport": "Taxis, car rentals, and shuttle services available"
       }
     },
     "byCar": {
-      "title": "En Coche",
-      "description": "Stana de Vale es accesible en coche por carreteras bien mantenidas, aunque los últimos kilómetros son por carreteras de montaña:",
+      "title": "By Car",
+      "description": "Traveling by car provides flexibility to reach Stana de Vale. The mountain resort is accessible via several routes, though some roads can be challenging depending on the season.",
       "fromOradea": {
-        "title": "Desde Oradea",
-        "description": "Hay dos rutas principales desde Oradea:",
-        "route1": "Ruta 1: Oradea - Beiuș - Budureasa - Stana de Vale (aproximadamente 80 km, 1 hora y 30 minutos)",
-        "route2": "Ruta 2: Oradea - Tileagd - Beiuș - Budureasa - Stana de Vale (aproximadamente 85 km, 1 hora y 40 minutos)"
+        "title": "From Oradea",
+        "description": "There are two main routes from Oradea:",
+        "route1": "Route 1: Oradea → Beiuș → Budureasa → Stana de Vale (approximately 80 km, 1h 45m)",
+        "route2": "Route 2: Oradea → Aleșd → Borod → Bratca → Beiuș → Budureasa → Stana de Vale (longer but may offer better road conditions)"
       },
       "fromCluj": {
-        "title": "Desde Cluj-Napoca",
-        "description": "La ruta principal desde Cluj-Napoca es la siguiente:",
-        "route": "Cluj-Napoca - Huedin - Aleșd - Beiuș - Budureasa - Stana de Vale (aproximadamente 180 km, 3 horas)"
+        "title": "From Cluj-Napoca",
+        "description": "The recommended route from Cluj-Napoca:",
+        "route": "Cluj-Napoca → Huedin → Borod → Beiuș → Budureasa → Stana de Vale (approximately an 3-hour drive)"
       },
       "parking": {
-        "title": "Estacionamiento",
-        "description": "En Stana de Vale hay estacionamiento gratuito disponible para los participantes en el evento. Sigue las indicaciones de los organizadores a tu llegada."
+        "title": "Parking Information",
+        "description": "There is a large parking area at the resort center where you can leave your vehicle during the competition. Additional parking will be available near the race start/finish area."
       }
     },
     "byTrain": {
-      "title": "En Tren",
-      "description": "La red ferroviaria rumana (CFR) ofrece conexiones a las ciudades cercanas a Stana de Vale:",
+      "title": "By Train",
+      "description": "Romania's railway network can get you close to Stana de Vale, though you'll need additional transportation for the final leg of the journey.",
       "connections": {
-        "title": "Conexiones principales",
-        "connection1": "Tren a Oradea desde Bucarest o Budapest, luego traslado local",
-        "connection2": "Tren a Beiuș (estación más cercana, aproximadamente 35 km de Stana de Vale), luego traslado local"
+        "title": "Train Connections",
+        "connection1": "From Bucharest: Take a train to Oradea, then continue by bus or car",
+        "connection2": "From Budapest: Take a train to Oradea, then continue by bus or car"
       },
       "lastLeg": {
-        "title": "Último tramo",
-        "description": "Desde la estación de Beiuș, es necesario tomar un taxi o un traslado privado para llegar a Stana de Vale (aproximadamente 35 km)."
+        "title": "Final Connection",
+        "description": "From either Oradea or Beiuș, you will need to arrange transportation to Stana de Vale as there is no direct train service to the resort."
       }
     },
     "byBus": {
-      "title": "En Autobús",
-      "description": "Hay servicios de autobús que conectan las principales ciudades rumanas con las localidades cercanas a Stana de Vale:",
+      "title": "By Bus",
+      "description": "Public bus transport can get you to towns near Stana de Vale, from where you'll need to arrange the final part of your journey.",
       "services": {
-        "title": "Servicios disponibles",
-        "service1": "Autobús desde Oradea a Beiuș, luego traslado local a Stana de Vale",
-        "service2": "Autobús desde Cluj-Napoca a Oradea, luego traslado a Beiuș y Stana de Vale"
+        "title": "Bus Services",
+        "service1": "Oradea to Beiuș: Regular bus services throughout the day",
+        "service2": "Cluj-Napoca to Beiuș: Limited services, check schedules in advance"
       },
       "schedules": {
-        "title": "Horarios",
-        "description": "Los horarios de los autobuses varían según la temporada. Se recomienda verificar los horarios actualizados en el sitio web de la compañía de autobuses o en la estación de autobuses local."
+        "title": "Bus Schedules",
+        "description": "Bus schedules can vary seasonally. We recommend checking the latest timetables at autogari.ro or directly with the local bus companies."
       }
     },
     "localTransport": {
-      "title": "Transporte local",
-      "description": "Una vez que llegues a las ciudades cercanas (Oradea, Beiuș), hay varias opciones para llegar a Stana de Vale:",
+      "title": "Local Transportation",
+      "description": "For the final leg of your journey to Stana de Vale, you may need to use local transportation options.",
       "taxis": {
         "title": "Taxis",
-        "description": "Los taxis están disponibles en Oradea y Beiuș para el traslado a Stana de Vale. Se recomienda acordar el precio antes de la salida."
+        "description": "Taxis are available in Beiuș and can take you to Stana de Vale. Expect to pay approximately 100-150 RON for this journey."
       },
       "shuttles": {
-        "title": "Lanzaderas para el evento",
-        "description": "Durante los días del evento, se organizarán lanzaderas especiales desde Oradea y Beiuș hasta Stana de Vale. Los detalles se anunciarán más cerca de la fecha del evento."
+        "title": "Race Day Shuttles",
+        "description": "For the competition, we will arrange shuttle services from major nearby towns. Details will be shared with registered participants closer to the event date."
       }
     },
     "accommodation": {
-      "title": "Alojamiento",
-      "description": "Hay varias opciones de alojamiento en Stana de Vale y en las áreas circundantes:",
+      "title": "Accommodation Options",
+      "description": "There are several accommodation options in and around Stana de Vale to suit different preferences and budgets.",
       "options": {
         "option1": {
-          "title": "Hoteles in situ",
-          "description": "Stana de Vale cuenta con varios hoteles y pensiones que ofrecen alojamiento confortable. Se recomienda reservar con antelación ya que las plazas son limitadas."
+          "title": "Mountain Resort Hotel",
+          "description": "The main hotel in Stana de Vale offers comfortable rooms with mountain views, restaurant, and spa facilities."
         },
         "option2": {
-          "title": "Alojamiento en Beiuș",
-          "description": "Beiuș, a unos 35 km de Stana de Vale, ofrece hoteles y casas de huéspedes a precios más asequibles."
+          "title": "Nearby Guesthouses",
+          "description": "Several family-run guesthouses in the vicinity offer authentic local hospitality and homemade food."
         },
         "option3": {
-          "title": "Alojamiento en Oradea",
-          "description": "Oradea, a unos 60 km, ofrece una gama más amplia de opciones de alojamiento, desde hoteles económicos hasta de lujo."
+          "title": "Camping",
+          "description": "For the adventurous, there are designated camping areas near the resort. Bring your own equipment or rent on-site."
         }
       }
     }
+  },
+  "sectionsOverview": {
+    "title": "Explore the Competition",
+    "subtitle": "Discover everything you need to know about our trail running competition",
+    "races": "View our challenging trail running races with detailed information about distance, elevation, and difficulty.",
+    "participants": "See who's already registered and check participants from around the world.",
+    "program": "Explore the full schedule of events, including race start times, award ceremonies, and more.",
+    "rules": "Understand the competition rules, equipment requirements, and all safety regulations.",
+    "emaCircuit": "Learn about the EMA Off-Road Running Circuit 2025 and its significance for trail running.",
+    "sponsors": "Discover the organizations and companies supporting this trail running event.",
+    "registration": "Register for your chosen race and secure your spot in this exciting mountain challenge.",
+    "contact": "Get in touch with our team for any questions about the competition."
+  },
+  "emaCircuit": {
+    "title": "E.M.A. OFF-ROAD RUNNING CIRCUIT 2025",
+    "subtitle": "Experimental Edition",
+    "overview": {
+      "title": "Overview",
+      "content": "European Masters Athletics (EMA) is proud to announce the inaugural experimental edition of the EMA Off-Road Running Circuit, a circuit dedicated to Master athletes featuring mountain, vertical, and off-road running events.",
+      "objectives": "The League's Objectives:",
+      "objectivesList": [
+        "To provide optimal conditions for athletes to achieve outstanding performances.",
+        "To increase competition opportunities in a stimulating and diverse environment.",
+        "To foster greater interaction and cultural exchange among athletes.",
+        "To offer a broad range of participation options throughout the season.",
+        "To promote the diversity of the participating athletes."
+      ],
+      "focus": "The organizational focus will be on delivering well-structured, efficient events that create the best conditions for participants to excel and enjoy the experience."
+    },
+    "participation": {
+      "title": "Participation",
+      "content": "Participation in the EMA Off-Road Running League is open to all athletes who meet the Masters Off-Road running criteria, specifically those aged 35-79, and who hold a valid license from their respective Federation, in accordance with WMA rules.",
+      "note1": "Please note, the EMA Off-Road Running League is not a championship event, and athletes will not officially represent their countries in these events.",
+      "note2": "The League is also open to non-European athletes, who will compete for individual event prizes as well as final awards."
+    },
+    "liability": {
+      "title": "Liability and Insurance",
+      "content": "Participants assume full responsibility for their involvement in any event. The Organizer is not liable for any damages or injury sustained by the Participant, except in cases where the damage is the direct result of the Organizer's intentional actions.",
+      "insurance": "If the Organizer's insurance policy covers the damages, the Organizer's liability will be limited to the amount covered by the insurer. Participants are advised to obtain their own insurance to cover potential risks, such as accidents, illness, or death, that may arise during the event.",
+      "health": "By registering, participants confirm that they are in good physical and mental health, and have undergone appropriate training to compete in the event. It is recommended that participants undergo a medical examination to ensure fitness for participation."
+    },
+    "rankings": {
+      "title": "Rankings",
+      "content": "The EMA Off-Road Running Circuit will feature both individual event rankings and a final overall ranking for the Circuit.",
+      "local": "Each Local Organizing Committee (LOC) may offer one or more events (such as uphill, vertical, mountain run, trail, etc.), with the winners and age category champions awarded prizes according to their local regulations. Each event will have a dedicated section on the EMA website.",
+      "eligibility": "Final Ranking Eligibility: To qualify for the EMA final rankings, athletes must participate in at least two events across different locations.",
+      "points": "Point Allocation: The winner of each event (overall and in each age category) will receive 1 point, with subsequent positions awarded points as follows (2 points for second place, 3 points for third, etc.). EMA will consider the best two performances from each athlete when calculating the final standings.",
+      "specialPrize": "A special prize will be awarded to all athletes who participate in at least three stages of the Circuit, regardless of their overall results.",
+      "ceremony": "The official award ceremony will be held during the 2026 EMA Off-Road Running Championship."
+    },
+    "calendar": {
+      "title": "Calendar",
+      "content": "The events in the 2025 EMA Off-Road Running Circuit will take place according to the schedule provided on the official EMA website."
+    },
+    "downloadButton": "Download Full Regulations PDF"
   }
 }
