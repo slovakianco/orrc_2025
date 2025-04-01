@@ -1,0 +1,393 @@
+{
+  "common": {
+    "loading": "Caricamento...",
+    "submitting": "Invio in corso...",
+    "error": "Si è verificato un errore",
+    "success": "Successo!",
+    "notAvailable": "Non disponibile",
+    "filter": "Filtra",
+    "search": "Cerca",
+    "clear": "Cancella",
+    "view": "Visualizza",
+    "sort": "Ordina",
+    "sortBy": "Ordina per",
+    "ascending": "Crescente",
+    "descending": "Decrescente",
+    "name": "Nome",
+    "date": "Data",
+    "apply": "Applica",
+    "cancel": "Annulla",
+    "notFound": "Non trovato",
+    "notFoundDescription": "La pagina che stai cercando non esiste.",
+    "goBack": "Torna indietro",
+    "goHome": "Vai alla home page",
+    "languageSelector": "Selettore di lingua"
+  },
+  "nav": {
+    "home": "Home",
+    "races": "Gare",
+    "registration": "Registrazione",
+    "participants": "Partecipanti",
+    "rules": "Regolamento",
+    "program": "Programma",
+    "contact": "Contatti",
+    "sponsors": "Sponsor",
+    "emaCircuit": "Circuito EMA",
+    "howToGetThere": "Come Arrivare"
+  },
+  "hero": {
+    "title": "Stana de Vale Trail Race",
+    "subtitle": "Vivi l'esperienza di trail running tra le magnifiche montagne di Bihor",
+    "dates": "14-15 Settembre 2025",
+    "countdown": {
+      "days": "giorni",
+      "hours": "ore",
+      "minutes": "minuti",
+      "seconds": "secondi",
+      "event": "alla gara",
+      "registration": "all'apertura delle registrazioni"
+    },
+    "registerNow": "Registrati Ora",
+    "learnMore": "Scopri di più"
+  },
+  "races": {
+    "title": "Le Nostre Gare",
+    "viewAll": "Vedi tutte le gare",
+    "filter": {
+      "all": "Tutte",
+      "beginner": "Principiante",
+      "advanced": "Avanzato"
+    },
+    "card": {
+      "distance": "Distanza",
+      "elevation": "Dislivello",
+      "date": "Data",
+      "difficulty": "Difficoltà",
+      "km": "km",
+      "m": "m",
+      "price": "Prezzo",
+      "emaEvent": "Evento EMA",
+      "nationalChampionship": "Campionato Nazionale",
+      "viewDetails": "Visualizza dettagli"
+    },
+    "detail": {
+      "title": "Dettagli Gara",
+      "description": "Descrizione",
+      "distance": "Distanza",
+      "elevation": "Dislivello",
+      "date": "Data",
+      "difficulty": "Difficoltà",
+      "price": "Prezzo",
+      "register": "Registrati a questa gara"
+    },
+    "difficulty": {
+      "beginner": "Principiante",
+      "intermediate": "Intermedio", 
+      "advanced": "Avanzato"
+    }
+  },
+  "participants": {
+    "title": "Partecipanti Registrati",
+    "search": "Cerca partecipanti",
+    "filters": {
+      "all": "Tutti",
+      "byRace": "Per gara",
+      "byCountry": "Per paese"
+    },
+    "columns": {
+      "name": "Nome",
+      "country": "Paese",
+      "race": "Gara",
+      "age": "Età",
+      "gender": "Genere",
+      "status": "Stato"
+    },
+    "status": {
+      "registered": "Registrato",
+      "pending": "In attesa",
+      "validated": "Convalidato",
+      "completed": "Completato"
+    },
+    "details": {
+      "title": "Dettagli Partecipante",
+      "personalInfo": "Informazioni personali",
+      "raceInfo": "Informazioni gara",
+      "country": "Paese",
+      "age": "Età",
+      "gender": "Genere",
+      "race": "Gara"
+    },
+    "displayMode": {
+      "table": "Visualizzazione tabella",
+      "cards": "Visualizzazione card"
+    }
+  },
+  "registration": {
+    "title": "Registrazione Gara",
+    "subtitle": "Completa il modulo per registrarti a una delle nostre gare",
+    "form": {
+      "personalInfo": "Informazioni personali",
+      "raceDetails": "Dettagli gara",
+      "payment": "Pagamento",
+      "firstName": "Nome",
+      "lastName": "Cognome",
+      "email": "Email",
+      "phone": "Telefono",
+      "country": "Paese",
+      "birthDate": "Data di nascita",
+      "gender": "Genere",
+      "race": "Seleziona gara",
+      "medicalInfo": "Informazioni mediche (opzionale)",
+      "terms": "Accetto i termini e le condizioni",
+      "submit": "Invia registrazione",
+      "placeholders": {
+        "firstName": "Inserisci il tuo nome",
+        "lastName": "Inserisci il tuo cognome",
+        "email": "Inserisci la tua email",
+        "phone": "Inserisci il tuo numero di telefono",
+        "selectCountry": "Seleziona il tuo paese",
+        "selectDate": "Seleziona la data di nascita",
+        "selectGender": "Seleziona il genere",
+        "selectRace": "Seleziona una gara",
+        "medicalInfo": "Eventuali condizioni mediche o allergie"
+      },
+      "validations": {
+        "required": "Questo campo è obbligatorio",
+        "email": "Inserisci un indirizzo email valido",
+        "phone": "Inserisci un numero di telefono valido",
+        "terms": "Devi accettare i termini e le condizioni",
+        "age": "Devi avere almeno 18 anni per partecipare"
+      },
+      "success": "Registrazione inviata con successo!",
+      "error": "Si è verificato un errore durante la registrazione"
+    },
+    "gender": {
+      "male": "Maschile",
+      "female": "Femminile",
+      "other": "Altro",
+      "preferNotToSay": "Preferisco non specificare"
+    }
+  },
+  "contact": {
+    "title": "Contattaci",
+    "subtitle": "Hai domande? Contattaci e ti risponderemo al più presto",
+    "form": {
+      "name": "Nome",
+      "email": "Email",
+      "subject": "Oggetto",
+      "message": "Messaggio",
+      "submit": "Invia messaggio",
+      "placeholders": {
+        "name": "Il tuo nome",
+        "email": "La tua email",
+        "subject": "Oggetto del messaggio",
+        "message": "Il tuo messaggio"
+      },
+      "validations": {
+        "required": "Questo campo è obbligatorio",
+        "email": "Inserisci un indirizzo email valido"
+      },
+      "success": "Messaggio inviato con successo!",
+      "error": "Si è verificato un errore durante l'invio del messaggio"
+    },
+    "info": {
+      "title": "Informazioni di contatto",
+      "email": "Email",
+      "phone": "Telefono",
+      "address": "Indirizzo",
+      "followUs": "Seguici"
+    }
+  },
+  "rules": {
+    "title": "Regolamento",
+    "subtitle": "Regole e informazioni importanti per i partecipanti",
+    "sections": {
+      "eligibility": {
+        "title": "Idoneità",
+        "content": "I partecipanti devono avere almeno 18 anni il giorno della gara. È richiesto un certificato medico valido che attesti l'idoneità alla corsa in montagna."
+      },
+      "equipment": {
+        "title": "Attrezzatura obbligatoria",
+        "content": "Tutti i partecipanti devono portare con sé: telefono cellulare carico, giacca impermeabile, coperta termica, fischietto, riserva d'acqua (min. 1L), cibo, documento d'identità."
+      },
+      "safety": {
+        "title": "Sicurezza",
+        "content": "I partecipanti devono seguire il percorso segnalato. È vietato abbandonare rifiuti. L'assistenza medica sarà disponibile lungo il percorso."
+      },
+      "timeLimit": {
+        "title": "Limite di tempo",
+        "content": "I partecipanti devono completare il percorso entro il limite di tempo specificato. I partecipanti che non rispettano il limite saranno esclusi dalla classifica."
+      }
+    }
+  },
+  "program": {
+    "title": "Programma evento",
+    "subtitle": "Programma dettagliato dell'evento",
+    "day": "Giorno",
+    "time": "Orario",
+    "event": "Evento",
+    "location": "Luogo",
+    "description": "Descrizione"
+  },
+  "footer": {
+    "about": {
+      "title": "Chi siamo",
+      "content": "Stana de Vale Trail Race è un evento di trail running organizzato nelle montagne di Bihor, Romania."
+    },
+    "quickLinks": {
+      "title": "Link rapidi"
+    },
+    "contact": {
+      "title": "Contatti",
+      "email": "Email",
+      "phone": "Telefono",
+      "address": "Indirizzo"
+    },
+    "copyright": "© 2025 Stana de Vale Trail Race. Tutti i diritti riservati."
+  },
+  "emaCircuit": {
+    "title": "Circuito Europeo dei Campionati di Montagna (EMA) 2025",
+    "subtitle": "Off-Road Running Circuit - Romania Branch",
+    "downloadButton": "Scarica il regolamento",
+    "overview": {
+      "title": "Panoramica",
+      "content": "Il circuito EMA Off-Road Running 2025 è una competizione internazionale che promuove lo sport della corsa in montagna in Europa. La tappa di Stana de Vale fa parte del calendario ufficiale EMA per il 2025.",
+      "objectives": "Obiettivi principali:",
+      "objectivesList": {
+        "0": "Promuovere la corsa in montagna a livello internazionale",
+        "1": "Fornire una piattaforma per le competizioni di alto livello",
+        "2": "Creare opportunità per gli atleti di misurarsi con i migliori corridori di montagna",
+        "3": "Valorizzare i paesaggi naturali e le tradizioni locali",
+        "4": "Promuovere il turismo sportivo sostenibile"
+      },
+      "focus": "Il focus del circuito è la promozione dell'eccellenza sportiva e il rispetto per l'ambiente naturale."
+    },
+    "participation": {
+      "title": "Partecipazione",
+      "content": "La partecipazione è aperta a tutti gli atleti maggiorenni. Gli atleti che rappresentano federazioni nazionali devono essere regolarmente iscritti alla propria federazione.",
+      "note1": "È richiesto un certificato medico valido per l'iscrizione.",
+      "note2": "I partecipanti possono competere in diverse categorie in base all'età e al genere."
+    },
+    "liability": {
+      "title": "Responsabilità",
+      "content": "L'organizzazione non si assume alcuna responsabilità per incidenti o danni che possono verificarsi durante la competizione. I partecipanti gareggiano a proprio rischio.",
+      "insurance": "Si consiglia vivamente ai partecipanti di sottoscrivere un'assicurazione personale adeguata che copra la partecipazione a eventi di corsa in montagna.",
+      "health": "È responsabilità di ciascun partecipante assicurarsi di essere in buona forma fisica e di aver consultato un medico prima di partecipare all'evento."
+    },
+    "rankings": {
+      "title": "Classifiche",
+      "content": "Il circuito EMA prevede una classifica generale e classifiche per categorie. I punti vengono assegnati in base al posizionamento in ciascuna gara del circuito.",
+      "local": "La gara di Stana de Vale assegnerà anche punti validi per il campionato nazionale rumeno.",
+      "eligibility": "Per essere classificati nella classifica finale del circuito EMA, gli atleti devono partecipare ad almeno 3 delle gare del calendario ufficiale.",
+      "points": "Il sistema di punteggio è basato sulla posizione: 100 punti al vincitore, 95 al secondo, 90 al terzo, e così via.",
+      "specialPrize": "Sarà assegnato un premio speciale al miglior atleta del circuito EMA 2025.",
+      "ceremony": "La cerimonia di premiazione finale del circuito EMA 2025 si terrà a novembre 2025."
+    },
+    "calendar": {
+      "title": "Calendario 2025",
+      "content": "Il calendario completo delle gare del circuito EMA 2025 sarà pubblicato all'inizio dell'anno. La gara di Stana de Vale è programmata per il 14-15 settembre 2025."
+    }
+  },
+  "howToGet": {
+    "title": "Come Arrivare a Stana de Vale",
+    "subtitle": "Tutte le informazioni necessarie per raggiungere il luogo dell'evento",
+    "introduction": "Stana de Vale è una splendida località situata nelle montagne di Bihor, Romania occidentale. Ecco tutto ciò che devi sapere per raggiungere il luogo dell'evento.",
+    "importantNote": "Nota importante sul viaggio",
+    "weatherNote": "Controlla sempre le condizioni meteo prima di partire, specialmente se viaggi durante la stagione invernale o autunnale quando le strade di montagna possono essere influenzate dalle condizioni meteorologiche.",
+    "locationTitle": "Posizione",
+    "locationDescription": "Stana de Vale si trova nella contea di Bihor, Romania occidentale, a circa 60 km da Oradea e 150 km da Cluj-Napoca.",
+    "byAir": {
+      "title": "In Aereo",
+      "description": "Ci sono diversi aeroporti internazionali nelle vicinanze di Stana de Vale:",
+      "oradea": {
+        "title": "Aeroporto di Oradea (OMR)",
+        "description": "Aeroporto più vicino a Stana de Vale",
+        "distance": "Distanza: circa 60 km (37 miglia)",
+        "travelTime": "Tempo di viaggio: 1 ora e 15 minuti in auto",
+        "transport": "Collegamenti: taxi, noleggio auto o trasferimento privato"
+      },
+      "cluj": {
+        "title": "Aeroporto di Cluj-Napoca (CLJ)",
+        "description": "Aeroporto internazionale con più collegamenti",
+        "distance": "Distanza: circa 150 km (93 miglia)",
+        "travelTime": "Tempo di viaggio: 2,5 ore in auto",
+        "transport": "Collegamenti: taxi, noleggio auto, autobus o trasferimento privato"
+      }
+    },
+    "byCar": {
+      "title": "In Auto",
+      "description": "Stana de Vale è accessibile in auto tramite strade ben tenute, anche se gli ultimi chilometri sono su strade di montagna:",
+      "fromOradea": {
+        "title": "Da Oradea",
+        "description": "Ci sono due percorsi principali da Oradea:",
+        "route1": "Percorso 1: Oradea - Beiuș - Budureasa - Stana de Vale (circa 80 km, 1 ora e 30 minuti)",
+        "route2": "Percorso 2: Oradea - Tileagd - Beiuș - Budureasa - Stana de Vale (circa 85 km, 1 ora e 40 minuti)"
+      },
+      "fromCluj": {
+        "title": "Da Cluj-Napoca",
+        "description": "Il percorso principale da Cluj-Napoca è il seguente:",
+        "route": "Cluj-Napoca - Huedin - Aleșd - Beiuș - Budureasa - Stana de Vale (circa 180 km, 3 ore)"
+      },
+      "parking": {
+        "title": "Parcheggio",
+        "description": "A Stana de Vale sono disponibili parcheggi gratuiti per i partecipanti all'evento. Seguire le indicazioni degli organizzatori al vostro arrivo."
+      }
+    },
+    "byTrain": {
+      "title": "In Treno",
+      "description": "La rete ferroviaria rumena (CFR) offre collegamenti verso le città vicine a Stana de Vale:",
+      "connections": {
+        "title": "Collegamenti principali",
+        "connection1": "Treno per Oradea da Bucarest o Budapest, poi trasferimento locale",
+        "connection2": "Treno per Beiuș (stazione più vicina, circa 35 km da Stana de Vale), poi trasferimento locale"
+      },
+      "lastLeg": {
+        "title": "Ultimo tratto",
+        "description": "Dalla stazione di Beiuș, è necessario prendere un taxi o un trasferimento privato per raggiungere Stana de Vale (circa 35 km)."
+      }
+    },
+    "byBus": {
+      "title": "In Autobus",
+      "description": "Ci sono servizi di autobus che collegano le principali città rumene con le località vicine a Stana de Vale:",
+      "services": {
+        "title": "Servizi disponibili",
+        "service1": "Autobus da Oradea a Beiuș, poi trasferimento locale a Stana de Vale",
+        "service2": "Autobus da Cluj-Napoca a Oradea, poi trasferimento a Beiuș e Stana de Vale"
+      },
+      "schedules": {
+        "title": "Orari",
+        "description": "Gli orari degli autobus variano in base alla stagione. Si consiglia di verificare gli orari aggiornati sul sito web della compagnia di autobus o presso la stazione degli autobus locale."
+      }
+    },
+    "localTransport": {
+      "title": "Trasporto locale",
+      "description": "Una volta arrivati nelle città vicine (Oradea, Beiuș), ci sono diverse opzioni per raggiungere Stana de Vale:",
+      "taxis": {
+        "title": "Taxi",
+        "description": "I taxi sono disponibili a Oradea e Beiuș per il trasferimento a Stana de Vale. Si consiglia di concordare il prezzo prima della partenza."
+      },
+      "shuttles": {
+        "title": "Navette per l'evento",
+        "description": "Durante i giorni dell'evento, saranno organizzate navette speciali da Oradea e Beiuș a Stana de Vale. I dettagli saranno annunciati più vicino alla data dell'evento."
+      }
+    },
+    "accommodation": {
+      "title": "Alloggio",
+      "description": "Ci sono diverse opzioni di alloggio a Stana de Vale e nelle aree circostanti:",
+      "options": {
+        "option1": {
+          "title": "Hotel in loco",
+          "description": "Stana de Vale dispone di diversi hotel e pensioni che offrono alloggio confortevole. Si consiglia di prenotare in anticipo poiché i posti sono limitati."
+        },
+        "option2": {
+          "title": "Alloggi a Beiuș",
+          "description": "Beiuș, a circa 35 km da Stana de Vale, offre hotel e guest house a prezzi più accessibili."
+        },
+        "option3": {
+          "title": "Sistemazione a Oradea",
+          "description": "Oradea, a circa 60 km, offre una gamma più ampia di opzioni di alloggio, dagli hotel economici a quelli di lusso."
+        }
+      }
+    }
+  }
+}

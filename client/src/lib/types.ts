@@ -1,5 +1,5 @@
 // Language types
-export type Language = 'en' | 'ro' | 'fr' | 'de';
+export type Language = 'en' | 'ro' | 'fr' | 'de' | 'it' | 'es';
 
 // Race types
 export interface Race {

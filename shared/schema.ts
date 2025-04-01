@@ -23,10 +23,14 @@ export const races = pgTable("races", {
   nameRo: text("namero").notNull(),
   nameFr: text("namefr").notNull(),
   nameDe: text("namede").notNull(),
+  nameIt: text("nameit").notNull().default(""),
+  nameEs: text("namees").notNull().default(""),
   description: text("description").notNull(),
   descriptionRo: text("descriptionro").notNull(),
   descriptionFr: text("descriptionfr").notNull(),
   descriptionDe: text("descriptionde").notNull(),
+  descriptionIt: text("descriptionit").notNull().default(""),
+  descriptionEs: text("descriptiones").notNull().default(""),
   distance: integer("distance").notNull(), // in km
   elevation: integer("elevation").notNull(), // in meters
   difficulty: difficultyEnum("difficulty").notNull(),
@@ -88,10 +92,14 @@ export const faqs = pgTable("faqs", {
   questionRo: text("questionro").notNull(),
   questionFr: text("questionfr").notNull(),
   questionDe: text("questionde").notNull(),
+  questionIt: text("questionit").notNull().default(""),
+  questionEs: text("questiones").notNull().default(""),
   answer: text("answer").notNull(),
   answerRo: text("answerro").notNull(),
   answerFr: text("answerfr").notNull(),
   answerDe: text("answerde").notNull(),
+  answerIt: text("answerit").notNull().default(""),
+  answerEs: text("answeres").notNull().default(""),
   order: integer("order_index").notNull(),
 });
 
@@ -109,10 +117,14 @@ export const programEvents = pgTable("program_events", {
   titleRo: text("titlero").notNull(),
   titleFr: text("titlefr").notNull(),
   titleDe: text("titlede").notNull(),
+  titleIt: text("titleit").notNull().default(""),
+  titleEs: text("titlees").notNull().default(""),
   description: text("description").notNull(),
   descriptionRo: text("descriptionro").notNull(),
   descriptionFr: text("descriptionfr").notNull(),
   descriptionDe: text("descriptionde").notNull(),
+  descriptionIt: text("descriptionit").notNull().default(""),
+  descriptionEs: text("descriptiones").notNull().default(""),
   location: text("location").notNull(),
   order: integer("order_index").notNull(),
 });
@@ -129,6 +141,8 @@ export const sponsors = pgTable("sponsors", {
   descriptionRo: text("descriptionro").notNull(),
   descriptionFr: text("descriptionfr").notNull(),
   descriptionDe: text("descriptionde").notNull(),
+  descriptionIt: text("descriptionit").notNull().default(""),
+  descriptionEs: text("descriptiones").notNull().default(""),
   logoPlaceholder: text("logoplaceholder").notNull(), // Text for placeholder
   website: text("website").notNull(),
   level: text("level").notNull(), // premium or standard

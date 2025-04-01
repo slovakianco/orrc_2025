@@ -36,14 +36,18 @@ const LanguageSelector = () => {
     en: 'English',
     ro: 'Română',
     fr: 'Français',
-    de: 'Deutsch'
+    de: 'Deutsch',
+    it: 'Italiano',
+    es: 'Español'
   };
 
   const flagUrls: Record<Language, string> = {
     en: "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/GB.svg",
     ro: "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/RO.svg",
     fr: "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/FR.svg",
-    de: "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/DE.svg"
+    de: "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/DE.svg",
+    it: "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/IT.svg",
+    es: "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/ES.svg"
   };
 
   return (

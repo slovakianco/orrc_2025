@@ -15,6 +15,8 @@ const languageFlags: Record<string, string> = {
   ro: '🇷🇴',
   fr: '🇫🇷',
   de: '🇩🇪',
+  it: '🇮🇹',
+  es: '🇪🇸',
 };
 
 // Map of language codes to full names
@@ -23,6 +25,8 @@ const languageNames: Record<string, string> = {
   ro: 'Română',
   fr: 'Français',
   de: 'Deutsch',
+  it: 'Italiano',
+  es: 'Español',
 };
 
 export default function LanguageSelectorWithFlags() {
