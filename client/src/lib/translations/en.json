@@ -261,9 +261,51 @@
     "downloadButton": "Download Full Program PDF",
     "day": "Day",
     "dayTitles": {
-      "day1": "Registration & Briefings",
-      "day2": "Mountain Explorer & Forest Challenge",
-      "day3": "Summit Ultra & Closing"
+      "day1": "Friday, July 4",
+      "day2": "Saturday, July 5"
+    },
+    "events": {
+      "kitPickup": {
+        "title": "Bib Number Pickup",
+        "friday": "Friday: 10:00 - 20:00",
+        "saturday": "Saturday: 06:00 - 08:00",
+        "location": "Race Center"
+      },
+      "technicalMeeting": {
+        "title": "Technical Meeting",
+        "time": "Friday, 18:00",
+        "location": "Race Center"
+      },
+      "pastaParty": {
+        "title": "Pasta Party",
+        "time": "Friday, 18:30",
+        "location": "Race Center"
+      },
+      "raceStart33k": {
+        "title": "33km Race Start",
+        "time": "Saturday, 08:30",
+        "location": "Starting Line"
+      },
+      "raceStart11k": {
+        "title": "11km Race Start",
+        "time": "Saturday, 09:30",
+        "location": "Starting Line"
+      },
+      "awards": {
+        "title": "Awards Ceremony",
+        "time": "Saturday, 15:00",
+        "location": "Main Stage"
+      },
+      "finishMeal": {
+        "title": "Post-Race Meal",
+        "description": "Meal provided by organizers at the finish line",
+        "location": "Finish Area"
+      },
+      "banquet": {
+        "title": "Banquet",
+        "time": "Saturday, 18:30",
+        "location": "Race Center"
+      }
     }
   },
   "contact": {

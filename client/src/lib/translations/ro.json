@@ -246,9 +246,51 @@
     "downloadButton": "Descarcă Programul Complet PDF",
     "day": "Ziua",
     "dayTitles": {
-      "day1": "Înregistrare & Briefing",
-      "day2": "Exploratorul Montan & Provocarea Pădurii",
-      "day3": "Ultra Vârf & Închidere"
+      "day1": "Vineri, 4 Iulie",
+      "day2": "Sâmbătă, 5 Iulie"
+    },
+    "events": {
+      "kitPickup": {
+        "title": "Ridicare Kit și Număr de Concurs",
+        "friday": "Vineri: 10:00 - 20:00",
+        "saturday": "Sâmbătă: 06:00 - 08:00",
+        "location": "Centrul Competiției"
+      },
+      "technicalMeeting": {
+        "title": "Ședință Tehnică",
+        "time": "Vineri, 18:00",
+        "location": "Centrul Competiției"
+      },
+      "pastaParty": {
+        "title": "Pasta Party",
+        "time": "Vineri, 18:30",
+        "location": "Centrul Competiției"
+      },
+      "raceStart33k": {
+        "title": "Start Cursă 33km",
+        "time": "Sâmbătă, 08:30",
+        "location": "Linia de Start"
+      },
+      "raceStart11k": {
+        "title": "Start Cursă 11km",
+        "time": "Sâmbătă, 09:30",
+        "location": "Linia de Start"
+      },
+      "awards": {
+        "title": "Ceremonia de Premiere",
+        "time": "Sâmbătă, 15:00",
+        "location": "Scena Principală"
+      },
+      "finishMeal": {
+        "title": "Masă la Sosire",
+        "description": "Masă oferită de organizatori la sosire",
+        "location": "Zona de Sosire"
+      },
+      "banquet": {
+        "title": "Banchet",
+        "time": "Sâmbătă, 18:30",
+        "location": "Centrul Competiției"
+      }
     }
   },
   "contact": {

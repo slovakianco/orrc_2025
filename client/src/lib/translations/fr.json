@@ -1,10 +1,27 @@
 {
   "common": {
     "loading": "Chargement...",
-    "submitting": "Envoi en cours...",
+    "submitting": "Envoi...",
     "error": "Une erreur est survenue",
     "success": "Succès !",
-    "notAvailable": "Non disponible"
+    "notAvailable": "Non disponible",
+    "filter": "Filtre",
+    "search": "Rechercher",
+    "clear": "Effacer",
+    "view": "Voir",
+    "sort": "Trier",
+    "sortBy": "Trier par",
+    "ascending": "Croissant",
+    "descending": "Décroissant",
+    "name": "Nom",
+    "date": "Date",
+    "apply": "Appliquer",
+    "cancel": "Annuler",
+    "notFound": "Non trouvé",
+    "notFoundDescription": "La page que vous recherchez n'existe pas.",
+    "goBack": "Retourner",
+    "goHome": "Aller à la page d'accueil",
+    "languageSelector": "Sélecteur de langue"
   },
   "nav": {
     "home": "Accueil",
@@ -16,17 +33,17 @@
     "contact": "Contact",
     "sponsors": "Sponsors",
     "emaCircuit": "Circuit EMA 2025",
-    "howToGet": "Comment s'y rendre",
-    "registerButton": "S'inscrire"
+    "howToGet": "Comment y arriver",
+    "registerButton": "Inscrivez-vous maintenant"
   },
   "hero": {
-    "title": "Défiez Les Montagnes",
-    "subtitle": "Découvrez le frisson de la course sur sentier à travers des paysages montagneux à couper le souffle. Rejoignez des coureurs du monde entier dans cette compétition inoubliable.",
-    "date": "15-17 Juin, 2024",
-    "registerButton": "S'inscrire",
-    "exploreButton": "Explorer les Courses",
-    "imageAlt": "Course de trail en montagne",
-    "enhancedDescription": "La course de 33K fait partie du Circuit EMA de Course Hors Route 2025 et du Championnat National de Course en Montagne Masters. Une expérience inoubliable vous attend dans les magnifiques Carpates."
+    "title": "Défiez les montagnes",
+    "subtitle": "Vivez l'excitation de la course sur sentier à travers des paysages montagneux époustouflants. Rejoignez des coureurs du monde entier dans cette compétition inoubliable.",
+    "date": "4-5 juillet 2024",
+    "registerButton": "Inscrivez-vous maintenant",
+    "exploreButton": "Explorez les courses",
+    "imageAlt": "Course sur sentier en montagne",
+    "enhancedDescription": "La course de 33 km fait partie du Circuit EMA Off-Road Running 2025 et du Championnat National de Course en Montagne pour les Masters. Une expérience inoubliable vous attend dans les magnifiques montagnes des Carpates."
   },
   "quickInfo": {
     "location": {
@@ -36,30 +53,35 @@
     },
     "date": {
       "title": "Date",
-      "content": "15-17 Juin, 2024",
+      "content": "4-5 juillet 2025",
       "linkText": "Voir le programme complet"
     },
     "participants": {
       "title": "Participants",
-      "content": "Plus de 1 500 coureurs de 30+ pays",
+      "content": "Plus de 1 500 coureurs de plus de 30 pays",
       "linkText": "Voir les participants"
     }
   },
   "home": {
-    "featuredRaces": "Courses Vedettes"
+    "featuredRaces": "Courses en vedette",
+    "details": "Découvrez la beauté de la course sur sentier avec nos courses de 11 km et 33 km dans les montagnes des Carpates. La course de 33 km fait partie du Circuit EMA Off-Road Running 2025.",
+    "aboutCompetition": "À propos de la compétition",
+    "competitionDescription1": "Rejoignez-nous pour une expérience de course sur sentier inoubliable dans les spectaculaires montagnes des Carpates. Nos courses offrent des terrains exigeants avec des vues magnifiques, conçus pour les débutants comme pour les coureurs expérimentés.",
+    "competitionDescription2": "La course de 33 km fait partie du Circuit EMA Off-Road Running 2025 et du Championnat National de Course en Montagne pour les Masters. La course de 11 km est parfaite pour ceux qui découvrent le trail ou cherchent un défi plus court.",
+    "competitionDescription3": "Les deux courses ont lieu le 6 juin 2025, avec un chronométrage professionnel, des sentiers bien balisés et un soutien complet tout au long du parcours."
   },
   "races": {
-    "title": "Explorez Nos Courses",
-    "subtitle": "Des sentiers adaptés aux débutants jusqu'aux ultras montagneux difficiles, trouvez la course parfaite pour votre niveau et ambition.",
-    "filterTitle": "Filtrer les Courses",
+    "title": "Explorez nos courses",
+    "subtitle": "Des sentiers adaptés aux débutants aux ultras montagneuses exigeantes, trouvez la course parfaite pour votre niveau et vos ambitions.",
+    "filterTitle": "Filtrer les courses",
     "filterBy": "Filtrer par",
     "filter": {
-      "all": "Toutes les Courses",
-      "beginner": "Pour Débutants",
-      "advanced": "Parcours Avancés"
+      "all": "Toutes les courses",
+      "beginner": "Adaptée aux débutants",
+      "advanced": "Sentiers avancés"
     },
     "filters": {
-      "all": "Toutes les Courses",
+      "all": "Toutes les courses",
       "beginner": "Débutant",
       "intermediate": "Intermédiaire",
       "advanced": "Avancé",
@@ -73,236 +95,254 @@
       "ultra": "Ultra"
     },
     "dates": {
-      "15": "15 Juin",
-      "16": "16 Juin",
-      "17": "17 Juin",
-      "4": "4 Juillet",
-      "5": "5 Juillet",
-      "6": "6 Juillet",
-      "06": "6 Juillet"
+      "15": "15 juin",
+      "16": "16 juin",
+      "17": "17 juin",
+      "4": "4 juillet",
+      "5": "5 juillet",
+      "6": "6 juillet",
+      "05": "5 juillet"
     },
-    "viewDetails": "Voir les Détails",
-    "viewAllButton": "Voir Toutes les Courses",
+    "viewDetails": "Voir les détails",
+    "viewAllButton": "Voir toutes les courses",
     "elevation": "Dénivelé",
     "distance": "Distance",
     "price": "Prix",
     "loading": "Chargement des courses...",
     "noRacesFound": "Aucune course trouvée",
-    "tryDifferentFilter": "Essayez une option de filtre différente",
+    "tryDifferentFilter": "Essayez une autre option de filtre",
     "certification": {
       "ema": "Circuit EMA Off-Road Running 2025",
       "national": "Championnat National de Course en Montagne Masters",
       "nationalShort": "Championnat National"
     },
     "raceDetail": {
-      "details": "Détails de la Course",
+      "details": "Détails de la course",
       "description": "Description",
       "date": "Date",
       "distance": "Distance",
-      "elevation": "Dénivelé",
+      "elevation": "Gain d'altitude",
       "difficulty": "Difficulté",
-      "price": "Frais d'Inscription",
-      "trailMap": "Carte du Parcours",
-      "registerButton": "S'inscrire Maintenant",
-      "backToRaces": "Retour à Toutes les Courses",
-      "aidStations": "Postes de Ravitaillement",
-      "cutoffTime": "Barrière Horaire",
-      "startTime": "Heure de Départ",
+      "price": "Frais d'inscription",
+      "trailMap": "Carte du sentier",
+      "registerButton": "Inscrivez-vous maintenant",
+      "backToRaces": "Retour à toutes les courses",
+      "aidStations": "Postes de ravitaillement",
+      "cutoffTime": "Temps limite",
+      "startTime": "Heure de départ",
       "loading": "Chargement des détails de la course...",
       "downloadGPX": "Télécharger GPX",
       "map": "Carte"
     }
   },
   "registration": {
-    "title": "Inscription à la Compétition",
-    "subtitle": "Remplissez le formulaire ci-dessous pour réserver votre place dans l'une de nos courses. L'inscription anticipée garantit les meilleurs tarifs.",
+    "title": "Inscrivez-vous à la compétition",
+    "subtitle": "Remplissez le formulaire ci-dessous pour réserver votre place dans l'une de nos courses. Une inscription anticipée garantit les meilleurs tarifs.",
     "form": {
       "firstName": "Prénom",
-      "lastName": "Nom",
-      "email": "Adresse Email",
-      "phone": "Numéro de Téléphone",
+      "lastName": "Nom de famille",
+      "email": "Adresse e-mail",
+      "phone": "Numéro de téléphone",
       "country": "Pays",
       "selectCountry": "Sélectionnez votre pays",
-      "birthDate": "Date de Naissance",
+      "birthDate": "Date de naissance",
       "gender": "Genre",
       "male": "Masculin",
       "female": "Féminin",
-      "selectRace": "Sélectionnez Votre Course",
-      "medical": "Informations Médicales",
+      "selectRace": "Sélectionnez votre course",
+      "medical": "Informations médicales",
       "medicalPlaceholder": "Veuillez partager toute information médicale pertinente (allergies, conditions, etc.)",
       "termsText": "J'ai lu et j'accepte les",
-      "termsLink": "conditions générales",
-      "andText": "et la",
+      "termsLink": "termes et conditions",
+      "andText": "et",
       "privacyLink": "politique de confidentialité",
-      "riskText": "Je comprends les risques associés à la course de trail.",
-      "submitButton": "Finaliser l'Inscription"
+      "riskText": "Je comprends les risques associés à la course sur sentier.",
+      "submitButton": "Compléter l'inscription"
     },
     "success": {
-      "title": "Inscription Réussie",
-      "message": "Merci pour votre inscription ! Vous recevrez un email de confirmation sous peu."
+      "title": "Inscription réussie",
+      "message": "Merci de vous être inscrit ! Vous recevrez sous peu un e-mail de confirmation."
     },
     "error": {
-      "title": "Échec de l'Inscription",
-      "message": "Une erreur est survenue lors du traitement de votre inscription. Veuillez réessayer."
+      "title": "Échec de l'inscription",
+      "message": "Une erreur s'est produite lors du traitement de votre inscription. Veuillez réessayer."
     }
   },
   "participants": {
-    "title": "Participants Inscrits",
-    "subtitle": "Parcourez la liste des coureurs actuellement inscrits. Vérifiez qui rejoint chaque course et trouvez des amis ou des concurrents.",
-    "searchPlaceholder": "Rechercher par nom ou pays...",
-    "allRaces": "Toutes les Courses",
-    "allCountries": "Tous les Pays",
+    "title": "Participants inscrits",
+    "subtitle": "Parcourez la liste des coureurs actuellement inscrits. Vérifiez qui participe à chaque course et trouvez des amis ou des concurrents.",
+    "searchPlaceholder": "Rechercher par nom...",
+    "filterByCountry": "Filtrer par pays",
+    "filterByRace": "Filtrer par course",
+    "allRaces": "Toutes les courses",
+    "allCountries": "Tous les pays",
+    "clearFilters": "Effacer les filtres",
+    "participantsFound": "participants trouvés",
+    "filterApplied": "filtres appliqués",
+    "tableView": "Vue en tableau",
+    "cardView": "Vue en carte",
+    "loading": "Chargement des participants...",
+    "noParticipantsFound": "Aucun participant trouvé",
+    "tryDifferentFilter": "Essayez un filtre différent ou effacez votre recherche",
     "noParticipants": "Aucun participant trouvé",
+    "countryParticipants": "{{count}} participants de ce pays",
     "table": {
       "name": "Nom",
       "country": "Pays",
       "race": "Course",
-      "bib": "Dossard #",
-      "status": "Statut"
+      "bib": "Numéro de dossard",
+      "bibNumber": "Numéro de dossard",
+      "status": "Statut",
+      "age": "Âge",
+      "gender": "Genre"
     },
     "status": {
       "confirmed": "Confirmé",
       "pending": "En attente",
       "cancelled": "Annulé"
     },
-    "unknownRace": "Course Inconnue",
+    "gender": {
+      "male": "Masculin",
+      "female": "Féminin"
+    },
+    "unknownRace": "Course inconnue",
     "pagination": {
-      "showing": "Affichage de",
+      "showing": "Affichage",
       "to": "à",
-      "of": "sur",
+      "of": "de",
       "entries": "entrées"
     }
   },
   "rules": {
-    "title": "Règles et Règlements",
-    "subtitle": "Familiarisez-vous avec les règles de la compétition pour assurer une course sûre et équitable pour tous.",
-    "downloadButton": "Télécharger les Règles Complètes PDF",
+    "title": "Règles et règlements",
+    "subtitle": "Familiarisez-vous avec les règles de la compétition pour garantir une course sûre et équitable pour tous.",
+    "downloadButton": "Télécharger le PDF des règles complètes",
     "sections": {
       "general": {
-        "title": "Règles Générales",
+        "title": "Règles générales",
         "rules": {
-          "1": "Les participants doivent suivre le sentier balisé à tout moment. Les raccourcis sont strictement interdits et entraîneront une disqualification.",
+          "1": "Les participants doivent suivre le sentier balisé en tout temps. Prendre des raccourcis est strictement interdit et entraînera une disqualification.",
           "2": "Les numéros de dossard doivent être visibles à tout moment pendant la course.",
-          "3": "Il est strictement interdit de jeter des déchets sur le sentier. Utilisez les poubelles désignées aux postes de ravitaillement.",
-          "4": "En cas d'urgence, les participants doivent aider leurs compagnons coureurs et alerter immédiatement les officiels de course."
+          "3": "Jeter des déchets sur le sentier est strictement interdit. Utilisez les poubelles désignées aux postes de ravitaillement.",
+          "4": "En cas d'urgence, les participants doivent aider les autres coureurs et alerter immédiatement les officiels de la course."
         }
       },
       "equipment": {
-        "title": "Équipement Requis",
+        "title": "Équipement requis",
         "rules": {
-          "1": "Contenant d'eau (minimum 1L pour 10km, 1,5L pour 21km, 2L pour 50km).",
-          "2": "Téléphone portable avec les contacts de l'organisation de course enregistrés.",
-          "3": "Couverture thermique et sifflet (course de 50km uniquement).",
-          "4": "Lampe frontale avec piles de rechange (course de 50km uniquement)."
+          "1": "Conteneur d'eau (minimum 1L pour 10 km, 1,5L pour 21 km, 2L pour 50 km).",
+          "2": "Téléphone portable avec les contacts de l'organisation enregistrés.",
+          "3": "Couverture thermique et sifflet (uniquement pour la course de 50 km).",
+          "4": "Lampe frontale avec piles de rechange (uniquement pour la course de 50 km)."
         }
       },
       "timeLimits": {
-        "title": "Limites de Temps et Barrières Horaires",
+        "title": "Limites de temps et seuils",
         "rules": {
-          "1": "Explorateur de Montagne (10km): limite de temps totale de 3 heures.",
-          "2": "Défi Forestier (21km): limite de temps totale de 5 heures avec barrière horaire à mi-parcours à 2,5 heures.",
-          "3": "Ultra Sommet (50km): limite de temps totale de 12 heures avec barrières horaires à 20km (4 heures) et 35km (8 heures)."
+          "1": "Mountain Explorer (10 km) : limite totale de 3 heures.",
+          "2": "Forest Challenge (21 km) : limite totale de 5 heures avec un seuil intermédiaire à 2,5 heures.",
+          "3": "Summit Ultra (50 km) : limite totale de 12 heures avec des seuils à 20 km (4 heures) et 35 km (8 heures)."
         }
       },
       "penalties": {
-        "title": "Pénalités et Disqualification",
+        "title": "Pénalités et disqualification",
         "rules": {
-          "1": "Équipement requis manquant: pénalité de 30 minutes.",
-          "2": "Raccourci sur le parcours: disqualification.",
-          "3": "Jet de déchets: pénalité d'1 heure pour la première infraction, disqualification pour la deuxième infraction.",
-          "4": "Non-assistance à un coureur en détresse: disqualification."
+          "1": "Manque d'équipement requis : pénalité de 30 minutes.",
+          "2": "Raccourcir le parcours : disqualification.",
+          "3": "Jeter des déchets : pénalité d'une heure pour la première infraction, disqualification pour la seconde.",
+          "4": "Ne pas aider un coureur en détresse : disqualification."
         }
       }
     }
   },
   "program": {
-    "title": "Programme de l'Événement",
+    "title": "Programme de l'événement",
     "subtitle": "Planifiez votre week-end de course avec notre programme détaillé de tous les événements et activités.",
-    "downloadButton": "Télécharger le Programme Complet PDF",
+    "downloadButton": "Télécharger le PDF du programme complet",
     "day": "Jour",
     "dayTitles": {
-      "day1": "Inscription et Briefings",
-      "day2": "Explorateur de Montagne et Défi Forestier",
-      "day3": "Ultra Sommet et Clôture"
+      "day1": "Inscription et briefings",
+      "day2": "Mountain Explorer et Forest Challenge",
+      "day3": "Summit Ultra et clôture"
     }
   },
   "contact": {
-    "title": "Contactez-Nous",
-    "subtitle": "Vous avez des questions sur la compétition ? Contactez notre équipe pour obtenir de l'aide.",
+    "title": "Contactez-nous",
+    "subtitle": "Vous avez des questions sur la compétition ? Contactez notre équipe pour de l'assistance.",
     "info": {
-      "title": "Informations de Contact",
-      "email": "Email",
+      "title": "Informations de contact",
+      "email": "E-mail",
       "phone": "Téléphone",
-      "location": "Quartier Général de la Course",
-      "address": "Centre de Villégiature Montagnard\nMontagnes des Carpates\nRoumanie",
-      "hours": "Heures d'Assistance",
-      "weekdays": "Lundi - Vendredi: 9h00 - 17h00",
-      "weekend": "Week-end: 10h00 - 15h00",
-      "social": "Suivez-Nous"
+      "location": "Quartier général de la course",
+      "address": "Centre du Resort Montagnard\nMontagnes des Carpates\nRoumanie",
+      "hours": "Heures de support",
+      "weekdays": "Lundi - Vendredi : 9h00 - 17h00",
+      "weekend": "Week-end : 10h00 - 15h00",
+      "social": "Suivez-nous"
     },
     "form": {
-      "title": "Envoyez-Nous un Message",
-      "name": "Votre Nom",
-      "email": "Adresse Email",
+      "title": "Envoyez-nous un message",
+      "name": "Votre nom",
+      "email": "Adresse e-mail",
       "subject": "Sujet",
       "message": "Message",
-      "submitButton": "Envoyer le Message",
+      "submitButton": "Envoyer le message",
       "success": {
-        "title": "Message Envoyé",
+        "title": "Message envoyé",
         "message": "Merci pour votre message. Nous vous répondrons dès que possible."
       },
       "error": {
-        "title": "Message Non Envoyé",
-        "message": "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer."
+        "title": "Message non envoyé",
+        "message": "Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer."
       }
     },
     "faq": {
-      "title": "Questions Fréquemment Posées",
+      "title": "Questions fréquentes",
       "registration": {
-        "question": "Comment puis-je m'inscrire à la compétition?",
-        "answer": "L'inscription est disponible en ligne sur notre site web. Accédez simplement à la section Inscription, choisissez votre course, remplissez le formulaire et effectuez le paiement. Vous recevrez un email de confirmation avec tous les détails."
+        "question": "Comment m'inscrire à la compétition ?",
+        "answer": "L'inscription est disponible en ligne sur notre site web. Rendez-vous dans la section Inscription, choisissez votre course, remplissez le formulaire et effectuez le paiement. Vous recevrez un e-mail de confirmation avec tous les détails."
       },
       "equipment": {
-        "question": "Que dois-je apporter le jour de la course?",
-        "answer": "Apportez votre pièce d'identité, votre email de confirmation et tout l'équipement requis pour votre course. Consultez la section Règles pour l'équipement spécifique requis pour la distance de votre course. N'oubliez pas de vous habiller de manière appropriée selon les conditions météorologiques."
+        "question": "Que dois-je apporter le jour de la course ?",
+        "answer": "Apportez votre pièce d'identité, l'e-mail de confirmation et tout l'équipement requis pour votre course. Consultez la section Règles pour connaître l'équipement spécifique requis pour votre distance. N'oubliez pas de vous habiller en fonction des conditions météorologiques."
       },
       "stations": {
-        "question": "Y a-t-il des postes de ravitaillement sur le parcours?",
-        "answer": "Oui, il y a des postes de ravitaillement le long de tous les parcours. La course de 10 km a 2 postes, la course de 21 km a 4 postes, et la course de 50 km a 8 postes. Chaque poste fournit de l'eau, des boissons sportives et diverses collations."
+        "question": "Y a-t-il des postes de ravitaillement sur le parcours ?",
+        "answer": "Oui, il y a des postes de ravitaillement le long de tous les parcours de course. La course de 10 km a 2 postes, celle de 21 km en a 4, et celle de 50 km en a 8. Chaque poste propose de l'eau, des boissons sportives et divers en-cas."
       },
       "change": {
-        "question": "Puis-je changer de course après m'être inscrit?",
-        "answer": "Les changements de course sont possibles jusqu'à 30 jours avant l'événement, sous réserve de disponibilité. Pour changer de course, veuillez contacter notre équipe d'assistance par email. Notez que passer à une course plus chère nécessite un paiement supplémentaire, tandis que passer à une course moins chère n'offre pas de remboursement de la différence."
+        "question": "Puis-je changer de course après m'être inscrit ?",
+        "answer": "Les changements de course sont possibles jusqu'à 30 jours avant l'événement, sous réserve de disponibilité. Pour changer de course, veuillez contacter notre équipe de support par e-mail. Notez que passer à une course plus chère nécessite un paiement supplémentaire, tandis que passer à une course moins chère n'offre pas de remboursement de la différence."
       }
     }
   },
   "sponsors": {
-    "title": "Nos Sponsors",
-    "subtitle": "Nous sommes reconnaissants envers nos sponsors qui aident à rendre cet événement possible. Leur soutien contribue à une expérience exceptionnelle de course de trail.",
-    "premiumTitle": "Partenaires Premium",
-    "standardTitle": "Partenaires de Soutien",
-    "visitWebsite": "Visiter le Site Web",
+    "title": "Nos sponsors",
+    "subtitle": "Nous sommes reconnaissants envers nos sponsors qui rendent cet événement possible. Leur soutien contribue à une expérience exceptionnelle de course sur sentier.",
+    "premiumTitle": "Partenaires premium",
+    "standardTitle": "Partenaires de soutien",
+    "visitWebsite": "Visiter le site web",
     "visit": "Visiter",
-    "becomeButton": "Devenir Sponsor"
+    "becomeButton": "Devenir sponsor"
   },
   "footer": {
-    "about": "Rejoignez-nous pour une expérience inoubliable de course de trail dans les magnifiques Montagnes des Carpates.",
-    "quickLinks": "Liens Rapides",
+    "about": "Rejoignez-nous pour une expérience de course sur sentier inoubliable dans les magnifiques montagnes des Carpates.",
+    "quickLinks": "Liens rapides",
     "resources": "Ressources",
-    "resources1": "Cartes des Sentiers",
-    "resources2": "Comment se rendre à Stana de Vale",
-    "resources3": "Guide d'Équipement",
-    "resources4": "Informations de Voyage",
+    "resources1": "Cartes des sentiers",
+    "resources2": "Voyage à Stana de Vale",
+    "resources3": "Guide de l'équipement",
+    "resources4": "Informations de voyage",
     "resources5": "Hébergement",
-    "resources6": "Galerie Photos",
+    "resources6": "Galerie de photos",
     "subscribe": "S'abonner",
-    "subscribeText": "Restez à jour avec les dernières nouvelles et mises à jour concernant la compétition.",
-    "emailPlaceholder": "Votre adresse email",
+    "subscribeText": "Restez à jour avec les dernières nouvelles et mises à jour sur la compétition.",
+    "emailPlaceholder": "Votre adresse e-mail",
     "privacyNotice": "En vous abonnant, vous acceptez notre politique de confidentialité et consentez à recevoir des mises à jour de notre équipe.",
-    "copyright": "© 2024 Compétition de Course de Trail. Tous droits réservés.",
-    "privacy": "Politique de Confidentialité",
-    "terms": "Conditions Générales",
-    "cookies": "Politique de Cookies"
+    "copyright": "© 2025 Compétition de Course sur Sentier. Tous droits réservés.",
+    "privacy": "Politique de confidentialité",
+    "terms": "Termes et conditions",
+    "cookies": "Politique de cookies"
   },
   "months": {
     "0": "Janvier",
@@ -319,23 +359,23 @@
     "11": "Décembre"
   },
   "countdown": {
-    "title": "Temps avant le jour de course",
+    "title": "Temps jusqu'au jour de la course",
     "days": "Jours",
     "hours": "Heures",
     "minutes": "Min",
     "seconds": "Sec"
   },
   "howToGet": {
-    "title": "Comment se rendre à Stana de Vale",
-    "subtitle": "Informations pratiques de voyage pour vous aider à rejoindre la destination de la course.",
-    "introduction": "Stana de Vale est une station de montagne pittoresque située dans les Monts Apuseni en Roumanie, offrant des paysages naturels à couper le souffle et le cadre parfait pour notre compétition de course sur sentier.",
-    "importantNote": "Note Importante",
-    "weatherNote": "Les routes de montagne peuvent être affectées par les conditions météorologiques, particulièrement en hiver et au début du printemps. Vérifiez toujours les conditions routières avant de voyager.",
-    "locationTitle": "Aperçu de l'Emplacement",
-    "locationDescription": "Stana de Vale est située à une altitude d'environ 1 100 mètres dans le comté de Bihor, en Roumanie. Elle est connue pour ses forêts vierges, ses sources de montagne et ses magnifiques sentiers de randonnée.",
+    "title": "Comment arriver à Stana de Vale",
+    "subtitle": "Informations pratiques de voyage pour atteindre la destination de la course.",
+    "introduction": "Stana de Vale est un pittoresque complexe montagnard situé dans les montagnes Apuseni en Roumanie, offrant des paysages naturels époustouflants et le cadre parfait pour notre compétition de course sur sentier.",
+    "importantNote": "Note importante",
+    "weatherNote": "Les routes de montagne peuvent être affectées par les conditions météorologiques, surtout en hiver et au début du printemps. Vérifiez toujours les conditions des routes avant de voyager.",
+    "locationTitle": "Aperçu de l'emplacement",
+    "locationDescription": "Stana de Vale est située à une altitude d'environ 1 100 mètres dans le comté de Bihor, en Roumanie. Elle est connue pour ses forêts intactes, ses sources de montagne et ses magnifiques sentiers de randonnée.",
     "byAir": {
-      "title": "Par Avion",
-      "description": "Les aéroports les plus proches de Stana de Vale sont à Oradea et Cluj-Napoca. De là, vous pouvez poursuivre votre voyage en voiture, en train ou en bus.",
+      "title": "Par avion",
+      "description": "Les aéroports les plus proches de Stana de Vale se trouvent à Oradea et Cluj-Napoca. De là, vous pouvez continuer votre voyage en voiture, train ou bus.",
       "oradea": {
         "title": "Aéroport International d'Oradea (OMR)",
         "description": "L'aéroport le plus proche de Stana de Vale :",
@@ -345,20 +385,20 @@
       },
       "cluj": {
         "title": "Aéroport International de Cluj-Napoca (CLJ)",
-        "description": "Un aéroport international majeur avec plus de connexions :",
+        "description": "Un grand aéroport international avec plus de connexions :",
         "distance": "Environ 150 km de Stana de Vale",
         "travelTime": "Environ 2 heures 45 minutes en voiture",
         "transport": "Taxis, location de voitures et services de navette disponibles"
       }
     },
     "byCar": {
-      "title": "En Voiture",
-      "description": "Voyager en voiture offre de la flexibilité pour atteindre Stana de Vale. La station de montagne est accessible via plusieurs itinéraires, bien que certaines routes puissent être difficiles selon la saison.",
+      "title": "En voiture",
+      "description": "Voyager en voiture offre une flexibilité pour atteindre Stana de Vale. Le complexe montagnard est accessible par plusieurs routes, bien que certaines puissent être difficiles selon la saison.",
       "fromOradea": {
         "title": "Depuis Oradea",
         "description": "Il y a deux itinéraires principaux depuis Oradea :",
         "route1": "Itinéraire 1 : Oradea → Beiuș → Budureasa → Stana de Vale (environ 80 km, 1h 45m)",
-        "route2": "Itinéraire 2 : Oradea → Aleșd → Borod → Bratca → Beiuș → Budureasa → Stana de Vale (plus long mais peut offrir de meilleures conditions routières)"
+        "route2": "Itinéraire 2 : Oradea → Aleșd → Borod → Bratca → Beiuș → Budureasa → Stana de Vale (plus long mais peut offrir de meilleures conditions de route)"
       },
       "fromCluj": {
         "title": "Depuis Cluj-Napoca",
@@ -366,120 +406,120 @@
         "route": "Cluj-Napoca → Huedin → Borod → Beiuș → Budureasa → Stana de Vale (environ 3 heures de route)"
       },
       "parking": {
-        "title": "Informations sur le Stationnement",
-        "description": "Il y a un grand parking au centre de la station où vous pouvez laisser votre véhicule pendant la compétition. Un stationnement supplémentaire sera disponible près de la zone de départ/arrivée de la course."
+        "title": "Informations sur le stationnement",
+        "description": "Il y a une grande aire de stationnement au centre du complexe où vous pouvez laisser votre véhicule pendant la compétition. Un stationnement supplémentaire sera disponible près de la zone de départ/arrivée de la course."
       }
     },
     "byTrain": {
-      "title": "En Train",
-      "description": "Le réseau ferroviaire roumain peut vous amener près de Stana de Vale, bien que vous aurez besoin d'un transport supplémentaire pour la dernière partie du voyage.",
+      "title": "En train",
+      "description": "Le réseau ferroviaire roumain peut vous amener près de Stana de Vale, bien que vous ayez besoin d'un transport supplémentaire pour la dernière partie du voyage.",
       "connections": {
-        "title": "Connexions Ferroviaires",
-        "connection1": "Depuis Bucarest : Prenez un train jusqu'à Oradea, puis continuez en bus ou en voiture",
-        "connection2": "Depuis Budapest : Prenez un train jusqu'à Oradea, puis continuez en bus ou en voiture"
+        "title": "Connexions ferroviaires",
+        "connection1": "Depuis Bucarest : Prenez un train pour Oradea, puis continuez en bus ou en voiture",
+        "connection2": "Depuis Budapest : Prenez un train pour Oradea, puis continuez en bus ou en voiture"
       },
       "lastLeg": {
-        "title": "Connexion Finale",
-        "description": "Depuis Oradea ou Beiuș, vous devrez organiser un transport jusqu'à Stana de Vale car il n'y a pas de service ferroviaire direct vers la station."
+        "title": "Dernière connexion",
+        "description": "Depuis Oradea ou Beiuș, vous devrez organiser un transport jusqu'à Stana de Vale car il n'y a pas de service ferroviaire direct jusqu'au complexe."
       }
     },
     "byBus": {
-      "title": "En Bus",
-      "description": "Les transports en bus publics peuvent vous amener aux villes proches de Stana de Vale, d'où vous devrez organiser la dernière partie de votre voyage.",
+      "title": "En bus",
+      "description": "Le transport public en bus peut vous amener dans des villes proches de Stana de Vale, d'où vous devrez organiser la dernière partie de votre voyage.",
       "services": {
-        "title": "Services de Bus",
-        "service1": "Oradea à Beiuș : Services réguliers de bus tout au long de la journée",
+        "title": "Services de bus",
+        "service1": "Oradea à Beiuș : Services réguliers tout au long de la journée",
         "service2": "Cluj-Napoca à Beiuș : Services limités, vérifiez les horaires à l'avance"
       },
       "schedules": {
-        "title": "Horaires des Bus",
-        "description": "Les horaires des bus peuvent varier selon les saisons. Nous vous recommandons de vérifier les derniers horaires sur autogari.ro ou directement auprès des compagnies de bus locales."
+        "title": "Horaires des bus",
+        "description": "Les horaires des bus peuvent varier selon la saison. Nous recommandons de vérifier les derniers horaires sur autogari.ro ou directement auprès des compagnies de bus locales."
       }
     },
     "localTransport": {
-      "title": "Transport Local",
-      "description": "Pour la dernière partie de votre voyage vers Stana de Vale, vous pourriez avoir besoin d'utiliser des options de transport local.",
+      "title": "Transport local",
+      "description": "Pour la dernière partie de votre voyage à Stana de Vale, vous devrez peut-être utiliser des options de transport local.",
       "taxis": {
         "title": "Taxis",
-        "description": "Les taxis sont disponibles à Beiuș et peuvent vous emmener à Stana de Vale. Attendez-vous à payer environ 100-150 RON pour ce trajet."
+        "description": "Des taxis sont disponibles à Beiuș et peuvent vous emmener à Stana de Vale. Comptez environ 100-150 RON pour ce trajet."
       },
       "shuttles": {
-        "title": "Navettes le Jour de la Course",
-        "description": "Pour la compétition, nous organiserons des services de navette depuis les principales villes voisines. Les détails seront partagés avec les participants inscrits à l'approche de la date de l'événement."
+        "title": "Navettes le jour de la course",
+        "description": "Pour la compétition, nous organiserons des services de navette depuis les principales villes voisines. Les détails seront partagés avec les participants inscrits plus près de la date de l'événement."
       }
     },
     "accommodation": {
-      "title": "Options d'Hébergement",
-      "description": "Il existe plusieurs options d'hébergement à Stana de Vale et aux alentours pour convenir à différentes préférences et budgets.",
+      "title": "Options d'hébergement",
+      "description": "Il existe plusieurs options d'hébergement à Stana de Vale et dans ses environs pour répondre à différents goûts et budgets.",
       "options": {
         "option1": {
-          "title": "Hôtel de Montagne",
-          "description": "L'hôtel principal à Stana de Vale offre des chambres confortables avec vue sur la montagne, restaurant et installations de spa."
+          "title": "Hôtel du complexe montagnard",
+          "description": "L'hôtel principal de Stana de Vale propose des chambres confortables avec vue sur la montagne, un restaurant et des installations de spa."
         },
         "option2": {
-          "title": "Pensions à Proximité",
+          "title": "Pensions à proximité",
           "description": "Plusieurs pensions familiales dans les environs offrent une hospitalité locale authentique et une cuisine maison."
         },
         "option3": {
           "title": "Camping",
-          "description": "Pour les plus aventureux, il y a des zones de camping désignées près de la station. Apportez votre propre équipement ou louez-en sur place."
+          "description": "Pour les aventuriers, il y a des zones de camping désignées près du complexe. Apportez votre propre équipement ou louez sur place."
         }
       }
     }
   },
   "sectionsOverview": {
-    "title": "Découvrez la Compétition",
-    "subtitle": "Apprenez tout ce que vous devez savoir sur notre compétition de course de trail",
-    "races": "Découvrez nos courses de trail exigeantes avec des informations détaillées sur la distance, le dénivelé et la difficulté.",
-    "participants": "Vérifiez qui est déjà inscrit et parcourez la liste des participants du monde entier.",
-    "program": "Découvrez le programme complet de l'événement, y compris les heures de départ des courses, les cérémonies de remise des prix et plus encore.",
-    "rules": "Comprenez les règles de la compétition, les exigences en matière d'équipement et tous les protocoles de sécurité.",
-    "emaCircuit": "En savoir plus sur le Circuit EMA de Course Off-Road 2025 et son importance pour la course de trail.",
-    "sponsors": "Découvrez les organisations et entreprises qui soutiennent cet événement de course de trail.",
-    "registration": "Inscrivez-vous à votre course choisie et réservez votre place dans ce défi montagnard passionnant.",
-    "contact": "Contactez notre équipe si vous avez des questions concernant la compétition."
+    "title": "Explorez la compétition",
+    "subtitle": "Découvrez tout ce que vous devez savoir sur notre compétition de course sur sentier",
+    "races": "Consultez nos courses exigeantes de trail avec des informations détaillées sur la distance, le dénivelé et la difficulté.",
+    "participants": "Voyez qui est déjà inscrit et vérifiez les participants du monde entier.",
+    "program": "Explorez le programme complet des événements, y compris les heures de départ des courses, les cérémonies de remise des prix et plus encore.",
+    "rules": "Comprenez les règles de la compétition, les exigences en matière d'équipement et toutes les réglementations de sécurité.",
+    "emaCircuit": "Apprenez-en plus sur le Circuit EMA Off-Road Running 2025 et son importance pour la course sur sentier.",
+    "sponsors": "Découvrez les organisations et entreprises qui soutiennent cet événement de course sur sentier.",
+    "registration": "Inscrivez-vous pour la course de votre choix et assurez-vous une place dans ce défi montagnard excitant.",
+    "contact": "Contactez notre équipe pour toute question sur la compétition."
   },
   "emaCircuit": {
-    "title": "CIRCUIT E.M.A. DE COURSE OFF-ROAD 2025",
-    "subtitle": "Édition Expérimentale",
+    "title": "CIRCUIT E.M.A. OFF-ROAD RUNNING 2025",
+    "subtitle": "Édition expérimentale",
     "overview": {
       "title": "Aperçu",
-      "content": "European Masters Athletics (EMA) est fier d'annoncer l'édition expérimentale inaugurale du Circuit EMA de Course Off-Road, un circuit dédié aux athlètes Masters comprenant des épreuves de course en montagne, verticale et hors-piste.",
-      "objectives": "Les Objectifs du Circuit:",
+      "content": "European Masters Athletics (EMA) est fier d'annoncer l'édition expérimentale inaugurale du Circuit EMA Off-Road Running, un circuit dédié aux athlètes Masters comprenant des événements de course en montagne, verticale et hors route.",
+      "objectives": "Objectifs du circuit :",
       "objectivesList": [
-        "Offrir des conditions optimales aux athlètes pour réaliser des performances exceptionnelles.",
+        "Offrir des conditions optimales pour que les athlètes réalisent des performances exceptionnelles.",
         "Augmenter les opportunités de compétition dans un environnement stimulant et diversifié.",
-        "Favoriser une plus grande interaction et des échanges culturels entre les athlètes.",
-        "Proposer un large éventail d'options de participation tout au long de la saison.",
+        "Favoriser une plus grande interaction et un échange culturel entre les athlètes.",
+        "Proposer une large gamme d'options de participation tout au long de la saison.",
         "Promouvoir la diversité des athlètes participants."
       ],
-      "focus": "L'accent organisationnel sera mis sur la réalisation d'événements bien structurés et efficaces qui créent les meilleures conditions pour que les participants excellent et profitent de l'expérience."
+      "focus": "L'accent organisationnel sera mis sur la fourniture d'événements bien structurés et efficaces qui créent les meilleures conditions pour que les participants excellent et profitent de l'expérience."
     },
     "participation": {
       "title": "Participation",
-      "content": "La participation au Circuit EMA de Course Off-Road est ouverte à tous les athlètes qui répondent aux critères des Masters pour la course Off-Road, en particulier ceux âgés de 35 à 79 ans, et qui détiennent une licence valide de leur Fédération respective, conformément aux règles de la WMA.",
-      "note1": "Veuillez noter que le Circuit EMA de Course Off-Road n'est pas un championnat, et les athlètes ne représenteront pas officiellement leurs pays dans ces événements.",
-      "note2": "Le Circuit est également ouvert aux athlètes non-européens, qui concourront pour les prix des événements individuels ainsi que pour les récompenses finales."
+      "content": "La participation au Circuit EMA Off-Road Running est ouverte à tous les athlètes qui répondent aux critères de course hors route pour les Masters, en particulier ceux âgés de 35 à 79 ans, et qui détiennent une licence valide de leur fédération respective, conformément aux règles de la WMA.",
+      "note1": "Veuillez noter que le Circuit EMA Off-Road Running n'est pas un événement de championnat, et les athlètes ne représenteront pas officiellement leurs pays dans ces événements.",
+      "note2": "Le circuit est également ouvert aux athlètes non européens, qui concourront pour des prix individuels d'événements ainsi que pour des prix finaux."
     },
     "liability": {
-      "title": "Responsabilité et Assurance",
-      "content": "Les participants assument l'entière responsabilité de leur participation à tout événement. L'Organisateur n'est pas responsable des dommages ou blessures subis par le Participant, sauf dans les cas où le dommage est le résultat direct des actions intentionnelles de l'Organisateur.",
-      "insurance": "Si la police d'assurance de l'Organisateur couvre les dommages, la responsabilité de l'Organisateur sera limitée au montant couvert par l'assureur. Il est conseillé aux participants de souscrire leur propre assurance pour couvrir les risques potentiels, tels que les accidents, la maladie ou le décès, qui peuvent survenir pendant l'événement.",
-      "health": "En s'inscrivant, les participants confirment qu'ils sont en bonne santé physique et mentale, et qu'ils ont suivi un entraînement approprié pour participer à l'événement. Il est recommandé que les participants subissent un examen médical pour s'assurer de leur aptitude à participer."
+      "title": "Responsabilité et assurance",
+      "content": "Les participants assument l'entière responsabilité de leur participation à tout événement. L'Organisateur n'est pas responsable des dommages ou blessures subis par le Participant, sauf dans les cas où le dommage est le résultat direct d'actions intentionnelles de l'Organisateur.",
+      "insurance": "Si la police d'assurance de l'Organisateur couvre les dommages, la responsabilité de l'Organisateur sera limitée au montant couvert par l'assureur. Il est conseillé aux participants de souscrire leur propre assurance pour couvrir les risques potentiels, tels que les accidents, les maladies ou le décès, qui pourraient survenir pendant l'événement.",
+      "health": "En s'inscrivant, les participants confirment qu'ils sont en bonne santé physique et mentale et qu'ils ont suivi un entraînement approprié pour participer à l'événement. Il est recommandé aux participants de passer un examen médical pour s'assurer de leur aptitude à participer."
     },
     "rankings": {
       "title": "Classements",
-      "content": "Le Circuit EMA de Course Off-Road comprendra à la fois des classements individuels pour chaque événement et un classement général final pour le Circuit.",
-      "local": "Chaque Comité d'Organisation Local (LOC) peut proposer un ou plusieurs événements (comme la course en montée, verticale, course en montagne, trail, etc.), avec les vainqueurs et champions de catégorie d'âge récompensés selon leurs réglementations locales. Chaque événement aura une section dédiée sur le site web de l'EMA.",
-      "eligibility": "Éligibilité au Classement Final: Pour se qualifier pour les classements finaux de l'EMA, les athlètes doivent participer à au moins deux événements dans des lieux différents.",
-      "points": "Attribution des Points: Le vainqueur de chaque événement (global et dans chaque catégorie d'âge) recevra 1 point, avec des positions suivantes attribuées comme suit (2 points pour la deuxième place, 3 points pour la troisième, etc.). L'EMA considérera les deux meilleures performances de chaque athlète lors du calcul des classements finaux.",
-      "specialPrize": "Un prix spécial sera décerné à tous les athlètes qui participent à au moins trois étapes du Circuit, indépendamment de leurs résultats globaux.",
-      "ceremony": "La cérémonie officielle de remise des prix aura lieu lors du Championnat EMA de Course Off-Road 2026."
+      "content": "Le Circuit EMA Off-Road Running proposera des classements pour les événements individuels ainsi qu'un classement général final pour le circuit.",
+      "local": "Chaque Comité Organisateur Local (LOC) peut proposer un ou plusieurs événements (comme montée, verticale, course en montagne, trail, etc.), avec des prix décernés aux gagnants et champions des catégories d'âge selon leurs réglementations locales. Chaque événement aura une section dédiée sur le site web de l'EMA.",
+      "eligibility": "Éligibilité au classement final : Pour être éligible au classement final de l'EMA, les athlètes doivent participer à au moins deux événements dans différents lieux.",
+      "points": "Attribution des points : Le gagnant de chaque événement (dans l'ensemble et dans chaque catégorie d'âge) recevra 1 point, les positions suivantes recevant des points comme suit (2 points pour la deuxième place, 3 points pour la troisième, etc.). L'EMA prendra en compte les deux meilleures performances de chaque athlète pour calculer le classement final.",
+      "specialPrize": "Un prix spécial sera décerné à tous les athlètes qui participent à au moins trois étapes du circuit, indépendamment de leurs résultats globaux.",
+      "ceremony": "La cérémonie officielle de remise des prix aura lieu lors du Championnat EMA Off-Road Running 2026."
     },
     "calendar": {
       "title": "Calendrier",
-      "content": "Les événements du Circuit EMA de Course Off-Road 2025 auront lieu selon le calendrier fourni sur le site web officiel de l'EMA."
+      "content": "Les événements du Circuit EMA Off-Road Running 2025 se dérouleront selon le calendrier fourni sur le site officiel de l'EMA."
     },
-    "downloadButton": "Télécharger le Règlement Complet PDF"
+    "downloadButton": "Télécharger le PDF des règlements complets"
   }
 }

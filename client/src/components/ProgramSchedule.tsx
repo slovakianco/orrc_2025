@@ -1,32 +1,14 @@
 import { useTranslation } from "react-i18next";
-import { useQuery } from "@tanstack/react-query";
-import { ProgramEvent } from "@/lib/types";
-import { formatDate, getLocalizedEventTitle, getLocalizedEventDescription, groupEventsByDate } from "@/lib/utils";
-import { Download, Clock } from "lucide-react";
+import { Download, Clock, MapPin } from "lucide-react";
 
 const ProgramSchedule = () => {
-  const { t, i18n } = useTranslation();
-  const language = i18n.language as 'en' | 'ro' | 'fr' | 'de';
+  const { t } = useTranslation();
 
-  const { data: events, isLoading } = useQuery<ProgramEvent[]>({
-    queryKey: ['/api/program'],
-  });
-
-  if (isLoading) {
-    return (
-      <section id="program" className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">{t('program.title')}</h2>
-          <div className="animate-pulse flex justify-center mt-8">
-            <div className="h-8 w-8 bg-primary opacity-75 rounded-full"></div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  const eventsByDate = events ? groupEventsByDate(events) : {};
-  const sortedDates = Object.keys(eventsByDate).sort();
+  // Days structure for our new program based on translation keys
+  const days = [
+    { id: "day1", label: "program.dayTitles.day1" }, // Friday, July 4
+    { id: "day2", label: "program.dayTitles.day2" }, // Saturday, July 5
+  ];
 
   return (
     <section id="program" className="py-16 bg-gray-50">
@@ -38,46 +20,245 @@ const ProgramSchedule = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          {sortedDates.map((date, dateIndex) => (
-            <div key={date} className="relative mb-12">
-              <div className="absolute top-0 bottom-0 left-14 w-1 bg-primary bg-opacity-20"></div>
-              <div className="mb-8 flex">
-                <div className="bg-primary text-white rounded-lg p-3 z-10 shadow-md">
-                  <span className="text-xl font-bold block">{new Date(date).getDate()}</span>
-                  <span className="text-sm">{t(`months.${new Date(date).getMonth()}`)}</span>
+        <div className="max-w-5xl mx-auto">
+          {/* Day 1: Friday, July 4 */}
+          <div className="relative mb-12">
+            <div className="absolute top-0 bottom-0 left-14 w-1 bg-primary bg-opacity-20"></div>
+            <div className="mb-8 flex">
+              <div className="bg-primary text-white rounded-lg p-3 z-10 shadow-md">
+                <span className="text-xl font-bold block">4</span>
+                <span className="text-sm">{t('months.6')}</span>
+              </div>
+              <div className="ml-8">
+                <h3 className="font-heading font-bold text-2xl">
+                  {t('program.dayTitles.day1')}
+                </h3>
+              </div>
+            </div>
+
+            <div className="ml-28 space-y-6">
+              {/* Kit Pickup - Friday */}
+              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative">
+                <div className="absolute -left-16 top-6 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white">
+                  <Clock className="h-4 w-4" />
                 </div>
-                <div className="ml-8">
-                  <h3 className="font-heading font-bold text-2xl">
-                    {t('program.day')} {dateIndex + 1}: {t(`program.dayTitles.day${dateIndex + 1}`)}
-                  </h3>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+                  <div className="flex items-center">
+                    <Clock className="w-5 h-5 mr-2 text-primary" />
+                    <span className="text-base font-medium text-gray-700">10:00 - 20:00</span>
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold">{t('program.events.kitPickup.title')}</h4>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <p className="text-primary-dark font-medium flex items-center">
+                    <MapPin className="w-4 h-4 mr-2" />
+                    {t('program.events.kitPickup.location')}
+                  </p>
+                  <p className="text-gray-600 leading-relaxed">{t('program.events.kitPickup.friday')}</p>
                 </div>
               </div>
 
-              <div className="ml-28 space-y-6">
-                {eventsByDate[date].map((event) => (
-                  <div key={event.id} className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative">
-                    <div className="absolute -left-16 top-6 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white">
-                      <Clock className="h-4 w-4" />
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
-                      <div className="flex items-center">
-                        <Clock className="w-5 h-5 mr-2 text-primary" />
-                        <span className="text-base font-medium text-gray-700">{event.startTime}{event.endTime ? `-${event.endTime}` : ''}</span>
-                      </div>
-                      <div>
-                        <h4 className="text-xl font-semibold">{getLocalizedEventTitle(event, language)}</h4>
-                      </div>
-                    </div>
-                    <div className="space-y-3">
-                      <p className="text-primary-dark font-medium">{event.location}</p>
-                      <p className="text-gray-600 leading-relaxed">{getLocalizedEventDescription(event, language)}</p>
-                    </div>
+              {/* Technical Meeting */}
+              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative">
+                <div className="absolute -left-16 top-6 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white">
+                  <Clock className="h-4 w-4" />
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+                  <div className="flex items-center">
+                    <Clock className="w-5 h-5 mr-2 text-primary" />
+                    <span className="text-base font-medium text-gray-700">18:00</span>
                   </div>
-                ))}
+                  <div>
+                    <h4 className="text-xl font-semibold">{t('program.events.technicalMeeting.title')}</h4>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <p className="text-primary-dark font-medium flex items-center">
+                    <MapPin className="w-4 h-4 mr-2" />
+                    {t('program.events.technicalMeeting.location')}
+                  </p>
+                  <p className="text-gray-600 leading-relaxed">{t('program.events.technicalMeeting.time')}</p>
+                </div>
+              </div>
+
+              {/* Pasta Party */}
+              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative">
+                <div className="absolute -left-16 top-6 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white">
+                  <Clock className="h-4 w-4" />
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+                  <div className="flex items-center">
+                    <Clock className="w-5 h-5 mr-2 text-primary" />
+                    <span className="text-base font-medium text-gray-700">18:30</span>
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold">{t('program.events.pastaParty.title')}</h4>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <p className="text-primary-dark font-medium flex items-center">
+                    <MapPin className="w-4 h-4 mr-2" />
+                    {t('program.events.pastaParty.location')}
+                  </p>
+                  <p className="text-gray-600 leading-relaxed">{t('program.events.pastaParty.time')}</p>
+                </div>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Day 2: Saturday, July 5 */}
+          <div className="relative mb-12">
+            <div className="absolute top-0 bottom-0 left-14 w-1 bg-primary bg-opacity-20"></div>
+            <div className="mb-8 flex">
+              <div className="bg-primary text-white rounded-lg p-3 z-10 shadow-md">
+                <span className="text-xl font-bold block">5</span>
+                <span className="text-sm">{t('months.6')}</span>
+              </div>
+              <div className="ml-8">
+                <h3 className="font-heading font-bold text-2xl">
+                  {t('program.dayTitles.day2')}
+                </h3>
+              </div>
+            </div>
+
+            <div className="ml-28 space-y-6">
+              {/* Kit Pickup - Saturday */}
+              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative">
+                <div className="absolute -left-16 top-6 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white">
+                  <Clock className="h-4 w-4" />
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+                  <div className="flex items-center">
+                    <Clock className="w-5 h-5 mr-2 text-primary" />
+                    <span className="text-base font-medium text-gray-700">06:00 - 08:00</span>
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold">{t('program.events.kitPickup.title')}</h4>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <p className="text-primary-dark font-medium flex items-center">
+                    <MapPin className="w-4 h-4 mr-2" />
+                    {t('program.events.kitPickup.location')}
+                  </p>
+                  <p className="text-gray-600 leading-relaxed">{t('program.events.kitPickup.saturday')}</p>
+                </div>
+              </div>
+
+              {/* 33km Race Start */}
+              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative">
+                <div className="absolute -left-16 top-6 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white">
+                  <Clock className="h-4 w-4" />
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+                  <div className="flex items-center">
+                    <Clock className="w-5 h-5 mr-2 text-primary" />
+                    <span className="text-base font-medium text-gray-700">08:30</span>
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold">{t('program.events.raceStart33k.title')}</h4>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <p className="text-primary-dark font-medium flex items-center">
+                    <MapPin className="w-4 h-4 mr-2" />
+                    {t('program.events.raceStart33k.location')}
+                  </p>
+                  <p className="text-gray-600 leading-relaxed">{t('program.events.raceStart33k.time')}</p>
+                </div>
+              </div>
+
+              {/* 11km Race Start */}
+              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative">
+                <div className="absolute -left-16 top-6 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white">
+                  <Clock className="h-4 w-4" />
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+                  <div className="flex items-center">
+                    <Clock className="w-5 h-5 mr-2 text-primary" />
+                    <span className="text-base font-medium text-gray-700">09:30</span>
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold">{t('program.events.raceStart11k.title')}</h4>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <p className="text-primary-dark font-medium flex items-center">
+                    <MapPin className="w-4 h-4 mr-2" />
+                    {t('program.events.raceStart11k.location')}
+                  </p>
+                  <p className="text-gray-600 leading-relaxed">{t('program.events.raceStart11k.time')}</p>
+                </div>
+              </div>
+
+              {/* Post-Race Meal */}
+              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative">
+                <div className="absolute -left-16 top-6 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white">
+                  <Clock className="h-4 w-4" />
+                </div>
+                <div className="flex flex-col sm:items-center gap-4 mb-4">
+                  <div>
+                    <h4 className="text-xl font-semibold">{t('program.events.finishMeal.title')}</h4>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <p className="text-primary-dark font-medium flex items-center">
+                    <MapPin className="w-4 h-4 mr-2" />
+                    {t('program.events.finishMeal.location')}
+                  </p>
+                  <p className="text-gray-600 leading-relaxed">{t('program.events.finishMeal.description')}</p>
+                </div>
+              </div>
+
+              {/* Awards Ceremony */}
+              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative">
+                <div className="absolute -left-16 top-6 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white">
+                  <Clock className="h-4 w-4" />
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+                  <div className="flex items-center">
+                    <Clock className="w-5 h-5 mr-2 text-primary" />
+                    <span className="text-base font-medium text-gray-700">15:00</span>
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold">{t('program.events.awards.title')}</h4>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <p className="text-primary-dark font-medium flex items-center">
+                    <MapPin className="w-4 h-4 mr-2" />
+                    {t('program.events.awards.location')}
+                  </p>
+                  <p className="text-gray-600 leading-relaxed">{t('program.events.awards.time')}</p>
+                </div>
+              </div>
+
+              {/* Banquet */}
+              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative">
+                <div className="absolute -left-16 top-6 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white">
+                  <Clock className="h-4 w-4" />
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+                  <div className="flex items-center">
+                    <Clock className="w-5 h-5 mr-2 text-primary" />
+                    <span className="text-base font-medium text-gray-700">18:30</span>
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold">{t('program.events.banquet.title')}</h4>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <p className="text-primary-dark font-medium flex items-center">
+                    <MapPin className="w-4 h-4 mr-2" />
+                    {t('program.events.banquet.location')}
+                  </p>
+                  <p className="text-gray-600 leading-relaxed">{t('program.events.banquet.time')}</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <div className="mt-12 text-center">
             <a 

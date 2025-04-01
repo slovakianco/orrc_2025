@@ -1,0 +1,525 @@
+{
+  "common": {
+    "loading": "Caricamento...",
+    "submitting": "Invio...",
+    "error": "Si è verificato un errore",
+    "success": "Successo!",
+    "notAvailable": "Non disponibile",
+    "filter": "Filtro",
+    "search": "Cerca",
+    "clear": "Cancella",
+    "view": "Visualizza",
+    "sort": "Ordina",
+    "sortBy": "Ordina per",
+    "ascending": "Crescente",
+    "descending": "Decrescente",
+    "name": "Nome",
+    "date": "Data",
+    "apply": "Applica",
+    "cancel": "Annulla",
+    "notFound": "Non trovato",
+    "notFoundDescription": "La pagina che stai cercando non esiste.",
+    "goBack": "Torna indietro",
+    "goHome": "Vai alla pagina iniziale",
+    "languageSelector": "Selettore lingua"
+  },
+  "nav": {
+    "home": "Home",
+    "races": "Gare",
+    "registration": "Registrazione",
+    "participants": "Partecipanti",
+    "rules": "Regole",
+    "program": "Programma",
+    "contact": "Contatti",
+    "sponsors": "Sponsor",
+    "emaCircuit": "Circuito EMA 2025",
+    "howToGet": "Come Arrivare",
+    "registerButton": "Registrati Ora"
+  },
+  "hero": {
+    "title": "Sfida le Montagne",
+    "subtitle": "Vivi l'emozione del trail running attraverso paesaggi montani mozzafiato. Unisciti a corridori da tutto il mondo in questa competizione indimenticabile.",
+    "date": "4-5 Luglio 2024",
+    "registerButton": "Registrati Ora",
+    "exploreButton": "Esplora le Gare",
+    "imageAlt": "Trail running in montagna",
+    "enhancedDescription": "La gara di 33K fa parte del Circuito EMA Off-Road Running 2025 e del Campionato Nazionale di Corsa in Montagna per Master. Un'esperienza indimenticabile ti aspetta nelle bellissime Montagne dei Carpazi."
+  },
+  "quickInfo": {
+    "location": {
+      "title": "Posizione",
+      "content": "Montagne dei Carpazi, Romania",
+      "linkText": "Visualizza sulla mappa"
+    },
+    "date": {
+      "title": "Data",
+      "content": "4-5 Luglio 2025",
+      "linkText": "Visualizza programma completo"
+    },
+    "participants": {
+      "title": "Partecipanti",
+      "content": "Oltre 1.500 corridori da più di 30 paesi",
+      "linkText": "Vedi partecipanti"
+    }
+  },
+  "home": {
+    "featuredRaces": "Gare in Evidenza",
+    "details": "Scopri la bellezza del trail running con le nostre gare di 11km e 33km nelle Montagne dei Carpazi. La gara di 33km fa parte del Circuito EMA Off-Road Running 2025.",
+    "aboutCompetition": "Informazioni sulla Competizione",
+    "competitionDescription1": "Unisciti a noi per un'esperienza di trail running indimenticabile nelle spettacolari Montagne dei Carpazi. Le nostre gare offrono terreni impegnativi con viste mozzafiato, pensati sia per principianti che per corridori esperti.",
+    "competitionDescription2": "La gara di 33km fa parte del Circuito EMA Off-Road Running 2025 e del Campionato Nazionale di Corsa in Montagna per Master. La gara di 11km è perfetta per chi è nuovo al trail running o cerca una sfida più breve.",
+    "competitionDescription3": "Entrambe le gare si svolgono il 6 giugno 2025, con cronometraggio professionale, percorsi ben segnalati e supporto completo lungo il tracciato."
+  },
+  "races": {
+    "title": "Esplora le Nostre Gare",
+    "subtitle": "Dai sentieri adatti ai principianti alle ultra montane impegnative, trova la gara perfetta per il tuo livello e le tue ambizioni.",
+    "filterTitle": "Filtra Gare",
+    "filterBy": "Filtra per",
+    "filter": {
+      "all": "Tutte le Gare",
+      "beginner": "Adatte ai Principianti",
+      "advanced": "Sentieri Avanzati"
+    },
+    "filters": {
+      "all": "Tutte le Gare",
+      "beginner": "Principianti",
+      "intermediate": "Intermedio",
+      "advanced": "Avanzato",
+      "ultra": "Ultra"
+    },
+    "difficulty": {
+      "label": "Difficoltà",
+      "beginner": "Principianti",
+      "intermediate": "Intermedio",
+      "advanced": "Avanzato",
+      "ultra": "Ultra"
+    },
+    "dates": {
+      "15": "15 Giugno",
+      "16": "16 Giugno",
+      "17": "17 Giugno",
+      "4": "4 Luglio",
+      "5": "5 Luglio",
+      "6": "6 Luglio",
+      "05": "5 Luglio"
+    },
+    "viewDetails": "Visualizza Dettagli",
+    "viewAllButton": "Visualizza Tutte le Gare",
+    "elevation": "Dislivello",
+    "distance": "Distanza",
+    "price": "Prezzo",
+    "loading": "Caricamento gare...",
+    "noRacesFound": "Nessuna gara trovata",
+    "tryDifferentFilter": "Prova un'opzione di filtro diversa",
+    "certification": {
+      "ema": "Circuito EMA Off-Road Running 2025",
+      "national": "Campionato Nazionale di Corsa in Montagna Master",
+      "nationalShort": "Campionato Nazionale"
+    },
+    "raceDetail": {
+      "details": "Dettagli Gara",
+      "description": "Descrizione",
+      "date": "Data",
+      "distance": "Distanza",
+      "elevation": "Dislivello",
+      "difficulty": "Difficoltà",
+      "price": "Quota di Iscrizione",
+      "trailMap": "Mappa del Percorso",
+      "registerButton": "Registrati Ora",
+      "backToRaces": "Torna a Tutte le Gare",
+      "aidStations": "Punti di Ristoro",
+      "cutoffTime": "Tempo Limite",
+      "startTime": "Orario di Partenza",
+      "loading": "Caricamento dettagli gara...",
+      "downloadGPX": "Scarica GPX",
+      "map": "Mappa"
+    }
+  },
+  "registration": {
+    "title": "Registrati per la Competizione",
+    "subtitle": "Compila il modulo qui sotto per assicurarti un posto in una delle nostre gare. La registrazione anticipata garantisce le migliori tariffe.",
+    "form": {
+      "firstName": "Nome",
+      "lastName": "Cognome",
+      "email": "Indirizzo Email",
+      "phone": "Numero di Telefono",
+      "country": "Paese",
+      "selectCountry": "Seleziona il tuo paese",
+      "birthDate": "Data di Nascita",
+      "gender": "Genere",
+      "male": "Maschio",
+      "female": "Femmina",
+      "selectRace": "Seleziona la Tua Gara",
+      "medical": "Informazioni Mediche",
+      "medicalPlaceholder": "Condividi eventuali informazioni mediche rilevanti (allergie, condizioni, ecc.)",
+      "termsText": "Ho letto e accetto i",
+      "termsLink": "termini e condizioni",
+      "andText": "e",
+      "privacyLink": "politica sulla privacy",
+      "riskText": "Comprendo i rischi associati al trail running.",
+      "submitButton": "Completa la Registrazione"
+    },
+    "success": {
+      "title": "Registrazione Riuscita",
+      "message": "Grazie per esserti registrato! Riceverai presto un'email di conferma."
+    },
+    "error": {
+      "title": "Registrazione Fallita",
+      "message": "Si è verificato un errore durante l'elaborazione della tua registrazione. Riprova."
+    }
+  },
+  "participants": {
+    "title": "Partecipanti Registrati",
+    "subtitle": "Sfoglia l'elenco dei corridori attualmente registrati. Scopri chi parteciperà a ogni gara e trova amici o avversari.",
+    "searchPlaceholder": "Cerca per nome...",
+    "filterByCountry": "Filtra per Paese",
+    "filterByRace": "Filtra per Gara",
+    "allRaces": "Tutte le Gare",
+    "allCountries": "Tutti i Paesi",
+    "clearFilters": "Cancella Filtri",
+    "participantsFound": "partecipanti trovati",
+    "filterApplied": "filtri applicati",
+    "tableView": "Vista Tabella",
+    "cardView": "Vista Scheda",
+    "loading": "Caricamento partecipanti...",
+    "noParticipantsFound": "Nessun partecipante trovato",
+    "tryDifferentFilter": "Prova un filtro diverso o cancella la ricerca",
+    "noParticipants": "Nessun partecipante trovato",
+    "countryParticipants": "{{count}} partecipanti da questo paese",
+    "table": {
+      "name": "Nome",
+      "country": "Paese",
+      "race": "Gara",
+      "bib": "Numero Pettorale",
+      "bibNumber": "Numero Pettorale",
+      "status": "Stato",
+      "age": "Età",
+      "gender": "Genere"
+    },
+    "status": {
+      "confirmed": "Confermato",
+      "pending": "In sospeso",
+      "cancelled": "Annullato"
+    },
+    "gender": {
+      "male": "Maschio",
+      "female": "Femmina"
+    },
+    "unknownRace": "Gara Sconosciuta",
+    "pagination": {
+      "showing": "Mostra",
+      "to": "a",
+      "of": "di",
+      "entries": "voci"
+    }
+  },
+  "rules": {
+    "title": "Regole e Regolamenti",
+    "subtitle": "Familiarizza con le regole della competizione per garantire una gara sicura ed equa per tutti.",
+    "downloadButton": "Scarica il PDF delle Regole Complete",
+    "sections": {
+      "general": {
+        "title": "Regole Generali",
+        "rules": {
+          "1": "I partecipanti devono seguire il percorso segnalato in ogni momento. Prendere scorciatoie è severamente vietato e comporterà la squalifica.",
+          "2": "I numeri di pettorale devono essere visibili in ogni momento durante la gara.",
+          "3": "Gettare rifiuti sul percorso è severamente vietato. Usa i cestini designati nei punti di ristoro.",
+          "4": "In caso di emergenza, i partecipanti devono assistere i compagni corridori e avvisare immediatamente gli ufficiali di gara."
+        }
+      },
+      "equipment": {
+        "title": "Equipaggiamento Richiesto",
+        "rules": {
+          "1": "Contenitore d'acqua (minimo 1L per 10km, 1,5L per 21km, 2L per 50km).",
+          "2": "Telefono cellulare con i contatti dell'organizzazione salvati.",
+          "3": "Coperta termica e fischietto (solo per la gara di 50km).",
+          "4": "Lampada frontale con batterie di ricambio (solo per la gara di 50km)."
+        }
+      },
+      "timeLimits": {
+        "title": "Limiti di Tempo e Tagli",
+        "rules": {
+          "1": "Mountain Explorer (10km): limite totale di 3 ore.",
+          "2": "Forest Challenge (21km): limite totale di 5 ore con un taglio intermedio a 2,5 ore.",
+          "3": "Summit Ultra (50km): limite totale di 12 ore con tagli a 20km (4 ore) e 35km (8 ore)."
+        }
+      },
+      "penalties": {
+        "title": "Penalità e Squalifica",
+        "rules": {
+          "1": "Mancanza di equipaggiamento richiesto: penalità di 30 minuti.",
+          "2": "Accorciare il percorso: squalifica.",
+          "3": "Gettare rifiuti: penalità di 1 ora per la prima infrazione, squalifica per la seconda.",
+          "4": "Mancata assistenza a un corridore in difficoltà: squalifica."
+        }
+      }
+    }
+  },
+  "program": {
+    "title": "Programma dell'Evento",
+    "subtitle": "Pianifica il tuo weekend di gara con il nostro programma dettagliato di tutti gli eventi e le attività.",
+    "downloadButton": "Scarica il PDF del Programma Completo",
+    "day": "Giorno",
+    "dayTitles": {
+      "day1": "Registrazione e Briefing",
+      "day2": "Mountain Explorer e Forest Challenge",
+      "day3": "Summit Ultra e Chiusura"
+    }
+  },
+  "contact": {
+    "title": "Contattaci",
+    "subtitle": "Hai domande sulla competizione? Contatta il nostro team per assistenza.",
+    "info": {
+      "title": "Informazioni di Contatto",
+      "email": "Email",
+      "phone": "Telefono",
+      "location": "Sede della Gara",
+      "address": "Centro del Resort Montano\nMontagne dei Carpazi\nRomania",
+      "hours": "Orari di Supporto",
+      "weekdays": "Lunedì - Venerdì: 9:00 - 17:00",
+      "weekend": "Fine settimana: 10:00 - 15:00",
+      "social": "Seguici"
+    },
+    "form": {
+      "title": "Inviaci un Messaggio",
+      "name": "Il Tuo Nome",
+      "email": "Indirizzo Email",
+      "subject": "Oggetto",
+      "message": "Messaggio",
+      "submitButton": "Invia Messaggio",
+      "success": {
+        "title": "Messaggio Inviato",
+        "message": "Grazie per il tuo messaggio. Ti risponderemo il prima possibile."
+      },
+      "error": {
+        "title": "Messaggio Non Inviato",
+        "message": "Si è verificato un errore nell'invio del tuo messaggio. Riprova."
+      }
+    },
+    "faq": {
+      "title": "Domande Frequenti",
+      "registration": {
+        "question": "Come mi registro per la competizione?",
+        "answer": "La registrazione è disponibile online tramite il nostro sito web. Vai alla sezione Registrazione, scegli la tua gara, compila il modulo e completa il pagamento. Riceverai un'email di conferma con tutti i dettagli."
+      },
+      "equipment": {
+        "question": "Cosa devo portare il giorno della gara?",
+        "answer": "Porta il tuo documento d'identità, l'email di conferma e tutto l'equipaggiamento richiesto per la tua gara. Consulta la sezione Regole per l'equipaggiamento specifico richiesto per la tua distanza. Non dimenticare di vestirti adeguatamente per le condizioni meteorologiche."
+      },
+      "stations": {
+        "question": "Ci sono punti di ristoro sul percorso?",
+        "answer": "Sì, ci sono punti di ristoro lungo tutti i percorsi delle gare. La gara di 10km ha 2 punti di ristoro, quella di 21km ne ha 4 e quella di 50km ne ha 8. Ogni punto di ristoro offre acqua, bevande sportive e vari snack."
+      },
+      "change": {
+        "question": "Posso cambiare gara dopo essermi registrato?",
+        "answer": "I cambi di gara sono possibili fino a 30 giorni prima dell'evento, soggetti a disponibilità. Per cambiare gara, contatta il nostro team di supporto via email. Nota che il passaggio a una gara più costosa richiede un pagamento aggiuntivo, mentre il passaggio a una gara meno costosa non prevede il rimborso della differenza."
+      }
+    }
+  },
+  "sponsors": {
+    "title": "I Nostri Sponsor",
+    "subtitle": "Siamo grati ai nostri sponsor che rendono possibile questo evento. Il loro supporto contribuisce a un'esperienza di trail running eccezionale.",
+    "premiumTitle": "Partner Premium",
+    "standardTitle": "Partner di Supporto",
+    "visitWebsite": "Visita il Sito Web",
+    "visit": "Visita",
+    "becomeButton": "Diventa uno Sponsor"
+  },
+  "footer": {
+    "about": "Unisciti a noi per un'esperienza di trail running indimenticabile nelle bellissime Montagne dei Carpazi.",
+    "quickLinks": "Link Rapidi",
+    "resources": "Risorse",
+    "resources1": "Mappe dei Sentieri",
+    "resources2": "Viaggio a Stana de Vale",
+    "resources3": "Guida all'Equipaggiamento",
+    "resources4": "Informazioni di Viaggio",
+    "resources5": "Alloggio",
+    "resources6": "Galleria Fotografica",
+    "subscribe": "Iscriviti",
+    "subscribeText": "Rimani aggiornato con le ultime notizie e aggiornamenti sulla competizione.",
+    "emailPlaceholder": "Il tuo indirizzo email",
+    "privacyNotice": "Iscrivendoti, accetti la nostra politica sulla privacy e acconsenti a ricevere aggiornamenti dal nostro team.",
+    "copyright": "© 2025 Competizione di Trail Running. Tutti i diritti riservati.",
+    "privacy": "Politica sulla Privacy",
+    "terms": "Termini e Condizioni",
+    "cookies": "Politica sui Cookie"
+  },
+  "months": {
+    "0": "Gennaio",
+    "1": "Febbraio",
+    "2": "Marzo",
+    "3": "Aprile",
+    "4": "Maggio",
+    "5": "Giugno",
+    "6": "Luglio",
+    "7": "Agosto",
+    "8": "Settembre",
+    "9": "Ottobre",
+    "10": "Novembre",
+    "11": "Dicembre"
+  },
+  "countdown": {
+    "title": "Tempo fino al Giorno della Gara",
+    "days": "Giorni",
+    "hours": "Ore",
+    "minutes": "Min",
+    "seconds": "Sec"
+  },
+  "howToGet": {
+    "title": "Come Arrivare a Stana de Vale",
+    "subtitle": "Informazioni pratiche di viaggio per raggiungere la destinazione della gara.",
+    "introduction": "Stana de Vale è un pittoresco resort montano situato nelle Montagne Apuseni in Romania, che offre paesaggi naturali mozzafiato e l'ambientazione perfetta per la nostra competizione di trail running.",
+    "importantNote": "Nota Importante",
+    "weatherNote": "Le strade montane possono essere influenzate dalle condizioni meteorologiche, specialmente durante l'inverno e l'inizio della primavera. Controlla sempre le condizioni stradali prima di viaggiare.",
+    "locationTitle": "Panoramica della Posizione",
+    "locationDescription": "Stana de Vale si trova a un'altitudine di circa 1.100 metri nella contea di Bihor, Romania. È nota per le sue foreste incontaminate, sorgenti montane e splendidi sentieri escursionistici.",
+    "byAir": {
+      "title": "In Aereo",
+      "description": "Gli aeroporti più vicini a Stana de Vale sono quelli di Oradea e Cluj-Napoca. Da lì, puoi proseguire il tuo viaggio in auto, treno o autobus.",
+      "oradea": {
+        "title": "Aeroporto Internazionale di Oradea (OMR)",
+        "description": "L'aeroporto più vicino a Stana de Vale:",
+        "distance": "Circa 70 km da Stana de Vale",
+        "travelTime": "Circa 1 ora e 30 minuti in auto",
+        "transport": "Taxi e noleggio auto disponibili in aeroporto"
+      },
+      "cluj": {
+        "title": "Aeroporto Internazionale di Cluj-Napoca (CLJ)",
+        "description": "Un importante aeroporto internazionale con più collegamenti:",
+        "distance": "Circa 150 km da Stana de Vale",
+        "travelTime": "Circa 2 ore e 45 minuti in auto",
+        "transport": "Taxi, noleggio auto e servizi navetta disponibili"
+      }
+    },
+    "byCar": {
+      "title": "In Auto",
+      "description": "Viaggiare in auto offre flessibilità per raggiungere Stana de Vale. Il resort montano è accessibile tramite diverse rotte, anche se alcune strade possono essere impegnative a seconda della stagione.",
+      "fromOradea": {
+        "title": "Da Oradea",
+        "description": "Ci sono due percorsi principali da Oradea:",
+        "route1": "Percorso 1: Oradea → Beiuș → Budureasa → Stana de Vale (circa 80 km, 1h 45m)",
+        "route2": "Percorso 2: Oradea → Aleșd → Borod → Bratca → Beiuș → Budureasa → Stana de Vale (più lungo ma potrebbe offrire condizioni stradali migliori)"
+      },
+      "fromCluj": {
+        "title": "Da Cluj-Napoca",
+        "description": "Il percorso consigliato da Cluj-Napoca:",
+        "route": "Cluj-Napoca → Huedin → Borod → Beiuș → Budureasa → Stana de Vale (circa 3 ore di guida)"
+      },
+      "parking": {
+        "title": "Informazioni sul Parcheggio",
+        "description": "C'è una grande area di parcheggio al centro del resort dove puoi lasciare il tuo veicolo durante la competizione. Ulteriori parcheggi saranno disponibili vicino all'area di partenza/arrivo della gara."
+      }
+    },
+    "byTrain": {
+      "title": "In Treno",
+      "description": "La rete ferroviaria rumena può portarti vicino a Stana de Vale, anche se avrai bisogno di un trasporto aggiuntivo per l'ultima parte del viaggio.",
+      "connections": {
+        "title": "Collegamenti Ferroviari",
+        "connection1": "Da Bucarest: Prendi un treno per Oradea, poi prosegui in autobus o auto",
+        "connection2": "Da Budapest: Prendi un treno per Oradea, poi prosegui in autobus o auto"
+      },
+      "lastLeg": {
+        "title": "Ultimo Tratto",
+        "description": "Da Oradea o Beiuș, dovrai organizzare un trasporto per Stana de Vale poiché non c'è un servizio ferroviario diretto al resort."
+      }
+    },
+    "byBus": {
+      "title": "In Autobus",
+      "description": "Il trasporto pubblico in autobus può portarti nelle città vicine a Stana de Vale, da dove dovrai organizzare l'ultima parte del tuo viaggio.",
+      "services": {
+        "title": "Servizi di Autobus",
+        "service1": "Oradea a Beiuș: Servizi regolari durante la giornata",
+        "service2": "Cluj-Napoca a Beiuș: Servizi limitati, verifica gli orari in anticipo"
+      },
+      "schedules": {
+        "title": "Orari degli Autobus",
+        "description": "Gli orari degli autobus possono variare stagionalmente. Ti consigliamo di controllare gli ultimi orari su autogari.ro o direttamente con le compagnie di autobus locali."
+      }
+    },
+    "localTransport": {
+      "title": "Trasporto Locale",
+      "description": "Per l'ultima parte del tuo viaggio a Stana de Vale, potresti dover utilizzare opzioni di trasporto locale.",
+      "taxis": {
+        "title": "Taxi",
+        "description": "I taxi sono disponibili a Beiuș e possono portarti a Stana de Vale. Aspettati di pagare circa 100-150 RON per questo viaggio."
+      },
+      "shuttles": {
+        "title": "Navette il Giorno della Gara",
+        "description": "Per la competizione, organizzeremo servizi navetta dalle principali città vicine. I dettagli saranno condivisi con i partecipanti registrati più vicino alla data dell'evento."
+      }
+    },
+    "accommodation": {
+      "title": "Opzioni di Alloggio",
+      "description": "Ci sono diverse opzioni di alloggio a Stana de Vale e dintorni per soddisfare diverse preferenze e budget.",
+      "options": {
+        "option1": {
+          "title": "Hotel del Resort Montano",
+          "description": "L'hotel principale a Stana de Vale offre camere confortevoli con vista sulle montagne, ristorante e strutture spa."
+        },
+        "option2": {
+          "title": "Pensioni Vicine",
+          "description": "Diverse pensioni gestite da famiglie nelle vicinanze offrono ospitalità locale autentica e cibo fatto in casa."
+        },
+        "option3": {
+          "title": "Campeggio",
+          "description": "Per gli avventurosi, ci sono aree di campeggio designate vicino al resort. Porta la tua attrezzatura o noleggiala sul posto."
+        }
+      }
+    }
+  },
+  "sectionsOverview": {
+    "title": "Esplora la Competizione",
+    "subtitle": "Scopri tutto ciò che devi sapere sulla nostra competizione di trail running",
+    "races": "Visualizza le nostre gare di trail running impegnative con informazioni dettagliate su distanza, dislivello e difficoltà.",
+    "participants": "Scopri chi si è già registrato e controlla i partecipanti da tutto il mondo.",
+    "program": "Esplora il programma completo degli eventi, inclusi gli orari di partenza delle gare, le cerimonie di premiazione e altro.",
+    "rules": "Comprendi le regole della competizione, i requisiti di equipaggiamento e tutte le normative di sicurezza.",
+    "emaCircuit": "Scopri il Circuito EMA Off-Road Running 2025 e la sua importanza per il trail running.",
+    "sponsors": "Scopri le organizzazioni e le aziende che supportano questo evento di trail running.",
+    "registration": "Registrati per la tua gara scelta e assicurati un posto in questa emozionante sfida montana.",
+    "contact": "Contatta il nostro team per qualsiasi domanda sulla competizione."
+  },
+  "emaCircuit": {
+    "title": "CIRCUITO E.M.A. OFF-ROAD RUNNING 2025",
+    "subtitle": "Edizione Sperimentale",
+    "overview": {
+      "title": "Panoramica",
+      "content": "European Masters Athletics (EMA) è orgogliosa di annunciare l'edizione sperimentale inaugurale del Circuito EMA Off-Road Running, un circuito dedicato agli atleti Master che include eventi di corsa in montagna, verticale e off-road.",
+      "objectives": "Obiettivi del Circuito:",
+      "objectivesList": [
+        "Fornire condizioni ottimali per gli atleti per ottenere prestazioni eccezionali.",
+        "Aumentare le opportunità di competizione in un ambiente stimolante e diversificato.",
+        "Promuovere una maggiore interazione e scambio culturale tra gli atleti.",
+        "Offrire un'ampia gamma di opzioni di partecipazione durante la stagione.",
+        "Promuovere la diversità degli atleti partecipanti."
+      ],
+      "focus": "L'attenzione organizzativa sarà rivolta alla realizzazione di eventi ben strutturati ed efficienti che creino le migliori condizioni per i partecipanti per eccellere e godersi l'esperienza."
+    },
+    "participation": {
+      "title": "Partecipazione",
+      "content": "La partecipazione al Circuito EMA Off-Road Running è aperta a tutti gli atleti che soddisfano i criteri per la corsa off-road Master, in particolare quelli di età compresa tra 35 e 79 anni e che possiedono una licenza valida dalla loro rispettiva Federazione, in conformità con le regole WMA.",
+      "note1": "Si prega di notare che il Circuito EMA Off-Road Running non è un evento di campionato e gli atleti non rappresenteranno ufficialmente i loro paesi in questi eventi.",
+      "note2": "Il Circuito è aperto anche agli atleti non europei, che competeranno per i premi individuali degli eventi e per i premi finali."
+    },
+    "liability": {
+      "title": "Responsabilità e Assicurazione",
+      "content": "I partecipanti assumono piena responsabilità per la loro partecipazione a qualsiasi evento. L'Organizzatore non è responsabile per eventuali danni o lesioni subite dal Partecipante, tranne nei casi in cui il danno sia il risultato diretto di azioni intenzionali dell'Organizzatore.",
+      "insurance": "Se la polizza assicurativa dell'Organizzatore copre i danni, la responsabilità dell'Organizzatore sarà limitata all'importo coperto dall'assicuratore. Si consiglia ai partecipanti di ottenere la propria assicurazione per coprire potenziali rischi, come incidenti, malattie o morte, che potrebbero verificarsi durante l'evento.",
+      "health": "Registrandosi, i partecipanti confermano di essere in buona salute fisica e mentale e di aver seguito un allenamento adeguato per competere nell'evento. Si raccomanda ai partecipanti di sottoporsi a un esame medico per garantire l'idoneità alla partecipazione."
+    },
+    "rankings": {
+      "title": "Classifiche",
+      "content": "Il Circuito EMA Off-Road Running presenterà sia classifiche per eventi individuali che una classifica generale finale per il Circuito.",
+      "local": "Ogni Comitato Organizzatore Locale (LOC) può offrire uno o più eventi (come salita, verticale, corsa in montagna, trail, ecc.), con i vincitori e i campioni delle categorie di età premiati secondo le normative locali. Ogni evento avrà una sezione dedicata sul sito web EMA.",
+      "eligibility": "Idoneità alla Classifica Finale: Per qualificarsi per le classifiche finali EMA, gli atleti devono partecipare ad almeno due eventi in località diverse.",
+      "points": "Assegnazione dei Punti: Il vincitore di ogni evento (complessivo e in ogni categoria di età) riceverà 1 punto, con le posizioni successive premiate con punti come segue (2 punti per il secondo posto, 3 punti per il terzo, ecc.). EMA considererà le due migliori prestazioni di ogni atleta nel calcolare la classifica finale.",
+      "specialPrize": "Un premio speciale sarà assegnato a tutti gli atleti che partecipano ad almeno tre tappe del Circuito, indipendentemente dai loro risultati complessivi.",
+      "ceremony": "La cerimonia di premiazione ufficiale si terrà durante il Campionato EMA Off-Road Running 2026."
+    },
+    "calendar": {
+      "title": "Calendario",
+      "content": "Gli eventi del Circuito EMA Off-Road Running 2025 si svolgeranno secondo il programma fornito sul sito web ufficiale EMA."
+    },
+    "downloadButton": "Scarica il PDF delle Regolamentazioni Complete"
+  }
+}
