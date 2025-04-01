@@ -244,6 +244,7 @@
     "title": "Programul Evenimentului",
     "subtitle": "Planifică-ți weekendul de cursă cu programul nostru detaliat al tuturor evenimentelor și activităților.",
     "downloadButton": "Descarcă Programul Complet PDF",
+    "detailedSchedule": "Program Detaliat",
     "day": "Ziua",
     "dayTitles": {
       "day1": "Vineri, 4 Iulie",
@@ -290,8 +291,26 @@
         "title": "Banchet",
         "time": "Sâmbătă, 18:30",
         "location": "Centrul Competiției"
-      }
+      },
+      "timeUnit": "ore"
     }
+  },
+  "heatmap": {
+    "title": "Grafic de Intensitate al Evenimentelor",
+    "description": "Vizualizare interactivă a nivelurilor de activitate pe parcursul competiției. Cercurile mai mari indică mai mulți participanți. Filtrează după zi pentru a vedea informații detaliate.",
+    "allDays": "Toate Zilele",
+    "timeOfDay": "Ora Zilei",
+    "day": "Ziua",
+    "day1Short": "Vin",
+    "day2Short": "Sâm",
+    "expectedParticipants": "Participanți Estimați",
+    "intensityLevel": "Nivel de Activitate",
+    "intensity": {
+      "low": "Intensitate Scăzută",
+      "medium": "Intensitate Medie",
+      "high": "Intensitate Ridicată"
+    },
+    "note": "Dimensiunea bulelor reprezintă numărul estimat de participanți la fiecare eveniment"
   },
   "contact": {
     "title": "Contactează-ne",

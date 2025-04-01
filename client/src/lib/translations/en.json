@@ -259,6 +259,7 @@
     "title": "Event Program",
     "subtitle": "Plan your race weekend with our detailed schedule of all events and activities.",
     "downloadButton": "Download Full Program PDF",
+    "detailedSchedule": "Detailed Schedule",
     "day": "Day",
     "dayTitles": {
       "day1": "Friday, July 4",
@@ -305,8 +306,26 @@
         "title": "Banquet",
         "time": "Saturday, 18:30",
         "location": "Race Center"
-      }
+      },
+      "timeUnit": "hrs"
     }
+  },
+  "heatmap": {
+    "title": "Event Intensity Timeline",
+    "description": "Interactive visualization of event activity levels throughout the competition. Larger circles indicate more participants. Filter by day to see detailed information.",
+    "allDays": "All Days",
+    "timeOfDay": "Time of Day",
+    "day": "Day",
+    "day1Short": "Fri",
+    "day2Short": "Sat",
+    "expectedParticipants": "Expected Participants",
+    "intensityLevel": "Activity Level",
+    "intensity": {
+      "low": "Low Intensity",
+      "medium": "Medium Intensity",
+      "high": "High Intensity"
+    },
+    "note": "Bubble size represents the expected number of participants at each event"
   },
   "contact": {
     "title": "Contact Us",
