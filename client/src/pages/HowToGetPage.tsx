@@ -19,7 +19,7 @@ const HowToGetPage: React.FC = () => {
       <div className="container mx-auto px-4 py-6 md:py-8 max-w-7xl">
         {/* Introduction */}
         <div className="mb-8 md:mb-10">
-          <p className="text-base md:text-lg text-gray-700 mb-6 md:mb-8">{t('howToGet.introduction')}</p>
+          <p className="text-base md:text-lg mb-6 md:mb-8">{t('howToGet.introduction')}</p>
           
           <Alert className="mb-6 md:mb-8 bg-amber-50 border-amber-200">
             <AlertTitle className="flex items-start md:items-center gap-2 text-sm md:text-base">
@@ -287,9 +287,9 @@ const HowToGetPage: React.FC = () => {
                     <p className="text-sm md:text-base">{t('howToGet.byTrain.lastLeg.description')}</p>
                   </div>
                   
-                  <div className="bg-muted p-3 md:p-4 rounded-lg mt-4">
-                    <p className="text-xs md:text-sm">
-                      <span className="font-medium">Tip:</span> Use <a href="https://www.cfrcalatori.ro/" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">CFR Călători</a> for Romanian train schedules.
+                  <div className="bg-primary p-3 md:p-4 rounded-lg mt-4">
+                    <p className="text-xs md:text-sm text-white">
+                      <span className="font-medium">Tip:</span> Use <a href="https://www.cfrcalatori.ro/" target="_blank" rel="noopener noreferrer" className="text-white underline underline-offset-2">CFR Călători</a> for Romanian train schedules.
                     </p>
                   </div>
                 </div>
@@ -319,9 +319,9 @@ const HowToGetPage: React.FC = () => {
                     <p className="text-sm md:text-base">{t('howToGet.byBus.schedules.description')}</p>
                   </div>
                   
-                  <div className="bg-muted p-3 md:p-4 rounded-lg mt-4">
-                    <p className="text-xs md:text-sm">
-                      <span className="font-medium">Tip:</span> <a href="https://www.autogari.ro/" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">autogari.ro</a> is a useful resource for bus schedules in Romania.
+                  <div className="bg-primary p-3 md:p-4 rounded-lg mt-4">
+                    <p className="text-xs md:text-sm text-white">
+                      <span className="font-medium">Tip:</span> <a href="https://www.autogari.ro/" target="_blank" rel="noopener noreferrer" className="text-white underline underline-offset-2">autogari.ro</a> is a useful resource for bus schedules in Romania.
                     </p>
                   </div>
                 </div>
@@ -335,7 +335,7 @@ const HowToGetPage: React.FC = () => {
           <h2 className="text-xl md:text-2xl font-bold mb-4 flex items-center gap-2 text-primary">
             <CarIcon className="h-5 w-5 md:h-6 md:w-6" /> {t('howToGet.localTransport.title')}
           </h2>
-          <p className="text-gray-700 mb-6 text-sm md:text-base">{t('howToGet.localTransport.description')}</p>
+          <p className="mb-6 text-sm md:text-base">{t('howToGet.localTransport.description')}</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <Card>
@@ -363,7 +363,7 @@ const HowToGetPage: React.FC = () => {
           <h2 className="text-xl md:text-2xl font-bold mb-4 flex items-center gap-2 text-primary">
             <Hotel className="h-5 w-5 md:h-6 md:w-6" /> {t('howToGet.accommodation.title')}
           </h2>
-          <p className="text-gray-700 mb-6 text-sm md:text-base">{t('howToGet.accommodation.description')}</p>
+          <p className="mb-6 text-sm md:text-base">{t('howToGet.accommodation.description')}</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             <Card>

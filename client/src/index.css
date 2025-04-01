@@ -259,3 +259,14 @@ p, li, span {
   color: var(--color-slate-gray);
   font-size: 16px;
 }
+
+/* Make text in muted backgrounds visible - but only for custom components, not for shadcn UI components */
+.bg-primary, .bg-secondary, .bg-accent {
+  color: white !important;
+}
+
+/* For custom tip boxes specifically in the HowToGet page */
+.bg-primary .text-white a {
+  color: white !important;
+  text-decoration: underline;
+}
