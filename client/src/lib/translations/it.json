@@ -116,6 +116,30 @@
       "national": "Campionato Nazionale di Corsa in Montagna Master",
       "nationalShort": "Campionato Nazionale"
     },
+    "backToList": "Torna alle gare",
+    "notFound": {
+      "title": "Gara non trovata",
+      "message": "La gara che stai cercando non esiste o è stata rimossa.",
+      "backButton": "Torna alle gare"
+    },
+    "details": {
+      "about": "Informazioni su questa gara",
+      "info": "Informazioni sulla gara",
+      "price": "Quota d'iscrizione",
+      "date": "Data",
+      "distance": "Distanza",
+      "elevation": "Dislivello",
+      "difficulty": "Difficoltà",
+      "aidStations": "Punti di ristoro",
+      "aidStationsTitle": "Punti di acqua e ristoro", 
+      "aidStationsDescription": "Le nostre gare sono dotate di punti di ristoro ben forniti per mantenerti idratato ed energico durante tutto il percorso. Ogni stazione offre acqua, bevande sportive e spuntini leggeri.",
+      "aidStationsLocations": "Posizioni dei punti di ristoro",
+      "aidStation": "Punto di ristoro",
+      "waterAndSnacks": "Acqua, bevande sportive e spuntini leggeri",
+      "registerButton": "Iscriviti ora",
+      "downloadGPX": "Scarica GPX",
+      "map": "Mappa"
+    },
     "raceDetail": {
       "details": "Dettagli Gara",
       "description": "Descrizione",

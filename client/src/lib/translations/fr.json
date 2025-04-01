@@ -116,6 +116,30 @@
       "national": "Championnat National de Course en Montagne Masters",
       "nationalShort": "Championnat National"
     },
+    "backToList": "Retour aux courses",
+    "notFound": {
+      "title": "Course non trouvée",
+      "message": "La course que vous recherchez n'existe pas ou a été supprimée.",
+      "backButton": "Retour aux courses"
+    },
+    "details": {
+      "about": "À propos de cette course",
+      "info": "Informations sur la course",
+      "price": "Frais d'inscription",
+      "date": "Date",
+      "distance": "Distance",
+      "elevation": "Dénivelé",
+      "difficulty": "Difficulté",
+      "aidStations": "Postes de ravitaillement",
+      "aidStationsTitle": "Points d'eau et de ravitaillement", 
+      "aidStationsDescription": "Nos courses sont équipées de postes de ravitaillement bien approvisionnés pour vous garder hydraté et énergisé tout au long du parcours. Chaque poste offre de l'eau, des boissons énergétiques et des collations légères.",
+      "aidStationsLocations": "Emplacements des postes de ravitaillement",
+      "aidStation": "Poste de ravitaillement",
+      "waterAndSnacks": "Eau, boissons énergétiques et collations légères",
+      "registerButton": "S'inscrire maintenant",
+      "downloadGPX": "Télécharger GPX",
+      "map": "Carte"
+    },
     "raceDetail": {
       "details": "Détails de la course",
       "description": "Description",

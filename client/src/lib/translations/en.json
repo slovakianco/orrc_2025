@@ -118,6 +118,30 @@
       "national": "National Mountain Running Championship Masters",
       "nationalShort": "National Championship"
     },
+    "backToList": "Back to Races",
+    "notFound": {
+      "title": "Race Not Found",
+      "message": "The race you are looking for doesn't exist or has been removed.",
+      "backButton": "Back to Races"
+    },
+    "details": {
+      "about": "About this Race",
+      "info": "Race Information",
+      "price": "Entry Fee",
+      "date": "Date",
+      "distance": "Distance",
+      "elevation": "Elevation Gain",
+      "difficulty": "Difficulty",
+      "aidStations": "Aid Stations",
+      "aidStationsTitle": "Water & Aid Stations", 
+      "aidStationsDescription": "Our races are equipped with well-stocked aid stations to keep you hydrated and energized throughout the course. Each station offers water, sports drinks, and light snacks.",
+      "aidStationsLocations": "Aid Station Locations",
+      "aidStation": "Aid Station",
+      "waterAndSnacks": "Water, sports drinks, and light snacks",
+      "registerButton": "Register Now",
+      "downloadGPX": "Download GPX",
+      "map": "Map"
+    },
     "raceDetail": {
       "details": "Race Details",
       "description": "Description",
@@ -130,18 +154,11 @@
       "registerButton": "Register Now",
       "backToRaces": "Back to All Races",
       "aidStations": "Aid Stations",
-      "aidStationsTitle": "Water & Aid Stations",
-      "aidStationsDescription": "Our races are equipped with well-stocked aid stations to keep you hydrated and energized throughout the course. Each station offers water, sports drinks, and light snacks.",
-      "aidStationsLocations": "Aid Station Locations",
-      "aidStation": "Aid Station",
-      "waterAndSnacks": "Water, sports drinks, and light snacks",
       "cutoffTime": "Cutoff Time",
       "startTime": "Start Time",
       "loading": "Loading race details...",
       "downloadGPX": "Download GPX",
-      "map": "Map",
-      "about": "About this Race",
-      "info": "Race Information"
+      "map": "Map"
     }
   },
   "registration": {

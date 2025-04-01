@@ -116,6 +116,30 @@
       "national": "Campeonato Nacional de Carrera en Montaña Masters",
       "nationalShort": "Campeonato Nacional"
     },
+    "backToList": "Volver a las carreras",
+    "notFound": {
+      "title": "Carrera no encontrada",
+      "message": "La carrera que buscas no existe o ha sido eliminada.",
+      "backButton": "Volver a las carreras"
+    },
+    "details": {
+      "about": "Acerca de esta carrera",
+      "info": "Información de la carrera",
+      "price": "Cuota de inscripción",
+      "date": "Fecha",
+      "distance": "Distancia",
+      "elevation": "Desnivel",
+      "difficulty": "Dificultad",
+      "aidStations": "Puntos de avituallamiento",
+      "aidStationsTitle": "Puntos de agua y avituallamiento", 
+      "aidStationsDescription": "Nuestras carreras están equipadas con puntos de avituallamiento bien abastecidos para mantenerte hidratado y con energía durante todo el recorrido. Cada estación ofrece agua, bebidas deportivas y refrigerios ligeros.",
+      "aidStationsLocations": "Ubicaciones de los puntos de avituallamiento",
+      "aidStation": "Punto de avituallamiento",
+      "waterAndSnacks": "Agua, bebidas deportivas y refrigerios ligeros",
+      "registerButton": "Inscríbete ahora",
+      "downloadGPX": "Descargar GPX",
+      "map": "Mapa"
+    },
     "raceDetail": {
       "details": "Detalles de la Carrera",
       "description": "Descripción",

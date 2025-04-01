@@ -116,6 +116,30 @@
       "national": "Nationale Berglauf-Meisterschaft Masters",
       "nationalShort": "Nationale Meisterschaft"
     },
+    "backToList": "Zurück zu den Rennen",
+    "notFound": {
+      "title": "Rennen nicht gefunden",
+      "message": "Das gesuchte Rennen existiert nicht oder wurde entfernt.",
+      "backButton": "Zurück zu den Rennen"
+    },
+    "details": {
+      "about": "Über dieses Rennen",
+      "info": "Renninformationen",
+      "price": "Teilnahmegebühr",
+      "date": "Datum",
+      "distance": "Distanz",
+      "elevation": "Höhenunterschied",
+      "difficulty": "Schwierigkeitsgrad",
+      "aidStations": "Verpflegungsstationen",
+      "aidStationsTitle": "Wasser- und Verpflegungsstationen", 
+      "aidStationsDescription": "Unsere Rennen sind mit gut ausgestatteten Verpflegungsstationen ausgestattet, damit Sie während des gesamten Kurses hydriert und energiegeladen bleiben. Jede Station bietet Wasser, Sportgetränke und leichte Snacks.",
+      "aidStationsLocations": "Standorte der Verpflegungsstationen",
+      "aidStation": "Verpflegungsstation",
+      "waterAndSnacks": "Wasser, Sportgetränke und leichte Snacks",
+      "registerButton": "Jetzt anmelden",
+      "downloadGPX": "GPX herunterladen",
+      "map": "Karte"
+    },
     "raceDetail": {
       "details": "Renndetails",
       "description": "Beschreibung",
