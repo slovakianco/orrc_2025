@@ -103,7 +103,7 @@ const ContactForm = () => {
                     </div>
                     <div>
                       <h4 className="font-bold mb-0.5 md:mb-1 text-sm md:text-base text-neutral-dark">{t('contact.info.email')}</h4>
-                      <a href="mailto:info@trailrun.com" className="text-secondary hover:text-secondary-dark transition-colors text-sm md:text-base">info@trailrun.com</a>
+                      <a href="mailto:contact@stanatrailrace.ro" className="text-secondary hover:text-secondary-dark transition-colors text-sm md:text-base">contact@stanatrailrace.ro</a>
                     </div>
                   </div>
                   
@@ -113,7 +113,7 @@ const ContactForm = () => {
                     </div>
                     <div>
                       <h4 className="font-bold mb-0.5 md:mb-1 text-sm md:text-base text-neutral-dark">{t('contact.info.phone')}</h4>
-                      <a href="tel:+40123456789" className="text-secondary hover:text-secondary-dark transition-colors text-sm md:text-base">+40 123 456 789</a>
+                      <a href="tel:+40744534802" className="text-secondary hover:text-secondary-dark transition-colors text-sm md:text-base">+40744534802</a>
                     </div>
                   </div>
                   
