@@ -19,6 +19,7 @@ import ContactPage from "@/pages/ContactPage";
 import SponsorsPage from "@/pages/SponsorsPage";
 import EmaCircuitPage from "@/pages/EmaCircuitPage";
 import HowToGetPage from "@/pages/HowToGetPage";
+import EmailTestPage from "@/pages/EmailTestPage";
 
 // Import Components
 import NavigationHeader from "@/components/NavigationHeader";
@@ -50,6 +51,7 @@ function Router() {
           <Route path="/sponsors" component={SponsorsPage} />
           <Route path="/ema-circuit" component={EmaCircuitPage} />
           <Route path="/how-to-get-there" component={HowToGetPage} />
+          <Route path="/email-test" component={EmailTestPage} />
           <Route component={NotFound} />
         </Switch>
       </main>

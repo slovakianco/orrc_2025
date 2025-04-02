@@ -128,14 +128,36 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Send confirmation email 
       const raceCategory = `${race.distance}km ${race.difficulty}`;
+      
+      // Determine best language to use
+      const supportedLanguages = ['en', 'ro', 'fr', 'de', 'it', 'es'];
+      let emailLanguage = 'en'; // Default fallback
+      
+      // Try to match the browser language
+      if (preferredLanguage && supportedLanguages.includes(preferredLanguage)) {
+        emailLanguage = preferredLanguage;
+      }
+      
+      // If they registered for a specific language route, use that language
+      const pathLanguage = req.header('Referer')?.match(/\/(en|ro|fr|de|it|es)\//)?.[1];
+      if (pathLanguage && supportedLanguages.includes(pathLanguage)) {
+        emailLanguage = pathLanguage;
+      }
+      
       try {
-        await sendRegistrationConfirmationEmail(
+        const emailSent = await sendRegistrationConfirmationEmail(
           participant.email,
           participant.firstName,
           participant.lastName,
           raceCategory,
-          preferredLanguage
+          emailLanguage
         );
+        
+        if (emailSent) {
+          console.log(`Registration confirmation email sent to ${participant.email} in ${emailLanguage} language`);
+        } else {
+          console.warn(`Failed to send registration confirmation email to ${participant.email}`);
+        }
       } catch (emailError) {
         console.error("Error sending confirmation email:", emailError);
         // We don't fail the request if email sending fails
@@ -283,6 +305,65 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.error("Error downloading EMA Circuit PDF:", error);
       res.status(500).json({ message: "Failed to download PDF file" });
     }
+  });
+
+  // Test email functionality
+  apiRouter.post("/test-email", async (req: Request, res: Response) => {
+    try {
+      const { email, language } = req.body;
+      
+      if (!email) {
+        return res.status(400).json({ message: "Email address is required" });
+      }
+      
+      // Validate language
+      const supportedLanguages = ['en', 'ro', 'fr', 'de', 'it', 'es'];
+      const validLanguage = supportedLanguages.includes(language) ? language : 'en';
+      
+      // Send test email
+      const result = await sendRegistrationConfirmationEmail(
+        email,
+        "Test",
+        "User",
+        "33K Trail Run",
+        validLanguage
+      );
+      
+      if (result) {
+        res.json({ success: true, message: "Test email sent successfully" });
+      } else {
+        res.status(500).json({ 
+          success: false, 
+          message: "Failed to send test email. Make sure your SendGrid API key is valid and has permissions to send emails.",
+          sendgridConfigured: process.env.SENDGRID_API_KEY ? true : false,
+          possibleIssues: [
+            "The SendGrid API key may be invalid or expired.",
+            "The sender domain (stanadevaletrail.ro) may not be verified in SendGrid. You need to verify domain ownership.",
+            "The SendGrid account may have restrictions on sending volume."
+          ]
+        });
+      }
+    } catch (error) {
+      console.error("Error sending test email:", error);
+      res.status(500).json({ 
+        message: "Failed to send test email", 
+        error: String(error),
+        sendgridConfigured: process.env.SENDGRID_API_KEY ? true : false
+      });
+    }
+  });
+  
+  // Check SendGrid status
+  apiRouter.get("/email-status", (req: Request, res: Response) => {
+    const sendgridConfigured = !!process.env.SENDGRID_API_KEY;
+    
+    res.json({
+      sendgridConfigured,
+      emailServiceReady: sendgridConfigured,
+      message: sendgridConfigured 
+        ? "SendGrid is configured. The API key appears to be set, but this does not guarantee it is valid."
+        : "SendGrid is not configured. SENDGRID_API_KEY environment variable is not set."
+    });
   });
 
   // Mount the API router

@@ -545,5 +545,26 @@
       "content": "Los eventos del Circuito EMA Off-Road Running 2025 se llevarán a cabo según el cronograma proporcionado en el sitio web oficial de EMA."
     },
     "downloadButton": "Descargar PDF de Regulaciones Completas"
+  },
+  "emailTest": {
+    "title": "Prueba del Sistema de Correo",
+    "subtitle": "Verifique que el sistema de notificación por correo electrónico funcione correctamente",
+    "sendTestEmail": "Enviar Correo de Prueba",
+    "verifyEmailFunctionality": "Use esta herramienta para verificar la funcionalidad del sistema de correo electrónico",
+    "recipientEmail": "Correo del Destinatario",
+    "language": "Idioma del Correo",
+    "selectLanguage": "Seleccionar idioma",
+    "sending": "Enviando...",
+    "success": "¡Éxito!",
+    "emailSentSuccessfully": "Correo de prueba enviado con éxito",
+    "failed": "Fallido",
+    "failedToSendEmail": "No se pudo enviar el correo de prueba",
+    "error": "Error",
+    "errorOccurred": "Ocurrió un error al enviar el correo electrónico",
+    "emailRequired": "Correo Electrónico Requerido",
+    "pleaseEnterValidEmail": "Por favor ingrese una dirección de correo electrónico válida",
+    "possibleIssues": "Posibles problemas",
+    "configured": "Sistema de Correo SendGrid Configurado",
+    "notConfigured": "Sistema de Correo SendGrid No Configurado"
   }
 }

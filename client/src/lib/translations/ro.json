@@ -594,5 +594,26 @@
       "content": "Evenimentele din Circuitul EMA de Alergare Off-Road 2025 vor avea loc conform programului furnizat pe site-ul oficial EMA."
     },
     "downloadButton": "Descarcă Regulamentul Complet PDF"
+  },
+  "emailTest": {
+    "title": "Test Sistem Email",
+    "subtitle": "Verifică dacă sistemul de notificare prin email funcționează corect",
+    "sendTestEmail": "Trimite Email de Test",
+    "verifyEmailFunctionality": "Folosește acest instrument pentru a verifica funcționalitatea sistemului de email",
+    "recipientEmail": "Email Destinatar",
+    "language": "Limba Email-ului",
+    "selectLanguage": "Selectează limba",
+    "sending": "Se trimite...",
+    "success": "Succes!",
+    "emailSentSuccessfully": "Email-ul de test a fost trimis cu succes",
+    "failed": "Eșuat",
+    "failedToSendEmail": "Nu s-a putut trimite email-ul de test",
+    "error": "Eroare",
+    "errorOccurred": "A apărut o eroare la trimiterea email-ului",
+    "emailRequired": "Email Necesar",
+    "pleaseEnterValidEmail": "Te rugăm să introduci o adresă de email validă",
+    "possibleIssues": "Probleme posibile",
+    "configured": "Sistem Email SendGrid Configurat",
+    "notConfigured": "Sistem Email SendGrid Neconfigurat"
   }
 }
