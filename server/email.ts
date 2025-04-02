@@ -1,18 +1,14 @@
+// Import the MailService class from SendGrid
 import { MailService } from "@sendgrid/mail";
+
+// Create an instance of the MailService
+const sgMail = new MailService();
 
 if (!process.env.SENDGRID_API_KEY) {
   console.warn(
     "SENDGRID_API_KEY environment variable is not set. Email functionality will be disabled.",
   );
-}
-
-// Default from email if custom domain verification fails
-// This should be an email verified in your SendGrid account
-// Users need to verify sender identity in SendGrid dashboard
-const DEFAULT_FROM_EMAIL = "registration@stanatrailrace.ro"; // This email must be verified in SendGrid
-
-const mailService = new MailService();
-if (process.env.SENDGRID_API_KEY) {
+} else {
   // Remove 'Bearer ' prefix if it exists to ensure correct formatting
   let apiKey = process.env.SENDGRID_API_KEY;
   if (apiKey.startsWith("Bearer ")) {
@@ -21,8 +17,13 @@ if (process.env.SENDGRID_API_KEY) {
       'Removed "Bearer " prefix from SendGrid API key. The key should be provided without this prefix.',
     );
   }
-  mailService.setApiKey(apiKey);
+  sgMail.setApiKey(apiKey);
 }
+
+// Default from email if custom domain verification fails
+// This should be an email verified in your SendGrid account
+// Users need to verify sender identity in SendGrid dashboard
+const DEFAULT_FROM_EMAIL = "registration@stanatrailrace.ro"; // This email must be verified in SendGrid
 
 interface EmailParams {
   to: string;
@@ -42,14 +43,16 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
   console.log("From:", params.from);
   console.log("Subject:", params.subject);
 
+  const msg = {
+    to: params.to,
+    from: params.from,
+    subject: params.subject,
+    text: params.text || "",
+    html: params.html || "",
+  };
+
   try {
-    await mailService.send({
-      to: params.to,
-      from: params.from,
-      subject: params.subject,
-      text: params.text || "",
-      html: params.html || "",
-    });
+    await sgMail.send(msg);
     console.log(`Email successfully sent to ${params.to}`);
     return true;
   } catch (error: any) {

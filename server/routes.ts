@@ -373,21 +373,27 @@ export async function registerRoutes(app: Express): Promise<Server> {
     const apiKeyValue = process.env.SENDGRID_API_KEY || '';
     
     // Check if API key has the correct format (starts with SG.)
+    // Most SendGrid API keys start with SG. but we allow for other formats too
     const hasValidFormat = apiKeyValue.startsWith('SG.');
     const hasBearerPrefix = apiKeyValue.startsWith('Bearer ');
     
+    // Checking basic format requirements
+    const hasMinimumLength = apiKeyValue.length > 10; // Arbitrary reasonable minimum for API keys
+    
     let formatMessage = '';
     if (sendgridConfigured) {
-      if (!hasValidFormat && !hasBearerPrefix) {
-        formatMessage = "Warning: Your API key doesn't start with 'SG.', which is the standard format for SendGrid API keys. Please check if it's correct.";
-      } else if (hasBearerPrefix) {
+      if (hasBearerPrefix) {
         formatMessage = "Warning: Your API key starts with 'Bearer ', which is incorrect. The API key should be provided without this prefix.";
+      } else if (!hasValidFormat && hasMinimumLength) {
+        formatMessage = "Note: Your API key doesn't start with 'SG.', which is the standard format for SendGrid API keys. If this is intentional, you can ignore this message.";
+      } else if (!hasMinimumLength) {
+        formatMessage = "Warning: Your API key appears to be too short. Please check if it's correct.";
       }
     }
     
     res.json({
       sendgridConfigured,
-      emailServiceReady: sendgridConfigured && (hasValidFormat || hasBearerPrefix),
+      emailServiceReady: sendgridConfigured && hasMinimumLength && !hasBearerPrefix,
       message: sendgridConfigured 
         ? `SendGrid is configured. The API key appears to be set, but this does not guarantee it is valid. ${formatMessage}`
         : "SendGrid is not configured. SENDGRID_API_KEY environment variable is not set. Please add your SendGrid API key to enable email functionality.",

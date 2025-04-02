@@ -157,6 +157,7 @@ export default function EmailTestPage() {
                     <li>Log in to your SendGrid account at <a href="https://app.sendgrid.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">app.sendgrid.com</a></li>
                     <li>Navigate to Settings → API Keys and create a new API key with "Mail Send" permissions</li>
                     <li>Copy the API key (starts with "SG.") and add it to your environment variables as SENDGRID_API_KEY</li>
+                    <li>Make sure the API key is not prefixed with "Bearer " - our system will handle authentication properly</li>
                   </ul>
                 </div>
                 
@@ -174,7 +175,34 @@ export default function EmailTestPage() {
                 </div>
                 
                 <div>
-                  <h3 className="font-semibold text-gray-800 mb-2">3. Troubleshooting</h3>
+                  <h3 className="font-semibold text-gray-800 mb-2">3. Implementation Details</h3>
+                  <p className="text-gray-700">
+                    This application uses SendGrid's official Node.js library:
+                  </p>
+                  <div className="bg-gray-100 p-3 rounded mt-2 overflow-x-auto">
+                    <pre className="text-xs text-gray-800">
+{`// Using SendGrid's v3 Node.js Library
+import { MailService } from "@sendgrid/mail";
+
+const sgMail = new MailService();
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+const msg = {
+  to: "recipient@example.com",
+  from: "sender@yourdomain.com", // Verified sender
+  subject: "Sending with SendGrid",
+  text: "Email content in plain text",
+  html: "<strong>Email content in HTML</strong>",
+};
+
+// Send the email
+await sgMail.send(msg);`}
+                    </pre>
+                  </div>
+                </div>
+                
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2">4. Troubleshooting</h3>
                   <ul className="list-disc pl-6 mt-2 text-gray-700">
                     <li>If you get authentication errors, ensure your API key is correct and hasn't expired</li>
                     <li>If you get sender verification errors, make sure the sender email is verified in SendGrid</li>
