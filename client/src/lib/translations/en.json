@@ -274,7 +274,16 @@
         "rules": {
           "1": "Energy gels or nutrition bars",
           "2": "Compass or buff",
-          "3": "Whistle"
+          "3": "Whistle",
+          "4": "Tights or leggings",
+          "5": "Trekking poles"
+        }
+      },
+      "timeLimits": {
+        "title": "Time Limits & Cut-offs",
+        "rules": {
+          "1": "11km race: 3-hour time limit.",
+          "2": "33km race: 8-hour time limit with cut-offs at 15km (3 hours) and 25km (6 hours)."
         }
       },
       "aidStations": {

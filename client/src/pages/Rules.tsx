@@ -46,6 +46,11 @@ export default function Rules() {
         content: getRulesContent('rules.sections.recommendations.rules')
       },
       {
+        id: "timeLimits",
+        title: "rules.sections.timeLimits.title",
+        content: getRulesContent('rules.sections.timeLimits.rules')
+      },
+      {
         id: "aidStations",
         title: "rules.sections.aidStations.title",
         content: getRulesContent('rules.sections.aidStations.rules')

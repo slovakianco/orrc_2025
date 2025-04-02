@@ -240,11 +240,20 @@
         }
       },
       "recommendations": {
-        "title": "Echipament Recomandat",
+        "title": "Recomandări",
         "rules": {
-          "1": "Geluri energizante sau batoane nutritive",
-          "2": "Busolă sau bandană",
-          "3": "Fluier"
+          "1": "Gel sau baton energizant",
+          "2": "Busolă sau buff",
+          "3": "Fluier",
+          "4": "Colanți sau jambiere",
+          "5": "Bețe"
+        }
+      },
+      "timeLimits": {
+        "title": "Limite de Timp & Puncte de Control",
+        "rules": {
+          "1": "Cursa de 11km: limită totală de timp 3 ore.",
+          "2": "Cursa de 33km: limită totală de timp 8 ore cu puncte de control la 15km (3 ore) și 25km (6 ore)."
         }
       },
       "aidStations": {

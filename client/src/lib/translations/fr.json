@@ -252,29 +252,76 @@
         }
       },
       "equipment": {
-        "title": "Équipement requis",
+        "title": "Équipement obligatoire",
         "rules": {
-          "1": "Conteneur d'eau (minimum 1L pour 10 km, 1,5L pour 21 km, 2L pour 50 km).",
-          "2": "Téléphone portable avec les contacts de l'organisation enregistrés.",
-          "3": "Couverture thermique et sifflet (uniquement pour la course de 50 km).",
-          "4": "Lampe frontale avec piles de rechange (uniquement pour la course de 50 km)."
+          "1": "Numéro de dossard (fourni par l'organisation)",
+          "2": "Téléphone portable chargé avec les numéros d'urgence",
+          "3": "Veste imperméable",
+          "4": "Récipient d'eau (minimum 0.5L)",
+          "5": "Couverture de survie thermique",
+          "6": "Chaussures de trail running"
+        }
+      },
+      "recommendations": {
+        "title": "Équipement recommandé",
+        "rules": {
+          "1": "Gels énergétiques ou barres nutritives",
+          "2": "Boussole ou buff",
+          "3": "Sifflet",
+          "4": "Collants ou guêtres",
+          "5": "Bâtons de trail"
         }
       },
       "timeLimits": {
-        "title": "Limites de temps et seuils",
+        "title": "Limites de temps et barrières horaires",
         "rules": {
-          "1": "Mountain Explorer (10 km) : limite totale de 3 heures.",
-          "2": "Forest Challenge (21 km) : limite totale de 5 heures avec un seuil intermédiaire à 2,5 heures.",
-          "3": "Summit Ultra (50 km) : limite totale de 12 heures avec des seuils à 20 km (4 heures) et 35 km (8 heures)."
+          "1": "Course de 11km: limite totale de 3 heures.",
+          "2": "Course de 33km: limite totale de 8 heures avec barrières horaires à 15km (3 heures) et 25km (6 heures)."
         }
       },
       "penalties": {
         "title": "Pénalités et disqualification",
         "rules": {
-          "1": "Manque d'équipement requis : pénalité de 30 minutes.",
-          "2": "Raccourcir le parcours : disqualification.",
-          "3": "Jeter des déchets : pénalité d'une heure pour la première infraction, disqualification pour la seconde.",
-          "4": "Ne pas aider un coureur en détresse : disqualification."
+          "1": "Équipement obligatoire manquant : pénalité de 30 minutes.",
+          "2": "Jeter des déchets sur le parcours : disqualification immédiate.",
+          "3": "Utilisation de bâtons de trekking dans les zones interdites : pénalité de 30 minutes.",
+          "4": "Ne pas aider un coureur en détresse : disqualification.",
+          "5": "Recevoir une assistance non autorisée en dehors des postes de ravitaillement : disqualification."
+        }
+      },
+      "aidStations": {
+        "title": "Postes de ravitaillement",
+        "rules": {
+          "1": "Course de 11km : Un poste de ravitaillement au km 5.",
+          "2": "Course de 33km : Cinq postes de ravitaillement situés aux km 5.4, 10.4, 15.5, 20.9 et 26.6.",
+          "3": "Tous les postes de ravitaillement fournissent de l'eau, des boissons isotoniques et des collations légères.",
+          "4": "Une assistance médicale est disponible à chaque poste de ravitaillement."
+        }
+      },
+      "safety": {
+        "title": "Règlements de sécurité",
+        "rules": {
+          "1": "Les organisateurs de la course peuvent modifier le parcours ou annuler l'événement en cas de conditions météorologiques sévères.",
+          "2": "Les équipes médicales ont l'autorité pour retirer les participants jugés inaptes à continuer.",
+          "3": "Les participants doivent aider tout coureur en détresse et le signaler au prochain poste de ravitaillement.",
+          "4": "En cas d'urgence, appelez le numéro d'urgence de la course fourni sur votre dossard."
+        }
+      },
+      "environment": {
+        "title": "Protection de l'environnement",
+        "rules": {
+          "1": "Restez sur les sentiers balisés pour minimiser l'impact environnemental.",
+          "2": "Transportez tous les déchets jusqu'au prochain poste de ravitaillement ou la ligne d'arrivée.",
+          "3": "Respectez la faune et les réglementations locales dans les zones protégées."
+        }
+      },
+      "registration": {
+        "title": "Inscription et éligibilité",
+        "rules": {
+          "1": "Âge minimum pour la course de 11km : 16 ans (avec consentement parental pour les mineurs).",
+          "2": "Âge minimum pour la course de 33km : 18 ans.",
+          "3": "Tous les participants doivent signer une décharge de responsabilité avant la course.",
+          "4": "Les dossards de course sont personnels et non transférables."
         }
       }
     }

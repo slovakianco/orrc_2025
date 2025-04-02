@@ -252,29 +252,76 @@
         }
       },
       "equipment": {
-        "title": "Erforderliche Ausrüstung",
+        "title": "Pflichtausrüstung",
         "rules": {
-          "1": "Wasserbehälter (mindestens 1L für 10 km, 1,5L für 21 km, 2L für 50 km).",
-          "2": "Mobiltelefon mit gespeicherten Kontakten der Rennorganisation.",
-          "3": "Thermodecke und Pfeife (nur für das 50-km-Rennen).",
-          "4": "Stirnlampen mit Ersatzbatterien (nur für das 50-km-Rennen)."
+          "1": "Startnummer (vom Veranstalter bereitgestellt)",
+          "2": "Aufgeladenes Mobiltelefon mit Notfallnummern",
+          "3": "Wasserdichte Jacke",
+          "4": "Wasserbehälter (mindestens 0,5L)",
+          "5": "Thermo-Rettungsdecke",
+          "6": "Trail-Running-Schuhe"
+        }
+      },
+      "recommendations": {
+        "title": "Empfohlene Ausrüstung",
+        "rules": {
+          "1": "Energiegels oder Nahrungsriegel",
+          "2": "Kompass oder Buff",
+          "3": "Pfeife",
+          "4": "Leggings oder Gamaschen",
+          "5": "Trailstöcke"
         }
       },
       "timeLimits": {
-        "title": "Zeitlimits und Cut-offs",
+        "title": "Zeitlimits und Kontrollpunkte",
         "rules": {
-          "1": "Mountain Explorer (10 km): Gesamtzeitlimit von 3 Stunden.",
-          "2": "Forest Challenge (21 km): Gesamtzeitlimit von 5 Stunden mit einem Zwischen-Cut-off nach 2,5 Stunden.",
-          "3": "Summit Ultra (50 km): Gesamtzeitlimit von 12 Stunden mit Cut-offs bei 20 km (4 Stunden) und 35 km (8 Stunden)."
+          "1": "11km-Rennen: Gesamtzeitlimit von 3 Stunden.",
+          "2": "33km-Rennen: Gesamtzeitlimit von 8 Stunden mit Kontrollpunkten bei 15km (3 Stunden) und 25km (6 Stunden)."
         }
       },
       "penalties": {
         "title": "Strafen und Disqualifikation",
         "rules": {
-          "1": "Fehlende erforderliche Ausrüstung: Zeitstrafe von 30 Minuten.",
-          "2": "Abkürzen des Kurses: Disqualifikation.",
-          "3": "Müllentsorgung: Zeitstrafe von 1 Stunde beim ersten Verstoß, Disqualifikation beim zweiten Verstoß.",
-          "4": "Keine Hilfe für einen Läufer in Not: Disqualifikation."
+          "1": "Fehlende Pflichtausrüstung: Zeitstrafe von 30 Minuten.",
+          "2": "Müllentsorgung auf der Strecke: sofortige Disqualifikation.",
+          "3": "Verwendung von Trekkingstöcken in verbotenen Bereichen: Zeitstrafe von 30 Minuten.",
+          "4": "Keine Hilfeleistung für einen Läufer in Not: Disqualifikation.",
+          "5": "Unbefugte Unterstützung außerhalb der Verpflegungsstationen: Disqualifikation."
+        }
+      },
+      "aidStations": {
+        "title": "Verpflegungsstationen",
+        "rules": {
+          "1": "11km-Rennen: Eine Verpflegungsstation bei km 5.",
+          "2": "33km-Rennen: Fünf Verpflegungsstationen bei km 5.4, 10.4, 15.5, 20.9 und 26.6.",
+          "3": "Alle Verpflegungsstationen bieten Wasser, isotonische Getränke und leichte Snacks.",
+          "4": "Medizinische Unterstützung ist an jeder Verpflegungsstation verfügbar."
+        }
+      },
+      "safety": {
+        "title": "Sicherheitsbestimmungen",
+        "rules": {
+          "1": "Veranstalter können die Strecke ändern oder die Veranstaltung bei schweren Wetterbedingungen absagen.",
+          "2": "Medizinische Teams haben die Befugnis, Teilnehmer zurückzuziehen, die als ungeeignet für die Fortsetzung angesehen werden.",
+          "3": "Teilnehmer müssen jedem Läufer in Not helfen und dies an der nächsten Verpflegungsstation melden.",
+          "4": "Im Notfall rufe die Notrufnummer an, die auf deiner Startnummer angegeben ist."
+        }
+      },
+      "environment": {
+        "title": "Umweltschutz",
+        "rules": {
+          "1": "Bleibe auf markierten Wegen, um die Umweltbelastung zu minimieren.",
+          "2": "Trage allen Abfall zur nächsten Verpflegungsstation oder zum Ziel.",
+          "3": "Respektiere Wildtiere und lokale Vorschriften in Schutzgebieten."
+        }
+      },
+      "registration": {
+        "title": "Anmeldung & Teilnahmeberechtigung",
+        "rules": {
+          "1": "Mindestalter für das 11km-Rennen: 16 Jahre (mit Zustimmung der Eltern für Minderjährige).",
+          "2": "Mindestalter für das 33km-Rennen: 18 Jahre.",
+          "3": "Alle Teilnehmer müssen vor dem Rennen eine Haftungsausschlusserklärung unterschreiben.",
+          "4": "Startnummern sind persönlich und nicht übertragbar."
         }
       }
     }
