@@ -4,20 +4,39 @@ import { MailService } from "@sendgrid/mail";
 // Create an instance of the MailService
 const sgMail = new MailService();
 
+// Initialize SendGrid with detailed logging
 if (!process.env.SENDGRID_API_KEY) {
   console.warn(
     "SENDGRID_API_KEY environment variable is not set. Email functionality will be disabled.",
   );
 } else {
+  console.log('=================== SENDGRID INITIALIZATION ===================');
   // Remove 'Bearer ' prefix if it exists to ensure correct formatting
   let apiKey = process.env.SENDGRID_API_KEY;
-  if (apiKey.startsWith("Bearer ")) {
+  
+  // Log API key format details for debugging without revealing the full key
+  const keyLength = apiKey.length;
+  const hasSGPrefix = apiKey.startsWith('SG.');
+  const hasBearer = apiKey.startsWith('Bearer ');
+  const keyPrefix = apiKey.substring(0, Math.min(3, keyLength));
+  const keySuffix = apiKey.length > 3 ? apiKey.substring(apiKey.length - 3) : '';
+  
+  console.log(`API Key Format Check:
+  - Key Length: ${keyLength} characters
+  - Starts with 'SG.': ${hasSGPrefix}
+  - Starts with 'Bearer ': ${hasBearer}
+  - Key Format: ${keyPrefix}...${keySuffix}
+  `);
+  
+  if (hasBearer) {
     apiKey = apiKey.substring(7);
-    console.log(
-      'Removed "Bearer " prefix from SendGrid API key. The key should be provided without this prefix.',
-    );
+    console.log('Removed "Bearer " prefix from SendGrid API key.');
   }
+  
+  // Set the API key and initialize SendGrid client
   sgMail.setApiKey(apiKey);
+  console.log('SendGrid client initialized successfully');
+  console.log('============================================================');
 }
 
 // Default from email if custom domain verification fails
@@ -38,10 +57,13 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
     console.warn("Email not sent: SENDGRID_API_KEY is not set");
     return false;
   }
-
+  
+  console.log("=============== EMAIL SENDING DETAILS ===============");
   console.log("Attempting to send email to:", params.to);
   console.log("From:", params.from);
   console.log("Subject:", params.subject);
+  console.log("SendGrid configured:", process.env.SENDGRID_API_KEY ? "YES" : "NO");
+  console.log("====================================================");
 
   const msg = {
     to: params.to,
@@ -52,11 +74,28 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
   };
 
   try {
+    // Log the complete message being sent to SendGrid for debugging
+    console.log('=================== SENDGRID REQUEST ===================');
+    console.log('Request payload:', JSON.stringify(msg, null, 2));
+    console.log('API Key starts with:', process.env.SENDGRID_API_KEY?.substring(0, 6) + '...');
+    console.log('========================================================');
+    
     await sgMail.send(msg);
     console.log(`Email successfully sent to ${params.to}`);
     return true;
   } catch (error: any) {
     console.error("SendGrid email error:", error);
+    
+    // Log more complete error information
+    console.log('=================== SENDGRID ERROR DETAILS ===================');
+    if (error.response) {
+      console.error('HTTP Status Code:', error.response.statusCode);
+      console.error('SendGrid Response Headers:', JSON.stringify(error.response.headers, null, 2));
+      console.error('Full Response Object:', JSON.stringify(error.response, null, 2));
+    } else {
+      console.error('No response object in error. Raw error:', error);
+    }
+    console.log('==============================================================');
 
     // Additional debugging for most common SendGrid errors
     if (error.code === 401) {
