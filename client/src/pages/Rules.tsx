@@ -3,62 +3,77 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Card, CardContent } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AlertCircle } from "lucide-react";
+import { useEffect, useState } from "react";
+
+// Types for our rule categories
+interface RuleCategory {
+  id: string;
+  title: string;
+  content: string[];
+}
 
 export default function Rules() {
   const { t } = useTranslation();
-
-  const ruleCategories = [
-    {
-      id: "general",
-      title: "rules.general.title",
-      items: [
-        "rules.general.item1",
-        "rules.general.item2",
-        "rules.general.item3",
-        "rules.general.item4",
-        "rules.general.item5"
-      ]
-    },
-    {
-      id: "equipment",
-      title: "rules.equipment.title",
-      items: [
-        "rules.equipment.item1",
-        "rules.equipment.item2",
-        "rules.equipment.item3",
-        "rules.equipment.item4"
-      ]
-    },
-    {
-      id: "conduct",
-      title: "rules.conduct.title",
-      items: [
-        "rules.conduct.item1",
-        "rules.conduct.item2",
-        "rules.conduct.item3",
-        "rules.conduct.item4"
-      ]
-    },
-    {
-      id: "safety",
-      title: "rules.safety.title",
-      items: [
-        "rules.safety.item1",
-        "rules.safety.item2",
-        "rules.safety.item3",
-        "rules.safety.item4"
-      ]
-    },
-    {
-      id: "environment",
-      title: "rules.environment.title",
-      items: [
-        "rules.environment.item1",
-        "rules.environment.item2",
-        "rules.environment.item3"
-      ]
+  const [ruleCategories, setRuleCategories] = useState<RuleCategory[]>([]);
+  
+  // Helper function to safely extract rules from translations
+  const getRulesContent = (path: string): string[] => {
+    try {
+      // Using any here to bypass TypeScript's strict checks on the returnObjects option
+      const rules = t(path, { returnObjects: true }) as any;
+      return rules ? Object.values(rules) : [];
+    } catch (error) {
+      console.error(`Error getting rules for ${path}:`, error);
+      return [];
     }
-  ];
+  };
+  
+  useEffect(() => {
+    const categories: RuleCategory[] = [
+      {
+        id: "general",
+        title: "rules.sections.general.title",
+        content: getRulesContent('rules.sections.general.rules')
+      },
+      {
+        id: "equipment",
+        title: "rules.sections.equipment.title",
+        content: getRulesContent('rules.sections.equipment.rules')
+      },
+      {
+        id: "recommendations",
+        title: "rules.sections.recommendations.title",
+        content: getRulesContent('rules.sections.recommendations.rules')
+      },
+      {
+        id: "aidStations",
+        title: "rules.sections.aidStations.title",
+        content: getRulesContent('rules.sections.aidStations.rules')
+      },
+      {
+        id: "penalties",
+        title: "rules.sections.penalties.title",
+        content: getRulesContent('rules.sections.penalties.rules')
+      },
+      {
+        id: "safety",
+        title: "rules.sections.safety.title",
+        content: getRulesContent('rules.sections.safety.rules')
+      },
+      {
+        id: "environment",
+        title: "rules.sections.environment.title",
+        content: getRulesContent('rules.sections.environment.rules')
+      },
+      {
+        id: "registration",
+        title: "rules.sections.registration.title",
+        content: getRulesContent('rules.sections.registration.rules')
+      }
+    ];
+    
+    setRuleCategories(categories);
+  }, [t]);
 
   return (
     <div>
@@ -97,8 +112,8 @@ export default function Rules() {
                     </AccordionTrigger>
                     <AccordionContent>
                       <ul className="list-disc pl-6 space-y-2">
-                        {category.items.map((item, index) => (
-                          <li key={index}>{t(item)}</li>
+                        {category.content.map((item, index) => (
+                          <li key={index}>{item}</li>
                         ))}
                       </ul>
                     </AccordionContent>

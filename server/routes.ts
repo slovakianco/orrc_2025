@@ -123,26 +123,38 @@ export async function registerRoutes(app: Express): Promise<Server> {
         age
       });
       
-      // Get the language preference from request if available
-      const preferredLanguage = req.header('Accept-Language')?.split(',')[0]?.split('-')[0] || 'en';
+      // Get the language preference from request - priority order:
+      // 1. Explicitly provided language parameter in the request body
+      // 2. Language in the URL path
+      // 3. Accept-Language header
+      // 4. Default to 'en'
       
-      // Send confirmation email 
-      const raceCategory = `${race.distance}km ${race.difficulty}`;
-      
-      // Determine best language to use
       const supportedLanguages = ['en', 'ro', 'fr', 'de', 'it', 'es'];
       let emailLanguage = 'en'; // Default fallback
       
-      // Try to match the browser language
-      if (preferredLanguage && supportedLanguages.includes(preferredLanguage)) {
-        emailLanguage = preferredLanguage;
+      // 1. Check for language parameter in request body
+      const explicitLanguage = req.body.language;
+      if (explicitLanguage && supportedLanguages.includes(explicitLanguage)) {
+        emailLanguage = explicitLanguage;
+        console.log(`Using explicitly provided language for email: ${emailLanguage}`);
+      } else {
+        // 2. Check URL path for language code
+        const pathLanguage = req.header('Referer')?.match(/\/(en|ro|fr|de|it|es)\//)?.[1];
+        if (pathLanguage && supportedLanguages.includes(pathLanguage)) {
+          emailLanguage = pathLanguage;
+          console.log(`Using URL path language for email: ${emailLanguage}`);
+        } else {
+          // 3. Try to match the browser language
+          const preferredLanguage = req.header('Accept-Language')?.split(',')[0]?.split('-')[0] || 'en';
+          if (preferredLanguage && supportedLanguages.includes(preferredLanguage)) {
+            emailLanguage = preferredLanguage;
+            console.log(`Using browser language for email: ${emailLanguage}`);
+          }
+        }
       }
       
-      // If they registered for a specific language route, use that language
-      const pathLanguage = req.header('Referer')?.match(/\/(en|ro|fr|de|it|es)\//)?.[1];
-      if (pathLanguage && supportedLanguages.includes(pathLanguage)) {
-        emailLanguage = pathLanguage;
-      }
+      // Send confirmation email 
+      const raceCategory = `${race.distance}km ${race.difficulty}`;
       
       try {
         const emailSent = await sendRegistrationConfirmationEmail(

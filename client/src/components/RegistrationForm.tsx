@@ -80,6 +80,13 @@ const RegistrationForm = () => {
       }, 1000);
       reset();
       queryClient.invalidateQueries({ queryKey: ['/api/participants'] });
+      
+      // Redirect to participants page after successful registration
+      setTimeout(() => {
+        window.location.href = "/participants";
+        // Scroll to top of page
+        window.scrollTo(0, 0);
+      }, 2000); // 2 seconds delay to allow toast messages to be seen
     },
     onError: (error: Error) => {
       toast({
@@ -110,10 +117,12 @@ const RegistrationForm = () => {
     const age = calculateAge(apiData.birthDate);
     
     // Convert raceId from string to number if needed
+    // Also add current language for email localization
     const formattedData = {
       ...apiData,
       raceId: typeof apiData.raceId === 'string' ? parseInt(apiData.raceId) : apiData.raceId,
-      age // Add calculated age
+      age, // Add calculated age
+      language: i18n.language // Add current language for email localization
     };
     
     console.log("Submitting registration with data:", formattedData);

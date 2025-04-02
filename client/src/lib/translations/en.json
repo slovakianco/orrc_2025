@@ -243,40 +243,83 @@
     "title": "Rules & Regulations",
     "subtitle": "Familiarize yourself with the competition rules to ensure a safe and fair race for everyone.",
     "downloadButton": "Download Full Rules PDF",
+    "important": "Important Notice",
+    "importantDescription": "All participants must adhere to these rules for their safety and the integrity of the competition. Non-compliance may result in penalties or disqualification.",
+    "introduction": "The Stana de Vale Trail Race is organized in accordance with international trail running standards and regulations. The following rules apply to all participants in both the 11km and 33km races.",
+    "contactQuestion": "Have questions about the rules? Contact us at:",
     "sections": {
       "general": {
         "title": "General Rules",
         "rules": {
-          "1": "Participants must follow the marked trail at all times. Taking shortcuts is strictly prohibited and will result in disqualification.",
-          "2": "Bib numbers must be visible at all times during the race.",
-          "3": "Littering on the trail is strictly prohibited. Use designated trash bins at aid stations.",
-          "4": "In case of emergency, participants must assist fellow runners and alert race officials immediately."
+          "1": "All runners must follow the marked course at all times. Deviating from the marked trail or taking shortcuts is strictly prohibited and will result in disqualification.",
+          "2": "Bib numbers must remain visible at all times during the race.",
+          "3": "Participants must check in at all control points along the course.",
+          "4": "Runners must respect the environment. Littering is strictly prohibited and will result in disqualification.",
+          "5": "In case of withdrawal, participants must inform race officials at the nearest checkpoint."
         }
       },
       "equipment": {
-        "title": "Required Equipment",
+        "title": "Mandatory Equipment",
         "rules": {
-          "1": "Water container (minimum 1L for 10km, 1.5L for 21km, 2L for 50km).",
-          "2": "Mobile phone with race organization contacts saved.",
-          "3": "Thermal blanket and whistle (50km race only).",
-          "4": "Headlamp with spare batteries (50km race only)."
+          "1": "Race bib visible at all times",
+          "2": "Fully charged mobile phone",
+          "3": "Waterproof jacket",
+          "4": "Water container (minimum 500ml)",
+          "5": "Thermal emergency blanket",
+          "6": "Trail running shoes"
         }
       },
-      "timeLimits": {
-        "title": "Time Limits & Cut-offs",
+      "recommendations": {
+        "title": "Recommended Equipment",
         "rules": {
-          "1": "Mountain Explorer (10km): 3 hours total time limit.",
-          "2": "Forest Challenge (21km): 5 hours total time limit with a mid-point cut-off at 2.5 hours.",
-          "3": "Summit Ultra (50km): 12 hours total time limit with cut-offs at 20km (4 hours) and 35km (8 hours)."
+          "1": "Energy gels or nutrition bars",
+          "2": "Compass or buff",
+          "3": "Whistle"
+        }
+      },
+      "aidStations": {
+        "title": "Aid Stations",
+        "rules": {
+          "1": "11km race: One aid station at km 5.",
+          "2": "33km race: Five aid stations located at km 5.4, 10.4, 15.5, 20.9, and 26.6.",
+          "3": "All aid stations provide water, isotonic drinks, and light snacks.",
+          "4": "Medical assistance is available at each aid station."
         }
       },
       "penalties": {
         "title": "Penalties & Disqualification",
         "rules": {
-          "1": "Missing required equipment: 30 minute time penalty.",
-          "2": "Shortcutting the course: disqualification.",
-          "3": "Littering: 1 hour time penalty for first offense, disqualification for second offense.",
-          "4": "Failure to assist a runner in distress: disqualification."
+          "1": "Missing mandatory equipment: 30-minute time penalty.",
+          "2": "Littering on the course: immediate disqualification.",
+          "3": "Using trekking poles in prohibited areas: 30-minute time penalty.",
+          "4": "Failure to assist a runner in distress: disqualification.",
+          "5": "Receiving unauthorized assistance outside of aid stations: disqualification."
+        }
+      },
+      "safety": {
+        "title": "Safety Regulations",
+        "rules": {
+          "1": "Race organizers may modify the course or cancel the event in case of severe weather conditions.",
+          "2": "Medical teams have the authority to withdraw participants deemed unfit to continue.",
+          "3": "Participants must assist any runner in distress and report to the next aid station.",
+          "4": "In case of emergency, call the race emergency number provided on your bib."
+        }
+      },
+      "environment": {
+        "title": "Environmental Protection",
+        "rules": {
+          "1": "Stay on marked trails to minimize environmental impact.",
+          "2": "Carry all waste to the next aid station or finish line.",
+          "3": "Respect wildlife and local regulations in protected areas."
+        }
+      },
+      "registration": {
+        "title": "Registration & Eligibility",
+        "rules": {
+          "1": "Minimum age for 11km race: 16 years old (with parental consent for minors).",
+          "2": "Minimum age for 33km race: 18 years old.",
+          "3": "All participants must sign a liability waiver before the race.",
+          "4": "Race bibs are personal and non-transferable."
         }
       }
     }

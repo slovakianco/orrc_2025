@@ -213,40 +213,83 @@
     "title": "Reguli și Regulamente",
     "subtitle": "Familiarizează-te cu regulile competiției pentru a asigura o cursă sigură și corectă pentru toată lumea.",
     "downloadButton": "Descarcă Regulamentul Complet PDF",
+    "important": "Notificare Importantă",
+    "importantDescription": "Toți participanții trebuie să respecte aceste reguli pentru siguranța lor și integritatea competiției. Nerespectarea poate duce la penalizări sau descalificare.",
+    "introduction": "Cursa Stana de Vale Trail este organizată în conformitate cu standardele și reglementările internaționale de alergare montană. Următoarele reguli se aplică tuturor participanților, atât în cursa de 11km, cât și în cea de 33km.",
+    "contactQuestion": "Ai întrebări despre reguli? Contactează-ne la:",
     "sections": {
       "general": {
         "title": "Reguli Generale",
         "rules": {
-          "1": "Participanții trebuie să urmeze traseul marcat în permanență. Scurtăturile sunt strict interzise și vor duce la descalificare.",
-          "2": "Numărul de concurs trebuie să fie vizibil în orice moment în timpul cursei.",
-          "3": "Aruncarea gunoaielor pe traseu este strict interzisă. Folosește coșurile de gunoi desemnate la punctele de alimentare.",
-          "4": "În caz de urgență, participanții trebuie să ajute alți alergători și să alerteze oficialii cursei imediat."
+          "1": "Toți alergătorii trebuie să urmeze traseul marcat în permanență. Devierea de la traseul marcat sau luarea de scurtături este strict interzisă și va duce la descalificare.",
+          "2": "Numerele de concurs trebuie să rămână vizibile în orice moment în timpul cursei.",
+          "3": "Participanții trebuie să se înregistreze la toate punctele de control de-a lungul traseului.",
+          "4": "Alergătorii trebuie să respecte mediul înconjurător. Aruncarea gunoaielor este strict interzisă și va duce la descalificare.",
+          "5": "În caz de retragere, participanții trebuie să informeze oficialii cursei la cel mai apropiat punct de control."
         }
       },
       "equipment": {
         "title": "Echipament Obligatoriu",
         "rules": {
-          "1": "Recipient de apă (minim 1L pentru 10km, 1.5L pentru 21km, 2L pentru 50km).",
-          "2": "Telefon mobil cu contactele organizatorilor salvate.",
-          "3": "Pătură termică și fluier (doar pentru cursa de 50km).",
-          "4": "Frontală cu baterii de schimb (doar pentru cursa de 50km)."
+          "1": "Număr de concurs vizibil în permanență",
+          "2": "Telefon mobil complet încărcat",
+          "3": "Jachetă impermeabilă",
+          "4": "Recipient pentru apă (minim 500ml)",
+          "5": "Pătură termică de urgență",
+          "6": "Pantofi de alergare montană"
         }
       },
-      "timeLimits": {
-        "title": "Limite de Timp & Puncte de Control",
+      "recommendations": {
+        "title": "Echipament Recomandat",
         "rules": {
-          "1": "Exploratorul Montan (10km): limită totală de timp 3 ore.",
-          "2": "Provocarea Pădurii (21km): limită totală de timp 5 ore cu punct de control la mijloc la 2.5 ore.",
-          "3": "Ultra Vârf (50km): limită totală de timp 12 ore cu puncte de control la 20km (4 ore) și 35km (8 ore)."
+          "1": "Geluri energizante sau batoane nutritive",
+          "2": "Busolă sau bandană",
+          "3": "Fluier"
+        }
+      },
+      "aidStations": {
+        "title": "Puncte de Alimentare",
+        "rules": {
+          "1": "Cursa de 11km: Un punct de alimentare la km 5.",
+          "2": "Cursa de 33km: Cinci puncte de alimentare localizate la km 5.4, 10.4, 15.5, 20.9 și 26.6.",
+          "3": "Toate punctele de alimentare oferă apă, băuturi izotonice și gustări ușoare.",
+          "4": "Asistență medicală este disponibilă la fiecare punct de alimentare."
         }
       },
       "penalties": {
         "title": "Penalizări & Descalificare",
         "rules": {
           "1": "Echipament obligatoriu lipsă: penalizare de 30 de minute.",
-          "2": "Scurtături pe traseu: descalificare.",
-          "3": "Aruncare de gunoi: penalizare de 1 oră pentru prima abatere, descalificare pentru a doua abatere.",
-          "4": "Neacordarea de ajutor unui alergător aflat în dificultate: descalificare."
+          "2": "Aruncarea gunoaielor pe traseu: descalificare imediată.",
+          "3": "Utilizarea bețelor de trekking în zonele interzise: penalizare de 30 de minute.",
+          "4": "Neacordarea de ajutor unui alergător aflat în dificultate: descalificare.",
+          "5": "Primirea de asistență neautorizată în afara punctelor de alimentare: descalificare."
+        }
+      },
+      "safety": {
+        "title": "Reglementări de Siguranță",
+        "rules": {
+          "1": "Organizatorii cursei pot modifica traseul sau anula evenimentul în caz de condiții meteorologice severe.",
+          "2": "Echipele medicale au autoritatea de a retrage participanții considerați inapți să continue.",
+          "3": "Participanții trebuie să asiste orice alergător aflat în dificultate și să raporteze la următorul punct de alimentare.",
+          "4": "În caz de urgență, sună la numărul de urgență al cursei indicat pe numărul tău de concurs."
+        }
+      },
+      "environment": {
+        "title": "Protecția Mediului",
+        "rules": {
+          "1": "Rămâi pe traseele marcate pentru a minimiza impactul asupra mediului.",
+          "2": "Transportă toate deșeurile până la următorul punct de alimentare sau linia de sosire.",
+          "3": "Respectă fauna și reglementările locale în zonele protejate."
+        }
+      },
+      "registration": {
+        "title": "Înregistrare & Eligibilitate",
+        "rules": {
+          "1": "Vârsta minimă pentru cursa de 11km: 16 ani (cu acordul părinților pentru minori).",
+          "2": "Vârsta minimă pentru cursa de 33km: 18 ani.",
+          "3": "Toți participanții trebuie să semneze o declarație de răspundere înainte de cursă.",
+          "4": "Numerele de concurs sunt personale și netransferabile."
         }
       }
     }
