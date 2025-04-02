@@ -150,12 +150,12 @@ export default function RulesContent() {
       
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <Alert className="mb-8 border-[#E64A19] bg-orange-50">
-            <AlertCircle className="h-4 w-4 text-[#E64A19]" />
-            <AlertTitle className="text-[#E64A19] font-heading font-semibold">
+          <Alert className="mb-8 border-[#E64A19] bg-[#FFF3E0] text-[#BF360C]">
+            <AlertCircle className="h-5 w-5 text-[#E64A19]" />
+            <AlertTitle className="text-[#E64A19] font-heading font-semibold text-lg">
               {t("rules.important")}
             </AlertTitle>
-            <AlertDescription>
+            <AlertDescription className="text-[#BF360C] text-base mt-1">
               {t("rules.importantDescription")}
             </AlertDescription>
           </Alert>

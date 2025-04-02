@@ -21,16 +21,16 @@ const HowToGetPage: React.FC = () => {
         <div className="mb-8 md:mb-10">
           <p className="text-base md:text-lg mb-6 md:mb-8">{t('howToGet.introduction')}</p>
           
-          <Alert className="mb-6 md:mb-8 bg-amber-50 border-amber-200">
-            <AlertTitle className="flex items-start md:items-center gap-2 text-sm md:text-base">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-amber-600 mt-0.5 md:mt-0 flex-shrink-0">
+          <Alert className="mb-6 md:mb-8 bg-[#FFF8E1] border-[#FFB300] text-[#BF6800]">
+            <AlertTitle className="flex items-start md:items-center gap-2 text-base md:text-lg font-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#F57F17] mt-0.5 md:mt-0 flex-shrink-0">
                 <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
                 <line x1="12" y1="9" x2="12" y2="13"></line>
                 <line x1="12" y1="17" x2="12.01" y2="17"></line>
               </svg>
               {t('howToGet.importantNote')}
             </AlertTitle>
-            <AlertDescription className="text-base pl-7 md:pl-0">{t('howToGet.weatherNote')}</AlertDescription>
+            <AlertDescription className="text-[#BF6800] text-base pl-7 md:pl-8 mt-1">{t('howToGet.weatherNote')}</AlertDescription>
           </Alert>
         </div>
 
