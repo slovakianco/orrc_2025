@@ -275,9 +275,8 @@
       "timeLimits": {
         "title": "Limiti di Tempo e Tagli",
         "rules": {
-          "1": "Mountain Explorer (10km): limite totale di 3 ore.",
-          "2": "Forest Challenge (21km): limite totale di 5 ore con un taglio intermedio a 2,5 ore.",
-          "3": "Summit Ultra (50km): limite totale di 12 ore con tagli a 20km (4 ore) e 35km (8 ore)."
+          "1": "Corsa di 11km: limite totale di 3 ore.",
+          "2": "Corsa di 33km: limite totale di 8 ore con tagli a 15km (3 ore) e 25km (6 ore)."
         }
       },
       "penalties": {

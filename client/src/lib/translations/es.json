@@ -275,9 +275,8 @@
       "timeLimits": {
         "title": "Límites de Tiempo y Cortes",
         "rules": {
-          "1": "Mountain Explorer (10 km): límite total de 3 horas.",
-          "2": "Forest Challenge (21 km): límite total de 5 horas con un corte intermedio a las 2.5 horas.",
-          "3": "Summit Ultra (50 km): límite total de 12 horas con cortes en 20 km (4 horas) y 35 km (8 horas)."
+          "1": "Carrera de 11 km: límite total de 3 horas.",
+          "2": "Carrera de 33 km: límite total de 8 horas con cortes en 15 km (3 horas) y 25 km (6 horas)."
         }
       },
       "penalties": {
