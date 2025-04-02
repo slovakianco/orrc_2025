@@ -5,7 +5,6 @@ import {
   Instagram,
   Twitter,
   Youtube,
-  Mountain,
   Send,
 } from "lucide-react";
 import { useState } from "react";
@@ -32,11 +31,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           <div>
             <div className="flex items-center mb-3 md:mb-4">
-              <div className="w-8 h-8 md:w-10 md:h-10 bg-highlight rounded-full flex items-center justify-center mr-2 md:mr-3">
-                <Mountain className="text-primary text-sm md:text-lg" />
+              <div className="h-10 w-auto mr-2 overflow-hidden flex items-center">
+                <img 
+                  src="/logo.jpeg" 
+                  alt="Stana de Vale Logo" 
+                  className="h-full w-auto object-cover rounded-md"
+                />
               </div>
-              <span className="font-heading font-bold text-lg md:text-xl">
-                TRAIL<span className="text-accent">RUN</span>
+              <span className="font-heading font-bold text-base md:text-lg text-white">
+                Stana de Vale Trail Race
               </span>
             </div>
             <p className="text-neutral-light text-opacity-80 mb-3 md:mb-4 text-sm md:text-base">
