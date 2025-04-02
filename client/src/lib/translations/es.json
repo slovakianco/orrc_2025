@@ -252,12 +252,24 @@
         }
       },
       "equipment": {
-        "title": "Equipamiento Requerido",
+        "title": "Equipamiento Obligatorio",
         "rules": {
-          "1": "Contenedor de agua (mínimo 1L para 10 km, 1.5L para 21 km, 2L para 50 km).",
-          "2": "Teléfono móvil con contactos de la organización guardados.",
-          "3": "Manta térmica y silbato (solo para la carrera de 50 km).",
-          "4": "Lámpara frontal con baterías de repuesto (solo para la carrera de 50 km)."
+          "1": "Dorsal visible en todo momento",
+          "2": "Teléfono móvil con batería completa",
+          "3": "Chaqueta impermeable",
+          "4": "Recipiente de agua (mínimo 0.5L)",
+          "5": "Manta térmica de emergencia",
+          "6": "Zapatillas de trail running"
+        }
+      },
+      "recommendations": {
+        "title": "Equipamiento Recomendado",
+        "rules": {
+          "1": "Geles energéticos o barritas nutritivas",
+          "2": "Brújula o buff",
+          "3": "Silbato",
+          "4": "Mallas o polainas",
+          "5": "Bastones de trekking"
         }
       },
       "timeLimits": {

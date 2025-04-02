@@ -252,12 +252,24 @@
         }
       },
       "equipment": {
-        "title": "Equipaggiamento Richiesto",
+        "title": "Equipaggiamento Obbligatorio",
         "rules": {
-          "1": "Contenitore d'acqua (minimo 1L per 10km, 1,5L per 21km, 2L per 50km).",
-          "2": "Telefono cellulare con i contatti dell'organizzazione salvati.",
-          "3": "Coperta termica e fischietto (solo per la gara di 50km).",
-          "4": "Lampada frontale con batterie di ricambio (solo per la gara di 50km)."
+          "1": "Numero di gara visibile",
+          "2": "Telefono cellulare carico con numeri di emergenza",
+          "3": "Giacca impermeabile",
+          "4": "Contenitore d'acqua (minimo 0.5L)",
+          "5": "Coperta termica d'emergenza",
+          "6": "Scarpe da trail running"
+        }
+      },
+      "recommendations": {
+        "title": "Equipaggiamento Consigliato",
+        "rules": {
+          "1": "Gel energetici o barrette nutritive",
+          "2": "Bussola o buff",
+          "3": "Fischietto",
+          "4": "Calzamaglia o ghette",
+          "5": "Bastoncini da trekking"
         }
       },
       "timeLimits": {
