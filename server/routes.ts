@@ -332,17 +332,29 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (result) {
         res.json({ success: true, message: "Test email sent successfully" });
       } else {
+        // Check API key format for providing more specific guidance
+        const apiKey = process.env.SENDGRID_API_KEY || '';
+        const hasValidFormat = apiKey.startsWith('SG.');
+        const hasBearerPrefix = apiKey.startsWith('Bearer ');
+        
+        let apiKeyIssue = '';
+        if (!hasValidFormat && !hasBearerPrefix) {
+          apiKeyIssue = "Your API key doesn't start with 'SG.', which is unusual for SendGrid API keys.";
+        } else if (hasBearerPrefix) {
+          apiKeyIssue = "Your API key starts with 'Bearer ', which is incorrect. Remove this prefix.";
+        }
+        
         res.status(500).json({ 
           success: false, 
           message: "Failed to send test email. Make sure your SendGrid API key is valid and has permissions to send emails.",
           sendgridConfigured: process.env.SENDGRID_API_KEY ? true : false,
           possibleIssues: [
-            "The SendGrid API key may be invalid or expired. Ensure it has the correct format: Bearer YOUR_SENDGRID_API_KEY",
-            "The sender identity is not verified. Go to SendGrid dashboard and verify the email address used in the 'from' field.",
-            "The sender domain (stanadevaletrail.ro) may not be verified in SendGrid. You need to verify domain ownership.",
-            "The SendGrid account may have restrictions on sending volume.",
-            "You need to modify the DEFAULT_FROM_EMAIL in server/email.ts to use your own verified email address."
-          ]
+            apiKeyIssue || "The SendGrid API key may be invalid or expired.",
+            "The sender identity (registration@stanatrailrace.ro) is not verified in SendGrid. Go to SendGrid dashboard and verify this email.",
+            "The sender domain (stanatrailrace.ro) may not be verified in SendGrid. You need to set up domain authentication in SendGrid.",
+            "You could try changing DEFAULT_FROM_EMAIL in server/email.ts to use a verified email address in your SendGrid account.",
+            "For detailed troubleshooting, check server logs for specific SendGrid API error messages."
+          ].filter(issue => issue) // Remove empty strings
         });
       }
     } catch (error) {
@@ -358,14 +370,34 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Check SendGrid status
   apiRouter.get("/email-status", (req: Request, res: Response) => {
     const sendgridConfigured = !!process.env.SENDGRID_API_KEY;
+    const apiKeyValue = process.env.SENDGRID_API_KEY || '';
+    
+    // Check if API key has the correct format (starts with SG.)
+    const hasValidFormat = apiKeyValue.startsWith('SG.');
+    const hasBearerPrefix = apiKeyValue.startsWith('Bearer ');
+    
+    let formatMessage = '';
+    if (sendgridConfigured) {
+      if (!hasValidFormat && !hasBearerPrefix) {
+        formatMessage = "Warning: Your API key doesn't start with 'SG.', which is the standard format for SendGrid API keys. Please check if it's correct.";
+      } else if (hasBearerPrefix) {
+        formatMessage = "Warning: Your API key starts with 'Bearer ', which is incorrect. The API key should be provided without this prefix.";
+      }
+    }
     
     res.json({
       sendgridConfigured,
-      emailServiceReady: sendgridConfigured,
+      emailServiceReady: sendgridConfigured && (hasValidFormat || hasBearerPrefix),
       message: sendgridConfigured 
-        ? "SendGrid is configured. The API key appears to be set, but this does not guarantee it is valid. To send emails, you need to verify your sender identity in SendGrid dashboard."
+        ? `SendGrid is configured. The API key appears to be set, but this does not guarantee it is valid. ${formatMessage}`
         : "SendGrid is not configured. SENDGRID_API_KEY environment variable is not set. Please add your SendGrid API key to enable email functionality.",
-      senderVerificationNote: "Important: You must verify a sender identity in SendGrid dashboard before sending emails. The email addresses used in the 'from' field must be verified."
+      senderVerificationNote: "Important: You must verify a sender identity in SendGrid dashboard before sending emails. The email addresses 'registration@stanatrailrace.ro' and/or your backup email must be verified sender identities.",
+      setupInstructions: [
+        "1. Get a SendGrid API key from https://app.sendgrid.com/settings/api_keys",
+        "2. Verify sender identity at https://app.sendgrid.com/settings/sender_auth",
+        "3. Either verify individual emails or an entire domain (domain verification requires DNS setup)",
+        "4. Test sending an email from this page to confirm everything works"
+      ]
     });
   });
 

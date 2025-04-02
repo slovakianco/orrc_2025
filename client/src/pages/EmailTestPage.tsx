@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useToast } from '@/hooks/use-toast';
 import { AlertCircle, CheckCircle2 } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 export default function EmailTestPage() {
   const { t } = useTranslation();
@@ -27,6 +28,7 @@ export default function EmailTestPage() {
     emailServiceReady: boolean;
     message: string;
     senderVerificationNote?: string;
+    setupInstructions?: string[];
   } | null>(null);
 
   // Check email service status on component mount
@@ -121,9 +123,71 @@ export default function EmailTestPage() {
               </AlertDescription>
             </Alert>
           )}
+          
+          {emailStatus.setupInstructions && emailStatus.setupInstructions.length > 0 && (
+            <Alert className="mb-6 bg-green-50 border-green-200">
+              <CheckCircle2 className="h-5 w-5 text-green-600" />
+              <AlertTitle className="ml-2 text-green-800 font-medium">Setup Instructions</AlertTitle>
+              <AlertDescription className="mt-2 text-green-700">
+                <ul className="list-disc pl-5 space-y-1 mt-2">
+                  {emailStatus.setupInstructions.map((instruction, index) => (
+                    <li key={index}>{instruction}</li>
+                  ))}
+                </ul>
+              </AlertDescription>
+            </Alert>
+          )}
         </>
       )}
       
+      <div className="mb-8">
+        <Accordion type="single" collapsible className="max-w-2xl mx-auto">
+          <AccordionItem value="sendgrid-setup">
+            <AccordionTrigger className="text-lg font-medium text-gray-800">
+              SendGrid Setup Guide
+            </AccordionTrigger>
+            <AccordionContent className="bg-gray-50 p-4 rounded-md">
+              <div className="space-y-4">
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2">1. API Key Setup</h3>
+                  <p className="text-gray-700">
+                    To use SendGrid for sending emails, you need a valid API key:
+                  </p>
+                  <ul className="list-disc pl-6 mt-2 text-gray-700">
+                    <li>Log in to your SendGrid account at <a href="https://app.sendgrid.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">app.sendgrid.com</a></li>
+                    <li>Navigate to Settings → API Keys and create a new API key with "Mail Send" permissions</li>
+                    <li>Copy the API key (starts with "SG.") and add it to your environment variables as SENDGRID_API_KEY</li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2">2. Sender Verification</h3>
+                  <p className="text-gray-700">
+                    SendGrid requires you to verify the "From" email address:
+                  </p>
+                  <ul className="list-disc pl-6 mt-2 text-gray-700">
+                    <li>Go to Settings → Sender Authentication in your SendGrid dashboard</li>
+                    <li>Either verify a single sender email (easier option) or verify an entire domain</li>
+                    <li>For domain verification, you'll need to add DNS records to your domain's DNS settings</li>
+                    <li>Our application uses <code className="bg-gray-200 px-1 py-0.5 rounded">registration@stanatrailrace.ro</code> as the sender email</li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2">3. Troubleshooting</h3>
+                  <ul className="list-disc pl-6 mt-2 text-gray-700">
+                    <li>If you get authentication errors, ensure your API key is correct and hasn't expired</li>
+                    <li>If you get sender verification errors, make sure the sender email is verified in SendGrid</li>
+                    <li>Check the server logs for detailed error messages from SendGrid</li>
+                    <li>Use this test page to verify your email configuration is working</li>
+                  </ul>
+                </div>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+
       <Card className="max-w-md mx-auto">
         <CardHeader>
           <CardTitle>{t('emailTest.sendTestEmail')}</CardTitle>
@@ -172,7 +236,7 @@ export default function EmailTestPage() {
             </Button>
           </form>
         </CardContent>
-        <CardFooter>
+        <CardFooter className="flex flex-col">
           {result && (
             <div className={`w-full ${result.success ? 'text-green-600' : 'text-red-600'}`}>
               {result.message}
