@@ -6,11 +6,18 @@ if (!process.env.SENDGRID_API_KEY) {
 
 // Default from email if custom domain verification fails
 // This should be an email verified in your SendGrid account
-const DEFAULT_FROM_EMAIL = 'noreply@example.com';
+// Users need to verify sender identity in SendGrid dashboard
+const DEFAULT_FROM_EMAIL = 'your.email@gmail.com'; // Users should replace this with their verified email
 
 const mailService = new MailService();
 if (process.env.SENDGRID_API_KEY) {
-  mailService.setApiKey(process.env.SENDGRID_API_KEY);
+  // Remove 'Bearer ' prefix if it exists to ensure correct formatting
+  let apiKey = process.env.SENDGRID_API_KEY;
+  if (apiKey.startsWith('Bearer ')) {
+    apiKey = apiKey.substring(7);
+    console.log('Removed "Bearer " prefix from SendGrid API key. The key should be provided without this prefix.');
+  }
+  mailService.setApiKey(apiKey);
 }
 
 interface EmailParams {

@@ -337,9 +337,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
           message: "Failed to send test email. Make sure your SendGrid API key is valid and has permissions to send emails.",
           sendgridConfigured: process.env.SENDGRID_API_KEY ? true : false,
           possibleIssues: [
-            "The SendGrid API key may be invalid or expired.",
+            "The SendGrid API key may be invalid or expired. Ensure it has the correct format: Bearer YOUR_SENDGRID_API_KEY",
+            "The sender identity is not verified. Go to SendGrid dashboard and verify the email address used in the 'from' field.",
             "The sender domain (stanadevaletrail.ro) may not be verified in SendGrid. You need to verify domain ownership.",
-            "The SendGrid account may have restrictions on sending volume."
+            "The SendGrid account may have restrictions on sending volume.",
+            "You need to modify the DEFAULT_FROM_EMAIL in server/email.ts to use your own verified email address."
           ]
         });
       }
@@ -361,8 +363,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       sendgridConfigured,
       emailServiceReady: sendgridConfigured,
       message: sendgridConfigured 
-        ? "SendGrid is configured. The API key appears to be set, but this does not guarantee it is valid."
-        : "SendGrid is not configured. SENDGRID_API_KEY environment variable is not set."
+        ? "SendGrid is configured. The API key appears to be set, but this does not guarantee it is valid. To send emails, you need to verify your sender identity in SendGrid dashboard."
+        : "SendGrid is not configured. SENDGRID_API_KEY environment variable is not set. Please add your SendGrid API key to enable email functionality.",
+      senderVerificationNote: "Important: You must verify a sender identity in SendGrid dashboard before sending emails. The email addresses used in the 'from' field must be verified."
     });
   });
 

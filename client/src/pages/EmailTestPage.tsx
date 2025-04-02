@@ -26,6 +26,7 @@ export default function EmailTestPage() {
     sendgridConfigured: boolean;
     emailServiceReady: boolean;
     message: string;
+    senderVerificationNote?: string;
   } | null>(null);
 
   // Check email service status on component mount
@@ -96,19 +97,31 @@ export default function EmailTestPage() {
       <PageHeader title={t('emailTest.title')} subtitle={t('emailTest.subtitle')} />
       
       {emailStatus && (
-        <Alert className={emailStatus.sendgridConfigured ? "bg-green-50 mb-6" : "bg-amber-50 mb-6"}>
-          <div className="flex items-center gap-2">
-            {emailStatus.sendgridConfigured ? (
-              <CheckCircle2 className="h-5 w-5 text-green-500" />
-            ) : (
-              <AlertCircle className="h-5 w-5 text-amber-500" />
-            )}
-            <AlertTitle>{emailStatus.sendgridConfigured ? t('emailTest.configured') : t('emailTest.notConfigured')}</AlertTitle>
-          </div>
-          <AlertDescription className="mt-2">
-            {emailStatus.message}
-          </AlertDescription>
-        </Alert>
+        <>
+          <Alert className={emailStatus.sendgridConfigured ? "bg-green-50 mb-4" : "bg-amber-50 mb-4"}>
+            <div className="flex items-center gap-2">
+              {emailStatus.sendgridConfigured ? (
+                <CheckCircle2 className="h-5 w-5 text-green-500" />
+              ) : (
+                <AlertCircle className="h-5 w-5 text-amber-500" />
+              )}
+              <AlertTitle>{emailStatus.sendgridConfigured ? t('emailTest.configured') : t('emailTest.notConfigured')}</AlertTitle>
+            </div>
+            <AlertDescription className="mt-2">
+              {emailStatus.message}
+            </AlertDescription>
+          </Alert>
+          
+          {emailStatus.senderVerificationNote && (
+            <Alert className="mb-6 bg-blue-50 border-blue-200">
+              <AlertCircle className="h-5 w-5 text-blue-500" />
+              <AlertTitle className="ml-2 text-blue-800 font-medium">Sender Verification Required</AlertTitle>
+              <AlertDescription className="mt-2 text-blue-700">
+                {emailStatus.senderVerificationNote}
+              </AlertDescription>
+            </Alert>
+          )}
+        </>
       )}
       
       <Card className="max-w-md mx-auto">
