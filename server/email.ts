@@ -45,7 +45,7 @@ if (!process.env.SENDGRID_API_KEY) {
 // Default from email if custom domain verification fails
 // This should be an email verified in your SendGrid account
 // Users need to verify sender identity in SendGrid dashboard
-const DEFAULT_FROM_EMAIL = "contact@stanatrailrace.ro"; // This email must be verified in SendGrid
+const DEFAULT_FROM_EMAIL = "registration@stanatrailrace.ro"; // This email must be verified in SendGrid
 
 interface EmailParams {
   to: string;
