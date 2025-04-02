@@ -4,17 +4,26 @@ import { MailService } from "@sendgrid/mail";
 // Create an instance of the MailService
 const sgMail = new MailService();
 
-// TEMPORARY: Hardcoded API key for testing purposes
-const HARDCODED_API_KEY = "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";
-
-console.log("Using hardcoded SendGrid API key for testing");
-sgMail.setApiKey(HARDCODED_API_KEY);
+if (!process.env.SENDGRID_API_KEY) {
+  console.warn(
+    "SENDGRID_API_KEY environment variable is not set. Email functionality will be disabled.",
+  );
+} else {
+  // Remove 'Bearer ' prefix if it exists to ensure correct formatting
+  let apiKey = process.env.SENDGRID_API_KEY;
+  if (apiKey.startsWith("Bearer ")) {
+    apiKey = apiKey.substring(7);
+    console.log(
+      'Removed "Bearer " prefix from SendGrid API key. The key should be provided without this prefix.',
+    );
+  }
+  sgMail.setApiKey(apiKey);
+}
 
 // Default from email if custom domain verification fails
 // This should be an email verified in your SendGrid account
 // Users need to verify sender identity in SendGrid dashboard
-const DEFAULT_FROM_EMAIL = "test@example.com"; // Using generic email for testing
-// original was: registration@stanatrailrace.ro
+const DEFAULT_FROM_EMAIL = "registration@stanatrailrace.ro"; // This email must be verified in SendGrid
 
 interface EmailParams {
   to: string;
@@ -25,8 +34,10 @@ interface EmailParams {
 }
 
 export async function sendEmail(params: EmailParams): Promise<boolean> {
-  // Using hardcoded key for testing, so we don't need to check for environment variable
-  console.log("Using hardcoded SendGrid API key for testing email sending");
+  if (!process.env.SENDGRID_API_KEY) {
+    console.warn("Email not sent: SENDGRID_API_KEY is not set");
+    return false;
+  }
 
   console.log("Attempting to send email to:", params.to);
   console.log("From:", params.from);
@@ -142,14 +153,38 @@ export async function sendRegistrationConfirmationEmail(
 
   const lang = language in subjects ? (language as SupportedLanguages) : "en";
 
-  // For testing, skip the custom domain attempt and go straight to a generic test email
+  // First try with custom domain
   try {
-    console.log("Using generic test email address for sender");
-    
-    // Use a single attempt with the test email address
+    const result = await sendEmail({
+      to: email,
+      from: "registration@stanatrailrace.ro", // Make sure this domain matches what you've verified in SendGrid
+      subject: subjects[lang],
+      text: `${greetings[lang]}\n\n${messages[lang]}`,
+      html: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e6dfd9; border-radius: 8px;">
+        <div style="text-align: center; margin-bottom: 20px;">
+          <h1 style="color: #2A6D50; margin-bottom: 10px;">Stana de Vale Trail Race</h1>
+        </div>
+        <p style="font-size: 16px; line-height: 1.5; color: #3E4A59;">${greetings[lang]}</p>
+        <div style="font-size: 16px; line-height: 1.5; color: #3E4A59;">
+          ${messages[lang].replace(/\n\n/g, '</p><p style="font-size: 16px; line-height: 1.5; color: #3E4A59;">').replace(/\n/g, "<br>")}
+        </div>
+        <div style="margin-top: 30px; border-top: 1px solid #e6dfd9; padding-top: 20px; text-align: center; font-size: 14px; color: #7D5A45;">
+          <p>Stana de Vale Trail Race 2025</p>
+          <p>July 4-5, 2025 • Stâna de Vale, Romania</p>
+        </div>
+      </div>`,
+    });
+
+    if (result) return true;
+
+    // If domain verification is the issue, fall back to the default sender email
+    console.log(
+      "Trying fallback sender email due to possible domain verification issue...",
+    );
+
     return await sendEmail({
       to: email,
-      from: DEFAULT_FROM_EMAIL, // Using our test sender email
+      from: DEFAULT_FROM_EMAIL,
       subject: subjects[lang],
       text: `${greetings[lang]}\n\n${messages[lang]}`,
       html: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e6dfd9; border-radius: 8px;">
