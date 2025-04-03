@@ -453,6 +453,198 @@
     "terms": "Termeni și Condiții",
     "cookies": "Politica de Cookie-uri"
   },
+  "privacyPolicy": {
+    "title": "Politica de Confidențialitate",
+    "subtitle": "Cum colectăm, folosim și protejăm datele tale personale",
+    "lastUpdated": "Ultima actualizare",
+    "introduction": {
+      "title": "Introducere",
+      "content": "Această Politică de Confidențialitate descrie modul în care Stana de Vale Trail Race ('noi', 'noastră') colectează, utilizează și împărtășește informațiile tale personale atunci când te înregistrezi pentru evenimentul nostru, folosești site-ul nostru web sau interacționezi cu noi în alte moduri. Ne angajăm să îți protejăm confidențialitatea și să gestionăm datele tale cu transparență și grijă."
+    },
+    "informationWeCollect": {
+      "title": "Informațiile pe care le colectăm",
+      "intro": "Colectăm mai multe tipuri de informații de la și despre utilizatorii noștri, inclusiv:",
+      "personal": {
+        "title": "Informații personale",
+        "description": "Nume, adresă de email, număr de telefon, sex, data nașterii, țara de reședință și detalii de contact de urgență."
+      },
+      "race": {
+        "title": "Informații despre cursă",
+        "description": "Înregistrări la cursă, numere de concurs, rezultate ale cursei și date de performanță."
+      },
+      "payment": {
+        "title": "Informații de plată",
+        "description": "Detalii ale cardului de credit, informații de facturare și înregistrări ale tranzacțiilor atunci când te înregistrezi pentru curse."
+      },
+      "automatic": {
+        "title": "Informații automate",
+        "description": "Informații despre dispozitiv, adresă IP, tipul de browser și cookie-uri atunci când vizitezi site-ul nostru web."
+      }
+    },
+    "howWeUseInformation": {
+      "title": "Cum folosim informațiile tale",
+      "intro": "Folosim informațiile pe care le colectăm în diverse scopuri, inclusiv:",
+      "uses": {
+        "registration": "Pentru a procesa înregistrarea ta la cursă și pentru a-ți gestiona participarea la evenimentele noastre",
+        "communication": "Pentru a comunica cu tine despre eveniment, inclusiv actualizări importante, modificări și rezultate",
+        "improve": "Pentru a îmbunătăți site-ul nostru web și serviciile pe baza feedback-ului și interacțiunilor utilizatorilor",
+        "safety": "Pentru a asigura siguranța participanților în timpul evenimentelor și pentru a oferi îngrijire medicală de urgență, dacă este necesar",
+        "legal": "Pentru a respecta obligațiile legale și a ne proteja drepturile"
+      }
+    },
+    "dataSharing": {
+      "title": "Partajarea informațiilor tale",
+      "intro": "Putem împărtăși informațiile tale cu terțe părți în următoarele circumstanțe:",
+      "cases": {
+        "partners": "Cu partenerii și sponsorii evenimentului (cu acordul tău)",
+        "serviceProviders": "Cu furnizorii de servicii care ne ajută să operăm evenimentele și site-ul web",
+        "legal": "Când este necesar prin lege sau pentru a ne proteja drepturile",
+        "results": "Rezultatele cursei (nume, timp de finish, categorie de vârstă) sunt publicate public ca parte a operațiunilor standard ale cursei"
+      }
+    },
+    "dataRetention": {
+      "title": "Păstrarea datelor",
+      "content": "Păstrăm informațiile tale personale atât timp cât este necesar pentru a îndeplini scopurile descrise în această Politică de Confidențialitate, cu excepția cazului în care o perioadă mai lungă de păstrare este necesară prin lege sau pentru scopuri de afaceri legitime."
+    },
+    "yourRights": {
+      "title": "Drepturile tale",
+      "intro": "În funcție de locația ta, poți avea următoarele drepturi cu privire la datele tale personale:",
+      "rights": {
+        "access": "Dreptul de a accesa informațiile personale pe care le deținem despre tine",
+        "rectification": "Dreptul de a corecta informațiile inexacte sau incomplete",
+        "erasure": "Dreptul de a solicita ștergerea datelor tale personale",
+        "restriction": "Dreptul de a restricționa procesarea datelor tale",
+        "objection": "Dreptul de a obiecta la procesare",
+        "portability": "Dreptul la portabilitatea datelor"
+      }
+    },
+    "security": {
+      "title": "Securitatea datelor",
+      "content": "Implementăm măsuri tehnice și organizaționale adecvate pentru a proteja informațiile tale personale împotriva accesului neautorizat, pierderii sau modificării. Cu toate acestea, nicio metodă de transmisie pe internet nu este 100% sigură."
+    },
+    "changes": {
+      "title": "Modificări ale acestei politici",
+      "content": "Putem actualiza această Politică de Confidențialitate din când în când. Cea mai recentă versiune va fi întotdeauna postată pe site-ul nostru web cu data intrării în vigoare."
+    },
+    "contact": {
+      "title": "Contactează-ne",
+      "content": "Dacă ai întrebări sau preocupări cu privire la Politica noastră de Confidențialitate sau practicile noastre de date, te rugăm să ne contactezi la:"
+    }
+  },
+  "termsConditions": {
+    "title": "Termeni și Condiții",
+    "subtitle": "Te rugăm să citești acești termeni cu atenție înainte de a participa la evenimentul nostru",
+    "lastUpdated": "Ultima actualizare",
+    "introduction": {
+      "title": "Introducere",
+      "content": "Acești Termeni și Condiții reglementează participarea ta la evenimentul Stana de Vale Trail Race. Prin înscrierea la oricare dintre cursele noastre, recunoști că ai citit, înțeles și ești de acord să fii obligat de acești termeni."
+    },
+    "registration": {
+      "title": "Cerințe de înregistrare",
+      "intro": "Pentru a participa la evenimentele noastre, trebuie să îndeplinești următoarele cerințe:",
+      "requirements": {
+        "age": "Cerință de vârstă minimă: 18 ani pentru cursa de 33 km și 16 ani pentru cursa de 11 km (cu acordul părinților pentru minori)",
+        "health": "Să fii în stare bună de sănătate și apt fizic pentru a participa la un eveniment de alergare montană",
+        "equipment": "Să deții tot echipamentul obligatoriu specificat în regulile cursei",
+        "information": "Să furnizezi informații personale exacte în timpul înregistrării",
+        "fees": "Să plătești taxele de înregistrare aplicabile"
+      }
+    },
+    "participationRules": {
+      "title": "Reguli de participare",
+      "rules": {
+        "bib": "Poartă numărul de concurs în mod vizibil pe tot parcursul cursei",
+        "route": "Urmează traseul marcat al cursei în orice moment",
+        "checkpoints": "Înregistrează-te la toate punctele de control desemnate",
+        "timeLimits": "Finalizează cursa în limitele de timp specificate",
+        "environment": "Respectă mediul înconjurător și nu arunca gunoi",
+        "assistance": "Nu primi asistență neautorizată în afara punctelor de alimentare"
+      }
+    },
+    "liability": {
+      "title": "Răspundere și risc",
+      "content1": "Alergarea montană este o activitate inerent periculoasă care implică riscuri de rănire gravă, îmbolnăvire sau deces. Prin participarea la evenimentul nostru, recunoști și accepți aceste riscuri.",
+      "content2": "Organizatorii, sponsorii și voluntarii nu sunt responsabili pentru rănirile, daunele sau pierderile care pot apărea în timpul evenimentului. Participi pe propriul risc."
+    },
+    "medicalResponsibility": {
+      "title": "Responsabilitate medicală",
+      "content1": "Ești responsabil pentru a te asigura că ești capabil fizic să participi la eveniment. Recomandăm consultarea cu un profesionist medical înainte de înregistrare dacă ai orice probleme de sănătate.",
+      "content2": "Autorizezi personalul medical să ofere tratament de urgență în caz de rănire sau boală în timpul evenimentului."
+    },
+    "cancellationPolicy": {
+      "title": "Politica de anulare",
+      "eventCancellation": "Dacă evenimentul este anulat din cauza unor circumstanțe aflate în afara controlului nostru (inclusiv, dar fără a se limita la, vreme severă, dezastre naturale sau urgențe de sănătate publică), taxele de înregistrare nu sunt rambursabile. Cu toate acestea, putem oferi amânări pentru evenimente viitoare la discreția noastră.",
+      "participantCancellation": "Dacă îți anulezi înregistrarea cu mai mult de 30 de zile înainte de eveniment, poți primi o rambursare parțială (de obicei 50%). Nu sunt disponibile rambursări pentru anulările efectuate în termen de 30 de zile de la eveniment."
+    },
+    "imageRights": {
+      "title": "Drepturi de imagine",
+      "content": "Prin participarea la evenimentul nostru, ne acorzi permisiunea de a utiliza fotografii, videoclipuri și înregistrări care prezintă imaginea ta în scopuri promoționale, comerciale și educaționale fără compensație."
+    },
+    "personalData": {
+      "title": "Date personale",
+      "content": "Colectăm și procesăm datele tale personale în conformitate cu Politica noastră de Confidențialitate. Prin înregistrare, îți dai acordul pentru această procesare a datelor."
+    },
+    "modifications": {
+      "title": "Modificări ale termenilor",
+      "content": "Ne rezervăm dreptul de a modifica acești Termeni și Condiții în orice moment. Versiunea curentă va fi întotdeauna disponibilă pe site-ul nostru web."
+    },
+    "contact": {
+      "title": "Informații de contact",
+      "content": "Dacă ai întrebări despre acești Termeni și Condiții, te rugăm să ne contactezi la:"
+    }
+  },
+  "cookiePolicy": {
+    "title": "Politica de Cookie-uri",
+    "subtitle": "Cum folosim cookie-urile și tehnologiile similare pe site-ul nostru web",
+    "lastUpdated": "Ultima actualizare",
+    "introduction": {
+      "title": "Introducere",
+      "content": "Această Politică de Cookie-uri explică modul în care Stana de Vale Trail Race ('noi', 'noastră') folosește cookie-urile și tehnologiile similare pe site-ul nostru web. Prin utilizarea site-ului nostru web, consimți la utilizarea cookie-urilor așa cum este descris în această politică."
+    },
+    "whatAreCookies": {
+      "title": "Ce sunt cookie-urile?",
+      "content": "Cookie-urile sunt fișiere text mici care sunt stocate pe dispozitivul tău atunci când vizitezi un site web. Acestea sunt utilizate pe scară largă pentru a face site-urile web să funcționeze mai eficient și pentru a furniza informații proprietarilor site-ului web."
+    },
+    "cookiesWeUse": {
+      "title": "Tipuri de cookie-uri pe care le folosim",
+      "intro": "Folosim următoarele tipuri de cookie-uri pe site-ul nostru web:",
+      "necessary": {
+        "title": "Cookie-uri necesare",
+        "description": "Esențiale pentru ca site-ul web să funcționeze corect. Acestea permit funcții de bază, cum ar fi navigarea pe pagină și accesul la zonele securizate."
+      },
+      "preferences": {
+        "title": "Cookie-uri de preferințe",
+        "description": "Permit site-ului web să-și amintească alegerile pe care le faci (cum ar fi preferința ta de limbă) pentru o experiență de utilizator mai bună."
+      },
+      "statistics": {
+        "title": "Cookie-uri de statistici",
+        "description": "Ne ajută să înțelegem cum interacționează vizitatorii cu site-ul nostru web prin colectarea de informații anonime."
+      },
+      "marketing": {
+        "title": "Cookie-uri de marketing",
+        "description": "Utilizate pentru a urmări vizitatorii pe site-uri web pentru a afișa reclame relevante."
+      }
+    },
+    "managingCookies": {
+      "title": "Gestionarea cookie-urilor",
+      "content": "Poți controla și gestiona cookie-urile în diverse moduri. Majoritatea browserelor web îți permit să-ți gestionezi preferințele de cookie-uri. Poți:",
+      "browsers": {
+        "chrome": "În Chrome, accesează Setări > Confidențialitate și securitate > Cookie-uri și alte date de site",
+        "firefox": "În Firefox, accesează Opțiuni > Confidențialitate și Securitate > Cookie-uri și Date de Site",
+        "safari": "În Safari, accesează Preferințe > Confidențialitate",
+        "edge": "În Edge, accesează Setări > Cookie-uri și permisiuni site"
+      }
+    },
+    "updates": {
+      "title": "Actualizări ale acestei Politici de Cookie-uri",
+      "content": "Putem actualiza această Politică de Cookie-uri din când în când pentru a reflecta schimbările în tehnologie, reglementări sau practicile noastre de afaceri. Orice modificări vor fi postate pe această pagină."
+    },
+    "contact": {
+      "title": "Contactează-ne",
+      "content1": "Dacă ai întrebări despre utilizarea cookie-urilor de către noi, te rugăm să ne contactezi la:",
+      "content2": "Pentru mai multe informații despre drepturile tale de confidențialitate, te rugăm să consulți Politica noastră de Confidențialitate."
+    }
+  },
   "months": {
     "0": "Ianuarie",
     "1": "Februarie",

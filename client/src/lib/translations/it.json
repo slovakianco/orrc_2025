@@ -379,6 +379,198 @@
     "terms": "Termini e Condizioni",
     "cookies": "Politica sui Cookie"
   },
+  "privacyPolicy": {
+    "title": "Politica sulla Privacy",
+    "subtitle": "Come raccogliamo, utilizziamo e proteggiamo le tue informazioni personali",
+    "lastUpdated": "Ultimo aggiornamento",
+    "introduction": {
+      "title": "Introduzione",
+      "content": "Questa Politica sulla Privacy descrive come Stana de Vale Trail Race ('noi', 'nostro', o 'ci') raccoglie, utilizza e condivide le tue informazioni personali quando ti registri per il nostro evento, utilizzi il nostro sito web o interagisci con noi in altri modi. Ci impegniamo a proteggere la tua privacy e a gestire i tuoi dati con trasparenza e cura."
+    },
+    "informationWeCollect": {
+      "title": "Informazioni che raccogliamo",
+      "intro": "Raccogliamo diversi tipi di informazioni dai nostri utenti, tra cui:",
+      "personal": {
+        "title": "Informazioni personali",
+        "description": "Nome, indirizzo email, numero di telefono, genere, data di nascita, paese di residenza e contatti di emergenza."
+      },
+      "race": {
+        "title": "Informazioni sulla gara",
+        "description": "Registrazioni alle gare, numeri di pettorale, risultati delle gare e dati sulle prestazioni."
+      },
+      "payment": {
+        "title": "Informazioni di pagamento",
+        "description": "Dettagli della carta di credito, informazioni di fatturazione e registrazioni delle transazioni quando ti iscrivi alle gare."
+      },
+      "automatic": {
+        "title": "Informazioni automatiche",
+        "description": "Informazioni sul dispositivo, indirizzo IP, tipo di browser e cookie quando visiti il nostro sito web."
+      }
+    },
+    "howWeUseInformation": {
+      "title": "Come utilizziamo le tue informazioni",
+      "intro": "Utilizziamo le informazioni che raccogliamo per vari scopi, tra cui:",
+      "uses": {
+        "registration": "Per elaborare la tua iscrizione alla gara e gestire la tua partecipazione ai nostri eventi",
+        "communication": "Per comunicare con te sull'evento, inclusi aggiornamenti importanti, modifiche e risultati",
+        "improve": "Per migliorare il nostro sito web e i servizi basati sul feedback e sulle interazioni degli utenti",
+        "safety": "Per garantire la sicurezza dei partecipanti durante gli eventi e fornire assistenza medica di emergenza se necessario",
+        "legal": "Per rispettare gli obblighi legali e proteggere i nostri diritti"
+      }
+    },
+    "dataSharing": {
+      "title": "Condivisione delle tue informazioni",
+      "intro": "Potremmo condividere le tue informazioni con terze parti nelle seguenti circostanze:",
+      "cases": {
+        "partners": "Con partner e sponsor dell'evento (con il tuo consenso)",
+        "serviceProviders": "Con fornitori di servizi che ci aiutano a gestire i nostri eventi e il sito web",
+        "legal": "Quando richiesto dalla legge o per proteggere i nostri diritti",
+        "results": "I risultati della gara (nome, tempo di arrivo, categoria di età) sono pubblicati pubblicamente come parte delle operazioni standard della gara"
+      }
+    },
+    "dataRetention": {
+      "title": "Conservazione dei dati",
+      "content": "Conserviamo le tue informazioni personali per il tempo necessario a raggiungere gli scopi delineati in questa Politica sulla Privacy, a meno che un periodo di conservazione più lungo sia richiesto dalla legge o per scopi commerciali legittimi."
+    },
+    "yourRights": {
+      "title": "I tuoi diritti",
+      "intro": "A seconda della tua posizione, potresti avere i seguenti diritti riguardo ai tuoi dati personali:",
+      "rights": {
+        "access": "Diritto di accedere alle informazioni personali che deteniamo su di te",
+        "rectification": "Diritto di correggere informazioni inesatte o incomplete",
+        "erasure": "Diritto di richiedere la cancellazione dei tuoi dati personali",
+        "restriction": "Diritto di limitare il trattamento dei tuoi dati",
+        "objection": "Diritto di opporti al trattamento",
+        "portability": "Diritto alla portabilità dei dati"
+      }
+    },
+    "security": {
+      "title": "Sicurezza dei dati",
+      "content": "Implementiamo misure tecniche e organizzative appropriate per proteggere le tue informazioni personali contro accessi non autorizzati, perdita o alterazione. Tuttavia, nessun metodo di trasmissione su Internet è sicuro al 100%."
+    },
+    "changes": {
+      "title": "Modifiche a questa politica",
+      "content": "Potremmo aggiornare questa Politica sulla Privacy di tanto in tanto. La versione più recente sarà sempre pubblicata sul nostro sito web con la data di entrata in vigore."
+    },
+    "contact": {
+      "title": "Contattaci",
+      "content": "Se hai domande o preoccupazioni sulla nostra Politica sulla Privacy o sulle nostre pratiche relative ai dati, contattaci a:"
+    }
+  },
+  "termsConditions": {
+    "title": "Termini e Condizioni",
+    "subtitle": "Si prega di leggere attentamente questi termini prima di partecipare al nostro evento",
+    "lastUpdated": "Ultimo aggiornamento",
+    "introduction": {
+      "title": "Introduzione",
+      "content": "Questi Termini e Condizioni regolano la tua partecipazione all'evento Stana de Vale Trail Race. Registrandoti a una qualsiasi delle nostre gare, riconosci di aver letto, compreso e accettato di essere vincolato da questi termini."
+    },
+    "registration": {
+      "title": "Requisiti di registrazione",
+      "intro": "Per partecipare ai nostri eventi, devi soddisfare i seguenti requisiti:",
+      "requirements": {
+        "age": "Requisito di età minima: 18 anni per la gara di 33 km e 16 anni per la gara di 11 km (con il consenso dei genitori per i minori)",
+        "health": "Essere in buona salute e fisicamente idoneo a partecipare a un evento di trail running",
+        "equipment": "Possedere tutta l'attrezzatura obbligatoria specificata nelle regole della gara",
+        "information": "Fornire informazioni personali accurate durante la registrazione",
+        "fees": "Pagare le quote di iscrizione applicabili"
+      }
+    },
+    "participationRules": {
+      "title": "Regole di partecipazione",
+      "rules": {
+        "bib": "Indossare il numero di pettorale in modo visibile durante tutta la gara",
+        "route": "Seguire il percorso segnalato della gara in ogni momento",
+        "checkpoints": "Registrarsi a tutti i punti di controllo designati",
+        "timeLimits": "Completare la gara entro i limiti di tempo specificati",
+        "environment": "Rispettare l'ambiente e non gettare rifiuti",
+        "assistance": "Non ricevere assistenza non autorizzata al di fuori dei punti di ristoro"
+      }
+    },
+    "liability": {
+      "title": "Responsabilità e rischio",
+      "content1": "Il trail running è un'attività intrinsecamente pericolosa che comporta rischi di lesioni gravi, malattie o morte. Partecipando al nostro evento, riconosci e accetti questi rischi.",
+      "content2": "Gli organizzatori, gli sponsor e i volontari non sono responsabili per eventuali lesioni, danni o perdite che potrebbero verificarsi durante l'evento. Partecipi a tuo rischio."
+    },
+    "medicalResponsibility": {
+      "title": "Responsabilità medica",
+      "content1": "Sei responsabile di assicurarti di essere fisicamente in grado di partecipare all'evento. Ti consigliamo di consultare un professionista medico prima di registrarti se hai problemi di salute.",
+      "content2": "Autorizzi il personale medico a fornire un trattamento di emergenza in caso di lesioni o malattie durante l'evento."
+    },
+    "cancellationPolicy": {
+      "title": "Politica di cancellazione",
+      "eventCancellation": "Se l'evento viene annullato a causa di circostanze al di fuori del nostro controllo (inclusi, ma non limitati a, condizioni meteorologiche severe, disastri naturali o emergenze di salute pubblica), le quote di iscrizione non sono rimborsabili. Tuttavia, potremmo offrire rinvii ad eventi futuri a nostra discrezione.",
+      "participantCancellation": "Se annulli la tua registrazione più di 30 giorni prima dell'evento, potresti ricevere un rimborso parziale (tipicamente 50%). Nessun rimborso è disponibile per cancellazioni entro 30 giorni dall'evento."
+    },
+    "imageRights": {
+      "title": "Diritti di immagine",
+      "content": "Partecipando al nostro evento, ci concedi il permesso di utilizzare fotografie, video e registrazioni che mostrano la tua immagine per scopi promozionali, commerciali ed educativi senza compenso."
+    },
+    "personalData": {
+      "title": "Dati personali",
+      "content": "Raccogliamo e trattiamo i tuoi dati personali in conformità con la nostra Politica sulla Privacy. Registrandoti, acconsenti a questo trattamento dei dati."
+    },
+    "modifications": {
+      "title": "Modifiche ai termini",
+      "content": "Ci riserviamo il diritto di modificare questi Termini e Condizioni in qualsiasi momento. La versione attuale sarà sempre disponibile sul nostro sito web."
+    },
+    "contact": {
+      "title": "Informazioni di contatto",
+      "content": "Se hai domande su questi Termini e Condizioni, contattaci a:"
+    }
+  },
+  "cookiePolicy": {
+    "title": "Politica sui Cookie",
+    "subtitle": "Come utilizziamo i cookie e tecnologie simili sul nostro sito web",
+    "lastUpdated": "Ultimo aggiornamento",
+    "introduction": {
+      "title": "Introduzione",
+      "content": "Questa Politica sui Cookie spiega come Stana de Vale Trail Race ('noi', 'nostro', o 'ci') utilizza i cookie e tecnologie simili sul nostro sito web. Utilizzando il nostro sito web, acconsenti all'uso dei cookie come descritto in questa politica."
+    },
+    "whatAreCookies": {
+      "title": "Cosa sono i cookie?",
+      "content": "I cookie sono piccoli file di testo che vengono memorizzati sul tuo dispositivo quando visiti un sito web. Sono ampiamente utilizzati per far funzionare i siti web in modo più efficiente e fornire informazioni ai proprietari del sito web."
+    },
+    "cookiesWeUse": {
+      "title": "Tipi di cookie che utilizziamo",
+      "intro": "Utilizziamo i seguenti tipi di cookie sul nostro sito web:",
+      "necessary": {
+        "title": "Cookie necessari",
+        "description": "Essenziali per il corretto funzionamento del sito web. Consentono funzioni di base come la navigazione nelle pagine e l'accesso ad aree sicure."
+      },
+      "preferences": {
+        "title": "Cookie di preferenza",
+        "description": "Consentono al sito web di ricordare le scelte che fai (come la tua preferenza di lingua) per una migliore esperienza utente."
+      },
+      "statistics": {
+        "title": "Cookie statistici",
+        "description": "Ci aiutano a capire come i visitatori interagiscono con il nostro sito web raccogliendo informazioni anonime."
+      },
+      "marketing": {
+        "title": "Cookie di marketing",
+        "description": "Utilizzati per tracciare i visitatori attraverso i siti web per visualizzare pubblicità pertinenti."
+      }
+    },
+    "managingCookies": {
+      "title": "Gestione dei cookie",
+      "content": "Puoi controllare e gestire i cookie in vari modi. La maggior parte dei browser web ti consente di gestire le tue preferenze sui cookie. Puoi:",
+      "browsers": {
+        "chrome": "In Chrome, vai su Impostazioni > Privacy e sicurezza > Cookie e altri dati del sito",
+        "firefox": "In Firefox, vai su Opzioni > Privacy e sicurezza > Cookie e dati del sito",
+        "safari": "In Safari, vai su Preferenze > Privacy",
+        "edge": "In Edge, vai su Impostazioni > Cookie e autorizzazioni del sito"
+      }
+    },
+    "updates": {
+      "title": "Aggiornamenti a questa Politica sui Cookie",
+      "content": "Potremmo aggiornare questa Politica sui Cookie di tanto in tanto per riflettere cambiamenti nella tecnologia, nelle normative o nelle nostre pratiche commerciali. Qualsiasi modifica sarà pubblicata su questa pagina."
+    },
+    "contact": {
+      "title": "Contattaci",
+      "content1": "Se hai domande sul nostro utilizzo dei cookie, contattaci a:",
+      "content2": "Per ulteriori informazioni sui tuoi diritti alla privacy, consulta la nostra Politica sulla Privacy."
+    }
+  },
   "months": {
     "0": "Gennaio",
     "1": "Febbraio",

@@ -415,6 +415,198 @@
     "terms": "Teilnahmebedingungen",
     "cookies": "Cookie-Richtlinie"
   },
+  "privacyPolicy": {
+    "title": "Datenschutzrichtlinie",
+    "subtitle": "Wie wir Ihre persönlichen Informationen sammeln, verwenden und schützen",
+    "lastUpdated": "Zuletzt aktualisiert",
+    "introduction": {
+      "title": "Einleitung",
+      "content": "Diese Datenschutzrichtlinie beschreibt, wie Stana de Vale Trail Race ('wir', 'uns' oder 'unser') Ihre persönlichen Informationen sammelt, verwendet und teilt, wenn Sie sich für unsere Veranstaltung anmelden, unsere Website nutzen oder auf andere Weise mit uns interagieren. Wir sind bestrebt, Ihre Privatsphäre zu schützen und Ihre Daten mit Transparenz und Sorgfalt zu behandeln."
+    },
+    "informationWeCollect": {
+      "title": "Informationen, die wir sammeln",
+      "intro": "Wir sammeln verschiedene Arten von Informationen von und über unsere Nutzer, darunter:",
+      "personal": {
+        "title": "Persönliche Informationen",
+        "description": "Name, E-Mail-Adresse, Telefonnummer, Geschlecht, Geburtsdatum, Wohnsitzland und Notfallkontaktdaten."
+      },
+      "race": {
+        "title": "Renninformationen",
+        "description": "Rennanmeldungen, Startnummern, Rennergebnisse und Leistungsdaten."
+      },
+      "payment": {
+        "title": "Zahlungsinformationen",
+        "description": "Kreditkartendetails, Rechnungsinformationen und Transaktionsaufzeichnungen, wenn Sie sich für Rennen anmelden."
+      },
+      "automatic": {
+        "title": "Automatische Informationen",
+        "description": "Geräteinformationen, IP-Adresse, Browsertyp und Cookies, wenn Sie unsere Website besuchen."
+      }
+    },
+    "howWeUseInformation": {
+      "title": "Wie wir Ihre Informationen verwenden",
+      "intro": "Wir verwenden die von uns gesammelten Informationen für verschiedene Zwecke, darunter:",
+      "uses": {
+        "registration": "Um Ihre Rennanmeldung zu bearbeiten und Ihre Teilnahme an unseren Veranstaltungen zu verwalten",
+        "communication": "Um mit Ihnen über die Veranstaltung zu kommunizieren, einschließlich wichtiger Updates, Änderungen und Ergebnisse",
+        "improve": "Um unsere Website und Dienstleistungen basierend auf Nutzerfeedback und Interaktionen zu verbessern",
+        "safety": "Um die Sicherheit der Teilnehmer während der Veranstaltungen zu gewährleisten und bei Bedarf medizinische Notfallversorgung zu bieten",
+        "legal": "Um rechtlichen Verpflichtungen nachzukommen und unsere Rechte zu schützen"
+      }
+    },
+    "dataSharing": {
+      "title": "Weitergabe Ihrer Informationen",
+      "intro": "Wir können Ihre Informationen unter folgenden Umständen an Dritte weitergeben:",
+      "cases": {
+        "partners": "Mit Veranstaltungspartnern und Sponsoren (mit Ihrer Zustimmung)",
+        "serviceProviders": "Mit Dienstleistern, die uns bei der Durchführung unserer Veranstaltungen und Website helfen",
+        "legal": "Wenn gesetzlich vorgeschrieben oder zum Schutz unserer Rechte",
+        "results": "Rennergebnisse (Name, Zielzeit, Alterskategorie) werden im Rahmen des Standardrennbetriebs öffentlich veröffentlicht"
+      }
+    },
+    "dataRetention": {
+      "title": "Aufbewahrung von Daten",
+      "content": "Wir bewahren Ihre persönlichen Informationen so lange auf, wie es zur Erfüllung der in dieser Datenschutzrichtlinie beschriebenen Zwecke erforderlich ist, es sei denn, eine längere Aufbewahrungsfrist ist gesetzlich vorgeschrieben oder für berechtigte Geschäftszwecke erforderlich."
+    },
+    "yourRights": {
+      "title": "Ihre Rechte",
+      "intro": "Je nach Ihrem Standort haben Sie möglicherweise die folgenden Rechte in Bezug auf Ihre persönlichen Daten:",
+      "rights": {
+        "access": "Recht auf Zugriff auf die persönlichen Informationen, die wir über Sie haben",
+        "rectification": "Recht auf Berichtigung ungenauer oder unvollständiger Informationen",
+        "erasure": "Recht auf Löschung Ihrer persönlichen Daten",
+        "restriction": "Recht auf Einschränkung der Verarbeitung Ihrer Daten",
+        "objection": "Recht auf Widerspruch gegen die Verarbeitung",
+        "portability": "Recht auf Datenübertragbarkeit"
+      }
+    },
+    "security": {
+      "title": "Datensicherheit",
+      "content": "Wir implementieren geeignete technische und organisatorische Maßnahmen, um Ihre persönlichen Informationen vor unbefugtem Zugriff, Verlust oder Veränderung zu schützen. Keine Methode der Übertragung über das Internet ist jedoch zu 100% sicher."
+    },
+    "changes": {
+      "title": "Änderungen dieser Richtlinie",
+      "content": "Wir können diese Datenschutzrichtlinie von Zeit zu Zeit aktualisieren. Die aktuelle Version wird immer mit dem Datum des Inkrafttretens auf unserer Website veröffentlicht."
+    },
+    "contact": {
+      "title": "Kontaktieren Sie uns",
+      "content": "Wenn Sie Fragen oder Bedenken bezüglich unserer Datenschutzrichtlinie oder Datenpraktiken haben, kontaktieren Sie uns bitte unter:"
+    }
+  },
+  "termsConditions": {
+    "title": "Teilnahmebedingungen",
+    "subtitle": "Bitte lesen Sie diese Bedingungen sorgfältig durch, bevor Sie an unserem Event teilnehmen",
+    "lastUpdated": "Zuletzt aktualisiert",
+    "introduction": {
+      "title": "Einleitung",
+      "content": "Diese Teilnahmebedingungen regeln Ihre Teilnahme an der Stana de Vale Trail Race Veranstaltung. Durch die Anmeldung zu einem unserer Rennen bestätigen Sie, dass Sie diese Bedingungen gelesen, verstanden und akzeptiert haben."
+    },
+    "registration": {
+      "title": "Anmeldeanforderungen",
+      "intro": "Um an unseren Veranstaltungen teilnehmen zu können, müssen Sie folgende Anforderungen erfüllen:",
+      "requirements": {
+        "age": "Mindestalteranforderung: 18 Jahre für das 33-km-Rennen und 16 Jahre für das 11-km-Rennen (mit Zustimmung der Eltern für Minderjährige)",
+        "health": "Gesund und körperlich fit sein, um an einer Trail-Running-Veranstaltung teilzunehmen",
+        "equipment": "Besitz aller in den Rennregeln angegebenen Pflichtausrüstung",
+        "information": "Genaue persönliche Informationen bei der Anmeldung angeben",
+        "fees": "Zahlung der entsprechenden Anmeldegebühren"
+      }
+    },
+    "participationRules": {
+      "title": "Teilnahmeregeln",
+      "rules": {
+        "bib": "Tragen Sie Ihre Startnummer während des gesamten Rennens sichtbar",
+        "route": "Folgen Sie zu jeder Zeit der markierten Rennstrecke",
+        "checkpoints": "Melden Sie sich an allen festgelegten Kontrollpunkten an",
+        "timeLimits": "Schließen Sie das Rennen innerhalb der angegebenen Zeitlimits ab",
+        "environment": "Respektieren Sie die Umwelt und werfen Sie keinen Müll weg",
+        "assistance": "Erhalten Sie keine unbefugte Hilfe außerhalb der Verpflegungsstationen"
+      }
+    },
+    "liability": {
+      "title": "Haftung und Risiko",
+      "content1": "Trail Running ist eine von Natur aus gefährliche Aktivität, die Risiken schwerer Verletzungen, Krankheiten oder Tod birgt. Durch die Teilnahme an unserer Veranstaltung erkennen Sie diese Risiken an und akzeptieren sie.",
+      "content2": "Die Organisatoren, Sponsoren und Freiwilligen sind nicht verantwortlich für Verletzungen, Schäden oder Verluste, die während der Veranstaltung auftreten können. Sie nehmen auf eigenes Risiko teil."
+    },
+    "medicalResponsibility": {
+      "title": "Medizinische Verantwortung",
+      "content1": "Sie sind dafür verantwortlich, sicherzustellen, dass Sie körperlich in der Lage sind, an der Veranstaltung teilzunehmen. Wir empfehlen, vor der Anmeldung einen Arzt zu konsultieren, wenn Sie gesundheitliche Bedenken haben.",
+      "content2": "Sie ermächtigen das medizinische Personal, im Falle einer Verletzung oder Krankheit während der Veranstaltung eine Notfallbehandlung durchzuführen."
+    },
+    "cancellationPolicy": {
+      "title": "Stornierungsrichtlinie",
+      "eventCancellation": "Wird die Veranstaltung aufgrund von Umständen abgesagt, die außerhalb unserer Kontrolle liegen (einschließlich, aber nicht beschränkt auf schwere Wetterbedingungen, Naturkatastrophen oder Notfälle im Bereich der öffentlichen Gesundheit), sind die Anmeldegebühren nicht erstattungsfähig. Wir können jedoch nach eigenem Ermessen Verschiebungen auf zukünftige Veranstaltungen anbieten.",
+      "participantCancellation": "Wenn Sie Ihre Anmeldung mehr als 30 Tage vor der Veranstaltung stornieren, können Sie eine teilweise Rückerstattung erhalten (in der Regel 50%). Für Stornierungen innerhalb von 30 Tagen vor der Veranstaltung sind keine Rückerstattungen möglich."
+    },
+    "imageRights": {
+      "title": "Bildrechte",
+      "content": "Durch die Teilnahme an unserer Veranstaltung erteilen Sie uns die Erlaubnis, Fotos, Videos und Aufnahmen, auf denen Sie zu sehen sind, für Werbe-, kommerzielle und Bildungszwecke ohne Vergütung zu verwenden."
+    },
+    "personalData": {
+      "title": "Persönliche Daten",
+      "content": "Wir sammeln und verarbeiten Ihre persönlichen Daten gemäß unserer Datenschutzrichtlinie. Durch die Anmeldung stimmen Sie dieser Datenverarbeitung zu."
+    },
+    "modifications": {
+      "title": "Änderungen der Bedingungen",
+      "content": "Wir behalten uns das Recht vor, diese Teilnahmebedingungen jederzeit zu ändern. Die aktuelle Version ist immer auf unserer Website verfügbar."
+    },
+    "contact": {
+      "title": "Kontaktinformationen",
+      "content": "Wenn Sie Fragen zu diesen Teilnahmebedingungen haben, kontaktieren Sie uns bitte unter:"
+    }
+  },
+  "cookiePolicy": {
+    "title": "Cookie-Richtlinie",
+    "subtitle": "Wie wir Cookies und ähnliche Technologien auf unserer Website verwenden",
+    "lastUpdated": "Zuletzt aktualisiert",
+    "introduction": {
+      "title": "Einleitung",
+      "content": "Diese Cookie-Richtlinie erklärt, wie Stana de Vale Trail Race ('wir', 'uns' oder 'unser') Cookies und ähnliche Technologien auf unserer Website verwendet. Durch die Nutzung unserer Website stimmen Sie der Verwendung von Cookies gemäß dieser Richtlinie zu."
+    },
+    "whatAreCookies": {
+      "title": "Was sind Cookies?",
+      "content": "Cookies sind kleine Textdateien, die auf Ihrem Gerät gespeichert werden, wenn Sie eine Website besuchen. Sie werden weithin verwendet, um Websites effizienter arbeiten zu lassen und Informationen an die Website-Betreiber zu liefern."
+    },
+    "cookiesWeUse": {
+      "title": "Arten von Cookies, die wir verwenden",
+      "intro": "Wir verwenden die folgenden Arten von Cookies auf unserer Website:",
+      "necessary": {
+        "title": "Notwendige Cookies",
+        "description": "Wesentlich für die ordnungsgemäße Funktion der Website. Sie ermöglichen grundlegende Funktionen wie Seitennavigation und Zugriff auf sichere Bereiche."
+      },
+      "preferences": {
+        "title": "Präferenz-Cookies",
+        "description": "Ermöglichen es der Website, sich an die von Ihnen getroffenen Entscheidungen (wie Ihre Sprachpräferenz) für ein besseres Benutzererlebnis zu erinnern."
+      },
+      "statistics": {
+        "title": "Statistik-Cookies",
+        "description": "Helfen uns zu verstehen, wie Besucher mit unserer Website interagieren, indem sie anonyme Informationen sammeln."
+      },
+      "marketing": {
+        "title": "Marketing-Cookies",
+        "description": "Werden verwendet, um Besucher über Websites hinweg zu verfolgen, um relevante Werbung anzuzeigen."
+      }
+    },
+    "managingCookies": {
+      "title": "Verwaltung von Cookies",
+      "content": "Sie können Cookies auf verschiedene Weise kontrollieren und verwalten. Die meisten Webbrowser ermöglichen es Ihnen, Ihre Cookie-Präferenzen zu verwalten. Sie können:",
+      "browsers": {
+        "chrome": "In Chrome: Gehen Sie zu Einstellungen > Datenschutz und Sicherheit > Cookies und andere Websitedaten",
+        "firefox": "In Firefox: Gehen Sie zu Optionen > Datenschutz & Sicherheit > Cookies und Websitedaten",
+        "safari": "In Safari: Gehen Sie zu Einstellungen > Datenschutz",
+        "edge": "In Edge: Gehen Sie zu Einstellungen > Cookies und Website-Berechtigungen"
+      }
+    },
+    "updates": {
+      "title": "Aktualisierungen dieser Cookie-Richtlinie",
+      "content": "Wir können diese Cookie-Richtlinie von Zeit zu Zeit aktualisieren, um Änderungen in der Technologie, Regulierung oder unseren Geschäftspraktiken widerzuspiegeln. Alle Änderungen werden auf dieser Seite veröffentlicht."
+    },
+    "contact": {
+      "title": "Kontaktieren Sie uns",
+      "content1": "Wenn Sie Fragen zu unserer Verwendung von Cookies haben, kontaktieren Sie uns bitte unter:",
+      "content2": "Für weitere Informationen über Ihre Datenschutzrechte lesen Sie bitte unsere Datenschutzrichtlinie."
+    }
+  },
   "months": {
     "0": "Januar",
     "1": "Februar",
