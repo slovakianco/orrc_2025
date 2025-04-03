@@ -202,24 +202,24 @@ const Footer = () => {
             {t("footer.copyright")}
           </div>
           <div className="flex space-x-4 md:space-x-6 text-xs md:text-sm">
-            <a
-              href="#"
+            <Link
+              href="/privacy-policy"
               className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300"
             >
               {t("footer.privacy")}
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/terms-conditions"
               className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300"
             >
               {t("footer.terms")}
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/cookie-policy"
               className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300"
             >
               {t("footer.cookies")}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

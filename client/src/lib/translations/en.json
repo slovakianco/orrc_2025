@@ -483,6 +483,198 @@
     "terms": "Terms & Conditions",
     "cookies": "Cookie Policy"
   },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "subtitle": "How we collect, use, and protect your personal information",
+    "lastUpdated": "Last updated",
+    "introduction": {
+      "title": "Introduction",
+      "content": "This Privacy Policy describes how Stana de Vale Trail Race ('we', 'our', or 'us') collects, uses, and shares your personal information when you register for our event, use our website, or interact with us in other ways. We are committed to protecting your privacy and handling your data with transparency and care."
+    },
+    "informationWeCollect": {
+      "title": "Information We Collect",
+      "intro": "We collect several types of information from and about our users, including:",
+      "personal": {
+        "title": "Personal Information",
+        "description": "Name, email address, phone number, gender, date of birth, country of residence, and emergency contact details."
+      },
+      "race": {
+        "title": "Race Information",
+        "description": "Race registrations, bib numbers, race results, and performance data."
+      },
+      "payment": {
+        "title": "Payment Information",
+        "description": "Credit card details, billing information, and transaction records when you register for races."
+      },
+      "automatic": {
+        "title": "Automatic Information",
+        "description": "Device information, IP address, browser type, and cookies when you visit our website."
+      }
+    },
+    "howWeUseInformation": {
+      "title": "How We Use Your Information",
+      "intro": "We use the information we collect for various purposes, including:",
+      "uses": {
+        "registration": "To process your race registration and manage your participation in our events",
+        "communication": "To communicate with you about the event, including important updates, changes, and results",
+        "improve": "To improve our website and services based on user feedback and interactions",
+        "safety": "To ensure participant safety during events and provide emergency medical care if needed",
+        "legal": "To comply with legal obligations and protect our rights"
+      }
+    },
+    "dataSharing": {
+      "title": "Sharing Your Information",
+      "intro": "We may share your information with third parties in the following circumstances:",
+      "cases": {
+        "partners": "With event partners and sponsors (with your consent)",
+        "serviceProviders": "With service providers who help us operate our events and website",
+        "legal": "When required by law or to protect our rights",
+        "results": "Race results (name, finish time, age category) are published publicly as part of standard race operations"
+      }
+    },
+    "dataRetention": {
+      "title": "Data Retention",
+      "content": "We retain your personal information for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required by law or for legitimate business purposes."
+    },
+    "yourRights": {
+      "title": "Your Rights",
+      "intro": "Depending on your location, you may have the following rights regarding your personal data:",
+      "rights": {
+        "access": "Right to access the personal information we hold about you",
+        "rectification": "Right to correct inaccurate or incomplete information",
+        "erasure": "Right to request deletion of your personal data",
+        "restriction": "Right to restrict processing of your data",
+        "objection": "Right to object to processing",
+        "portability": "Right to data portability"
+      }
+    },
+    "security": {
+      "title": "Data Security",
+      "content": "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, loss, or alteration. However, no method of transmission over the internet is 100% secure."
+    },
+    "changes": {
+      "title": "Changes to This Policy",
+      "content": "We may update this Privacy Policy from time to time. The most current version will always be posted on our website with the effective date."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have any questions or concerns about our Privacy Policy or data practices, please contact us at:"
+    }
+  },
+  "termsConditions": {
+    "title": "Terms & Conditions",
+    "subtitle": "Please read these terms carefully before participating in our event",
+    "lastUpdated": "Last updated",
+    "introduction": {
+      "title": "Introduction",
+      "content": "These Terms and Conditions govern your participation in the Stana de Vale Trail Race event. By registering for any of our races, you acknowledge that you have read, understood, and agree to be bound by these terms."
+    },
+    "registration": {
+      "title": "Registration Requirements",
+      "intro": "To participate in our events, you must meet the following requirements:",
+      "requirements": {
+        "age": "Minimum age requirement: 18 years for the 33km race and 16 years for the 11km race (with parental consent for minors)",
+        "health": "Be in good health and physically fit to participate in a trail running event",
+        "equipment": "Possess all mandatory equipment specified in the race rules",
+        "information": "Provide accurate personal information during registration",
+        "fees": "Pay the applicable registration fees"
+      }
+    },
+    "participationRules": {
+      "title": "Participation Rules",
+      "rules": {
+        "bib": "Wear your bib number visibly throughout the race",
+        "route": "Follow the marked race route at all times",
+        "checkpoints": "Check in at all designated checkpoints",
+        "timeLimits": "Complete the race within the specified time limits",
+        "environment": "Respect the environment and do not litter",
+        "assistance": "Do not receive unauthorized assistance outside of aid stations"
+      }
+    },
+    "liability": {
+      "title": "Liability and Risk",
+      "content1": "Trail running is an inherently dangerous activity that involves risks of serious injury, illness, or death. By participating in our event, you acknowledge and accept these risks.",
+      "content2": "The organizers, sponsors, and volunteers are not responsible for any injuries, damages, or losses that may occur during the event. You participate at your own risk."
+    },
+    "medicalResponsibility": {
+      "title": "Medical Responsibility",
+      "content1": "You are responsible for ensuring that you are physically capable of participating in the event. We recommend consulting with a medical professional before registering if you have any health concerns.",
+      "content2": "You authorize medical personnel to provide emergency treatment in case of injury or illness during the event."
+    },
+    "cancellationPolicy": {
+      "title": "Cancellation Policy",
+      "eventCancellation": "If the event is canceled due to circumstances beyond our control (including but not limited to severe weather, natural disasters, or public health emergencies), registration fees are not refundable. However, we may offer deferrals to future events at our discretion.",
+      "participantCancellation": "If you cancel your registration more than 30 days before the event, you may receive a partial refund (typically 50%). No refunds are available for cancellations within 30 days of the event."
+    },
+    "imageRights": {
+      "title": "Image Rights",
+      "content": "By participating in our event, you grant us permission to use photographs, videos, and recordings featuring your likeness for promotional, commercial, and educational purposes without compensation."
+    },
+    "personalData": {
+      "title": "Personal Data",
+      "content": "We collect and process your personal data in accordance with our Privacy Policy. By registering, you consent to this data processing."
+    },
+    "modifications": {
+      "title": "Modifications to Terms",
+      "content": "We reserve the right to modify these Terms and Conditions at any time. The current version will always be available on our website."
+    },
+    "contact": {
+      "title": "Contact Information",
+      "content": "If you have any questions about these Terms and Conditions, please contact us at:"
+    }
+  },
+  "cookiePolicy": {
+    "title": "Cookie Policy",
+    "subtitle": "How we use cookies and similar technologies on our website",
+    "lastUpdated": "Last updated",
+    "introduction": {
+      "title": "Introduction",
+      "content": "This Cookie Policy explains how Stana de Vale Trail Race ('we', 'our', or 'us') uses cookies and similar technologies on our website. By using our website, you consent to the use of cookies as described in this policy."
+    },
+    "whatAreCookies": {
+      "title": "What Are Cookies?",
+      "content": "Cookies are small text files that are stored on your device when you visit a website. They are widely used to make websites work more efficiently and provide information to the website owners."
+    },
+    "cookiesWeUse": {
+      "title": "Types of Cookies We Use",
+      "intro": "We use the following types of cookies on our website:",
+      "necessary": {
+        "title": "Necessary Cookies",
+        "description": "Essential for the website to function properly. They enable basic functions like page navigation and access to secure areas."
+      },
+      "preferences": {
+        "title": "Preference Cookies",
+        "description": "Allow the website to remember choices you make (such as your language preference) for a better user experience."
+      },
+      "statistics": {
+        "title": "Statistics Cookies",
+        "description": "Help us understand how visitors interact with our website by collecting anonymous information."
+      },
+      "marketing": {
+        "title": "Marketing Cookies",
+        "description": "Used to track visitors across websites to display relevant advertisements."
+      }
+    },
+    "managingCookies": {
+      "title": "Managing Cookies",
+      "content": "You can control and manage cookies in various ways. Most web browsers allow you to manage your cookie preferences. You can:",
+      "browsers": {
+        "chrome": "In Chrome, go to Settings > Privacy and Security > Cookies and other site data",
+        "firefox": "In Firefox, go to Options > Privacy & Security > Cookies and Site Data",
+        "safari": "In Safari, go to Preferences > Privacy",
+        "edge": "In Edge, go to Settings > Cookies and site permissions"
+      }
+    },
+    "updates": {
+      "title": "Updates to This Cookie Policy",
+      "content": "We may update this Cookie Policy from time to time to reflect changes in technology, regulation, or our business practices. Any changes will be posted on this page."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content1": "If you have any questions about our use of cookies, please contact us at:",
+      "content2": "For more information about your privacy rights, please see our Privacy Policy."
+    }
+  },
   "months": {
     "0": "January",
     "1": "February",

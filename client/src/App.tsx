@@ -20,6 +20,9 @@ import SponsorsPage from "@/pages/SponsorsPage";
 import EmaCircuitPage from "@/pages/EmaCircuitPage";
 import HowToGetPage from "@/pages/HowToGetPage";
 import EmailTestPage from "@/pages/EmailTestPage";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import TermsConditions from "@/pages/TermsConditions";
+import CookiePolicy from "@/pages/CookiePolicy";
 
 // Import Components
 import NavigationHeader from "@/components/NavigationHeader";
@@ -52,6 +55,9 @@ function Router() {
           <Route path="/ema-circuit" component={EmaCircuitPage} />
           <Route path="/how-to-get-there" component={HowToGetPage} />
           <Route path="/email-test" component={EmailTestPage} />
+          <Route path="/privacy-policy" component={PrivacyPolicy} />
+          <Route path="/terms-conditions" component={TermsConditions} />
+          <Route path="/cookie-policy" component={CookiePolicy} />
           <Route component={NotFound} />
         </Switch>
       </main>
