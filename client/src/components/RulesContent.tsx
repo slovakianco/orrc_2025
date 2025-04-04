@@ -748,36 +748,98 @@ export default function RulesContent() {
                 <table className="w-full border-collapse">
                   <thead>
                     <tr className="bg-blue-100">
-                      <th className="border p-3 text-left">{t("emaCircuit.calendar.stage")}</th>
+                      <th className="border p-3 text-left">{t("emaCircuit.calendar.date")}</th>
                       <th className="border p-3 text-left">{t("emaCircuit.calendar.event")}</th>
                       <th className="border p-3 text-left">{t("emaCircuit.calendar.country")}</th>
-                      <th className="border p-3 text-left">{t("emaCircuit.calendar.date")}</th>
+                      <th className="border p-3 text-left">{t("emaCircuit.calendar.links") || "Links"}</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr className="bg-white">
-                      <td className="border p-3 font-semibold">Stage 1</td>
+                      <td className="border p-3">May 25, 2025</td>
+                      <td className="border p-3">Ventoux Mountain Running</td>
+                      <td className="border p-3">France 🇫🇷</td>
+                      <td className="border p-3">
+                        <div className="space-y-1 text-sm">
+                          <a 
+                            href="https://ventouxmountainrunning.com/inscriptions-mdv/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:underline block"
+                          >
+                            Website
+                          </a>
+                          <a 
+                            href="https://ventouxmountainrunning.com/inscriptions-mdv/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:underline block"
+                          >
+                            Registration
+                          </a>
+                          <span>Contact: deniv84@orange.fr</span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr className="bg-blue-50">
+                      <td className="border p-3">June 22, 2025</td>
+                      <td className="border p-3">10 Miglia Internazionale Aviano Piancavallo</td>
+                      <td className="border p-3">Italy 🇮🇹</td>
+                      <td className="border p-3">
+                        <div className="space-y-1 text-sm">
+                          <a 
+                            href="https://www.piancavallo.run/eventi/10-miglia-aviano-piancavallo/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:underline block"
+                          >
+                            Website
+                          </a>
+                          <a 
+                            href="https://my.raceresult.com/324754/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:underline block"
+                          >
+                            Registration
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr className="bg-white font-semibold">
+                      <td className="border p-3">July 5, 2025</td>
                       <td className="border p-3">Stâna de Vale Trail Race</td>
                       <td className="border p-3">Romania 🇷🇴</td>
-                      <td className="border p-3">July 5, 2025</td>
+                      <td className="border p-3">
+                        <div className="space-y-1 text-sm">
+                          <span className="text-blue-600 font-bold">You are here</span>
+                          <a 
+                            href="/registration" 
+                            className="text-blue-600 hover:underline block"
+                          >
+                            Registration
+                          </a>
+                        </div>
+                      </td>
                     </tr>
                     <tr className="bg-blue-50">
-                      <td className="border p-3 font-semibold">Stage 2</td>
-                      <td className="border p-3">TBA</td>
-                      <td className="border p-3">TBA</td>
-                      <td className="border p-3">TBA (Summer 2025)</td>
-                    </tr>
-                    <tr className="bg-white">
-                      <td className="border p-3 font-semibold">Stage 3</td>
-                      <td className="border p-3">TBA</td>
-                      <td className="border p-3">TBA</td>
-                      <td className="border p-3">TBA (Autumn 2025)</td>
-                    </tr>
-                    <tr className="bg-blue-50">
-                      <td className="border p-3 font-semibold">Stage 4</td>
-                      <td className="border p-3">TBA</td>
-                      <td className="border p-3">TBA</td>
-                      <td className="border p-3">TBA (Autumn 2025)</td>
+                      <td className="border p-3">September 13, 2025</td>
+                      <td className="border p-3">Camporredondo de Alba</td>
+                      <td className="border p-3">Spain 🇪🇸</td>
+                      <td className="border p-3">
+                        <div className="space-y-1 text-sm">
+                          <a 
+                            href="https://www.fedatletismocyl.es/index.php/master-1/calendario-master" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:underline block"
+                          >
+                            Federation Website
+                          </a>
+                          <span className="italic">Registration opens June 2025</span>
+                          <span>Contact: master@fedatletismocyl.es</span>
+                        </div>
+                      </td>
                     </tr>
                     <tr className="bg-blue-100 font-semibold">
                       <td className="border p-3" colSpan={4}>
