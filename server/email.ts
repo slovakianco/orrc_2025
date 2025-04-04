@@ -62,7 +62,6 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
   }
 
   console.log("=============== EMAIL SENDING DETAILS ===============");
-  console.log(process.env.SENDGRID_API_KEY);
   console.log("Attempting to send email to:", params.to);
   console.log("From:", params.from);
   console.log("Subject:", params.subject);
