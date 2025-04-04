@@ -781,7 +781,14 @@
     },
     "calendar": {
       "title": "Calendrier",
-      "content": "Les événements du Circuit EMA Off-Road Running 2025 se dérouleront selon le calendrier fourni sur le site officiel de l'EMA."
+      "content": "Les événements du Circuit EMA Off-Road Running 2025 se dérouleront selon le calendrier suivant :",
+      "date": "Date",
+      "event": "Événement",
+      "country": "Pays",
+      "links": "Liens",
+      "stage": "Étape",
+      "finalNote": "Pour les informations les plus récentes, veuillez visiter le site officiel de l'EMA.",
+      "updateNote": "Veuillez noter : Ce calendrier a été mis à jour conformément aux règlements officiels du Circuit EMA Off-Road Running 2025. Revenez régulièrement pour toute annonce d'événement supplémentaire ou changement."
     },
     "downloadButton": "Télécharger le PDF des règlements complets"
   },

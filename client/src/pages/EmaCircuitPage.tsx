@@ -158,28 +158,95 @@ const EmaCircuitPage = () => {
                   <th className="py-3 px-4 text-left border">{t("emaCircuit.calendar.date")}</th>
                   <th className="py-3 px-4 text-left border">{t("emaCircuit.calendar.event")}</th>
                   <th className="py-3 px-4 text-left border">{t("emaCircuit.calendar.country")}</th>
+                  <th className="py-3 px-4 text-left border">{t("emaCircuit.calendar.links") || "Links"}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td className="py-3 px-4 border">May 25, 2025</td>
-                  <td className="py-3 px-4 border">Mont Ventoux</td>
+                  <td className="py-3 px-4 border">Ventoux Mountain Running</td>
                   <td className="py-3 px-4 border">France</td>
+                  <td className="py-3 px-4 border">
+                    <div className="space-y-2">
+                      <a 
+                        href="https://ventouxmountainrunning.com/inscriptions-mdv/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline block text-sm"
+                      >
+                        Website
+                      </a>
+                      <a 
+                        href="https://ventouxmountainrunning.com/inscriptions-mdv/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline block text-sm"
+                      >
+                        Registration
+                      </a>
+                      <span className="text-sm">Contact: deniv84@orange.fr</span>
+                    </div>
+                  </td>
                 </tr>
                 <tr className="bg-gray-50">
                   <td className="py-3 px-4 border">June 22, 2025</td>
-                  <td className="py-3 px-4 border">Aviano Piancavallo</td>
+                  <td className="py-3 px-4 border">10 Miglia Internazionale Aviano Piancavallo</td>
                   <td className="py-3 px-4 border">Italy</td>
+                  <td className="py-3 px-4 border">
+                    <div className="space-y-2">
+                      <a 
+                        href="https://www.piancavallo.run/eventi/10-miglia-aviano-piancavallo/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline block text-sm"
+                      >
+                        Website
+                      </a>
+                      <a 
+                        href="https://my.raceresult.com/324754/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline block text-sm"
+                      >
+                        Registration
+                      </a>
+                    </div>
+                  </td>
                 </tr>
                 <tr className="bg-primary/5 font-semibold">
                   <td className="py-3 px-4 border">July 5, 2025</td>
-                  <td className="py-3 px-4 border">Stana de Vale</td>
+                  <td className="py-3 px-4 border">Stana de Vale Trail Race</td>
                   <td className="py-3 px-4 border">Romania</td>
+                  <td className="py-3 px-4 border">
+                    <div className="space-y-2">
+                      <span className="text-sm font-bold text-primary">You are here</span>
+                      <a 
+                        href="/registration" 
+                        className="text-primary hover:underline block text-sm"
+                      >
+                        Registration
+                      </a>
+                    </div>
+                  </td>
                 </tr>
                 <tr className="bg-gray-50">
                   <td className="py-3 px-4 border">September 13, 2025</td>
                   <td className="py-3 px-4 border">Camporredondo de Alba</td>
                   <td className="py-3 px-4 border">Spain</td>
+                  <td className="py-3 px-4 border">
+                    <div className="space-y-2">
+                      <a 
+                        href="https://www.fedatletismocyl.es/index.php/master-1/calendario-master" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline block text-sm"
+                      >
+                        Federation Website
+                      </a>
+                      <span className="text-sm italic">Registration opens June 2025</span>
+                      <span className="text-sm">Contact: master@fedatletismocyl.es</span>
+                    </div>
+                  </td>
                 </tr>
               </tbody>
             </table>

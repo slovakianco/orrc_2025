@@ -835,7 +835,14 @@
     },
     "calendar": {
       "title": "Calendar",
-      "content": "Evenimentele din Circuitul EMA de Alergare Off-Road 2025 vor avea loc conform programului furnizat pe site-ul oficial EMA."
+      "content": "Evenimentele din Circuitul EMA de Alergare Off-Road 2025 vor avea loc conform următorului program:",
+      "date": "Data",
+      "event": "Eveniment",
+      "country": "Țara",
+      "links": "Link-uri",
+      "stage": "Etapa",
+      "finalNote": "Pentru cele mai recente informații, vă rugăm să vizitați site-ul oficial EMA.",
+      "updateNote": "Notă: Acest calendar a fost actualizat conform regulamentului oficial al Circuitului EMA de Alergare Off-Road 2025. Reveniți regulat pentru anunțuri de evenimente suplimentare sau modificări."
     },
     "downloadButton": "Descarcă Regulamentul Complet PDF"
   },
