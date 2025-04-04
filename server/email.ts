@@ -124,7 +124,7 @@ export async function sendRegistrationConfirmationEmail(
   try {
     const result = await sendEmail({
       to: email,
-      from: "contact@stanatrailrace.ro", // Make sure this domain matches what you've verified in SendGrid
+      from: DEFAULT_FROM_EMAIL, // Make sure this domain matches what you've verified in SendGrid
       subject: subjects[lang],
       text: `${greetings[lang]}\n\n${messages[lang]}`,
       html: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e6dfd9; border-radius: 8px;">
