@@ -4,42 +4,21 @@ import { MailService } from "@sendgrid/mail";
 // Create an instance of the MailService
 const sgMail = new MailService();
 
-// Initialize SendGrid with detailed logging
+// Initialize SendGrid
 if (!process.env.SENDGRID_API_KEY) {
   console.warn(
     "SENDGRID_API_KEY environment variable is not set. Email functionality will be disabled.",
   );
 } else {
-  console.log(
-    "=================== SENDGRID INITIALIZATION ===================",
-  );
   // Remove 'Bearer ' prefix if it exists to ensure correct formatting
   let apiKey = process.env.SENDGRID_API_KEY;
-
-  // Log API key format details for debugging without revealing the full key
-  const keyLength = apiKey.length;
-  const hasSGPrefix = apiKey.startsWith("SG.");
-  const hasBearer = apiKey.startsWith("Bearer ");
-  const keyPrefix = apiKey.substring(0, Math.min(3, keyLength));
-  const keySuffix =
-    apiKey.length > 3 ? apiKey.substring(apiKey.length - 3) : "";
-
-  console.log(`API Key Format Check:
-  - Key Length: ${keyLength} characters
-  - Starts with 'SG.': ${hasSGPrefix}
-  - Starts with 'Bearer ': ${hasBearer}
-  - Key Format: ${keyPrefix}...${keySuffix}
-  `);
-
-  if (hasBearer) {
+  if (apiKey.startsWith("Bearer ")) {
     apiKey = apiKey.substring(7);
-    console.log('Removed "Bearer " prefix from SendGrid API key.');
   }
 
   // Set the API key and initialize SendGrid client
   sgMail.setApiKey(apiKey);
-  console.log("SendGrid client initialized successfully");
-  console.log("============================================================");
+  console.log("SendGrid client initialized");
 }
 
 // Default from email if custom domain verification fails
@@ -61,15 +40,7 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
     return false;
   }
 
-  console.log("=============== EMAIL SENDING DETAILS ===============");
-  console.log("Attempting to send email to:", params.to);
-  console.log("From:", params.from);
-  console.log("Subject:", params.subject);
-  console.log(
-    "SendGrid configured:",
-    process.env.SENDGRID_API_KEY ? "YES" : "NO",
-  );
-  console.log("====================================================");
+  console.log(`Attempting to send email to: ${params.to}, From: ${params.from}, Subject: ${params.subject}`);
 
   const msg = {
     to: params.to,
@@ -80,61 +51,18 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
   };
 
   try {
-    // Log the complete message being sent to SendGrid for debugging
-    console.log("=================== SENDGRID REQUEST ===================");
-    console.log("Request payload:", JSON.stringify(msg, null, 2));
-    console.log(
-      "API Key starts with:",
-      process.env.SENDGRID_API_KEY?.substring(0, 6) + "...",
-    );
-    console.log("========================================================");
-
     await sgMail.send(msg);
     console.log(`Email successfully sent to ${params.to}`);
     return true;
   } catch (error: any) {
-    console.error("SendGrid email error:", error);
+    console.error("SendGrid email error:", error.message || "Unknown error");
 
-    // Log more complete error information
-    console.log(
-      "=================== SENDGRID ERROR DETAILS ===================",
-    );
-    if (error.response) {
-      console.error("HTTP Status Code:", error.response.statusCode);
-      console.error(
-        "SendGrid Response Headers:",
-        JSON.stringify(error.response.headers, null, 2),
-      );
-      console.error(
-        "Full Response Object:",
-        JSON.stringify(error.response, null, 2),
-      );
-    } else {
-      console.error("No response object in error. Raw error:", error);
-    }
-    console.log(
-      "==============================================================",
-    );
-
-    // Additional debugging for most common SendGrid errors
+    // Common error messaging without exposing sensitive data
     if (error.code === 401) {
-      console.error(
-        "Authentication error: The SendGrid API key may be invalid or expired.",
-      );
-      console.error(
-        "Please ensure you've provided a valid API key. It should start with 'SG.' and not include 'Bearer '.",
-      );
+      console.error("Authentication error: The SendGrid API key may be invalid or expired.");
     } else if (error.code === 403) {
-      console.error(
-        "Authorization error: The SendGrid account may not have permission to send emails.",
-      );
-      console.error(
-        "Please ensure your SendGrid account has the 'Mail Send' permission enabled.",
-      );
-    } else if (
-      error.code === 400 ||
-      (error.response && error.response.body && error.response.body.errors)
-    ) {
+      console.error("Authorization error: The SendGrid account may not have permission to send emails.");
+    } else if (error.code === 400) {
       // Check for common domain verification issues
       const errors = error.response?.body?.errors || [];
       const hasDomainIssue = errors.some(
@@ -146,26 +74,7 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
       );
 
       if (hasDomainIssue) {
-        console.error(
-          "Sender verification error: The 'from' email address may not be verified in your SendGrid account.",
-        );
-        console.error(
-          `Make sure the email address '${params.from}' is verified in SendGrid. Either verify the domain or use a single sender verification.`,
-        );
-      }
-    }
-
-    if (error.response && error.response.body) {
-      console.error(
-        "SendGrid API response body:",
-        JSON.stringify(error.response.body, null, 2),
-      );
-
-      if (error.response.body.errors) {
-        console.error(
-          "SendGrid API errors:",
-          JSON.stringify(error.response.body.errors, null, 2),
-        );
+        console.error("Sender verification error: The 'from' email address may not be verified in your SendGrid account.");
       }
     }
 
