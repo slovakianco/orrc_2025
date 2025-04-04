@@ -155,105 +155,40 @@ const EmaCircuitPage = () => {
             <table className="min-w-full border-collapse">
               <thead>
                 <tr className="bg-primary/10">
-                  <th className="py-3 px-4 text-left border">Date</th>
-                  <th className="py-3 px-4 text-left border">Event</th>
-                  <th className="py-3 px-4 text-left border">Location</th>
-                  <th className="py-3 px-4 text-left border">Website</th>
+                  <th className="py-3 px-4 text-left border">{t("emaCircuit.calendar.date")}</th>
+                  <th className="py-3 px-4 text-left border">{t("emaCircuit.calendar.event")}</th>
+                  <th className="py-3 px-4 text-left border">{t("emaCircuit.calendar.country")}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="py-3 px-4 border">April 20</td>
-                  <td className="py-3 px-4 border">Denia - Spain (Maraton Carreras por Montana)</td>
-                  <td className="py-3 px-4 border">Denia, Spain</td>
-                  <td className="py-3 px-4 border">
-                    <a href="https://montgotrail.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                      montgotrail.com
-                    </a>
-                  </td>
+                  <td className="py-3 px-4 border">May 25, 2025</td>
+                  <td className="py-3 px-4 border">Mont Ventoux</td>
+                  <td className="py-3 px-4 border">France</td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="py-3 px-4 border">May 18</td>
-                  <td className="py-3 px-4 border">Montegrappa - Italy (Bassano)</td>
-                  <td className="py-3 px-4 border">Bassano, Italy</td>
-                  <td className="py-3 px-4 border">
-                    <a href="https://www.bassanorunningfestival.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                      bassanorunningfestival.com
-                    </a>
-                  </td>
+                  <td className="py-3 px-4 border">June 22, 2025</td>
+                  <td className="py-3 px-4 border">Aviano Piancavallo</td>
+                  <td className="py-3 px-4 border">Italy</td>
                 </tr>
-                <tr>
-                  <td className="py-3 px-4 border">June 1</td>
-                  <td className="py-3 px-4 border">Pico Blanco - Spain (Liérganes)</td>
-                  <td className="py-3 px-4 border">Liérganes, Spain</td>
-                  <td className="py-3 px-4 border">
-                    <a href="https://picoblanco.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                      picoblanco.com
-                    </a>
-                  </td>
+                <tr className="bg-primary/5 font-semibold">
+                  <td className="py-3 px-4 border">July 5, 2025</td>
+                  <td className="py-3 px-4 border">Stana de Vale</td>
+                  <td className="py-3 px-4 border">Romania</td>
                 </tr>
                 <tr className="bg-gray-50">
-                  <td className="py-3 px-4 border">July 5</td>
-                  <td className="py-3 px-4 border">Stana de Vale - Romania</td>
-                  <td className="py-3 px-4 border">Stana de Vale, Romania</td>
-                  <td className="py-3 px-4 border">
-                    <a href="/" className="text-primary hover:underline font-semibold">
-                      stanadevaletrail.ro
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 border">August 3</td>
-                  <td className="py-3 px-4 border">Skopje - North Macedonia</td>
-                  <td className="py-3 px-4 border">Skopje, North Macedonia</td>
-                  <td className="py-3 px-4 border">
-                    <a href="https://trailrunning.mk" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                      trailrunning.mk
-                    </a>
-                  </td>
-                </tr>
-                <tr className="bg-gray-50">
-                  <td className="py-3 px-4 border">August 24</td>
-                  <td className="py-3 px-4 border">Olympos - Greece</td>
-                  <td className="py-3 px-4 border">Olympos, Greece</td>
-                  <td className="py-3 px-4 border">
-                    <a href="https://olympusolympicotrail.gr" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                      olympusolympicotrail.gr
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 border">September 14</td>
-                  <td className="py-3 px-4 border">Innsbruck - Austria (K43) - EMA MOUNTAIN RUNNING CHAMPIONSHIP</td>
-                  <td className="py-3 px-4 border">Innsbruck, Austria</td>
-                  <td className="py-3 px-4 border">
-                    <a href="https://innsbruck-alpine.at" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                      innsbruck-alpine.at
-                    </a>
-                  </td>
-                </tr>
-                <tr className="bg-gray-50">
-                  <td className="py-3 px-4 border">September 28</td>
-                  <td className="py-3 px-4 border">Balaton - Hungary (Ultrabalaton)</td>
-                  <td className="py-3 px-4 border">Balaton, Hungary</td>
-                  <td className="py-3 px-4 border">
-                    <a href="https://ultrabalaton.hu" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                      ultrabalaton.hu
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 border">October 19</td>
-                  <td className="py-3 px-4 border">SumatraTRAIL - Portugal (Madeira)</td>
-                  <td className="py-3 px-4 border">Madeira, Portugal</td>
-                  <td className="py-3 px-4 border">
-                    <a href="https://sumatratrail.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                      sumatratrail.com
-                    </a>
-                  </td>
+                  <td className="py-3 px-4 border">September 13, 2025</td>
+                  <td className="py-3 px-4 border">Camporredondo de Alba</td>
+                  <td className="py-3 px-4 border">Spain</td>
                 </tr>
               </tbody>
             </table>
+          </div>
+          
+          <div className="mt-6 p-4 rounded-md bg-yellow-50 border border-yellow-200">
+            <p className="text-sm font-medium text-yellow-800">
+              {t("emaCircuit.calendar.updateNote") || "Please note: This calendar has been updated as per the official 2025 EMA Off-Road Running Circuit regulations. Check back regularly for any additional event announcements or changes."}
+            </p>
           </div>
           
           <div className="mt-6 bg-primary/5 p-4 rounded-md">

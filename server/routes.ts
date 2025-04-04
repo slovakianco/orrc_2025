@@ -356,7 +356,7 @@ This message was sent from the Stana de Vale Trail Race website contact form.
   apiRouter.get("/ema-circuit/regulations", async (req: Request, res: Response) => {
     try {
       const pdfFileName = 'Regulation2025_ORRCircuit.pdf';
-      const pdfFilePath = path.join(process.cwd(), 'attached_assets', pdfFileName);
+      const pdfFilePath = path.join(process.cwd(), 'public', 'regulations', pdfFileName);
       
       // Check if file exists
       if (!fs.existsSync(pdfFilePath)) {
