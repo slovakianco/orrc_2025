@@ -244,8 +244,66 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
       
+      // Store the inquiry in the database
       const inquiry = await storage.createContactInquiry(result.data);
-      res.status(201).json({ message: "Contact inquiry submitted successfully", id: inquiry.id });
+      
+      // Try to send an email notification (this is non-blocking)
+      try {
+        // Import the sendEmail function
+        const { sendEmail } = await import('./email');
+        
+        // Prepare email content
+        const subject = `New Contact Inquiry: ${result.data.subject}`;
+        const emailBody = `
+Name: ${result.data.name}
+Email: ${result.data.email}
+Subject: ${result.data.subject}
+
+Message:
+${result.data.message}
+
+This message was sent from the Stana de Vale Trail Race website contact form.
+        `;
+        
+        // Send the email notification to the site admin
+        const emailSent = await sendEmail({
+          to: "contact@stanatrailrace.ro", // Site admin email
+          from: "registration@stanatrailrace.ro", // Must be verified in SendGrid
+          subject: subject,
+          text: emailBody,
+          html: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e6dfd9; border-radius: 8px;">
+            <div style="text-align: center; margin-bottom: 20px;">
+              <h1 style="color: #2A6D50; margin-bottom: 10px;">New Contact Form Submission</h1>
+            </div>
+            <div style="font-size: 16px; line-height: 1.5; color: #3E4A59;">
+              <p><strong>Name:</strong> ${result.data.name}</p>
+              <p><strong>Email:</strong> ${result.data.email}</p>
+              <p><strong>Subject:</strong> ${result.data.subject}</p>
+              <p><strong>Message:</strong></p>
+              <p style="background: #f9f9f9; padding: 15px; border-radius: 5px;">${result.data.message.replace(/\n/g, '<br>')}</p>
+            </div>
+            <div style="margin-top: 30px; border-top: 1px solid #e6dfd9; padding-top: 20px; text-align: center; font-size: 14px; color: #7D5A45;">
+              <p>This message was sent from the Stana de Vale Trail Race website contact form.</p>
+              <p>Stana de Vale Trail Race 2025 • Stâna de Vale, Romania</p>
+            </div>
+          </div>`,
+        });
+        
+        if (emailSent) {
+          console.log("Contact form notification email sent successfully");
+        } else {
+          console.warn("Failed to send contact form notification email");
+        }
+      } catch (emailError) {
+        // Log email errors but don't fail the request
+        console.error("Error sending contact form notification email:", emailError);
+      }
+      
+      // Return success to the client regardless of email status
+      res.status(201).json({ 
+        message: "Contact inquiry submitted successfully", 
+        id: inquiry.id, 
+      });
     } catch (error) {
       console.error("Error creating contact inquiry:", error);
       res.status(500).json({ message: "Failed to submit contact inquiry" });

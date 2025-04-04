@@ -103,7 +103,7 @@ const ContactForm = () => {
                     </div>
                     <div>
                       <h4 className="font-bold mb-0.5 md:mb-1 text-sm md:text-base text-neutral-dark">{t('contact.info.email')}</h4>
-                      <a href="mailto:slovak.ianco@gmail.com" className="text-secondary hover:text-secondary-dark transition-colors text-sm md:text-base">slovak.ianco@gmail.com</a>
+                      <a href="mailto:contact@stanatrailrace.ro" className="text-secondary hover:text-secondary-dark transition-colors text-sm md:text-base">contact@stanatrailrace.ro</a>
                     </div>
                   </div>
                   
