@@ -75,39 +75,44 @@ const CNMastersPage = () => {
               </thead>
               <tbody className="divide-y">
                 <tr>
-                  <td className="py-3 px-4 font-medium">Masters A</td>
+                  <td className="py-3 px-4 font-medium">M35/F35</td>
                   <td className="py-3 px-4">35-39</td>
                   <td className="py-3 px-4">1986-1990</td>
                 </tr>
                 <tr>
-                  <td className="py-3 px-4 font-medium">Masters B</td>
+                  <td className="py-3 px-4 font-medium">M40/F40</td>
                   <td className="py-3 px-4">40-44</td>
                   <td className="py-3 px-4">1981-1985</td>
                 </tr>
                 <tr>
-                  <td className="py-3 px-4 font-medium">Masters C</td>
+                  <td className="py-3 px-4 font-medium">M45/F45</td>
                   <td className="py-3 px-4">45-49</td>
                   <td className="py-3 px-4">1976-1980</td>
                 </tr>
                 <tr>
-                  <td className="py-3 px-4 font-medium">Masters D</td>
+                  <td className="py-3 px-4 font-medium">M50/F50</td>
                   <td className="py-3 px-4">50-54</td>
                   <td className="py-3 px-4">1971-1975</td>
                 </tr>
                 <tr>
-                  <td className="py-3 px-4 font-medium">Masters E</td>
+                  <td className="py-3 px-4 font-medium">M55/F55</td>
                   <td className="py-3 px-4">55-59</td>
                   <td className="py-3 px-4">1966-1970</td>
                 </tr>
                 <tr>
-                  <td className="py-3 px-4 font-medium">Masters F</td>
+                  <td className="py-3 px-4 font-medium">M60/F60</td>
                   <td className="py-3 px-4">60-64</td>
                   <td className="py-3 px-4">1961-1965</td>
                 </tr>
                 <tr>
-                  <td className="py-3 px-4 font-medium">Masters G</td>
-                  <td className="py-3 px-4">65+</td>
-                  <td className="py-3 px-4">1960 and earlier</td>
+                  <td className="py-3 px-4 font-medium">M65/F65</td>
+                  <td className="py-3 px-4">65-69</td>
+                  <td className="py-3 px-4">1956-1960</td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-4 font-medium">M70/F70</td>
+                  <td className="py-3 px-4">70+</td>
+                  <td className="py-3 px-4">1955 and earlier</td>
                 </tr>
               </tbody>
             </table>
@@ -136,33 +141,31 @@ const CNMastersPage = () => {
         {/* Federation info */}
         <div className="bg-white rounded-lg shadow-md p-6 md:p-8">
           <h2 className="text-xl md:text-2xl font-bold text-primary mb-4">
-            Federația Română de Atletism
+            Comisia de Atletism Masters (CAM)
           </h2>
           
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-            <div className="w-full md:w-1/4 flex justify-center">
-              <div className="h-36 w-36 bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center">
-                <span className="text-gray-500 text-sm">FRA Logo</span>
-              </div>
-            </div>
-            
-            <div className="w-full md:w-3/4">
-              <h3 className="font-bold text-lg mb-2">Federația Română de Atletism</h3>
+          <div className="flex flex-col gap-6">
+            <div className="w-full">
+              <h3 className="font-bold text-lg mb-2">Comisia de Atletism Masters</h3>
               <p className="text-neutral-dark mb-4">
-                Federația Română de Atletism este organizația națională care coordonează activitatea atletică din România, inclusiv competițiile de alergare montană. FRA organizează campionate naționale pentru diverse categorii de vârstă, inclusiv Masters.
+                Comisia de Atletism Masters coordonează activitatea atletică pentru sportivii Masters (35+ ani) din România, organizând campionate naționale pentru diverse probe, inclusiv alergare montană. Competițiile se desfășoară conform regulamentelor internaționale WMA (World Masters Athletics).
               </p>
               
               <div className="flex flex-col space-y-2 text-sm">
                 <div className="flex items-center">
                   <span className="font-semibold w-20">Website:</span>
-                  <a href="https://www.fra.ro" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                    www.fra.ro
+                  <a href="https://www.fracam.ro" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                    www.fracam.ro
                   </a>
                 </div>
                 <div className="flex items-center">
                   <span className="font-semibold w-20">Email:</span>
-                  <a href="mailto:office@fra.ro" className="text-primary hover:underline">
-                    office@fra.ro
+                  <span className="text-neutral-dark">contact (at) fracam.ro</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="font-semibold w-20">Facebook:</span>
+                  <a href="https://www.facebook.com/RomanianMastersAthletics/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                    /RomanianMastersAthletics
                   </a>
                 </div>
               </div>
