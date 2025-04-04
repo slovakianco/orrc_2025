@@ -622,11 +622,21 @@ export default function RulesContent() {
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="ema-circuit">
-                  <AccordionTrigger className="text-lg font-heading font-semibold text-blue-600">
-                    {t("emaCircuit.title")}
-                  </AccordionTrigger>
-                  <AccordionContent>
+              </Accordion>
+            </CardContent>
+          </Card>
+          
+          {/* EMA Circuit Section - Separate section for EMA Circuit content */}
+          <div className="mt-12 mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-blue-600 flex items-center">
+              <span className="bg-blue-600 text-white p-1 rounded-md mr-3">EMA</span>
+              {t("emaCircuit.title")}
+            </h2>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+              <div className="lg:col-span-2">
+                <Card className="shadow-md border-blue-600/20 h-full">
+                  <CardContent className="pt-6">
                     <p className="mb-4">{t("emaCircuit.overview.content")}</p>
                     <p className="font-semibold mb-2">{t("emaCircuit.overview.objectives")}</p>
                     <ul className="list-disc pl-6 mb-4 space-y-1">
@@ -636,21 +646,54 @@ export default function RulesContent() {
                         </li>
                       ))}
                     </ul>
-                    <div className="mt-4 flex justify-center">
-                      <a 
-                        href="/api/ema-circuit/regulations" 
-                        className="bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition-colors"
-                      >
-                        {t("emaCircuit.downloadButton")}
-                      </a>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </CardContent>
-          </Card>
+                  </CardContent>
+                </Card>
+              </div>
 
-          <div className="text-center">
+              <div>
+                <Card className="shadow-md border-blue-600/20 h-full">
+                  <CardContent className="pt-6">
+                    <p className="mb-4">{t("emaCircuit.participation.content")}</p>
+                    <p className="mb-2 font-medium">{t("emaCircuit.participation.note1")}</p>
+                    <p>{t("emaCircuit.participation.note2")}</p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+              <Card className="shadow-md border-blue-600/20">
+                <CardContent className="pt-6">
+                  <h3 className="text-lg font-bold mb-3 text-blue-600">{t("emaCircuit.liability.title")}</h3>
+                  <p className="mb-4">{t("emaCircuit.liability.content")}</p>
+                  <p className="mb-4">{t("emaCircuit.liability.insurance")}</p>
+                  <p>{t("emaCircuit.liability.health")}</p>
+                </CardContent>
+              </Card>
+
+              <Card className="shadow-md border-blue-600/20">
+                <CardContent className="pt-6">
+                  <h3 className="text-lg font-bold mb-3 text-blue-600">{t("emaCircuit.rankings.title")}</h3>
+                  <p className="mb-4">{t("emaCircuit.rankings.content")}</p>
+                  <p className="mb-4">{t("emaCircuit.rankings.local")}</p>
+                  <p className="mb-4 font-medium">{t("emaCircuit.rankings.eligibility")}</p>
+                  <p className="mb-4">{t("emaCircuit.rankings.points")}</p>
+                  <p className="mb-4 text-primary font-medium">{t("emaCircuit.rankings.specialPrize")}</p>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="flex justify-center mt-8">
+              <a
+                href="/api/ema-circuit/regulations" 
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors shadow-md"
+              >
+                {t("emaCircuit.downloadButton")}
+              </a>
+            </div>
+          </div>
+
+          <div className="text-center mt-8">
             <p className="text-neutral-dark mb-4">
               {t("rules.contactQuestion")}
             </p>
