@@ -829,15 +829,22 @@ export default function RulesContent() {
                       <td className="border p-3">
                         <div className="space-y-1 text-sm">
                           <a 
-                            href="https://www.fedatletismocyl.es/index.php/master-1/calendario-master" 
+                            href="https://utmp.run" 
                             target="_blank" 
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:underline block"
                           >
-                            Federation Website
+                            Website
                           </a>
-                          <span className="italic">Registration opens June 2025</span>
-                          <span>Contact: master@fedatletismocyl.es</span>
+                          <a 
+                            href="https://www.rockthesport.com/es/evento/ultra-montana-palentina-2025?frm=0&men=0&tit=0" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:underline block"
+                          >
+                            Registration
+                          </a>
+                          <span>Contact: utmp70@gmail.com</span>
                         </div>
                       </td>
                     </tr>

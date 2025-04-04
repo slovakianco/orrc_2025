@@ -236,15 +236,22 @@ const EmaCircuitPage = () => {
                   <td className="py-3 px-4 border">
                     <div className="space-y-2">
                       <a 
-                        href="https://www.fedatletismocyl.es/index.php/master-1/calendario-master" 
+                        href="https://utmp.run" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-primary hover:underline block text-sm"
                       >
-                        Federation Website
+                        Website
                       </a>
-                      <span className="text-sm italic">Registration opens June 2025</span>
-                      <span className="text-sm">Contact: master@fedatletismocyl.es</span>
+                      <a 
+                        href="https://www.rockthesport.com/es/evento/ultra-montana-palentina-2025?frm=0&men=0&tit=0" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline block text-sm"
+                      >
+                        Registration
+                      </a>
+                      <span className="text-sm">Contact: utmp70@gmail.com</span>
                     </div>
                   </td>
                 </tr>
