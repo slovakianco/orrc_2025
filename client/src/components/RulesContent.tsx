@@ -630,10 +630,10 @@ export default function RulesContent() {
               {t("rules.contactQuestion")}
             </p>
             <a
-              href="mailto:contact@stanatrailrace.ro"
+              href="mailto:slovak.ianco@gmail.com"
               className="text-[#2E7D32] hover:underline font-medium"
             >
-              contact@stanatrailrace.ro
+              slovak.ianco@gmail.com
             </a>
           </div>
         </div>
