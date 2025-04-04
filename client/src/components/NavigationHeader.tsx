@@ -40,7 +40,7 @@ const NavigationHeader = () => {
       isActive: location === "/sponsors",
     },
     {
-      label: "Campionatul Naţional Masters",
+      label: "CN Masters",
       path: "/cn-masters",
       isActive: location === "/cn-masters",
     },

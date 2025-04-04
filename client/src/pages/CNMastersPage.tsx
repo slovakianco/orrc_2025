@@ -14,8 +14,8 @@ const CNMastersPage = () => {
   return (
     <div className="min-h-screen bg-neutral-light/30">
       <PageHeader 
-        title="Campionatul Naţional de Alergare Montană Masters"
-        subtitle="Ediția 2025 - Stâna de Vale"
+        title="CN Masters"
+        subtitle="Campionatul Naţional de Alergare Montană Masters 2025"
       />
       
       <div className="container mx-auto px-4 py-8 md:py-12">
