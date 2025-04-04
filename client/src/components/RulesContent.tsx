@@ -674,50 +674,64 @@ export default function RulesContent() {
               <Card className="shadow-md border-blue-600/20">
                 <CardContent className="pt-6">
                   <h3 className="text-lg font-bold mb-3 text-blue-600">{t("emaCircuit.rankings.title")}</h3>
-                  <p className="mb-4">{t("emaCircuit.rankings.content")}</p>
-                  <p className="mb-4">{t("emaCircuit.rankings.local")}</p>
-                  <p className="mb-4 font-medium">{t("emaCircuit.rankings.eligibility")}</p>
                   
-                  <div className="mb-4 bg-blue-50 p-4 rounded-md">
-                    <h4 className="font-bold text-blue-700 mb-2">{t("emaCircuit.rankings.pointsSystem")}</h4>
-                    <p className="mb-2">{t("emaCircuit.rankings.points")}</p>
-                    <div className="grid grid-cols-2 gap-2 mb-3">
-                      <div className="bg-white p-2 rounded shadow-sm">
-                        <span className="font-bold">1st place:</span> 100 points
-                      </div>
-                      <div className="bg-white p-2 rounded shadow-sm">
-                        <span className="font-bold">2nd place:</span> 88 points
-                      </div>
-                      <div className="bg-white p-2 rounded shadow-sm">
-                        <span className="font-bold">3rd place:</span> 78 points
-                      </div>
-                      <div className="bg-white p-2 rounded shadow-sm">
-                        <span className="font-bold">4th place:</span> 72 points
-                      </div>
-                      <div className="bg-white p-2 rounded shadow-sm">
-                        <span className="font-bold">5th place:</span> 68 points
-                      </div>
-                      <div className="bg-white p-2 rounded shadow-sm">
-                        <span className="font-bold">6th place:</span> 66 points
-                      </div>
-                      <div className="bg-white p-2 rounded shadow-sm">
-                        <span className="font-bold">7th place:</span> 64 points
-                      </div>
-                      <div className="bg-white p-2 rounded shadow-sm">
-                        <span className="font-bold">8th place:</span> 62 points
-                      </div>
-                    </div>
-                    <p className="text-sm text-blue-700">{t("emaCircuit.rankings.pointsNote")}</p>
+                  <div className="mb-6">
+                    <h4 className="font-bold text-blue-700 mb-2">Ranking Structure</h4>
+                    <ul className="list-disc pl-6 mb-4 space-y-1 text-neutral-700">
+                      <li>Features individual event rankings and a final overall Circuit ranking.</li>
+                      <li>Local Organizing Committees (LOCs) may offer various events (e.g., uphill, vertical, mountain run, trail) with prizes awarded per local regulations.</li>
+                      <li>LOCs may register and award athletes under 35 or over 80 at their discretion, but only Masters athletes aged 35-79 are eligible for the EMA Circuit's final rankings.</li>
+                    </ul>
                   </div>
                   
-                  <p className="mb-4 text-primary font-medium">{t("emaCircuit.rankings.specialPrize")}</p>
+                  <div className="mb-6">
+                    <h4 className="font-bold text-blue-700 mb-2">Final Ranking Eligibility</h4>
+                    <div className="bg-blue-50 p-4 rounded-md">
+                      <p className="font-medium">Athletes must participate in at least two events across different locations to qualify for the final rankings.</p>
+                    </div>
+                  </div>
                   
-                  <div className="mt-6">
-                    <h4 className="font-bold text-blue-700 mb-2">{t("emaCircuit.rankings.categories")}</h4>
-                    <ul className="list-disc pl-6 mb-4 space-y-1">
-                      <li>Seniors: Men & Women (18-34 years)</li>
-                      <li>Masters: Men & Women (35-49 years)</li>
-                      <li>Veterans: Men & Women (50+ years)</li>
+                  <div className="mb-6">
+                    <h4 className="font-bold text-blue-700 mb-2">Point Allocation</h4>
+                    <ul className="list-disc pl-6 mb-3 space-y-1 text-neutral-700">
+                      <li>Event winner (overall and age category) receives 1 point</li>
+                      <li>Second place receives 2 points</li>
+                      <li>Third place receives 3 points, and so on</li>
+                      <li>Final standings are based on an athlete's best two performances</li>
+                    </ul>
+                    <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3">
+                      <p className="text-sm font-medium text-yellow-800">
+                        Note: Lower point total is better, as this is a golf-style scoring system where 1st place = 1 point.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="mb-6">
+                    <h4 className="font-bold text-blue-700 mb-2">Ranking Categories</h4>
+                    <ul className="list-disc pl-6 mb-3 space-y-1 text-neutral-700">
+                      <li>First three male and female athletes ranked as Overall Winners</li>
+                      <li>Age Category Winners for both men and women (35-75)</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="mb-6">
+                    <h4 className="font-bold text-blue-700 mb-2">Tie-Breakers</h4>
+                    <ul className="list-disc pl-6 mb-3 space-y-1 text-neutral-700">
+                      <li>In case of a tie, the athlete with the higher finishing position in events takes precedence</li>
+                      <li>If still tied, the number of races participated in serves as the tie-breaker</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="mb-6 bg-blue-50 p-4 rounded-md">
+                    <h4 className="font-bold text-blue-700 mb-2">Special Prize</h4>
+                    <p>A special prize is awarded to athletes participating in at least three stages, regardless of results.</p>
+                  </div>
+                  
+                  <div className="mb-3">
+                    <h4 className="font-bold text-blue-700 mb-2">Award Ceremony</h4>
+                    <ul className="list-disc pl-6 mb-3 space-y-1 text-neutral-700">
+                      <li>Held during the 2026 EMA Off-Road Running Championship</li>
+                      <li>If an athlete cannot attend, arrangements will be made for prize delivery</li>
                     </ul>
                   </div>
                 </CardContent>
