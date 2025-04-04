@@ -306,12 +306,14 @@ export class MemStorage implements IStorage {
 
     switch (difficulty) {
       case "beginner":
-        return "E"; // Explorer
+      case "classic_updown":
+        return "C"; // Classic
       case "intermediate":
         return "F"; // Forest
       case "advanced":
       case "ultra":
-        return "U"; // Ultra
+      case "long_trail":
+        return "L"; // Long Trail
       default:
         return "X";
     }
@@ -335,7 +337,7 @@ export class MemStorage implements IStorage {
         "Ein anspruchsvoller 33 km langer Bergpfad mit erheblichem Höhenunterschied und atemberaubenden Panoramablicken. Dieses Rennen enthält technische Abschnitte und erfordert gute Berglauferfahrung.",
       distance: 33,
       elevation: 1800,
-      difficulty: "advanced",
+      difficulty: "long_trail",
       date: "2024-07-05",
       price: 40, // 200 lei
       imageUrl: "https://images.unsplash.com/photo-1483721310020-03333e577078",
@@ -360,13 +362,13 @@ export class MemStorage implements IStorage {
         "Ein schöner 11 km langer Trail, perfekt für Anfänger und fortgeschrittene Läufer. Diese malerische Route führt durch Wälder und sanfte Hügel mit mäßigem Höhenunterschied.",
       distance: 11,
       elevation: 550,
-      difficulty: "beginner",
+      difficulty: "classic_updown",
       date: "2024-07-05",
       price: 30, // 150 lei
       imageUrl: "https://images.unsplash.com/photo-1464054313797-e27fb58e90a9",
       raceMap:
         '<iframe src="https://tracedetrail.fr/en/iframe/6297" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>',
-      isEMAcertified: false, // Not EMA certified
+      isEMAcertified: true, // Also part of EMA Circuit for 2025
       isNationalChampionship: true, // Campionat National only
     } as InsertRace);
 

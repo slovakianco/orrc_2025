@@ -621,6 +621,31 @@ export default function RulesContent() {
                     </ul>
                   </AccordionContent>
                 </AccordionItem>
+
+                <AccordionItem value="ema-circuit">
+                  <AccordionTrigger className="text-lg font-heading font-semibold text-blue-600">
+                    {t("emaCircuit.title")}
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <p className="mb-4">{t("emaCircuit.overview.content")}</p>
+                    <p className="font-semibold mb-2">{t("emaCircuit.overview.objectives")}</p>
+                    <ul className="list-disc pl-6 mb-4 space-y-1">
+                      {[0, 1, 2, 3, 4].map((index) => (
+                        <li key={index}>
+                          {t(`emaCircuit.overview.objectivesList.${index}`)}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-4 flex justify-center">
+                      <a 
+                        href="/api/ema-circuit/regulations" 
+                        className="bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition-colors"
+                      >
+                        {t("emaCircuit.downloadButton")}
+                      </a>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
               </Accordion>
             </CardContent>
           </Card>

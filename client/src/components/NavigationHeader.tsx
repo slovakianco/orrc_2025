@@ -40,11 +40,6 @@ const NavigationHeader = () => {
       isActive: location === "/sponsors",
     },
     {
-      label: t("nav.emaCircuit"),
-      path: "/ema-circuit",
-      isActive: location === "/ema-circuit",
-    },
-    {
       label: t("nav.cnMasters"),
       path: "/cn-masters",
       isActive: location === "/cn-masters",
