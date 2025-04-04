@@ -677,12 +677,107 @@ export default function RulesContent() {
                   <p className="mb-4">{t("emaCircuit.rankings.content")}</p>
                   <p className="mb-4">{t("emaCircuit.rankings.local")}</p>
                   <p className="mb-4 font-medium">{t("emaCircuit.rankings.eligibility")}</p>
-                  <p className="mb-4">{t("emaCircuit.rankings.points")}</p>
+                  
+                  <div className="mb-4 bg-blue-50 p-4 rounded-md">
+                    <h4 className="font-bold text-blue-700 mb-2">{t("emaCircuit.rankings.pointsSystem")}</h4>
+                    <p className="mb-2">{t("emaCircuit.rankings.points")}</p>
+                    <div className="grid grid-cols-2 gap-2 mb-3">
+                      <div className="bg-white p-2 rounded shadow-sm">
+                        <span className="font-bold">1st place:</span> 100 points
+                      </div>
+                      <div className="bg-white p-2 rounded shadow-sm">
+                        <span className="font-bold">2nd place:</span> 88 points
+                      </div>
+                      <div className="bg-white p-2 rounded shadow-sm">
+                        <span className="font-bold">3rd place:</span> 78 points
+                      </div>
+                      <div className="bg-white p-2 rounded shadow-sm">
+                        <span className="font-bold">4th place:</span> 72 points
+                      </div>
+                      <div className="bg-white p-2 rounded shadow-sm">
+                        <span className="font-bold">5th place:</span> 68 points
+                      </div>
+                      <div className="bg-white p-2 rounded shadow-sm">
+                        <span className="font-bold">6th place:</span> 66 points
+                      </div>
+                      <div className="bg-white p-2 rounded shadow-sm">
+                        <span className="font-bold">7th place:</span> 64 points
+                      </div>
+                      <div className="bg-white p-2 rounded shadow-sm">
+                        <span className="font-bold">8th place:</span> 62 points
+                      </div>
+                    </div>
+                    <p className="text-sm text-blue-700">{t("emaCircuit.rankings.pointsNote")}</p>
+                  </div>
+                  
                   <p className="mb-4 text-primary font-medium">{t("emaCircuit.rankings.specialPrize")}</p>
+                  
+                  <div className="mt-6">
+                    <h4 className="font-bold text-blue-700 mb-2">{t("emaCircuit.rankings.categories")}</h4>
+                    <ul className="list-disc pl-6 mb-4 space-y-1">
+                      <li>Seniors: Men & Women (18-34 years)</li>
+                      <li>Masters: Men & Women (35-49 years)</li>
+                      <li>Veterans: Men & Women (50+ years)</li>
+                    </ul>
+                  </div>
                 </CardContent>
               </Card>
             </div>
 
+            {/* EMA Circuit Calendar */}
+            <div className="mt-10 mb-8">
+              <h3 className="text-xl font-bold mb-6 text-blue-600 border-b pb-2">
+                {t("emaCircuit.calendar.title")} - 2025
+              </h3>
+              
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse">
+                  <thead>
+                    <tr className="bg-blue-100">
+                      <th className="border p-3 text-left">{t("emaCircuit.calendar.stage")}</th>
+                      <th className="border p-3 text-left">{t("emaCircuit.calendar.event")}</th>
+                      <th className="border p-3 text-left">{t("emaCircuit.calendar.country")}</th>
+                      <th className="border p-3 text-left">{t("emaCircuit.calendar.date")}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="bg-white">
+                      <td className="border p-3 font-semibold">Stage 1</td>
+                      <td className="border p-3">Stâna de Vale Trail Race</td>
+                      <td className="border p-3">Romania 🇷🇴</td>
+                      <td className="border p-3">July 5, 2025</td>
+                    </tr>
+                    <tr className="bg-blue-50">
+                      <td className="border p-3 font-semibold">Stage 2</td>
+                      <td className="border p-3">TBA</td>
+                      <td className="border p-3">TBA</td>
+                      <td className="border p-3">TBA (Summer 2025)</td>
+                    </tr>
+                    <tr className="bg-white">
+                      <td className="border p-3 font-semibold">Stage 3</td>
+                      <td className="border p-3">TBA</td>
+                      <td className="border p-3">TBA</td>
+                      <td className="border p-3">TBA (Autumn 2025)</td>
+                    </tr>
+                    <tr className="bg-blue-50">
+                      <td className="border p-3 font-semibold">Stage 4</td>
+                      <td className="border p-3">TBA</td>
+                      <td className="border p-3">TBA</td>
+                      <td className="border p-3">TBA (Autumn 2025)</td>
+                    </tr>
+                    <tr className="bg-blue-100 font-semibold">
+                      <td className="border p-3" colSpan={4}>
+                        <div className="flex items-center justify-center">
+                          <span>{t("emaCircuit.calendar.finalNote")}</span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p className="text-sm text-blue-600 italic mt-3">{t("emaCircuit.calendar.updateNote")}</p>
+            </div>
+            
             <div className="flex justify-center mt-8">
               <a
                 href="/api/ema-circuit/regulations" 
