@@ -19,6 +19,8 @@ import ContactPage from "@/pages/ContactPage";
 import SponsorsPage from "@/pages/SponsorsPage";
 import EmaCircuitPage from "@/pages/EmaCircuitPage";
 import HowToGetPage from "@/pages/HowToGetPage";
+import CNMastersPage from "@/pages/CNMastersPage";
+import AccommodationPage from "@/pages/AccommodationPage";
 import EmailTestPage from "@/pages/EmailTestPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsConditions from "@/pages/TermsConditions";
@@ -53,7 +55,9 @@ function Router() {
           <Route path="/contact" component={ContactPage} />
           <Route path="/sponsors" component={SponsorsPage} />
           <Route path="/ema-circuit" component={EmaCircuitPage} />
+          <Route path="/cn-masters" component={CNMastersPage} />
           <Route path="/how-to-get-there" component={HowToGetPage} />
+          <Route path="/accommodation" component={AccommodationPage} />
           <Route path="/email-test" component={EmailTestPage} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/terms-conditions" component={TermsConditions} />

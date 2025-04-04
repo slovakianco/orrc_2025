@@ -21,8 +21,8 @@ const RacesSection = ({ title, fullPage = false }: RacesSectionProps) => {
 
   const difficultyOptions = [
     { label: t('races.filters.all'), value: null },
-    { label: t('races.filters.beginner'), value: 'beginner' },
-    { label: t('races.filters.advanced'), value: 'advanced' }
+    { label: t('races.filters.classic_updown'), value: 'classic_updown' },
+    { label: t('races.filters.long_trail'), value: 'long_trail' }
   ];
 
   const handleFilterChange = (value: string | null) => {
@@ -48,15 +48,11 @@ const RacesSection = ({ title, fullPage = false }: RacesSectionProps) => {
               key={option.value || 'all'}
               className={`px-3 md:px-4 py-1.5 md:py-2 text-sm md:text-base rounded-full font-medium transition-colors duration-200 ${
                 difficulty === option.value 
-                  ? option.value === 'beginner' 
-                    ? 'bg-difficulty-beginner text-white' 
-                    : option.value === 'intermediate' 
-                      ? 'bg-difficulty-intermediate text-white' 
-                      : option.value === 'advanced' 
-                        ? 'bg-difficulty-advanced text-white' 
-                        : option.value === 'ultra' 
-                          ? 'bg-difficulty-ultra text-white' 
-                          : 'bg-primary text-white' 
+                  ? option.value === 'classic_updown' 
+                    ? 'bg-blue-600 text-white' 
+                    : option.value === 'long_trail' 
+                      ? 'bg-green-700 text-white' 
+                      : 'bg-primary text-white' 
                   : 'bg-white hover:bg-neutral-light'
               }`}
               onClick={() => handleFilterChange(option.value)}
@@ -81,7 +77,7 @@ const RacesSection = ({ title, fullPage = false }: RacesSectionProps) => {
                     alt={getLocalizedRaceName(race, i18n.language as any)} 
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" 
                   />
-                  <div className={`absolute top-3 left-3 md:top-4 md:left-4 py-1 px-2 md:px-3 rounded-full text-xs md:text-sm font-bold bg-difficulty-${race.difficulty} text-white`}>
+                  <div className={`absolute top-3 left-3 md:top-4 md:left-4 py-1 px-2 md:px-3 rounded-full text-xs md:text-sm font-bold ${race.difficulty === 'classic_updown' ? 'bg-blue-600' : 'bg-green-700'} text-white`}>
                     {t(`races.difficulty.${race.difficulty}`)}
                   </div>
                   

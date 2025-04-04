@@ -33,7 +33,9 @@
     "contact": "Contact",
     "sponsors": "Sponsors",
     "emaCircuit": "EMA Circuit 2025",
+    "cnMasters": "CN Masters",
     "howToGet": "How to Get There",
+    "accommodation": "Accommodation",
     "registerButton": "Register Now"
   },
   "hero": {
@@ -82,17 +84,13 @@
     },
     "filters": {
       "all": "All Races",
-      "beginner": "Beginner",
-      "intermediate": "Intermediate",
-      "advanced": "Advanced",
-      "ultra": "Ultra"
+      "classic_updown": "Classic UP/DOWN",
+      "long_trail": "Long Trail"
     },
     "difficulty": {
-      "label": "Difficulty",
-      "beginner": "Beginner",
-      "intermediate": "Intermediate",
-      "advanced": "Advanced",
-      "ultra": "Ultra"
+      "label": "Type",
+      "classic_updown": "Classic UP/DOWN",
+      "long_trail": "Long Trail"
     },
     "dates": {
       "15": "June 15",
@@ -822,8 +820,10 @@
     "program": "Explore the full schedule of events, including race start times, award ceremonies, and more.",
     "rules": "Understand the competition rules, equipment requirements, and all safety regulations.",
     "emaCircuit": "Learn about the EMA Off-Road Running Circuit 2025 and its significance for trail running.",
+    "cnMasters": "Information about the Romanian National Mountain Running Championship for Masters.",
     "sponsors": "Discover the organizations and companies supporting this trail running event.",
     "registration": "Register for your chosen race and secure your spot in this exciting mountain challenge.",
+    "accommodation": "Find the best places to stay during the competition weekend.",
     "contact": "Get in touch with our team for any questions about the competition."
   },
   "emaCircuit": {
@@ -868,6 +868,84 @@
       "content": "The events in the 2025 EMA Off-Road Running Circuit will take place according to the schedule provided on the official EMA website."
     },
     "downloadButton": "Download Full Regulations PDF"
+  },
+  "cnMasters": {
+    "title": "CN Masters - National Mountain Running Championship",
+    "subtitle": "National Mountain Running Championship for Masters - 2025 Edition",
+    "introTitle": "About the National Championship",
+    "introText": "The Romanian National Mountain Running Championship for Masters is one of the most prestigious mountain running competitions in Romania, organized with the support of the Romanian Athletics Federation (FRA). This event celebrates the exceptional achievements of Masters athletes aged 35 and above, showcasing their endurance, skill, and commitment to trail running.",
+    "race1": {
+      "title": "33km Long Trail Race",
+      "description": "The primary championship race is the 33km Long Trail event, offering a challenging course through the breathtaking Carpathian Mountains with 1700m of elevation gain."
+    },
+    "race2": {
+      "title": "11km Classic UP/DOWN Race",
+      "description": "This shorter championship race offers a more accessible but equally challenging experience with 500m of elevation gain, perfect for those new to mountain running competitions."
+    },
+    "categoriesTitle": "Masters Age Categories",
+    "categoryColumn": "Category",
+    "ageColumn": "Age Group",
+    "yearColumn": "Birth Year (2025)",
+    "categoriesNote": "Age is determined based on the athlete's age on the day of the competition. All participants in the Masters categories must be members of clubs affiliated with the Romanian Athletics Federation or hold individual FRA licenses.",
+    "rulesTitle": "Championship Rules",
+    "rules": {
+      "1": "Participants must be 35 years or older on the day of the competition.",
+      "2": "All participants must be Romanian citizens or legal residents.",
+      "3": "FRA membership or individual license is required for official ranking.",
+      "4": "Age category awards will be presented to the top three finishers in each category.",
+      "5": "The overall Masters Champions (male and female) will be crowned from across all age categories."
+    },
+    "federationTitle": "Romanian Athletics Federation",
+    "federationDescription": "The Romanian Athletics Federation (Federația Română de Atletism) is the governing body for athletics in Romania, overseeing all official athletics competitions including mountain running events.",
+    "website": "Website",
+    "email": "Email"
+  },
+  "accommodation": {
+    "title": "Accommodation",
+    "subtitle": "Find the perfect place to stay during the competition",
+    "introTitle": "Staying in Stâna de Vale",
+    "introText": "Stâna de Vale offers several accommodation options for participants and visitors. We recommend booking early as availability can be limited during the competition weekend. Below you'll find a selection of accommodations in the area, ranging from hotels to mountain lodges.",
+    "noteTitle": "Early Booking Recommended",
+    "noteText": "Due to the popularity of the event and limited accommodation in Stâna de Vale, we strongly recommend booking your stay as early as possible, especially if you are coming with a group.",
+    "alternativesTitle": "Alternative Options",
+    "alternativesText": "If you prefer alternative accommodation options or if lodging in Stâna de Vale is fully booked, consider these alternatives:",
+    "distanceFromCenter": "{{distance}} km from race center",
+    "features": {
+      "wifi": "WiFi",
+      "parking": "Parking",
+      "restaurant": "Restaurant",
+      "breakfast": "Breakfast"
+    },
+    "camping": {
+      "title": "Camping",
+      "description": "For those who enjoy the outdoors, there is a designated camping area near the race start/finish. Bring your own tent and camping gear.",
+      "priceTitle": "Price:",
+      "priceDetails": "€10 per tent per night, includes access to toilets and showers."
+    },
+    "beius": {
+      "title": "Staying in Beiuș",
+      "description": "Beiuș is the nearest town with additional accommodation options, including several hotels and guesthouses.",
+      "distanceTitle": "Distance:",
+      "distanceDetails": "Approximately 28 km from Stâna de Vale (35-40 minutes by car). Shuttle buses will be available on race day."
+    },
+    "needHelpTitle": "Need Assistance?",
+    "needHelpText": "If you need help finding suitable accommodation or have special requirements, don't hesitate to contact our team. We can provide recommendations based on your preferences and group size.",
+    "contactButton": "Contact for Accommodation Help",
+    "hotel1": {
+      "description": "The central hotel in Stâna de Vale, offering comfortable rooms, a restaurant serving traditional Romanian cuisine, and easy access to the race start/finish area."
+    },
+    "hotel2": {
+      "description": "A cozy mountain lodge with traditional decor, offering basic but comfortable rooms in a beautiful natural setting just a short walk from the race center."
+    },
+    "hotel3": {
+      "description": "A rustic cabin experience with stunning views of the mountains. Basic accommodations with a true mountain feel and authentic atmosphere."
+    },
+    "hotel4": {
+      "description": "A family-run guesthouse offering comfortable rooms and homemade meals. Known for its warm hospitality and relaxing environment."
+    },
+    "hotel5": {
+      "description": "A modern hotel in Beiuș with all amenities, including a restaurant, bar, and conference facilities. A good option for those who prefer staying in town."
+    }
   },
   "emailTest": {
     "title": "Email System Test",
