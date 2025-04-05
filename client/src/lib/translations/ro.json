@@ -51,7 +51,14 @@
     "aboutCompetition": "Despre Competiție",
     "competitionDescription1": "Alătură-te nouă pentru o experiență de alergare montană de neuitat în minunații Munți Carpați. Cursele noastre oferă trasee provocatoare cu priveliști spectaculoase, concepute atât pentru începători cât și pentru alergători experimentați.",
     "competitionDescription2": "Cursa de 33km face parte din Circuitul EMA Off-Road Running 2025 și Campionatul Național de Alergare Montană Masters. Cursa de 11km este perfectă pentru cei noi în alergarea montană sau care caută o provocare mai scurtă.",
-    "competitionDescription3": "Ambele curse au loc pe 6 iunie 2025, cu cronometrare profesională, trasee bine marcate și suport complet pe tot parcursul traseului."
+    "competitionDescription3": "Ambele curse au loc pe 6 iunie 2025, cu cronometrare profesională, trasee bine marcate și suport complet pe tot parcursul traseului.",
+    "stanaDeVale": {
+      "title": "Stâna de Vale",
+      "description1": "În primul week-end din iulie, Stâna de Vale va găzdui a doua etapă a Circuitului EMA Off-Road 2025. Stâna de Vale este în prezent o stațiune montană bine cunoscută - aflată la 1000m altitudine - situată în nord-vestul României, județul Bihor. Inițial, faima stațiunii a provenit din izvoarele de apă minerală din zonă, recomandate în special pentru o serie de tratamente.",
+      "description2": "În ultimii ani, zona a fost dezvoltată pentru a atrage turiști cu peisajele sale relaxante și ca stațiune de schi.",
+      "hostTitle": "Organizatorul",
+      "hostDescription": "ACS Atletic Beiuş și-a făcut un nume în comunitatea românească a alergătorilor de off-road prin organizarea anuală a foarte reușitului \"Beiuş Running Day\", o cursă de 10k/21k trail în dealurile din vecinătatea orașului. Calitatea organizării și geografia regiunii au determinat Comisia de Masters din cadrul FRA să provoace gazda să organizeze ediția 2024 a Campionatelor Naționale de Alergare Montană mai sus, în apropierea Stânei de Vale. Întâlnirea de o zi, incluzând un clasic 11k up&down D+470m și un 33k long trail D+1300m, a fost foarte apreciată de concurenți, care au insistat pentru o repetare a evenimentului în 2025. Contribuția generoasă a sponsorilor locali la petrecerea de după cursă probabil că a avut un impact mare asupra solicitării participanților pentru un bis."
+    }
   },
   "races": {
     "title": "Explorează Cursele Noastre",

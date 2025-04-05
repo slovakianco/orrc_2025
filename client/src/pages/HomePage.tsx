@@ -27,6 +27,37 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      
+      {/* Stana de Vale Description Section with Image */}
+      <div className="py-16 bg-blue-50">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center gap-10">
+            <div className="md:w-1/2">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-blue-800">{t('home.stanaDeVale.title')}</h2>
+              <div className="prose max-w-none">
+                <p className="mb-4">
+                  {t('home.stanaDeVale.description1')}
+                </p>
+                <p className="mb-4">
+                  {t('home.stanaDeVale.description2')}
+                </p>
+                <h3 className="text-xl font-semibold text-blue-700 mt-6 mb-3">{t('home.stanaDeVale.hostTitle')}</h3>
+                <p className="mb-4">
+                  {t('home.stanaDeVale.hostDescription')}
+                </p>
+              </div>
+            </div>
+            <div className="md:w-1/2">
+              <img
+                src="/images/IMG_3836.jpeg"
+                alt="Stana de Vale Landscape"
+                className="rounded-lg shadow-xl w-full h-auto object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <RacesSection title={t('home.featuredRaces')} />
       <SectionsOverview />
     </div>
