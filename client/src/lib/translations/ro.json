@@ -839,7 +839,44 @@
       "eligibility": "Eligibilitate pentru Clasamentul Final: Pentru a se califica pentru clasamentele finale EMA, atleții trebuie să participe la cel puțin două evenimente în locații diferite.",
       "points": "Alocare de Puncte: Câștigătorul fiecărui eveniment (general și în fiecare categorie de vârstă) va primi 1 punct, iar pozițiile următoare vor primi puncte după cum urmează (2 puncte pentru locul doi, 3 puncte pentru locul trei, etc.). EMA va lua în considerare cele mai bune două performanțe ale fiecărui atlet atunci când calculează clasamentele finale.",
       "specialPrize": "Un premiu special va fi acordat tuturor atleților care participă la cel puțin trei etape ale Circuitului, indiferent de rezultatele lor generale.",
-      "ceremony": "Ceremonia oficială de premiere va avea loc în timpul Campionatului EMA de Alergare Off-Road 2026."
+      "ceremony": "Ceremonia oficială de premiere va avea loc în timpul Campionatului EMA de Alergare Off-Road 2026.",
+      "structure": {
+        "title": "Structura Clasamentelor",
+        "item1": "Include clasamente individuale ale evenimentelor și un clasament general final al Circuitului.",
+        "item2": "Comitetele Locale de Organizare (LOC) pot oferi diverse evenimente (de ex., alergare în pantă, verticală, alergare montană, trail) cu premii acordate conform regulamentelor locale.",
+        "item3": "LOC-urile pot înregistra și premia atleți sub 35 de ani sau peste 80 de ani la discreția lor, dar doar atleții Masters cu vârste între 35-79 de ani sunt eligibili pentru clasamentele finale ale Circuitului EMA."
+      },
+      "finalEligibility": {
+        "title": "Eligibilitate pentru Clasamentul Final",
+        "content": "Atleții trebuie să participe la cel puțin două evenimente în locații diferite pentru a se califica pentru clasamentele finale."
+      },
+      "pointAllocation": {
+        "title": "Alocarea Punctelor",
+        "item1": "Câștigătorul evenimentului (general și pe categorie de vârstă) primește 1 punct",
+        "item2": "Locul doi primește 2 puncte",
+        "item3": "Locul trei primește 3 puncte și așa mai departe",
+        "item4": "Clasamentele finale se bazează pe cele mai bune două performanțe ale fiecărui atlet",
+        "note": "Notă: Un total mai mic de puncte este mai bun, deoarece acesta este un sistem de punctaj în stil golf, unde locul 1 = 1 punct."
+      },
+      "categories": {
+        "title": "Categorii de Clasament",
+        "item1": "Primii trei atleți bărbați și femei sunt clasați ca Câștigători Generali",
+        "item2": "Câștigătorii pe Categorii de Vârstă pentru bărbați și femei (35-75)"
+      },
+      "tieBreakers": {
+        "title": "Criterii de Departajare",
+        "item1": "În caz de egalitate, atletul cu poziția mai bună în clasament la evenimente are prioritate",
+        "item2": "Dacă egalitatea persistă, numărul de curse la care s-a participat servește ca criteriu de departajare"
+      },
+      "specialPrize": {
+        "title": "Premiu Special",
+        "content": "Un premiu special este acordat atleților care participă la cel puțin trei etape, indiferent de rezultate."
+      },
+      "awardCeremony": {
+        "title": "Ceremonia de Premiere",
+        "item1": "Va avea loc în timpul Campionatului EMA de Alergare Off-Road 2026",
+        "item2": "Dacă un atlet nu poate participa, se vor face aranjamente pentru livrarea premiului"
+      }
     },
     "calendar": {
       "title": "Calendar",

@@ -869,7 +869,44 @@
       "eligibility": "Final Ranking Eligibility: To qualify for the EMA final rankings, athletes must participate in at least two events across different locations.",
       "points": "Point Allocation: The winner of each event (overall and in each age category) will receive 1 point, with subsequent positions awarded points as follows (2 points for second place, 3 points for third, etc.). EMA will consider the best two performances from each athlete when calculating the final standings.",
       "specialPrize": "A special prize will be awarded to all athletes who participate in at least three stages of the Circuit, regardless of their overall results.",
-      "ceremony": "The official award ceremony will be held during the 2026 EMA Off-Road Running Championship."
+      "ceremony": "The official award ceremony will be held during the 2026 EMA Off-Road Running Championship.",
+      "structure": {
+        "title": "Ranking Structure",
+        "item1": "Features individual event rankings and a final overall Circuit ranking.",
+        "item2": "Local Organizing Committees (LOCs) may offer various events (e.g., uphill, vertical, mountain run, trail) with prizes awarded per local regulations.",
+        "item3": "LOCs may register and award athletes under 35 or over 80 at their discretion, but only Masters athletes aged 35-79 are eligible for the EMA Circuit's final rankings."
+      },
+      "finalEligibility": {
+        "title": "Final Ranking Eligibility",
+        "content": "Athletes must participate in at least two events across different locations to qualify for the final rankings."
+      },
+      "pointAllocation": {
+        "title": "Point Allocation",
+        "item1": "Event winner (overall and age category) receives 1 point",
+        "item2": "Second place receives 2 points",
+        "item3": "Third place receives 3 points, and so on",
+        "item4": "Final standings are based on an athlete's best two performances",
+        "note": "Note: Lower point total is better, as this is a golf-style scoring system where 1st place = 1 point."
+      },
+      "categories": {
+        "title": "Ranking Categories",
+        "item1": "First three male and female athletes ranked as Overall Winners",
+        "item2": "Age Category Winners for both men and women (35-75)"
+      },
+      "tieBreakers": {
+        "title": "Tie-Breakers",
+        "item1": "In case of a tie, the athlete with the higher finishing position in events takes precedence",
+        "item2": "If still tied, the number of races participated in serves as the tie-breaker"
+      },
+      "specialPrize": {
+        "title": "Special Prize",
+        "content": "A special prize is awarded to athletes participating in at least three stages, regardless of results."
+      },
+      "awardCeremony": {
+        "title": "Award Ceremony",
+        "item1": "Held during the 2026 EMA Off-Road Running Championship",
+        "item2": "If an athlete cannot attend, arrangements will be made for prize delivery"
+      }
     },
     "calendar": {
       "title": "Calendar",
