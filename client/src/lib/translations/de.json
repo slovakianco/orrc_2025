@@ -43,7 +43,10 @@
     "registerButton": "Jetzt registrieren",
     "exploreButton": "Rennen erkunden",
     "imageAlt": "Trailrunning in den Bergen",
-    "enhancedDescription": "Das 33-km-Rennen ist Teil des EMA Off-Road Running Circuit 2025 und der Nationalen Berglauf-Meisterschaft für Masters. Ein unvergessliches Erlebnis erwartet dich in den wunderschönen Karpaten."
+    "enhancedDescription": "Das 33-km-Rennen ist Teil des EMA Off-Road Running Circuit 2025 und der Nationalen Berglauf-Meisterschaft für Masters. Ein unvergessliches Erlebnis erwartet dich in den wunderschönen Karpaten.",
+    "mainTitle": "Stâna de Vale Trail Race",
+    "landscapeAlt": "Berglandschaft von Stâna de Vale",
+    "trailAlt": "Traillandschaft von Stâna de Vale"
   },
   "quickInfo": {
     "location": {

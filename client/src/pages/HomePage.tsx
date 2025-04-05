@@ -12,7 +12,7 @@ const HomePage = () => {
       {/* Main Hero Image - Displayed First */}
       <div className="w-full relative">
         <img 
-          src="/images/IMG_3836.jpeg" 
+          src="/attached_assets/IMG_3836.jpeg" 
           alt={t('hero.landscapeAlt')} 
           className="w-full h-[60vh] object-cover object-center"
         />
@@ -63,7 +63,7 @@ const HomePage = () => {
             </div>
             <div className="md:w-1/2 order-1 md:order-1">
               <img
-                src="/images/33km.webp"
+                src="/attached_assets/33km.webp"
                 alt={t('hero.trailAlt')}
                 className="rounded-lg shadow-xl w-full h-auto object-cover"
               />

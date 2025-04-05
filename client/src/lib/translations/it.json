@@ -43,7 +43,10 @@
     "registerButton": "Registrati Ora",
     "exploreButton": "Esplora le Gare",
     "imageAlt": "Trail running in montagna",
-    "enhancedDescription": "La gara di 33K fa parte del Circuito EMA Off-Road Running 2025 e del Campionato Nazionale di Corsa in Montagna per Master. Un'esperienza indimenticabile ti aspetta nelle bellissime Montagne dei Carpazi."
+    "enhancedDescription": "La gara di 33K fa parte del Circuito EMA Off-Road Running 2025 e del Campionato Nazionale di Corsa in Montagna per Master. Un'esperienza indimenticabile ti aspetta nelle bellissime Montagne dei Carpazi.",
+    "mainTitle": "Stâna de Vale Trail Race",
+    "landscapeAlt": "Paesaggio montano di Stâna de Vale",
+    "trailAlt": "Paesaggio dei sentieri di Stâna de Vale"
   },
   "quickInfo": {
     "location": {

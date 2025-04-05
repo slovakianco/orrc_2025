@@ -43,7 +43,10 @@
     "registerButton": "Inscrivez-vous maintenant",
     "exploreButton": "Explorez les courses",
     "imageAlt": "Course sur sentier en montagne",
-    "enhancedDescription": "La course de 33 km fait partie du Circuit EMA Off-Road Running 2025 et du Championnat National de Course en Montagne pour les Masters. Une expérience inoubliable vous attend dans les magnifiques montagnes des Carpates."
+    "enhancedDescription": "La course de 33 km fait partie du Circuit EMA Off-Road Running 2025 et du Championnat National de Course en Montagne pour les Masters. Une expérience inoubliable vous attend dans les magnifiques montagnes des Carpates.",
+    "mainTitle": "Stâna de Vale Trail Race",
+    "landscapeAlt": "Paysage de montagne de Stâna de Vale",
+    "trailAlt": "Paysage de sentier de Stâna de Vale"
   },
   "quickInfo": {
     "location": {
