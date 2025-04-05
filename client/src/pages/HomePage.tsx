@@ -9,6 +9,20 @@ const HomePage = () => {
 
   return (
     <div>
+      {/* Main Hero Image - Displayed First */}
+      <div className="w-full relative">
+        <img 
+          src="/images/IMG_3836.jpeg" 
+          alt={t('hero.landscapeAlt')} 
+          className="w-full h-[60vh] object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+          <h1 className="text-white text-5xl md:text-7xl font-bold text-center drop-shadow-lg">
+            {t('hero.mainTitle')}
+          </h1>
+        </div>
+      </div>
+      
       <HeroSection />
       <QuickInfoSection />
       <div className="py-16 bg-stone">
@@ -32,7 +46,7 @@ const HomePage = () => {
       <div className="py-16 bg-blue-50">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-10">
-            <div className="md:w-1/2">
+            <div className="md:w-1/2 order-2 md:order-2">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-blue-800">{t('home.stanaDeVale.title')}</h2>
               <div className="prose max-w-none">
                 <p className="mb-4">
@@ -47,10 +61,10 @@ const HomePage = () => {
                 </p>
               </div>
             </div>
-            <div className="md:w-1/2">
+            <div className="md:w-1/2 order-1 md:order-1">
               <img
-                src="/images/IMG_3836.jpeg"
-                alt="Stana de Vale Landscape"
+                src="/images/33km.webp"
+                alt={t('hero.trailAlt')}
                 className="rounded-lg shadow-xl w-full h-auto object-cover"
               />
             </div>

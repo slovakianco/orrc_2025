@@ -45,7 +45,10 @@
     "registerButton": "Register Now",
     "exploreButton": "Explore Races",
     "imageAlt": "Trail running in mountains",
-    "enhancedDescription": "The 33K race is part of the 2025 EMA Off-Road Running Circuit and the National Mountain Running Championship for Masters. An unforgettable experience awaits you in the beautiful Carpathian Mountains."
+    "enhancedDescription": "Both the 11K and 33K races are part of the 2025 EMA Off-Road Running Circuit. The 33K race is also part of the National Mountain Running Championship for Masters. An unforgettable experience awaits you in the beautiful Carpathian Mountains.",
+    "mainTitle": "Stâna de Vale Trail Race",
+    "landscapeAlt": "Stana de Vale Mountain Landscape",
+    "trailAlt": "Stana de Vale Trail Landscape"
   },
   "quickInfo": {
     "location": {
@@ -60,16 +63,16 @@
     },
     "participants": {
       "title": "Participants",
-      "content": "Over 1,500 runners from 30+ countries",
+      "content": "Hundreds of runners from multiple countries",
       "linkText": "See participants"
     }
   },
   "home": {
     "featuredRaces": "Featured Races",
-    "details": "Experience the beauty of trail running with our 11km and 33km races in the Carpathian Mountains. The 33km race is part of the 2025 EMA Off-Road Running Circuit.",
+    "details": "Experience the beauty of trail running with our 11km and 33km races in the Carpathian Mountains. Both races are part of the 2025 EMA Off-Road Running Circuit.",
     "aboutCompetition": "About The Competition",
     "competitionDescription1": "Join us for an unforgettable trail running experience in the breathtaking Carpathian Mountains. Our races offer challenging terrains with spectacular views, designed for both beginners and experienced trail runners.",
-    "competitionDescription2": "The 33km race is part of the 2025 EMA Off-Road Running Circuit and the National Mountain Running Championship for Masters. The 11km race is perfect for those new to trail running or looking for a shorter challenge.",
+    "competitionDescription2": "Both the 11km and 33km races are part of the 2025 EMA Off-Road Running Circuit. The 33km race is also part of the National Mountain Running Championship for Masters. The 11km race is perfect for those new to trail running or looking for a shorter challenge.",
     "competitionDescription3": "Both races take place on June 6, 2025, with professional timing, well-marked trails, and comprehensive support throughout the course.",
     "stanaDeVale": {
       "title": "Stâna de Vale",
