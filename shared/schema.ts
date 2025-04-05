@@ -65,6 +65,7 @@ export const participants = pgTable("participants", {
   emergencyContactName: text("emergencycontactname"),
   emergencyContactPhone: text("emergencycontactphone"),
   isEmaParticipant: boolean("isemaparticipant").default(false),
+  tshirtSize: text("tshirtsize"),
 });
 
 export const insertParticipantSchema = createInsertSchema(participants).omit({
