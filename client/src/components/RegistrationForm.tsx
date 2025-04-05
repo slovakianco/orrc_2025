@@ -19,8 +19,11 @@ const registrationFormSchema = z.object({
   country: z.string().min(1, { message: "Please select your country" }),
   birthDate: z.string().min(1, { message: "Please enter your date of birth" }),
   raceId: z.number({ invalid_type_error: "Please select a race" }),
+  emergencyContactName: z.string().min(2, { message: "Emergency contact name is required" }),
+  emergencyContactPhone: z.string().min(6, { message: "Emergency contact phone is required" }),
   medicalInfo: z.string().optional(),
   gender: z.enum(["M", "F"], { errorMap: () => ({ message: "Please select your gender" }) }),
+  isEmaParticipant: z.boolean().default(false),
   termsAccepted: z.boolean().refine(val => val === true, { message: "You must accept the terms and conditions" }),
 });
 
@@ -45,8 +48,11 @@ const RegistrationForm = () => {
       country: "",
       birthDate: "",
       raceId: 0,
+      emergencyContactName: "",
+      emergencyContactPhone: "",
       medicalInfo: "",
       gender: "M",
+      isEmaParticipant: false,
       termsAccepted: false,
     }
   });
@@ -313,6 +319,37 @@ const RegistrationForm = () => {
                 )}
               </div>
               
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label htmlFor="emergencyContactName" className="block text-sm font-medium text-neutral-gray mb-2">
+                    {t('registration.form.emergencyContactName')} *
+                  </label>
+                  <input 
+                    type="text" 
+                    id="emergencyContactName" 
+                    {...register("emergencyContactName")}
+                    className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                  {errors.emergencyContactName && (
+                    <p className="text-sm text-red-500 mt-1">{errors.emergencyContactName.message}</p>
+                  )}
+                </div>
+                <div>
+                  <label htmlFor="emergencyContactPhone" className="block text-sm font-medium text-neutral-gray mb-2">
+                    {t('registration.form.emergencyContactPhone')} *
+                  </label>
+                  <input 
+                    type="tel" 
+                    id="emergencyContactPhone" 
+                    {...register("emergencyContactPhone")}
+                    className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                  {errors.emergencyContactPhone && (
+                    <p className="text-sm text-red-500 mt-1">{errors.emergencyContactPhone.message}</p>
+                  )}
+                </div>
+              </div>
+
               <div className="mb-6">
                 <label htmlFor="medical" className="block text-sm font-medium text-neutral-gray mb-2">
                   {t('registration.form.medical')}
@@ -324,6 +361,27 @@ const RegistrationForm = () => {
                   className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary" 
                   placeholder={t('registration.form.medicalPlaceholder')}
                 ></textarea>
+              </div>
+              
+              <div className="mb-6 p-4 border border-primary/30 rounded-lg bg-primary/5">
+                <div className="flex items-start mb-3">
+                  <input 
+                    type="checkbox" 
+                    id="isEmaParticipant" 
+                    {...register("isEmaParticipant")}
+                    className="mr-2 mt-1"
+                  />
+                  <label htmlFor="isEmaParticipant" className="text-sm font-medium">
+                    {t('registration.form.emaParticipation')}
+                  </label>
+                </div>
+                <div className="text-sm pl-6">
+                  <p>{t('registration.form.emaInfo')}</p>
+                  <p className="mt-2 text-primary-dark font-medium">{t('registration.form.emaIncludesTshirt')}</p>
+                  <div className="mt-2 p-3 bg-white/80 rounded border border-neutral-light/50">
+                    <p className="text-gray-600">{t('registration.form.emaEligibilityCriteria')}</p>
+                  </div>
+                </div>
               </div>
               
               <div className="mb-8">

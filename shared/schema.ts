@@ -62,6 +62,9 @@ export const participants = pgTable("participants", {
   registrationDate: timestamp("registrationdate").defaultNow(),
   gender: text("gender").notNull(), // M or F
   age: integer("age").notNull(),
+  emergencyContactName: text("emergencycontactname"),
+  emergencyContactPhone: text("emergencycontactphone"),
+  isEmaParticipant: boolean("isemaparticipant").default(false),
 });
 
 export const insertParticipantSchema = createInsertSchema(participants).omit({

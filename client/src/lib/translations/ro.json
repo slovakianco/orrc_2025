@@ -150,7 +150,7 @@
   },
   "registration": {
     "title": "Înregistrare pentru Competiție",
-    "subtitle": "Completează formularul de mai jos pentru a-ți asigura un loc într-una din cursele noastre. Înregistrarea timpurie asigură cele mai bune tarife.",
+    "subtitle": "Completează formularul de mai jos pentru a-ți asigura un loc într-una din cursele noastre.",
     "form": {
       "firstName": "Prenume",
       "lastName": "Nume",
@@ -163,8 +163,14 @@
       "male": "Masculin",
       "female": "Feminin",
       "selectRace": "Selectează Cursa",
+      "emergencyContactName": "Nume Contact de Urgență",
+      "emergencyContactPhone": "Telefon Contact de Urgență",
       "medical": "Informații Medicale",
       "medicalPlaceholder": "Te rugăm să împărtășești orice informație medicală relevantă (alergii, afecțiuni, etc.)",
+      "emaParticipation": "Doresc să particip în Circuitul EMA Off-Road Running",
+      "emaInfo": "Prin selectarea acestei opțiuni, îți indici interesul de a participa în competiția EMA Off-Road Running Circuit.",
+      "emaIncludesTshirt": "Include un tricou al evenimentului cu branding EMA Off-Road Running Circuit.",
+      "emaEligibilityCriteria": "Participarea în Liga EMA Off-Road Running este deschisă tuturor atleților care îndeplinesc criteriile Masters Off-Road running, mai exact cei cu vârste între 35-79 de ani, și care dețin o licență validă de la Federația lor respectivă, în conformitate cu regulile WMA. Validarea licenței va fi necesară în ziua cursei.",
       "termsText": "Am citit și sunt de acord cu",
       "termsLink": "termenii și condițiile",
       "andText": "și",

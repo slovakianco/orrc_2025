@@ -161,7 +161,7 @@
   },
   "registration": {
     "title": "Register for the Competition",
-    "subtitle": "Complete the form below to secure your spot in one of our races. Early registration ensures the best rates.",
+    "subtitle": "Complete the form below to secure your spot in one of our races.",
     "form": {
       "firstName": "First Name",
       "lastName": "Last Name",
@@ -174,8 +174,14 @@
       "male": "Male",
       "female": "Female",
       "selectRace": "Select Your Race",
+      "emergencyContactName": "Emergency Contact Name",
+      "emergencyContactPhone": "Emergency Contact Phone",
       "medical": "Medical Information",
       "medicalPlaceholder": "Please share any relevant medical information (allergies, conditions, etc.)",
+      "emaParticipation": "I want to participate in the EMA Off-Road Running Circuit",
+      "emaInfo": "By selecting this option, you indicate your interest in participating in the EMA Off-Road Running Circuit competition.",
+      "emaIncludesTshirt": "Includes an event T-shirt with EMA Off-Road Running Circuit branding.",
+      "emaEligibilityCriteria": "Participation in the EMA Off-Road Running League is open to all athletes who meet the Masters Off-Road running criteria, specifically those aged 35-79, and who hold a valid license from their respective Federation, in accordance with WMA rules. License validation will be required on race day.",
       "termsText": "I have read and agree to the",
       "termsLink": "terms and conditions",
       "andText": "and",
