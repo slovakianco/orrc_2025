@@ -823,5 +823,24 @@
     "possibleIssues": "Mögliche Probleme",
     "configured": "SendGrid-E-Mail-System konfiguriert",
     "notConfigured": "SendGrid-E-Mail-System nicht konfiguriert"
+  },
+  "payment": {
+    "title": "Sichere Zahlung",
+    "summary": "Bestellübersicht",
+    "pay": "Jetzt bezahlen",
+    "processing": "Verarbeitung...",
+    "success": "Zahlung erfolgreich",
+    "failed": "Zahlung fehlgeschlagen",
+    "error": "Zahlungsfehler",
+    "successMessage": "Vielen Dank für Ihre Zahlung! Ihre Anmeldung wurde bestätigt.",
+    "genericError": "Bei der Verarbeitung Ihrer Zahlung ist ein Problem aufgetreten. Bitte versuchen Sie es erneut.",
+    "intentError": "Zahlung konnte nicht erstellt werden. Bitte versuchen Sie es später erneut.",
+    "connectionError": "Verbindung zum Zahlungsservice nicht möglich. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
+    "inProgress": "Zahlung wird bearbeitet...",
+    "processingPayment": "Ihre Zahlung wird verarbeitet...",
+    "redirecting": "Weiterleitung zur Zahlungsseite...",
+    "cancel": "Zahlung abbrechen",
+    "goBack": "Zurück",
+    "invalidAmount": "Ungültiger Zahlungsbetrag"
   }
 }

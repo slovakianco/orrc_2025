@@ -921,5 +921,24 @@
     "possibleIssues": "Probleme posibile",
     "configured": "Sistem Email SendGrid Configurat",
     "notConfigured": "Sistem Email SendGrid Neconfigurat"
+  },
+  "payment": {
+    "title": "Plată securizată",
+    "summary": "Sumar comandă",
+    "pay": "Plătește acum",
+    "processing": "Se procesează...",
+    "success": "Plată realizată cu succes",
+    "failed": "Plată eșuată",
+    "error": "Eroare de plată",
+    "successMessage": "Vă mulțumim pentru plată! Înregistrarea dumneavoastră a fost confirmată.",
+    "genericError": "A apărut o problemă la procesarea plății. Vă rugăm să încercați din nou.",
+    "intentError": "Nu s-a putut crea plata. Vă rugăm să încercați din nou mai târziu.",
+    "connectionError": "Nu s-a putut conecta la serviciul de plată. Vă rugăm să verificați conexiunea la internet și să încercați din nou.",
+    "inProgress": "Plată în curs...",
+    "processingPayment": "Se procesează plata dumneavoastră...",
+    "redirecting": "Redirecționare către pagina de plată...",
+    "cancel": "Anulează plata",
+    "goBack": "Înapoi",
+    "invalidAmount": "Sumă de plată invalidă"
   }
 }

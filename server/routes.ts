@@ -8,6 +8,13 @@ import { insertParticipantSchema, insertContactInquirySchema } from "@shared/sch
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 import { sendRegistrationConfirmationEmail } from "./email";
+import Stripe from "stripe";
+
+// Initialize Stripe with the secret key
+if (!process.env.STRIPE_SECRET_KEY) {
+  throw new Error('Missing required Stripe secret: STRIPE_SECRET_KEY');
+}
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Serve static files from public directory
@@ -481,6 +488,116 @@ This message was sent from the Stana de Vale Trail Race website contact form.
         "4. Test sending an email from this page to confirm everything works"
       ]
     });
+  });
+  
+  // Stripe Payment Endpoints
+  apiRouter.post("/create-payment-intent", async (req: Request, res: Response) => {
+    try {
+      const { amount, raceId, participantId } = req.body;
+      
+      if (!amount || amount <= 0) {
+        return res.status(400).json({ message: "Invalid payment amount" });
+      }
+      
+      // Fetch the race to get details for the payment metadata
+      let raceInfo = null;
+      if (raceId) {
+        const race = await storage.getRaceById(parseInt(raceId));
+        if (race) {
+          raceInfo = `${race.name} (${race.distance}km)`;
+        }
+      }
+      
+      // Fetch participant info for metadata if available
+      let participantInfo = null;
+      if (participantId) {
+        const participant = await storage.getParticipantById(parseInt(participantId));
+        if (participant) {
+          participantInfo = `${participant.firstName} ${participant.lastName}`;
+        }
+      }
+      
+      // Create a payment intent with the order amount and currency
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount: Math.round(amount * 100), // Convert to cents
+        currency: "eur",
+        // Payment method types - add more as needed
+        payment_method_types: ["card"],
+        metadata: {
+          raceId: raceId || '',
+          raceName: raceInfo || 'Race registration',
+          participantId: participantId || '',
+          participantName: participantInfo || '',
+        },
+      });
+      
+      // Send the client secret to the client
+      res.json({ 
+        clientSecret: paymentIntent.client_secret,
+        paymentIntentId: paymentIntent.id
+      });
+    } catch (error: any) {
+      console.error("Error creating payment intent:", error);
+      
+      res.status(500).json({ 
+        message: "Error creating payment intent", 
+        error: error.message 
+      });
+    }
+  });
+  
+  // Webhook endpoint to handle Stripe events (payment confirmations, etc.)
+  apiRouter.post("/stripe-webhook", express.raw({type: 'application/json'}), async (req: Request, res: Response) => {
+    const sig = req.headers['stripe-signature'] as string;
+    const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET; // You'll need to set this up later
+    
+    let event;
+    
+    try {
+      // No webhook validation for now, just parse the JSON
+      if (!endpointSecret) {
+        // If we don't have the webhook secret yet, just parse the request body
+        event = JSON.parse(req.body);
+      } else {
+        // If we have a webhook secret, validate the signature
+        event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
+      }
+      
+      // Handle the event
+      switch (event.type) {
+        case 'payment_intent.succeeded':
+          const paymentIntent = event.data.object;
+          console.log(`Payment succeeded: ${paymentIntent.id}`);
+          
+          // Update participant status if we have participant info
+          if (paymentIntent.metadata && paymentIntent.metadata.participantId) {
+            const participantId = parseInt(paymentIntent.metadata.participantId);
+            try {
+              await storage.updateParticipantStatus(participantId, 'paid');
+              console.log(`Updated participant ${participantId} status to paid`);
+            } catch (err) {
+              console.error(`Error updating participant status: ${err}`);
+            }
+          }
+          break;
+          
+        case 'payment_intent.payment_failed':
+          const failedPaymentIntent = event.data.object;
+          console.log(`Payment failed: ${failedPaymentIntent.id}`);
+          
+          // You could update the participant status to 'payment_failed' here if needed
+          break;
+          
+        default:
+          console.log(`Unhandled event type: ${event.type}`);
+      }
+      
+      // Return a 200 response to acknowledge receipt of the event
+      res.json({received: true});
+    } catch (err: any) {
+      console.error(`Error processing webhook: ${err.message}`);
+      res.status(400).send(`Webhook Error: ${err.message}`);
+    }
   });
 
   // Mount the API router

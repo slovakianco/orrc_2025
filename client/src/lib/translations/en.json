@@ -1029,5 +1029,24 @@
     "possibleIssues": "Possible issues",
     "configured": "SendGrid Email System Configured",
     "notConfigured": "SendGrid Email System Not Configured"
+  },
+  "payment": {
+    "title": "Secure Payment",
+    "summary": "Order Summary",
+    "pay": "Pay Now",
+    "processing": "Processing...",
+    "success": "Payment Successful",
+    "failed": "Payment Failed",
+    "error": "Payment Error",
+    "successMessage": "Thank you for your payment! Your registration has been confirmed.",
+    "genericError": "There was a problem processing your payment. Please try again.",
+    "intentError": "Unable to create payment. Please try again later.",
+    "connectionError": "Unable to connect to payment service. Please check your internet connection and try again.",
+    "inProgress": "Payment in progress...",
+    "processingPayment": "Processing your payment...",
+    "redirecting": "Redirecting to checkout...",
+    "cancel": "Cancel Payment",
+    "goBack": "Go Back",
+    "invalidAmount": "Invalid payment amount"
   }
 }

@@ -787,5 +787,24 @@
     "possibleIssues": "Possibili problemi",
     "configured": "Sistema Email SendGrid Configurato",
     "notConfigured": "Sistema Email SendGrid Non Configurato"
+  },
+  "payment": {
+    "title": "Pagamento sicuro",
+    "summary": "Riepilogo ordine",
+    "pay": "Paga ora",
+    "processing": "Elaborazione in corso...",
+    "success": "Pagamento riuscito",
+    "failed": "Pagamento fallito",
+    "error": "Errore di pagamento",
+    "successMessage": "Grazie per il tuo pagamento! La tua registrazione è stata confermata.",
+    "genericError": "Si è verificato un problema durante l'elaborazione del pagamento. Riprova.",
+    "intentError": "Impossibile creare il pagamento. Riprova più tardi.",
+    "connectionError": "Impossibile connettersi al servizio di pagamento. Controlla la tua connessione internet e riprova.",
+    "inProgress": "Pagamento in corso...",
+    "processingPayment": "Elaborazione del tuo pagamento...",
+    "redirecting": "Reindirizzamento alla pagina di pagamento...",
+    "cancel": "Annulla pagamento",
+    "goBack": "Torna indietro",
+    "invalidAmount": "Importo di pagamento non valido"
   }
 }

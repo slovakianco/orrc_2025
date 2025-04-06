@@ -823,5 +823,24 @@
     "possibleIssues": "Problèmes possibles",
     "configured": "Système d'Email SendGrid Configuré",
     "notConfigured": "Système d'Email SendGrid Non Configuré"
+  },
+  "payment": {
+    "title": "Paiement sécurisé",
+    "summary": "Récapitulatif de commande",
+    "pay": "Payer maintenant",
+    "processing": "Traitement en cours...",
+    "success": "Paiement réussi",
+    "failed": "Échec du paiement",
+    "error": "Erreur de paiement",
+    "successMessage": "Merci pour votre paiement ! Votre inscription a été confirmée.",
+    "genericError": "Un problème est survenu lors du traitement de votre paiement. Veuillez réessayer.",
+    "intentError": "Impossible de créer le paiement. Veuillez réessayer plus tard.",
+    "connectionError": "Impossible de se connecter au service de paiement. Veuillez vérifier votre connexion internet et réessayer.",
+    "inProgress": "Paiement en cours...",
+    "processingPayment": "Traitement de votre paiement...",
+    "redirecting": "Redirection vers la page de paiement...",
+    "cancel": "Annuler le paiement",
+    "goBack": "Retour",
+    "invalidAmount": "Montant de paiement invalide"
   }
 }

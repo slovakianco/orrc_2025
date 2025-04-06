@@ -787,5 +787,24 @@
     "possibleIssues": "Posibles problemas",
     "configured": "Sistema de Correo SendGrid Configurado",
     "notConfigured": "Sistema de Correo SendGrid No Configurado"
+  },
+  "payment": {
+    "title": "Pago seguro",
+    "summary": "Resumen del pedido",
+    "pay": "Pagar ahora",
+    "processing": "Procesando...",
+    "success": "Pago exitoso",
+    "failed": "Pago fallido",
+    "error": "Error de pago",
+    "successMessage": "¡Gracias por tu pago! Tu inscripción ha sido confirmada.",
+    "genericError": "Hubo un problema al procesar tu pago. Por favor, inténtalo de nuevo.",
+    "intentError": "No se pudo crear el pago. Por favor, inténtalo más tarde.",
+    "connectionError": "No se pudo conectar al servicio de pago. Por favor, verifica tu conexión a internet e inténtalo de nuevo.",
+    "inProgress": "Pago en progreso...",
+    "processingPayment": "Procesando tu pago...",
+    "redirecting": "Redirigiendo a la página de pago...",
+    "cancel": "Cancelar pago",
+    "goBack": "Volver",
+    "invalidAmount": "Monto de pago inválido"
   }
 }
