@@ -1,9 +1,64 @@
 import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Race, Participant, ParticipantFilters } from "@/lib/types";
 import { getStatusColor, getCountryFlag, getCountryName, getLocalizedRaceName } from "@/lib/utils";
-import { Search, ChevronLeft, ChevronRight, Globe, Map, Info, List, Grid } from "lucide-react";
+import { 
+  Search, ChevronLeft, ChevronRight, Globe, Map, Info, List, Grid, 
+  Filter, Award, UserCheck, Trophy, Users
+} from "lucide-react";
+import { 
+  Tabs, TabsContent, TabsList, TabsTrigger,
+} from "@/components/ui/tabs";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+
+// Define master age categories
+const MASTER_CATEGORIES = [
+  { id: 'M35', name: 'M35', gender: 'M', minAge: 35, maxAge: 39 },
+  { id: 'M40', name: 'M40', gender: 'M', minAge: 40, maxAge: 44 },
+  { id: 'M45', name: 'M45', gender: 'M', minAge: 45, maxAge: 49 },
+  { id: 'M50', name: 'M50', gender: 'M', minAge: 50, maxAge: 54 },
+  { id: 'M55', name: 'M55', gender: 'M', minAge: 55, maxAge: 59 },
+  { id: 'M60', name: 'M60', gender: 'M', minAge: 60, maxAge: 64 },
+  { id: 'M65', name: 'M65', gender: 'M', minAge: 65, maxAge: 69 },
+  { id: 'M70+', name: 'M70+', gender: 'M', minAge: 70, maxAge: 150 },
+  { id: 'F35', name: 'F35', gender: 'F', minAge: 35, maxAge: 39 },
+  { id: 'F40', name: 'F40', gender: 'F', minAge: 40, maxAge: 44 },
+  { id: 'F45', name: 'F45', gender: 'F', minAge: 45, maxAge: 49 },
+  { id: 'F50', name: 'F50', gender: 'F', minAge: 50, maxAge: 54 },
+  { id: 'F55', name: 'F55', gender: 'F', minAge: 55, maxAge: 59 },
+  { id: 'F60', name: 'F60', gender: 'F', minAge: 60, maxAge: 64 },
+  { id: 'F65', name: 'F65', gender: 'F', minAge: 65, maxAge: 69 },
+  { id: 'F70+', name: 'F70+', gender: 'F', minAge: 70, maxAge: 150 },
+];
+
+// Function to determine the master category of a participant
+const getMasterCategory = (gender: string, age: number) => {
+  const category = MASTER_CATEGORIES.find(
+    cat => cat.gender === gender && age >= cat.minAge && age <= cat.maxAge
+  );
+  return category ? category.id : null;
+};
 
 const ParticipantsList = () => {
   const { t, i18n } = useTranslation();
@@ -11,6 +66,8 @@ const ParticipantsList = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(1);
   const [viewMode, setViewMode] = useState<"table" | "card">("table");
+  const [activeTab, setActiveTab] = useState("all");
+  const [showFilterMenu, setShowFilterMenu] = useState(false);
   const pageSize = 10;
 
   // Get all races for filter dropdown
@@ -27,6 +84,54 @@ const ParticipantsList = () => {
       '/api/participants'
     ],
   });
+
+  // Get all unique countries
+  const countries = useMemo(() => {
+    if (!participants) return [];
+    return Array.from(new Set(participants.map(p => p.country))).sort();
+  }, [participants]);
+
+  // Apply filters to participants
+  const filteredParticipants = useMemo(() => {
+    if (!participants) return [];
+
+    return participants.filter(participant => {
+      // EMA filter
+      if (filters.isEmaParticipant !== undefined && participant.isEmaParticipant !== filters.isEmaParticipant) {
+        return false;
+      }
+
+      // Gender category filter
+      if (filters.genderCategory && participant.gender !== filters.genderCategory) {
+        return false;
+      }
+
+      // Age category filter
+      if (filters.ageCategory) {
+        const category = getMasterCategory(participant.gender, participant.age);
+        if (category !== filters.ageCategory) {
+          return false;
+        }
+      }
+
+      // Status filter
+      if (filters.status && participant.status !== filters.status) {
+        return false;
+      }
+
+      return true;
+    });
+  }, [participants, filters]);
+
+  // Pagination
+  const totalPages = filteredParticipants ? Math.ceil(filteredParticipants.length / pageSize) : 1;
+  const currentParticipants = filteredParticipants ? filteredParticipants.slice((page - 1) * pageSize, page * pageSize) : [];
+
+  const goToPage = (newPage: number) => {
+    if (newPage >= 1 && newPage <= totalPages) {
+      setPage(newPage);
+    }
+  };
 
   // Apply search when search button is clicked or Enter is pressed
   const handleSearch = () => {
@@ -46,8 +151,7 @@ const ParticipantsList = () => {
   };
 
   // Filter by race
-  const handleRaceFilter = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value;
+  const handleRaceFilter = (value: string) => {
     if (value) {
       setFilters({ ...filters, raceId: parseInt(value) });
     } else {
@@ -58,8 +162,7 @@ const ParticipantsList = () => {
   };
 
   // Filter by country
-  const handleCountryFilter = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value;
+  const handleCountryFilter = (value: string) => {
     if (value) {
       setFilters({ ...filters, country: value });
     } else {
@@ -69,20 +172,83 @@ const ParticipantsList = () => {
     setPage(1);
   };
 
-  // Pagination
-  const totalPages = participants ? Math.ceil(participants.length / pageSize) : 1;
-  const currentParticipants = participants ? participants.slice((page - 1) * pageSize, page * pageSize) : [];
-
-  const goToPage = (newPage: number) => {
-    if (newPage >= 1 && newPage <= totalPages) {
-      setPage(newPage);
+  // Filter by EMA participation
+  const handleEmaFilter = (checked: boolean | 'indeterminate') => {
+    if (typeof checked === 'boolean') {
+      setFilters({ ...filters, isEmaParticipant: checked });
     }
+    setPage(1);
   };
 
-  // Get countries for filter dropdown
-  const countries = participants 
-    ? Array.from(new Set(participants.map(p => p.country))).sort()
-    : [];
+  // Filter by gender category
+  const handleGenderFilter = (value: string) => {
+    if (value) {
+      setFilters({ ...filters, genderCategory: value });
+    } else {
+      const { genderCategory, ...restFilters } = filters;
+      setFilters(restFilters);
+    }
+    setPage(1);
+  };
+
+  // Filter by age category
+  const handleAgeCategoryFilter = (value: string) => {
+    if (value) {
+      setFilters({ ...filters, ageCategory: value });
+    } else {
+      const { ageCategory, ...restFilters } = filters;
+      setFilters(restFilters);
+    }
+    setPage(1);
+  };
+
+  // Filter by status
+  const handleStatusFilter = (value: string) => {
+    if (value) {
+      setFilters({ ...filters, status: value });
+    } else {
+      const { status, ...restFilters } = filters;
+      setFilters(restFilters);
+    }
+    setPage(1);
+  };
+
+  // Reset all filters
+  const resetFilters = () => {
+    setFilters({});
+    setSearchTerm("");
+    setPage(1);
+  };
+
+  // Handle tab change
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
+    
+    // Reset other filters when changing tabs
+    setSearchTerm("");
+    
+    switch(value) {
+      case "all":
+        setFilters({});
+        break;
+      case "ema":
+        setFilters({ isEmaParticipant: true });
+        break;
+      case "open":
+        setFilters({ isEmaParticipant: false });
+        break;
+      case "masters":
+        // Show only participants 35 years and older
+        setFilters({
+          // This is just a marker for the tab, actual filtering is done in the filtered participants
+          ageCategory: 'masters'
+        });
+        break;
+      case "confirmed":
+        setFilters({ status: 'confirmed' });
+        break;
+    }
+  };
 
   // Reset page when filters change
   useEffect(() => {

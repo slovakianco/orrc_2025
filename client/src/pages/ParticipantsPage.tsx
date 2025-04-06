@@ -1,9 +1,9 @@
-import ParticipantsList from "@/components/ParticipantsList";
+import EnhancedParticipantsList from "@/components/EnhancedParticipantsList";
 
 const ParticipantsPage = () => {
   return (
     <div>
-      <ParticipantsList />
+      <EnhancedParticipantsList />
     </div>
   );
 };

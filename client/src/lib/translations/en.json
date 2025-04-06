@@ -256,6 +256,26 @@
       "to": "to",
       "of": "of",
       "entries": "entries"
+    },
+    "filters": {
+      "all": "All",
+      "ema": "EMA Circuit",
+      "open": "Open Race",
+      "masters": "Masters",
+      "confirmed": "Confirmed",
+      "emaFilter": "EMA Participation",
+      "showEmaOnly": "Show EMA participants only",
+      "genderCategory": "Gender",
+      "allGenders": "All Genders",
+      "male": "Male",
+      "female": "Female",
+      "ageCategory": "Age Category",
+      "allAges": "All Ages",
+      "allMasters": "All Masters (35+)",
+      "status": "Registration Status",
+      "allStatuses": "All Statuses",
+      "resetFilters": "Reset Filters",
+      "clearAll": "Clear All"
     }
   },
   "rules": {

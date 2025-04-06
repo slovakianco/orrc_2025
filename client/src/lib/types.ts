@@ -45,12 +45,20 @@ export interface Participant {
   registrationDate: Date;
   gender: 'M' | 'F';
   age: number;
+  emergencyContactName?: string;
+  emergencyContactPhone?: string;
+  isEmaParticipant?: boolean;
+  tshirtSize?: string;
 }
 
 export interface ParticipantFilters {
   raceId?: number;
   country?: string;
   search?: string;
+  isEmaParticipant?: boolean;
+  genderCategory?: string; // M, F
+  ageCategory?: string; // masters categories: M35, M40, M45, etc.
+  status?: string; // pending, confirmed, cancelled
 }
 
 // Registration form types

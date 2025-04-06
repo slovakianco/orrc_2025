@@ -225,6 +225,26 @@
       "to": "până la",
       "of": "din",
       "entries": "înregistrări"
+    },
+    "filters": {
+      "all": "Toate",
+      "ema": "Circuit EMA",
+      "open": "Cursă Deschisă",
+      "masters": "Masters",
+      "confirmed": "Confirmat",
+      "emaFilter": "Participare EMA",
+      "showEmaOnly": "Arată doar participanții EMA",
+      "genderCategory": "Gen",
+      "allGenders": "Toate Genurile",
+      "male": "Masculin",
+      "female": "Feminin",
+      "ageCategory": "Categorie de Vârstă",
+      "allAges": "Toate Vârstele",
+      "allMasters": "Toți Masters (35+)",
+      "status": "Status Înregistrare",
+      "allStatuses": "Toate Statusurile",
+      "resetFilters": "Resetare Filtre",
+      "clearAll": "Șterge Tot"
     }
   },
   "rules": {
