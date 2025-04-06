@@ -99,21 +99,28 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   apiRouter.post("/participants", async (req: Request, res: Response) => {
     try {
+      console.log("Received registration request:", req.body);
       const result = insertParticipantSchema.safeParse(req.body);
       
       if (!result.success) {
         const validationError = fromZodError(result.error);
+        console.error("Registration validation error:", validationError.details);
         return res.status(400).json({ 
           message: "Invalid participant data", 
           errors: validationError.details 
         });
       }
       
+      console.log("Registration data validated successfully");
+      
       // Check if the race exists
       const race = await storage.getRaceById(result.data.raceId);
       if (!race) {
+        console.error("Invalid race selected:", result.data.raceId);
         return res.status(400).json({ message: "Invalid race selected" });
       }
+      
+      console.log("Race validated successfully:", race.name);
       
       // Calculate age from birthdate
       const birthDate = new Date(result.data.birthDate);
@@ -125,11 +132,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       // Create participant with calculated age
+      console.log("Creating participant with data:", {
+        ...result.data,
+        age
+      });
+      
+      // Create the participant
       const participant = await storage.createParticipant({
         ...result.data,
         age
       });
       
+      console.log("Participant successfully created with ID:", participant.id);
+    
       // Get the language preference from request - priority order:
       // 1. Explicitly provided language parameter in the request body
       // 2. Language in the URL path
@@ -160,7 +175,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
         }
       }
       
-      // Send confirmation email 
+      // Generate payment URL
+      // This will direct the user to a payment page for their race registration
+      // Use absolute URL with origin from the request, falling back to default if not available
+      const origin = req.get('origin') || req.protocol + '://' + req.get('host');
+      const paymentUrl = `${origin}/payment?participantId=${participant.id}&raceId=${race.id}&amount=${race.price}`;
+      
+      console.log(`Generated payment URL for participant ${participant.id}: ${paymentUrl}`);
+      
+      // Send confirmation email with payment link
       const raceCategory = `${race.distance}km ${race.difficulty}`;
       
       try {
@@ -169,11 +192,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
           participant.firstName,
           participant.lastName,
           raceCategory,
-          emailLanguage
+          emailLanguage,
+          participant.id,
+          paymentUrl
         );
         
         if (emailSent) {
-          console.log(`Registration confirmation email sent to ${participant.email} in ${emailLanguage} language`);
+          console.log(`Registration confirmation email with payment link sent to ${participant.email} in ${emailLanguage} language`);
         } else {
           console.warn(`Failed to send registration confirmation email to ${participant.email}`);
         }
@@ -400,13 +425,18 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       // Log the request
       console.log(`Attempting to send test email to: ${email} in language: ${validLanguage}`);
       
-      // Send test email
+      // Send test email with a sample payment link
+      const testPaymentUrl = `${req.protocol}://${req.get('host')}/payment?test=true&amount=75`;
+      console.log(`Test payment URL for email: ${testPaymentUrl}`);
+      
       const result = await sendRegistrationConfirmationEmail(
         email,
         "Test",
         "User",
         "33K Trail Run",
-        validLanguage
+        validLanguage,
+        999, // Test participant ID
+        testPaymentUrl
       );
       
       if (result) {
@@ -575,8 +605,53 @@ This message was sent from the Stana de Vale Trail Race website contact form.
             try {
               await storage.updateParticipantStatus(participantId, 'paid');
               console.log(`Updated participant ${participantId} status to paid`);
+              
+              // Get participant and race info to send confirmation email
+              const participant = await storage.getParticipantById(participantId);
+              
+              if (participant) {
+                console.log(`Sending payment confirmation email to ${participant.email}`);
+                
+                // Determine language based on participant country or fallback to English
+                const language = participant.country.toLowerCase().substring(0, 2);
+                const validLanguage = ['en', 'ro', 'fr', 'de', 'it', 'es'].includes(language) ? language : 'en';
+                
+                // Get race info for the email
+                const race = paymentIntent.metadata.raceId 
+                  ? await storage.getRaceById(parseInt(paymentIntent.metadata.raceId))
+                  : null;
+                  
+                const raceInfo = race 
+                  ? `${race.name} (${race.distance}km ${race.difficulty})`
+                  : "Stana de Vale Trail Race";
+                
+                // Import email function dynamically to avoid circular dependency
+                const { sendRegistrationConfirmationEmail } = await import('./email');
+                
+                // Send payment confirmation email
+                try {
+                  const emailSent = await sendRegistrationConfirmationEmail(
+                    participant.email,
+                    participant.firstName,
+                    participant.lastName,
+                    raceInfo,
+                    validLanguage,
+                    participant.id,
+                    undefined, // No payment URL as they've already paid
+                    true  // Indicate this is a payment confirmation
+                  );
+                  
+                  if (emailSent) {
+                    console.log(`Payment confirmation email sent to ${participant.email}`);
+                  } else {
+                    console.warn(`Failed to send payment confirmation email to ${participant.email}`);
+                  }
+                } catch (emailError) {
+                  console.error(`Error sending payment confirmation email: ${emailError}`);
+                }
+              }
             } catch (err) {
-              console.error(`Error updating participant status: ${err}`);
+              console.error(`Error updating participant status or sending confirmation: ${err}`);
             }
           }
           break;
