@@ -169,13 +169,13 @@ export function getDifficultyBadgeColor(difficulty: string): string {
 export function getStatusColor(status: string): string {
   switch (status) {
     case 'confirmed':
-      return 'bg-green-200 text-green-800 border-green-300';
+      return 'bg-green-600 text-white border-green-700';
     case 'pending':
-      return 'bg-yellow-200 text-yellow-800 border-yellow-300';
+      return 'bg-yellow-600 text-white border-yellow-700';
     case 'cancelled':
-      return 'bg-red-200 text-red-800 border-red-300';
+      return 'bg-red-600 text-white border-red-700';
     default:
-      return 'bg-gray-200 text-gray-800 border-gray-300';
+      return 'bg-gray-600 text-white border-gray-700';
   }
 }
 

@@ -625,7 +625,7 @@ const EnhancedParticipantsList = () => {
                                       </Badge>
                                     )}
                                     {participant.isEmaParticipant && (
-                                      <Badge className="ml-2 bg-amber-500">
+                                      <Badge className="ml-2 bg-amber-500 text-white">
                                         {t('participants.filters.ema')}
                                       </Badge>
                                     )}
@@ -667,7 +667,7 @@ const EnhancedParticipantsList = () => {
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
                               {participant.bibNumber ? (
-                                <span className="px-3 py-1 inline-flex text-md leading-5 font-semibold rounded-full bg-primary bg-opacity-10 text-primary">
+                                <span className="px-3 py-1 inline-flex text-md leading-5 font-semibold rounded-full bg-primary text-white">
                                   {participant.bibNumber}
                                 </span>
                               ) : (
@@ -715,7 +715,7 @@ const EnhancedParticipantsList = () => {
                               </div>
                               <div className="flex mt-2 space-x-2">
                                 {participant.isEmaParticipant && (
-                                  <Badge className="bg-amber-500">
+                                  <Badge className="bg-amber-500 text-white">
                                     {t('participants.filters.ema')}
                                   </Badge>
                                 )}
