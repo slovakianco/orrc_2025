@@ -8,7 +8,8 @@ import { apiRequest } from "@/lib/queryClient";
 import { insertParticipantSchema } from "@shared/schema";
 import { Race } from "@/lib/types";
 import { getLocalizedRaceName } from "@/lib/utils";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import StripePaymentForm from "./StripePaymentForm";
 
 // Extend schema to add form-specific validations
 const registrationFormSchema = z.object({
@@ -79,15 +80,28 @@ const RegistrationForm = () => {
     }
   }, [races, selectedRaceId, setValue]);
 
+  const [registeredParticipant, setRegisteredParticipant] = useState<{
+    id: number;
+    firstName: string;
+    lastName: string;
+    raceId: number;
+    amount: number;
+    raceName: string;
+  } | null>(null);
+  
   const registerMutation = useMutation({
     mutationFn: async (data: Omit<RegistrationFormInputs, "termsAccepted">) => {
       return apiRequest("POST", "/api/participants", data);
     },
-    onSuccess: async () => {
+    onSuccess: async (response) => {
+      // Parse the response to get the participant data
+      const participantData = await response.json();
+      
       toast({
         title: t('registration.success.title'),
         description: t('registration.success.message'),
       });
+      
       // Show a follow-up toast about the confirmation email
       setTimeout(() => {
         toast({
@@ -96,15 +110,30 @@ const RegistrationForm = () => {
           variant: "default"
         });
       }, 1000);
+      
+      // Reset the form to clear inputs
       reset();
+      
+      // Invalidate the participants query to refresh the list
       queryClient.invalidateQueries({ queryKey: ['/api/participants'] });
       
-      // Redirect to participants page after successful registration
-      setTimeout(() => {
-        window.location.href = "/participants";
-        // Scroll to top of page
+      // Get the selected race details for payment
+      const race = races?.find(r => r.id === Number(selectedRaceId));
+      
+      if (race && participantData) {
+        // Store the participant data for payment processing
+        setRegisteredParticipant({
+          id: participantData.id,
+          firstName: participantData.firstName,
+          lastName: participantData.lastName,
+          raceId: race.id,
+          amount: race.price,
+          raceName: getLocalizedRaceName(race, i18n.language as any)
+        });
+        
+        // Scroll to top of page to show payment form
         window.scrollTo(0, 0);
-      }, 2000); // 2 seconds delay to allow toast messages to be seen
+      }
     },
     onError: (error: Error) => {
       toast({
@@ -147,6 +176,35 @@ const RegistrationForm = () => {
     await registerMutation.mutate(formattedData);
   };
 
+  // Function to handle payment success
+  const handlePaymentSuccess = () => {
+    toast({
+      title: t('payment.success'),
+      description: t('payment.successMessage'),
+    });
+    
+    // Clear the registered participant state
+    setRegisteredParticipant(null);
+    
+    // Redirect to participants page
+    setTimeout(() => {
+      window.location.href = "/participants";
+      window.scrollTo(0, 0);
+    }, 1500);
+  };
+  
+  // Function to cancel payment and return to form
+  const handlePaymentCancel = () => {
+    // Simply clear the registered participant state to hide payment form
+    setRegisteredParticipant(null);
+    
+    toast({
+      title: t('payment.cancel'),
+      description: t('registration.paymentLater'),
+      variant: "default"
+    });
+  };
+
   return (
     <section id="registration" className="py-16 bg-white">
       <div className="container mx-auto px-4">
@@ -156,8 +214,30 @@ const RegistrationForm = () => {
             <p className="text-lg text-neutral-gray">{t('registration.subtitle')}</p>
           </div>
           
-          <div className="bg-gray-50 rounded-lg p-8 shadow-md">
-            <form onSubmit={handleSubmit(onSubmit)}>
+          {registeredParticipant ? (
+            // Show payment form if registration was successful
+            <div className="mb-12">
+              <div className="mb-8 text-center">
+                <h3 className="text-2xl font-bold text-primary mb-2">{t('registration.paymentStep')}</h3>
+                <p className="text-lg">{t('registration.completePayment')}</p>
+              </div>
+              
+              <div className="bg-gray-50 rounded-lg p-8 shadow-md">
+                {/* Import StripePaymentForm with proper props */}
+                <StripePaymentForm
+                  amount={registeredParticipant.amount}
+                  raceId={registeredParticipant.raceId}
+                  participantId={registeredParticipant.id}
+                  raceName={registeredParticipant.raceName}
+                  onSuccess={handlePaymentSuccess}
+                  onCancel={handlePaymentCancel}
+                />
+              </div>
+            </div>
+          ) : (
+            // Show registration form if no registration has been submitted yet
+            <div className="bg-gray-50 rounded-lg p-8 shadow-md">
+              <form onSubmit={handleSubmit(onSubmit)}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label htmlFor="firstName" className="block text-sm font-medium text-neutral-gray mb-2">
@@ -448,6 +528,7 @@ const RegistrationForm = () => {
               </div>
             </form>
           </div>
+          )}
         </div>
       </div>
     </section>

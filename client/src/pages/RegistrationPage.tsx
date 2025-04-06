@@ -1,9 +1,9 @@
-import RegistrationForm from "@/components/RegistrationForm";
+import RegistrationFormWithPayment from "@/components/RegistrationFormWithPayment";
 
 const RegistrationPage = () => {
   return (
     <div>
-      <RegistrationForm />
+      <RegistrationFormWithPayment />
     </div>
   );
 };

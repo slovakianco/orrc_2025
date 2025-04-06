@@ -172,6 +172,9 @@
   "registration": {
     "title": "Register for the Competition",
     "subtitle": "Complete the form below to secure your spot in one of our races.",
+    "paymentStep": "Complete Your Payment",
+    "completePayment": "To confirm your registration, please complete the payment below.",
+    "paymentLater": "You can complete your payment later. Your registration is saved but not confirmed yet.",
     "form": {
       "firstName": "First Name",
       "lastName": "Last Name",
