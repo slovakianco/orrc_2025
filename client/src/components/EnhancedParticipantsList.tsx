@@ -274,24 +274,24 @@ const EnhancedParticipantsList = () => {
         {/* Main Tabs */}
         <Tabs value={activeTab} onValueChange={handleTabChange} className="mb-8">
           <div className="flex justify-center mb-4">
-            <TabsList className="grid grid-cols-5 w-full max-w-3xl">
-              <TabsTrigger value="all" className="flex items-center gap-2">
+            <TabsList className="grid grid-cols-5 w-full max-w-3xl bg-primary">
+              <TabsTrigger value="all" className="flex items-center gap-2 text-white data-[state=active]:text-white">
                 <Users className="h-4 w-4" />
                 <span>{t('participants.filters.all')}</span>
               </TabsTrigger>
-              <TabsTrigger value="ema" className="flex items-center gap-2">
+              <TabsTrigger value="ema" className="flex items-center gap-2 text-white data-[state=active]:text-white">
                 <Award className="h-4 w-4" />
                 <span>{t('participants.filters.ema')}</span>
               </TabsTrigger>
-              <TabsTrigger value="open" className="flex items-center gap-2">
+              <TabsTrigger value="open" className="flex items-center gap-2 text-white data-[state=active]:text-white">
                 <Map className="h-4 w-4" />
                 <span>{t('participants.filters.open')}</span>
               </TabsTrigger>
-              <TabsTrigger value="masters" className="flex items-center gap-2">
+              <TabsTrigger value="masters" className="flex items-center gap-2 text-white data-[state=active]:text-white">
                 <Trophy className="h-4 w-4" />
                 <span>{t('participants.filters.masters')}</span>
               </TabsTrigger>
-              <TabsTrigger value="confirmed" className="flex items-center gap-2">
+              <TabsTrigger value="confirmed" className="flex items-center gap-2 text-white data-[state=active]:text-white">
                 <UserCheck className="h-4 w-4" />
                 <span>{t('participants.filters.confirmed')}</span>
               </TabsTrigger>

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import PageHeader from '@/components/PageHeader';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { MapPin, Plane, Car, Train, Bus, Car as CarIcon, Hotel } from 'lucide-react';
+import { MapPin, Plane, Car, Bus, Car as CarIcon, Hotel } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const HowToGetPage: React.FC = () => {
@@ -60,15 +60,12 @@ const HowToGetPage: React.FC = () => {
 
         {/* Transportation Tabs */}
         <Tabs defaultValue="air" className="mb-10">
-          <TabsList className="grid grid-cols-2 gap-2 md:grid-cols-4 mb-6 bg-primary">
+          <TabsList className="grid grid-cols-2 gap-2 md:grid-cols-3 mb-6 bg-primary">
             <TabsTrigger value="air" className="flex items-center gap-1 text-xs md:text-sm text-white data-[state=active]:text-white">
               <Plane className="h-3 w-3 md:h-4 md:w-4" /> {t('howToGet.byAir.title')}
             </TabsTrigger>
             <TabsTrigger value="car" className="flex items-center gap-1 text-xs md:text-sm text-white data-[state=active]:text-white">
               <Car className="h-3 w-3 md:h-4 md:w-4" /> {t('howToGet.byCar.title')}
-            </TabsTrigger>
-            <TabsTrigger value="train" className="flex items-center gap-1 text-xs md:text-sm text-white data-[state=active]:text-white">
-              <Train className="h-3 w-3 md:h-4 md:w-4" /> {t('howToGet.byTrain.title')}
             </TabsTrigger>
             <TabsTrigger value="bus" className="flex items-center gap-1 text-xs md:text-sm text-white data-[state=active]:text-white">
               <Bus className="h-3 w-3 md:h-4 md:w-4" /> {t('howToGet.byBus.title')}
@@ -259,38 +256,6 @@ const HowToGetPage: React.FC = () => {
                   <div className="border-t pt-4">
                     <h3 className="text-base md:text-lg font-medium mb-2 md:mb-3">{t('howToGet.byCar.parking.title')}</h3>
                     <p className="text-sm md:text-base">{t('howToGet.byCar.parking.description')}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          {/* By Train Tab */}
-          <TabsContent value="train">
-            <Card>
-              <CardHeader className="p-4 md:p-6">
-                <CardTitle className="text-lg md:text-xl">{t('howToGet.byTrain.title')}</CardTitle>
-                <CardDescription className="text-sm">{t('howToGet.byTrain.description')}</CardDescription>
-              </CardHeader>
-              <CardContent className="p-4 md:p-6 pt-0 md:pt-0">
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-base md:text-lg font-medium mb-2 md:mb-3">{t('howToGet.byTrain.connections.title')}</h3>
-                    <ul className="space-y-2 ml-6 list-disc text-sm md:text-base">
-                      <li>{t('howToGet.byTrain.connections.connection1')}</li>
-                      <li>{t('howToGet.byTrain.connections.connection2')}</li>
-                    </ul>
-                  </div>
-                  
-                  <div className="border-t pt-4">
-                    <h3 className="text-base md:text-lg font-medium mb-2 md:mb-3">{t('howToGet.byTrain.lastLeg.title')}</h3>
-                    <p className="text-sm md:text-base">{t('howToGet.byTrain.lastLeg.description')}</p>
-                  </div>
-                  
-                  <div className="bg-primary p-3 md:p-4 rounded-lg mt-4">
-                    <p className="text-xs md:text-sm text-white">
-                      <span className="font-medium">Tip:</span> Use <a href="https://www.cfrcalatori.ro/" target="_blank" rel="noopener noreferrer" className="text-white underline underline-offset-2">CFR Călători</a> for Romanian train schedules.
-                    </p>
                   </div>
                 </div>
               </CardContent>
