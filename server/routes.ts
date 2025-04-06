@@ -8,6 +8,20 @@ import { insertParticipantSchema, insertContactInquirySchema } from "@shared/sch
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 import { sendRegistrationConfirmationEmail } from "./email";
+import Stripe from "stripe";
+
+// Initialize Stripe
+if (!process.env.STRIPE_SECRET_KEY) {
+  console.warn(
+    "STRIPE_SECRET_KEY environment variable is not set. Payment functionality will be disabled."
+  );
+}
+
+const stripe = process.env.STRIPE_SECRET_KEY
+  ? new Stripe(process.env.STRIPE_SECRET_KEY, {
+      apiVersion: "2022-11-15" as any, // Type assertion to fix version compatibility issue
+    })
+  : null;
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Serve static files from public directory
@@ -162,7 +176,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
           participant.firstName,
           participant.lastName,
           raceCategory,
-          emailLanguage
+          emailLanguage,
+          participant.id,
+          participant.raceId
         );
         
         if (emailSent) {
@@ -377,6 +393,47 @@ This message was sent from the Stana de Vale Trail Race website contact form.
     }
   });
 
+  // Stripe payment intent endpoint
+  apiRouter.post("/create-payment-intent", async (req: Request, res: Response) => {
+    try {
+      if (!stripe) {
+        return res.status(500).json({ 
+          message: "Stripe is not configured. Please set the STRIPE_SECRET_KEY environment variable."
+        });
+      }
+      
+      const { amount, participantId, raceId } = req.body;
+      
+      if (!amount || amount <= 0) {
+        return res.status(400).json({ message: "Invalid amount provided" });
+      }
+      
+      console.log(`Creating payment intent for amount: ${amount}, participant: ${participantId}, race: ${raceId}`);
+      
+      // Create a payment intent
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount: Math.round(amount * 100), // Convert to cents/smallest currency unit
+        currency: "eur",
+        metadata: {
+          participantId: participantId ? participantId.toString() : "",
+          raceId: raceId ? raceId.toString() : ""
+        }
+      });
+      
+      // Return the client secret to the client
+      res.json({
+        clientSecret: paymentIntent.client_secret,
+        id: paymentIntent.id
+      });
+      
+    } catch (error: any) {
+      console.error("Error creating payment intent:", error);
+      res.status(500).json({ 
+        message: error.message || "An error occurred while creating payment intent" 
+      });
+    }
+  });
+
   // Test email functionality
   apiRouter.post("/test-email", async (req: Request, res: Response) => {
     try {
@@ -399,7 +456,9 @@ This message was sent from the Stana de Vale Trail Race website contact form.
         "Test",
         "User",
         "33K Trail Run",
-        validLanguage
+        validLanguage,
+        123, // Sample participant ID for testing
+        1    // Sample race ID for testing
       );
       
       if (result) {
