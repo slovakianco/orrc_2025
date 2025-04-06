@@ -387,6 +387,11 @@
       "day1": "Friday, July 4",
       "day2": "Saturday, July 5"
     },
+    "raceCenter": {
+      "title": "Race Center - Hotel Iadolina",
+      "description": "All event activities, bib pickup, and race administration will take place at Hotel Iadolina, which serves as our official Race Center.",
+      "note": "The Race Center will be open from 10:00 on Friday until the conclusion of all events on Saturday evening."
+    },
     "events": {
       "kitPickup": {
         "title": "Bib Number Pickup",
@@ -785,19 +790,7 @@
         "description": "There is a large parking area at the resort center where you can leave your vehicle during the competition. Additional parking will be available near the race start/finish area."
       }
     },
-    "byTrain": {
-      "title": "By Train",
-      "description": "Romania's railway network can get you close to Stana de Vale, though you'll need additional transportation for the final leg of the journey.",
-      "connections": {
-        "title": "Train Connections",
-        "connection1": "From Bucharest: Take a train to Oradea, then continue by bus or car",
-        "connection2": "From Budapest: Take a train to Oradea, then continue by bus or car"
-      },
-      "lastLeg": {
-        "title": "Final Connection",
-        "description": "From either Oradea or Beiuș, you will need to arrange transportation to Stana de Vale as there is no direct train service to the resort."
-      }
-    },
+
     "byBus": {
       "title": "By Bus",
       "description": "Public bus transport can get you to towns near Stana de Vale, from where you'll need to arrange the final part of your journey.",

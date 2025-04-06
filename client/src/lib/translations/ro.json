@@ -352,6 +352,11 @@
       "day1": "Vineri, 4 Iulie",
       "day2": "Sâmbătă, 5 Iulie"
     },
+    "raceCenter": {
+      "title": "Centrul Competiției - Hotel Iadolina",
+      "description": "Toate activitățile evenimentului, ridicarea numerelor de concurs și administrarea cursei vor avea loc la Hotel Iadolina, care servește ca Centru Oficial al Competiției.",
+      "note": "Centrul Competiției va fi deschis de la ora 10:00 vineri până la încheierea tuturor evenimentelor sâmbătă seara."
+    },
     "events": {
       "kitPickup": {
         "title": "Ridicare Kit și Număr de Concurs",
@@ -750,19 +755,7 @@
         "description": "Există o zonă mare de parcare în centrul stațiunii unde îți poți lăsa vehiculul în timpul competiției. Parcare suplimentară va fi disponibilă în apropierea zonei de start/finish a cursei."
       }
     },
-    "byTrain": {
-      "title": "Cu Trenul",
-      "description": "Rețeaua feroviară a României te poate aduce aproape de Stâna de Vale, deși vei avea nevoie de transport suplimentar pentru ultima parte a călătoriei.",
-      "connections": {
-        "title": "Conexiuni Feroviare",
-        "connection1": "Din București: Ia un tren până la Oradea, apoi continuă cu autobuzul sau mașina",
-        "connection2": "Din Budapesta: Ia un tren până la Oradea, apoi continuă cu autobuzul sau mașina"
-      },
-      "lastLeg": {
-        "title": "Conexiunea Finală",
-        "description": "Din Oradea sau Beiuș, va trebui să aranjezi transport până la Stâna de Vale, deoarece nu există serviciu direct de tren până la stațiune."
-      }
-    },
+
     "byBus": {
       "title": "Cu Autobuzul",
       "description": "Transportul public cu autobuzul te poate duce în orașele din apropierea Stânei de Vale, de unde va trebui să aranjezi ultima parte a călătoriei tale.",
