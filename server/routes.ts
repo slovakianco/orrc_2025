@@ -7,7 +7,7 @@ import { getStorage } from "./storage-provider";
 import { insertParticipantSchema, insertContactInquirySchema } from "@shared/schema";
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
-import { sendRegistrationConfirmationEmail } from "./email";
+import { sendRegistrationConfirmationEmail, sendPaymentConfirmationEmail } from "./email";
 import Stripe from "stripe";
 
 // Initialize Stripe
@@ -101,6 +101,40 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.error("Error fetching participants:", error);
       // Return an empty array instead of an error
       res.json([]);
+    }
+  });
+  
+  // Check participant status
+  apiRouter.get("/participant-status/:id", async (req: Request, res: Response) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) {
+        return res.status(400).json({ message: "Invalid participant ID" });
+      }
+      
+      const participant = await storage.getParticipantById(id);
+      if (!participant) {
+        return res.status(404).json({ message: "Participant not found" });
+      }
+      
+      // Get race info for this participant
+      const race = await storage.getRaceById(participant.raceId);
+      
+      // Return participant status information
+      res.json({
+        id: participant.id,
+        name: `${participant.firstName} ${participant.lastName}`,
+        email: participant.email,
+        race: race ? `${race.distance}km ${race.difficulty}` : "Unknown race",
+        country: participant.country,
+        status: participant.status,
+        isConfirmed: participant.status === 'confirmed',
+        registrationDate: participant.registrationDate,
+        bibNumber: participant.bibNumber
+      });
+    } catch (error) {
+      console.error("Error fetching participant status:", error);
+      res.status(500).json({ message: "Failed to fetch participant status" });
     }
   });
   
@@ -430,6 +464,144 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       console.error("Error creating payment intent:", error);
       res.status(500).json({ 
         message: error.message || "An error occurred while creating payment intent" 
+      });
+    }
+  });
+  
+  // Stripe webhook for payment confirmation
+  apiRouter.post("/stripe-webhook", express.raw({type: 'application/json'}), async (req: Request, res: Response) => {
+    if (!stripe) {
+      return res.status(500).json({ 
+        message: "Stripe is not configured. Please set the STRIPE_SECRET_KEY environment variable."
+      });
+    }
+    
+    const sig = req.headers['stripe-signature'];
+    
+    if (!sig) {
+      return res.status(400).json({ message: "Missing Stripe signature header" });
+    }
+    
+    try {
+      // Note: In production, you should set up a webhook secret in your Stripe dashboard
+      // and verify the signature using stripe.webhooks.constructEvent()
+      const event = req.body;
+      
+      // Handle the event
+      switch (event.type) {
+        case 'payment_intent.succeeded':
+          const paymentIntent = event.data.object;
+          
+          console.log(`PaymentIntent ${paymentIntent.id} was successful!`);
+          
+          // Extract participant ID from metadata
+          const participantId = paymentIntent.metadata?.participantId;
+          
+          if (participantId) {
+            // Update participant status to 'confirmed' or 'paid'
+            try {
+              const participant = await storage.updateParticipantStatus(
+                parseInt(participantId), 
+                'confirmed'
+              );
+              
+              if (participant) {
+                console.log(`Updated participant ${participantId} status to confirmed`);
+                
+                // Send payment confirmation email
+                try {
+                  // Get race details
+                  const race = await storage.getRaceById(participant.raceId);
+                  const raceCategory = race ? `${race.distance}km ${race.difficulty}` : "Trail Race";
+                  
+                  const emailSent = await sendPaymentConfirmationEmail(
+                    participant.email,
+                    participant.firstName,
+                    participant.lastName,
+                    raceCategory
+                  );
+                  
+                  if (emailSent) {
+                    console.log(`Payment confirmation email sent to ${participant.email}`);
+                  } else {
+                    console.warn(`Failed to send payment confirmation email to ${participant.email}`);
+                  }
+                } catch (emailError) {
+                  console.error("Error sending payment confirmation email:", emailError);
+                }
+              } else {
+                console.error(`Could not find participant with ID ${participantId}`);
+              }
+            } catch (updateError) {
+              console.error(`Error updating participant status:`, updateError);
+            }
+          }
+          break;
+        
+        case 'payment_intent.payment_failed':
+          const failedPaymentIntent = event.data.object;
+          console.log(`PaymentIntent ${failedPaymentIntent.id} failed`);
+          break;
+          
+        default:
+          console.log(`Unhandled event type: ${event.type}`);
+      }
+      
+      // Return a 200 response to acknowledge receipt of the event
+      res.json({received: true});
+    } catch (err: any) {
+      console.error('Error handling webhook:', err);
+      res.status(400).send(`Webhook Error: ${err.message}`);
+    }
+  });
+  
+  // Update participant status and send confirmation email (for manual testing)
+  apiRouter.post("/confirm-payment", async (req: Request, res: Response) => {
+    try {
+      const { participantId } = req.body;
+      
+      if (!participantId) {
+        return res.status(400).json({ message: "Participant ID is required" });
+      }
+      
+      // Update participant status to 'confirmed'
+      const participant = await storage.updateParticipantStatus(
+        parseInt(participantId), 
+        'confirmed'
+      );
+      
+      if (!participant) {
+        return res.status(404).json({ message: "Participant not found" });
+      }
+      
+      // Get race details
+      const race = await storage.getRaceById(participant.raceId);
+      const raceCategory = race ? `${race.distance}km ${race.difficulty}` : "Trail Race";
+      
+      // Send payment confirmation email
+      const emailSent = await sendPaymentConfirmationEmail(
+        participant.email,
+        participant.firstName,
+        participant.lastName,
+        raceCategory
+      );
+      
+      if (emailSent) {
+        console.log(`Payment confirmation email sent to ${participant.email}`);
+      } else {
+        console.warn(`Failed to send payment confirmation email to ${participant.email}`);
+      }
+      
+      res.json({
+        message: "Payment confirmed and participant status updated",
+        participant,
+        emailSent
+      });
+      
+    } catch (error) {
+      console.error("Error confirming payment:", error);
+      res.status(500).json({ 
+        message: "Failed to confirm payment" 
       });
     }
   });

@@ -83,6 +83,309 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
   }
 }
 
+// Define the supported languages type
+type SupportedLanguages = "en" | "ro" | "fr" | "de" | "it" | "es";
+
+// Helper function to get translations for email templates
+function getEmailTranslations(language: SupportedLanguages = "en") {
+  const translations: Record<string, Record<SupportedLanguages, string>> = {
+    // Payment confirmation email translations
+    paymentConfirmationSubject: {
+      en: "Stana de Vale Trail Race - Payment Confirmation",
+      ro: "Stana de Vale Trail Race - Confirmare Plată",
+      fr: "Stana de Vale Trail Race - Confirmation de Paiement",
+      de: "Stana de Vale Trail Race - Zahlungsbestätigung",
+      it: "Stana de Vale Trail Race - Conferma di Pagamento",
+      es: "Stana de Vale Trail Race - Confirmación de Pago"
+    },
+    paymentConfirmationTitle: {
+      en: "Payment Confirmation",
+      ro: "Confirmare Plată",
+      fr: "Confirmation de Paiement",
+      de: "Zahlungsbestätigung",
+      it: "Conferma di Pagamento",
+      es: "Confirmación de Pago"
+    },
+    paymentConfirmationSubtitle: {
+      en: "Your registration is now complete!",
+      ro: "Înregistrarea ta este acum completă!",
+      fr: "Votre inscription est maintenant complète!",
+      de: "Ihre Anmeldung ist jetzt vollständig!",
+      it: "La tua registrazione è ora completata!",
+      es: "¡Tu registro ahora está completo!"
+    },
+    greeting: {
+      en: "Dear",
+      ro: "Dragă",
+      fr: "Cher/Chère",
+      de: "Liebe(r)",
+      it: "Gentile",
+      es: "Estimado/a"
+    },
+    paymentConfirmationMessage: {
+      en: "Thank you for completing your payment for the Stana de Vale Trail Race! Your registration is now confirmed, and we're excited to welcome you to this amazing mountain running event.",
+      ro: "Îți mulțumim pentru finalizarea plății pentru Stana de Vale Trail Race! Înregistrarea ta este acum confirmată și suntem încântați să te întâmpinăm la acest eveniment uimitor de alergare montană.",
+      fr: "Merci d'avoir effectué votre paiement pour la Stana de Vale Trail Race! Votre inscription est maintenant confirmée et nous sommes ravis de vous accueillir à cet incroyable événement de course en montagne.",
+      de: "Vielen Dank für die Zahlung für das Stana de Vale Trail Race! Ihre Anmeldung ist nun bestätigt, und wir freuen uns, Sie bei diesem erstaunlichen Berglauf-Event begrüßen zu dürfen.",
+      it: "Grazie per aver completato il pagamento per la Stana de Vale Trail Race! La tua registrazione è ora confermata e siamo entusiasti di accoglierti a questo incredibile evento di corsa in montagna.",
+      es: "¡Gracias por completar tu pago para la Stana de Vale Trail Race! Tu registro ahora está confirmado y estamos emocionados de darte la bienvenida a este increíble evento de carrera de montaña."
+    },
+    raceDetails: {
+      en: "Race Details",
+      ro: "Detalii Cursă",
+      fr: "Détails de la Course",
+      de: "Renndetails",
+      it: "Dettagli della Gara",
+      es: "Detalles de la Carrera"
+    },
+    raceCategory: {
+      en: "Race Category",
+      ro: "Categorie Cursă",
+      fr: "Catégorie de Course",
+      de: "Rennkategorie",
+      it: "Categoria Gara",
+      es: "Categoría de Carrera"
+    },
+    raceDate: {
+      en: "Race Date",
+      ro: "Data Cursei",
+      fr: "Date de la Course",
+      de: "Renndatum",
+      it: "Data della Gara",
+      es: "Fecha de la Carrera"
+    },
+    raceLocation: {
+      en: "Location",
+      ro: "Locație",
+      fr: "Lieu",
+      de: "Ort",
+      it: "Posizione",
+      es: "Ubicación"
+    },
+    bibCollectionInfo: {
+      en: "You will be able to collect your race bib and participant package at the race office on the day before the race or on race day. Please bring a valid ID for verification.",
+      ro: "Vei putea ridica numărul de concurs și pachetul de participant de la biroul de cursă cu o zi înainte de cursă sau în ziua cursei. Te rugăm să aduci un act de identitate valid pentru verificare.",
+      fr: "Vous pourrez récupérer votre dossard et votre pack participant au bureau de course la veille de la course ou le jour de la course. Veuillez apporter une pièce d'identité valide pour vérification.",
+      de: "Sie können Ihre Startnummer und Ihr Teilnehmerpaket am Vortag des Rennens oder am Renntag im Rennbüro abholen. Bitte bringen Sie einen gültigen Ausweis zur Überprüfung mit.",
+      it: "Potrai ritirare il tuo pettorale e il pacco gara presso l'ufficio gara il giorno prima della gara o il giorno della gara. Si prega di portare un documento d'identità valido per la verifica.",
+      es: "Podrás recoger tu dorsal y paquete de participante en la oficina de la carrera el día anterior a la carrera o el día de la carrera. Por favor, trae una identificación válida para la verificación."
+    },
+    whatToExpectNext: {
+      en: "In the coming weeks, we'll be sending you additional information about the race, including the detailed schedule, course maps, and recommendations for your stay in Stana de Vale.",
+      ro: "În săptămânile următoare, îți vom trimite informații suplimentare despre cursă, inclusiv programul detaliat, hărțile traseului și recomandări pentru șederea ta în Stâna de Vale.",
+      fr: "Dans les semaines à venir, nous vous enverrons des informations supplémentaires sur la course, y compris le programme détaillé, les cartes du parcours et des recommandations pour votre séjour à Stana de Vale.",
+      de: "In den kommenden Wochen werden wir Ihnen zusätzliche Informationen über das Rennen zusenden, einschließlich des detaillierten Zeitplans, Streckenkarten und Empfehlungen für Ihren Aufenthalt in Stana de Vale.",
+      it: "Nelle prossime settimane, ti invieremo ulteriori informazioni sulla gara, inclusi il programma dettagliato, le mappe del percorso e i consigli per il tuo soggiorno a Stana de Vale.",
+      es: "En las próximas semanas, te enviaremos información adicional sobre la carrera, incluido el cronograma detallado, mapas de la ruta y recomendaciones para tu estancia en Stana de Vale."
+    },
+    preparationTips: {
+      en: "Preparation Tips",
+      ro: "Sfaturi de Pregătire",
+      fr: "Conseils de Préparation",
+      de: "Vorbereitungstipps",
+      it: "Consigli di Preparazione",
+      es: "Consejos de Preparación"
+    },
+    preparationTip1: {
+      en: "Train on similar terrain with elevation changes",
+      ro: "Antrenează-te pe teren similar cu schimbări de elevație",
+      fr: "Entraînez-vous sur un terrain similaire avec des changements d'altitude",
+      de: "Trainieren Sie auf ähnlichem Gelände mit Höhenunterschieden",
+      it: "Allenati su terreni simili con cambi di elevazione",
+      es: "Entrena en terreno similar con cambios de elevación"
+    },
+    preparationTip2: {
+      en: "Ensure you have proper trail running shoes and equipment",
+      ro: "Asigură-te că ai pantofi și echipament adecvat pentru alergare montană",
+      fr: "Assurez-vous d'avoir des chaussures et de l'équipement de trail running appropriés",
+      de: "Stellen Sie sicher, dass Sie geeignete Trail-Running-Schuhe und Ausrüstung haben",
+      it: "Assicurati di avere scarpe ed equipaggiamento adeguati per il trail running",
+      es: "Asegúrate de tener calzado y equipo adecuados para trail running"
+    },
+    preparationTip3: {
+      en: "Check the weather forecast and pack accordingly",
+      ro: "Verifică prognoza meteo și pregătește-te în consecință",
+      fr: "Vérifiez les prévisions météorologiques et préparez-vous en conséquence",
+      de: "Überprüfen Sie die Wettervorhersage und packen Sie entsprechend",
+      it: "Controlla le previsioni meteo e preparati di conseguenza",
+      es: "Revisa el pronóstico del tiempo y prepárate adecuadamente"
+    },
+    preparationTip4: {
+      en: "Familiarize yourself with the race route and elevation profile",
+      ro: "Familiarizează-te cu traseul cursei și profilul de elevație",
+      fr: "Familiarisez-vous avec le parcours de la course et le profil d'altitude",
+      de: "Machen Sie sich mit der Rennstrecke und dem Höhenprofil vertraut",
+      it: "Familiarizza con il percorso di gara e il profilo altimetrico",
+      es: "Familiarízate con la ruta de la carrera y el perfil de elevación"
+    },
+    questions: {
+      en: "If you have any questions about the race, accommodation, or anything else, please don't hesitate to contact us at contact@stanatrailrace.ro.",
+      ro: "Dacă ai întrebări despre cursă, cazare sau orice altceva, nu ezita să ne contactezi la contact@stanatrailrace.ro.",
+      fr: "Si vous avez des questions sur la course, l'hébergement ou autre chose, n'hésitez pas à nous contacter à contact@stanatrailrace.ro.",
+      de: "Wenn Sie Fragen zum Rennen, zur Unterkunft oder zu anderen Dingen haben, zögern Sie bitte nicht, uns unter contact@stanatrailrace.ro zu kontaktieren.",
+      it: "Se hai domande sulla gara, l'alloggio o qualsiasi altra cosa, non esitare a contattarci a contact@stanatrailrace.ro.",
+      es: "Si tienes alguna pregunta sobre la carrera, el alojamiento o cualquier otra cosa, no dudes en contactarnos en contact@stanatrailrace.ro."
+    },
+    closingMessage: {
+      en: "We look forward to seeing you at the starting line!",
+      ro: "Aşteptăm cu nerăbdare să te vedem la linia de start!",
+      fr: "Nous avons hâte de vous voir sur la ligne de départ!",
+      de: "Wir freuen uns darauf, Sie an der Startlinie zu sehen!",
+      it: "Non vediamo l'ora di vederti alla linea di partenza!",
+      es: "¡Esperamos verte en la línea de salida!"
+    },
+    signature: {
+      en: "Best regards,",
+      ro: "Cu stimă,",
+      fr: "Cordialement,",
+      de: "Mit freundlichen Grüßen,",
+      it: "Cordiali saluti,",
+      es: "Saludos cordiales,"
+    },
+    allRightsReserved: {
+      en: "All rights reserved",
+      ro: "Toate drepturile rezervate",
+      fr: "Tous droits réservés",
+      de: "Alle Rechte vorbehalten",
+      it: "Tutti i diritti riservati",
+      es: "Todos los derechos reservados"
+    }
+  };
+
+  // Return translations in requested language or English as fallback
+  const lang = translations.greeting[language] ? language : "en";
+  
+  const result: Record<string, string> = {};
+  
+  // Collect all translations for the requested language
+  Object.keys(translations).forEach(key => {
+    result[key] = translations[key][lang];
+  });
+  
+  return result;
+}
+
+export async function sendPaymentConfirmationEmail(
+  to: string,
+  firstName: string,
+  lastName: string,
+  raceCategory: string,
+  language: SupportedLanguages = "en"
+): Promise<boolean> {
+  try {
+    // Get translations for the email
+    const translations = getEmailTranslations(language);
+    
+    // Payment confirmation email content
+    const subject = translations.paymentConfirmationSubject;
+    
+    // Format the dates consistently
+    const eventDate = new Date('2025-07-12');
+    const formattedEventDate = eventDate.toLocaleDateString(language, {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+    
+    // HTML email content
+    const html = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e6dfd9; border-radius: 8px;">
+        <div style="text-align: center; margin-bottom: 20px;">
+          <h1 style="color: #2A6D50; margin-bottom: 10px;">${translations.paymentConfirmationTitle}</h1>
+          <p style="font-size: 18px; color: #3E4A59;">${translations.paymentConfirmationSubtitle}</p>
+        </div>
+        
+        <div style="font-size: 16px; line-height: 1.5; color: #3E4A59;">
+          <p>${translations.greeting} ${firstName} ${lastName},</p>
+          
+          <p>${translations.paymentConfirmationMessage}</p>
+          
+          <div style="background-color: #f1f5f2; padding: 15px; border-radius: 5px; margin: 20px 0;">
+            <h3 style="color: #2A6D50; margin-top: 0;">${translations.raceDetails}:</h3>
+            <p><strong>${translations.raceCategory}:</strong> ${raceCategory}</p>
+            <p><strong>${translations.raceDate}:</strong> ${formattedEventDate}</p>
+            <p><strong>${translations.raceLocation}:</strong> Stâna de Vale, Romania</p>
+          </div>
+          
+          <p>${translations.bibCollectionInfo}</p>
+          
+          <p>${translations.whatToExpectNext}</p>
+          
+          <div style="background-color: #4A90BF; padding: 15px; border-radius: 5px; margin: 20px 0; text-align: center;">
+            <h3 style="color: white; margin-top: 0;">${translations.preparationTips}</h3>
+            <ul style="color: white; text-align: left;">
+              <li>${translations.preparationTip1}</li>
+              <li>${translations.preparationTip2}</li>
+              <li>${translations.preparationTip3}</li>
+              <li>${translations.preparationTip4}</li>
+            </ul>
+          </div>
+          
+          <p>${translations.questions}</p>
+          
+          <p>${translations.closingMessage}</p>
+          
+          <p>${translations.signature}<br>
+          Stana de Vale Trail Race Team</p>
+        </div>
+        
+        <div style="margin-top: 30px; border-top: 1px solid #e6dfd9; padding-top: 20px; text-align: center; font-size: 14px; color: #7D5A45;">
+          <p>Stana de Vale Trail Race 2025 • Stâna de Vale, Romania</p>
+          <p>© 2025 Stana de Vale Trail Race. ${translations.allRightsReserved}.</p>
+        </div>
+      </div>
+    `;
+    
+    // Plain text content for email clients that don't support HTML
+    const text = `
+${translations.paymentConfirmationTitle}
+${translations.paymentConfirmationSubtitle}
+
+${translations.greeting} ${firstName} ${lastName},
+
+${translations.paymentConfirmationMessage}
+
+== ${translations.raceDetails} ==
+${translations.raceCategory}: ${raceCategory}
+${translations.raceDate}: ${formattedEventDate}
+${translations.raceLocation}: Stâna de Vale, Romania
+
+${translations.bibCollectionInfo}
+
+${translations.whatToExpectNext}
+
+== ${translations.preparationTips} ==
+* ${translations.preparationTip1}
+* ${translations.preparationTip2}
+* ${translations.preparationTip3}
+* ${translations.preparationTip4}
+
+${translations.questions}
+
+${translations.closingMessage}
+
+${translations.signature}
+Stana de Vale Trail Race Team
+
+Stana de Vale Trail Race 2025 • Stâna de Vale, Romania
+© 2025 Stana de Vale Trail Race. ${translations.allRightsReserved}.
+    `;
+    
+    // Send the email
+    return await sendEmail({
+      to,
+      from: DEFAULT_FROM_EMAIL,
+      subject,
+      text,
+      html
+    });
+  } catch (error) {
+    console.error('Error sending payment confirmation email:', error);
+    return false;
+  }
+}
+
 export async function sendRegistrationConfirmationEmail(
   email: string,
   firstName: string,
