@@ -251,6 +251,11 @@
       "female": "Female"
     },
     "unknownRace": "Unknown Race",
+    "race": "Race",
+    "gender": "Gender",
+    "age": "Age",
+    "bibNumber": "Bib Number",
+    "notAssigned": "Not Assigned",
     "pagination": {
       "showing": "Showing",
       "to": "to",

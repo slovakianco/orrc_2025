@@ -733,7 +733,7 @@ const EnhancedParticipantsList = () => {
                           <CardTitle className="mt-3 text-xl">
                             {participant.firstName} {participant.lastName}
                           </CardTitle>
-                          <CardDescription className="text-gray-100 flex items-center">
+                          <CardDescription className="text-white flex items-center">
                             <Globe className="h-4 w-4 mr-1" />
                             <span>{participant.country}</span>
                           </CardDescription>
@@ -741,31 +741,31 @@ const EnhancedParticipantsList = () => {
                         <CardContent className="p-4">
                           <div className="space-y-3">
                             <div className="flex justify-between">
-                              <span className="text-neutral-gray text-sm">{t('participants.race')}:</span>
+                              <span className="text-gray-700 text-sm font-medium">{t('participants.race')}:</span>
                               <span className="font-medium">
                                 {race && getLocalizedRaceName(race, i18n.language as any)}
                               </span>
                             </div>
                             
                             <div className="flex justify-between">
-                              <span className="text-neutral-gray text-sm">{t('participants.gender')}:</span>
+                              <span className="text-gray-700 text-sm font-medium">{t('participants.gender')}:</span>
                               <span className="font-medium">{participant.gender}</span>
                             </div>
                             
                             <div className="flex justify-between">
-                              <span className="text-neutral-gray text-sm">{t('participants.age')}:</span>
+                              <span className="text-gray-700 text-sm font-medium">{t('participants.age')}:</span>
                               <span className="font-medium">{participant.age}</span>
                             </div>
                             
                             <div className="flex justify-between">
-                              <span className="text-neutral-gray text-sm">{t('participants.bibNumber')}:</span>
+                              <span className="text-gray-700 text-sm font-medium">{t('participants.bibNumber')}:</span>
                               <span>
                                 {participant.bibNumber ? (
                                   <span className="font-bold text-primary">
                                     {participant.bibNumber}
                                   </span>
                                 ) : (
-                                  <span className="text-neutral-gray italic">
+                                  <span className="text-gray-500 italic">
                                     {t('participants.notAssigned')}
                                   </span>
                                 )}
