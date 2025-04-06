@@ -12,6 +12,7 @@ import HomePage from "@/pages/HomePage";
 import RacesPage from "@/pages/RacesPage";
 import RaceDetail from "@/pages/RaceDetail";
 import RegistrationPage from "@/pages/RegistrationPage";
+import RegistrationSuccessPage from "@/pages/RegistrationSuccessPage";
 import ParticipantsPage from "@/pages/ParticipantsPage";
 import RulesPage from "@/pages/RulesPage";
 import ProgramPage from "@/pages/ProgramPage";
@@ -49,6 +50,7 @@ function Router() {
           <Route path="/races" component={RacesPage} />
           <Route path="/races/:id" component={RaceDetail} />
           <Route path="/registration" component={RegistrationPage} />
+          <Route path="/registration-success" component={RegistrationSuccessPage} />
           <Route path="/participants" component={ParticipantsPage} />
           <Route path="/rules" component={RulesPage} />
           <Route path="/program" component={ProgramPage} />

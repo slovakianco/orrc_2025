@@ -208,6 +208,10 @@
       "title": "Registration Successful",
       "message": "Thank you for registering! You will receive a confirmation email shortly."
     },
+    "successTitle": "Registration Confirmed!",
+    "successMessage": "Thank you for your payment! Your registration has been confirmed.",
+    "checkEmail": "Please check your email for a confirmation message with all the details of your registration.",
+    "viewParticipants": "View Participants List",
     "error": {
       "title": "Registration Failed",
       "message": "There was an error processing your registration. Please try again."

@@ -50,32 +50,30 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
     setIsProcessing(true);
     setPaymentError(null);
 
-    const { error } = await stripe.confirmPayment({
+    // With 'redirect: always', this will redirect and the code below won't execute
+    // unless there's an immediate error
+    const result = await stripe.confirmPayment({
       elements,
       confirmParams: {
         return_url: window.location.origin + '/registration-success',
       },
-      redirect: 'if_required',
+      redirect: 'always',
     });
 
-    if (error) {
-      console.error('Payment error:', error);
-      setPaymentError(error.message || t('payment.genericError'));
+    // This code will only run if there's an immediate error or
+    // if the redirect fails for some reason
+    if (result.error) {
+      console.error('Payment error:', result.error);
+      setPaymentError(result.error.message || t('payment.genericError'));
       toast({
         title: t('payment.failed'),
-        description: error.message || t('payment.genericError'),
+        description: result.error.message || t('payment.genericError'),
         variant: 'destructive',
       });
-    } else {
-      // The payment has been processed!
-      toast({
-        title: t('payment.success'),
-        description: t('payment.successMessage'),
-      });
-      onSuccess();
+      setIsProcessing(false);
     }
-
-    setIsProcessing(false);
+    // Note: With redirect='always', we shouldn't reach the success case here
+    // as successful payments will redirect to the return_url
   };
 
   return (

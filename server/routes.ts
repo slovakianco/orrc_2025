@@ -483,9 +483,27 @@ This message was sent from the Stana de Vale Trail Race website contact form.
     }
     
     try {
-      // Note: In production, you should set up a webhook secret in your Stripe dashboard
-      // and verify the signature using stripe.webhooks.constructEvent()
-      const event = req.body;
+      // Parse the request body
+      const rawBody = req.body;
+      let event;
+      
+      // In production, use a webhook secret to verify the signature
+      // const endpointSecret = 'whsec_...';
+      // event = stripe.webhooks.constructEvent(rawBody, sig, endpointSecret);
+      
+      // For development, parse the raw body
+      try {
+        event = typeof rawBody === 'string' 
+          ? JSON.parse(rawBody) 
+          : rawBody instanceof Buffer 
+            ? JSON.parse(rawBody.toString('utf8'))
+            : rawBody;
+        
+        console.log("Stripe webhook received event:", event.type);
+      } catch (e) {
+        console.error("Error parsing webhook payload:", e);
+        return res.status(400).json({ message: "Invalid webhook payload" });
+      }
       
       // Handle the event
       switch (event.type) {
@@ -498,6 +516,7 @@ This message was sent from the Stana de Vale Trail Race website contact form.
           const participantId = paymentIntent.metadata?.participantId;
           
           if (participantId) {
+            console.log(`Processing payment for participant ID: ${participantId}`);
             // Update participant status to 'confirmed' or 'paid'
             try {
               const participant = await storage.updateParticipantStatus(
@@ -535,6 +554,8 @@ This message was sent from the Stana de Vale Trail Race website contact form.
             } catch (updateError) {
               console.error(`Error updating participant status:`, updateError);
             }
+          } else {
+            console.warn("Payment intent succeeded but no participantId found in metadata");
           }
           break;
         
@@ -601,6 +622,102 @@ This message was sent from the Stana de Vale Trail Race website contact form.
     } catch (error) {
       console.error("Error confirming payment:", error);
       res.status(500).json({ 
+        message: "Failed to confirm payment" 
+      });
+    }
+  });
+  
+  // Confirm payment by payment intent ID (from success page)
+  apiRouter.post("/confirm-payment-by-intent", async (req: Request, res: Response) => {
+    try {
+      if (!stripe) {
+        return res.status(500).json({ 
+          message: "Stripe is not configured. Please set the STRIPE_SECRET_KEY environment variable."
+        });
+      }
+      
+      const { paymentIntentId } = req.body;
+      
+      if (!paymentIntentId) {
+        return res.status(400).json({ message: "Payment intent ID is required" });
+      }
+      
+      console.log(`Looking up payment intent: ${paymentIntentId}`);
+      
+      // Retrieve the payment intent from Stripe
+      const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
+      
+      if (!paymentIntent) {
+        return res.status(404).json({ message: "Payment intent not found" });
+      }
+      
+      console.log(`Payment intent status: ${paymentIntent.status}`);
+      
+      // Check if payment was successful
+      if (paymentIntent.status !== 'succeeded') {
+        return res.status(400).json({ 
+          message: `Payment is not complete. Status: ${paymentIntent.status}`,
+          status: paymentIntent.status 
+        });
+      }
+      
+      // Extract participant ID from metadata
+      const participantId = paymentIntent.metadata?.participantId;
+      
+      if (!participantId) {
+        return res.status(400).json({ 
+          message: "No participant ID found in payment intent metadata" 
+        });
+      }
+      
+      console.log(`Found participant ID in payment: ${participantId}`);
+      
+      // Update participant status to 'confirmed'
+      const participant = await storage.updateParticipantStatus(
+        parseInt(participantId), 
+        'confirmed'
+      );
+      
+      if (!participant) {
+        return res.status(404).json({ message: "Participant not found" });
+      }
+      
+      console.log(`Updated participant ${participantId} status to confirmed`);
+      
+      // Get race details
+      const race = await storage.getRaceById(participant.raceId);
+      const raceCategory = race ? `${race.distance}km ${race.difficulty}` : "Trail Race";
+      
+      // Send payment confirmation email
+      const emailSent = await sendPaymentConfirmationEmail(
+        participant.email,
+        participant.firstName,
+        participant.lastName,
+        raceCategory
+      );
+      
+      if (emailSent) {
+        console.log(`Payment confirmation email sent to ${participant.email}`);
+      } else {
+        console.warn(`Failed to send payment confirmation email to ${participant.email}`);
+      }
+      
+      res.json({
+        success: true,
+        message: "Payment confirmed and participant status updated",
+        participant: {
+          id: participant.id,
+          firstName: participant.firstName,
+          lastName: participant.lastName,
+          status: participant.status
+        },
+        emailSent
+      });
+      
+    } catch (error) {
+      console.error("Error confirming payment by intent:", error);
+      res.status(500).json({ 
+        success: false,
         message: "Failed to confirm payment" 
       });
     }
