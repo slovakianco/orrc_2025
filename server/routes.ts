@@ -8,13 +8,6 @@ import { insertParticipantSchema, insertContactInquirySchema } from "@shared/sch
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 import { sendRegistrationConfirmationEmail } from "./email";
-import Stripe from "stripe";
-
-// Initialize Stripe with the secret key
-if (!process.env.STRIPE_SECRET_KEY) {
-  throw new Error('Missing required Stripe secret: STRIPE_SECRET_KEY');
-}
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Serve static files from public directory
@@ -99,28 +92,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   apiRouter.post("/participants", async (req: Request, res: Response) => {
     try {
-      console.log("Received registration request:", req.body);
       const result = insertParticipantSchema.safeParse(req.body);
       
       if (!result.success) {
         const validationError = fromZodError(result.error);
-        console.error("Registration validation error:", validationError.details);
         return res.status(400).json({ 
           message: "Invalid participant data", 
           errors: validationError.details 
         });
       }
       
-      console.log("Registration data validated successfully");
-      
       // Check if the race exists
       const race = await storage.getRaceById(result.data.raceId);
       if (!race) {
-        console.error("Invalid race selected:", result.data.raceId);
         return res.status(400).json({ message: "Invalid race selected" });
       }
-      
-      console.log("Race validated successfully:", race.name);
       
       // Calculate age from birthdate
       const birthDate = new Date(result.data.birthDate);
@@ -132,19 +118,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       // Create participant with calculated age
-      console.log("Creating participant with data:", {
-        ...result.data,
-        age
-      });
-      
-      // Create the participant
       const participant = await storage.createParticipant({
         ...result.data,
         age
       });
       
-      console.log("Participant successfully created with ID:", participant.id);
-    
       // Get the language preference from request - priority order:
       // 1. Explicitly provided language parameter in the request body
       // 2. Language in the URL path
@@ -175,15 +153,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         }
       }
       
-      // Generate payment URL
-      // This will direct the user to a payment page for their race registration
-      // Use absolute URL with origin from the request, falling back to default if not available
-      const origin = req.get('origin') || req.protocol + '://' + req.get('host');
-      const paymentUrl = `${origin}/payment?participantId=${participant.id}&raceId=${race.id}&amount=${race.price}`;
-      
-      console.log(`Generated payment URL for participant ${participant.id}: ${paymentUrl}`);
-      
-      // Send confirmation email with payment link
+      // Send confirmation email 
       const raceCategory = `${race.distance}km ${race.difficulty}`;
       
       try {
@@ -192,13 +162,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
           participant.firstName,
           participant.lastName,
           raceCategory,
-          emailLanguage,
-          participant.id,
-          paymentUrl
+          emailLanguage
         );
         
         if (emailSent) {
-          console.log(`Registration confirmation email with payment link sent to ${participant.email} in ${emailLanguage} language`);
+          console.log(`Registration confirmation email sent to ${participant.email} in ${emailLanguage} language`);
         } else {
           console.warn(`Failed to send registration confirmation email to ${participant.email}`);
         }
@@ -388,7 +356,7 @@ This message was sent from the Stana de Vale Trail Race website contact form.
   apiRouter.get("/ema-circuit/regulations", async (req: Request, res: Response) => {
     try {
       const pdfFileName = 'Regulation2025_ORRCircuit.pdf';
-      const pdfFilePath = path.join(process.cwd(), 'public', 'regulations', pdfFileName);
+      const pdfFilePath = path.join(process.cwd(), 'attached_assets', pdfFileName);
       
       // Check if file exists
       if (!fs.existsSync(pdfFilePath)) {
@@ -425,18 +393,13 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       // Log the request
       console.log(`Attempting to send test email to: ${email} in language: ${validLanguage}`);
       
-      // Send test email with a sample payment link
-      const testPaymentUrl = `${req.protocol}://${req.get('host')}/payment?test=true&amount=75`;
-      console.log(`Test payment URL for email: ${testPaymentUrl}`);
-      
+      // Send test email
       const result = await sendRegistrationConfirmationEmail(
         email,
         "Test",
         "User",
         "33K Trail Run",
-        validLanguage,
-        999, // Test participant ID
-        testPaymentUrl
+        validLanguage
       );
       
       if (result) {
@@ -518,161 +481,6 @@ This message was sent from the Stana de Vale Trail Race website contact form.
         "4. Test sending an email from this page to confirm everything works"
       ]
     });
-  });
-  
-  // Stripe Payment Endpoints
-  apiRouter.post("/create-payment-intent", async (req: Request, res: Response) => {
-    try {
-      const { amount, raceId, participantId } = req.body;
-      
-      if (!amount || amount <= 0) {
-        return res.status(400).json({ message: "Invalid payment amount" });
-      }
-      
-      // Fetch the race to get details for the payment metadata
-      let raceInfo = null;
-      if (raceId) {
-        const race = await storage.getRaceById(parseInt(raceId));
-        if (race) {
-          raceInfo = `${race.name} (${race.distance}km)`;
-        }
-      }
-      
-      // Fetch participant info for metadata if available
-      let participantInfo = null;
-      if (participantId) {
-        const participant = await storage.getParticipantById(parseInt(participantId));
-        if (participant) {
-          participantInfo = `${participant.firstName} ${participant.lastName}`;
-        }
-      }
-      
-      // Create a payment intent with the order amount and currency
-      const paymentIntent = await stripe.paymentIntents.create({
-        amount: Math.round(amount * 100), // Convert to cents
-        currency: "eur",
-        // Payment method types - add more as needed
-        payment_method_types: ["card"],
-        metadata: {
-          raceId: raceId || '',
-          raceName: raceInfo || 'Race registration',
-          participantId: participantId || '',
-          participantName: participantInfo || '',
-        },
-      });
-      
-      // Send the client secret to the client
-      res.json({ 
-        clientSecret: paymentIntent.client_secret,
-        paymentIntentId: paymentIntent.id
-      });
-    } catch (error: any) {
-      console.error("Error creating payment intent:", error);
-      
-      res.status(500).json({ 
-        message: "Error creating payment intent", 
-        error: error.message 
-      });
-    }
-  });
-  
-  // Webhook endpoint to handle Stripe events (payment confirmations, etc.)
-  apiRouter.post("/stripe-webhook", express.raw({type: 'application/json'}), async (req: Request, res: Response) => {
-    const sig = req.headers['stripe-signature'] as string;
-    const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET; // You'll need to set this up later
-    
-    let event;
-    
-    try {
-      // No webhook validation for now, just parse the JSON
-      if (!endpointSecret) {
-        // If we don't have the webhook secret yet, just parse the request body
-        event = JSON.parse(req.body);
-      } else {
-        // If we have a webhook secret, validate the signature
-        event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
-      }
-      
-      // Handle the event
-      switch (event.type) {
-        case 'payment_intent.succeeded':
-          const paymentIntent = event.data.object;
-          console.log(`Payment succeeded: ${paymentIntent.id}`);
-          
-          // Update participant status if we have participant info
-          if (paymentIntent.metadata && paymentIntent.metadata.participantId) {
-            const participantId = parseInt(paymentIntent.metadata.participantId);
-            try {
-              await storage.updateParticipantStatus(participantId, 'paid');
-              console.log(`Updated participant ${participantId} status to paid`);
-              
-              // Get participant and race info to send confirmation email
-              const participant = await storage.getParticipantById(participantId);
-              
-              if (participant) {
-                console.log(`Sending payment confirmation email to ${participant.email}`);
-                
-                // Determine language based on participant country or fallback to English
-                const language = participant.country.toLowerCase().substring(0, 2);
-                const validLanguage = ['en', 'ro', 'fr', 'de', 'it', 'es'].includes(language) ? language : 'en';
-                
-                // Get race info for the email
-                const race = paymentIntent.metadata.raceId 
-                  ? await storage.getRaceById(parseInt(paymentIntent.metadata.raceId))
-                  : null;
-                  
-                const raceInfo = race 
-                  ? `${race.name} (${race.distance}km ${race.difficulty})`
-                  : "Stana de Vale Trail Race";
-                
-                // Import email function dynamically to avoid circular dependency
-                const { sendRegistrationConfirmationEmail } = await import('./email');
-                
-                // Send payment confirmation email
-                try {
-                  const emailSent = await sendRegistrationConfirmationEmail(
-                    participant.email,
-                    participant.firstName,
-                    participant.lastName,
-                    raceInfo,
-                    validLanguage,
-                    participant.id,
-                    undefined, // No payment URL as they've already paid
-                    true  // Indicate this is a payment confirmation
-                  );
-                  
-                  if (emailSent) {
-                    console.log(`Payment confirmation email sent to ${participant.email}`);
-                  } else {
-                    console.warn(`Failed to send payment confirmation email to ${participant.email}`);
-                  }
-                } catch (emailError) {
-                  console.error(`Error sending payment confirmation email: ${emailError}`);
-                }
-              }
-            } catch (err) {
-              console.error(`Error updating participant status or sending confirmation: ${err}`);
-            }
-          }
-          break;
-          
-        case 'payment_intent.payment_failed':
-          const failedPaymentIntent = event.data.object;
-          console.log(`Payment failed: ${failedPaymentIntent.id}`);
-          
-          // You could update the participant status to 'payment_failed' here if needed
-          break;
-          
-        default:
-          console.log(`Unhandled event type: ${event.type}`);
-      }
-      
-      // Return a 200 response to acknowledge receipt of the event
-      res.json({received: true});
-    } catch (err: any) {
-      console.error(`Error processing webhook: ${err.message}`);
-      res.status(400).send(`Webhook Error: ${err.message}`);
-    }
   });
 
   // Mount the API router

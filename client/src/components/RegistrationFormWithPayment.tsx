@@ -93,7 +93,22 @@ const RegistrationFormWithPayment = () => {
 
   const registerMutation = useMutation({
     mutationFn: async (data: Omit<RegistrationFormInputs, "termsAccepted">) => {
-      return apiRequest("POST", "/api/participants", data);
+      // Transform data to match database column names
+      const transformedData = {
+        ...data,
+        emergencycontactname: data.emergencyContactName,
+        emergencycontactphone: data.emergencyContactPhone,
+        isemaparticipant: data.isEmaParticipant,
+        tshirtsize: data.tshirtSize
+      };
+      
+      // Remove original camelCase properties that have been transformed
+      delete (transformedData as any).emergencyContactName;
+      delete (transformedData as any).emergencyContactPhone;
+      delete (transformedData as any).isEmaParticipant;
+      delete (transformedData as any).tshirtSize;
+      
+      return apiRequest("POST", "/api/participants", transformedData);
     },
     onSuccess: async (response) => {
       // Parse the response to get the participant data
