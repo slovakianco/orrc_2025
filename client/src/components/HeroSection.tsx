@@ -33,7 +33,7 @@ const HeroSection = ({ imageUrl }: HeroSectionProps) => {
           {/* Left Content */}
           <div className="lg:w-1/2 mb-10 lg:mb-0">
             {/* Event date badge */}
-            <div className="inline-flex items-center gap-2 bg-alpine text-stone-beige px-4 py-2 rounded-full text-sm font-bold mb-6 shadow-lg">
+            <div className="inline-flex items-center gap-2 bg-alpine text-white px-4 py-2 rounded-full text-sm font-bold mb-6 shadow-lg">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -94,7 +94,7 @@ const HeroSection = ({ imageUrl }: HeroSectionProps) => {
               </Link>
               <Link
                 href="/races"
-                className="btn btn-lg bg-alpine hover:bg-alpine/90 text-stone-beige font-bold px-8 py-4 rounded-lg transition-all duration-300 shadow-lg flex items-center gap-2"
+                className="btn btn-lg bg-alpine hover:bg-alpine/90 text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 shadow-lg flex items-center gap-2"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

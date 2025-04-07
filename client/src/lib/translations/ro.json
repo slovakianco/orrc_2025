@@ -94,13 +94,13 @@
     },
     "filters": {
       "all": "Toate cursele",
-      "classic_updown": "Clasic URCARE/COBORÂRE",
-      "long_trail": "Traseu lung"
+      "classic_updown": "Clasic UP/DOWN",
+      "long_trail": "Long Trail"
     },
     "difficulty": {
       "label": "Tip",
-      "classic_updown": "Clasic URCARE/COBORÂRE",
-      "long_trail": "Traseu lung"
+      "classic_updown": "UP/DOWN",
+      "long_trail": "Long Trail"
     },
     "dates": {
       "15": "15 iunie",
@@ -119,7 +119,7 @@
     "loading": "Încărcare curse...",
     "noRacesFound": "Nicio cursă găsită",
     "tryDifferentFilter": "Încearcă o opțiune de filtrare diferită",
-    "aidStations": "{{count}} Punct de ajutor",
+    "aidStations": "{{count}} Punct de hidratare",
     "aidStations_plural": "{{count}} Puncte de ajutor",
     "certification": {
       "ema": "Circuitul EMA Off-Road Running 2025",

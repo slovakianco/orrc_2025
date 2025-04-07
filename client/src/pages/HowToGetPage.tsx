@@ -414,6 +414,58 @@ const HowToGetPage: React.FC = () => {
             </Card>
           </div>
         </div>
+        
+        {/* Trail Tips Section with Trail Brown Background */}
+        <div className="bg-trail-brown rounded-lg shadow-xl p-6 mb-8 text-white">
+          <div className="flex items-center gap-3 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m12 3-4 8 4-2 4 2-4-8Z"></path>
+              <path d="M12 21v-8"></path>
+              <path d="m8 13-4 8h16l-4-8"></path>
+            </svg>
+            <h2 className="text-xl md:text-2xl font-bold">{t('howToGet.trailTips.title')}</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h3 className="text-lg font-semibold mb-2">{t('howToGet.trailTips.weather.title')}</h3>
+              <p className="mb-4">{t('howToGet.trailTips.weather.description')}</p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-1">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                  <span>{t('howToGet.trailTips.weather.tip1')}</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-1">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                  <span>{t('howToGet.trailTips.weather.tip2')}</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold mb-2">{t('howToGet.trailTips.localInfo.title')}</h3>
+              <p className="mb-4">{t('howToGet.trailTips.localInfo.description')}</p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-1">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                  <span>{t('howToGet.trailTips.localInfo.tip1')}</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-1">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                  <span>{t('howToGet.trailTips.localInfo.tip2')}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

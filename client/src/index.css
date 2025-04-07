@@ -116,18 +116,22 @@
   /* Difficulty Colors */
   .bg-difficulty-beginner {
     background-color: var(--color-alpine-green);
+    color: white;
   }
   
   .bg-difficulty-intermediate {
     background-color: var(--color-sunrise-yellow);
+    color: white;
   }
   
   .bg-difficulty-advanced {
     background-color: var(--color-sunset-orange);
+    color: white;
   }
   
   .bg-difficulty-ultra {
     background-color: var(--color-trail-brown);
+    color: white;
   }
   
   .text-difficulty-beginner {
@@ -173,26 +177,42 @@
   
   .bg-alpine {
     background-color: var(--color-alpine-green);
+    color: white;
   }
   
   .bg-sky {
     background-color: var(--color-sky-blue);
+    color: white;
   }
   
   .bg-sunset {
     background-color: var(--color-sunset-orange);
+    color: white;
   }
   
   .bg-sunrise {
     background-color: var(--color-sunrise-yellow);
+    color: white;
   }
   
   .bg-stone {
     background-color: var(--color-stone-beige);
+    color: var(--color-slate-gray);
   }
   
   .bg-slate {
     background-color: var(--color-slate-gray);
+    color: white;
+  }
+  
+  .bg-trail-brown {
+    background-color: var(--color-trail-brown);
+    color: white;
+  }
+  
+  .bg-pine {
+    background-color: var(--color-pine-green);
+    color: white;
   }
   
   .shadow-text {

@@ -836,6 +836,21 @@
         }
       }
     },
+    "trailTips": {
+      "title": "Essential Trail Running Tips",
+      "weather": {
+        "title": "Weather Preparation",
+        "description": "Mountain weather can be unpredictable year-round. Be prepared for all conditions.",
+        "tip1": "Check the forecast before departure and pack for variable conditions.",
+        "tip2": "Bring extra layers even on warm days, as temperature drops quickly with elevation."
+      },
+      "localInfo": {
+        "title": "Local Information",
+        "description": "Some useful tips to enhance your experience in Stana de Vale.",
+        "tip1": "The area has limited mobile coverage, so download maps in advance.",
+        "tip2": "Local spring water is safe to drink and available at various points along the trails."
+      }
+    },
     "accommodation": {
       "title": "Accommodation Options",
       "description": "There are several accommodation options in and around Stana de Vale to suit different preferences and budgets.",
