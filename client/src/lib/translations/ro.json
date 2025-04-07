@@ -4,31 +4,49 @@
     "submitting": "Se trimite...",
     "error": "A apărut o eroare",
     "success": "Succes!",
-    "notAvailable": "Indisponibil"
+    "notAvailable": "Indisponibil",
+    "filter": "Filtru",
+    "search": "Căutare",
+    "clear": "Șterge",
+    "view": "Vizualizare",
+    "sort": "Sortare",
+    "sortBy": "Sortează după",
+    "ascending": "Crescător",
+    "descending": "Descrescător",
+    "name": "Nume",
+    "date": "Dată",
+    "apply": "Aplică",
+    "cancel": "Anulează",
+    "notFound": "Nu a fost găsit",
+    "notFoundDescription": "Pagina pe care o cauți nu există.",
+    "goBack": "Înapoi",
+    "goHome": "Mergi la pagina principală",
+    "languageSelector": "Selector de limbă"
   },
   "nav": {
     "home": "Acasă",
     "races": "Curse",
     "registration": "Înregistrare",
     "participants": "Participanți",
-    "rules": "Regulament",
+    "rules": "Reguli",
     "program": "Program",
     "contact": "Contact",
     "sponsors": "Sponsori",
-    "emaCircuit": "Circuit EMA 2025",
+    "emaCircuit": "Circuitul EMA 2025",
     "cnMasters": "CN Masters",
-    "howToGet": "Stana de Vale",
+    "howToGet": "Cum să ajungi",
+    "accommodation": "Cazare",
     "registerButton": "Înregistrează-te acum"
   },
   "hero": {
     "title": "Provocarea Munților",
-    "subtitle": "Experimentează emoția alergării montane prin peisaje montane incredibile. Alătură-te alergătorilor din întreaga lume în această competiție de neuitat.",
-    "date": "4-5 Iulie, 2025",
+    "subtitle": "Experimentează emoția alergării pe trasee montane prin peisaje montane uluitoare. Alătură-te alergătorilor din întreaga lume în această competiție de neuitat.",
+    "date": "4-5 iulie 2024",
     "registerButton": "Înregistrează-te acum",
     "exploreButton": "Explorează cursele",
-    "imageAlt": "Alergare montană în munți",
-    "enhancedDescription": "Cursa de 33K face parte din Circuitul EMA Off-Road Running 2025 și Campionatul Naţional de Alergare Montană Masters. O experiență de neuitat vă așteaptă în frumoșii Munți Carpați.",
-    "mainTitle": "Stâna de Vale Trail Race",
+    "imageAlt": "Alergare pe trasee montane",
+    "enhancedDescription": "Ambele curse de 11K și 33K fac parte din Circuitul EMA Off-Road 2025. Cursa de 33K este, de asemenea, parte a Campionatului Național de Alergare Montană pentru Masters. Te așteaptă o experiență de neuitat în frumoșii Munți Carpați.",
+    "mainTitle": "Cursa pe traseu Stâna de Vale",
     "landscapeAlt": "Peisaj montan Stâna de Vale",
     "trailAlt": "Peisaj traseu Stâna de Vale"
   },
@@ -39,8 +57,8 @@
       "linkText": "Vezi pe hartă"
     },
     "date": {
-      "title": "Data",
-      "content": "4-5 Iulie, 2025",
+      "title": "Dată",
+      "content": "4-5 iulie 2025",
       "linkText": "Vezi programul complet"
     },
     "participants": {
@@ -51,183 +69,197 @@
   },
   "home": {
     "featuredRaces": "Curse Recomandate",
-    "details": "Experimentează frumusețea alergării montane cu cursele noastre de 11km și 33km în Munții Carpați. Cursa de 33km face parte din Circuitul EMA Off-Road Running 2025.",
+    "details": "Experimentează frumusețea alergării pe trasee cu cursele noastre de 11km și 33km în Munții Carpați. Ambele curse fac parte din Circuitul EMA Off-Road Running 2025.",
     "aboutCompetition": "Despre Competiție",
-    "competitionDescription1": "Alătură-te nouă pentru o experiență de alergare montană de neuitat în minunații Munți Carpați. Cursele noastre oferă trasee provocatoare cu priveliști spectaculoase, concepute atât pentru începători cât și pentru alergători experimentați.",
-    "competitionDescription2": "Cursa de 33km face parte din Circuitul EMA Off-Road Running 2025 și Campionatul Național de Alergare Montană Masters. Cursa de 11km este perfectă pentru cei noi în alergarea montană sau care caută o provocare mai scurtă.",
-    "competitionDescription3": "Ambele curse au loc pe 6 iunie 2025, cu cronometrare profesională, trasee bine marcate și suport complet pe tot parcursul traseului.",
+    "competitionDescription1": "Alătură-te nouă pentru o experiență de alergare pe traseu de neuitat în impresionanții Munți Carpați. Cursele noastre oferă terenuri provocatoare cu vederi spectaculoase, concepute atât pentru începători, cât și pentru alergătorii experimentați pe trasee.",
+    "competitionDescription2": "Ambele curse de 11km și 33km fac parte din Circuitul EMA Off-Road Running 2025. Cursa de 33km este, de asemenea, parte a Campionatului Național de Alergare Montană pentru Masters. Cursa de 11km este perfectă pentru cei noi în alergarea pe traseu sau care caută o provocare mai scurtă.",
+    "competitionDescription3": "Ambele curse au loc pe 6 iunie 2025, cu cronometrare profesională, trasee bine marcate și suport complet pe parcursul traseului.",
     "stanaDeVale": {
       "title": "Stâna de Vale",
-      "description1": "În primul week-end din iulie, Stâna de Vale va găzdui a doua etapă a Circuitului EMA Off-Road 2025. Stâna de Vale este în prezent o stațiune montană bine cunoscută - aflată la 1000m altitudine - situată în nord-vestul României, județul Bihor. Inițial, faima stațiunii a provenit din izvoarele de apă minerală din zonă, recomandate în special pentru o serie de tratamente.",
+      "description1": "În primul weekend din iulie, Stâna de Vale va găzdui a doua etapă a Circuitului EMA Off-Road 2025. Stâna de Vale este astăzi o bine-cunoscută stațiune montană – altitudine 1000m – situată în nord-vestul României, județul Bihor. Inițial, faima stațiunii a provenit din izvoarele de apă minerală din zonă, recomandate în special pentru diverse tratamente.",
       "description2": "În ultimii ani, zona a fost dezvoltată pentru a atrage turiști cu peisajele sale relaxante și ca stațiune de schi.",
-      "hostTitle": "Organizatorul",
-      "hostDescription": "ACS Atletic Beiuş și-a făcut un nume în comunitatea românească a alergătorilor de off-road prin organizarea anuală a foarte reușitului \"Beiuş Running Day\", o cursă de 10k/21k trail în dealurile din vecinătatea orașului. Calitatea organizării și geografia regiunii au determinat Comisia de Masters din cadrul FRA să provoace gazda să organizeze ediția 2024 a Campionatelor Naționale de Alergare Montană mai sus, în apropierea Stânei de Vale. Întâlnirea de o zi, incluzând un clasic 11k up&down D+470m și un 33k long trail D+1300m, a fost foarte apreciată de concurenți, care au insistat pentru o repetare a evenimentului în 2025. Contribuția generoasă a sponsorilor locali la petrecerea de după cursă probabil că a avut un impact mare asupra solicitării participanților pentru un bis."
+      "hostTitle": "Gazdă",
+      "hostDescription": "ACS Atletic Beiuș și-a câștigat un renume în comunitatea românească a alergătorilor off-road pentru organizarea anuală a foarte apreciatului „Beiuș Running Day”, o alergare pe traseu de 10k/21k în dealurile din vecinătatea orașului. Calitatea organizării și geografia regiunii au determinat Comisia Masters din cadrul FRA să provoace gazda să organizeze ediția 2024 a Campionatelor Naționale de Alergare Montană mai sus, în apropierea Stânei de Vale. Întâlnirea de o zi, incluzând un traseu clasic de 11k urcare/coborâre D+470m și un traseu lung de 33k D+1300m, a fost foarte apreciată de competitori, care au insistat pentru repetarea evenimentului în 2025. Contribuția generoasă a sponsorilor locali la petrecerea de după cursă trebuie să fi influențat în mare măsură cererea participanților pentru o reeditare."
     }
   },
   "races": {
-    "title": "Explorează Cursele Noastre",
-    "subtitle": "De la trasee prietenoase pentru începători până la ultra-maratoane montane provocatoare, găsește cursa perfectă pentru nivelul și ambiția ta.",
-    "filterTitle": "Filtrează Cursele",
+    "title": "Explorează cursele noastre",
+    "subtitle": "De la trasee prietenoase pentru începători la ultra provocatoare montane, găsește cursa perfectă pentru nivelul și ambiția ta.",
+    "filterTitle": "Filtrează cursele",
     "filterBy": "Filtrează după",
     "filter": {
-      "all": "Toate Cursele",
-      "beginner": "Pentru Începători",
-      "advanced": "Trasee Avansate"
+      "all": "Toate cursele",
+      "beginner": "Prietenoase pentru începători",
+      "advanced": "Trasee avansate"
     },
     "filters": {
-      "all": "Toate Cursele",
-      "beginner": "Începător",
-      "intermediate": "Intermediar",
-      "advanced": "Avansat",
-      "ultra": "Ultra"
+      "all": "Toate cursele",
+      "classic_updown": "Clasic URCARE/COBORÂRE",
+      "long_trail": "Traseu lung"
     },
     "difficulty": {
-      "label": "Dificultate",
-      "beginner": "Începător",
-      "intermediate": "Intermediar",
-      "advanced": "Avansat",
-      "ultra": "Ultra"
+      "label": "Tip",
+      "classic_updown": "Clasic URCARE/COBORÂRE",
+      "long_trail": "Traseu lung"
     },
     "dates": {
-      "4": "4 Iulie",
-      "5": "5 Iulie",
-      "6": "6 Iulie",
-      "05": "5 Iulie",
-      "15": "15 Iunie",
-      "16": "16 Iunie",
-      "17": "17 Iunie"
+      "15": "15 iunie",
+      "16": "16 iunie",
+      "17": "17 iunie",
+      "4": "4 iulie",
+      "5": "5 iulie",
+      "6": "6 iulie",
+      "05": "5 iulie"
     },
-    "viewDetails": "Vezi Detalii",
-    "viewAllButton": "Vezi Toate Cursele",
-    "elevation": "Altitudine",
+    "viewDetails": "Vezi detalii",
+    "viewAllButton": "Vezi toate cursele",
+    "elevation": "Elevație",
     "distance": "Distanță",
     "price": "Preț",
-    "loading": "Se încarcă cursele...",
-    "noRacesFound": "Nu s-au găsit curse",
-    "tryDifferentFilter": "Încearcă o opțiune diferită de filtrare",
+    "loading": "Încărcare curse...",
+    "noRacesFound": "Nicio cursă găsită",
+    "tryDifferentFilter": "Încearcă o opțiune de filtrare diferită",
+    "aidStations": "{{count}} Punct de ajutor",
+    "aidStations_plural": "{{count}} Puncte de ajutor",
     "certification": {
-      "ema": "Parte din Circuitul EMA Off-Road Running 2025",
-      "national": "Campionatul Naţional de Alergare Montană Masters",
+      "ema": "Circuitul EMA Off-Road Running 2025",
+      "national": "Campionatul Național de Alergare Montană Masters",
       "nationalShort": "Campionat Național"
     },
-    "backToList": "Înapoi la Curse",
+    "backToList": "Înapoi la curse",
     "notFound": {
       "title": "Cursa nu a fost găsită",
-      "message": "Cursa pe care o căutați nu există sau a fost eliminată.",
-      "backButton": "Înapoi la Curse"
+      "message": "Cursa pe care o cauți nu există sau a fost eliminată.",
+      "backButton": "Înapoi la curse"
     },
     "details": {
       "about": "Despre această cursă",
       "info": "Informații despre cursă",
       "price": "Taxă de înscriere",
-      "date": "Data",
+      "date": "Dată",
       "distance": "Distanță",
-      "elevation": "Diferență de nivel",
+      "elevation": "Creștere în elevație",
       "difficulty": "Dificultate",
-      "aidStations": "Puncte de alimentare",
-      "aidStationsTitle": "Puncte de hidratare și alimentare", 
-      "aidStationsDescription": "Cursele noastre sunt echipate cu puncte de alimentare bine aprovizionate pentru a vă menține hidratați și energizați pe tot parcursul traseului. Fiecare punct oferă apă, băuturi sportive și gustări ușoare.",
-      "aidStationsLocations": "Locații puncte de alimentare",
-      "aidStation": "Punct de alimentare",
+      "aidStations": "Puncte de ajutor",
+      "aidStationsTitle": "Apă și puncte de ajutor",
+      "aidStationsDescription": "Cursele noastre sunt echipate cu puncte de ajutor bine aprovizionate pentru a te menține hidratat și plin de energie pe parcursul traseului. Fiecare punct oferă apă, băuturi sportive și gustări ușoare.",
+      "aidStationsLocations": "Locații puncte de ajutor",
+      "aidStation": "Punct de ajutor",
       "waterAndSnacks": "Apă, băuturi sportive și gustări ușoare",
       "registerButton": "Înregistrează-te acum",
       "downloadGPX": "Descarcă GPX",
-      "map": "Hartă",
-      "description": "Descriere",
-      "trailMap": "Harta Traseului",
-      "backToRaces": "Înapoi la Toate Cursele",
-      "cutoffTime": "Timp Limită",
-      "startTime": "Ora de Start",
-      "loading": "Se încarcă detaliile cursei..."
+      "map": "Hartă"
     },
     "raceDetail": {
-      "details": "Detalii Cursă",
+      "details": "Detalii cursă",
       "description": "Descriere",
-      "date": "Data",
+      "date": "Dată",
       "distance": "Distanță",
-      "elevation": "Diferență de Nivel",
+      "elevation": "Creștere în elevație",
       "difficulty": "Dificultate",
-      "price": "Taxă de Participare",
-      "trailMap": "Harta Traseului",
-      "registerButton": "Înregistrează-te Acum",
-      "backToRaces": "Înapoi la Toate Cursele",
-      "aidStations": "Puncte de Hidratare",
-      "cutoffTime": "Timp Limită",
-      "startTime": "Ora de Start",
-      "loading": "Se încarcă detaliile cursei...",
+      "price": "Taxă de înscriere",
+      "trailMap": "Hartă traseu",
+      "registerButton": "Înregistrează-te acum",
+      "backToRaces": "Înapoi la toate cursele",
+      "aidStations": "Puncte de ajutor",
+      "cutoffTime": "Timp limită",
+      "startTime": "Ora de start",
+      "loading": "Încărcare detalii cursă...",
       "downloadGPX": "Descarcă GPX",
-      "map": "Harta"
+      "map": "Hartă"
     }
   },
   "registration": {
-    "title": "Înregistrare pentru Competiție",
-    "subtitle": "Completează formularul de mai jos pentru a-ți asigura un loc într-una din cursele noastre.",
+    "title": "Înregistrează-te pentru competiție",
+    "subtitle": "Completează formularul de mai jos pentru a-ți asigura locul într-una din cursele noastre.",
+    "paymentStep": "Finalizează plata",
+    "completePayment": "Pentru a confirma înregistrarea, te rugăm să completezi plata de mai jos.",
+    "paymentLater": "Poți finaliza plata mai târziu. Înregistrarea ta este salvată, dar nu este încă confirmată.",
     "form": {
       "firstName": "Prenume",
-      "lastName": "Nume",
-      "email": "Adresă de Email",
-      "phone": "Număr de Telefon",
+      "lastName": "Nume de familie",
+      "email": "Adresa de email",
+      "phone": "Număr de telefon",
       "country": "Țară",
       "selectCountry": "Selectează țara ta",
-      "birthDate": "Data Nașterii",
+      "birthDate": "Data nașterii",
       "gender": "Gen",
       "male": "Masculin",
       "female": "Feminin",
-      "selectRace": "Selectează Cursa",
-      "emergencyContactName": "Nume Contact de Urgență",
-      "emergencyContactPhone": "Telefon Contact de Urgență",
-      "medical": "Informații Medicale",
-      "medicalPlaceholder": "Te rugăm să împărtășești orice informație medicală relevantă (alergii, afecțiuni, etc.)",
-      "emaParticipation": "Doresc să particip în Circuitul EMA Off-Road Running",
-      "emaInfo": "Prin selectarea acestei opțiuni, îți indici interesul de a participa în competiția EMA Off-Road Running Circuit.",
-      "paymentStep": "Finalizează Plata Ta",
-      "completePayment": "Pentru a confirma înregistrarea ta, te rugăm să finalizezi plata de mai jos.",
-      "paymentLater": "Poți completa plata mai târziu. Înregistrarea ta este salvată dar nu este încă confirmată.",
-      "emaIncludesTshirt": "Include un tricou al evenimentului cu branding EMA Off-Road Running Circuit.",
-      "emaEligibilityCriteria": "Participarea în Liga EMA Off-Road Running este deschisă tuturor atleților care îndeplinesc criteriile Masters Off-Road running, mai exact cei cu vârste între 35-79 de ani, și care dețin o licență validă de la Federația lor respectivă, în conformitate cu regulile WMA. Validarea licenței va fi necesară în ziua cursei.",
-      "tshirtSize": "Mărime Tricou",
-      "selectTshirtSize": "Selectează mărimea tricoului",
+      "selectRace": "Selectează cursa ta",
+      "emergencyContactName": "Nume contact de urgență",
+      "emergencyContactPhone": "Telefon contact de urgență",
+      "medical": "Informații medicale",
+      "medicalPlaceholder": "Te rugăm să împărtășești orice informații medicale relevante (alergii, afecțiuni etc.)",
+      "emaParticipation": "Vreau să particip la Circuitul EMA Off-Road Running",
+      "emaInfo": "Prin selectarea acestei opțiuni, îți indici interesul de a participa la competiția Circuitului EMA Off-Road Running.",
+      "emaIncludesTshirt": "Include un tricou al evenimentului cu branding-ul Circuitului EMA Off-Road Running.",
+      "emaEligibilityCriteria": "Participarea la Liga EMA Off-Road Running este deschisă tuturor atleților care îndeplinesc criteriile Masters Off-Road, în special cei cu vârste între 35-79 de ani, și care dețin o licență valabilă de la federația lor respectivă, conform regulilor WMA. Validarea licenței va fi necesară în ziua cursei.",
+      "tshirtSize": "Mărime tricou",
+      "selectTshirtSize": "Selectează mărimea tricoului tău",
       "termsText": "Am citit și sunt de acord cu",
       "termsLink": "termenii și condițiile",
       "andText": "și",
       "privacyLink": "politica de confidențialitate",
-      "riskText": "Înțeleg riscurile asociate cu alergarea montană.",
-      "submitButton": "Finalizează Înregistrarea"
+      "riskText": "Înțeleg riscurile asociate cu alergarea pe traseu.",
+      "submitButton": "Finalizează înregistrarea"
     },
     "success": {
-      "title": "Înregistrare Reușită",
+      "title": "Înregistrare reușită",
       "message": "Îți mulțumim pentru înregistrare! Vei primi un email de confirmare în curând."
     },
-    "successTitle": "Înregistrare Confirmată!",
+    "successTitle": "Înregistrare confirmată!",
     "successMessage": "Îți mulțumim pentru plata ta! Înregistrarea ta a fost confirmată.",
-    "checkEmail": "Te rugăm să-ți verifici email-ul pentru un mesaj de confirmare cu toate detaliile înregistrării tale.",
-    "viewParticipants": "Vezi Lista Participanților",
+    "checkEmail": "Te rugăm să verifici email-ul pentru un mesaj de confirmare cu toate detaliile înregistrării tale.",
+    "viewParticipants": "Vezi lista participanților",
     "error": {
-      "title": "Înregistrare Eșuată",
+      "title": "Înregistrarea a eșuat",
       "message": "A apărut o eroare la procesarea înregistrării tale. Te rugăm să încerci din nou."
     }
   },
   "participants": {
-    "title": "Participanți Înregistrați",
-    "subtitle": "Navighează prin lista participanților înregistrați în prezent. Verifică cine participă la fiecare cursă și găsește prieteni sau competitori.",
-    "searchPlaceholder": "Caută după nume sau țară...",
-    "allRaces": "Toate Cursele",
-    "allCountries": "Toate Țările",
-    "noParticipants": "Nu s-au găsit participanți",
+    "title": "Participanți înregistrați",
+    "subtitle": "Răsfoiește lista alergătorilor înregistrați în prezent. Verifică cine se alătură fiecărei curse și găsește prieteni sau competitori.",
+    "searchPlaceholder": "Caută după nume...",
+    "filterByCountry": "Filtrează după țară",
+    "filterByRace": "Filtrează după cursă",
+    "allRaces": "Toate cursele",
+    "allCountries": "Toate țările",
+    "clearFilters": "Șterge filtrele",
+    "participantsFound": "participanți găsiți",
+    "filterApplied": "filtre aplicate",
+    "tableView": "Vizualizare tabel",
+    "cardView": "Vizualizare card",
+    "loading": "Încărcare participanți...",
+    "noParticipantsFound": "Niciun participant găsit",
+    "tryDifferentFilter": "Încearcă un filtru diferit sau șterge căutarea",
+    "noParticipants": "Niciun participant găsit",
     "countryParticipants": "{{count}} participanți din această țară",
     "table": {
       "name": "Nume",
       "country": "Țară",
       "race": "Cursă",
-      "bib": "Nr. Bib",
-      "status": "Status"
+      "bib": "Numar #",
+      "bibNumber": "Număr de concurs",
+      "status": "Stare",
+      "age": "Vârstă",
+      "gender": "Gen"
     },
     "status": {
       "confirmed": "Confirmat",
       "pending": "În așteptare",
       "cancelled": "Anulat"
     },
-    "unknownRace": "Cursă Necunoscută",
+    "gender": {
+      "male": "Masculin",
+      "female": "Feminin"
+    },
+    "unknownRace": "Cursă necunoscută",
+    "race": "Cursă",
+    "gender": "Gen",
+    "age": "Vârstă",
+    "bibNumber": "Număr de concurs",
+    "notAssigned": "Neatribuit",
     "pagination": {
       "showing": "Se afișează",
       "to": "până la",
@@ -235,221 +267,221 @@
       "entries": "înregistrări"
     },
     "filters": {
-      "all": "Toate",
+      "all": "Toți",
       "ema": "Circuit EMA",
-      "open": "Cursă Deschisă",
+      "open": "Cursă deschisă",
       "masters": "Masters",
       "confirmed": "Confirmat",
       "emaFilter": "Participare EMA",
       "showEmaOnly": "Arată doar participanții EMA",
       "genderCategory": "Gen",
-      "allGenders": "Toate Genurile",
+      "allGenders": "Toate genurile",
       "male": "Masculin",
       "female": "Feminin",
-      "ageCategory": "Categorie de Vârstă",
-      "allAges": "Toate Vârstele",
+      "ageCategory": "Categorie de vârstă",
+      "allAges": "Toate vârstele",
       "allMasters": "Toți Masters (35+)",
-      "status": "Status Înregistrare",
-      "allStatuses": "Toate Statusurile",
-      "resetFilters": "Resetare Filtre",
-      "clearAll": "Șterge Tot"
+      "status": "Stare înregistrare",
+      "allStatuses": "Toate stările",
+      "resetFilters": "Resetează filtrele",
+      "clearAll": "Șterge totul"
     }
   },
   "rules": {
-    "title": "Reguli și Regulamente",
-    "subtitle": "Familiarizează-te cu regulile competiției pentru a asigura o cursă sigură și corectă pentru toată lumea.",
-    "downloadButton": "Descarcă Regulamentul Complet PDF",
-    "important": "Notificare Importantă",
+    "title": "Reguli și reglementări",
+    "subtitle": "Familiarizează-te cu regulile competiției pentru a asigura o cursă sigură și corectă pentru toți.",
+    "downloadButton": "Descarcă PDF-ul cu regulile complete",
+    "important": "Notificare importantă",
     "importantDescription": "Toți participanții trebuie să respecte aceste reguli pentru siguranța lor și integritatea competiției. Nerespectarea poate duce la penalizări sau descalificare.",
-    "introduction": "Cursa Stana de Vale Trail este organizată în conformitate cu standardele și reglementările internaționale de alergare montană. Următoarele reguli se aplică tuturor participanților, atât în cursa de 11km, cât și în cea de 33km.",
-    "contactQuestion": "Ai întrebări despre reguli? Contactează-ne la:",
+    "introduction": "Cursa pe traseu Stâna de Vale este organizată în conformitate cu standardele și reglementările internaționale de alergare pe traseu. Următoarele reguli se aplică tuturor participanților la cursele de 11km și 33km.",
+    "contactQuestion": "Ai întrebări despre reguli? Contactează-ne la: contact@stanatrailrace.ro sau +40744534802",
     "sections": {
       "general": {
-        "title": "Reguli Generale",
+        "title": "Reguli generale",
         "rules": {
-          "1": "Toți alergătorii trebuie să urmeze traseul marcat în permanență. Devierea de la traseul marcat sau luarea de scurtături este strict interzisă și va duce la descalificare.",
-          "2": "Numerele de concurs trebuie să rămână vizibile în orice moment în timpul cursei.",
+          "1": "Toți alergătorii trebuie să urmeze traseul marcat în permanență. Abaterea de la traseul marcat sau luarea de scurtături este strict interzisă și va duce la descalificare.",
+          "2": "Numerele de concurs trebuie să rămână vizibile pe tot parcursul cursei.",
           "3": "Participanții trebuie să se înregistreze la toate punctele de control de-a lungul traseului.",
-          "4": "Alergătorii trebuie să respecte mediul înconjurător. Aruncarea gunoaielor este strict interzisă și va duce la descalificare.",
+          "4": "Alergătorii trebuie să respecte mediul înconjurător. Aruncarea gunoiului este strict interzisă și va duce la descalificare.",
           "5": "În caz de retragere, participanții trebuie să informeze oficialii cursei la cel mai apropiat punct de control."
         }
       },
       "equipment": {
-        "title": "Echipament Obligatoriu",
+        "title": "Echipament obligatoriu",
         "rules": {
           "1": "Număr de concurs vizibil în permanență",
           "2": "Telefon mobil complet încărcat",
           "3": "Jachetă impermeabilă",
-          "4": "Recipient pentru apă (minim 500ml)",
+          "4": "Recipient de apă (minim 500ml)",
           "5": "Pătură termică de urgență",
-          "6": "Pantofi de alergare montană"
+          "6": "Pantofi de alergare pe traseu"
         }
       },
       "recommendations": {
-        "title": "Recomandări",
+        "title": "Echipament recomandat",
         "rules": {
-          "1": "Gel sau baton energizant",
+          "1": "Geluri energetice sau batoane nutritive",
           "2": "Busolă sau buff",
           "3": "Fluier",
           "4": "Colanți sau jambiere",
-          "5": "Bețe"
+          "5": "Bețe de trekking"
         }
       },
       "timeLimits": {
-        "title": "Limite de Timp & Puncte de Control",
+        "title": "Limite de timp și întreruperi",
         "rules": {
-          "1": "Cursa de 11km: limită totală de timp 3 ore.",
-          "2": "Cursa de 33km: limită totală de timp 8 ore cu puncte de control la 15km (3 ore) și 25km (6 ore)."
+          "1": "Cursa de 11km: limită de timp de 3 ore.",
+          "2": "Cursa de 33km: limită de timp de 8 ore cu întreruperi la 15km (3 ore) și 25km (6 ore)."
         }
       },
       "aidStations": {
-        "title": "Puncte de Alimentare",
+        "title": "Puncte de ajutor",
         "rules": {
-          "1": "Cursa de 11km: Un punct de alimentare la km 5.",
-          "2": "Cursa de 33km: Cinci puncte de alimentare localizate la km 5.4, 10.4, 15.5, 20.9 și 26.6.",
-          "3": "Toate punctele de alimentare oferă apă, băuturi izotonice și gustări ușoare.",
-          "4": "Asistență medicală este disponibilă la fiecare punct de alimentare."
+          "1": "Cursa de 11km: Un punct de ajutor la km 5.",
+          "2": "Cursa de 33km: Cinci puncte de ajutor situate la km 5.4, 10.4, 15.5, 20.9 și 26.6.",
+          "3": "Toate punctele de ajutor oferă apă, băuturi izotonice și gustări ușoare.",
+          "4": "Asistența medicală este disponibilă la fiecare punct de ajutor."
         }
       },
       "penalties": {
-        "title": "Penalizări & Descalificare",
+        "title": "Penalizări și descalificare",
         "rules": {
-          "1": "Echipament obligatoriu lipsă: penalizare de 30 de minute.",
-          "2": "Aruncarea gunoaielor pe traseu: descalificare imediată.",
-          "3": "Utilizarea bețelor de trekking în zonele interzise: penalizare de 30 de minute.",
-          "4": "Neacordarea de ajutor unui alergător aflat în dificultate: descalificare.",
-          "5": "Primirea de asistență neautorizată în afara punctelor de alimentare: descalificare."
+          "1": "Lipsa echipamentului obligatoriu: penalizare de 30 de minute.",
+          "2": "Aruncarea gunoiului pe traseu: descalificare imediată.",
+          "3": "Folosirea bețelor de trekking în zone interzise: penalizare de 30 de minute.",
+          "4": "Nerespectarea ajutorului acordat unui alergător în dificultate: descalificare.",
+          "5": "Primirea de asistență neautorizată în afara punctelor de ajutor: descalificare."
         }
       },
       "safety": {
-        "title": "Reglementări de Siguranță",
+        "title": "Reguli de siguranță",
         "rules": {
           "1": "Organizatorii cursei pot modifica traseul sau anula evenimentul în caz de condiții meteorologice severe.",
           "2": "Echipele medicale au autoritatea de a retrage participanții considerați inapți să continue.",
-          "3": "Participanții trebuie să asiste orice alergător aflat în dificultate și să raporteze la următorul punct de alimentare.",
-          "4": "În caz de urgență, sună la numărul de urgență al cursei indicat pe numărul tău de concurs."
+          "3": "Participanții trebuie să ajute orice alergător în dificultate și să raporteze la următorul punct de ajutor.",
+          "4": "În caz de urgență, sună la numărul de urgență al cursei furnizat pe numărul tău de concurs."
         }
       },
       "environment": {
-        "title": "Protecția Mediului",
+        "title": "Protecția mediului",
         "rules": {
           "1": "Rămâi pe traseele marcate pentru a minimiza impactul asupra mediului.",
-          "2": "Transportă toate deșeurile până la următorul punct de alimentare sau linia de sosire.",
-          "3": "Respectă fauna și reglementările locale în zonele protejate."
+          "2": "Transportă toate deșeurile la următorul punct de ajutor sau la linia de sosire.",
+          "3": "Respectă fauna sălbatică și reglementările locale în zonele protejate."
         }
       },
       "registration": {
-        "title": "Înregistrare & Eligibilitate",
+        "title": "Înregistrare și eligibilitate",
         "rules": {
           "1": "Vârsta minimă pentru cursa de 11km: 16 ani (cu acordul părinților pentru minori).",
           "2": "Vârsta minimă pentru cursa de 33km: 18 ani.",
-          "3": "Toți participanții trebuie să semneze o declarație de răspundere înainte de cursă.",
+          "3": "Toți participanții trebuie să semneze o declarație de renunțare la răspundere înainte de cursă.",
           "4": "Numerele de concurs sunt personale și netransferabile."
         }
       }
     }
   },
   "program": {
-    "title": "Programul Evenimentului",
-    "subtitle": "Planifică-ți weekendul de cursă cu programul nostru detaliat al tuturor evenimentelor și activităților.",
-    "downloadButton": "Descarcă Programul Complet PDF",
-    "detailedSchedule": "Program Detaliat",
-    "day": "Ziua",
+    "title": "Programul evenimentului",
+    "subtitle": "Planifică-ți weekend-ul de cursă cu programul nostru detaliat al tuturor evenimentelor și activităților.",
+    "downloadButton": "Descarcă PDF-ul cu programul complet",
+    "detailedSchedule": "Program detaliat",
+    "day": "Zi",
     "dayTitles": {
-      "day1": "Vineri, 4 Iulie",
-      "day2": "Sâmbătă, 5 Iulie"
+      "day1": "Vineri, 4 iulie",
+      "day2": "Sâmbătă, 5 iulie"
     },
     "raceCenter": {
-      "title": "Centrul Competiției - Hotel Iadolina",
-      "description": "Toate activitățile evenimentului, ridicarea numerelor de concurs și administrarea cursei vor avea loc la Hotel Iadolina, care servește ca Centru Oficial al Competiției.",
-      "note": "Centrul Competiției va fi deschis de la ora 10:00 vineri până la încheierea tuturor evenimentelor sâmbătă seara."
+      "title": "Centrul cursei - Hotel Iadolina",
+      "description": "Toate activitățile evenimentului, ridicarea numerelor de concurs și administrarea cursei vor avea loc la Hotel Iadolina, care servește drept Centru Oficial al Cursei.",
+      "note": "Centrul cursei va fi deschis de la ora 10:00 vineri până la încheierea tuturor evenimentelor sâmbătă seara."
     },
     "events": {
       "kitPickup": {
-        "title": "Ridicare Kit și Număr de Concurs",
+        "title": "Ridicare număr de concurs",
         "friday": "Vineri: 10:00 - 20:00",
         "saturday": "Sâmbătă: 06:00 - 08:00",
-        "location": "Centrul Competiției"
+        "location": "Centrul cursei"
       },
       "technicalMeeting": {
-        "title": "Ședință Tehnică",
+        "title": "Întâlnire tehnică",
         "time": "Vineri, 18:00",
-        "location": "Centrul Competiției"
+        "location": "Centrul cursei"
       },
       "pastaParty": {
-        "title": "Pasta Party",
+        "title": "Petrecere cu paste",
         "time": "Vineri, 18:30",
-        "location": "Centrul Competiției"
+        "location": "Centrul cursei"
       },
       "raceStart33k": {
-        "title": "Start Cursă 33km",
+        "title": "Start cursă 33km",
         "time": "Sâmbătă, 08:30",
-        "location": "Linia de Start"
+        "location": "Linia de start"
       },
       "raceStart11k": {
-        "title": "Start Cursă 11km",
+        "title": "Start cursă 11km",
         "time": "Sâmbătă, 09:30",
-        "location": "Linia de Start"
+        "location": "Linia de start"
       },
       "awards": {
-        "title": "Ceremonia de Premiere",
+        "title": "Ceremonia de premiere",
         "time": "Sâmbătă, 15:00",
-        "location": "Scena Principală"
+        "location": "Scena principală"
       },
       "finishMeal": {
-        "title": "Masă la Sosire",
-        "description": "Masă oferită de organizatori la sosire",
-        "location": "Zona de Sosire"
+        "title": "Masă după cursă",
+        "description": "Masă oferită de organizatori la linia de sosire",
+        "location": "Zona de sosire"
       },
       "banquet": {
         "title": "Banchet",
         "time": "Sâmbătă, 18:30",
-        "location": "Centrul Competiției"
+        "location": "Centrul cursei"
       },
       "timeUnit": "ore"
     }
   },
   "heatmap": {
-    "title": "Grafic de Intensitate al Evenimentelor",
-    "description": "Vizualizare interactivă a nivelurilor de activitate pe parcursul competiției. Cercurile mai mari indică mai mulți participanți. Filtrează după zi pentru a vedea informații detaliate.",
-    "allDays": "Toate Zilele",
-    "timeOfDay": "Ora Zilei",
-    "day": "Ziua",
+    "title": "Cronologia intensității evenimentului",
+    "description": "Vizualizare interactivă a nivelurilor de activitate ale evenimentului pe parcursul competiției. Cercurile mai mari indică mai mulți participanți. Filtrează după zi pentru a vedea informații detaliate.",
+    "allDays": "Toate zilele",
+    "timeOfDay": "Ora zilei",
+    "day": "Zi",
     "day1Short": "Vin",
     "day2Short": "Sâm",
-    "expectedParticipants": "Participanți Estimați",
-    "intensityLevel": "Nivel de Activitate",
+    "expectedParticipants": "Participanți așteptați",
+    "intensityLevel": "Nivel de activitate",
     "intensity": {
-      "low": "Intensitate Scăzută",
-      "medium": "Intensitate Medie",
-      "high": "Intensitate Ridicată"
+      "low": "Intensitate scăzută",
+      "medium": "Intensitate medie",
+      "high": "Intensitate ridicată"
     },
-    "note": "Dimensiunea bulelor reprezintă numărul estimat de participanți la fiecare eveniment"
+    "note": "Dimensiunea bulei reprezintă numărul estimat de participanți la fiecare eveniment"
   },
   "contact": {
     "title": "Contactează-ne",
     "subtitle": "Ai întrebări despre competiție? Ia legătura cu echipa noastră pentru asistență.",
     "info": {
-      "title": "Informații de Contact",
+      "title": "Informații de contact",
       "email": "Email",
       "phone": "Telefon",
-      "location": "Cartierul General al Cursei",
-      "address": "Centrul Montan Resort\nMunții Carpați\nRomânia",
-      "hours": "Program Suport",
+      "location": "Sediul cursei",
+      "address": "Centrul Stațiunii Montane\nMunții Carpați\nRomânia",
+      "hours": "Ore de suport",
       "weekdays": "Luni - Vineri: 9:00 - 17:00",
       "weekend": "Weekend: 10:00 - 15:00",
       "social": "Urmărește-ne"
     },
     "form": {
-      "title": "Trimite-ne un Mesaj",
-      "name": "Numele Tău",
-      "email": "Adresă de Email",
+      "title": "Trimite-ne un mesaj",
+      "name": "Numele tău",
+      "email": "Adresa de email",
       "subject": "Subiect",
       "message": "Mesaj",
-      "submitButton": "Trimite Mesaj",
+      "submitButton": "Trimite mesaj",
       "success": {
-        "title": "Mesaj Trimis",
-        "message": "Mulțumim pentru mesajul tău. Îți vom răspunde cât mai curând posibil."
+        "title": "Mesaj trimis",
+        "message": "Îți mulțumim pentru mesajul tău. Îți vom răspunde cât mai curând posibil."
       },
       "error": {
         "title": "Mesajul nu a fost trimis",
@@ -457,109 +489,109 @@
       }
     },
     "faq": {
-      "title": "Întrebări Frecvente",
+      "title": "Întrebări frecvente",
       "registration": {
         "question": "Cum mă înregistrez pentru competiție?",
-        "answer": "Înregistrarea este disponibilă online prin intermediul site-ului nostru. Accesează secțiunea Înregistrare, alege cursa, completează formularul și efectuează plata. Vei primi un e-mail de confirmare cu toate detaliile."
+        "answer": "Înregistrarea este disponibilă online prin site-ul nostru. Mergi la secțiunea Înregistrare, alege-ți cursa, completează formularul și finalizează plata. Vei primi un email de confirmare cu toate detaliile."
       },
       "equipment": {
         "question": "Ce ar trebui să aduc în ziua cursei?",
-        "answer": "Adu actul de identitate, e-mailul de confirmare și tot echipamentul necesar pentru cursa ta. Verifică secțiunea Reguli pentru echipamentul specific necesar pentru distanța ta de cursă. Nu uita să te îmbraci corespunzător pentru condițiile meteorologice."
+        "answer": "Adu-ți actul de identitate, email-ul de confirmare și tot echipamentul necesar pentru cursa ta. Verifică secțiunea Reguli pentru echipamentul specific necesar distanței tale. Nu uita să te îmbraci corespunzător condițiilor meteo."
       },
       "stations": {
-        "question": "Există puncte de alimentare pe traseu?",
-        "answer": "Da, există puncte de alimentare de-a lungul tuturor traseelor. Cursa de 10 km are 2 puncte, cursa de 21 km are 4 puncte, iar cursa de 50 km are 8 puncte. Fiecare punct oferă apă, băuturi energizante și diverse gustări."
+        "question": "Există puncte de ajutor pe traseu?",
+        "answer": "Da, există puncte de ajutor de-a lungul tuturor traseelor cursei. Cursa de 10km are 2 puncte de ajutor, cursa de 21km are 4 puncte de ajutor, iar cursa de 50km are 8 puncte de ajutor. Fiecare punct de ajutor oferă apă, băuturi sportive și diverse gustări."
       },
       "change": {
         "question": "Pot schimba cursa după înregistrare?",
-        "answer": "Schimbările de cursă sunt posibile cu până la 30 de zile înainte de eveniment, în funcție de disponibilitate. Pentru a schimba cursa, te rugăm să contactezi echipa noastră de suport prin e-mail. Reține că schimbarea la o cursă mai scumpă necesită o plată suplimentară, în timp ce schimbarea la o cursă mai ieftină nu oferă o rambursare a diferenței."
+        "answer": "Schimbările de cursă sunt posibile cu până la 30 de zile înainte de eveniment, în funcție de disponibilitate. Pentru a schimba cursa, te rugăm să contactezi echipa noastră de suport prin email. Reține că schimbarea la o cursă mai scumpă necesită o plată suplimentară, în timp ce schimbarea la o cursă mai ieftină nu oferă rambursarea diferenței."
       }
     }
   },
   "sponsors": {
-    "title": "Sponsorii Noștri",
-    "subtitle": "Suntem recunoscători sponsorilor noștri care ajută la realizarea acestui eveniment. Sprijinul lor contribuie la o experiență excepțională de alergare montană.",
-    "premiumTitle": "Parteneri Premium",
-    "standardTitle": "Parteneri de Susținere",
-    "visitWebsite": "Vizitează Website-ul",
+    "title": "Sponsorii noștri",
+    "subtitle": "Suntem recunoscători sponsorilor noștri care ajută la realizarea acestui eveniment. Sprijinul lor contribuie la o experiență excepțională de alergare pe traseu.",
+    "premiumTitle": "Parteneri premium",
+    "standardTitle": "Parteneri susținători",
+    "visitWebsite": "Vizitează site-ul",
     "visit": "Vizitează",
-    "becomeButton": "Devino Sponsor"
+    "becomeButton": "Devino sponsor"
   },
   "footer": {
-    "about": "Alătură-te nouă pentru o experiență de alergare montană de neuitat în frumoșii Munți Carpați.",
-    "quickLinks": "Link-uri Rapide",
+    "about": "Alătură-te nouă pentru o experiență de alergare pe traseu de neuitat în frumoșii Munți Carpați.",
+    "quickLinks": "Linkuri rapide",
     "resources": "Resurse",
-    "resources1": "Hărți Trasee",
-    "resources2": "Cum să ajungi la Stâna de Vale",
-    "resources3": "Ghid Echipament",
-    "resources4": "Informații de Călătorie",
+    "resources1": "Hărți traseu",
+    "resources2": "Călătorie la Stâna de Vale",
+    "resources3": "Ghid echipament",
+    "resources4": "Informații de călătorie",
     "resources5": "Cazare",
-    "resources6": "Galerie Foto",
+    "resources6": "Galerie foto",
     "subscribe": "Abonează-te",
-    "subscribeText": "Rămâi la curent cu cele mai recente știri și actualizări despre competiție.",
+    "subscribeText": "Rămâi la curent cu ultimele știri și actualizări despre competiție.",
     "emailPlaceholder": "Adresa ta de email",
     "privacyNotice": "Prin abonare, ești de acord cu politica noastră de confidențialitate și consimți să primești actualizări de la echipa noastră.",
-    "copyright": "© 2024 Competiția de Alergare Montană. Toate drepturile rezervate.",
-    "privacy": "Politica de Confidențialitate",
-    "terms": "Termeni și Condiții",
-    "cookies": "Politica de Cookie-uri"
+    "copyright": "© 2025 Competiție de alergare pe traseu. Toate drepturile rezervate.",
+    "privacy": "Politica de confidențialitate",
+    "terms": "Termeni și condiții",
+    "cookies": "Politica de cookie-uri"
   },
   "privacyPolicy": {
-    "title": "Politica de Confidențialitate",
-    "subtitle": "Cum colectăm, folosim și protejăm datele tale personale",
+    "title": "Politica de confidențialitate",
+    "subtitle": "Cum colectăm, utilizăm și protejăm informațiile tale personale",
     "lastUpdated": "Ultima actualizare",
     "introduction": {
       "title": "Introducere",
-      "content": "Această Politică de Confidențialitate descrie modul în care Stana de Vale Trail Race ('noi', 'noastră') colectează, utilizează și împărtășește informațiile tale personale atunci când te înregistrezi pentru evenimentul nostru, folosești site-ul nostru web sau interacționezi cu noi în alte moduri. Ne angajăm să îți protejăm confidențialitatea și să gestionăm datele tale cu transparență și grijă."
+      "content": "Această Politică de Confidențialitate descrie modul în care Cursa pe traseu Stâna de Vale („noi”, „nostru” sau „ne”) colectează, utilizează și distribuie informațiile tale personale atunci când te înregistrezi pentru evenimentul nostru, folosești site-ul nostru sau interacționezi cu noi în alte moduri. Ne angajăm să protejăm confidențialitatea ta și să gestionăm datele tale cu transparență și grijă."
     },
     "informationWeCollect": {
       "title": "Informațiile pe care le colectăm",
       "intro": "Colectăm mai multe tipuri de informații de la și despre utilizatorii noștri, inclusiv:",
       "personal": {
         "title": "Informații personale",
-        "description": "Nume, adresă de email, număr de telefon, sex, data nașterii, țara de reședință și detalii de contact de urgență."
+        "description": "Nume, adresă de email, număr de telefon, gen, data nașterii, țara de reședință și detalii de contact de urgență."
       },
       "race": {
         "title": "Informații despre cursă",
-        "description": "Înregistrări la cursă, numere de concurs, rezultate ale cursei și date de performanță."
+        "description": "Înregistrări la curse, numere de concurs, rezultate ale cursei și date de performanță."
       },
       "payment": {
         "title": "Informații de plată",
-        "description": "Detalii ale cardului de credit, informații de facturare și înregistrări ale tranzacțiilor atunci când te înregistrezi pentru curse."
+        "description": "Detalii despre cardul de credit, informații de facturare și înregistrări ale tranzacțiilor atunci când te înregistrezi pentru curse."
       },
       "automatic": {
         "title": "Informații automate",
-        "description": "Informații despre dispozitiv, adresă IP, tipul de browser și cookie-uri atunci când vizitezi site-ul nostru web."
+        "description": "Informații despre dispozitiv, adresa IP, tipul de browser și cookie-uri atunci când vizitezi site-ul nostru."
       }
     },
     "howWeUseInformation": {
-      "title": "Cum folosim informațiile tale",
-      "intro": "Folosim informațiile pe care le colectăm în diverse scopuri, inclusiv:",
+      "title": "Cum utilizăm informațiile tale",
+      "intro": "Utilizăm informațiile pe care le colectăm în diverse scopuri, inclusiv:",
       "uses": {
-        "registration": "Pentru a procesa înregistrarea ta la cursă și pentru a-ți gestiona participarea la evenimentele noastre",
+        "registration": "Pentru a procesa înregistrarea ta la cursă și a gestiona participarea ta la evenimentele noastre",
         "communication": "Pentru a comunica cu tine despre eveniment, inclusiv actualizări importante, modificări și rezultate",
-        "improve": "Pentru a îmbunătăți site-ul nostru web și serviciile pe baza feedback-ului și interacțiunilor utilizatorilor",
-        "safety": "Pentru a asigura siguranța participanților în timpul evenimentelor și pentru a oferi îngrijire medicală de urgență, dacă este necesar",
+        "improve": "Pentru a îmbunătăți site-ul și serviciile noastre bazate pe feedback-ul și interacțiunile utilizatorilor",
+        "safety": "Pentru a asigura siguranța participanților în timpul evenimentelor și a oferi îngrijiri medicale de urgență dacă este necesar",
         "legal": "Pentru a respecta obligațiile legale și a ne proteja drepturile"
       }
     },
     "dataSharing": {
       "title": "Partajarea informațiilor tale",
-      "intro": "Putem împărtăși informațiile tale cu terțe părți în următoarele circumstanțe:",
+      "intro": "Putem partaja informațiile tale cu terți în următoarele circumstanțe:",
       "cases": {
-        "partners": "Cu partenerii și sponsorii evenimentului (cu acordul tău)",
-        "serviceProviders": "Cu furnizorii de servicii care ne ajută să operăm evenimentele și site-ul web",
-        "legal": "Când este necesar prin lege sau pentru a ne proteja drepturile",
-        "results": "Rezultatele cursei (nume, timp de finish, categorie de vârstă) sunt publicate public ca parte a operațiunilor standard ale cursei"
+        "partners": "Cu partenerii evenimentului și sponsorii (cu acordul tău)",
+        "serviceProviders": "Cu furnizorii de servicii care ne ajută să operăm evenimentele și site-ul nostru",
+        "legal": "Când este cerut de lege sau pentru a ne proteja drepturile",
+        "results": "Rezultatele cursei (nume, timp de finalizare, categorie de vârstă) sunt publicate public ca parte a operațiunilor standard ale cursei"
       }
     },
     "dataRetention": {
       "title": "Păstrarea datelor",
-      "content": "Păstrăm informațiile tale personale atât timp cât este necesar pentru a îndeplini scopurile descrise în această Politică de Confidențialitate, cu excepția cazului în care o perioadă mai lungă de păstrare este necesară prin lege sau pentru scopuri de afaceri legitime."
+      "content": "Păstrăm informațiile tale personale atât timp cât este necesar pentru a îndeplini scopurile descrise în această Politică de Confidențialitate, cu excepția cazului în care o perioadă de păstrare mai lungă este cerută de lege sau pentru scopuri legitime de afaceri."
     },
     "yourRights": {
       "title": "Drepturile tale",
-      "intro": "În funcție de locația ta, poți avea următoarele drepturi cu privire la datele tale personale:",
+      "intro": "În funcție de locația ta, ai următoarele drepturi cu privire la datele tale personale:",
       "rights": {
         "access": "Dreptul de a accesa informațiile personale pe care le deținem despre tine",
         "rectification": "Dreptul de a corecta informațiile inexacte sau incomplete",
@@ -571,31 +603,31 @@
     },
     "security": {
       "title": "Securitatea datelor",
-      "content": "Implementăm măsuri tehnice și organizaționale adecvate pentru a proteja informațiile tale personale împotriva accesului neautorizat, pierderii sau modificării. Cu toate acestea, nicio metodă de transmisie pe internet nu este 100% sigură."
+      "content": "Implementăm măsuri tehnice și organizatorice adecvate pentru a proteja informațiile tale personale împotriva accesului neautorizat, pierderii sau modificării. Cu toate acestea, nicio metodă de transmisie prin internet nu este 100% sigură."
     },
     "changes": {
       "title": "Modificări ale acestei politici",
-      "content": "Putem actualiza această Politică de Confidențialitate din când în când. Cea mai recentă versiune va fi întotdeauna postată pe site-ul nostru web cu data intrării în vigoare."
+      "content": "Putem actualiza această Politică de Confidențialitate din când în când. Cea mai recentă versiune va fi întotdeauna postată pe site-ul nostru cu data efectivă."
     },
     "contact": {
       "title": "Contactează-ne",
-      "content": "Dacă ai întrebări sau preocupări cu privire la Politica noastră de Confidențialitate sau practicile noastre de date, te rugăm să ne contactezi la:"
+      "content": "Dacă ai întrebări sau preocupări cu privire la Politica noastră de Confidențialitate sau practicile de date, te rugăm să ne contactezi la:"
     }
   },
   "termsConditions": {
-    "title": "Termeni și Condiții",
-    "subtitle": "Te rugăm să citești acești termeni cu atenție înainte de a participa la evenimentul nostru",
+    "title": "Termeni și condiții",
+    "subtitle": "Te rugăm să citești cu atenție acești termeni înainte de a participa la evenimentul nostru",
     "lastUpdated": "Ultima actualizare",
     "introduction": {
       "title": "Introducere",
-      "content": "Acești Termeni și Condiții reglementează participarea ta la evenimentul Stana de Vale Trail Race. Prin înscrierea la oricare dintre cursele noastre, recunoști că ai citit, înțeles și ești de acord să fii obligat de acești termeni."
+      "content": "Acești Termeni și Condiții guvernează participarea ta la evenimentul Cursa pe traseu Stâna de Vale. Prin înregistrarea la oricare dintre cursele noastre, recunoști că ai citit, înțeles și ești de acord să fii legat de acești termeni."
     },
     "registration": {
       "title": "Cerințe de înregistrare",
       "intro": "Pentru a participa la evenimentele noastre, trebuie să îndeplinești următoarele cerințe:",
       "requirements": {
-        "age": "Cerință de vârstă minimă: 18 ani pentru cursa de 33 km și 16 ani pentru cursa de 11 km (cu acordul părinților pentru minori)",
-        "health": "Să fii în stare bună de sănătate și apt fizic pentru a participa la un eveniment de alergare montană",
+        "age": "Cerința minimă de vârstă: 18 ani pentru cursa de 33km și 16 ani pentru cursa de 11km (cu acordul părinților pentru minori)",
+        "health": "Să fii în stare bună de sănătate și apt fizic pentru a participa la un eveniment de alergare pe traseu",
         "equipment": "Să deții tot echipamentul obligatoriu specificat în regulile cursei",
         "information": "Să furnizezi informații personale exacte în timpul înregistrării",
         "fees": "Să plătești taxele de înregistrare aplicabile"
@@ -604,40 +636,40 @@
     "participationRules": {
       "title": "Reguli de participare",
       "rules": {
-        "bib": "Poartă numărul de concurs în mod vizibil pe tot parcursul cursei",
-        "route": "Urmează traseul marcat al cursei în orice moment",
+        "bib": "Poartă numărul de concurs vizibil pe tot parcursul cursei",
+        "route": "Urmează traseul marcat al cursei în permanență",
         "checkpoints": "Înregistrează-te la toate punctele de control desemnate",
-        "timeLimits": "Finalizează cursa în limitele de timp specificate",
+        "timeLimits": "Completează cursa în limitele de timp specificate",
         "environment": "Respectă mediul înconjurător și nu arunca gunoi",
-        "assistance": "Nu primi asistență neautorizată în afara punctelor de alimentare"
+        "assistance": "Nu primi asistență neautorizată în afara punctelor de ajutor"
       }
     },
     "liability": {
       "title": "Răspundere și risc",
-      "content1": "Alergarea montană este o activitate inerent periculoasă care implică riscuri de rănire gravă, îmbolnăvire sau deces. Prin participarea la evenimentul nostru, recunoști și accepți aceste riscuri.",
-      "content2": "Organizatorii, sponsorii și voluntarii nu sunt responsabili pentru rănirile, daunele sau pierderile care pot apărea în timpul evenimentului. Participi pe propriul risc."
+      "content1": "Alergarea pe traseu este o activitate inerent periculoasă care implică riscuri de rănire gravă, boală sau deces. Prin participarea la evenimentul nostru, recunoști și accepți aceste riscuri.",
+      "content2": "Organizatorii, sponsorii și voluntarii nu sunt responsabili pentru orice răni, daune sau pierderi care pot apărea în timpul evenimentului. Participi pe propriul risc."
     },
     "medicalResponsibility": {
       "title": "Responsabilitate medicală",
-      "content1": "Ești responsabil pentru a te asigura că ești capabil fizic să participi la eveniment. Recomandăm consultarea cu un profesionist medical înainte de înregistrare dacă ai orice probleme de sănătate.",
+      "content1": "Ești responsabil pentru a te asigura că ești fizic capabil să participi la eveniment. Recomandăm consultarea unui profesionist medical înainte de înregistrare dacă ai orice preocupări legate de sănătate.",
       "content2": "Autorizezi personalul medical să ofere tratament de urgență în caz de rănire sau boală în timpul evenimentului."
     },
     "cancellationPolicy": {
       "title": "Politica de anulare",
-      "eventCancellation": "Dacă evenimentul este anulat din cauza unor circumstanțe aflate în afara controlului nostru (inclusiv, dar fără a se limita la, vreme severă, dezastre naturale sau urgențe de sănătate publică), taxele de înregistrare nu sunt rambursabile. Cu toate acestea, putem oferi amânări pentru evenimente viitoare la discreția noastră.",
-      "participantCancellation": "Dacă îți anulezi înregistrarea cu mai mult de 30 de zile înainte de eveniment, poți primi o rambursare parțială (de obicei 50%). Nu sunt disponibile rambursări pentru anulările efectuate în termen de 30 de zile de la eveniment."
+      "eventCancellation": "Dacă evenimentul este anulat din cauza circumstanțelor dincolo de controlul nostru (inclusiv, dar fără a se limita la vreme severă, dezastre naturale sau urgențe de sănătate publică), taxele de înregistrare nu sunt rambursabile. Totuși, putem oferi amânări pentru evenimente viitoare la discreția noastră.",
+      "participantCancellation": "Dacă îți anulezi înregistrarea cu mai mult de 30 de zile înainte de eveniment, poți primi o rambursare parțială (de obicei 50%). Nu sunt disponibile rambursări pentru anulări în termen de 30 de zile de la eveniment."
     },
     "imageRights": {
       "title": "Drepturi de imagine",
-      "content": "Prin participarea la evenimentul nostru, ne acorzi permisiunea de a utiliza fotografii, videoclipuri și înregistrări care prezintă imaginea ta în scopuri promoționale, comerciale și educaționale fără compensație."
+      "content": "Prin participarea la evenimentul nostru, ne acorzi permisiunea de a utiliza fotografii, videoclipuri și înregistrări care prezintă asemănarea ta în scopuri promoționale, comerciale și educaționale fără compensație."
     },
     "personalData": {
       "title": "Date personale",
-      "content": "Colectăm și procesăm datele tale personale în conformitate cu Politica noastră de Confidențialitate. Prin înregistrare, îți dai acordul pentru această procesare a datelor."
+      "content": "Colectăm și procesăm datele tale personale în conformitate cu Politica noastră de Confidențialitate. Prin înregistrare, consimți la această procesare a datelor."
     },
     "modifications": {
       "title": "Modificări ale termenilor",
-      "content": "Ne rezervăm dreptul de a modifica acești Termeni și Condiții în orice moment. Versiunea curentă va fi întotdeauna disponibilă pe site-ul nostru web."
+      "content": "Ne rezervăm dreptul de a modifica acești Termeni și Condiții în orice moment. Versiunea curentă va fi întotdeauna disponibilă pe site-ul nostru."
     },
     "contact": {
       "title": "Informații de contact",
@@ -645,31 +677,31 @@
     }
   },
   "cookiePolicy": {
-    "title": "Politica de Cookie-uri",
-    "subtitle": "Cum folosim cookie-urile și tehnologiile similare pe site-ul nostru web",
+    "title": "Politica de cookie-uri",
+    "subtitle": "Cum utilizăm cookie-urile și tehnologiile similare pe site-ul nostru",
     "lastUpdated": "Ultima actualizare",
     "introduction": {
       "title": "Introducere",
-      "content": "Această Politică de Cookie-uri explică modul în care Stana de Vale Trail Race ('noi', 'noastră') folosește cookie-urile și tehnologiile similare pe site-ul nostru web. Prin utilizarea site-ului nostru web, consimți la utilizarea cookie-urilor așa cum este descris în această politică."
+      "content": "Această Politică de Cookie-uri explică modul în care Cursa pe traseu Stâna de Vale („noi”, „nostru” sau „ne”) utilizează cookie-urile și tehnologiile similare pe site-ul nostru. Prin utilizarea site-ului nostru, consimți la utilizarea cookie-urilor așa cum este descris în această politică."
     },
     "whatAreCookies": {
       "title": "Ce sunt cookie-urile?",
-      "content": "Cookie-urile sunt fișiere text mici care sunt stocate pe dispozitivul tău atunci când vizitezi un site web. Acestea sunt utilizate pe scară largă pentru a face site-urile web să funcționeze mai eficient și pentru a furniza informații proprietarilor site-ului web."
+      "content": "Cookie-urile sunt fișiere text mici care sunt stocate pe dispozitivul tău atunci când vizitezi un site web. Ele sunt utilizate pe scară largă pentru a face site-urile să funcționeze mai eficient și pentru a furniza informații proprietarilor site-ului."
     },
     "cookiesWeUse": {
-      "title": "Tipuri de cookie-uri pe care le folosim",
-      "intro": "Folosim următoarele tipuri de cookie-uri pe site-ul nostru web:",
+      "title": "Tipurile de cookie-uri pe care le utilizăm",
+      "intro": "Utilizăm următoarele tipuri de cookie-uri pe site-ul nostru:",
       "necessary": {
         "title": "Cookie-uri necesare",
-        "description": "Esențiale pentru ca site-ul web să funcționeze corect. Acestea permit funcții de bază, cum ar fi navigarea pe pagină și accesul la zonele securizate."
+        "description": "Esențiale pentru ca site-ul să funcționeze corect. Ele permit funcții de bază precum navigarea pe pagini și accesul la zone securizate."
       },
       "preferences": {
         "title": "Cookie-uri de preferințe",
-        "description": "Permit site-ului web să-și amintească alegerile pe care le faci (cum ar fi preferința ta de limbă) pentru o experiență de utilizator mai bună."
+        "description": "Permit site-ului să-și amintească alegerile pe care le faci (cum ar fi preferința de limbă) pentru o experiență de utilizator mai bună."
       },
       "statistics": {
-        "title": "Cookie-uri de statistici",
-        "description": "Ne ajută să înțelegem cum interacționează vizitatorii cu site-ul nostru web prin colectarea de informații anonime."
+        "title": "Cookie-uri statistice",
+        "description": "Ne ajută să înțelegem cum interacționează vizitatorii cu site-ul nostru prin colectarea de informații anonime."
       },
       "marketing": {
         "title": "Cookie-uri de marketing",
@@ -678,22 +710,22 @@
     },
     "managingCookies": {
       "title": "Gestionarea cookie-urilor",
-      "content": "Poți controla și gestiona cookie-urile în diverse moduri. Majoritatea browserelor web îți permit să-ți gestionezi preferințele de cookie-uri. Poți:",
+      "content": "Poți controla și gestiona cookie-urile în diverse moduri. Majoritatea browserelor web îți permit să gestionezi preferințele tale pentru cookie-uri. Poți:",
       "browsers": {
-        "chrome": "În Chrome, accesează Setări > Confidențialitate și securitate > Cookie-uri și alte date de site",
-        "firefox": "În Firefox, accesează Opțiuni > Confidențialitate și Securitate > Cookie-uri și Date de Site",
-        "safari": "În Safari, accesează Preferințe > Confidențialitate",
-        "edge": "În Edge, accesează Setări > Cookie-uri și permisiuni site"
+        "chrome": "În Chrome, mergi la Setări > Confidențialitate și securitate > Cookie-uri și alte date ale site-ului",
+        "firefox": "În Firefox, mergi la Opțiuni > Confidențialitate și securitate > Cookie-uri și date ale site-ului",
+        "safari": "În Safari, mergi la Preferințe > Confidențialitate",
+        "edge": "În Edge, mergi la Setări > Cookie-uri și permisiuni site"
       }
     },
     "updates": {
-      "title": "Actualizări ale acestei Politici de Cookie-uri",
+      "title": "Actualizări ale acestei politici de cookie-uri",
       "content": "Putem actualiza această Politică de Cookie-uri din când în când pentru a reflecta schimbările în tehnologie, reglementări sau practicile noastre de afaceri. Orice modificări vor fi postate pe această pagină."
     },
     "contact": {
       "title": "Contactează-ne",
-      "content1": "Dacă ai întrebări despre utilizarea cookie-urilor de către noi, te rugăm să ne contactezi la:",
-      "content2": "Pentru mai multe informații despre drepturile tale de confidențialitate, te rugăm să consulți Politica noastră de Confidențialitate."
+      "content1": "Dacă ai întrebări despre utilizarea cookie-urilor noastre, te rugăm să ne contactezi la:",
+      "content2": "Pentru mai multe informații despre drepturile tale de confidențialitate, consultă Politica noastră de Confidențialitate."
     }
   },
   "months": {
@@ -711,22 +743,22 @@
     "11": "Decembrie"
   },
   "countdown": {
-    "title": "Timp până la Ziua Cursei",
+    "title": "Timp până la ziua cursei",
     "days": "Zile",
     "hours": "Ore",
     "minutes": "Min",
     "seconds": "Sec"
   },
   "howToGet": {
-    "title": "Cum ajungi la Stâna de Vale",
+    "title": "Cum să ajungi la Stâna de Vale",
     "subtitle": "Informații practice de călătorie pentru a ajunge la destinația cursei.",
-    "introduction": "Stâna de Vale este o stațiune montană pitorească situată în Munții Apuseni din România, oferind peisaje naturale impresionante și cadrul perfect pentru competiția noastră de alergare montană.",
-    "importantNote": "Notă Importantă",
-    "weatherNote": "Drumurile montane pot fi afectate de condițiile meteorologice, în special în timpul iernii și la începutul primăverii. Verifică întotdeauna condițiile drumului înainte de a călători.",
-    "locationTitle": "Prezentare Generală a Locației",
-    "locationDescription": "Stâna de Vale este situată la o altitudine de aproximativ 1.100 de metri în județul Bihor, România. Este cunoscută pentru pădurile sale pristine, izvoarele montane și frumoasele trasee de drumeție.",
+    "introduction": "Stâna de Vale este o stațiune montană pitorească situată în Munții Apuseni din România, oferind peisaje naturale uluitoare și decorul perfect pentru competiția noastră de alergare pe traseu.",
+    "importantNote": "Notă importantă",
+    "weatherNote": "Drumurile montane pot fi afectate de condițiile meteo, în special iarna și primăvara devreme. Verifică întotdeauna condițiile drumului înainte de a călători.",
+    "locationTitle": "Prezentare generală a locației",
+    "locationDescription": "Stâna de Vale este situată la o altitudine de aproximativ 1.100 de metri în județul Bihor, România. Este cunoscută pentru pădurile sale pristine, izvoarele montane și traseele de drumeție frumoase.",
     "byAir": {
-      "title": "Cu Avionul",
+      "title": "Cu avionul",
       "description": "Cele mai apropiate aeroporturi de Stâna de Vale sunt în Oradea și Cluj-Napoca. De acolo, îți poți continua călătoria cu mașina, trenul sau autobuzul.",
       "oradea": {
         "title": "Aeroportul Internațional Oradea (OMR)",
@@ -744,59 +776,58 @@
       }
     },
     "byCar": {
-      "title": "Cu Mașina",
+      "title": "Cu mașina",
       "description": "Călătoria cu mașina oferă flexibilitate pentru a ajunge la Stâna de Vale. Stațiunea montană este accesibilă prin mai multe rute, deși unele drumuri pot fi provocatoare în funcție de sezon.",
       "fromOradea": {
         "title": "Din Oradea",
         "description": "Există două rute principale din Oradea:",
         "route1": "Ruta 1: Oradea → Beiuș → Budureasa → Stâna de Vale (aproximativ 80 km, 1h 45m)",
-        "route2": "Ruta 2: Oradea → Aleșd → Borod → Bratca → Beiuș → Budureasa → Stâna de Vale (mai lungă, dar poate oferi condiții de drum mai bune)"
+        "route2": "Ruta 2: Oradea → Aleșd → Borod → Bratca → Beiuș → Budureasa → Stâna de Vale (mai lungă, dar poate oferi condiții mai bune de drum)"
       },
       "fromCluj": {
         "title": "Din Cluj-Napoca",
         "description": "Ruta recomandată din Cluj-Napoca:",
-        "route": "Cluj-Napoca → Huedin → Borod → Beiuș → Budureasa → Stâna de Vale (aproximativ 3 ore de mers cu mașina)"
+        "route": "Cluj-Napoca → Huedin → Borod → Beiuș → Budureasa → Stâna de Vale (aproximativ o călătorie de 3 ore)"
       },
       "parking": {
-        "title": "Informații despre Parcare",
-        "description": "Există o zonă mare de parcare în centrul stațiunii unde îți poți lăsa vehiculul în timpul competiției. Parcare suplimentară va fi disponibilă în apropierea zonei de start/finish a cursei."
+        "title": "Informații despre parcare",
+        "description": "Există o zonă mare de parcare în centrul stațiunii unde îți poți lăsa vehiculul în timpul competiției. Parcarea suplimentară va fi disponibilă lângă zona de start/sosire a cursei."
       }
     },
-
     "byBus": {
-      "title": "Cu Autobuzul",
+      "title": "Cu autobuzul",
       "description": "Transportul public cu autobuzul te poate duce în orașele din apropierea Stânei de Vale, de unde va trebui să aranjezi ultima parte a călătoriei tale.",
       "services": {
-        "title": "Servicii de Autobuz",
-        "service1": "Oradea la Beiuș: Servicii regulate de autobuz pe tot parcursul zilei",
-        "service2": "Cluj-Napoca la Beiuș: Servicii limitate, verifică programul în avans"
+        "title": "Servicii de autobuz",
+        "service1": "Oradea către Beiuș: Servicii regulate de autobuz pe parcursul zilei",
+        "service2": "Cluj-Napoca către Beiuș: Servicii limitate, verifică programul în avans"
       },
       "schedules": {
-        "title": "Orare Autobuz",
-        "description": "Orarele autobuzelor pot varia sezonier. Îți recomandăm să verifici cele mai recente orare pe autogari.ro sau direct cu companiile locale de autobuz."
+        "title": "Programe autobuz",
+        "description": "Programele autobuzelor pot varia sezonier. Recomandăm verificarea ultimelor orare pe autogari.ro sau direct cu companiile locale de autobuz."
       }
     },
     "localTransport": {
-      "title": "Transport Local",
-      "description": "Pentru ultima parte a călătoriei tale către Stâna de Vale, poate fi necesar să folosești opțiuni de transport local.",
+      "title": "Transport local",
+      "description": "Pentru ultima parte a călătoriei tale către Stâna de Vale, este posibil să fie necesar să folosești opțiuni de transport local.",
       "taxis": {
         "title": "Taxiuri",
         "description": "Taxiurile sunt disponibile în Beiuș și te pot duce la Stâna de Vale. Așteaptă-te să plătești aproximativ 100-150 RON pentru această călătorie."
       },
       "shuttles": {
-        "title": "Shuttle-uri în Ziua Cursei",
-        "description": "Transport organizat de organizatori din Beiuș – Stâna de Vale și retur cu microbuz.",
-        "notice": "INFORMAȚIE IMPORTANTĂ DESPRE TRANSPORT",
-        "shuttle": "Program Microbuz:",
+        "title": "Transferuri în ziua cursei",
+        "description": "Transport organizat de organizatori de la Beiuș la Stâna de Vale și retur cu autobuzul.",
+        "notice": "INFORMAȚII IMPORTANTE DESPRE TRANSPORT",
+        "shuttle": "Program minibuz:",
         "toDestination": {
-          "title": "Beiuș – Stâna de Vale:",
+          "title": "Beiuș către Stâna de Vale:",
           "friday": "Vineri, 5 iulie:",
           "fridayTimes": "Plecări: 10:00, 13:00, 15:00, 17:00",
           "saturday": "Sâmbătă, 6 iulie:",
           "saturdayTimes": "Plecări: 07:00, 08:00"
         },
         "fromDestination": {
-          "title": "Retur Stâna de Vale – Beiuș:",
+          "title": "Întoarcere de la Stâna de Vale la Beiuș:",
           "friday": "Vineri, 5 iulie:",
           "fridayTimes": "Plecări: 11:00, 14:00, 16:00, 20:00",
           "saturday": "Sâmbătă, 6 iulie:",
@@ -805,158 +836,238 @@
       }
     },
     "accommodation": {
-      "title": "Opțiuni de Cazare",
+      "title": "Opțiuni de cazare",
       "description": "Există mai multe opțiuni de cazare în și în jurul Stânei de Vale pentru a se potrivi diferitelor preferințe și bugete.",
       "options": {
         "option1": {
-          "title": "Hotel Resort Montan",
+          "title": "Hotelul stațiunii montane",
           "description": "Hotelul principal din Stâna de Vale oferă camere confortabile cu vedere la munte, restaurant și facilități spa."
         },
         "option2": {
-          "title": "Pensiuni din Apropiere",
+          "title": "Pensiuni din apropiere",
           "description": "Mai multe pensiuni administrate de familii din vecinătate oferă ospitalitate locală autentică și mâncare de casă."
         },
         "option3": {
           "title": "Camping",
-          "description": "Pentru cei aventuroși, există zone desemnate de camping în apropierea stațiunii. Aduce-ți propriul echipament sau închiriază la fața locului."
+          "description": "Pentru cei aventuroși, există zone desemnate de camping lângă stațiune. Adu-ți propriul echipament sau închiriază la fața locului."
         }
       }
     }
   },
   "sectionsOverview": {
-    "title": "Explorează Competiția",
-    "subtitle": "Descoperă tot ce trebuie să știi despre competiția noastră de alergare montană",
-    "races": "Vezi cursele noastre provocatoare de alergare montană cu informații detaliate despre distanță, altitudine și dificultate.",
+    "title": "Explorează competiția",
+    "subtitle": "Descoperă tot ce trebuie să știi despre competiția noastră de alergare pe traseu",
+    "races": "Vezi cursele noastre provocatoare de alergare pe traseu cu informații detaliate despre distanță, elevație și dificultate.",
     "participants": "Vezi cine s-a înregistrat deja și verifică participanții din întreaga lume.",
-    "program": "Explorează programul complet al evenimentelor, inclusiv orele de start ale curselor, ceremoniile de premiere și mai multe.",
+    "program": "Explorează programul complet al evenimentelor, inclusiv orele de start ale curselor, ceremoniile de premiere și multe altele.",
     "rules": "Înțelege regulile competiției, cerințele de echipament și toate reglementările de siguranță.",
-    "emaCircuit": "Află despre Circuitul EMA de Alergare Off-Road 2025 și semnificația sa pentru alergarea montană.",
-    "sponsors": "Descoperă organizațiile și companiile care sprijină acest eveniment de alergare montană.",
-    "registration": "Înregistrează-te pentru cursa aleasă și asigură-ți locul în această provocare montană incitantă.",
-    "contact": "Contactează echipa noastră pentru orice întrebări despre competiție."
+    "emaCircuit": "Află despre Circuitul EMA Off-Road Running 2025 și semnificația sa pentru alergarea pe traseu.",
+    "cnMasters": "Informații despre Campionatul Național de Alergare Montană al României pentru Masters.",
+    "sponsors": "Descoperă organizațiile și companiile care susțin acest eveniment de alergare pe traseu.",
+    "registration": "Înregistrează-te pentru cursa aleasă și asigură-ți locul în această provocare montană captivantă.",
+    "accommodation": "Găsește cele mai bune locuri de cazare pe durata weekend-ului competiției.",
+    "contact": "Ia legătura cu echipa noastră pentru orice întrebări despre competiție."
   },
   "emaCircuit": {
-    "title": "CIRCUITUL E.M.A. DE ALERGARE OFF-ROAD 2025",
-    "subtitle": "Ediție Experimentală",
+    "title": "CIRCUITUL E.M.A. OFF-ROAD RUNNING 2025",
+    "subtitle": "Ediție experimentală",
     "overview": {
-      "title": "Prezentare Generală",
-      "content": "European Masters Athletics (EMA) este mândru să anunțe ediția experimentală inaugurală a Circuitului EMA de Alergare Off-Road, un circuit dedicat atleților Master care include evenimente de alergare montană, verticală și off-road.",
-      "objectives": "Obiectivele Circuitului:",
+      "title": "Prezentare generală",
+      "content": "European Masters Athletics (EMA) este mândră să anunțe ediția experimentală inaugurală a Circuitului EMA Off-Road Running, un circuit dedicat atleților Masters, care include evenimente de alergare montană, verticală și off-road.",
+      "objectives": "Obiectivele ligii:",
       "objectivesList": [
-        "Să ofere condiții optime pentru ca atleții să atingă performanțe remarcabile.",
-        "Să crească oportunitățile de competiție într-un mediu stimulativ și divers.",
+        "Să ofere condiții optime pentru ca atleții să obțină performanțe remarcabile.",
+        "Să crească oportunitățile de competiție într-un mediu stimulant și divers.",
         "Să încurajeze o mai mare interacțiune și schimb cultural între atleți.",
-        "Să ofere o gamă largă de opțiuni de participare pe tot parcursul sezonului.",
+        "Să ofere o gamă largă de opțiuni de participare pe parcursul sezonului.",
         "Să promoveze diversitatea atleților participanți."
       ],
-      "focus": "Concentrarea organizațională va fi pe livrarea de evenimente bine structurate și eficiente care creează cele mai bune condiții pentru ca participanții să exceleze și să se bucure de experiență."
+      "focus": "Accentul organizatoric va fi pus pe livrarea unor evenimente bine structurate și eficiente, care creează cele mai bune condiții pentru ca participanții să exceleze și să se bucure de experiență."
     },
     "participation": {
       "title": "Participare",
-      "content": "Participarea la Circuitul EMA de Alergare Off-Road este deschisă tuturor atleților care îndeplinesc criteriile Masters pentru alergare Off-Road, în special cei cu vârsta între 35-79 de ani, și care dețin o licență validă de la Federația lor respectivă, în conformitate cu regulile WMA.",
-      "note1": "Vă rugăm să rețineți, Circuitul EMA de Alergare Off-Road nu este un eveniment de campionat, iar atleții nu vor reprezenta oficial țările lor în aceste evenimente.",
-      "note2": "Circuitul este, de asemenea, deschis atleților non-europeni, care vor concura atât pentru premiile individuale ale evenimentului, cât și pentru premiile finale."
+      "content": "Participarea la Liga EMA Off-Road Running este deschisă tuturor atleților care îndeplinesc criteriile Masters Off-Road, în special cei cu vârste între 35-79 de ani, și care dețin o licență valabilă de la federația lor respectivă, conform regulilor WMA.",
+      "note1": "Vă rugăm să rețineți, Liga EMA Off-Road Running nu este un eveniment de campionat, iar atleții nu vor reprezenta oficial țările lor în aceste evenimente.",
+      "note2": "Liga este, de asemenea, deschisă atleților non-europeni, care vor concura pentru premiile individuale ale evenimentului, precum și pentru premiile finale."
     },
     "liability": {
-      "title": "Responsabilitate și Asigurare",
-      "content": "Participanții își asumă întreaga responsabilitate pentru implicarea lor în orice eveniment. Organizatorul nu este răspunzător pentru niciun prejudiciu sau vătămare suferită de Participant, cu excepția cazurilor în care daunele sunt rezultatul direct al acțiunilor intenționate ale Organizatorului.",
-      "insurance": "Dacă polița de asigurare a Organizatorului acoperă daunele, răspunderea Organizatorului va fi limitată la suma acoperită de asigurător. Participanților li se recomandă să își obțină propria asigurare pentru a acoperi riscurile potențiale, cum ar fi accidentele, boala sau decesul, care pot apărea în timpul evenimentului.",
-      "health": "Prin înregistrare, participanții confirmă că sunt în bună stare fizică și mentală și au urmat un antrenament adecvat pentru a concura în eveniment. Se recomandă ca participanții să se supună unui examen medical pentru a asigura starea de fitness pentru participare."
+      "title": "Răspundere și asigurare",
+      "content": "Participanții își asumă întreaga responsabilitate pentru implicarea lor în orice eveniment. Organizatorul nu este responsabil pentru daunele sau rănile suferite de participant, cu excepția cazurilor în care daunele sunt rezultatul direct al acțiunilor intenționate ale Organizatorului.",
+      "insurance": "Dacă polița de asigurare a Organizatorului acoperă daunele, răspunderea Organizatorului va fi limitată la suma acoperită de asigurator. Participanții sunt sfătuiți să obțină propria asigurare pentru a acoperi riscurile potențiale, cum ar fi accidentele, boala sau decesul, care pot apărea în timpul evenimentului.",
+      "health": "Prin înregistrare, participanții confirmă că sunt în stare bună de sănătate fizică și mentală și au urmat antrenamentele corespunzătoare pentru a concura în eveniment. Este recomandat ca participanții să efectueze un control medical pentru a asigura aptitudinea pentru participare."
     },
     "rankings": {
       "title": "Clasamente",
-      "content": "Circuitul EMA de Alergare Off-Road va prezenta atât clasamente individuale ale evenimentelor, cât și un clasament general final pentru Circuit.",
-      "local": "Fiecare Comitet Local de Organizare (LOC) poate oferi unul sau mai multe evenimente (cum ar fi alergare în pantă, verticală, alergare montană, traseu, etc.), cu câștigătorii și campionii pe categorii de vârstă premiați conform reglementărilor lor locale. Fiecare eveniment va avea o secțiune dedicată pe site-ul EMA.",
-      "eligibility": "Eligibilitate pentru Clasamentul Final: Pentru a se califica pentru clasamentele finale EMA, atleții trebuie să participe la cel puțin două evenimente în locații diferite.",
-      "points": "Alocare de Puncte: Câștigătorul fiecărui eveniment (general și în fiecare categorie de vârstă) va primi 1 punct, iar pozițiile următoare vor primi puncte după cum urmează (2 puncte pentru locul doi, 3 puncte pentru locul trei, etc.). EMA va lua în considerare cele mai bune două performanțe ale fiecărui atlet atunci când calculează clasamentele finale.",
+      "content": "Circuitul EMA Off-Road Running va include atât clasamente individuale ale evenimentelor, cât și un clasament general final al Circuitului.",
+      "local": "Fiecare Comitet Local de Organizare (LOC) poate oferi unul sau mai multe evenimente (cum ar fi urcare, vertical, alergare montană, traseu etc.), cu câștigătorii și campionii pe categorii de vârstă premiați conform reglementărilor locale. Fiecare eveniment va avea o secțiune dedicată pe site-ul EMA.",
+      "eligibility": "Eligibilitate clasament final: Pentru a se califica în clasamentele finale EMA, atleții trebuie să participe la cel puțin două evenimente în locații diferite.",
+      "points": "Alocarea punctelor: Câștigătorul fiecărui eveniment (general și în fiecare categorie de vârstă) va primi 1 punct, pozițiile ulterioare primind puncte astfel (2 puncte pentru locul doi, 3 puncte pentru locul trei etc.). EMA va lua în considerare cele mai bune două performanțe ale fiecărui atlet la calcularea clasamentului final.",
       "specialPrize": "Un premiu special va fi acordat tuturor atleților care participă la cel puțin trei etape ale Circuitului, indiferent de rezultatele lor generale.",
-      "ceremony": "Ceremonia oficială de premiere va avea loc în timpul Campionatului EMA de Alergare Off-Road 2026.",
+      "ceremony": "Ceremonia oficială de premiere va avea loc în timpul Campionatului EMA Off-Road Running 2026.",
       "structure": {
-        "title": "Structura Clasamentelor",
+        "title": "Structura clasamentului",
         "item1": "Include clasamente individuale ale evenimentelor și un clasament general final al Circuitului.",
-        "item2": "Comitetele Locale de Organizare (LOC) pot oferi diverse evenimente (de ex., alergare în pantă, verticală, alergare montană, trail) cu premii acordate conform regulamentelor locale.",
-        "item3": "LOC-urile pot înregistra și premia atleți sub 35 de ani sau peste 80 de ani la discreția lor, dar doar atleții Masters cu vârste între 35-79 de ani sunt eligibili pentru clasamentele finale ale Circuitului EMA."
+        "item2": "Comitetele Locale de Organizare (LOC) pot oferi diverse evenimente (ex. urcare, vertical, alergare montană, traseu) cu premii acordate conform reglementărilor locale.",
+        "item3": "LOC-urile pot înregistra și premia atleți sub 35 de ani sau peste 80 de ani la discreția lor, dar doar atleții Masters cu vârste între 35-79 sunt eligibili pentru clasamentele finale ale Circuitului EMA."
       },
       "finalEligibility": {
-        "title": "Eligibilitate pentru Clasamentul Final",
-        "content": "Atleții trebuie să participe la cel puțin două evenimente în locații diferite pentru a se califica pentru clasamentele finale."
+        "title": "Eligibilitate clasament final",
+        "content": "Atleții trebuie să participe la cel puțin două evenimente în locații diferite pentru a se califica în clasamentele finale."
       },
       "pointAllocation": {
-        "title": "Alocarea Punctelor",
+        "title": "Alocarea punctelor",
         "item1": "Câștigătorul evenimentului (general și pe categorie de vârstă) primește 1 punct",
         "item2": "Locul doi primește 2 puncte",
         "item3": "Locul trei primește 3 puncte și așa mai departe",
-        "item4": "Clasamentele finale se bazează pe cele mai bune două performanțe ale fiecărui atlet",
-        "note": "Notă: Un total mai mic de puncte este mai bun, deoarece acesta este un sistem de punctaj în stil golf, unde locul 1 = 1 punct."
+        "item4": "Clasamentele finale se bazează pe cele mai bune două performanțe ale unui atlet",
+        "note": "Notă: Totalul mai mic de puncte este mai bun, deoarece acesta este un sistem de punctaj în stil golf unde locul 1 = 1 punct."
       },
       "categories": {
-        "title": "Categorii de Clasament",
-        "item1": "Primii trei atleți bărbați și femei sunt clasați ca Câștigători Generali",
-        "item2": "Câștigătorii pe Categorii de Vârstă pentru bărbați și femei (35-75)"
+        "title": "Categorii de clasament",
+        "item1": "Primii trei atleți bărbați și femei clasați ca Câștigători Generali",
+        "item2": "Câștigători pe categorii de vârstă pentru bărbați și femei (35-75)"
       },
       "tieBreakers": {
-        "title": "Criterii de Departajare",
-        "item1": "În caz de egalitate, atletul cu poziția mai bună în clasament la evenimente are prioritate",
-        "item2": "Dacă egalitatea persistă, numărul de curse la care s-a participat servește ca criteriu de departajare"
+        "title": "Departajare",
+        "item1": "În caz de egalitate, atletul cu poziția superioară în evenimente are prioritate",
+        "item2": "Dacă egalitatea persistă, numărul de curse la care a participat servește ca factor de departajare"
       },
       "specialPrize": {
-        "title": "Premiu Special",
+        "title": "Premiu special",
         "content": "Un premiu special este acordat atleților care participă la cel puțin trei etape, indiferent de rezultate."
       },
       "awardCeremony": {
-        "title": "Ceremonia de Premiere",
-        "item1": "Va avea loc în timpul Campionatului EMA de Alergare Off-Road 2026",
+        "title": "Ceremonia de premiere",
+        "item1": "Organizată în timpul Campionatului EMA Off-Road Running 2026",
         "item2": "Dacă un atlet nu poate participa, se vor face aranjamente pentru livrarea premiului"
       }
     },
     "calendar": {
       "title": "Calendar",
-      "content": "Evenimentele din Circuitul EMA de Alergare Off-Road 2025 vor avea loc conform următorului program:",
-      "date": "Data",
+      "content": "Evenimentele din Circuitul EMA Off-Road Running 2025 vor avea loc conform următorului program:",
+      "date": "Dată",
       "event": "Eveniment",
-      "country": "Țara",
-      "links": "Link-uri",
-      "stage": "Etapa",
-      "finalNote": "Pentru cele mai recente informații, vă rugăm să vizitați site-ul oficial EMA.",
-      "updateNote": "Notă: Acest calendar a fost actualizat conform regulamentului oficial al Circuitului EMA de Alergare Off-Road 2025. Reveniți regulat pentru anunțuri de evenimente suplimentare sau modificări."
+      "country": "Țară",
+      "links": "Linkuri",
+      "stage": "Etapă",
+      "finalNote": "Pentru cele mai actualizate informații, vă rugăm să vizitați site-ul oficial EMA.",
+      "updateNote": "Vă rugăm să rețineți: Acest calendar a fost actualizat conform reglementărilor oficiale ale Circuitului EMA Off-Road Running 2025. Verificați periodic pentru orice anunțuri suplimentare sau modificări ale evenimentelor."
     },
-    "downloadButton": "Descarcă Regulamentul Complet PDF"
+    "downloadButton": "Descarcă PDF-ul cu reglementările complete"
+  },
+  "cnMasters": {
+    "title": "CN Masters - Campionatul Național de Alergare Montană",
+    "subtitle": "Campionatul Național de Alergare Montană pentru Masters - Ediția 2025",
+    "introTitle": "Despre Campionatul Național",
+    "introText": "Campionatul Național de Alergare Montană al României pentru Masters este una dintre cele mai prestigioase competiții de alergare montană din România, organizată cu sprijinul Federației Române de Atletism (FRA). Acest eveniment celebrează realizările excepționale ale atleților Masters cu vârsta de 35 de ani și peste, evidențiind rezistența, abilitățile și angajamentul lor față de alergarea pe traseu.",
+    "race1": {
+      "title": "Cursa lungă de 33km",
+      "description": "Cursa principală a campionatului este evenimentul de traseu lung de 33km, oferind un traseu provocator prin impresionanții Munți Carpați cu o creștere de elevație de 1700m."
+    },
+    "race2": {
+      "title": "Cursa clasică URCARE/COBORÂRE de 11km",
+      "description": "Această cursă de campionat mai scurtă oferă o experiență mai accesibilă, dar la fel de provocatoare, cu o creștere de elevație de 500m, perfectă pentru cei noi în competițiile de alergare montană."
+    },
+    "categoriesTitle": "Categorii de vârstă Masters",
+    "categoryColumn": "Categorie",
+    "ageColumn": "Grup de vârstă",
+    "yearColumn": "Anul nașterii (2025)",
+    "categoriesNote": "Vârsta este determinată pe baza vârstei atletului în ziua competiției. Toți participanții din categoriile Masters trebuie să fie membri ai cluburilor afiliate Federației Române de Atletism sau să dețină licențe individuale FRA.",
+    "rulesTitle": "Reguli campionat",
+    "rules": {
+      "1": "Participanții trebuie să aibă 35 de ani sau mai mult în ziua competiției.",
+      "2": "Toți participanții trebuie să fie cetățeni români sau rezidenți legali.",
+      "3": "Membru FRA sau licență individuală este necesară pentru clasamentul oficial.",
+      "4": "Premiile pe categorii de vârstă vor fi acordate primilor trei clasați în fiecare categorie.",
+      "5": "Campionii generali Masters (bărbați și femei) vor fi încoronați din toate categoriile de vârstă."
+    },
+    "federationTitle": "Federația Română de Atletism",
+    "federationDescription": "Federația Română de Atletism (Federația Română de Atletism) este organismul de conducere pentru atletism în România, supraveghind toate competițiile oficiale de atletism, inclusiv evenimentele de alergare montană.",
+    "website": "Site web",
+    "email": "Email"
+  },
+  "accommodation": {
+    "title": "Cazare",
+    "subtitle": "Găsește locul perfect pentru a sta în timpul competiției",
+    "introTitle": "Cazare în Stâna de Vale",
+    "introText": "Stâna de Vale oferă mai multe opțiuni de cazare pentru participanți și vizitatori. Recomandăm rezervarea din timp, deoarece disponibilitatea poate fi limitată în timpul weekend-ului competiției. Mai jos vei găsi o selecție de cazări din zonă, de la hoteluri la cabane montane.",
+    "noteTitle": "Rezervare timpurie recomandată",
+    "noteText": "Datorită popularității evenimentului și cazării limitate în Stâna de Vale, recomandăm insistent rezervarea cazării cât mai curând posibil, mai ales dacă vii cu un grup.",
+    "alternativesTitle": "Opțiuni alternative",
+    "alternativesText": "Dacă preferi opțiuni alternative de cazare sau dacă locurile în Stâna de Vale sunt complet rezervate, ia în considerare aceste alternative:",
+    "distanceFromCenter": "{{distance}} km de centrul cursei",
+    "features": {
+      "wifi": "WiFi",
+      "parking": "Parcare",
+      "restaurant": "Restaurant",
+      "breakfast": "Mic dejun"
+    },
+    "camping": {
+      "title": "Camping",
+      "description": "Pentru cei care iubesc natura, există o zonă desemnată de camping lângă startul/sosirea cursei. Adu-ți propriul cort și echipament de camping.",
+      "priceTitle": "Preț:",
+      "priceDetails": "10 € pe cort pe noapte, include acces la toalete și dușuri."
+    },
+    "beius": {
+      "title": "Cazare în Beiuș",
+      "description": "Beiuș este cel mai apropiat oraș cu opțiuni suplimentare de cazare, inclusiv mai multe hoteluri și pensiuni.",
+      "distanceTitle": "Distanță:",
+      "distanceDetails": "Aproximativ 28 km de Stâna de Vale (35-40 de minute cu mașina). Autobuze de transfer vor fi disponibile în ziua cursei."
+    },
+    "needHelpTitle": "Ai nevoie de ajutor?",
+    "needHelpText": "Dacă ai nevoie de ajutor pentru a găsi cazare potrivită sau ai cerințe speciale, nu ezita să contactezi echipa noastră. Putem oferi recomandări bazate pe preferințele și mărimea grupului tău.",
+    "contactButton": "Contact pentru ajutor cazare",
+    "hotel1": {
+      "description": "Hotelul central din Stâna de Vale, care oferă camere confortabile, un restaurant care servește bucătărie tradițională românească și acces facil la zona de start/sosire a cursei."
+    },
+    "hotel2": {
+      "description": "O cabană montană confortabilă cu decor tradițional, oferind camere de bază, dar confortabile, într-un cadru natural frumos, la o scurtă plimbare de centrul cursei."
+    },
+    "hotel3": {
+      "description": "O experiență rustică de cabană cu vederi uimitoare ale munților. Cazare de bază cu o adevărată atmosferă montană și autentică."
+    },
+    "hotel4": {
+      "description": "O pensiune administrată de o familie, care oferă camere confortabile și mese de casă. Cunoscută pentru ospitalitatea sa caldă și mediul relaxant."
+    },
+    "hotel5": {
+      "description": "Un hotel modern în Beiuș cu toate facilitățile, inclusiv restaurant, bar și săli de conferințe. O opțiune bună pentru cei care preferă să stea în oraș."
+    }
   },
   "emailTest": {
-    "title": "Test Sistem Email",
+    "title": "Test sistem email",
     "subtitle": "Verifică dacă sistemul de notificare prin email funcționează corect",
-    "sendTestEmail": "Trimite Email de Test",
+    "sendTestEmail": "Trimite email de test",
     "verifyEmailFunctionality": "Folosește acest instrument pentru a verifica funcționalitatea sistemului de email",
-    "recipientEmail": "Email Destinatar",
-    "language": "Limba Email-ului",
+    "recipientEmail": "Email destinatar",
+    "language": "Limba emailului",
     "selectLanguage": "Selectează limba",
     "sending": "Se trimite...",
     "success": "Succes!",
-    "emailSentSuccessfully": "Email-ul de test a fost trimis cu succes",
+    "emailSentSuccessfully": "Email de test trimis cu succes",
     "failed": "Eșuat",
-    "failedToSendEmail": "Nu s-a putut trimite email-ul de test",
+    "failedToSendEmail": "Eșec la trimiterea emailului de test",
     "error": "Eroare",
-    "errorOccurred": "A apărut o eroare la trimiterea email-ului",
-    "emailRequired": "Email Necesar",
+    "errorOccurred": "A apărut o eroare la trimiterea emailului",
+    "emailRequired": "Email necesar",
     "pleaseEnterValidEmail": "Te rugăm să introduci o adresă de email validă",
     "possibleIssues": "Probleme posibile",
-    "configured": "Sistem Email SendGrid Configurat",
-    "notConfigured": "Sistem Email SendGrid Neconfigurat"
+    "configured": "Sistemul de email SendGrid configurat",
+    "notConfigured": "Sistemul de email SendGrid neconfigurat"
   },
   "payment": {
     "title": "Plată securizată",
-    "summary": "Sumar comandă",
+    "summary": "Rezumat comandă",
     "pay": "Plătește acum",
-    "processing": "Se procesează...",
-    "success": "Plată efectuată cu succes",
+    "processing": "Procesare...",
+    "success": "Plată reușită",
     "failed": "Plata a eșuat",
-    "error": "Eroare de plată",
-    "successMessage": "Îți mulțumim pentru plată! Înregistrarea ta a fost confirmată.",
+    "error": "Eroare plată",
+    "successMessage": "Îți mulțumim pentru plata ta! Înregistrarea ta a fost confirmată.",
     "genericError": "A apărut o problemă la procesarea plății tale. Te rugăm să încerci din nou.",
     "intentError": "Nu s-a putut crea plata. Te rugăm să încerci din nou mai târziu.",
-    "connectionError": "Nu s-a putut conecta la serviciul de plată. Te rugăm să verifici conexiunea la internet și să încerci din nou.",
+    "connectionError": "Nu s-a putut conecta la serviciul de plată. Verifică-ți conexiunea la internet și încearcă din nou.",
     "inProgress": "Plată în curs...",
-    "processingPayment": "Se procesează plata ta...",
+    "processingPayment": "Procesarea plății tale...",
     "redirecting": "Redirecționare către checkout...",
     "cancel": "Anulează plata",
     "goBack": "Înapoi",
