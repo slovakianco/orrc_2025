@@ -335,12 +335,12 @@
         }
       },
       "aidStations": {
-        "title": "Puncte de ajutor",
+        "title": "Puncte de alimentare",
         "rules": {
-          "1": "Cursa de 11km: Un punct de ajutor la km 5.",
-          "2": "Cursa de 33km: Cinci puncte de ajutor situate la km 5.4, 10.4, 15.5, 20.9 și 26.6.",
-          "3": "Toate punctele de ajutor oferă apă, băuturi izotonice și gustări ușoare.",
-          "4": "Asistența medicală este disponibilă la fiecare punct de ajutor."
+          "1": "Cursa de 11km: Un punct de alimentare la km 5.",
+          "2": "Cursa de 33km: Cinci puncte de alimentare situate la km 5.4, 10.4, 15.5, 20.9 și 26.6.",
+          "3": "Toate punctele de alimentare oferă apă, băuturi izotonice și gustări ușoare.",
+          "4": "Asistența medicală este disponibilă la fiecare punct de alimentare."
         }
       },
       "penalties": {
@@ -350,7 +350,7 @@
           "2": "Aruncarea gunoiului pe traseu: descalificare imediată.",
           "3": "Folosirea bețelor de trekking în zone interzise: penalizare de 30 de minute.",
           "4": "Nerespectarea ajutorului acordat unui alergător în dificultate: descalificare.",
-          "5": "Primirea de asistență neautorizată în afara punctelor de ajutor: descalificare."
+          "5": "Primirea de asistență neautorizată în afara punctelor de alimentare: descalificare."
         }
       },
       "safety": {
@@ -358,7 +358,7 @@
         "rules": {
           "1": "Organizatorii cursei pot modifica traseul sau anula evenimentul în caz de condiții meteorologice severe.",
           "2": "Echipele medicale au autoritatea de a retrage participanții considerați inapți să continue.",
-          "3": "Participanții trebuie să ajute orice alergător în dificultate și să raporteze la următorul punct de ajutor.",
+          "3": "Participanții trebuie să ajute orice alergător în dificultate și să raporteze la următorul punct de alimentare.",
           "4": "În caz de urgență, sună la numărul de urgență al cursei furnizat pe numărul tău de concurs."
         }
       },
@@ -366,7 +366,7 @@
         "title": "Protecția mediului",
         "rules": {
           "1": "Rămâi pe traseele marcate pentru a minimiza impactul asupra mediului.",
-          "2": "Transportă toate deșeurile la următorul punct de ajutor sau la linia de sosire.",
+          "2": "Transportă toate deșeurile la următorul punct de alimentare sau la linia de sosire.",
           "3": "Respectă fauna sălbatică și reglementările locale în zonele protejate."
         }
       },
@@ -499,8 +499,8 @@
         "answer": "Adu-ți actul de identitate, email-ul de confirmare și tot echipamentul necesar pentru cursa ta. Verifică secțiunea Reguli pentru echipamentul specific necesar distanței tale. Nu uita să te îmbraci corespunzător condițiilor meteo."
       },
       "stations": {
-        "question": "Există puncte de ajutor pe traseu?",
-        "answer": "Da, există puncte de ajutor de-a lungul tuturor traseelor cursei. Cursa de 10km are 2 puncte de ajutor, cursa de 21km are 4 puncte de ajutor, iar cursa de 50km are 8 puncte de ajutor. Fiecare punct de ajutor oferă apă, băuturi sportive și diverse gustări."
+        "question": "Există puncte de alimentare pe traseu?",
+        "answer": "Da, există puncte de alimentare de-a lungul tuturor traseelor cursei. Cursa de 10km are 2 puncte de alimentare, cursa de 21km are 4 puncte de alimentare, iar cursa de 50km are 8 puncte de alimentare. Fiecare punct de alimentare oferă apă, băuturi sportive și diverse gustări."
       },
       "change": {
         "question": "Pot schimba cursa după înregistrare?",
@@ -641,7 +641,7 @@
         "checkpoints": "Înregistrează-te la toate punctele de control desemnate",
         "timeLimits": "Completează cursa în limitele de timp specificate",
         "environment": "Respectă mediul înconjurător și nu arunca gunoi",
-        "assistance": "Nu primi asistență neautorizată în afara punctelor de ajutor"
+        "assistance": "Nu primi asistență neautorizată în afara punctelor de alimentare"
       }
     },
     "liability": {

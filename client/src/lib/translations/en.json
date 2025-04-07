@@ -119,8 +119,8 @@
     "loading": "Loading races...",
     "noRacesFound": "No races found",
     "tryDifferentFilter": "Try a different filter option",
-    "aidStations": "{{count}} Aid Station",
-    "aidStations_plural": "{{count}} Aid Stations",
+    "aidStations": "{{count}} Refreshment Point",
+    "aidStations_plural": "{{count}} Refreshment Points",
     "certification": {
       "ema": "2025 EMA Off-Road Running Circuit",
       "national": "National Mountain Running Championship Masters",
@@ -140,11 +140,11 @@
       "distance": "Distance",
       "elevation": "Elevation Gain",
       "difficulty": "Difficulty",
-      "aidStations": "Aid Stations",
-      "aidStationsTitle": "Water & Aid Stations", 
-      "aidStationsDescription": "Our races are equipped with well-stocked aid stations to keep you hydrated and energized throughout the course. Each station offers water, sports drinks, and light snacks.",
-      "aidStationsLocations": "Aid Station Locations",
-      "aidStation": "Aid Station",
+      "aidStations": "Refreshment Points",
+      "aidStationsTitle": "Water & Refreshment Points", 
+      "aidStationsDescription": "Our races are equipped with well-stocked refreshment points to keep you hydrated and energized throughout the course. Each station offers water, sports drinks, and light snacks.",
+      "aidStationsLocations": "Refreshment Point Locations",
+      "aidStation": "Refreshment Point",
       "waterAndSnacks": "Water, sports drinks, and light snacks",
       "registerButton": "Register Now",
       "downloadGPX": "Download GPX",
@@ -161,7 +161,7 @@
       "trailMap": "Trail Map",
       "registerButton": "Register Now",
       "backToRaces": "Back to All Races",
-      "aidStations": "Aid Stations",
+      "aidStations": "Refreshment Points",
       "cutoffTime": "Cutoff Time",
       "startTime": "Start Time",
       "loading": "Loading race details...",
@@ -335,12 +335,12 @@
         }
       },
       "aidStations": {
-        "title": "Aid Stations",
+        "title": "Refreshment Points",
         "rules": {
-          "1": "11km race: One aid station at km 5.",
-          "2": "33km race: Five aid stations located at km 5.4, 10.4, 15.5, 20.9, and 26.6.",
-          "3": "All aid stations provide water, isotonic drinks, and light snacks.",
-          "4": "Medical assistance is available at each aid station."
+          "1": "11km race: One refreshment point at km 5.",
+          "2": "33km race: Five refreshment points located at km 5.4, 10.4, 15.5, 20.9, and 26.6.",
+          "3": "All refreshment points provide water, isotonic drinks, and light snacks.",
+          "4": "Medical assistance is available at each refreshment point."
         }
       },
       "penalties": {
@@ -350,7 +350,7 @@
           "2": "Littering on the course: immediate disqualification.",
           "3": "Using trekking poles in prohibited areas: 30-minute time penalty.",
           "4": "Failure to assist a runner in distress: disqualification.",
-          "5": "Receiving unauthorized assistance outside of aid stations: disqualification."
+          "5": "Receiving unauthorized assistance outside of refreshment points: disqualification."
         }
       },
       "safety": {
@@ -358,7 +358,7 @@
         "rules": {
           "1": "Race organizers may modify the course or cancel the event in case of severe weather conditions.",
           "2": "Medical teams have the authority to withdraw participants deemed unfit to continue.",
-          "3": "Participants must assist any runner in distress and report to the next aid station.",
+          "3": "Participants must assist any runner in distress and report to the next refreshment point.",
           "4": "In case of emergency, call the race emergency number provided on your bib."
         }
       },
@@ -366,7 +366,7 @@
         "title": "Environmental Protection",
         "rules": {
           "1": "Stay on marked trails to minimize environmental impact.",
-          "2": "Carry all waste to the next aid station or finish line.",
+          "2": "Carry all waste to the next refreshment point or finish line.",
           "3": "Respect wildlife and local regulations in protected areas."
         }
       },
@@ -499,8 +499,8 @@
         "answer": "Bring your ID, confirmation email, and all the required equipment for your race. Check the Rules section for the specific equipment required for your race distance. Don't forget to dress appropriately for the weather conditions."
       },
       "stations": {
-        "question": "Are there aid stations on the course?",
-        "answer": "Yes, there are aid stations along all race routes. The 10km race has 2 aid stations, the 21km race has 4 aid stations, and the 50km race has 8 aid stations. Each aid station provides water, sports drinks, and various snacks."
+        "question": "Are there refreshment points on the course?",
+        "answer": "Yes, there are refreshment points along all race routes. The 10km race has 2 refreshment points, the 21km race has 4 refreshment points, and the 50km race has 8 refreshment points. Each refreshment point provides water, sports drinks, and various snacks."
       },
       "change": {
         "question": "Can I change my race after registering?",
@@ -641,7 +641,7 @@
         "checkpoints": "Check in at all designated checkpoints",
         "timeLimits": "Complete the race within the specified time limits",
         "environment": "Respect the environment and do not litter",
-        "assistance": "Do not receive unauthorized assistance outside of aid stations"
+        "assistance": "Do not receive unauthorized assistance outside of refreshment points"
       }
     },
     "liability": {
