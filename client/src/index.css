@@ -24,7 +24,12 @@
     color: var(--color-slate-gray);
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading font-bold tracking-tight;
     color: var(--color-pine-green);
   }
@@ -48,29 +53,29 @@
     color: white;
     box-shadow: 0 4px 14px rgba(42, 109, 80, 0.4);
   }
-  
+
   .btn-primary:hover {
     background-color: var(--color-pine-green);
     box-shadow: 0 6px 20px rgba(42, 109, 80, 0.5);
   }
-  
+
   .btn-secondary {
     background-color: var(--color-sky-blue);
     color: white;
     box-shadow: 0 4px 14px rgba(74, 144, 191, 0.4);
   }
-  
+
   .btn-secondary:hover {
     background-color: #3A80AF;
     box-shadow: 0 6px 20px rgba(74, 144, 191, 0.5);
   }
-  
+
   .btn-accent {
     background-color: var(--color-sunset-orange);
     color: white;
     box-shadow: 0 4px 14px rgba(230, 122, 60, 0.4);
   }
-  
+
   .btn-accent:hover {
     background-color: #D56A2C;
     box-shadow: 0 6px 20px rgba(230, 122, 60, 0.5);
@@ -112,109 +117,109 @@
     background-clip: text;
     color: transparent;
   }
-  
+
   /* Difficulty Colors */
   .bg-difficulty-beginner {
     background-color: var(--color-alpine-green);
     color: white;
   }
-  
+
   .bg-difficulty-intermediate {
     background-color: var(--color-sunrise-yellow);
     color: white;
   }
-  
+
   .bg-difficulty-advanced {
     background-color: var(--color-sunset-orange);
     color: white;
   }
-  
+
   .bg-difficulty-ultra {
     background-color: var(--color-trail-brown);
     color: white;
   }
-  
+
   .text-difficulty-beginner {
     color: var(--color-alpine-green);
   }
-  
+
   .text-difficulty-intermediate {
     color: var(--color-sunrise-yellow);
   }
-  
+
   .text-difficulty-advanced {
     color: var(--color-sunset-orange);
   }
-  
+
   .text-difficulty-ultra {
     color: var(--color-trail-brown);
   }
-  
+
   /* New utility classes */
   .text-alpine {
     color: var(--color-alpine-green);
   }
-  
+
   .text-sky {
     color: var(--color-sky-blue);
   }
-  
+
   .text-sunset {
     color: var(--color-sunset-orange);
   }
-  
+
   .text-sunrise {
     color: var(--color-sunrise-yellow);
   }
-  
+
   .text-slate {
     color: var(--color-slate-gray);
   }
-  
+
   .text-pine {
     color: var(--color-pine-green);
   }
-  
+
   .bg-alpine {
     background-color: var(--color-alpine-green);
     color: white;
   }
-  
+
   .bg-sky {
     background-color: var(--color-sky-blue);
     color: white;
   }
-  
+
   .bg-sunset {
     background-color: var(--color-sunset-orange);
     color: white;
   }
-  
+
   .bg-sunrise {
     background-color: var(--color-sunrise-yellow);
     color: white;
   }
-  
+
   .bg-stone {
     background-color: var(--color-stone-beige);
     color: var(--color-slate-gray);
   }
-  
+
   .bg-slate {
     background-color: var(--color-slate-gray);
     color: white;
   }
-  
+
   .bg-trail-brown {
     background-color: var(--color-trail-brown);
     color: white;
   }
-  
+
   .bg-pine {
     background-color: var(--color-pine-green);
     color: white;
   }
-  
+
   .shadow-text {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
   }
@@ -273,15 +278,34 @@
 .text-sm {
   font-size: 15px !important;
 }
+.text-xl-white {
+  color:white !important;
+}
+
+.text-sm-white {
+  font-size: 15px !important;
+  color:white;
+}
 
 /* Ensure paragraph text is readable */
-p, li, span {
+p,
+li,
+span {
   color: var(--color-slate-gray);
   font-size: 16px;
 }
 
+button>span {
+  color: white !important
+}
+
+.white {
+  color: white !important
+}
 /* Make text in muted backgrounds visible - but only for custom components, not for shadcn UI components */
-.bg-primary, .bg-secondary, .bg-accent {
+.bg-primary,
+.bg-secondary,
+.bg-accent {
   color: white !important;
 }
 

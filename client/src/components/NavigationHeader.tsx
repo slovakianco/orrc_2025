@@ -49,11 +49,6 @@ const NavigationHeader = () => {
       path: "/how-to-get-there",
       isActive: location === "/how-to-get-there",
     },
-    {
-      label: t("nav.accommodation"),
-      path: "/accommodation",
-      isActive: location === "/accommodation",
-    },
   ];
 
   const toggleMenu = () => {
@@ -67,9 +62,9 @@ const NavigationHeader = () => {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <div className="h-10 w-auto mr-2 overflow-hidden flex items-center">
-                <img 
-                  src="/logo.jpeg" 
-                  alt="Stana de Vale Logo" 
+                <img
+                  src="/logo.jpeg"
+                  alt="Stana de Vale Logo"
                   className="h-full w-auto object-cover rounded-md"
                 />
               </div>
@@ -84,7 +79,7 @@ const NavigationHeader = () => {
             <div className="mr-3">
               <LanguageSelectorWithFlags />
             </div>
-            
+
             {/* Mobile menu toggle */}
             <button
               onClick={toggleMenu}
@@ -115,10 +110,10 @@ const NavigationHeader = () => {
                 </Link>
               ))}
             </nav>
-            
+
             {/* Desktop language selector */}
             <LanguageSelectorWithFlags />
-            
+
             {/* Registration button */}
             <Link
               href="/registration"
@@ -139,7 +134,9 @@ const NavigationHeader = () => {
                   href={item.path}
                   onClick={() => setIsMenuOpen(false)}
                   className={`nav-item font-medium py-2 border-b border-white/10 text-white transition-colors ${
-                    item.isActive ? "active bg-sunset/20 font-semibold rounded-t-md" : ""
+                    item.isActive
+                      ? "active bg-sunset/20 font-semibold rounded-t-md"
+                      : ""
                   }`}
                 >
                   {item.label}

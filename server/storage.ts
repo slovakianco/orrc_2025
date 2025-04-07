@@ -147,11 +147,14 @@ export class MemStorage implements IStorage {
     this.races.set(id, newRace);
     return newRace;
   }
-  
-  async updateRace(id: number, updateData: Partial<Race>): Promise<Race | undefined> {
+
+  async updateRace(
+    id: number,
+    updateData: Partial<Race>,
+  ): Promise<Race | undefined> {
     const race = await this.getRaceById(id);
     if (!race) return undefined;
-    
+
     const updatedRace: Race = { ...race, ...updateData };
     this.races.set(id, updatedRace);
     return updatedRace;
@@ -350,7 +353,7 @@ export class MemStorage implements IStorage {
       difficulty: "long_trail",
       date: "2024-07-05",
       price: 40, // 200 lei
-      imageUrl: "https://images.unsplash.com/photo-1483721310020-03333e577078",
+      imageUrl: "/stana-de-vale.jpg",
       raceMap:
         '<iframe src="https://tracedetrail.fr/en/iframe/6296" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>',
       isEMAcertified: true, // Part of 2025 EMA Off-Road Running Circuit
@@ -375,7 +378,7 @@ export class MemStorage implements IStorage {
       difficulty: "classic_updown",
       date: "2024-07-05",
       price: 30, // 150 lei
-      imageUrl: "https://images.unsplash.com/photo-1464054313797-e27fb58e90a9",
+      imageUrl: "/33km.jpg",
       raceMap:
         '<iframe src="https://tracedetrail.fr/en/iframe/6297" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>',
       isEMAcertified: true, // Also part of EMA Circuit for 2025
@@ -423,7 +426,7 @@ export class MemStorage implements IStorage {
       answer:
         "Yes, there are aid stations along all race routes. The 10km race has 2 aid stations, the 21km race has 4 aid stations, and the 50km race has 8 aid stations. Each aid station provides water, sports drinks, and various snacks.",
       answerRo:
-        "Da, există stații de ajutor de-a lungul tuturor traseelor de cursă. Cursa de 10 km are 2 stații de ajutor, cursa de 21 km are 4 stații de ajutor, iar cursa de 50 km are 8 stații de ajutor. Fiecare stație de ajutor oferă apă, băuturi sportive și diverse gustări.",
+        "Da, există stații de ajutor de-a lungul tuturor traseelor de cursă. Cursa de 10 km are 2 stații de ajutor, cursa de 21 km are 4 stații de ajutor, iar cursa de 50 km are 8 stații de ajutor. Fiecare stație de ajutor oferă apm�, băuturi sportive și diverse gustări.",
       answerFr:
         "Oui, il y a des postes de ravitaillement le long de tous les parcours. La course de 10 km a 2 postes, la course de 21 km a 4 postes, et la course de 50 km a 8 postes. Chaque poste fournit de l'eau, des boissons sportives et diverses collations.",
       answerDe:

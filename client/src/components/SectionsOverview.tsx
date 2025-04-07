@@ -60,10 +60,10 @@ const SectionsOverview = () => {
       colorClass: 'bg-primary'
     },
     {
-      title: t('nav.emaCircuit'),
-      description: t('sectionsOverview.emaCircuit'),
+      title: t('nav.cnMasters'),
+      description: t('sectionsOverview.cnMasters'),
       icon: <Award className="h-6 w-6 text-white" />,
-      to: '/ema-circuit',
+      to: '/cn-masters',
       colorClass: 'bg-sunrise'
     },
     {
