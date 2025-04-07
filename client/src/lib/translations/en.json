@@ -401,17 +401,17 @@
         "title": "Bib Number Pickup",
         "friday": "Friday: 10:00 - 20:00",
         "saturday": "Saturday: 06:00 - 08:00",
-        "location": "Race Center"
+        "location": "Hotel Iadolina"
       },
       "technicalMeeting": {
         "title": "Technical Meeting",
         "time": "Friday, 18:00",
-        "location": "Race Center"
+        "location": "Hotel Iadolina"
       },
       "pastaParty": {
         "title": "Pasta Party",
         "time": "Friday, 18:30",
-        "location": "Race Center"
+        "location": "Hotel Iadolina"
       },
       "raceStart33k": {
         "title": "33km Race Start",
@@ -436,7 +436,7 @@
       "banquet": {
         "title": "Banquet",
         "time": "Saturday, 18:30",
-        "location": "Race Center"
+        "location": "Hotel Iadolina"
       },
       "timeUnit": "hrs"
     }

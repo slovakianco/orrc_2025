@@ -1,34 +1,81 @@
 import { useTranslation } from "react-i18next";
-import { useQuery } from "@tanstack/react-query";
-import { Sponsor } from "@/lib/types";
-import { getLocalizedSponsorDescription } from "@/lib/utils";
 import { ExternalLink } from "lucide-react";
+
+// Create a custom sponsor type for our hardcoded sponsors
+interface CustomSponsor {
+  id: number;
+  name: string;
+  description: string;
+  descriptionRo: string;
+  descriptionFr: string;
+  descriptionDe: string;
+  logoUrl: string;
+  website: string;
+  level: string;
+  order_index: number;
+}
+
+// Custom getLocalizedDescription function that works with our CustomSponsor type
+const getLocalizedDescription = (sponsor: CustomSponsor, language: string): string => {
+  switch (language) {
+    case 'ro':
+      return sponsor.descriptionRo;
+    case 'fr':
+      return sponsor.descriptionFr;
+    case 'de':
+      return sponsor.descriptionDe;
+    default:
+      return sponsor.description;
+  }
+};
 
 const SponsorsShowcase = () => {
   const { t, i18n } = useTranslation();
-  const language = i18n.language as 'en' | 'ro' | 'fr' | 'de';
+  const language = i18n.language;
 
-  // Fetch all sponsors
-  const { data: allSponsors, isLoading } = useQuery<Sponsor[]>({
-    queryKey: ['/api/sponsors'],
-  });
+  // Use hardcoded sponsors instead of loading from API
+  const sponsors: CustomSponsor[] = [
+    {
+      id: 1,
+      name: "Ety Market",
+      description: "One of the leading supermarket chains in Bihor County, offering a wide range of quality products.",
+      descriptionRo: "Unul dintre principalele lanțuri de supermarketuri din județul Bihor, oferind o gamă largă de produse de calitate.",
+      descriptionFr: "L'une des principales chaînes de supermarchés du comté de Bihor, offrant une large gamme de produits de qualité.",
+      descriptionDe: "Eine der führenden Supermarktketten im Kreis Bihor, die eine breite Palette an Qualitätsprodukten anbietet.",
+      logoUrl: "/attached_assets/logo1.png",
+      website: "https://etymarket.ro",
+      level: "premium",
+      order_index: 1
+    },
+    {
+      id: 2,
+      name: "Pantano",
+      description: "High-quality building materials and home improvement solutions provider.",
+      descriptionRo: "Furnizor de materiale de construcții și soluții de îmbunătățire a locuinței de înaltă calitate.",
+      descriptionFr: "Fournisseur de matériaux de construction et de solutions d'amélioration de l'habitat de haute qualité.",
+      descriptionDe: "Anbieter von hochwertigen Baumaterialien und Heimwerkerlösungen.",
+      logoUrl: "/attached_assets/logo2.png",
+      website: "https://pantano.ro",
+      level: "premium",
+      order_index: 2
+    },
+    {
+      id: 3,
+      name: "Divin Garden",
+      description: "Premium nuts, dried fruits, and healthy snacks provider supporting athletes and outdoor enthusiasts.",
+      descriptionRo: "Furnizor premium de nuci, fructe uscate și gustări sănătoase, susținând atleții și pasionații de activități în aer liber.",
+      descriptionFr: "Fournisseur premium de noix, fruits secs et collations saines, soutenant les athlètes et les amateurs de plein air.",
+      descriptionDe: "Premium-Anbieter von Nüssen, Trockenfrüchten und gesunden Snacks, die Sportler und Outdoor-Enthusiasten unterstützen.",
+      logoUrl: "/attached_assets/logo3.png",
+      website: "https://divingarden.ro",
+      level: "premium",
+      order_index: 3
+    }
+  ];
 
   // Split sponsors by level
-  const premiumSponsors = allSponsors?.filter(sponsor => sponsor.level === 'premium') || [];
-  const standardSponsors = allSponsors?.filter(sponsor => sponsor.level === 'standard') || [];
-
-  if (isLoading) {
-    return (
-      <section id="sponsors" className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">{t('sponsors.title')}</h2>
-          <div className="animate-pulse flex justify-center mt-8">
-            <div className="h-8 w-8 bg-primary opacity-75 rounded-full"></div>
-          </div>
-        </div>
-      </section>
-    );
-  }
+  const premiumSponsors = sponsors.filter(sponsor => sponsor.level === 'premium');
+  const standardSponsors = sponsors.filter(sponsor => sponsor.level === 'standard');
 
   return (
     <section id="sponsors" className="py-16 bg-gray-50">
@@ -51,13 +98,17 @@ const SponsorsShowcase = () => {
                   className="bg-white rounded-lg p-8 shadow-md flex flex-col items-center hover:shadow-lg transition-shadow duration-300"
                 >
                   <div className="w-48 h-32 mb-6 flex items-center justify-center">
-                    <div className="bg-neutral-light p-4 rounded-md w-full h-full flex items-center justify-center">
-                      <span className="font-bold text-xl text-primary">{sponsor.logoPlaceholder}</span>
+                    <div className="bg-white p-4 rounded-md w-full h-full flex items-center justify-center">
+                      <img 
+                        src={sponsor.logoUrl} 
+                        alt={`${sponsor.name} logo`} 
+                        className="max-w-full max-h-full object-contain" 
+                      />
                     </div>
                   </div>
                   <h4 className="font-bold text-lg mb-2">{sponsor.name}</h4>
                   <p className="text-center text-neutral-gray mb-4">
-                    {getLocalizedSponsorDescription(sponsor, language)}
+                    {getLocalizedDescription(sponsor, language)}
                   </p>
                   <a 
                     href={sponsor.website} 
@@ -85,8 +136,12 @@ const SponsorsShowcase = () => {
                   className="bg-white rounded-lg p-6 shadow-md flex flex-col items-center hover:shadow-lg transition-shadow duration-300"
                 >
                   <div className="w-32 h-24 mb-4 flex items-center justify-center">
-                    <div className="bg-neutral-light p-2 rounded-md w-full h-full flex items-center justify-center">
-                      <span className="font-bold text-primary">{sponsor.logoPlaceholder}</span>
+                    <div className="bg-white p-2 rounded-md w-full h-full flex items-center justify-center">
+                      <img 
+                        src={sponsor.logoUrl} 
+                        alt={`${sponsor.name} logo`} 
+                        className="max-w-full max-h-full object-contain" 
+                      />
                     </div>
                   </div>
                   <h4 className="font-bold mb-1">{sponsor.name}</h4>

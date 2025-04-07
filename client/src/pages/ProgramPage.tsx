@@ -14,7 +14,7 @@ const ProgramPage = () => {
         subtitle={t('program.subtitle')}
       />
       
-      {/* Race Center Information */}
+      {/* Hotel Iadolina Information */}
       <div className="container mx-auto px-4 py-6 md:py-8 max-w-7xl">
         <Card className="mb-8 bg-primary/5 border-primary/20">
           <CardContent className="p-6">
