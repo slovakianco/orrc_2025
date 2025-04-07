@@ -72,6 +72,34 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
   
+  // Update race details (especially for updating images)
+  apiRouter.patch("/races/:id", async (req: Request, res: Response) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) {
+        return res.status(400).json({ message: "Invalid race ID" });
+      }
+      
+      const updateData = req.body;
+      
+      // Validate update data - minimum check
+      if (Object.keys(updateData).length === 0) {
+        return res.status(400).json({ message: "No update data provided" });
+      }
+      
+      const race = await storage.getRaceById(id);
+      if (!race) {
+        return res.status(404).json({ message: "Race not found" });
+      }
+      
+      const updatedRace = await storage.updateRace(id, updateData);
+      res.json(updatedRace);
+    } catch (error) {
+      console.error("Error updating race:", error);
+      res.status(500).json({ message: "Failed to update race" });
+    }
+  });
+  
   // Participants
   apiRouter.get("/participants", async (req: Request, res: Response) => {
     try {

@@ -2,6 +2,7 @@
   "common": {
     "loading": "Loading...",
     "submitting": "Submitting...",
+    "updating": "Updating...",
     "error": "An error occurred",
     "success": "Success!",
     "notAvailable": "Not available",
@@ -22,6 +23,21 @@
     "goBack": "Go back",
     "goHome": "Go to home page",
     "languageSelector": "Language selector"
+  },
+  "admin": {
+    "title": "Admin Dashboard",
+    "raceImages": "Race Images",
+    "participants": "Participants Management",
+    "currentImage": "Current Race Image",
+    "enterNewImageUrl": "Enter new image URL:",
+    "updateImage": "Update Image",
+    "imageUpdateSuccess": "Image Updated Successfully",
+    "imageUpdatedDescription": "The race image has been updated. Changes will appear immediately on the race page.",
+    "imageUpdateFailed": "Image Update Failed",
+    "participantsManagement": "Participants Management",
+    "participantsDescription": "View, filter, and manage participant registrations",
+    "comingSoon": "This feature is coming soon",
+    "availableImages": "Available images"
   },
   "nav": {
     "home": "Home",

@@ -33,6 +33,7 @@ export interface IStorage {
   getRaceById(id: number): Promise<Race | undefined>;
   getRacesByDifficulty(difficulty: string): Promise<Race[]>;
   createRace(race: InsertRace): Promise<Race>;
+  updateRace(id: number, updateData: Partial<Race>): Promise<Race | undefined>;
 
   // Participants
   getParticipants(): Promise<Participant[]>;
@@ -145,6 +146,15 @@ export class MemStorage implements IStorage {
     };
     this.races.set(id, newRace);
     return newRace;
+  }
+  
+  async updateRace(id: number, updateData: Partial<Race>): Promise<Race | undefined> {
+    const race = await this.getRaceById(id);
+    if (!race) return undefined;
+    
+    const updatedRace: Race = { ...race, ...updateData };
+    this.races.set(id, updatedRace);
+    return updatedRace;
   }
 
   // Participants
@@ -336,7 +346,7 @@ export class MemStorage implements IStorage {
       descriptionDe:
         "Ein anspruchsvoller 33 km langer Bergpfad mit erheblichem Höhenunterschied und atemberaubenden Panoramablicken. Dieses Rennen enthält technische Abschnitte und erfordert gute Berglauferfahrung.",
       distance: 33,
-      elevation: 1800,
+      elevation: 1500,
       difficulty: "long_trail",
       date: "2024-07-05",
       price: 40, // 200 lei

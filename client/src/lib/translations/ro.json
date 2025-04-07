@@ -2,6 +2,7 @@
   "common": {
     "loading": "Se încarcă...",
     "submitting": "Se trimite...",
+    "updating": "Se actualizează...",
     "error": "A apărut o eroare",
     "success": "Succes!",
     "notAvailable": "Indisponibil",
@@ -22,6 +23,21 @@
     "goBack": "Înapoi",
     "goHome": "Mergi la pagina principală",
     "languageSelector": "Selector de limbă"
+  },
+  "admin": {
+    "title": "Panou de Administrare",
+    "raceImages": "Imagini Curse",
+    "participants": "Gestionare Participanți",
+    "currentImage": "Imaginea Curentă a Cursei",
+    "enterNewImageUrl": "Introduceți noua adresă URL a imaginii:",
+    "updateImage": "Actualizează Imaginea",
+    "imageUpdateSuccess": "Imaginea a fost actualizată cu succes",
+    "imageUpdatedDescription": "Imaginea cursei a fost actualizată. Modificările vor apărea imediat pe pagina cursei.",
+    "imageUpdateFailed": "Actualizarea imaginii a eșuat",
+    "participantsManagement": "Gestionarea participanților",
+    "participantsDescription": "Vizualizați, filtrați și gestionați înregistrările participanților",
+    "comingSoon": "Această funcționalitate va fi disponibilă în curând",
+    "availableImages": "Imagini disponibile"
   },
   "nav": {
     "home": "Acasă",

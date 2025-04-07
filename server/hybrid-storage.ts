@@ -70,6 +70,28 @@ export class HybridStorage implements IStorage {
   async createRace(race: InsertRace): Promise<Race> {
     return this.memStorage.createRace(race);
   }
+  
+  async updateRace(id: number, updateData: Partial<Race>): Promise<Race | undefined> {
+    if (!this.supabaseAvailable) {
+      console.log(`Supabase not available, using MemStorage for race update: ${id}`);
+      return this.memStorage.updateRace(id, updateData);
+    }
+
+    try {
+      // Try to update in Supabase first
+      const updatedRace = await this.supabaseStorage.updateRace(id, updateData);
+      console.log(`Race ${id} successfully updated in Supabase`);
+      
+      // Also update in memory to keep in sync
+      await this.memStorage.updateRace(id, updateData);
+      
+      return updatedRace;
+    } catch (error) {
+      console.error(`Error updating race ${id} in Supabase:`, error);
+      console.warn("Falling back to in-memory storage for race update");
+      return this.memStorage.updateRace(id, updateData);
+    }
+  }
 
   // Participants - Use Supabase for storage with graceful fallback to in-memory storage
   async getParticipants(): Promise<Participant[]> {

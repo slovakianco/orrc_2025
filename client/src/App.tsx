@@ -26,6 +26,7 @@ import EmailTestPage from "@/pages/EmailTestPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsConditions from "@/pages/TermsConditions";
 import CookiePolicy from "@/pages/CookiePolicy";
+import AdminPage from "@/pages/AdminPage";
 
 // Import Components
 import NavigationHeader from "@/components/NavigationHeader";
@@ -64,6 +65,7 @@ function Router() {
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/terms-conditions" component={TermsConditions} />
           <Route path="/cookie-policy" component={CookiePolicy} />
+          <Route path="/admin" component={AdminPage} />
           <Route component={NotFound} />
         </Switch>
       </main>

@@ -120,6 +120,30 @@ export class SupabaseStorage implements IStorage {
     
     return data as Race;
   }
+  
+  async updateRace(id: number, updateData: Partial<Race>): Promise<Race | undefined> {
+    // First, check if the race exists
+    const existingRace = await this.getRaceById(id);
+    if (!existingRace) {
+      console.error(`Race with ID ${id} not found for update`);
+      return undefined;
+    }
+    
+    // Proceed with the update
+    const { data, error } = await supabase
+      .from('races')
+      .update(updateData)
+      .eq('id', id)
+      .select()
+      .single();
+    
+    if (error || !data) {
+      console.error(`Error updating race with ID ${id}:`, error);
+      throw new Error(`Failed to update race: ${error?.message}`);
+    }
+    
+    return data as Race;
+  }
 
   // Participants
   async getParticipants(): Promise<Participant[]> {
