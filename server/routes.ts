@@ -679,7 +679,7 @@ This message was sent from the Stana de Vale Trail Race website contact form.
         after_completion: {
           type: 'redirect',
           redirect: {
-            url: `${req.protocol}://${req.get('host')}/registration-success?participantId=${participantId}&raceId=${raceId}`,
+            url: `${req.protocol}://${req.get('host')}/registration-success?payment_success=true&participantId=${participantId}`,
           },
         },
         metadata: {

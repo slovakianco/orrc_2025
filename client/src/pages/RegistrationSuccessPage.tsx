@@ -39,6 +39,9 @@ const RegistrationSuccessPage: React.FC = () => {
   const participantId = searchParams.get('participantId');
   const raceId = searchParams.get('raceId');
   
+  // Check if we've been redirected after payment completion
+  const paymentSuccess = searchParams.get('payment_success') === 'true';
+  
   // Calculate price based on race and EMA status
   const calculatePrice = (raceId: number, isEma: boolean): number => {
     if (raceId === 1) { // 33km race
@@ -161,6 +164,11 @@ const RegistrationSuccessPage: React.FC = () => {
               title: t('payment.success'),
               description: t('payment.successMessage'),
             });
+            
+            // Important: Redirect to participants page after successful payment confirmation
+            setTimeout(() => {
+              setLocation('/participants');
+            }, 2000);
           }
         } else {
           console.error("Failed to confirm payment");
@@ -173,14 +181,85 @@ const RegistrationSuccessPage: React.FC = () => {
     if (paymentIntentId && paymentIntentClientSecret) {
       confirmPayment();
     }
-  }, [paymentIntentId, paymentIntentClientSecret, toast, t, participantId, raceId]);
+  }, [paymentIntentId, paymentIntentClientSecret, toast, t, participantId, raceId, setLocation]);
   
+  // Update participant status when payment success parameter is present
+  useEffect(() => {
+    if (paymentSuccess && participantId) {
+      const updateParticipantStatus = async () => {
+        try {
+          // Call to manually confirm the payment by participant ID
+          const response = await apiRequest('POST', '/api/confirm-payment', {
+            participantId
+          });
+          
+          if (response.ok) {
+            const result = await response.json();
+            console.log("Payment confirmed via redirect:", result);
+            
+            toast({
+              title: t('payment.success'),
+              description: t('payment.successMessage'),
+            });
+            
+            // Redirect to participants page after a delay
+            setTimeout(() => {
+              setLocation('/participants');
+            }, 2000);
+          } else {
+            console.error("Failed to confirm payment via redirect");
+          }
+        } catch (error) {
+          console.error("Error confirming payment:", error);
+        }
+      };
+      
+      updateParticipantStatus();
+    }
+  }, [paymentSuccess, participantId, toast, t, setLocation]);
+
   return (
     <div className="py-20 px-4">
       <div className="max-w-3xl mx-auto text-center">
         <Card className="p-8 shadow-lg">
+          {/* Payment success view (from direct redirect) */}
+          {paymentSuccess && participantId && (
+            <>
+              <div className="mb-6">
+                <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto" />
+              </div>
+              <h1 className="text-3xl font-bold text-primary mb-4">
+                {t('registration.successTitle')}
+              </h1>
+              <p className="text-lg mb-8">
+                {t('registration.successMessage')}
+              </p>
+              
+              <div className="space-y-4">
+                <p>
+                  {t('registration.checkEmail')}
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                  <Button 
+                    onClick={() => setLocation('/participants')}
+                    className="bg-primary hover:bg-primary/90"
+                  >
+                    {t('registration.viewParticipants')}
+                  </Button>
+                  <Button 
+                    variant="outline"
+                    onClick={() => setLocation('/')}
+                  >
+                    {t('general.backToHome')}
+                  </Button>
+                </div>
+              </div>
+            </>
+          )}
+          
           {/* From payment intent */}
-          {paymentIntentId && (
+          {!paymentSuccess && paymentIntentId && (
             <>
               <div className="mb-6">
                 <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto" />
@@ -216,7 +295,7 @@ const RegistrationSuccessPage: React.FC = () => {
           )}
           
           {/* From email link with participantId and raceId */}
-          {!paymentIntentId && participantId && raceId && (
+          {!paymentSuccess && !paymentIntentId && participantId && raceId && (
             <>
               {loading ? (
                 <div className="py-8">
@@ -283,7 +362,7 @@ const RegistrationSuccessPage: React.FC = () => {
           )}
           
           {/* Default view when no parameters are provided */}
-          {!paymentIntentId && !participantId && !raceId && (
+          {!paymentSuccess && !paymentIntentId && !participantId && !raceId && (
             <>
               <h1 className="text-3xl font-bold text-primary mb-4">
                 {t('registration.title')}

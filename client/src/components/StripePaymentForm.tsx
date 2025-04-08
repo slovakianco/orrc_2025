@@ -150,7 +150,7 @@ const StripePaymentForm: React.FC<StripePaymentFormProps> = ({
     // Create a PaymentIntent as soon as the component mounts
     const createPaymentIntent = async () => {
       try {
-        console.log("Creating payment intent with params:", {
+        console.log("Creating payment link with params:", {
           amount,
           raceId,
           participantId,
@@ -166,7 +166,13 @@ const StripePaymentForm: React.FC<StripePaymentFormProps> = ({
         
         const data = await response.json();
         
-        if (response.ok) {
+        if (response.ok && data.paymentLink) {
+          console.log("Payment link received, redirecting to:", data.paymentLink);
+          // Direct redirect to Stripe payment link
+          window.location.href = data.paymentLink;
+          return; // Stop execution after redirect
+        } else if (response.ok && data.clientSecret) {
+          // Fall back to Elements if paymentLink is not available
           setClientSecret(data.clientSecret);
         } else {
           setError(data.message || t('payment.intentError'));
