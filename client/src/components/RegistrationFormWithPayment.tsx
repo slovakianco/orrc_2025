@@ -14,8 +14,8 @@ import StripePaymentForm from "./StripePaymentForm";
 // Function to calculate age for validation
 const calculateAgeForValidation = (birthDate: string): number => {
   const birthDateObj = new Date(birthDate);
-  // Race date is set to August 22, 2025
-  const eventDate = new Date(2025, 7, 22); // Month is 0-indexed (7 = August)
+  // Race date is set to July 5, 2025
+  const eventDate = new Date(2025, 6, 5); // Month is 0-indexed (6 = July)
   let age = eventDate.getFullYear() - birthDateObj.getFullYear();
   const m = eventDate.getMonth() - birthDateObj.getMonth();
   if (m < 0 || (m === 0 && eventDate.getDate() < birthDateObj.getDate())) {
@@ -261,11 +261,11 @@ const RegistrationFormWithPayment = () => {
     }
   });
 
-  // Function to calculate age from birthDate based on event date (August 22, 2025)
+  // Function to calculate age from birthDate based on event date (July 5, 2025)
   const calculateAge = (birthDate: string): number => {
     const birthDateObj = new Date(birthDate);
-    // Race date is set to August 22, 2025
-    const eventDate = new Date(2025, 7, 22); // Month is 0-indexed (7 = August)
+    // Race date is set to July 5, 2025
+    const eventDate = new Date(2025, 6, 5); // Month is 0-indexed (6 = July)
     let age = eventDate.getFullYear() - birthDateObj.getFullYear();
     const m = eventDate.getMonth() - birthDateObj.getMonth();
     if (m < 0 || (m === 0 && eventDate.getDate() < birthDateObj.getDate())) {

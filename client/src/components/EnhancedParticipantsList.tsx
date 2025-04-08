@@ -586,7 +586,7 @@ const EnhancedParticipantsList = () => {
                         {t('participants.table.race')}
                       </th>
                       <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-neutral-gray uppercase tracking-wider">
-                        {t('participants.table.bib')}
+                        {t('participants.table.category')}
                       </th>
                       <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-neutral-gray uppercase tracking-wider">
                         {t('participants.table.status')}
@@ -624,12 +624,7 @@ const EnhancedParticipantsList = () => {
                                 <div className="ml-4">
                                   <div className="text-sm font-medium">{participant.firstName || participant.firstname} {participant.lastName || participant.lastname}</div>
                                   <div className="text-sm text-neutral-gray">
-                                    {participant.gender}, {participant.age}
-                                    {masterCategory && (
-                                      <Badge variant="outline" className="ml-2">
-                                        {masterCategory}
-                                      </Badge>
-                                    )}
+                                    {participant.gender}
                                     {(participant.isEmaParticipant || participant.isemaparticipant) && (
                                       <Badge className="ml-2 bg-amber-500 text-white">
                                         {t('participants.filters.ema')}
@@ -672,13 +667,13 @@ const EnhancedParticipantsList = () => {
                               )}
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
-                              {participant.bibNumber ? (
+                              {masterCategory ? (
                                 <span className="px-3 py-1 inline-flex text-md leading-5 font-semibold rounded-full bg-primary text-white">
-                                  {participant.bibNumber}
+                                  {masterCategory}
                                 </span>
                               ) : (
                                 <span className="text-sm text-neutral-gray italic">
-                                  {t('participants.notAssigned')}
+                                  {t('participants.notApplicable')}
                                 </span>
                               )}
                             </td>
@@ -760,20 +755,15 @@ const EnhancedParticipantsList = () => {
                             </div>
                             
                             <div className="flex justify-between">
-                              <span className="text-gray-700 text-sm font-medium">{t('participants.age')}:</span>
-                              <span className="font-medium">{participant.age}</span>
-                            </div>
-                            
-                            <div className="flex justify-between">
-                              <span className="text-gray-700 text-sm font-medium">{t('participants.bibNumber')}:</span>
+                              <span className="text-gray-700 text-sm font-medium">{t('participants.table.category')}:</span>
                               <span>
-                                {participant.bibNumber ? (
+                                {masterCategory ? (
                                   <span className="font-bold text-primary">
-                                    {participant.bibNumber}
+                                    {masterCategory}
                                   </span>
                                 ) : (
                                   <span className="text-gray-500 italic">
-                                    {t('participants.notAssigned')}
+                                    {t('participants.notApplicable')}
                                   </span>
                                 )}
                               </span>

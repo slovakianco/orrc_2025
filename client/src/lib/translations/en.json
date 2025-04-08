@@ -253,7 +253,7 @@
     "tryDifferentFilter": "Try a different filter or clear your search",
     "noParticipants": "No participants found",
     "countryParticipants": "{{count}} participants from this country",
-    "table": {
+    "tableOld": {
       "name": "Name",
       "country": "Country",
       "race": "Race",
@@ -278,6 +278,7 @@
     "age": "Age",
     "bibNumber": "Bib Number",
     "notAssigned": "Not Assigned",
+    "notApplicable": "Not Applicable",
     "pagination": {
       "showing": "Showing",
       "to": "to",
@@ -286,24 +287,34 @@
     },
     "filters": {
       "all": "All",
-      "ema": "EMA Circuit",
-      "open": "Open Race",
-      "masters": "Masters",
-      "confirmed": "Confirmed",
-      "emaFilter": "EMA Participation",
-      "showEmaOnly": "Show EMA participants only",
-      "genderCategory": "Gender",
-      "allGenders": "All Genders",
-      "male": "Male",
-      "female": "Female",
-      "ageCategory": "Age Category",
-      "allAges": "All Ages",
-      "allMasters": "All Masters (35+)",
-      "status": "Registration Status",
-      "allStatuses": "All Statuses",
-      "resetFilters": "Reset Filters",
-      "clearAll": "Clear All"
-    }
+      "ema": "EMA Circuit"
+    },
+    "table": {
+      "name": "Name",
+      "country": "Country",
+      "race": "Race",
+      "bib": "Bib #",
+      "category": "Category",
+      "status": "Status",
+      "age": "Age",
+      "gender": "Gender"
+    },
+    "open": "Open Race",
+    "masters": "Masters",
+    "confirmed": "Confirmed",
+    "emaFilter": "EMA Participation",
+    "showEmaOnly": "Show EMA participants only",
+    "genderCategory": "Gender",
+    "allGenders": "All Genders",
+    "male": "Male",
+    "female": "Female",
+    "ageCategory": "Age Category",
+    "allAges": "All Ages",
+    "allMasters": "All Masters (35+)",
+    "status": "Registration Status",
+    "allStatuses": "All Statuses",
+    "resetFilters": "Reset Filters",
+    "clearAll": "Clear All"
   },
   "rules": {
     "title": "Rules & Regulations",
