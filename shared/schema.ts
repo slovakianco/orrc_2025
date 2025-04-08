@@ -164,7 +164,15 @@ export type InsertUser = z.infer<typeof insertUserSchema>;
 export type Race = typeof races.$inferSelect;
 export type InsertRace = z.infer<typeof insertRaceSchema>;
 
-export type Participant = typeof participants.$inferSelect;
+export type Participant = typeof participants.$inferSelect & {
+  // Add lowercase variants for type safety (matching Supabase column names)
+  firstname?: string;
+  lastname?: string;
+  isemaparticipant?: boolean;
+  tshirtsize?: string;
+  emergencycontactname?: string;
+  emergencycontactphone?: string;
+};
 export type InsertParticipant = z.infer<typeof insertParticipantSchema>;
 
 export type ContactInquiry = typeof contactInquiries.$inferSelect;

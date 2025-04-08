@@ -220,6 +220,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Create a properly typed object for the database
       // We need to use the exact column names that are in the database
+      // Create participant data using named fields as per Drizzle schema
       const participantData: InsertParticipant = {
         firstName: result.data.firstName,
         lastName: result.data.lastName,
@@ -230,12 +231,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
         raceId: result.data.raceId,
         gender: result.data.gender as "M" | "F",
         age: age,
-        // Optional fields - using the actual column names from database
+        // Handle optional fields
         medicalInfo: result.data.medicalInfo || null,
-        // Use the exact field names from client or fall back to the correct field name 
-        isEmaParticipant: Boolean(result.data.isEmaParticipant || false),
+        // Convert isEmaParticipant to boolean - ensure it's stored correctly 
+        isEmaParticipant: Boolean(result.data.isEmaParticipant),
         tshirtSize: result.data.tshirtSize || "",
-        // Emergency contact fields with proper camelCase for the type
+        // Emergency contact information
         emergencyContactName: result.data.emergencyContactName || "",
         emergencyContactPhone: result.data.emergencyContactPhone || ""
       };

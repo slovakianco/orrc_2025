@@ -612,12 +612,12 @@ const EnhancedParticipantsList = () => {
                               <div className="flex items-center">
                                 <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-white">
                                   <span className="font-bold">
-                                    {participant.firstName && participant.firstName[0] || '?'}
-                                    {participant.lastName && participant.lastName[0] || '?'}
+                                    {(participant.firstName || participant.firstname) && (participant.firstName?.[0] || participant.firstname?.[0]) || '?'}
+                                    {(participant.lastName || participant.lastname) && (participant.lastName?.[0] || participant.lastname?.[0]) || '?'}
                                   </span>
                                 </div>
                                 <div className="ml-4">
-                                  <div className="text-sm font-medium">{participant.firstName} {participant.lastName}</div>
+                                  <div className="text-sm font-medium">{participant.firstName || participant.firstname} {participant.lastName || participant.lastname}</div>
                                   <div className="text-sm text-neutral-gray">
                                     {participant.gender}, {participant.age}
                                     {masterCategory && (
@@ -625,7 +625,7 @@ const EnhancedParticipantsList = () => {
                                         {masterCategory}
                                       </Badge>
                                     )}
-                                    {participant.isEmaParticipant && (
+                                    {(participant.isEmaParticipant || participant.isemaparticipant) && (
                                       <Badge className="ml-2 bg-amber-500 text-white">
                                         {t('participants.filters.ema')}
                                       </Badge>
@@ -711,12 +711,12 @@ const EnhancedParticipantsList = () => {
                             <div className="flex flex-col">
                               <div className="h-12 w-12 rounded-full bg-white flex items-center justify-center text-primary">
                                 <span className="font-bold text-lg">
-                                  {participant.firstName && participant.firstName[0] || '?'}
-                                  {participant.lastName && participant.lastName[0] || '?'}
+                                  {(participant.firstName || participant.firstname) && (participant.firstName?.[0] || participant.firstname?.[0]) || '?'}
+                                  {(participant.lastName || participant.lastname) && (participant.lastName?.[0] || participant.lastname?.[0]) || '?'}
                                 </span>
                               </div>
                               <div className="flex mt-2 space-x-2">
-                                {participant.isEmaParticipant && (
+                                {(participant.isEmaParticipant || participant.isemaparticipant) && (
                                   <Badge className="bg-amber-500 text-white">
                                     {t('participants.filters.ema')}
                                   </Badge>
@@ -733,7 +733,7 @@ const EnhancedParticipantsList = () => {
                             </div>
                           </div>
                           <CardTitle className="mt-3 text-xl">
-                            {participant.firstName} {participant.lastName}
+                            {participant.firstName || participant.firstname} {participant.lastName || participant.lastname}
                           </CardTitle>
                           <CardDescription className="text-white flex items-center">
                             <Globe className="h-4 w-4 mr-1" />
