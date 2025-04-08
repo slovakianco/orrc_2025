@@ -219,7 +219,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
       
       // Create a properly typed object for the database
-      // In schema.ts we define camelCase property names but they map to lowercase column names
+      // We need to use the exact column names that are in the database
       const participantData: InsertParticipant = {
         firstName: result.data.firstName,
         lastName: result.data.lastName,
@@ -230,15 +230,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
         raceId: result.data.raceId,
         gender: result.data.gender as "M" | "F",
         age: age,
-        // Optional fields
+        // Optional fields - using the actual column names from database
         medicalInfo: result.data.medicalInfo || null,
-        // EMA participant field - handle both naming conventions and ensure boolean type
-        isEmaParticipant: Boolean(result.data.isEmaParticipant),
-        // T-shirt size field
-        tshirtSize: result.data.tshirtSize || "",
-        // Emergency contact fields
-        emergencyContactName: result.data.emergencyContactName || "",
-        emergencyContactPhone: result.data.emergencyContactPhone || ""
+        // Use the exact field names from client or fall back to database column names
+        isEmaParticipant: Boolean(result.data.isEmaParticipant || result.data.isemaparticipant || false),
+        tshirtSize: result.data.tshirtSize || result.data.tshirtsize || "",
+        // Emergency contact fields - these match the database column names (all lowercase)
+        emergencyContactName: result.data.emergencyContactName || result.data.emergencycontactname || "",
+        emergencyContactPhone: result.data.emergencyContactPhone || result.data.emergencycontactphone || ""
       };
       
       // Ensure proper data is passed to storage
