@@ -74,7 +74,7 @@ export default function RulesContent() {
         ];
     }
   };
-  
+
   const mandatoryEquipment = getMandatoryEquipment();
 
   // Define recommended equipment based on language
@@ -83,7 +83,6 @@ export default function RulesContent() {
       case "ro":
         return [
           "Gel sau baton energizant",
-          "Busolă sau buff",
           "Fluier",
           "Colanți sau jambiere",
           "Bețe",
@@ -91,7 +90,6 @@ export default function RulesContent() {
       case "fr":
         return [
           "Gel ou barre énergétique",
-          "Boussole ou buff",
           "Sifflet",
           "Collants ou guêtres",
           "Bâtons de trekking",
@@ -99,7 +97,6 @@ export default function RulesContent() {
       case "de":
         return [
           "Energiegel oder -riegel",
-          "Kompass oder Buff",
           "Pfeife",
           "Tights oder Gamaschen",
           "Trekkingstöcke",
@@ -107,7 +104,6 @@ export default function RulesContent() {
       case "it":
         return [
           "Gel o barretta energetica",
-          "Bussola o buff",
           "Fischietto",
           "Calzamaglia o ghette",
           "Bastoncini da trekking",
@@ -115,7 +111,6 @@ export default function RulesContent() {
       case "es":
         return [
           "Gel o barra energética",
-          "Brújula o buff",
           "Silbato",
           "Mallas o polainas",
           "Bastones de trekking",
@@ -123,14 +118,13 @@ export default function RulesContent() {
       default: // English
         return [
           "Energy gel or bar",
-          "Compass or buff",
           "Whistle",
           "Tights or leggings",
           "Trekking poles",
         ];
     }
   };
-  
+
   const recommendedEquipment = getRecommendedEquipment();
 
   // Time limits based on language
@@ -168,7 +162,7 @@ export default function RulesContent() {
         ];
     }
   };
-  
+
   const timeLimits = getTimeLimits();
 
   // Aid stations based on language
@@ -206,7 +200,7 @@ export default function RulesContent() {
         ];
     }
   };
-  
+
   const aidStations = getAidStations();
 
   // General rules based on language
@@ -262,7 +256,7 @@ export default function RulesContent() {
         ];
     }
   };
-  
+
   const generalRules = getGeneralRules();
 
   // Environment rules based on language
@@ -318,7 +312,7 @@ export default function RulesContent() {
         ];
     }
   };
-  
+
   const environmentRules = getEnvironmentRules();
 
   // Define safety rules based on language
@@ -374,7 +368,7 @@ export default function RulesContent() {
         ];
     }
   };
-  
+
   const safetyRules = getSafetyRules();
 
   // Penalties rules based on language
@@ -430,7 +424,7 @@ export default function RulesContent() {
         ];
     }
   };
-  
+
   const penaltiesRules = getPenaltiesRules();
 
   // Registration rules based on language
@@ -474,7 +468,7 @@ export default function RulesContent() {
         ];
     }
   };
-  
+
   const registrationRules = getRegistrationRules();
 
   return (
@@ -621,24 +615,27 @@ export default function RulesContent() {
                     </ul>
                   </AccordionContent>
                 </AccordionItem>
-
               </Accordion>
             </CardContent>
           </Card>
-          
+
           {/* EMA Circuit Section - Separate section for EMA Circuit content */}
           <div className="mt-12 mb-8">
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-blue-600 flex items-center">
-              <span className="bg-blue-600 text-white p-1 rounded-md mr-3">EMA</span>
+              <span className="bg-blue-600 text-white p-1 rounded-md mr-3">
+                EMA
+              </span>
               {t("emaCircuit.title")}
             </h2>
-            
+
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
               <div className="lg:col-span-2">
                 <Card className="shadow-md border-blue-600/20 h-full">
                   <CardContent className="pt-6">
                     <p className="mb-4">{t("emaCircuit.overview.content")}</p>
-                    <p className="font-semibold mb-2">{t("emaCircuit.overview.objectives")}</p>
+                    <p className="font-semibold mb-2">
+                      {t("emaCircuit.overview.objectives")}
+                    </p>
                     <ul className="list-disc pl-6 mb-4 space-y-1">
                       {[0, 1, 2, 3, 4].map((index) => (
                         <li key={index}>
@@ -653,8 +650,12 @@ export default function RulesContent() {
               <div>
                 <Card className="shadow-md border-blue-600/20 h-full">
                   <CardContent className="pt-6">
-                    <p className="mb-4">{t("emaCircuit.participation.content")}</p>
-                    <p className="mb-2 font-medium">{t("emaCircuit.participation.note1")}</p>
+                    <p className="mb-4">
+                      {t("emaCircuit.participation.content")}
+                    </p>
+                    <p className="mb-2 font-medium">
+                      {t("emaCircuit.participation.note1")}
+                    </p>
                     <p>{t("emaCircuit.participation.note2")}</p>
                   </CardContent>
                 </Card>
@@ -664,7 +665,9 @@ export default function RulesContent() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
               <Card className="shadow-md border-blue-600/20">
                 <CardContent className="pt-6">
-                  <h3 className="text-lg font-bold mb-3 text-blue-600">{t("emaCircuit.liability.title")}</h3>
+                  <h3 className="text-lg font-bold mb-3 text-blue-600">
+                    {t("emaCircuit.liability.title")}
+                  </h3>
                   <p className="mb-4">{t("emaCircuit.liability.content")}</p>
                   <p className="mb-4">{t("emaCircuit.liability.insurance")}</p>
                   <p>{t("emaCircuit.liability.health")}</p>
@@ -673,26 +676,36 @@ export default function RulesContent() {
 
               <Card className="shadow-md border-blue-600/20">
                 <CardContent className="pt-6">
-                  <h3 className="text-lg font-bold mb-3 text-blue-600">{t("emaCircuit.rankings.title")}</h3>
-                  
+                  <h3 className="text-lg font-bold mb-3 text-blue-600">
+                    {t("emaCircuit.rankings.title")}
+                  </h3>
+
                   <div className="mb-6">
-                    <h4 className="font-bold text-blue-700 mb-2">{t("emaCircuit.rankings.structure.title")}</h4>
+                    <h4 className="font-bold text-blue-700 mb-2">
+                      {t("emaCircuit.rankings.structure.title")}
+                    </h4>
                     <ul className="list-disc pl-6 mb-4 space-y-1 text-neutral-700">
                       <li>{t("emaCircuit.rankings.structure.item1")}</li>
                       <li>{t("emaCircuit.rankings.structure.item2")}</li>
                       <li>{t("emaCircuit.rankings.structure.item3")}</li>
                     </ul>
                   </div>
-                  
+
                   <div className="mb-6">
-                    <h4 className="font-bold text-blue-700 mb-2">{t("emaCircuit.rankings.finalEligibility.title")}</h4>
+                    <h4 className="font-bold text-blue-700 mb-2">
+                      {t("emaCircuit.rankings.finalEligibility.title")}
+                    </h4>
                     <div className="bg-blue-50 p-4 rounded-md">
-                      <p className="font-medium">{t("emaCircuit.rankings.finalEligibility.content")}</p>
+                      <p className="font-medium">
+                        {t("emaCircuit.rankings.finalEligibility.content")}
+                      </p>
                     </div>
                   </div>
-                  
+
                   <div className="mb-6">
-                    <h4 className="font-bold text-blue-700 mb-2">{t("emaCircuit.rankings.pointAllocation.title")}</h4>
+                    <h4 className="font-bold text-blue-700 mb-2">
+                      {t("emaCircuit.rankings.pointAllocation.title")}
+                    </h4>
                     <ul className="list-disc pl-6 mb-3 space-y-1 text-neutral-700">
                       <li>{t("emaCircuit.rankings.pointAllocation.item1")}</li>
                       <li>{t("emaCircuit.rankings.pointAllocation.item2")}</li>
@@ -705,30 +718,38 @@ export default function RulesContent() {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="mb-6">
-                    <h4 className="font-bold text-blue-700 mb-2">{t("emaCircuit.rankings.categories.title")}</h4>
+                    <h4 className="font-bold text-blue-700 mb-2">
+                      {t("emaCircuit.rankings.categories.title")}
+                    </h4>
                     <ul className="list-disc pl-6 mb-3 space-y-1 text-neutral-700">
                       <li>{t("emaCircuit.rankings.categories.item1")}</li>
                       <li>{t("emaCircuit.rankings.categories.item2")}</li>
                     </ul>
                   </div>
-                  
+
                   <div className="mb-6">
-                    <h4 className="font-bold text-blue-700 mb-2">{t("emaCircuit.rankings.tieBreakers.title")}</h4>
+                    <h4 className="font-bold text-blue-700 mb-2">
+                      {t("emaCircuit.rankings.tieBreakers.title")}
+                    </h4>
                     <ul className="list-disc pl-6 mb-3 space-y-1 text-neutral-700">
                       <li>{t("emaCircuit.rankings.tieBreakers.item1")}</li>
                       <li>{t("emaCircuit.rankings.tieBreakers.item2")}</li>
                     </ul>
                   </div>
-                  
+
                   <div className="mb-6 bg-blue-50 p-4 rounded-md">
-                    <h4 className="font-bold text-blue-700 mb-2">{t("emaCircuit.rankings.specialPrize.title")}</h4>
+                    <h4 className="font-bold text-blue-700 mb-2">
+                      {t("emaCircuit.rankings.specialPrize.title")}
+                    </h4>
                     <p>{t("emaCircuit.rankings.specialPrize.content")}</p>
                   </div>
-                  
+
                   <div className="mb-3">
-                    <h4 className="font-bold text-blue-700 mb-2">{t("emaCircuit.rankings.awardCeremony.title")}</h4>
+                    <h4 className="font-bold text-blue-700 mb-2">
+                      {t("emaCircuit.rankings.awardCeremony.title")}
+                    </h4>
                     <ul className="list-disc pl-6 mb-3 space-y-1 text-neutral-700">
                       <li>{t("emaCircuit.rankings.awardCeremony.item1")}</li>
                       <li>{t("emaCircuit.rankings.awardCeremony.item2")}</li>
@@ -743,15 +764,23 @@ export default function RulesContent() {
               <h3 className="text-xl font-bold mb-6 text-blue-600 border-b pb-2">
                 {t("emaCircuit.calendar.title")} - 2025
               </h3>
-              
+
               <div className="overflow-x-auto">
                 <table className="w-full border-collapse">
                   <thead>
                     <tr className="bg-blue-100">
-                      <th className="border p-3 text-left">{t("emaCircuit.calendar.date")}</th>
-                      <th className="border p-3 text-left">{t("emaCircuit.calendar.event")}</th>
-                      <th className="border p-3 text-left">{t("emaCircuit.calendar.country")}</th>
-                      <th className="border p-3 text-left">{t("emaCircuit.calendar.links") || "Links"}</th>
+                      <th className="border p-3 text-left">
+                        {t("emaCircuit.calendar.date")}
+                      </th>
+                      <th className="border p-3 text-left">
+                        {t("emaCircuit.calendar.event")}
+                      </th>
+                      <th className="border p-3 text-left">
+                        {t("emaCircuit.calendar.country")}
+                      </th>
+                      <th className="border p-3 text-left">
+                        {t("emaCircuit.calendar.links") || "Links"}
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -761,17 +790,17 @@ export default function RulesContent() {
                       <td className="border p-3">France 🇫🇷</td>
                       <td className="border p-3">
                         <div className="space-y-1 text-sm">
-                          <a 
-                            href="https://ventouxmountainrunning.com/inscriptions-mdv/" 
-                            target="_blank" 
+                          <a
+                            href="https://ventouxmountainrunning.com/inscriptions-mdv/"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:underline block"
                           >
                             Website
                           </a>
-                          <a 
-                            href="https://ventouxmountainrunning.com/inscriptions-mdv/" 
-                            target="_blank" 
+                          <a
+                            href="https://ventouxmountainrunning.com/inscriptions-mdv/"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:underline block"
                           >
@@ -783,21 +812,23 @@ export default function RulesContent() {
                     </tr>
                     <tr className="bg-blue-50">
                       <td className="border p-3">June 22, 2025</td>
-                      <td className="border p-3">10 Miglia Internazionale Aviano Piancavallo</td>
+                      <td className="border p-3">
+                        10 Miglia Internazionale Aviano Piancavallo
+                      </td>
                       <td className="border p-3">Italy 🇮🇹</td>
                       <td className="border p-3">
                         <div className="space-y-1 text-sm">
-                          <a 
-                            href="https://www.piancavallo.run/eventi/10-miglia-aviano-piancavallo/" 
-                            target="_blank" 
+                          <a
+                            href="https://www.piancavallo.run/eventi/10-miglia-aviano-piancavallo/"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:underline block"
                           >
                             Website
                           </a>
-                          <a 
-                            href="https://my.raceresult.com/324754/" 
-                            target="_blank" 
+                          <a
+                            href="https://my.raceresult.com/324754/"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:underline block"
                           >
@@ -812,9 +843,11 @@ export default function RulesContent() {
                       <td className="border p-3">Romania 🇷🇴</td>
                       <td className="border p-3">
                         <div className="space-y-1 text-sm">
-                          <span className="text-blue-600 font-bold">You are here</span>
-                          <a 
-                            href="/registration" 
+                          <span className="text-blue-600 font-bold">
+                            You are here
+                          </span>
+                          <a
+                            href="/registration"
                             className="text-blue-600 hover:underline block"
                           >
                             Registration
@@ -828,17 +861,17 @@ export default function RulesContent() {
                       <td className="border p-3">Spain 🇪🇸</td>
                       <td className="border p-3">
                         <div className="space-y-1 text-sm">
-                          <a 
-                            href="https://utmp.run" 
-                            target="_blank" 
+                          <a
+                            href="https://utmp.run"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:underline block"
                           >
                             Website
                           </a>
-                          <a 
-                            href="https://www.rockthesport.com/es/evento/ultra-montana-palentina-2025?frm=0&men=0&tit=0" 
-                            target="_blank" 
+                          <a
+                            href="https://www.rockthesport.com/es/evento/ultra-montana-palentina-2025?frm=0&men=0&tit=0"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:underline block"
                           >
@@ -858,12 +891,14 @@ export default function RulesContent() {
                   </tbody>
                 </table>
               </div>
-              <p className="text-sm text-blue-600 italic mt-3">{t("emaCircuit.calendar.updateNote")}</p>
+              <p className="text-sm text-blue-600 italic mt-3">
+                {t("emaCircuit.calendar.updateNote")}
+              </p>
             </div>
-            
+
             <div className="flex justify-center mt-8">
               <a
-                href="/api/ema-circuit/regulations" 
+                href="/api/ema-circuit/regulations"
                 className="bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors shadow-md"
               >
                 {t("emaCircuit.downloadButton")}

@@ -9,11 +9,8 @@ const ProgramPage = () => {
 
   return (
     <div className="min-h-screen">
-      <PageHeader 
-        title={t('program.title')} 
-        subtitle={t('program.subtitle')}
-      />
-      
+      <PageHeader title={t("program.title")} subtitle={t("program.subtitle")} />
+
       {/* Hotel Iadolina Information */}
       <div className="container mx-auto px-4 py-6 md:py-8 max-w-7xl">
         <Card className="mb-8 bg-primary/5 border-primary/20">
@@ -24,23 +21,21 @@ const ProgramPage = () => {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-primary mb-2 flex items-center">
-                  {t('program.raceCenter.title')}
+                  {t("program.raceCenter.title")}
                 </h3>
-                <p className="text-gray-700">{t('program.raceCenter.description')}</p>
+                <p className="text-gray-700">
+                  {t("program.raceCenter.description")}
+                </p>
                 <p className="mt-3 font-medium flex items-center">
                   <MapPin className="h-5 w-5 mr-2 text-primary" />
                   Hotel Iadolina, Stana de Vale
                 </p>
-                <div className="mt-3 flex items-start gap-2 text-sm">
-                  <InfoIcon className="h-5 w-5 text-primary shrink-0 mt-1" />
-                  <p className="text-gray-600">{t('program.raceCenter.note')}</p>
-                </div>
               </div>
             </div>
           </CardContent>
         </Card>
       </div>
-      
+
       <ProgramSchedule />
     </div>
   );

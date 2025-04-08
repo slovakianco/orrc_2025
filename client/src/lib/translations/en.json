@@ -61,7 +61,7 @@
     "registerButton": "Register Now",
     "exploreButton": "Explore Races",
     "imageAlt": "Trail running in mountains",
-    "enhancedDescription": "Both the 11K and 33K races are part of the 2025 EMA Off-Road Running Circuit. The 33K race is also part of the National Mountain Running Championship for Masters. An unforgettable experience awaits you in the beautiful Carpathian Mountains.",
+    "enhancedDescription": "The 11K and 33K races are both part of the 2025 EMA Off-Road Running Circuit. They are also included in the National Mountain Running Masters Championship, promising an unforgettable adventure in the breathtaking Carpathian Mountains.",
     "mainTitle": "Stâna de Vale Trail Race",
     "landscapeAlt": "Stana de Vale Mountain Landscape",
     "trailAlt": "Stana de Vale Trail Landscape"
@@ -157,7 +157,7 @@
       "elevation": "Elevation Gain",
       "difficulty": "Difficulty",
       "aidStations": "Refreshment Points",
-      "aidStationsTitle": "Water & Refreshment Points", 
+      "aidStationsTitle": "Water & Refreshment Points",
       "aidStationsDescription": "Our races are equipped with well-stocked refreshment points to keep you hydrated and energized throughout the course. Each station offers water, sports drinks, and light snacks.",
       "aidStationsLocations": "Refreshment Point Locations",
       "aidStation": "Refreshment Point",
@@ -450,7 +450,7 @@
         "location": "Finish Area"
       },
       "banquet": {
-        "title": "Banquet",
+        "title": "After Party",
         "time": "Saturday, 18:30",
         "location": "Hotel Iadolina"
       },

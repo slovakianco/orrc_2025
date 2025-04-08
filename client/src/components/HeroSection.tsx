@@ -147,36 +147,6 @@ const HeroSection = ({ imageUrl }: HeroSectionProps) => {
               </div>
             </div>
 
-            {/* Card 2 - Details section */}
-            <div className="bg-sunset/10 p-6 rounded-xl border border-sunset/20 transform transition-all duration-300 hover:translate-y-[-5px] shadow-xl">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-sunset/20 rounded-lg">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-8 w-8 text-sunset"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-slate-gray mb-2">
-                    {t("races.title")}
-                  </h3>
-                  <p className="text-slate-gray leading-relaxed">
-                    {t("home.details")}
-                  </p>
-                </div>
-              </div>
-            </div>
-
             {/* Card 3 - Event highlights */}
             <div className="bg-alpine/10 p-6 rounded-xl border border-alpine/20 transform transition-all duration-300 hover:translate-y-[-5px] shadow-xl">
               <div className="flex items-start gap-4">

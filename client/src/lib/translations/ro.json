@@ -61,8 +61,8 @@
     "registerButton": "Înregistrează-te acum",
     "exploreButton": "Explorează cursele",
     "imageAlt": "Alergare pe trasee montane",
-    "enhancedDescription": "Ambele curse de 11K și 33K fac parte din Circuitul EMA Off-Road 2025. Cursa de 33K este, de asemenea, parte a Campionatului Național de Alergare Montană pentru Masters. Te așteaptă o experiență de neuitat în frumoșii Munți Carpați.",
-    "mainTitle": "Cursa pe traseu Stâna de Vale",
+    "enhancedDescription": "Cursele de 11K și 33K fac parte din Circuitul EMA de Alergare Off-Road 2025. De asemenea, ele sunt incluse în Campionatul Național de Alergare Montană pentru Veterani, promițând o aventură de neuitat în spectaculoșii Munți Carpați.",
+    "mainTitle": "Stâna de Vale Trail Race",
     "landscapeAlt": "Peisaj montan Stâna de Vale",
     "trailAlt": "Peisaj traseu Stâna de Vale"
   },
@@ -450,7 +450,7 @@
         "location": "Zona de sosire"
       },
       "banquet": {
-        "title": "Banchet",
+        "title": "After Party",
         "time": "Sâmbătă, 18:30",
         "location": "Centrul cursei"
       },
