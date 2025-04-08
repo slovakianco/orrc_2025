@@ -97,22 +97,22 @@ const RaceDetail = () => {
               <div className="flex flex-wrap items-center text-white/90 text-sm md:text-base gap-3 md:gap-5">
                 <div className="flex items-center">
                   <Calendar className="mr-2 h-4 w-4" />
-                  <span class="white">
+                  <span className="text-white">
                     {formatDate(race.date, i18n.language)}
                   </span>
                 </div>
                 <div className="flex items-center">
                   <Map className="mr-2 h-4 w-4" />
-                  <span class="white">{race.distance} km</span>
+                  <span className="text-white">{race.distance} km</span>
                 </div>
                 <div className="flex items-center">
                   <Mountain className="mr-2 h-4 w-4" />
-                  <span class="white">{race.elevation} m D+</span>
+                  <span className="text-white">{race.elevation} m D+</span>
                 </div>
                 <div className="flex items-center">
                   <Clock className="mr-2 h-4 w-4" />
-                  <span class="white">08:30 AM</span>{" "}
-                  {/* Time should come from API */}
+                  <span className="text-white">{race.id === 1 ? "08:30" : "09:30"}</span>{" "}
+                  {/* Different start times for each race */}
                 </div>
               </div>
             </div>
@@ -277,6 +277,14 @@ const RaceDetail = () => {
                       </span>
                       <span className="font-medium">
                         {formatDate(race.date, i18n.language)}
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center pb-3 border-b border-neutral-light">
+                      <span className="text-neutral-dark">
+                        {t("races.details.startTime")}
+                      </span>
+                      <span className="font-medium">
+                        {race.id === 1 ? "08:30" : "09:30"}
                       </span>
                     </div>
                     <div className="flex justify-between items-center pb-3 border-b border-neutral-light">
