@@ -118,7 +118,7 @@ const RegistrationFormWithPayment = () => {
       email: "",
       phoneNumber: "",
       country: "",
-      birthDate: "",
+      birthDate: "1989-01-01",
       isEmaParticipant: false,
       tshirtSize: "",
       raceId: 0,
@@ -141,6 +141,13 @@ const RegistrationFormWithPayment = () => {
     const age = calculateAgeForValidation(birthDateValue);
     return age >= 35;
   }, [birthDateValue]);
+  
+  // Auto-uncheck the EMA checkbox when age becomes invalid
+  useEffect(() => {
+    if (!isEligibleForEma && isEmaParticipant) {
+      setValue('isEmaParticipant', false);
+    }
+  }, [isEligibleForEma, isEmaParticipant, setValue]);
   const selectedRace = races?.find(race => race.id === Number(selectedRaceId));
   
   // Calculate the dynamic price based on race and EMA participation
