@@ -242,7 +242,7 @@ export class SupabaseStorage implements IStorage {
     const { count, error: countError } = await supabase
       .from('participants')
       .select('*', { count: 'exact' })
-      .eq('raceid', participant.raceId); // Using lowercase column name to match database
+      .eq('raceid', participant.raceId); // Using lowercase column name that matches the database exactly
     
     if (countError) {
       console.error('Error counting participants for bib number generation:', countError);
