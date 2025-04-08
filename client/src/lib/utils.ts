@@ -218,15 +218,29 @@ export function groupEventsByDate(events: ProgramEvent[]): { [key: string]: Prog
   }, {} as { [key: string]: ProgramEvent[] });
 }
 
-// Get country flag URL from country code
+// Get country flag emoji from country code
 export function getCountryFlag(countryCode: string): string {
-  if (!countryCode) return 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/XX.svg';
+  if (!countryCode) return '🏳️';
   
-  // Get the uppercase country code
-  const code = countryCode.toUpperCase();
-  
-  // Return the flag URL
-  return `https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/${code}.svg`;
+  // Convert country code to regional indicator symbols
+  // Each regional indicator symbol is in the range 0x1F1E6 to 0x1F1FF
+  // A = 0x1F1E6, B = 0x1F1E7, etc.
+  try {
+    const code = countryCode.toUpperCase();
+    if (code.length !== 2) return '🏳️';
+    
+    // Special handling for UK/GB
+    if (code === 'UK') return '🇬🇧';
+    
+    const offset = 0x1F1E6; // Regional Indicator Symbol Letter A
+    const firstLetter = code.charCodeAt(0) - 65 + offset;
+    const secondLetter = code.charCodeAt(1) - 65 + offset;
+    
+    return String.fromCodePoint(firstLetter) + String.fromCodePoint(secondLetter);
+  } catch (e) {
+    console.error('Error generating country flag:', e);
+    return '🏳️';
+  }
 }
 
 // Get country name from country code
