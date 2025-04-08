@@ -81,6 +81,18 @@ export async function createPaymentLink(
           url: `${process.env.APP_URL || `https://${process.env.REPL_SLUG}.replit.app`}/registration-success?completed=true`,
         },
       },
+      // Make the payment link single-use
+      payment_intent_data: {
+        capture_method: 'automatic',
+        metadata: {
+          participantId: participantId.toString(),
+          raceId: raceId.toString()
+        }
+      },
+      // Set tax options - required for Stripe links
+      automatic_tax: {
+        enabled: false
+      },
     });
     
     return paymentLink.url;
@@ -730,19 +742,29 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       const rawBody = req.body;
       let event;
       
-      // In production, use a webhook secret to verify the signature
-      // const endpointSecret = 'whsec_...';
-      // event = global.stripe.webhooks.constructEvent(rawBody, sig, endpointSecret);
+      // Handle webhook verification
+      // For production, use a webhook secret to verify the signature
+      const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
       
-      // For development, parse the raw body
       try {
-        event = typeof rawBody === 'string' 
-          ? JSON.parse(rawBody) 
-          : rawBody instanceof Buffer 
-            ? JSON.parse(rawBody.toString('utf8'))
-            : rawBody;
-        
-        console.log("Stripe webhook received event:", event.type);
+        if (endpointSecret) {
+          // Verify webhook signature if we have a secret
+          event = global.stripe.webhooks.constructEvent(
+            rawBody, 
+            sig as string, 
+            endpointSecret
+          );
+          console.log("Verified Stripe webhook signature successfully");
+        } else {
+          // For development, parse the raw body
+          event = typeof rawBody === 'string' 
+            ? JSON.parse(rawBody) 
+            : rawBody instanceof Buffer 
+              ? JSON.parse(rawBody.toString('utf8'))
+              : rawBody;
+          
+          console.log("Stripe webhook received event without signature verification:", event.type);
+        }
       } catch (e) {
         console.error("Error parsing webhook payload:", e);
         return res.status(400).json({ message: "Invalid webhook payload" });
@@ -766,6 +788,35 @@ This message was sent from the Stana de Vale Trail Race website contact form.
                 parseInt(participantId), 
                 'confirmed'
               );
+              
+              // Try to deactivate the payment link after successful payment
+              try {
+                // Find payment links with this participant ID in metadata
+                const paymentLinks = await global.stripe.paymentLinks.list({
+                  limit: 10,
+                });
+                
+                // Find links that match this participant ID
+                const matchingLinks = paymentLinks.data.filter(link => 
+                  link.metadata?.participantId === participantId
+                );
+                
+                if (matchingLinks.length > 0) {
+                  // Deactivate all matching links
+                  for (const link of matchingLinks) {
+                    console.log(`Deactivating payment link ${link.id} for participant ${participantId}`);
+                    // Deactivate the link by archiving it
+                    await global.stripe.paymentLinks.update(link.id, {
+                      active: false // This will deactivate the link
+                    });
+                  }
+                } else {
+                  console.log(`No payment links found for participant ${participantId}`);
+                }
+              } catch (linkError) {
+                console.error(`Error deactivating payment link:`, linkError);
+                // Continue with confirmation even if link deactivation fails
+              }
               
               if (participant) {
                 console.log(`Updated participant ${participantId} status to confirmed`);
@@ -926,6 +977,36 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       }
       
       console.log(`Updated participant ${participantId} status to confirmed`);
+      
+      // Try to deactivate any payment links for this participant
+      try {
+        // Find payment links with this participant ID in metadata
+        const paymentLinks = await global.stripe.paymentLinks.list({
+          limit: 10,
+        });
+        
+        // Find links that match this participant ID
+        const matchingLinks = paymentLinks.data.filter(link => 
+          link.metadata?.participantId === participantId
+        );
+        
+        if (matchingLinks.length > 0) {
+          console.log(`Found ${matchingLinks.length} payment links to deactivate for participant ${participantId}`);
+          // Deactivate all matching links
+          for (const link of matchingLinks) {
+            console.log(`Deactivating payment link ${link.id} for participant ${participantId}`);
+            // Deactivate the link by archiving it
+            await global.stripe.paymentLinks.update(link.id, {
+              active: false // This will deactivate the link
+            });
+          }
+        } else {
+          console.log(`No payment links found for participant ${participantId}`);
+        }
+      } catch (linkError) {
+        console.error(`Error deactivating payment link:`, linkError);
+        // Continue with confirmation even if link deactivation fails
+      }
       
       // Get race details
       const race = await storage.getRaceById(participant.raceId);
