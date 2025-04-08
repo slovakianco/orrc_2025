@@ -198,6 +198,7 @@
       "phone": "Phone Number",
       "country": "Country",
       "selectCountry": "Select your country",
+      "emaPrice": "EMA Price",
       "birthDate": "Date of Birth",
       "gender": "Gender",
       "male": "Male",

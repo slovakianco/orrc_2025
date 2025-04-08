@@ -84,6 +84,21 @@ const RegistrationFormWithPayment = () => {
   const isEmaParticipant = watch("isEmaParticipant");
   const selectedRace = races?.find(race => race.id === Number(selectedRaceId));
   
+  // Calculate the dynamic price based on race and EMA participation
+  const calculatePrice = (race: Race | undefined, isEma: boolean): number => {
+    if (!race) return 0;
+    
+    // Race ID 1 is typically the 33km race, Race ID 2 is the 11km race
+    if (race.id === 1) { // 33km race
+      return isEma ? 200 : 170; // 200 lei for EMA, 170 lei for non-EMA
+    } else { // 11km race or others
+      return isEma ? 150 : 120; // 150 lei for EMA, 120 lei for non-EMA
+    }
+  };
+  
+  // Get the dynamic price for display and payment
+  const dynamicPrice = calculatePrice(selectedRace, isEmaParticipant);
+  
   // Set default race if available and not already selected
   useEffect(() => {
     if (races && races.length > 0 && (!selectedRaceId || selectedRaceId === 0)) {
@@ -138,13 +153,15 @@ const RegistrationFormWithPayment = () => {
       const race = races?.find(r => r.id === Number(selectedRaceId));
       
       if (race && participantData) {
-        // Store the participant data for payment processing
+        // Store the participant data for payment processing with dynamic price
+        const amount = calculatePrice(race, participantData.isEmaParticipant);
+        
         setRegisteredParticipant({
           id: participantData.id,
           firstName: participantData.firstName,
           lastName: participantData.lastName,
           raceId: race.id,
-          amount: race.price,
+          amount: amount,
           raceName: getLocalizedRaceName(race, i18n.language as any)
         });
         
@@ -461,7 +478,10 @@ const RegistrationFormWithPayment = () => {
                           }`}></span>
                           <div>
                             <span className="block font-bold">{getLocalizedRaceName(race, i18n.language as any)}</span>
-                            <span className="text-sm text-neutral-gray">{race.distance}km | €{race.price}</span>
+                            <span className="text-sm text-neutral-gray">{race.distance}km | {isEmaParticipant ? 
+                              <span className="font-medium text-primary-dark">{race.id === 1 ? '200 lei' : '150 lei'} ({t('registration.form.emaPrice')})</span> : 
+                              <span>{race.id === 1 ? '170 lei' : '120 lei'}</span>
+                            }</span>
                           </div>
                         </label>
                       </div>
