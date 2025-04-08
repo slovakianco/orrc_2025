@@ -612,7 +612,8 @@ const EnhancedParticipantsList = () => {
                               <div className="flex items-center">
                                 <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-white">
                                   <span className="font-bold">
-                                    {participant.firstName[0]}{participant.lastName[0]}
+                                    {participant.firstName && participant.firstName[0] || '?'}
+                                    {participant.lastName && participant.lastName[0] || '?'}
                                   </span>
                                 </div>
                                 <div className="ml-4">
@@ -710,7 +711,8 @@ const EnhancedParticipantsList = () => {
                             <div className="flex flex-col">
                               <div className="h-12 w-12 rounded-full bg-white flex items-center justify-center text-primary">
                                 <span className="font-bold text-lg">
-                                  {participant.firstName[0]}{participant.lastName[0]}
+                                  {participant.firstName && participant.firstName[0] || '?'}
+                                  {participant.lastName && participant.lastName[0] || '?'}
                                 </span>
                               </div>
                               <div className="flex mt-2 space-x-2">
