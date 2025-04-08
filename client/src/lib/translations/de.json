@@ -23,6 +23,11 @@
     "goHome": "Zur Startseite",
     "languageSelector": "Sprachauswahl"
   },
+  "general": {
+    "backToHome": "Zurück zur Startseite",
+    "cancel": "Abbrechen",
+    "goBack": "Zurück"
+  },
   "nav": {
     "home": "Startseite",
     "races": "Rennen",

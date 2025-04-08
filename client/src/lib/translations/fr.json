@@ -23,6 +23,11 @@
     "goHome": "Aller à la page d'accueil",
     "languageSelector": "Sélecteur de langue"
   },
+  "general": {
+    "backToHome": "Retour à l'Accueil",
+    "cancel": "Annuler",
+    "goBack": "Retour"
+  },
   "nav": {
     "home": "Accueil",
     "races": "Courses",

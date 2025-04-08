@@ -24,6 +24,11 @@
     "goHome": "Mergi la pagina principală",
     "languageSelector": "Selector de limbă"
   },
+  "general": {
+    "backToHome": "Înapoi la Pagina Principală",
+    "cancel": "Anulează",
+    "goBack": "Înapoi"
+  },
   "admin": {
     "title": "Panou de Administrare",
     "raceImages": "Imagini Curse",

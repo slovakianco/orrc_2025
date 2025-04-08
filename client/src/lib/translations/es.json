@@ -23,6 +23,11 @@
     "goHome": "Ir a la página principal",
     "languageSelector": "Selector de idioma"
   },
+  "general": {
+    "backToHome": "Volver al Inicio",
+    "cancel": "Cancelar",
+    "goBack": "Volver atrás"
+  },
   "nav": {
     "home": "Inicio",
     "races": "Carreras",

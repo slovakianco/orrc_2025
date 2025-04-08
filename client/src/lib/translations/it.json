@@ -23,6 +23,11 @@
     "goHome": "Vai alla pagina iniziale",
     "languageSelector": "Selettore lingua"
   },
+  "general": {
+    "backToHome": "Torna alla Home",
+    "cancel": "Annulla",
+    "goBack": "Torna indietro"
+  },
   "nav": {
     "home": "Home",
     "races": "Gare",

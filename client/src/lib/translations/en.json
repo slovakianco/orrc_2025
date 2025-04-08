@@ -24,6 +24,11 @@
     "goHome": "Go to home page",
     "languageSelector": "Language selector"
   },
+  "general": {
+    "backToHome": "Back to Home",
+    "cancel": "Cancel",
+    "goBack": "Go Back"
+  },
   "admin": {
     "title": "Admin Dashboard",
     "raceImages": "Race Images",
