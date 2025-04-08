@@ -136,7 +136,7 @@
     "noRacesFound": "Nicio cursă găsită",
     "tryDifferentFilter": "Încearcă o opțiune de filtrare diferită",
     "aidStations": "{{count}} Punct de hidratare",
-    "aidStations_plural": "{{count}} Puncte de ajutor",
+    "aidStations_plural": "{{count}} Puncte de hidratare",
     "certification": {
       "ema": "Circuitul EMA Off-Road Running 2025",
       "national": "Campionatul Național de Alergare Montană Masters",
@@ -417,17 +417,17 @@
         "title": "Ridicare număr de concurs",
         "friday": "Vineri: 10:00 - 20:00",
         "saturday": "Sâmbătă: 06:00 - 08:00",
-        "location": "Centrul cursei"
+        "location": "Hotel Iadolina"
       },
       "technicalMeeting": {
         "title": "Întâlnire tehnică",
         "time": "Vineri, 18:00",
-        "location": "Centrul cursei"
+        "location": "Hotel Iadolina"
       },
       "pastaParty": {
-        "title": "Petrecere cu paste",
+        "title": "Pasta Party",
         "time": "Vineri, 18:30",
-        "location": "Centrul cursei"
+        "location": "Hotel Iadolina"
       },
       "raceStart33k": {
         "title": "Start cursă 33km",
@@ -452,7 +452,7 @@
       "banquet": {
         "title": "After Party",
         "time": "Sâmbătă, 18:30",
-        "location": "Centrul cursei"
+        "location": "Hotel Iadolina"
       },
       "timeUnit": "ore"
     }

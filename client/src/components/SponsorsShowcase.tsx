@@ -42,15 +42,15 @@ const SponsorsShowcase = () => {
       id: 1,
       name: "Ety Market",
       description:
-        "One of the leading supermarket chains in Bihor County, offering a wide range of quality products.",
+        "One of the leading supermarkets in Beiuș, offering a wide range of quality products.",
       descriptionRo:
-        "Unul dintre principalele lanțuri de supermarketuri din județul Bihor, oferind o gamă largă de produse de calitate.",
+        "Unul dintre principalele supermarketuri din Beiuș, oferind o gamă largă de produse de calitate.",
       descriptionFr:
-        "L'une des principales chaînes de supermarchés du comté de Bihor, offrant une large gamme de produits de qualité.",
+        "L'une des principales chaînes de supermarchés de Beiuș, offrant une large gamme de produits de qualité.",
       descriptionDe:
-        "Eine der führenden Supermarktketten im Kreis Bihor, die eine breite Palette an Qualitätsprodukten anbietet.",
+        "Eine der führenden Supermarktketten in Beiuș, die eine breite Palette an Qualitätsprodukten anbietet.",
       logoUrl: "/logo1.png",
-      website: "https://etymarket.ro",
+      website: "https://www.facebook.com/etymarketbeius",
       level: "premium",
       order_index: 1,
     },
@@ -82,7 +82,7 @@ const SponsorsShowcase = () => {
       descriptionDe:
         "Premium-Anbieter von Nüssen, Trockenfrüchten und gesunden Snacks, die Sportler und Outdoor-Enthusiasten unterstützen.",
       logoUrl: "/logo3.png",
-      website: "https://divingarden.ro",
+      website: "https://divingarden.com",
       level: "premium",
       order_index: 3,
     },
@@ -187,7 +187,7 @@ const SponsorsShowcase = () => {
 
         <div className="mt-12 text-center">
           <a
-            href="mailto:sponsors@trailrun.com"
+            href="mailto:contact@stanatrailrace.ro"
             className="inline-block border-2 border-primary text-primary font-bold py-3 px-6 rounded-lg hover:bg-primary hover:text-white transition-colors duration-300"
           >
             {t("sponsors.becomeButton")}

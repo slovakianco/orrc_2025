@@ -138,17 +138,17 @@ export default function Contact() {
                       </h3>
                       <p className="text-neutral-dark">
                         <a
-                          href="mailto:slovak.ianco@gmail.com"
+                          href="mailto:contact@stanatrailrace.ro"
                           className="text-[#2E7D32] hover:underline"
                         >
-                          slovak.ianco@gmail.com
+                          contact@stanatrailrace.ro
                         </a>
                         <br />
                         <a
-                          href="mailto:slovak.ianco@gmail.com"
+                          href="mailto:contact@stanatrailrace.ro"
                           className="text-[#2E7D32] hover:underline"
                         >
-                          slovak.ianco@gmail.com
+                          contact@stanatrailrace.ro
                         </a>
                       </p>
                     </div>

@@ -301,7 +301,7 @@ const ProgramSchedule = () => {
                   </div>
                   <div>
                     <h4 className="text-xl font-semibold">
-                      {t("program.events.banquet.title")}
+                        After Party
                     </h4>
                   </div>
                 </div>

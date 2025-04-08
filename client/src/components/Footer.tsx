@@ -134,14 +134,7 @@ const Footer = () => {
               {t("footer.resources")}
             </h4>
             <ul className="space-y-1.5 md:space-y-2">
-              <li>
-                <a
-                  href="#"
-                  className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300 text-sm md:text-base"
-                >
-                  {t("footer.resources1")}
-                </a>
-              </li>
+             
               <li>
                 <Link
                   href="/how-to-get-there"
@@ -150,14 +143,7 @@ const Footer = () => {
                   {t("footer.resources2")}
                 </Link>
               </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300 text-sm md:text-base"
-                >
-                  {t("footer.resources6")}
-                </a>
-              </li>
+              
             </ul>
           </div>
 

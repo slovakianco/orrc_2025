@@ -911,10 +911,10 @@ export default function RulesContent() {
               {t("rules.contactQuestion")}
             </p>
             <a
-              href="mailto:slovak.ianco@gmail.com"
+              href="mailto:contact@stanatrailrace.ro"
               className="text-[#2E7D32] hover:underline font-medium"
             >
-              slovak.ianco@gmail.com
+              contact@stanatrailrace.ro
             </a>
           </div>
         </div>

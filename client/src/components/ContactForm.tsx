@@ -117,15 +117,7 @@ const ContactForm = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-start">
-                    <div className="bg-secondary rounded-full p-2 md:p-3 mr-3 md:mr-4 text-white">
-                      <MapPin className="h-4 w-4 md:h-5 md:w-5" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold mb-0.5 md:mb-1 text-sm md:text-base text-neutral-dark">{t('contact.info.location')}</h4>
-                      <p className="text-neutral-dark/80 text-sm md:text-base">{t('contact.info.address')}</p>
-                    </div>
-                  </div>
+               
                   
                   <div className="flex items-start">
                     <div className="bg-secondary rounded-full p-2 md:p-3 mr-3 md:mr-4 text-white">
@@ -144,6 +136,7 @@ const ContactForm = () => {
                     <a href="#" className="bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors duration-300 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center">
                       <Facebook className="h-4 w-4 md:h-5 md:w-5" />
                     </a>
+                     {/*
                     <a href="#" className="bg-secondary/10 text-secondary hover:bg-secondary hover:text-white transition-colors duration-300 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center">
                       <Instagram className="h-4 w-4 md:h-5 md:w-5" />
                     </a>
@@ -153,6 +146,7 @@ const ContactForm = () => {
                     <a href="#" className="bg-accent-dark/10 text-accent-dark hover:bg-accent-dark hover:text-white transition-colors duration-300 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center">
                       <Youtube className="h-4 w-4 md:h-5 md:w-5" />
                     </a>
+                    */}
                   </div>
                 </div>
               </div>

@@ -136,7 +136,7 @@ const RacesSection = ({ title, fullPage = false }: RacesSectionProps) => {
                   <div className="flex items-center gap-1 mb-2 text-xs md:text-sm text-blue-600">
                     <span className="inline-block">💧</span> 
                     {race.id === 1 ? 
-                      <span>{t('races.aidStations', { count: 5 })}</span> : 
+                      <span>{t('races.aidStations_plural', { count: 5 })}</span> : 
                       <span>{t('races.aidStations', { count: 1 })}</span>
                     }
                   </div>
