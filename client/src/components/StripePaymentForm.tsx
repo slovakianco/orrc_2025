@@ -127,6 +127,7 @@ interface StripePaymentFormProps {
   raceId?: number;
   participantId?: number;
   raceName: string;
+  isEmaParticipant?: boolean;
   onSuccess: () => void;
   onCancel: () => void;
 }
@@ -136,6 +137,7 @@ const StripePaymentForm: React.FC<StripePaymentFormProps> = ({
   raceId,
   participantId,
   raceName,
+  isEmaParticipant,
   onSuccess,
   onCancel
 }) => {
@@ -151,7 +153,8 @@ const StripePaymentForm: React.FC<StripePaymentFormProps> = ({
         const response = await apiRequest('POST', '/api/create-payment-intent', {
           amount,
           raceId,
-          participantId
+          participantId,
+          isEmaParticipant
         });
         
         const data = await response.json();
@@ -178,7 +181,7 @@ const StripePaymentForm: React.FC<StripePaymentFormProps> = ({
     };
 
     createPaymentIntent();
-  }, [amount, raceId, participantId, t, toast]);
+  }, [amount, raceId, participantId, isEmaParticipant, t, toast]);
 
   if (error) {
     return (

@@ -48,6 +48,7 @@ interface RegisteredParticipant {
   raceId: number;
   amount: number;
   raceName: string;
+  isEmaParticipant: boolean;
 }
 
 const RegistrationFormWithPayment = () => {
@@ -164,7 +165,8 @@ const RegistrationFormWithPayment = () => {
           lastName: participantData.lastName,
           raceId: race.id,
           amount: amount,
-          raceName: getLocalizedRaceName(race, i18n.language as any)
+          raceName: getLocalizedRaceName(race, i18n.language as any),
+          isEmaParticipant: participantData.isEmaParticipant
         });
         
         // Scroll to top of page to show payment form
@@ -264,6 +266,7 @@ const RegistrationFormWithPayment = () => {
                   raceId={registeredParticipant.raceId}
                   participantId={registeredParticipant.id}
                   raceName={registeredParticipant.raceName}
+                  isEmaParticipant={registeredParticipant.isEmaParticipant}
                   onSuccess={handlePaymentSuccess}
                   onCancel={handlePaymentCancel}
                 />

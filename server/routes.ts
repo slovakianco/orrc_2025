@@ -464,22 +464,22 @@ This message was sent from the Stana de Vale Trail Race website contact form.
         });
       }
       
-      const { amount, participantId, raceId } = req.body;
+      const { amount, participantId, raceId, isEmaParticipant } = req.body;
       
       if (!amount || amount <= 0) {
         return res.status(400).json({ message: "Invalid amount provided" });
       }
       
-      console.log(`Creating payment intent for amount: ${amount}, participant: ${participantId}, race: ${raceId}`);
+      console.log(`Creating payment intent for amount: ${amount}, participant: ${participantId}, race: ${raceId}, isEmaParticipant: ${isEmaParticipant}`);
       
-      // Convert the euro amount to RON amount
+      // Use the amount provided directly, but double check with the isEmaParticipant flag
       // 33km race: 200 lei (EMA) or 170 lei (non-EMA)
       // 11km race: 150 lei (EMA) or 120 lei (non-EMA)
       let ronAmount = 0;
       if (raceId === 1) { // 33km race
-        ronAmount = amount === 40 ? 200 : 170; // 40€=200 lei for EMA, 34€=170 lei for non-EMA
+        ronAmount = isEmaParticipant ? 200 : 170; // 200 lei for EMA, 170 lei for non-EMA
       } else { // 11km race
-        ronAmount = amount === 30 ? 150 : 120; // 30€=150 lei for EMA, 24€=120 lei for non-EMA
+        ronAmount = isEmaParticipant ? 150 : 120; // 150 lei for EMA, 120 lei for non-EMA
       }
       
       // Create a payment intent with RON currency
@@ -488,7 +488,8 @@ This message was sent from the Stana de Vale Trail Race website contact form.
         currency: "ron", // Romanian currency
         metadata: {
           participantId: participantId ? participantId.toString() : "",
-          raceId: raceId ? raceId.toString() : ""
+          raceId: raceId ? raceId.toString() : "",
+          isEmaParticipant: isEmaParticipant ? "true" : "false"
         }
       });
       
