@@ -187,26 +187,31 @@ const RegistrationFormWithPayment = () => {
     },
     onSuccess: async (response) => {
       // Parse the response to get the participant data
-      const participantData = await response.json();
-      const participant = participantData.participant;
+      const participant = await response.json();
       
       console.log("Registration successful, participant:", participant);
       
       // Create a payment intent to obtain a payment link
       if (participant && participant.id) {
         try {
-          // Calculate the price for the payment
-          const race = races?.find(r => r.id === Number(participant.raceId));
-          const calculatedPrice = calculatePrice(race, participant.isEmaParticipant);
+          // Get the necessary data from the participant - normalizing field names
+          // The server may return either camelCase or lowercase field names
+          const participantId = participant.id;
+          const raceId = participant.raceId || participant.raceid;
+          const isEmaParticipant = participant.isEmaParticipant || participant.isemaparticipant || false;
           
-          console.log("Creating payment link for participant:", participant.id, "price:", calculatedPrice);
+          // Calculate the price for the payment
+          const race = races?.find(r => r.id === Number(raceId));
+          const calculatedPrice = calculatePrice(race, isEmaParticipant);
+          
+          console.log("Creating payment link for participant:", participantId, "race:", raceId, "isEma:", isEmaParticipant, "price:", calculatedPrice);
           
           // Make API request to create payment link
           const paymentResponse = await apiRequest("POST", "/api/create-payment-intent", {
             amount: calculatedPrice,
-            participantId: participant.id,
-            raceId: participant.raceId,
-            isEmaParticipant: participant.isEmaParticipant
+            participantId: participantId,
+            raceId: raceId,
+            isEmaParticipant: isEmaParticipant
           });
           
           const paymentData = await paymentResponse.json();

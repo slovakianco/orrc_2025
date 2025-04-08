@@ -392,8 +392,8 @@ export async function sendRegistrationConfirmationEmail(
   
   // Import Stripe to create a payment link if one wasn't provided
   const stripe = global.stripe;
-  // Import storage using dynamic import to avoid circular dependencies
-  const { getStorage } = require('./storage-provider');
+  
+  // We'll create a payment link without storage dependency to avoid circular issues
 
   const subjects: Record<SupportedLanguages, string> = {
     en: "Stana de Vale Trail Race - Registration Confirmation",
