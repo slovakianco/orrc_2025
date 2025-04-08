@@ -222,24 +222,25 @@ export function groupEventsByDate(events: ProgramEvent[]): { [key: string]: Prog
 export function getCountryFlag(countryCode: string): string {
   if (!countryCode) return '🏳️';
   
-  // Convert country code to regional indicator symbols
-  // Each regional indicator symbol is in the range 0x1F1E6 to 0x1F1FF
-  // A = 0x1F1E6, B = 0x1F1E7, etc.
   try {
+    // Convert country code to uppercase
     const code = countryCode.toUpperCase();
-    if (code.length !== 2) return '🏳️';
     
-    // Special handling for UK/GB
-    if (code === 'UK') return '🇬🇧';
+    // Handle special case for UK (library uses GB)
+    if (code === 'UK') {
+      return '🇬🇧';
+    }
     
-    const offset = 0x1F1E6; // Regional Indicator Symbol Letter A
-    const firstLetter = code.charCodeAt(0) - 65 + offset;
-    const secondLetter = code.charCodeAt(1) - 65 + offset;
+    // Simple implementation using Unicode flag characters
+    // Each country code letter is converted to a regional indicator symbol
+    // A regional indicator symbol is 127397 (0x1F1E6) + the ASCII value of the uppercase letter
+    const firstLetter = code.charCodeAt(0) - 65 + 0x1F1E6;
+    const secondLetter = code.charCodeAt(1) - 65 + 0x1F1E6;
     
     return String.fromCodePoint(firstLetter) + String.fromCodePoint(secondLetter);
   } catch (e) {
     console.error('Error generating country flag:', e);
-    return '🏳️';
+    return countryCode; // Fall back to just showing the country code
   }
 }
 

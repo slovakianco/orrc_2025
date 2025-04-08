@@ -2,7 +2,8 @@ import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import { useState, useEffect, useMemo } from "react";
 import { Race, Participant, ParticipantFilters } from "@/lib/types";
-import { getStatusColor, getCountryFlag, getCountryName, getLocalizedRaceName } from "@/lib/utils";
+import { getStatusColor, getLocalizedRaceName } from "@/lib/utils";
+import CountryFlag from "@/components/CountryFlag";
 
 // Extended type to handle both camelCase and lowercase property names
 interface ExtendedParticipant extends Participant {
@@ -414,8 +415,8 @@ const EnhancedParticipantsList = () => {
                         {countries.map(country => (
                           <SelectItem key={country} value={country}>
                             <div className="flex items-center gap-2">
-                              <span className="inline-block w-6">{getCountryFlag(country)}</span>
-                              <span>{getCountryName(country)}</span>
+                              <CountryFlag countryCode={country} className="text-lg" />
+                              <span><CountryFlag countryCode={country} showName={true} /></span>
                             </div>
                           </SelectItem>
                         ))}
@@ -692,7 +693,7 @@ const EnhancedParticipantsList = () => {
                               <div className="group relative">
                                 <div className="flex items-center cursor-pointer">
                                   <div className="mr-2 transform transition-transform group-hover:scale-125">
-                                    <span className="text-xl">{getCountryFlag(participant.country)}</span>
+                                    <CountryFlag countryCode={participant.country} className="text-xl" />
                                   </div>
                                   <span className="text-sm">{participant.country}</span>
                                 </div>
@@ -701,10 +702,10 @@ const EnhancedParticipantsList = () => {
                                 <div className="absolute left-0 top-full mt-2 z-10 bg-white p-3 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                                   <div className="flex items-center">
                                     <div className="text-2xl mr-3">
-                                      {getCountryFlag(participant.country)}
+                                      <CountryFlag countryCode={participant.country} className="text-2xl" />
                                     </div>
                                     <div>
-                                      <div className="font-medium">{getCountryName(participant.country)}</div>
+                                      <div className="font-medium"><CountryFlag countryCode={participant.country} showName={true} /></div>
                                     </div>
                                   </div>
                                 </div>
@@ -765,7 +766,7 @@ const EnhancedParticipantsList = () => {
                               {capitalizeFirstLetter(participant.firstName || participant.firstname)} {capitalizeFirstLetter(participant.lastName || participant.lastname)}
                             </div>
                             <div className="flex items-center">
-                              <span className="text-xl mr-1">{getCountryFlag(participant.country)}</span>
+                              <CountryFlag countryCode={participant.country} className="text-xl mr-1" />
                               <span className="text-xs">{participant.country}</span>
                             </div>
                           </div>
@@ -832,7 +833,7 @@ const EnhancedParticipantsList = () => {
                               </div>
                             </div>
                             <div className="text-2xl">
-                              {getCountryFlag(participant.country)}
+                              <CountryFlag countryCode={participant.country} className="text-2xl" />
                             </div>
                           </div>
                           <CardTitle className="mt-3 text-xl text-white">
