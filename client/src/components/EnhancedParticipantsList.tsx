@@ -90,6 +90,11 @@ const getParticipantAge = (participant: ExtendedParticipant): number => {
   return participant.age || 0;
 };
 
+const capitalizeFirstLetter = (str?: string) => {
+  if (!str) return '';
+  return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
 const EnhancedParticipantsList = () => {
   const { t, i18n } = useTranslation();
   const [filters, setFilters] = useState<ParticipantFilters>({});
@@ -383,7 +388,7 @@ const EnhancedParticipantsList = () => {
                         <SelectItem value="all_countries">{t('participants.allCountries')}</SelectItem>
                         {countries.map(country => (
                           <SelectItem key={country} value={country}>
-                            {getCountryFlag(country)} {country}
+                           {country}
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -530,7 +535,7 @@ const EnhancedParticipantsList = () => {
                 {filters.country && (
                   <Badge variant="secondary" className="flex items-center gap-1">
                     <Globe className="h-3 w-3" />
-                    {getCountryFlag(filters.country)} {filters.country}
+                     {filters.country}
                     <button className="ml-1" onClick={() => {
                       const { country, ...rest } = filters;
                       setFilters(rest);
@@ -640,16 +645,11 @@ const EnhancedParticipantsList = () => {
                           <tr key={participant.id} className="hover:bg-neutral-light hover:bg-opacity-20 transition-colors duration-150">
                             <td className="px-6 py-4 whitespace-nowrap">
                               <div className="flex items-center">
-                                <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-white">
-                                  <span className="font-bold">
-                                    {(participant.firstName || participant.firstname) && (participant.firstName?.[0] || participant.firstname?.[0]) || '?'}
-                                    {(participant.lastName || participant.lastname) && (participant.lastName?.[0] || participant.lastname?.[0]) || '?'}
-                                  </span>
-                                </div>
                                 <div className="ml-4">
-                                  <div className="text-sm font-medium">{participant.firstName || participant.firstname} {participant.lastName || participant.lastname}</div>
+                                  <div className="text-sm font-medium">
+                                    {capitalizeFirstLetter(participant.firstName || participant.firstname)} {capitalizeFirstLetter(participant.lastName || participant.lastname)}
+                                  </div>
                                   <div className="text-sm text-neutral-gray">
-                                    {participant.gender}
                                     {getEmaStatus(participant) && (
                                       <Badge className="ml-2 bg-amber-500 text-white">
                                         {t('participants.filters.ema')}
@@ -742,12 +742,7 @@ const EnhancedParticipantsList = () => {
                         <CardHeader className="bg-primary text-white p-4 pb-6">
                           <div className="flex justify-between items-start">
                             <div className="flex flex-col">
-                              <div className="h-12 w-12 rounded-full bg-white flex items-center justify-center text-primary">
-                                <span className="font-bold text-lg">
-                                  {(participant.firstName || participant.firstname) && (participant.firstName?.[0] || participant.firstname?.[0]) || '?'}
-                                  {(participant.lastName || participant.lastname) && (participant.lastName?.[0] || participant.lastname?.[0]) || '?'}
-                                </span>
-                              </div>
+                            
                               <div className="flex mt-2 space-x-2">
                                 {getEmaStatus(participant) && (
                                   <Badge className="bg-amber-500 text-white">
@@ -769,28 +764,25 @@ const EnhancedParticipantsList = () => {
                               />
                             </div>
                           </div>
-                          <CardTitle className="mt-3 text-xl">
-                            {participant.firstName || participant.firstname} {participant.lastName || participant.lastname}
+                          <CardTitle className="mt-3 text-xl text-white">
+                            {capitalizeFirstLetter(participant.firstName || participant.firstname)} {capitalizeFirstLetter(participant.lastName || participant.lastname)}
                           </CardTitle>
                           <CardDescription className="text-white flex items-center">
                             <Globe className="h-4 w-4 mr-1" />
-                            <span>{participant.country}</span>
+                            <span className="text-white">{participant.country}</span>
                           </CardDescription>
                         </CardHeader>
                         <CardContent className="p-4">
                           <div className="space-y-3">
                             <div className="flex justify-between">
-                              <span className="text-gray-700 text-sm font-medium">{t('participants.race')}:</span>
+                              <span className="text-white-700 text-sm font-medium">{t('participants.race')}:</span>
                               <span className="font-medium">
                                 {race && getLocalizedRaceName(race, i18n.language as any)}
                               </span>
                             </div>
                             
-                            <div className="flex justify-between">
-                              <span className="text-gray-700 text-sm font-medium">{t('participants.gender')}:</span>
-                              <span className="font-medium">{participant.gender}</span>
-                            </div>
-                            
+                           
+      
                             <div className="flex justify-between">
                               <span className="text-gray-700 text-sm font-medium">{t('participants.table.category')}:</span>
                               <span>

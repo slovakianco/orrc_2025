@@ -576,8 +576,8 @@ const RegistrationFormWithPayment = () => {
                           <div>
                             <span className="block font-bold">{getLocalizedRaceName(race, i18n.language as any)}</span>
                             <span className="text-sm text-neutral-gray">{race.distance}km | {isEmaParticipant ? 
-                              <span className="font-medium text-primary-dark">{race.id === 1 ? '200 lei' : '150 lei'} (€{race.id === 1 ? '40' : '30'}) ({t('registration.form.emaPrice')})</span> : 
-                              <span>{race.id === 1 ? '170 lei' : '120 lei'} (€{race.id === 1 ? '34' : '24'})</span>
+                              <span className="font-medium text-primary-dark">{race.id === 1 ? '200 RON' : '150 RON'} (€{race.id === 1 ? '40' : '30'}) ({t('registration.form.emaPrice')})</span> : 
+                              <span>{race.id === 1 ? '170 RON' : '120 RON'} (€{race.id === 1 ? '34' : '24'})</span>
                             }</span>
                           </div>
                         </label>

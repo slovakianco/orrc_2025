@@ -146,7 +146,8 @@
       "waterAndSnacks": "Wasser, Sportgetränke und leichte Snacks",
       "registerButton": "Jetzt anmelden",
       "downloadGPX": "GPX herunterladen",
-      "map": "Karte"
+      "map": "Karte",
+      "startTime": "Startzeit"
     },
     "raceDetail": {
       "details": "Renndetails",
@@ -234,7 +235,8 @@
       "bibNumber": "Startnummer",
       "status": "Status",
       "age": "Alter",
-      "gender": "Geschlecht"
+      "gender": "Geschlecht",
+      "category": "Kategorie"
     },
     "status": {
       "confirmed": "Bestätigt",
@@ -251,6 +253,32 @@
       "to": "bis",
       "of": "von",
       "entries": "Einträgen"
+    },
+    "notApplicable": "Open",
+    "race": "Rennen",
+    "gender": "Geschlecht",
+    "age": "Alter",
+    "bibNumber": "Startnummer",
+    "notAssigned": "Nicht zugewiesen",
+    "filters": {
+      "all": "Alle",
+      "ema": "EMA Circuit",
+      "open": "Open",
+      "masters": "Masters",
+      "confirmed": "Bestätigt",
+      "emaFilter": "EMA Teilnahme",
+      "showEmaOnly": "Nur EMA Teilnehmer anzeigen",
+      "genderCategory": "Geschlecht",
+      "allGenders": "Alle Geschlechter",
+      "male": "Männlich",
+      "female": "Weiblich",
+      "ageCategory": "Alterskategorie",
+      "allAges": "Alle Altersgruppen",
+      "allMasters": "Alle Masters (35+)",
+      "status": "Anmeldestatus",
+      "allStatuses": "Alle Status",
+      "resetFilters": "Filter zurücksetzen",
+      "clearAll": "Alle löschen"
     }
   },
   "rules": {
@@ -788,12 +816,49 @@
     },
     "rankings": {
       "title": "Ranglisten",
-      "content": "Der EMA Off-Road Running Circuit wird sowohl Ranglisten für einzelne Events als auch eine abschließende Gesamtrangliste für den Circuit umfassen.",
-      "local": "Jedes lokale Organisationskomitee (LOC) kann ein oder mehrere Events anbieten (wie Bergauf, Vertikal, Berglauf, Trail usw.), wobei die Sieger und Alterskategorien-Champions gemäß den lokalen Vorschriften prämiert werden. Jedes Event wird einen eigenen Bereich auf der EMA-Website haben.",
-      "eligibility": "Berechtigung für die Abschlussrangliste: Um sich für die EMA-Abschlussrangliste zu qualifizieren, müssen Athleten an mindestens zwei Events an verschiedenen Orten teilnehmen.",
-      "points": "Punktevergabe: Der Sieger jedes Events (gesamt und in jeder Alterskategorie) erhält 1 Punkt, wobei die nachfolgenden Plätze wie folgt Punkte erhalten (2 Punkte für den zweiten Platz, 3 Punkte für den dritten usw.). EMA berücksichtigt die zwei besten Leistungen jedes Athleten bei der Berechnung der endgültigen Rangliste.",
-      "specialPrize": "Ein besonderer Preis wird an alle Athleten verliehen, die an mindestens drei Etappen des Circuits teilnehmen, unabhängig von ihren Gesamtergebnissen.",
-      "ceremony": "Die offizielle Preisverleihung findet während der EMA Off-Road Running Meisterschaft 2026 statt."
+      "content": "Der EMA Off-Road Running Circuit wird sowohl Einzelveranstaltungs-Ranglisten als auch eine finale Gesamtrangliste für den Circuit umfassen.",
+      "local": "Jedes lokale Organisationskomitee (LOC) kann eine oder mehrere Veranstaltungen (wie Bergauf, Vertikal, Berglauf, Trail etc.) anbieten, wobei die Gewinner und Altersklassen-Champions gemäß ihren lokalen Bestimmungen ausgezeichnet werden. Jede Veranstaltung wird einen eigenen Bereich auf der EMA-Website haben.",
+      "eligibility": "Finale Ranglisten-Berechtigung: Um sich für die EMA-Finalranglisten zu qualifizieren, müssen Athleten an mindestens zwei Veranstaltungen an verschiedenen Orten teilnehmen.",
+      "points": "Punktevergabe: Der Gewinner jeder Veranstaltung (Gesamt und in jeder Altersklasse) erhält 1 Punkt, mit nachfolgenden Positionen, die wie folgt Punkte erhalten (2 Punkte für den zweiten Platz, 3 Punkte für den dritten, usw.). Die EMA wird die beiden besten Leistungen jedes Athleten bei der Berechnung der Endstände berücksichtigen.",
+      "specialPrize": "Ein Sonderpreis wird an alle Athleten vergeben, die an mindestens drei Etappen des Circuits teilnehmen, unabhängig von ihren Gesamtergebnissen.",
+      "ceremony": "Die offizielle Preisverleihung findet während der EMA Off-Road Running Meisterschaft 2026 statt.",
+      "structure": {
+        "title": "Ranglisten-Struktur",
+        "item1": "Umfasst Einzelveranstaltungs-Ranglisten und eine finale Gesamtrangliste des Circuits.",
+        "item2": "Lokale Organisationskomitees (LOCs) können verschiedene Veranstaltungen (z.B. Bergauf, Vertikal, Berglauf, Trail) mit Preisen gemäß lokalen Bestimmungen anbieten.",
+        "item3": "LOCs können Athleten unter 35 oder über 80 nach eigenem Ermessen registrieren und auszeichnen, aber nur Masters-Athleten im Alter von 35-79 Jahren sind für die finalen EMA-Circuit-Ranglisten berechtigt."
+      },
+      "finalEligibility": {
+        "title": "Finale Ranglisten-Berechtigung",
+        "content": "Athleten müssen an mindestens zwei Veranstaltungen an verschiedenen Orten teilnehmen, um sich für die Finalranglisten zu qualifizieren."
+      },
+      "pointAllocation": {
+        "title": "Punktevergabe",
+        "item1": "Veranstaltungsgewinner (Gesamt und Altersklasse) erhält 1 Punkt",
+        "item2": "Zweiter Platz erhält 2 Punkte",
+        "item3": "Dritter Platz erhält 3 Punkte, und so weiter",
+        "item4": "Endstände basieren auf den beiden besten Leistungen eines Athleten",
+        "note": "Hinweis: Eine niedrigere Punktzahl ist besser, da es sich um ein Golf-Style-Punktesystem handelt, bei dem 1. Platz = 1 Punkt."
+      },
+      "categories": {
+        "title": "Ranglisten-Kategorien",
+        "item1": "Die ersten drei männlichen und weiblichen Athleten als Gesamtsieger",
+        "item2": "Altersklassen-Sieger für Männer und Frauen (35-75)"
+      },
+      "tieBreakers": {
+        "title": "Gleichstände",
+        "item1": "Bei Gleichstand hat der Athlet mit der besseren Platzierung in Veranstaltungen Vorrang",
+        "item2": "Bei weiterem Gleichstand dient die Anzahl der teilgenommenen Rennen als Entscheidungskriterium"
+      },
+      "specialPrize": {
+        "title": "Sonderpreis",
+        "content": "Ein Sonderpreis wird an Athleten vergeben, die an mindestens drei Etappen teilnehmen, unabhängig von ihren Ergebnissen."
+      },
+      "awardCeremony": {
+        "title": "Preisverleihung",
+        "item1": "Findet während der EMA Off-Road Running Meisterschaft 2026 statt",
+        "item2": "Wenn ein Athlet nicht teilnehmen kann, werden Arrangements für die Preisübergabe getroffen"
+      }
     },
     "calendar": {
       "title": "Kalender",

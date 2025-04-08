@@ -169,7 +169,8 @@
       "waterAndSnacks": "Water, sports drinks, and light snacks",
       "registerButton": "Register Now",
       "downloadGPX": "Download GPX",
-      "map": "Map"
+      "map": "Map",
+      "startTime": "Start Time"
     },
     "raceDetail": {
       "details": "Race Details",
@@ -258,7 +259,7 @@
     "tryDifferentFilter": "Try a different filter or clear your search",
     "noParticipants": "No participants found",
     "countryParticipants": "{{count}} participants from this country",
-    "tableOld": {
+    "table": {
       "name": "Name",
       "country": "Country",
       "race": "Race",
@@ -266,7 +267,8 @@
       "bibNumber": "Bib Number",
       "status": "Status",
       "age": "Age",
-      "gender": "Gender"
+      "gender": "Gender",
+      "category": "Category"
     },
     "status": {
       "confirmed": "Confirmed",
@@ -278,12 +280,6 @@
       "female": "Female"
     },
     "unknownRace": "Unknown Race",
-    "race": "Race",
-    "gender": "Gender",
-    "age": "Age",
-    "bibNumber": "Bib Number",
-    "notAssigned": "Not Assigned",
-    "notApplicable": "Not Applicable",
     "pagination": {
       "showing": "Showing",
       "to": "to",
@@ -292,17 +288,23 @@
     },
     "filters": {
       "all": "All",
-      "ema": "EMA Circuit"
-    },
-    "table": {
-      "name": "Name",
-      "country": "Country",
-      "race": "Race",
-      "bib": "Bib #",
-      "category": "Category",
-      "status": "Status",
-      "age": "Age",
-      "gender": "Gender"
+      "ema": "EMA Circuit",
+      "open": "Open",
+      "masters": "Masters",
+      "confirmed": "Confirmed",
+      "emaFilter": "EMA Participation",
+      "showEmaOnly": "Show EMA participants only",
+      "genderCategory": "Gender",
+      "allGenders": "All genders",
+      "male": "Male",
+      "female": "Female",
+      "ageCategory": "Age Category",
+      "allAges": "All ages",
+      "allMasters": "All Masters (35+)",
+      "status": "Registration Status",
+      "allStatuses": "All statuses",
+      "resetFilters": "Reset Filters",
+      "clearAll": "Clear All"
     },
     "open": "Open Race",
     "masters": "Masters",
@@ -316,10 +318,15 @@
     "ageCategory": "Age Category",
     "allAges": "All Ages",
     "allMasters": "All Masters (35+)",
-    "status": "Registration Status",
+    "registrationStatus": "Registration Status",
     "allStatuses": "All Statuses",
     "resetFilters": "Reset Filters",
-    "clearAll": "Clear All"
+    "clearAll": "Clear All",
+    "notApplicable": "Open",
+    "race": "Race",
+    "age": "Age",
+    "bibNumber": "Bib Number",
+    "notAssigned": "Not Assigned"
   },
   "rules": {
     "title": "Rules & Regulations",

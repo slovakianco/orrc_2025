@@ -161,15 +161,16 @@
       "distance": "Distanță",
       "elevation": "Creștere în elevație",
       "difficulty": "Dificultate",
-      "aidStations": "Puncte de ajutor",
-      "aidStationsTitle": "Apă și puncte de ajutor",
-      "aidStationsDescription": "Cursele noastre sunt echipate cu puncte de ajutor bine aprovizionate pentru a te menține hidratat și plin de energie pe parcursul traseului. Fiecare punct oferă apă, băuturi sportive și gustări ușoare.",
-      "aidStationsLocations": "Locații puncte de ajutor",
-      "aidStation": "Punct de ajutor",
+      "aidStations": "Puncte de hidratare/alimentare",
+      "aidStationsTitle": "Puncte de hidratare/alimentare",
+      "aidStationsDescription": "Cursele noastre sunt echipate cu puncte de hidratare/alimentare bine aprovizionate pentru a te menține hidratat și plin de energie pe parcursul traseului. Fiecare punct oferă apă, băuturi sportive și gustări ușoare.",
+      "aidStationsLocations": "Locații puncte de hidratare/alimentare",
+      "aidStation": "Punct de hidratare/alimentare",
       "waterAndSnacks": "Apă, băuturi sportive și gustări ușoare",
       "registerButton": "Înregistrează-te acum",
       "downloadGPX": "Descarcă GPX",
-      "map": "Hartă"
+      "map": "Hartă",
+      "startTime": "Ora de start"
     },
     "raceDetail": {
       "details": "Detalii cursă",
@@ -182,7 +183,7 @@
       "trailMap": "Hartă traseu",
       "registerButton": "Înregistrează-te acum",
       "backToRaces": "Înapoi la toate cursele",
-      "aidStations": "Puncte de ajutor",
+      "aidStations": "Puncte de hidratare/alimentare",
       "cutoffTime": "Timp limită",
       "startTime": "Ora de start",
       "loading": "Încărcare detalii cursă...",
@@ -250,6 +251,7 @@
     "allCountries": "Toate țările",
     "clearFilters": "Șterge filtrele",
     "participantsFound": "participanți găsiți",
+    "notApplicable": "Open",
     "filterApplied": "filtre aplicate",
     "tableView": "Vizualizare tabel",
     "cardView": "Vizualizare card",
@@ -266,7 +268,8 @@
       "bibNumber": "Număr de concurs",
       "status": "Stare",
       "age": "Vârstă",
-      "gender": "Gen"
+      "gender": "Gen",
+      "category": "Categorie"
     },
     "status": {
       "confirmed": "Confirmat",
@@ -292,7 +295,7 @@
     "filters": {
       "all": "Toți",
       "ema": "Circuit EMA",
-      "open": "Cursă deschisă",
+      "open": "Open",
       "masters": "Masters",
       "confirmed": "Confirmat",
       "emaFilter": "Participare EMA",

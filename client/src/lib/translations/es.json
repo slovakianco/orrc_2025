@@ -146,7 +146,8 @@
       "waterAndSnacks": "Agua, bebidas deportivas y refrigerios ligeros",
       "registerButton": "Inscríbete ahora",
       "downloadGPX": "Descargar GPX",
-      "map": "Mapa"
+      "map": "Mapa",
+      "startTime": "Hora de Inicio"
     },
     "raceDetail": {
       "details": "Detalles de la Carrera",
@@ -234,7 +235,8 @@
       "bibNumber": "Número de Dorsal",
       "status": "Estado",
       "age": "Edad",
-      "gender": "Género"
+      "gender": "Género",
+      "category": "Categoría"
     },
     "status": {
       "confirmed": "Confirmado",
@@ -251,6 +253,32 @@
       "to": "a",
       "of": "de",
       "entries": "entradas"
+    },
+    "notApplicable": "Open",
+    "race": "Carrera",
+    "gender": "Género",
+    "age": "Edad",
+    "bibNumber": "Número de Dorsal",
+    "notAssigned": "No Asignado",
+    "filters": {
+      "all": "Todos",
+      "ema": "Circuito EMA",
+      "open": "Open",
+      "masters": "Masters",
+      "confirmed": "Confirmado",
+      "emaFilter": "Participación EMA",
+      "showEmaOnly": "Mostrar solo participantes EMA",
+      "genderCategory": "Género",
+      "allGenders": "Todos los géneros",
+      "male": "Masculino",
+      "female": "Femenino",
+      "ageCategory": "Categoría de Edad",
+      "allAges": "Todas las edades",
+      "allMasters": "Todos los Masters (35+)",
+      "status": "Estado de Registro",
+      "allStatuses": "Todos los estados",
+      "resetFilters": "Restablecer Filtros",
+      "clearAll": "Borrar Todo"
     }
   },
   "rules": {
@@ -752,12 +780,49 @@
     },
     "rankings": {
       "title": "Clasificaciones",
-      "content": "El Circuito EMA Off-Road Running contará con clasificaciones tanto para eventos individuales como una clasificación general final para el Circuito.",
-      "local": "Cada Comité Organizador Local (LOC) puede ofrecer uno o más eventos (como subida, vertical, carrera en montaña, trail, etc.), con los ganadores y campeones de categorías de edad premiados según sus regulaciones locales. Cada evento tendrá una sección dedicada en el sitio web de EMA.",
+      "content": "El Circuito EMA Off-Road Running incluirá tanto clasificaciones por evento individual como una clasificación final general para el Circuito.",
+      "local": "Cada Comité Organizador Local (LOC) puede ofrecer uno o más eventos (como subida, vertical, carrera de montaña, trail, etc.), con los ganadores y campeones de categoría por edad premiados según sus reglamentos locales. Cada evento tendrá una sección dedicada en el sitio web de EMA.",
       "eligibility": "Elegibilidad para la Clasificación Final: Para calificar para las clasificaciones finales de EMA, los atletas deben participar en al menos dos eventos en diferentes ubicaciones.",
-      "points": "Asignación de Puntos: El ganador de cada evento (general y en cada categoría de edad) recibirá 1 punto, con las posiciones posteriores recibiendo puntos de la siguiente manera (2 puntos por el segundo lugar, 3 puntos por el tercero, etc.). EMA considerará las dos mejores actuaciones de cada atleta al calcular las clasificaciones finales.",
+      "points": "Asignación de Puntos: El ganador de cada evento (general y en cada categoría por edad) recibirá 1 punto, con las posiciones siguientes recibiendo puntos de la siguiente manera (2 puntos para el segundo lugar, 3 puntos para el tercero, etc.). EMA considerará las dos mejores actuaciones de cada atleta al calcular las clasificaciones finales.",
       "specialPrize": "Se otorgará un premio especial a todos los atletas que participen en al menos tres etapas del Circuito, independientemente de sus resultados generales.",
-      "ceremony": "La ceremonia oficial de premiación se llevará a cabo durante el Campeonato EMA Off-Road Running 2026."
+      "ceremony": "La ceremonia oficial de entrega de premios se llevará a cabo durante el Campeonato EMA Off-Road Running 2026.",
+      "structure": {
+        "title": "Estructura de Clasificación",
+        "item1": "Incluye clasificaciones por evento individual y una clasificación final general del Circuito.",
+        "item2": "Los Comités Organizadores Locales (LOC) pueden ofrecer varios eventos (ej. subida, vertical, carrera de montaña, trail) con premios otorgados según los reglamentos locales.",
+        "item3": "Los LOC pueden registrar y premiar a atletas menores de 35 o mayores de 80 años a su discreción, pero solo los atletas Masters de 35 a 79 años son elegibles para las clasificaciones finales del Circuito EMA."
+      },
+      "finalEligibility": {
+        "title": "Elegibilidad para la Clasificación Final",
+        "content": "Los atletas deben participar en al menos dos eventos en diferentes ubicaciones para calificar para las clasificaciones finales."
+      },
+      "pointAllocation": {
+        "title": "Asignación de Puntos",
+        "item1": "El ganador del evento (general y categoría por edad) recibe 1 punto",
+        "item2": "El segundo lugar recibe 2 puntos",
+        "item3": "El tercer lugar recibe 3 puntos, y así sucesivamente",
+        "item4": "Las clasificaciones finales se basan en las dos mejores actuaciones de un atleta",
+        "note": "Nota: Un total de puntos más bajo es mejor, ya que es un sistema de puntuación estilo golf donde 1er lugar = 1 punto."
+      },
+      "categories": {
+        "title": "Categorías de Clasificación",
+        "item1": "Los tres primeros atletas masculinos y femeninos clasificados como Ganadores Generales",
+        "item2": "Ganadores de Categoría por Edad para hombres y mujeres (35-75)"
+      },
+      "tieBreakers": {
+        "title": "Desempates",
+        "item1": "En caso de empate, el atleta con la mejor posición de llegada en los eventos tiene prioridad",
+        "item2": "Si el empate persiste, el número de carreras en las que el atleta ha participado sirve como criterio de desempate"
+      },
+      "specialPrize": {
+        "title": "Premio Especial",
+        "content": "Se otorga un premio especial a los atletas que participan en al menos tres etapas, independientemente de sus resultados."
+      },
+      "awardCeremony": {
+        "title": "Ceremonia de Entrega de Premios",
+        "item1": "Se lleva a cabo durante el Campeonato EMA Off-Road Running 2026",
+        "item2": "Si un atleta no puede asistir, se harán arreglos para la entrega de los premios"
+      }
     },
     "calendar": {
       "title": "Calendario",
