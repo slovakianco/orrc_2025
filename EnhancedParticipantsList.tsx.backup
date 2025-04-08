@@ -3,21 +3,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useState, useEffect, useMemo } from "react";
 import { Race, Participant, ParticipantFilters } from "@/lib/types";
 import { getStatusColor, getCountryFlag, getCountryName, getLocalizedRaceName } from "@/lib/utils";
-
-// Extended type to handle both camelCase and lowercase property names
-interface ExtendedParticipant extends Participant {
-  firstname?: string;
-  lastname?: string;
-  raceid?: number;
-  isemaparticipant?: boolean;
-  phonenumber?: string;
-  bibnumber?: string;
-  medicalinfo?: string | null;
-  registrationdate?: string;
-  emergencycontactname?: string;
-  emergencycontactphone?: string;
-  tshirtsize?: string;
-}
 import { 
   Search, ChevronLeft, ChevronRight, Globe, Map, Info, List, Grid, 
   Filter, Award, UserCheck, Trophy, Users
@@ -80,16 +65,6 @@ const getMasterCategory = (gender: string, age: number, isEmaParticipant: boolea
   return category ? category.id : null;
 };
 
-// Helper function to get EMA status from participant regardless of property name
-const getEmaStatus = (participant: ExtendedParticipant): boolean => {
-  return Boolean(participant.isEmaParticipant || participant.isemaparticipant);
-};
-
-// Helper function to get age from participant regardless of property name
-const getParticipantAge = (participant: ExtendedParticipant): number => {
-  return participant.age || 0;
-};
-
 const EnhancedParticipantsList = () => {
   const { t, i18n } = useTranslation();
   const [filters, setFilters] = useState<ParticipantFilters>({});
@@ -106,7 +81,7 @@ const EnhancedParticipantsList = () => {
   });
 
   // Get participants with filters
-  const { data: participants, isLoading } = useQuery<ExtendedParticipant[]>({
+  const { data: participants, isLoading } = useQuery<Participant[]>({
     queryKey: [
       filters.raceId ? `/api/participants?raceId=${filters.raceId}` : 
       filters.country ? `/api/participants?country=${filters.country}` : 
@@ -127,7 +102,7 @@ const EnhancedParticipantsList = () => {
 
     return participants.filter(participant => {
       // EMA filter
-      if (filters.isEmaParticipant !== undefined && getEmaStatus(participant) !== filters.isEmaParticipant) {
+      if (filters.isEmaParticipant !== undefined && participant.isEmaParticipant !== filters.isEmaParticipant) {
         return false;
       }
 
@@ -140,10 +115,10 @@ const EnhancedParticipantsList = () => {
       if (filters.ageCategory) {
         // Special case for 'masters' filter - show all master age categories
         if (filters.ageCategory === 'masters') {
-          const category = getMasterCategory(participant.gender, getParticipantAge(participant), getEmaStatus(participant));
+          const category = getMasterCategory(participant.gender, participant.age, participant.isEmaParticipant || false);
           return category !== null; // Return true if participant has a master category
         } else {
-          const category = getMasterCategory(participant.gender, getParticipantAge(participant), getEmaStatus(participant));
+          const category = getMasterCategory(participant.gender, participant.age, participant.isEmaParticipant || false);
           if (category !== filters.ageCategory) {
             return false;
           }
@@ -633,8 +608,8 @@ const EnhancedParticipantsList = () => {
                       </tr>
                     ) : (
                       currentParticipants.map(participant => {
-                        const race = races?.find(r => r.id === participant.raceId || r.id === participant.raceid);
-                        const masterCategory = getMasterCategory(participant.gender, getParticipantAge(participant), getEmaStatus(participant));
+                        const race = races?.find(r => r.id === participant.raceId);
+                        const masterCategory = getMasterCategory(participant.gender, participant.age, participant.isEmaParticipant || false);
                         
                         return (
                           <tr key={participant.id} className="hover:bg-neutral-light hover:bg-opacity-20 transition-colors duration-150">
@@ -642,15 +617,15 @@ const EnhancedParticipantsList = () => {
                               <div className="flex items-center">
                                 <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-white">
                                   <span className="font-bold">
-                                    {(participant.firstName || participant.firstname) && (participant.firstName?.[0] || participant.firstname?.[0]) || '?'}
-                                    {(participant.lastName || participant.lastname) && (participant.lastName?.[0] || participant.lastname?.[0]) || '?'}
+                                    {participant.firstName?.[0] || '?'}
+                                    {participant.lastName?.[0] || '?'}
                                   </span>
                                 </div>
                                 <div className="ml-4">
-                                  <div className="text-sm font-medium">{participant.firstName || participant.firstname} {participant.lastName || participant.lastname}</div>
+                                  <div className="text-sm font-medium">{participant.firstName} {participant.lastName}</div>
                                   <div className="text-sm text-neutral-gray">
                                     {participant.gender}
-                                    {getEmaStatus(participant) && (
+                                    {participant.isEmaParticipant && (
                                       <Badge className="ml-2 bg-amber-500 text-white">
                                         {t('participants.filters.ema')}
                                       </Badge>
@@ -734,8 +709,8 @@ const EnhancedParticipantsList = () => {
                   </div>
                 ) : (
                   currentParticipants.map(participant => {
-                    const race = races?.find(r => r.id === participant.raceId || r.id === participant.raceid);
-                    const masterCategory = getMasterCategory(participant.gender, getParticipantAge(participant), getEmaStatus(participant));
+                    const race = races?.find(r => r.id === participant.raceId);
+                    const masterCategory = getMasterCategory(participant.gender, participant.age, participant.isEmaParticipant || false);
                     
                     return (
                       <Card key={participant.id} className="overflow-hidden transition-transform hover:scale-105 duration-300">
@@ -744,12 +719,12 @@ const EnhancedParticipantsList = () => {
                             <div className="flex flex-col">
                               <div className="h-12 w-12 rounded-full bg-white flex items-center justify-center text-primary">
                                 <span className="font-bold text-lg">
-                                  {(participant.firstName || participant.firstname) && (participant.firstName?.[0] || participant.firstname?.[0]) || '?'}
-                                  {(participant.lastName || participant.lastname) && (participant.lastName?.[0] || participant.lastname?.[0]) || '?'}
+                                  {participant.firstName?.[0] || '?'}
+                                  {participant.lastName?.[0] || '?'}
                                 </span>
                               </div>
                               <div className="flex mt-2 space-x-2">
-                                {getEmaStatus(participant) && (
+                                {participant.isEmaParticipant && (
                                   <Badge className="bg-amber-500 text-white">
                                     {t('participants.filters.ema')}
                                   </Badge>
@@ -770,7 +745,7 @@ const EnhancedParticipantsList = () => {
                             </div>
                           </div>
                           <CardTitle className="mt-3 text-xl">
-                            {participant.firstName || participant.firstname} {participant.lastName || participant.lastname}
+                            {participant.firstName} {participant.lastName}
                           </CardTitle>
                           <CardDescription className="text-white flex items-center">
                             <Globe className="h-4 w-4 mr-1" />
