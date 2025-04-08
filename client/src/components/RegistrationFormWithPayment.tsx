@@ -8,7 +8,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { insertParticipantSchema } from "@shared/schema";
 import { Race } from "@/lib/types";
 import { getLocalizedRaceName } from "@/lib/utils";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import StripePaymentForm from "./StripePaymentForm";
 
 // Function to calculate age for validation
@@ -132,6 +132,15 @@ const RegistrationFormWithPayment = () => {
 
   const selectedRaceId = watch("raceId");
   const isEmaParticipant = watch("isEmaParticipant");
+  const birthDateValue = watch("birthDate");
+  
+  // Calculate if the participant is eligible for EMA based on age
+  const isEligibleForEma = useMemo(() => {
+    if (!birthDateValue) return false;
+    
+    const age = calculateAgeForValidation(birthDateValue);
+    return age >= 35;
+  }, [birthDateValue]);
   const selectedRace = races?.find(race => race.id === Number(selectedRaceId));
   
   // Calculate the dynamic price based on race and EMA participation
@@ -481,9 +490,18 @@ const RegistrationFormWithPayment = () => {
                       id="isEmaParticipant" 
                       {...register("isEmaParticipant")}
                       className="mr-2 mt-1"
+                      disabled={!isEligibleForEma}
                     />
-                    <label htmlFor="isEmaParticipant" className="text-sm font-medium">
+                    <label 
+                      htmlFor="isEmaParticipant" 
+                      className={`text-sm font-medium ${!isEligibleForEma ? 'text-neutral-light' : ''}`}
+                    >
                       {t('registration.form.emaParticipation')}
+                      {!isEligibleForEma && birthDateValue && (
+                        <span className="ml-2 text-red-500 text-xs">
+                          ({t('registration.form.mustBe35')})
+                        </span>
+                      )}
                     </label>
                   </div>
                   <div className="text-sm pl-6">
