@@ -179,8 +179,8 @@ export class SupabaseStorage implements IStorage {
     const { data, error } = await supabase
       .from('participants')
       .select('*')
-      .eq('raceId', raceId)
-      .order('lastName');
+      .eq('raceid', raceId) // Using lowercase column name to match database
+      .order('lastname'); // Using lowercase column name
     
     if (error) {
       console.error(`Error fetching participants for race ${raceId}:`, error);
@@ -195,7 +195,7 @@ export class SupabaseStorage implements IStorage {
       .from('participants')
       .select('*')
       .eq('country', country)
-      .order('lastName');
+      .order('lastname'); // Using lowercase column name
     
     if (error) {
       console.error(`Error fetching participants from country ${country}:`, error);
@@ -211,8 +211,8 @@ export class SupabaseStorage implements IStorage {
     const { data, error } = await supabase
       .from('participants')
       .select('*')
-      .or(`firstName.ilike.%${query}%,lastName.ilike.%${query}%`)
-      .order('lastName');
+      .or(`firstname.ilike.%${query}%,lastname.ilike.%${query}%`) // Using lowercase column names
+      .order('lastname'); // Using lowercase column name
     
     if (error) {
       console.error(`Error searching participants with query ${query}:`, error);
@@ -242,7 +242,7 @@ export class SupabaseStorage implements IStorage {
     const { count, error: countError } = await supabase
       .from('participants')
       .select('*', { count: 'exact' })
-      .eq('raceId', participant.raceId);
+      .eq('raceid', participant.raceId); // Using lowercase column name to match database
     
     if (countError) {
       console.error('Error counting participants for bib number generation:', countError);
@@ -254,16 +254,36 @@ export class SupabaseStorage implements IStorage {
     
     // Insert the participant with the generated bib number
     const now = new Date().toISOString();
-    const participantWithBib = {
-      ...participant,
-      bibNumber,
+    
+    // Create an object with lowercase field names for Supabase 
+    // Map InsertParticipant fields to the actual column names in the database
+    const supabaseParticipant = {
+      firstname: participant.firstName,
+      lastname: participant.lastName,
+      email: participant.email,
+      phonenumber: participant.phoneNumber,
+      country: participant.country,
+      birthdate: participant.birthDate,
+      raceid: participant.raceId,
+      gender: participant.gender,
+      age: participant.age,
+      medicalinfo: participant.medicalInfo,
+      isemaparticipant: Boolean(participant.isEmaParticipant),
+      tshirtsize: participant.tshirtSize || "",
+      emergencycontactname: participant.emergencyContactName || "",
+      emergencycontactphone: participant.emergencyContactPhone || "",
+      
+      // Add generated fields
+      bibnumber: bibNumber,
       status: 'pending', 
-      registrationDate: now
+      registrationdate: now
     };
+    
+    console.log("Supabase participant data:", supabaseParticipant);
     
     const { data, error } = await supabase
       .from('participants')
-      .insert(participantWithBib)
+      .insert(supabaseParticipant)
       .select()
       .single();
     
@@ -294,9 +314,13 @@ export class SupabaseStorage implements IStorage {
   // Contact Inquiries
   async createContactInquiry(inquiry: InsertContactInquiry): Promise<ContactInquiry> {
     const now = new Date().toISOString();
+    // Map to lowercase field names for the database
     const inquiryWithDate = {
-      ...inquiry,
-      createdAt: now
+      name: inquiry.name,
+      email: inquiry.email,
+      subject: inquiry.subject,
+      message: inquiry.message,
+      createdat: now // Using lowercase column name
     };
     
     const { data, error } = await supabase
@@ -317,7 +341,7 @@ export class SupabaseStorage implements IStorage {
     const { data, error } = await supabase
       .from('contact_inquiries')
       .select('*')
-      .order('createdAt', { ascending: false });
+      .order('createdat', { ascending: false }); // Using lowercase column name
     
     if (error) {
       console.error('Error fetching contact inquiries:', error);
@@ -392,7 +416,7 @@ export class SupabaseStorage implements IStorage {
       .from('program_events')
       .select('*')
       .eq('date', date)
-      .order('startTime')
+      .order('starttime') // Using lowercase column name
       .order('order_index');
     
     if (error) {
@@ -407,9 +431,25 @@ export class SupabaseStorage implements IStorage {
   }
 
   async createProgramEvent(event: InsertProgramEvent): Promise<ProgramEvent> {
+    // Map to lowercase field names for database
     const eventData = {
-      ...event,
-      order_index: event.order
+      date: event.date,
+      starttime: event.startTime, // lowercase column name
+      endtime: event.endTime, // lowercase column name
+      title: event.title,
+      titlero: event.titleRo, // lowercase column name
+      titlefr: event.titleFr, // lowercase column name
+      titlede: event.titleDe, // lowercase column name
+      titleit: event.titleIt, // lowercase column name
+      titlees: event.titleEs, // lowercase column name
+      description: event.description,
+      descriptionro: event.descriptionRo, // lowercase column name
+      descriptionfr: event.descriptionFr, // lowercase column name
+      descriptionde: event.descriptionDe, // lowercase column name
+      descriptionit: event.descriptionIt, // lowercase column name
+      descriptiones: event.descriptionEs, // lowercase column name
+      location: event.location,
+      order_index: event.order // match database column name
     };
     
     const { data, error } = await supabase
@@ -467,9 +507,17 @@ export class SupabaseStorage implements IStorage {
   }
 
   async createSponsor(sponsor: InsertSponsor): Promise<Sponsor> {
+    // Map to lowercase field names for database
     const sponsorData = {
-      ...sponsor,
-      order_index: sponsor.order
+      name: sponsor.name,
+      description: sponsor.description,
+      descriptionro: sponsor.descriptionRo, // lowercase column name
+      descriptionfr: sponsor.descriptionFr, // lowercase column name
+      descriptionde: sponsor.descriptionDe, // lowercase column name
+      logoplaceholder: sponsor.logoPlaceholder, // lowercase column name
+      website: sponsor.website,
+      level: sponsor.level,
+      order_index: sponsor.order // match database column name
     };
     
     const { data, error } = await supabase

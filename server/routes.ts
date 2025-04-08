@@ -232,13 +232,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
         age: age,
         // Optional fields - using the actual column names from database
         medicalInfo: result.data.medicalInfo || null,
-        // Use the exact field names from client or fall back to database column names
-        isEmaParticipant: Boolean(result.data.isEmaParticipant || result.data.isemaparticipant || false),
-        tshirtSize: result.data.tshirtSize || result.data.tshirtsize || "",
-        // Emergency contact fields - these match the database column names (all lowercase)
-        emergencyContactName: result.data.emergencyContactName || result.data.emergencycontactname || "",
-        emergencyContactPhone: result.data.emergencyContactPhone || result.data.emergencycontactphone || ""
+        // Use the exact field names from client or fall back to the correct field name 
+        isEmaParticipant: Boolean(result.data.isEmaParticipant || false),
+        tshirtSize: result.data.tshirtSize || "",
+        // Emergency contact fields with proper camelCase for the type
+        emergencyContactName: result.data.emergencyContactName || "",
+        emergencyContactPhone: result.data.emergencyContactPhone || ""
       };
+      
+      // Log the data to help with debugging
+      console.log("Participant registration data:", participantData);
       
       // Ensure proper data is passed to storage
       const participant = await storage.createParticipant(participantData);
