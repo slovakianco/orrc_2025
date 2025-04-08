@@ -120,11 +120,16 @@ const EnhancedParticipantsList = () => {
     ],
   });
 
-  // Get all unique countries
+  // Get all countries for dropdown
   const countries = useMemo(() => {
-    if (!participants) return [];
-    return Array.from(new Set(participants.map(p => p.country))).sort();
-  }, [participants]);
+    // Return full list of countries regardless of participants
+    return [
+      "RO", "FR", "DE", "UK", "US", "IT", "ES", "PT", "BE", "NL", 
+      "CH", "AT", "HU", "PL", "CZ", "SK", "BG", "GR", "SE", "NO", 
+      "DK", "FI", "IE", "LU", "HR", "SI", "RS", "ME", "MK", "AL", 
+      "UA", "MD", "BY", "RU", "LV", "LT", "EE"
+    ].sort();
+  }, []);
 
   // Apply filters to participants
   const filteredParticipants = useMemo(() => {
@@ -309,7 +314,27 @@ const EnhancedParticipantsList = () => {
         {/* Main Tabs */}
         <Tabs value={activeTab} onValueChange={handleTabChange} className="mb-8">
           <div className="flex justify-center mb-4">
-            <TabsList className="grid grid-cols-5 w-full max-w-3xl bg-primary">
+            {/* Mobile TabsList - Icons only */}
+            <TabsList className="grid grid-cols-5 w-full max-w-3xl bg-primary md:hidden">
+              <TabsTrigger value="all" className="flex items-center justify-center text-white data-[state=active]:text-white">
+                <Users className="h-5 w-5" />
+              </TabsTrigger>
+              <TabsTrigger value="ema" className="flex items-center justify-center text-white data-[state=active]:text-white">
+                <Award className="h-5 w-5" />
+              </TabsTrigger>
+              <TabsTrigger value="open" className="flex items-center justify-center text-white data-[state=active]:text-white">
+                <Map className="h-5 w-5" />
+              </TabsTrigger>
+              <TabsTrigger value="masters" className="flex items-center justify-center text-white data-[state=active]:text-white">
+                <Trophy className="h-5 w-5" />
+              </TabsTrigger>
+              <TabsTrigger value="confirmed" className="flex items-center justify-center text-white data-[state=active]:text-white">
+                <UserCheck className="h-5 w-5" />
+              </TabsTrigger>
+            </TabsList>
+            
+            {/* Desktop TabsList - Icons with text */}
+            <TabsList className="hidden md:grid grid-cols-5 w-full max-w-3xl bg-primary">
               <TabsTrigger value="all" className="flex items-center gap-2 text-white data-[state=active]:text-white">
                 <Users className="h-4 w-4" />
                 <span>{t('participants.filters.all')}</span>
@@ -388,7 +413,10 @@ const EnhancedParticipantsList = () => {
                         <SelectItem value="all_countries">{t('participants.allCountries')}</SelectItem>
                         {countries.map(country => (
                           <SelectItem key={country} value={country}>
-                           {country}
+                            <div className="flex items-center gap-2">
+                              <span className="inline-block w-6">{getCountryFlag(country)}</span>
+                              <span>{getCountryName(country)}</span>
+                            </div>
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -603,7 +631,8 @@ const EnhancedParticipantsList = () => {
             {/* Participants View (Table or Card) */}
             {viewMode === "table" ? (
               <div className="overflow-x-auto bg-white rounded-lg shadow-md">
-                <table className="min-w-full divide-y divide-neutral-light">
+                {/* Desktop Table - Hidden on mobile */}
+                <table className="min-w-full divide-y divide-neutral-light hidden md:table">
                   <thead className="bg-neutral-light bg-opacity-50">
                     <tr>
                       <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-neutral-gray uppercase tracking-wider">
@@ -721,6 +750,60 @@ const EnhancedParticipantsList = () => {
                     )}
                   </tbody>
                 </table>
+                
+                {/* Mobile-friendly list view (visible only on small screens) */}
+                <div className="md:hidden divide-y divide-neutral-light">
+                  {isLoading ? (
+                    <div className="p-4 text-center">
+                      {t('common.loading')}
+                    </div>
+                  ) : currentParticipants.length === 0 ? (
+                    <div className="p-4 text-center">
+                      {t('participants.noParticipants')}
+                    </div>
+                  ) : (
+                    currentParticipants.map(participant => {
+                      const race = races?.find(r => r.id === participant.raceId || r.id === participant.raceid);
+                      const masterCategory = getMasterCategory(participant.gender, getParticipantAge(participant), getEmaStatus(participant));
+                      
+                      return (
+                        <div key={participant.id} className="p-4 hover:bg-neutral-light/10">
+                          <div className="flex justify-between items-start mb-2">
+                            <div className="font-medium">
+                              {capitalizeFirstLetter(participant.firstName || participant.firstname)} {capitalizeFirstLetter(participant.lastName || participant.lastname)}
+                            </div>
+                            <div className="flex items-center">
+                              <span className="text-xl mr-1">{getCountryFlag(participant.country)}</span>
+                              <span className="text-xs">{participant.country}</span>
+                            </div>
+                          </div>
+                          
+                          <div className="flex flex-wrap gap-2 mt-2">
+                            {getEmaStatus(participant) && (
+                              <Badge className="bg-amber-500 text-white">
+                                {t('participants.filters.ema')}
+                              </Badge>
+                            )}
+                            
+                            {masterCategory && (
+                              <Badge className="bg-primary text-white">
+                                {masterCategory}
+                              </Badge>
+                            )}
+                            
+                            <Badge variant="outline" className="bg-gray-50">
+                              {race ? getLocalizedRaceName(race, i18n.language as any) : ''}
+                            </Badge>
+                            
+                            <span className={`px-2 py-0.5 rounded-full text-xs font-medium ml-auto ${getStatusColor(participant.status)}`}>
+                              {t(`participants.status.${participant.status}`)}
+                            </span>
+                          </div>
+                        </div>
+                      );
+                    })
+                  )}
+                </div>
               </div>
             ) : (
               <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
