@@ -115,22 +115,28 @@ const RegistrationFormWithPayment = () => {
       // Make sure isEmaParticipant is correctly transformed to a boolean
       const transformedData = {
         ...data,
+        // Convert camelCase to lowercase for database column names
         emergencycontactname: data.emergencyContactName,
         emergencycontactphone: data.emergencyContactPhone,
+        // For isEmaParticipant, include both camelCase and lowercase versions for backend compatibility
+        isEmaParticipant: data.isEmaParticipant === true, // Ensure it's a boolean
         isemaparticipant: data.isEmaParticipant === true, // Ensure it's a boolean
+        // For t-shirt size, include both camelCase and lowercase versions for backend compatibility
+        tshirtSize: data.tshirtSize,
         tshirtsize: data.tshirtSize
       };
       
       console.log("Transformed data for API:", {
         ...transformedData,
-        isemaparticipant: transformedData.isemaparticipant
+        isEmaParticipant: transformedData.isEmaParticipant,
+        isemaparticipant: transformedData.isemaparticipant,
+        tshirtSize: transformedData.tshirtSize,
+        tshirtsize: transformedData.tshirtsize
       });
       
-      // Remove original camelCase properties that have been transformed
+      // Remove redundant original properties 
       delete (transformedData as any).emergencyContactName;
       delete (transformedData as any).emergencyContactPhone;
-      delete (transformedData as any).isEmaParticipant;
-      delete (transformedData as any).tshirtSize;
       
       return apiRequest("POST", "/api/participants", transformedData);
     },

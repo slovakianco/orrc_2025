@@ -4,7 +4,7 @@ import fs from "fs";
 import path from "path";
 // Use the storage provider to get the correct storage implementation
 import { getStorage } from "./storage-provider";
-import { insertParticipantSchema, insertContactInquirySchema } from "@shared/schema";
+import { insertParticipantSchema, insertContactInquirySchema, type InsertParticipant } from "@shared/schema";
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 import { sendRegistrationConfirmationEmail, sendPaymentConfirmationEmail } from "./email";
@@ -168,7 +168,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   apiRouter.post("/participants", async (req: Request, res: Response) => {
     try {
-      const result = insertParticipantSchema.safeParse(req.body);
+      // Log the original request body to debug
+      console.log("Original participant request body:", {
+        ...req.body,
+        isEmaParticipant: req.body.isEmaParticipant,
+        tshirtSize: req.body.tshirtSize
+      });
+      
+      // Normalize data for database column naming conventions
+      // Convert from camelCase to lowercase (isEmaParticipant -> isemaparticipant, tshirtSize -> tshirtsize)
+      const processedBody = {
+        ...req.body,
+        // Handle boolean fields
+        isemaparticipant: req.body.isEmaParticipant === true || req.body.isEmaParticipant === "true",
+        // Handle t-shirt size field
+        tshirtsize: req.body.tshirtSize || ""
+      };
+      
+      const result = insertParticipantSchema.safeParse(processedBody);
       
       if (!result.success) {
         const validationError = fromZodError(result.error);
@@ -194,10 +211,38 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       // Create participant with calculated age
-      const participant = await storage.createParticipant({
+      // Log the participant data before creating to debug fields
+      console.log("Creating participant with data:", {
         ...result.data,
-        age
+        age,
+        "isEmaParticipant from data": result.data.isEmaParticipant
       });
+      
+      // Create a properly typed object for the database
+      // In schema.ts we define camelCase property names but they map to lowercase column names
+      const participantData: InsertParticipant = {
+        firstName: result.data.firstName,
+        lastName: result.data.lastName,
+        email: result.data.email,
+        phoneNumber: result.data.phoneNumber,
+        country: result.data.country,
+        birthDate: result.data.birthDate,
+        raceId: result.data.raceId,
+        gender: result.data.gender as "M" | "F",
+        age: age,
+        // Optional fields
+        medicalInfo: result.data.medicalInfo || null,
+        // EMA participant field - handle both naming conventions and ensure boolean type
+        isEmaParticipant: Boolean(result.data.isEmaParticipant),
+        // T-shirt size field
+        tshirtSize: result.data.tshirtSize || "",
+        // Emergency contact fields
+        emergencyContactName: result.data.emergencyContactName || "",
+        emergencyContactPhone: result.data.emergencyContactPhone || ""
+      };
+      
+      // Ensure proper data is passed to storage
+      const participant = await storage.createParticipant(participantData);
       
       // Get the language preference from request - priority order:
       // 1. Explicitly provided language parameter in the request body
