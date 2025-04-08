@@ -90,9 +90,11 @@ const RegistrationFormWithPayment = () => {
     
     // Race ID 1 is typically the 33km race, Race ID 2 is the 11km race
     if (race.id === 1) { // 33km race
-      return isEma ? 200 : 170; // 200 lei for EMA, 170 lei for non-EMA
+      // Prices in lei - 200 lei for EMA (€40), 170 lei for non-EMA (€34)
+      return isEma ? 40 : 34; // Return the Euro value for payment processing
     } else { // 11km race or others
-      return isEma ? 150 : 120; // 150 lei for EMA, 120 lei for non-EMA
+      // Prices in lei - 150 lei for EMA (€30), 120 lei for non-EMA (€24)
+      return isEma ? 30 : 24; // Return the Euro value for payment processing
     }
   };
   
@@ -479,8 +481,8 @@ const RegistrationFormWithPayment = () => {
                           <div>
                             <span className="block font-bold">{getLocalizedRaceName(race, i18n.language as any)}</span>
                             <span className="text-sm text-neutral-gray">{race.distance}km | {isEmaParticipant ? 
-                              <span className="font-medium text-primary-dark">{race.id === 1 ? '200 lei' : '150 lei'} ({t('registration.form.emaPrice')})</span> : 
-                              <span>{race.id === 1 ? '170 lei' : '120 lei'}</span>
+                              <span className="font-medium text-primary-dark">{race.id === 1 ? '200 lei' : '150 lei'} (€{race.id === 1 ? '40' : '30'}) ({t('registration.form.emaPrice')})</span> : 
+                              <span>{race.id === 1 ? '170 lei' : '120 lei'} (€{race.id === 1 ? '34' : '24'})</span>
                             }</span>
                           </div>
                         </label>
