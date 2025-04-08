@@ -91,10 +91,10 @@ const RegistrationFormWithPayment = () => {
     // Race ID 1 is typically the 33km race, Race ID 2 is the 11km race
     if (race.id === 1) { // 33km race
       // Prices in lei - 200 lei for EMA (€40), 170 lei for non-EMA (€34)
-      return isEma ? 40 : 34; // Return the Euro value for payment processing
+      return isEma ? 200 : 170; // Return the RON value for payment processing
     } else { // 11km race or others
       // Prices in lei - 150 lei for EMA (€30), 120 lei for non-EMA (€24)
-      return isEma ? 30 : 24; // Return the Euro value for payment processing
+      return isEma ? 150 : 120; // Return the RON value for payment processing
     }
   };
   

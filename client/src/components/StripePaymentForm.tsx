@@ -82,7 +82,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
         <h3 className="text-lg font-semibold text-primary mb-2">{t('payment.summary')}</h3>
         <div className="flex justify-between">
           <span>{raceName}</span>
-          <span className="font-semibold">{amount.toFixed(2)} €</span>
+          <span className="font-semibold">{amount.toFixed(2)} lei</span>
         </div>
       </div>
 

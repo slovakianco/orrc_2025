@@ -472,10 +472,20 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       
       console.log(`Creating payment intent for amount: ${amount}, participant: ${participantId}, race: ${raceId}`);
       
-      // Create a payment intent
+      // Convert the euro amount to RON amount
+      // 33km race: 200 lei (EMA) or 170 lei (non-EMA)
+      // 11km race: 150 lei (EMA) or 120 lei (non-EMA)
+      let ronAmount = 0;
+      if (raceId === 1) { // 33km race
+        ronAmount = amount === 40 ? 200 : 170; // 40€=200 lei for EMA, 34€=170 lei for non-EMA
+      } else { // 11km race
+        ronAmount = amount === 30 ? 150 : 120; // 30€=150 lei for EMA, 24€=120 lei for non-EMA
+      }
+      
+      // Create a payment intent with RON currency
       const paymentIntent = await stripe.paymentIntents.create({
-        amount: Math.round(amount * 100), // Convert to cents/smallest currency unit
-        currency: "eur",
+        amount: Math.round(ronAmount * 100), // Convert to bani (RON cents)
+        currency: "ron", // Romanian currency
         metadata: {
           participantId: participantId ? participantId.toString() : "",
           raceId: raceId ? raceId.toString() : ""
