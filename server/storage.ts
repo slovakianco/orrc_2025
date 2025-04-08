@@ -352,7 +352,7 @@ export class MemStorage implements IStorage {
       elevation: 1500,
       difficulty: "long_trail",
       date: "2024-07-05",
-      price: 40, // 200 lei
+      price: 200, // 200 lei
       imageUrl: "/stana-de-vale.jpg",
       raceMap:
         '<iframe src="https://tracedetrail.fr/en/iframe/6296" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>',
@@ -377,7 +377,7 @@ export class MemStorage implements IStorage {
       elevation: 550,
       difficulty: "classic_updown",
       date: "2024-07-05",
-      price: 30, // 150 lei
+      price: 150, // 150 lei
       imageUrl: "/33km.jpg",
       raceMap:
         '<iframe src="https://tracedetrail.fr/en/iframe/6297" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>',
