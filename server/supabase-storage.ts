@@ -239,10 +239,11 @@ export class SupabaseStorage implements IStorage {
     const raceCode = this.getRaceCodeForBib(race);
     
     // Count participants to generate a sequential bib number
+    console.log("Using raceid with value:", participant.raceId);
     const { count, error: countError } = await supabase
       .from('participants')
       .select('*', { count: 'exact' })
-      .eq('raceid', participant.raceId); // Using lowercase column name that matches the database exactly
+      .eq('raceid', participant.raceId); // Use lowercase column name exactly as in database
     
     if (countError) {
       console.error('Error counting participants for bib number generation:', countError);
