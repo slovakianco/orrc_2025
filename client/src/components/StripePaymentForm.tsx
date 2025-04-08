@@ -150,11 +150,18 @@ const StripePaymentForm: React.FC<StripePaymentFormProps> = ({
     // Create a PaymentIntent as soon as the component mounts
     const createPaymentIntent = async () => {
       try {
+        console.log("Creating payment intent with params:", {
+          amount,
+          raceId,
+          participantId,
+          isEmaParticipant: isEmaParticipant // Log the value to debug
+        });
+        
         const response = await apiRequest('POST', '/api/create-payment-intent', {
           amount,
           raceId,
           participantId,
-          isEmaParticipant
+          isEmaParticipant: isEmaParticipant === true // Ensure it's a boolean
         });
         
         const data = await response.json();

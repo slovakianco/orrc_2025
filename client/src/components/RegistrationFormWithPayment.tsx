@@ -112,13 +112,19 @@ const RegistrationFormWithPayment = () => {
   const registerMutation = useMutation({
     mutationFn: async (data: Omit<RegistrationFormInputs, "termsAccepted">) => {
       // Transform data to match database column names
+      // Make sure isEmaParticipant is correctly transformed to a boolean
       const transformedData = {
         ...data,
         emergencycontactname: data.emergencyContactName,
         emergencycontactphone: data.emergencyContactPhone,
-        isemaparticipant: data.isEmaParticipant,
+        isemaparticipant: data.isEmaParticipant === true, // Ensure it's a boolean
         tshirtsize: data.tshirtSize
       };
+      
+      console.log("Transformed data for API:", {
+        ...transformedData,
+        isemaparticipant: transformedData.isemaparticipant
+      });
       
       // Remove original camelCase properties that have been transformed
       delete (transformedData as any).emergencyContactName;
@@ -157,7 +163,9 @@ const RegistrationFormWithPayment = () => {
       
       if (race && participantData) {
         // Store the participant data for payment processing with dynamic price
-        const amount = calculatePrice(race, participantData.isEmaParticipant);
+        const amount = calculatePrice(race, participantData.isemaparticipant); // Note lowercase key from database
+        
+        console.log("Participant data:", participantData);
         
         setRegisteredParticipant({
           id: participantData.id,
@@ -166,7 +174,7 @@ const RegistrationFormWithPayment = () => {
           raceId: race.id,
           amount: amount,
           raceName: getLocalizedRaceName(race, i18n.language as any),
-          isEmaParticipant: participantData.isEmaParticipant
+          isEmaParticipant: participantData.isemaparticipant // Note lowercase key from database
         });
         
         // Scroll to top of page to show payment form
@@ -207,10 +215,13 @@ const RegistrationFormWithPayment = () => {
       ...apiData,
       raceId: typeof apiData.raceId === 'string' ? parseInt(apiData.raceId) : apiData.raceId,
       age, // Add calculated age
-      language: i18n.language // Add current language for email localization
+      language: i18n.language, // Add current language for email localization
+      isEmaParticipant: apiData.isEmaParticipant === true // Ensure it's a boolean
     };
     
+    // Log EMA participant flag to debug
     console.log("Submitting registration with data:", formattedData);
+    console.log("Is EMA participant:", formattedData.isEmaParticipant, "Type:", typeof formattedData.isEmaParticipant);
     await registerMutation.mutate(formattedData);
   };
 
