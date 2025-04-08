@@ -52,20 +52,23 @@ export async function createPaymentLink(
       ronAmount = isEmaParticipant ? 150 : 120; // 150 lei for EMA, 120 lei for non-EMA
     }
     
-    // Create a payment link with correct type annotations
+    // Create a payment link using the correct approach
+    // First, create a Price object
+    const price = await global.stripe.prices.create({
+      currency: 'ron',
+      unit_amount: Math.round(ronAmount * 100), // Convert to bani (RON cents)
+      product_data: {
+        name: `Stana de Vale Trail Race - ${raceId === 1 ? '33km' : '11km'} ${isEmaParticipant ? '(EMA Circuit)' : ''}`,
+      },
+    });
+    
+    // Then create a payment link with the price ID
     const paymentLink = await global.stripe.paymentLinks.create({
       line_items: [
         {
-          // Use price_data as per Stripe API v2022-11-15
-          price_data: {
-            currency: 'ron',
-            product_data: {
-              name: `Stana de Vale Trail Race - ${raceId === 1 ? '33km' : '11km'} ${isEmaParticipant ? '(EMA Circuit)' : ''}`,
-            },
-            unit_amount: Math.round(ronAmount * 100), // Convert to bani (RON cents)
-          },
+          price: price.id,
           quantity: 1,
-        } as any, // Type assertion to avoid TypeScript errors with Stripe API versions
+        },
       ],
       metadata: {
         participantId: participantId.toString(),
@@ -643,20 +646,23 @@ This message was sent from the Stana de Vale Trail Race website contact form.
         return res.status(500).json({ message: "Payment service is not available" });
       }
       
+      // First, create a Price object for the registration
+      const price = await global.stripe.prices.create({
+        currency: 'ron',
+        unit_amount: Math.round(ronAmount * 100), // Convert to bani (RON cents)
+        product_data: {
+          name: `Race Registration: ${raceDisplayName} - ${participant.firstName} ${participant.lastName}` + 
+                (isEma ? ' (EMA Circuit)' : '')
+        },
+      });
+      
+      // Then create a payment link with the price ID
       const paymentLink = await global.stripe.paymentLinks.create({
         line_items: [
           {
-            price_data: {
-              currency: 'ron',
-              product_data: {
-                name: `Race Registration: ${raceDisplayName}`,
-                description: `Registration for ${participant.firstName} ${participant.lastName}` + 
-                             (isEma ? ' (EMA Circuit participant)' : '')
-              },
-              unit_amount: Math.round(ronAmount * 100), // in bani (RON cents)
-            },
+            price: price.id,
             quantity: 1,
-          } as any, // Type assertion for Stripe API compatibility
+          },
         ],
         after_completion: {
           type: 'redirect',
@@ -668,9 +674,7 @@ This message was sent from the Stana de Vale Trail Race website contact form.
           participantId: participantId.toString(),
           raceId: raceId.toString(),
           isEmaParticipant: isEma ? "true" : "false"
-        },
-        // Automatically expire the payment link after 7 days
-        expires_at: Math.floor(Date.now() / 1000) + (7 * 24 * 60 * 60) as any,
+        }
       });
       
       // For backward compatibility with the client, also create a payment intent
