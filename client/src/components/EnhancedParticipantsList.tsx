@@ -140,6 +140,14 @@ const EnhancedParticipantsList = () => {
             : "/api/participants",
     ],
   });
+  const { data: allParticipants } = useQuery<ExtendedParticipant[]>({
+    queryKey: ["/api/participants"],
+  });
+
+  const allCountries = useMemo(() => {
+    if (!allParticipants) return [];
+    return Array.from(new Set(allParticipants.map((p) => p.country))).sort();
+  }, [allParticipants]);
 
   // Get all unique countries
   const countries = useMemo(() => {
@@ -452,7 +460,7 @@ const EnhancedParticipantsList = () => {
                         <SelectItem value="all_countries">
                           {t("participants.allCountries")}
                         </SelectItem>
-                        {countries.map((country) => (
+                        {allCountries.map((country) => (
                           <SelectItem key={country} value={country}>
                             {country}
                           </SelectItem>
