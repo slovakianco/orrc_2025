@@ -28,11 +28,23 @@ export function calculateAge(birthdate: string): number {
 }
 
 // Format currency
-export function formatCurrency(value: number, currency: string = 'EUR', locale: string = 'en-US'): string {
-  return new Intl.NumberFormat(locale, {
+export function formatCurrency(value: number, currency: string = 'RON', locale: string = 'en-US'): string {
+  const formattedValue = new Intl.NumberFormat(locale, {
     style: 'currency',
     currency: currency,
   }).format(value);
+
+  // Add EUR equivalent in parentheses if currency is RON
+  if (currency === 'RON') {
+    const eurValue = value / 5; // 1 EUR = 5 RON
+    const eurFormatted = new Intl.NumberFormat(locale, {
+      style: 'currency',
+      currency: 'EUR',
+    }).format(eurValue);
+    return `${formattedValue} (${eurFormatted})`;
+  }
+
+  return formattedValue;
 }
 
 // Get localized race name based on current language
