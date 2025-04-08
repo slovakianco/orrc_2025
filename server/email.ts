@@ -385,9 +385,15 @@ export async function sendRegistrationConfirmationEmail(
   raceCategory: string,
   language: string = "en",
   participantId: number = 0,
-  raceId: number = 0
+  raceId: number = 0,
+  paymentLink?: string // Optional payment link parameter
 ): Promise<boolean> {
   type SupportedLanguages = "en" | "ro" | "fr" | "de" | "it" | "es";
+  
+  // Import Stripe to create a payment link if one wasn't provided
+  const stripe = global.stripe;
+  // Import storage using dynamic import to avoid circular dependencies
+  const { getStorage } = require('./storage-provider');
 
   const subjects: Record<SupportedLanguages, string> = {
     en: "Stana de Vale Trail Race - Registration Confirmation",

@@ -188,21 +188,102 @@ const RegistrationFormWithPayment = () => {
     onSuccess: async (response) => {
       // Parse the response to get the participant data
       const participantData = await response.json();
+      const participant = participantData.participant;
       
-      toast({
-        title: t('registration.success.title'),
-        description: t('registration.success.message'),
-      });
+      console.log("Registration successful, participant:", participant);
       
-      // Show a detailed toast about the payment link in the confirmation email
-      setTimeout(() => {
+      // Create a payment intent to obtain a payment link
+      if (participant && participant.id) {
+        try {
+          // Calculate the price for the payment
+          const race = races?.find(r => r.id === Number(participant.raceId));
+          const calculatedPrice = calculatePrice(race, participant.isEmaParticipant);
+          
+          console.log("Creating payment link for participant:", participant.id, "price:", calculatedPrice);
+          
+          // Make API request to create payment link
+          const paymentResponse = await apiRequest("POST", "/api/create-payment-intent", {
+            amount: calculatedPrice,
+            participantId: participant.id,
+            raceId: participant.raceId,
+            isEmaParticipant: participant.isEmaParticipant
+          });
+          
+          const paymentData = await paymentResponse.json();
+          console.log("Payment link created:", paymentData);
+          
+          // Check if we got a payment link back
+          if (paymentData.paymentLink) {
+            // Show success toast with payment link option
+            toast({
+              title: t('registration.success.title'),
+              description: (
+                <div className="flex flex-col gap-3">
+                  <p>{t('registration.success.message')}</p>
+                  <a 
+                    href={paymentData.paymentLink} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-primary text-white py-2 px-4 rounded text-center font-medium hover:bg-primary/90"
+                  >
+                    {t('registration.payNow', 'Pay Now')}
+                  </a>
+                </div>
+              ),
+              duration: 10000 // Show longer since it has an action button
+            });
+            
+            // Show a detailed toast about the email
+            setTimeout(() => {
+              toast({
+                title: t('registration.email.title', 'Email Confirmation Sent'),
+                description: t('registration.email.paymentLink', 'We have also sent you an email with your registration details and payment link.'),
+                variant: "default",
+                duration: 6000
+              });
+            }, 1000);
+          } else {
+            // Fallback to standard success message if no payment link
+            toast({
+              title: t('registration.success.title'),
+              description: t('registration.success.message'),
+            });
+            
+            // Show a detailed toast about the payment link in the confirmation email
+            setTimeout(() => {
+              toast({
+                title: t('registration.email.title', 'Email Confirmation Sent'),
+                description: t('registration.email.paymentLink', 'Please check your email inbox for registration confirmation and a link to make your payment.'),
+                variant: "default",
+                duration: 6000
+              });
+            }, 1000);
+          }
+        } catch (error) {
+          console.error("Error creating payment link:", error);
+          // Still show success toast for registration
+          toast({
+            title: t('registration.success.title'),
+            description: t('registration.success.message'),
+          });
+          
+          // Show fallback toast about email
+          setTimeout(() => {
+            toast({
+              title: t('registration.email.title', 'Email Confirmation Sent'),
+              description: t('registration.email.paymentLink', 'Please check your email inbox for registration confirmation and payment instructions.'),
+              variant: "default",
+              duration: 6000
+            });
+          }, 1000);
+        }
+      } else {
+        // Fallback general success message
         toast({
-          title: t('registration.email.title', 'Email Confirmation Sent'),
-          description: t('registration.email.paymentLink', 'Please check your email inbox for registration confirmation and a link to make your payment.'),
-          variant: "default",
-          duration: 6000 // Display longer since it has important info
+          title: t('registration.success.title'),
+          description: t('registration.success.message'),
         });
-      }, 1000);
+      }
       
       // Reset the form to clear inputs
       reset();
@@ -213,7 +294,7 @@ const RegistrationFormWithPayment = () => {
       // Redirect to the participants page after a brief delay
       setTimeout(() => {
         window.location.href = "/participants";
-      }, 3000);
+      }, 5000); // Slightly longer delay to allow users to click the payment link
     },
     onError: (error: Error) => {
       toast({

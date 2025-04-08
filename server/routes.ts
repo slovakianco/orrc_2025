@@ -17,13 +17,17 @@ if (!process.env.STRIPE_SECRET_KEY) {
   );
 }
 
-const stripe = process.env.STRIPE_SECRET_KEY
-  ? new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: "2022-11-15" as any, // Type assertion to fix version compatibility issue
-    })
-  : null;
+// Initialize Stripe instance globally for use across the application
+if (!global.stripe && process.env.STRIPE_SECRET_KEY) {
+  global.stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+    apiVersion: "2025-02-24.acacia" as any, // Force the type to match
+  });
+  console.log("Stripe initialized globally");
+} else if (!process.env.STRIPE_SECRET_KEY) {
+  console.warn("STRIPE_SECRET_KEY not found in environment variables");
+}
 
-// Helper function to create a Stripe Payment Link
+// Function to create a payment link - exported for use in email.ts
 export async function createPaymentLink(
   amount: number, 
   participantId: number, 
@@ -31,7 +35,7 @@ export async function createPaymentLink(
   isEmaParticipant: boolean
 ): Promise<string | null> {
   try {
-    if (!stripe) {
+    if (!global.stripe) {
       console.error("Stripe is not configured. Payment link cannot be created.");
       return null;
     }
@@ -47,7 +51,7 @@ export async function createPaymentLink(
     }
     
     // Create a payment link with correct type annotations
-    const paymentLink = await stripe.paymentLinks.create({
+    const paymentLink = await global.stripe.paymentLinks.create({
       line_items: [
         {
           // Use price_data as per Stripe API v2022-11-15
@@ -603,7 +607,7 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       // Convert isEmaParticipant to boolean to handle various input formats
       const isEma = isEmaParticipant === true || isEmaParticipant === "true" || isEmaParticipant === 1;
       
-      console.log(`Creating payment intent for amount: ${amount}, participant: ${participantId}, race: ${raceId}, isEmaParticipant: ${isEmaParticipant}, parsed as: ${isEma}`);
+      console.log(`Creating payment link for amount: ${amount}, participant: ${participantId}, race: ${raceId}, isEmaParticipant: ${isEmaParticipant}, parsed as: ${isEma}`);
       
       // Calculate the correct amount based on the race and EMA status
       // 33km race: 200 lei (EMA) or 170 lei (non-EMA)
@@ -614,35 +618,86 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       } else { // 11km race
         ronAmount = isEma ? 150 : 120; // 150 lei for EMA, 120 lei for non-EMA
       }
+
+      const storage = getStorage();
+
+      // Get the participant's details to include in the payment link
+      const participant = await storage.getParticipantById(participantId);
+      if (!participant) {
+        return res.status(404).json({ message: "Participant not found" });
+      }
+
+      // Get the race details
+      const race = await storage.getRaceById(raceId);
+      if (!race) {
+        return res.status(404).json({ message: "Race not found" });
+      }
+
+      const raceDisplayName = race.name || (race.distance + "km " + race.difficulty);
       
-      // Create a payment intent with RON currency
-      const paymentIntent = await stripe.paymentIntents.create({
+      // Create a payment link with Stripe Payment Links
+      const paymentLink = await global.stripe.paymentLinks.create({
+        line_items: [
+          {
+            price_data: {
+              currency: 'ron',
+              product_data: {
+                name: `Race Registration: ${raceDisplayName}`,
+                description: `Registration for ${participant.firstName} ${participant.lastName}` + 
+                             (isEma ? ' (EMA Circuit participant)' : '')
+              },
+              unit_amount: Math.round(ronAmount * 100), // in bani (RON cents)
+            },
+            quantity: 1,
+          },
+        ],
+        after_completion: {
+          type: 'redirect',
+          redirect: {
+            url: `${req.protocol}://${req.get('host')}/registration-success?participantId=${participantId}&raceId=${raceId}`,
+          },
+        },
+        metadata: {
+          participantId: participantId.toString(),
+          raceId: raceId.toString(),
+          isEmaParticipant: isEma ? "true" : "false"
+        },
+        // Automatically expire the payment link after 7 days
+        expires_at: Math.floor(Date.now() / 1000) + (7 * 24 * 60 * 60),
+      });
+      
+      // For backward compatibility with the client, also create a payment intent
+      // This can be removed once the client is updated to use payment links directly
+      const paymentIntent = await global.stripe.paymentIntents.create({
         amount: Math.round(ronAmount * 100), // Convert to bani (RON cents)
         currency: "ron", // Romanian currency
         metadata: {
           participantId: participantId ? participantId.toString() : "",
           raceId: raceId ? raceId.toString() : "",
-          isEmaParticipant: isEma ? "true" : "false"
+          isEmaParticipant: isEma ? "true" : "false",
+          paymentLinkId: paymentLink.id
         }
       });
       
-      // Return the client secret to the client
+      // Return both the payment link and client secret to the client
       res.json({
+        paymentLink: paymentLink.url,
+        paymentLinkId: paymentLink.id,
         clientSecret: paymentIntent.client_secret,
         id: paymentIntent.id
       });
       
     } catch (error: any) {
-      console.error("Error creating payment intent:", error);
+      console.error("Error creating payment link:", error);
       res.status(500).json({ 
-        message: error.message || "An error occurred while creating payment intent" 
+        message: error.message || "An error occurred while creating payment link" 
       });
     }
   });
   
   // Stripe webhook for payment confirmation
   apiRouter.post("/stripe-webhook", express.raw({type: 'application/json'}), async (req: Request, res: Response) => {
-    if (!stripe) {
+    if (!global.stripe) {
       return res.status(500).json({ 
         message: "Stripe is not configured. Please set the STRIPE_SECRET_KEY environment variable."
       });
@@ -661,7 +716,7 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       
       // In production, use a webhook secret to verify the signature
       // const endpointSecret = 'whsec_...';
-      // event = stripe.webhooks.constructEvent(rawBody, sig, endpointSecret);
+      // event = global.stripe.webhooks.constructEvent(rawBody, sig, endpointSecret);
       
       // For development, parse the raw body
       try {
@@ -802,7 +857,7 @@ This message was sent from the Stana de Vale Trail Race website contact form.
   // Confirm payment by payment intent ID (from success page)
   apiRouter.post("/confirm-payment-by-intent", async (req: Request, res: Response) => {
     try {
-      if (!stripe) {
+      if (!global.stripe) {
         return res.status(500).json({ 
           message: "Stripe is not configured. Please set the STRIPE_SECRET_KEY environment variable."
         });
@@ -817,7 +872,7 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       console.log(`Looking up payment intent: ${paymentIntentId}`);
       
       // Retrieve the payment intent from Stripe
-      const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
+      const paymentIntent = await global.stripe.paymentIntents.retrieve(paymentIntentId);
       
       if (!paymentIntent) {
         return res.status(404).json({ message: "Payment intent not found" });
