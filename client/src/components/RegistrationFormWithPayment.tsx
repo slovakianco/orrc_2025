@@ -8,8 +8,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { insertParticipantSchema } from "@shared/schema";
 import { Race } from "@/lib/types";
 import { getLocalizedRaceName } from "@/lib/utils";
-import { useEffect, useState, useMemo } from "react";
-import StripePaymentForm from "./StripePaymentForm";
+import { useEffect, useMemo, useState } from "react";
 
 // Function to calculate age for validation
 const calculateAgeForValidation = (birthDate: string): number => {
@@ -89,22 +88,10 @@ const registrationFormSchema = z.object({
 
 type RegistrationFormInputs = z.infer<typeof registrationFormSchema>;
 
-// Interface for the registered participant data
-interface RegisteredParticipant {
-  id: number;
-  firstName: string;
-  lastName: string;
-  raceId: number;
-  amount: number;
-  raceName: string;
-  isEmaParticipant: boolean;
-}
-
 const RegistrationFormWithPayment = () => {
   const { t, i18n } = useTranslation();
   const { toast } = useToast();
   const queryClient = useQueryClient();
-  const [registeredParticipant, setRegisteredParticipant] = useState<RegisteredParticipant | null>(null);
 
   const { data: races, isLoading: racesLoading } = useQuery<Race[]>({
     queryKey: ['/api/races'],
@@ -148,6 +135,7 @@ const RegistrationFormWithPayment = () => {
       setValue('isEmaParticipant', false);
     }
   }, [isEligibleForEma, isEmaParticipant, setValue]);
+  
   const selectedRace = races?.find(race => race.id === Number(selectedRaceId));
   
   // Calculate the dynamic price based on race and EMA participation
@@ -193,17 +181,7 @@ const RegistrationFormWithPayment = () => {
         tshirtsize: data.tshirtSize || ""
       };
       
-      console.log("Transformed data for API:", {
-        ...transformedData,
-        emergencyContactName: transformedData.emergencyContactName,
-        emergencycontactname: transformedData.emergencycontactname,
-        emergencyContactPhone: transformedData.emergencyContactPhone,
-        emergencycontactphone: transformedData.emergencycontactphone,
-        isEmaParticipant: transformedData.isEmaParticipant,
-        isemaparticipant: transformedData.isemaparticipant,
-        tshirtSize: transformedData.tshirtSize,
-        tshirtsize: transformedData.tshirtsize
-      });
+      console.log("Transformed data for API:", transformedData);
       
       return apiRequest("POST", "/api/participants", transformedData);
     },
@@ -216,12 +194,13 @@ const RegistrationFormWithPayment = () => {
         description: t('registration.success.message'),
       });
       
-      // Show a follow-up toast about the confirmation email
+      // Show a detailed toast about the payment link in the confirmation email
       setTimeout(() => {
         toast({
           title: t('registration.email.title', 'Email Confirmation Sent'),
-          description: t('registration.email.message', 'Please check your email inbox for registration confirmation details.'),
-          variant: "default"
+          description: t('registration.email.paymentLink', 'Please check your email inbox for registration confirmation and a link to make your payment.'),
+          variant: "default",
+          duration: 6000 // Display longer since it has important info
         });
       }, 1000);
       
@@ -231,28 +210,10 @@ const RegistrationFormWithPayment = () => {
       // Invalidate the participants query to refresh the list
       queryClient.invalidateQueries({ queryKey: ['/api/participants'] });
       
-      // Get the selected race details for payment
-      const race = races?.find(r => r.id === Number(selectedRaceId));
-      
-      if (race && participantData) {
-        // Store the participant data for payment processing with dynamic price
-        const amount = calculatePrice(race, participantData.isemaparticipant); // Note lowercase key from database
-        
-        console.log("Participant data:", participantData);
-        
-        setRegisteredParticipant({
-          id: participantData.id,
-          firstName: participantData.firstName,
-          lastName: participantData.lastName,
-          raceId: race.id,
-          amount: amount,
-          raceName: getLocalizedRaceName(race, i18n.language as any),
-          isEmaParticipant: participantData.isemaparticipant // Note lowercase key from database
-        });
-        
-        // Scroll to top of page to show payment form
-        window.scrollTo(0, 0);
-      }
+      // Redirect to the participants page after a brief delay
+      setTimeout(() => {
+        window.location.href = "/participants";
+      }, 3000);
     },
     onError: (error: Error) => {
       toast({
@@ -304,35 +265,6 @@ const RegistrationFormWithPayment = () => {
     await registerMutation.mutate(formattedData);
   };
 
-  // Function to handle payment success
-  const handlePaymentSuccess = () => {
-    toast({
-      title: t('payment.success'),
-      description: t('payment.successMessage'),
-    });
-    
-    // Clear the registered participant state
-    setRegisteredParticipant(null);
-    
-    // Redirect to participants page
-    setTimeout(() => {
-      window.location.href = "/participants";
-      window.scrollTo(0, 0);
-    }, 1500);
-  };
-  
-  // Function to cancel payment and return to form
-  const handlePaymentCancel = () => {
-    // Simply clear the registered participant state to hide payment form
-    setRegisteredParticipant(null);
-    
-    toast({
-      title: t('payment.cancel'),
-      description: t('registration.paymentLater'),
-      variant: "default"
-    });
-  };
-
   return (
     <section id="registration" className="py-16 bg-white">
       <div className="container mx-auto px-4">
@@ -342,333 +274,311 @@ const RegistrationFormWithPayment = () => {
             <p className="text-lg text-neutral-gray">{t('registration.subtitle')}</p>
           </div>
           
-          {registeredParticipant ? (
-            // Show payment form if registration was successful
-            <div className="mb-12">
-              <div className="mb-8 text-center">
-                <h3 className="text-2xl font-bold text-primary mb-2">{t('registration.paymentStep')}</h3>
-                <p className="text-lg">{t('registration.completePayment')}</p>
+          {/* Show registration form - payment handled via email link */}
+          <div className="bg-gray-50 rounded-lg p-8 shadow-md">
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label htmlFor="firstName" className="block text-sm font-medium text-neutral-gray mb-2">
+                    {t('registration.form.firstName')} *
+                  </label>
+                  <input 
+                    type="text" 
+                    id="firstName" 
+                    {...register("firstName")}
+                    className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                  {errors.firstName && (
+                    <p className="text-sm text-red-500 mt-1">{errors.firstName.message}</p>
+                  )}
+                </div>
+                <div>
+                  <label htmlFor="lastName" className="block text-sm font-medium text-neutral-gray mb-2">
+                    {t('registration.form.lastName')} *
+                  </label>
+                  <input 
+                    type="text" 
+                    id="lastName" 
+                    {...register("lastName")}
+                    className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                  {errors.lastName && (
+                    <p className="text-sm text-red-500 mt-1">{errors.lastName.message}</p>
+                  )}
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-neutral-gray mb-2">
+                    {t('registration.form.email')} *
+                  </label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    {...register("email")}
+                    className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                  {errors.email && (
+                    <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>
+                  )}
+                </div>
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-neutral-gray mb-2">
+                    {t('registration.form.phone')} *
+                  </label>
+                  <input 
+                    type="tel" 
+                    id="phone" 
+                    {...register("phoneNumber")}
+                    className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                  {errors.phoneNumber && (
+                    <p className="text-sm text-red-500 mt-1">{errors.phoneNumber.message}</p>
+                  )}
+                </div>
+                <div>
+                  <label htmlFor="country" className="block text-sm font-medium text-neutral-gray mb-2">
+                    {t('registration.form.country')} *
+                  </label>
+                  <select 
+                    id="country" 
+                    {...register("country")}
+                    className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white"
+                  >
+                    <option value="">{t('registration.form.selectCountry')}</option>
+                    <option value="RO">Romania</option>
+                    <option value="FR">France</option>
+                    <option value="DE">Germany</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="US">United States</option>
+                    <option value="IT">Italy</option>
+                    <option value="ES">Spain</option>
+                    <option value="PT">Portugal</option>
+                    <option value="BE">Belgium</option>
+                    <option value="NL">Netherlands</option>
+                    <option value="CH">Switzerland</option>
+                    <option value="AT">Austria</option>
+                    <option value="HU">Hungary</option>
+                    <option value="PL">Poland</option>
+                    <option value="CZ">Czech Republic</option>
+                  </select>
+                  {errors.country && (
+                    <p className="text-sm text-red-500 mt-1">{errors.country.message}</p>
+                  )}
+                </div>
+                <div>
+                  <label htmlFor="birthDate" className="block text-sm font-medium text-neutral-gray mb-2">
+                    {t('registration.form.birthDate')} *
+                  </label>
+                  <input 
+                    type="date" 
+                    id="birthDate" 
+                    {...register("birthDate")}
+                    className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white"
+                  />
+                  {errors.birthDate && (
+                    <p className="text-sm text-red-500 mt-1">{errors.birthDate.message}</p>
+                  )}
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-neutral-gray mb-2">
+                    {t('registration.form.gender')} *
+                  </label>
+                  <div className="flex space-x-4">
+                    <label className="flex items-center">
+                      <input 
+                        type="radio" 
+                        value="M" 
+                        {...register("gender")} 
+                        className="mr-2"
+                      />
+                      {t('registration.form.male')}
+                    </label>
+                    <label className="flex items-center">
+                      <input 
+                        type="radio" 
+                        value="F" 
+                        {...register("gender")} 
+                        className="mr-2"
+                      />
+                      {t('registration.form.female')}
+                    </label>
+                  </div>
+                  {errors.gender && (
+                    <p className="text-sm text-red-500 mt-1">{errors.gender.message}</p>
+                  )}
+                </div>
               </div>
               
-              <div className="bg-gray-50 rounded-lg p-8 shadow-md">
-                <StripePaymentForm
-                  amount={registeredParticipant.amount}
-                  raceId={registeredParticipant.raceId}
-                  participantId={registeredParticipant.id}
-                  raceName={registeredParticipant.raceName}
-                  isEmaParticipant={registeredParticipant.isEmaParticipant}
-                  onSuccess={handlePaymentSuccess}
-                  onCancel={handlePaymentCancel}
-                />
-              </div>
-            </div>
-          ) : (
-            // Show registration form if no registration has been submitted yet
-            <div className="bg-gray-50 rounded-lg p-8 shadow-md">
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-neutral-gray mb-2">
-                      {t('registration.form.firstName')} *
-                    </label>
-                    <input 
-                      type="text" 
-                      id="firstName" 
-                      {...register("firstName")}
-                      className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                    />
-                    {errors.firstName && (
-                      <p className="text-sm text-red-500 mt-1">{errors.firstName.message}</p>
-                    )}
-                  </div>
-                  <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-neutral-gray mb-2">
-                      {t('registration.form.lastName')} *
-                    </label>
-                    <input 
-                      type="text" 
-                      id="lastName" 
-                      {...register("lastName")}
-                      className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                    />
-                    {errors.lastName && (
-                      <p className="text-sm text-red-500 mt-1">{errors.lastName.message}</p>
-                    )}
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-neutral-gray mb-2">
-                      {t('registration.form.email')} *
-                    </label>
-                    <input 
-                      type="email" 
-                      id="email" 
-                      {...register("email")}
-                      className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                    />
-                    {errors.email && (
-                      <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>
-                    )}
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-neutral-gray mb-2">
-                      {t('registration.form.phone')} *
-                    </label>
-                    <input 
-                      type="tel" 
-                      id="phone" 
-                      {...register("phoneNumber")}
-                      className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                    />
-                    {errors.phoneNumber && (
-                      <p className="text-sm text-red-500 mt-1">{errors.phoneNumber.message}</p>
-                    )}
-                  </div>
-                  <div>
-                    <label htmlFor="country" className="block text-sm font-medium text-neutral-gray mb-2">
-                      {t('registration.form.country')} *
-                    </label>
-                    <select 
-                      id="country" 
-                      {...register("country")}
-                      className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white"
-                    >
-                      <option value="">{t('registration.form.selectCountry')}</option>
-                      <option value="RO">Romania</option>
-                      <option value="FR">France</option>
-                      <option value="DE">Germany</option>
-                      <option value="UK">United Kingdom</option>
-                      <option value="US">United States</option>
-                      <option value="IT">Italy</option>
-                      <option value="ES">Spain</option>
-                      <option value="PT">Portugal</option>
-                      <option value="BE">Belgium</option>
-                      <option value="NL">Netherlands</option>
-                      <option value="CH">Switzerland</option>
-                      <option value="AT">Austria</option>
-                      <option value="HU">Hungary</option>
-                      <option value="PL">Poland</option>
-                      <option value="CZ">Czech Republic</option>
-                    </select>
-                    {errors.country && (
-                      <p className="text-sm text-red-500 mt-1">{errors.country.message}</p>
-                    )}
-                  </div>
-                  <div>
-                    <label htmlFor="birthDate" className="block text-sm font-medium text-neutral-gray mb-2">
-                      {t('registration.form.birthDate')} *
-                    </label>
-                    <input 
-                      type="date" 
-                      id="birthDate" 
-                      {...register("birthDate")}
-                      className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white"
-                    />
-                    {errors.birthDate && (
-                      <p className="text-sm text-red-500 mt-1">{errors.birthDate.message}</p>
-                    )}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-neutral-gray mb-2">
-                      {t('registration.form.gender')} *
-                    </label>
-                    <div className="flex space-x-4">
-                      <label className="flex items-center">
-                        <input 
-                          type="radio" 
-                          value="M" 
-                          {...register("gender")} 
-                          className="mr-2"
-                        />
-                        {t('registration.form.male')}
-                      </label>
-                      <label className="flex items-center">
-                        <input 
-                          type="radio" 
-                          value="F" 
-                          {...register("gender")} 
-                          className="mr-2"
-                        />
-                        {t('registration.form.female')}
-                      </label>
-                    </div>
-                    {errors.gender && (
-                      <p className="text-sm text-red-500 mt-1">{errors.gender.message}</p>
-                    )}
-                  </div>
-                </div>
-                
-                <div className="mb-6 p-4 border border-primary/30 rounded-lg bg-primary/5">
-                  <div className="flex items-start mb-3">
-                    <input 
-                      type="checkbox" 
-                      id="isEmaParticipant" 
-                      {...register("isEmaParticipant")}
-                      className="mr-2 mt-1"
-                      disabled={!isEligibleForEma}
-                    />
-                    <label 
-                      htmlFor="isEmaParticipant" 
-                      className={`text-sm font-medium ${!isEligibleForEma ? 'text-neutral-light' : ''}`}
-                    >
-                      {t('registration.form.emaParticipation')}
-                      {!isEligibleForEma && birthDateValue && (
-                        <span className="ml-2 text-red-500 text-xs">
-                          ({t('registration.form.mustBe35')})
-                        </span>
-                      )}
-                    </label>
-                  </div>
-                  <div className="text-sm pl-6">
-                    <p>{t('registration.form.emaInfo')}</p>
-                    <p className="mt-2 text-primary-dark font-medium">{t('registration.form.emaIncludesTshirt')}</p>
-                    <div className="mt-2 p-3 bg-white/80 rounded border border-neutral-light/50">
-                      <p className="text-gray-600">{t('registration.form.emaEligibilityCriteria')}</p>
-                    </div>
-                    
-                    {isEmaParticipant && (
-                      <div className="mt-4">
-                        <label htmlFor="tshirtSize" className="block text-sm font-medium text-neutral-gray mb-2">
-                          {t('registration.form.tshirtSize')} *
-                        </label>
-                        <select 
-                          id="tshirtSize" 
-                          {...register("tshirtSize")}
-                          className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white"
-                        >
-                          <option value="">{t('registration.form.selectTshirtSize')}</option>
-                          <option value="XS">XS</option>
-                          <option value="S">S</option>
-                          <option value="M">M</option>
-                          <option value="L">L</option>
-                          <option value="XL">XL</option>
-                          <option value="XXL">XXL</option>
-                        </select>
-                        {errors.tshirtSize && (
-                          <p className="text-sm text-red-500 mt-1">{errors.tshirtSize.message}</p>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                </div>
-                
-                <div className="mb-6">
-                  <label className="block text-sm font-medium text-neutral-gray mb-2">
-                    {t('registration.form.selectRace')} *
-                  </label>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {racesLoading ? (
-                      <div className="col-span-3">
-                        <p>{t('common.loading')}</p>
-                      </div>
-                    ) : races?.map(race => (
-                      <div 
-                        key={race.id}
-                        className={`bg-white border-2 rounded-lg p-4 cursor-pointer transition-colors duration-200 ${
-                          Number(selectedRaceId) === race.id ? 'border-primary bg-primary/5' : 'border-neutral-light hover:border-primary hover:bg-primary/5'
-                        }`}
-                        onClick={() => setValue("raceId", race.id)}
-                      >
-                        <label htmlFor={`race${race.id}`} className="flex items-start cursor-pointer">
-                          <input 
-                            type="radio" 
-                            id={`race${race.id}`} 
-                            value={race.id} 
-                            checked={Number(selectedRaceId) === race.id}
-                            onChange={() => setValue("raceId", race.id)}
-                            className="hidden"
-                          />
-                          <span className={`w-5 h-5 border-2 rounded-full flex-shrink-0 mr-2 mt-1 ${
-                            Number(selectedRaceId) === race.id ? 'border-primary bg-primary' : 'border-neutral-light'
-                          }`}></span>
-                          <div>
-                            <span className="block font-bold">{getLocalizedRaceName(race, i18n.language as any)}</span>
-                            <span className="text-sm text-neutral-gray">{race.distance}km | {isEmaParticipant ? 
-                              <span className="font-medium text-primary-dark">{race.id === 1 ? '200 RON' : '150 RON'} (€{race.id === 1 ? '40' : '30'}) ({t('registration.form.emaPrice')})</span> : 
-                              <span>{race.id === 1 ? '170 RON' : '120 RON'} (€{race.id === 1 ? '34' : '24'})</span>
-                            }</span>
-                          </div>
-                        </label>
-                      </div>
-                    ))}
-                  </div>
-                  {errors.raceId && (
-                    <p className="text-sm text-red-500 mt-1">{errors.raceId.message}</p>
-                  )}
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <label htmlFor="emergencyContactName" className="block text-sm font-medium text-neutral-gray mb-2">
-                      {t('registration.form.emergencyContactName')} *
-                    </label>
-                    <input 
-                      type="text" 
-                      id="emergencyContactName" 
-                      {...register("emergencyContactName")}
-                      className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                    />
-                    {errors.emergencyContactName && (
-                      <p className="text-sm text-red-500 mt-1">{errors.emergencyContactName.message}</p>
-                    )}
-                  </div>
-                  <div>
-                    <label htmlFor="emergencyContactPhone" className="block text-sm font-medium text-neutral-gray mb-2">
-                      {t('registration.form.emergencyContactPhone')} *
-                    </label>
-                    <input 
-                      type="tel" 
-                      id="emergencyContactPhone" 
-                      {...register("emergencyContactPhone")}
-                      className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                    />
-                    {errors.emergencyContactPhone && (
-                      <p className="text-sm text-red-500 mt-1">{errors.emergencyContactPhone.message}</p>
-                    )}
-                  </div>
-                </div>
-
-                <div className="mb-6">
-                  <label htmlFor="medical" className="block text-sm font-medium text-neutral-gray mb-2">
-                    {t('registration.form.medical')}
-                  </label>
-                  <textarea 
-                    id="medical" 
-                    rows={3} 
-                    {...register("medicalInfo")}
-                    className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary" 
-                    placeholder={t('registration.form.medicalPlaceholder')}
-                  ></textarea>
-                </div>
-                
-                <div className="mb-8">
-                  <div className="flex items-start">
-                    <input 
-                      type="checkbox" 
-                      id="terms" 
-                      {...register("termsAccepted")}
-                      className="mr-2 mt-1"
-                    />
-                    <label htmlFor="terms" className="text-sm">
-                      {t('registration.form.termsText')} <a href="#" className="text-primary hover:underline">{t('registration.form.termsLink')}</a> {t('registration.form.andText')} <a href="#" className="text-primary hover:underline">{t('registration.form.privacyLink')}</a>. {t('registration.form.riskText')}
-                    </label>
-                  </div>
-                  {errors.termsAccepted && (
-                    <p className="text-sm text-red-500 mt-1">{errors.termsAccepted.message}</p>
-                  )}
-                </div>
-                
-                <div className="flex justify-center">
-                  <button 
-                    type="submit" 
-                    disabled={isSubmitting}
-                    className="bg-accent hover:bg-accent-dark text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300 shadow-lg disabled:opacity-50"
+              <div className="mb-6 p-4 border border-primary/30 rounded-lg bg-primary/5">
+                <div className="flex items-start mb-3">
+                  <input 
+                    type="checkbox" 
+                    id="isEmaParticipant" 
+                    {...register("isEmaParticipant")}
+                    className="mr-2 mt-1"
+                    disabled={!isEligibleForEma}
+                  />
+                  <label 
+                    htmlFor="isEmaParticipant" 
+                    className={`text-sm font-medium ${!isEligibleForEma ? 'text-neutral-light' : ''}`}
                   >
-                    {isSubmitting ? t('common.submitting') : t('registration.form.submitButton')}
-                  </button>
+                    {t('registration.form.emaParticipation')}
+                    {!isEligibleForEma && birthDateValue && (
+                      <span className="ml-2 text-red-500 text-xs">
+                        ({t('registration.form.mustBe35')})
+                      </span>
+                    )}
+                  </label>
                 </div>
-              </form>
-            </div>
-          )}
+                <div className="text-sm pl-6">
+                  <p>{t('registration.form.emaInfo')}</p>
+                  <p className="mt-2 text-primary-dark font-medium">{t('registration.form.emaIncludesTshirt')}</p>
+                  <div className="mt-2 p-3 bg-white/80 rounded border border-neutral-light/50">
+                    <p className="text-gray-600">{t('registration.form.emaEligibilityCriteria')}</p>
+                  </div>
+                  
+                  {isEmaParticipant && (
+                    <div className="mt-4">
+                      <label htmlFor="tshirtSize" className="block text-sm font-medium text-neutral-gray mb-2">
+                        {t('registration.form.tshirtSize')} *
+                      </label>
+                      <select 
+                        id="tshirtSize" 
+                        {...register("tshirtSize")}
+                        className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white"
+                      >
+                        <option value="">{t('registration.form.selectTshirtSize')}</option>
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                      </select>
+                      {errors.tshirtSize && (
+                        <p className="text-sm text-red-500 mt-1">{errors.tshirtSize.message}</p>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </div>
+              
+              <div className="mb-6">
+                <label className="block text-sm font-medium text-neutral-gray mb-2">
+                  {t('registration.form.selectRace')} *
+                </label>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {racesLoading ? (
+                    <div className="col-span-3">
+                      <p>{t('common.loading')}</p>
+                    </div>
+                  ) : races?.map(race => (
+                    <div 
+                      key={race.id}
+                      className={`bg-white border-2 rounded-lg p-4 cursor-pointer transition-colors duration-200 ${
+                        Number(selectedRaceId) === race.id ? 'border-primary bg-primary/5' : 'border-neutral-light hover:border-primary hover:bg-primary/5'
+                      }`}
+                      onClick={() => setValue("raceId", race.id)}
+                    >
+                      <label htmlFor={`race${race.id}`} className="flex items-start cursor-pointer">
+                        <input 
+                          type="radio" 
+                          id={`race${race.id}`} 
+                          value={race.id} 
+                          checked={Number(selectedRaceId) === race.id}
+                          onChange={() => setValue("raceId", race.id)}
+                          className="hidden"
+                        />
+                        <span className={`w-5 h-5 border-2 rounded-full flex-shrink-0 mr-2 mt-1 ${
+                          Number(selectedRaceId) === race.id ? 'border-primary bg-primary' : 'border-neutral-light'
+                        }`}></span>
+                        <div>
+                          <span className="block font-bold">{getLocalizedRaceName(race, i18n.language as any)}</span>
+                          <span className="text-sm text-neutral-gray">{race.distance}km | {isEmaParticipant ? 
+                            <span className="font-medium text-primary-dark">{race.id === 1 ? '200 RON' : '150 RON'} (€{race.id === 1 ? '40' : '30'}) ({t('registration.form.emaPrice')})</span> : 
+                            <span>{race.id === 1 ? '170 RON' : '120 RON'} (€{race.id === 1 ? '34' : '24'})</span>
+                          }</span>
+                        </div>
+                      </label>
+                    </div>
+                  ))}
+                </div>
+                {errors.raceId && (
+                  <p className="text-sm text-red-500 mt-1">{errors.raceId.message}</p>
+                )}
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label htmlFor="emergencyContactName" className="block text-sm font-medium text-neutral-gray mb-2">
+                    {t('registration.form.emergencyContactName')} *
+                  </label>
+                  <input 
+                    type="text" 
+                    id="emergencyContactName" 
+                    {...register("emergencyContactName")}
+                    className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                  {errors.emergencyContactName && (
+                    <p className="text-sm text-red-500 mt-1">{errors.emergencyContactName.message}</p>
+                  )}
+                </div>
+                <div>
+                  <label htmlFor="emergencyContactPhone" className="block text-sm font-medium text-neutral-gray mb-2">
+                    {t('registration.form.emergencyContactPhone')} *
+                  </label>
+                  <input 
+                    type="tel" 
+                    id="emergencyContactPhone" 
+                    {...register("emergencyContactPhone")}
+                    className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                  {errors.emergencyContactPhone && (
+                    <p className="text-sm text-red-500 mt-1">{errors.emergencyContactPhone.message}</p>
+                  )}
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <label htmlFor="medical" className="block text-sm font-medium text-neutral-gray mb-2">
+                  {t('registration.form.medical')}
+                </label>
+                <textarea 
+                  id="medical" 
+                  rows={3} 
+                  {...register("medicalInfo")}
+                  className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary" 
+                  placeholder={t('registration.form.medicalPlaceholder')}
+                ></textarea>
+              </div>
+              
+              <div className="mb-8">
+                <div className="flex items-start">
+                  <input 
+                    type="checkbox" 
+                    id="terms" 
+                    {...register("termsAccepted")}
+                    className="mr-2 mt-1"
+                  />
+                  <label htmlFor="terms" className="text-sm">
+                    {t('registration.form.termsText')} <a href="#" className="text-primary hover:underline">{t('registration.form.termsLink')}</a> {t('registration.form.andText')} <a href="#" className="text-primary hover:underline">{t('registration.form.privacyLink')}</a>. {t('registration.form.riskText')}
+                  </label>
+                </div>
+                {errors.termsAccepted && (
+                  <p className="text-sm text-red-500 mt-1">{errors.termsAccepted.message}</p>
+                )}
+              </div>
+              
+              <div className="text-center">
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="bg-accent hover:bg-accent-dark text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300 shadow-lg disabled:opacity-50"
+                >
+                  {isSubmitting ? t('common.submitting') : t('registration.form.submitButton')}
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </section>

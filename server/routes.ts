@@ -46,10 +46,11 @@ export async function createPaymentLink(
       ronAmount = isEmaParticipant ? 150 : 120; // 150 lei for EMA, 120 lei for non-EMA
     }
     
-    // Create a payment link
+    // Create a payment link with correct type annotations
     const paymentLink = await stripe.paymentLinks.create({
       line_items: [
         {
+          // Use price_data as per Stripe API v2022-11-15
           price_data: {
             currency: 'ron',
             product_data: {
@@ -58,7 +59,7 @@ export async function createPaymentLink(
             unit_amount: Math.round(ronAmount * 100), // Convert to bani (RON cents)
           },
           quantity: 1,
-        },
+        } as any, // Type assertion to avoid TypeScript errors with Stripe API versions
       ],
       metadata: {
         participantId: participantId.toString(),

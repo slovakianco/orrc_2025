@@ -376,6 +376,8 @@ Stana de Vale Trail Race 2025 • Stâna de Vale, Romania
   }
 }
 
+import { createPaymentLink } from './routes';
+
 export async function sendRegistrationConfirmationEmail(
   email: string,
   firstName: string,
@@ -407,22 +409,22 @@ export async function sendRegistrationConfirmationEmail(
   
   // Payment links and instructions
   const paymentInfo: Record<SupportedLanguages, string> = {
-    en: `To complete your registration, please make the payment by clicking the button below:\n\nIf you have any issues with the payment process, please contact us at contact@stanatrailrace.ro.`,
-    ro: `Pentru a finaliza înregistrarea, te rugăm să efectuezi plata făcând clic pe butonul de mai jos:\n\nDacă întâmpini probleme cu procesul de plată, te rugăm să ne contactezi la contact@stanatrailrace.ro.`,
-    fr: `Pour compléter votre inscription, veuillez effectuer le paiement en cliquant sur le bouton ci-dessous:\n\nSi vous rencontrez des problèmes avec le processus de paiement, veuillez nous contacter à contact@stanatrailrace.ro.`,
-    de: `Um Ihre Anmeldung abzuschließen, nehmen Sie bitte die Zahlung vor, indem Sie auf die Schaltfläche unten klicken:\n\nWenn Sie Probleme mit dem Zahlungsvorgang haben, kontaktieren Sie uns bitte unter contact@stanatrailrace.ro.`,
-    it: `Per completare la registrazione, effettua il pagamento cliccando sul pulsante qui sotto:\n\nSe riscontri problemi con il processo di pagamento, contattaci all'indirizzo contact@stanatrailrace.ro.`,
-    es: `Para completar tu registro, realiza el pago haciendo clic en el botón a continuación:\n\nSi tienes algún problema con el proceso de pago, contáctanos en contact@stanatrailrace.ro.`,
+    en: `To complete your registration, please make the payment by clicking the payment link below:\n\nIf you have any issues with the payment process, please contact us at contact@stanatrailrace.ro.`,
+    ro: `Pentru a finaliza înregistrarea, te rugăm să efectuezi plata folosind link-ul de mai jos:\n\nDacă întâmpini probleme cu procesul de plată, te rugăm să ne contactezi la contact@stanatrailrace.ro.`,
+    fr: `Pour compléter votre inscription, veuillez effectuer le paiement en utilisant le lien ci-dessous:\n\nSi vous rencontrez des problèmes avec le processus de paiement, veuillez nous contacter à contact@stanatrailrace.ro.`,
+    de: `Um Ihre Anmeldung abzuschließen, nehmen Sie bitte die Zahlung vor, indem Sie den unten stehenden Link verwenden:\n\nWenn Sie Probleme mit dem Zahlungsvorgang haben, kontaktieren Sie uns bitte unter contact@stanatrailrace.ro.`,
+    it: `Per completare la registrazione, effettua il pagamento utilizzando il link qui sotto:\n\nSe riscontri problemi con il processo di pagamento, contattaci all'indirizzo contact@stanatrailrace.ro.`,
+    es: `Para completar tu registro, realiza el pago utilizando el enlace a continuación:\n\nSi tienes algún problema con el proceso de pago, contáctanos en contact@stanatrailrace.ro.`,
   };
   
-  // Payment button text
-  const paymentButtons: Record<SupportedLanguages, string> = {
-    en: "Pay Now",
-    ro: "Plătește Acum",
-    fr: "Payer Maintenant",
-    de: "Jetzt Bezahlen",
-    it: "Paga Ora",
-    es: "Pagar Ahora",
+  // Payment link text
+  const paymentLinkTexts: Record<SupportedLanguages, string> = {
+    en: "Click here to pay",
+    ro: "Click aici pentru plată",
+    fr: "Cliquez ici pour payer",
+    de: "Klicken Sie hier, um zu bezahlen",
+    it: "Clicca qui per pagare",
+    es: "Haz clic aquí para pagar",
   };
 
   const messages: Record<SupportedLanguages, string> = {
@@ -436,15 +438,35 @@ export async function sendRegistrationConfirmationEmail(
 
   const lang = language in subjects ? (language as SupportedLanguages) : "en";
 
-  // Create payment URL for the participant
-  // Get the current app URL from environment or default to localhost for development
-  const baseUrl = process.env.APP_URL || `https://${process.env.REPL_SLUG}.replit.app`;
-  
-  // For local development and testing, use a relative URL
-  const paymentUrl = `${baseUrl}/registration-success?participantId=${participantId}&raceId=${raceId}`;
-  
-  // First try with custom domain
   try {
+    // Get participant data to check if they're an EMA participant
+    // Import storage directly to avoid TypeScript errors with dynamic imports
+    const { storage } = await import('./storage');
+    
+    // Retrieve participant data
+    const participant = await storage.getParticipantById(participantId);
+    
+    // Default to false if we can't determine
+    const isEmaParticipant = participant?.isemaparticipant === true || 
+                            participant?.isEmaParticipant === true || 
+                            false;
+    
+    console.log(`Generating payment link for participant ID: ${participantId}, race ID: ${raceId}, EMA status: ${isEmaParticipant}`);
+    
+    // Create Stripe payment link
+    // For amount, we'll use 0 since the actual amount will be calculated in the createPaymentLink function
+    const stripePaymentLink = await createPaymentLink(0, participantId, raceId, isEmaParticipant);
+    
+    // If we couldn't create a payment link, fall back to the registration success page
+    const baseUrl = process.env.APP_URL || `https://${process.env.REPL_SLUG}.replit.app`;
+    const fallbackPaymentUrl = `${baseUrl}/registration-success?participantId=${participantId}&raceId=${raceId}`;
+    
+    // Use the Stripe payment link if available, otherwise use the fallback
+    const paymentUrl = stripePaymentLink || fallbackPaymentUrl;
+    
+    console.log(`Using payment URL: ${paymentUrl}`);
+    
+    // First try with custom domain
     const result = await sendEmail({
       to: email,
       from: DEFAULT_FROM_EMAIL, // Make sure this domain matches what you've verified in SendGrid
@@ -459,9 +481,9 @@ export async function sendRegistrationConfirmationEmail(
           ${messages[lang].replace(/\n\n/g, '</p><p style="font-size: 16px; line-height: 1.5; color: #3E4A59;">').replace(/\n/g, "<br>")}
         </div>
         
-        <!-- Payment Button -->
+        <!-- Payment Link styled as a text link -->
         <div style="text-align: center; margin: 30px 0;">
-          <a href="${paymentUrl}" style="display: inline-block; background-color: #2A6D50; color: white; font-weight: bold; padding: 14px 28px; text-decoration: none; border-radius: 6px; font-size: 16px;">${paymentButtons[lang]}</a>
+          <a href="${paymentUrl}" style="display: inline-block; color: #2A6D50; font-weight: bold; text-decoration: underline; font-size: 18px;">${paymentLinkTexts[lang]}</a>
         </div>
         
         <div style="margin-top: 30px; border-top: 1px solid #e6dfd9; padding-top: 20px; text-align: center; font-size: 14px; color: #7D5A45;">
@@ -492,9 +514,9 @@ export async function sendRegistrationConfirmationEmail(
           ${messages[lang].replace(/\n\n/g, '</p><p style="font-size: 16px; line-height: 1.5; color: #3E4A59;">').replace(/\n/g, "<br>")}
         </div>
         
-        <!-- Payment Button -->
+        <!-- Payment Link styled as a text link -->
         <div style="text-align: center; margin: 30px 0;">
-          <a href="${paymentUrl}" style="display: inline-block; background-color: #2A6D50; color: white; font-weight: bold; padding: 14px 28px; text-decoration: none; border-radius: 6px; font-size: 16px;">${paymentButtons[lang]}</a>
+          <a href="${paymentUrl}" style="display: inline-block; color: #2A6D50; font-weight: bold; text-decoration: underline; font-size: 18px;">${paymentLinkTexts[lang]}</a>
         </div>
         
         <div style="margin-top: 30px; border-top: 1px solid #e6dfd9; padding-top: 20px; text-align: center; font-size: 14px; color: #7D5A45;">
