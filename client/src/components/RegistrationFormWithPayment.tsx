@@ -214,34 +214,25 @@ const RegistrationFormWithPayment = () => {
           
           // Check if we got a payment link back
           if (paymentData.paymentLink) {
-            // Show success toast with payment link option
+            // Show a success toast before redirecting
             toast({
               title: t('registration.success.title'),
-              description: (
-                <div className="flex flex-col gap-3">
-                  <p>{t('registration.success.message')}</p>
-                  <a 
-                    href={paymentData.paymentLink} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="bg-primary text-white py-2 px-4 rounded text-center font-medium hover:bg-primary/90"
-                  >
-                    {t('registration.payNow', 'Pay Now')}
-                  </a>
-                </div>
-              ),
-              duration: 10000 // Show longer since it has an action button
+              description: t('registration.success.redirectingToPayment', 'Registration successful! Redirecting to payment...'),
+              duration: 3000
             });
             
-            // Show a detailed toast about the email
+            // Show a toast about the email backup option
+            toast({
+              title: t('registration.email.title', 'Email Confirmation Sent'),
+              description: t('registration.email.paymentLink', 'We have also sent you an email with your registration details and payment link.'),
+              variant: "default",
+              duration: 3000
+            });
+            
+            // Redirect to payment link automatically after a short delay
             setTimeout(() => {
-              toast({
-                title: t('registration.email.title', 'Email Confirmation Sent'),
-                description: t('registration.email.paymentLink', 'We have also sent you an email with your registration details and payment link.'),
-                variant: "default",
-                duration: 6000
-              });
-            }, 1000);
+              window.location.href = paymentData.paymentLink;
+            }, 1500);
           } else {
             // Fallback to standard success message if no payment link
             toast({
@@ -291,10 +282,8 @@ const RegistrationFormWithPayment = () => {
       // Invalidate the participants query to refresh the list
       queryClient.invalidateQueries({ queryKey: ['/api/participants'] });
       
-      // Redirect to the participants page after a brief delay
-      setTimeout(() => {
-        window.location.href = "/participants";
-      }, 5000); // Slightly longer delay to allow users to click the payment link
+      // Don't automatically redirect - either the user clicks the payment link 
+      // or they will check their email for the payment link
     },
     onError: (error: Error) => {
       toast({

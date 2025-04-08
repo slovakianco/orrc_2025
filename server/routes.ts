@@ -20,11 +20,13 @@ if (!process.env.STRIPE_SECRET_KEY) {
 // Initialize Stripe instance globally for use across the application
 if (!global.stripe && process.env.STRIPE_SECRET_KEY) {
   global.stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: "2025-02-24.acacia" as any, // Force the type to match
+    apiVersion: "2023-10-16" as any, // Use the correct API version with type assertion
   });
   console.log("Stripe initialized globally");
 } else if (!process.env.STRIPE_SECRET_KEY) {
   console.warn("STRIPE_SECRET_KEY not found in environment variables");
+  // Create a null-safe stripe instance
+  global.stripe = null;
 }
 
 // Function to create a payment link - exported for use in email.ts
@@ -636,6 +638,11 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       const raceDisplayName = race.name || (race.distance + "km " + race.difficulty);
       
       // Create a payment link with Stripe Payment Links
+      // Check if stripe is available
+      if (!global.stripe) {
+        return res.status(500).json({ message: "Payment service is not available" });
+      }
+      
       const paymentLink = await global.stripe.paymentLinks.create({
         line_items: [
           {
@@ -649,7 +656,7 @@ This message was sent from the Stana de Vale Trail Race website contact form.
               unit_amount: Math.round(ronAmount * 100), // in bani (RON cents)
             },
             quantity: 1,
-          },
+          } as any, // Type assertion for Stripe API compatibility
         ],
         after_completion: {
           type: 'redirect',
@@ -663,11 +670,16 @@ This message was sent from the Stana de Vale Trail Race website contact form.
           isEmaParticipant: isEma ? "true" : "false"
         },
         // Automatically expire the payment link after 7 days
-        expires_at: Math.floor(Date.now() / 1000) + (7 * 24 * 60 * 60),
+        expires_at: Math.floor(Date.now() / 1000) + (7 * 24 * 60 * 60) as any,
       });
       
       // For backward compatibility with the client, also create a payment intent
       // This can be removed once the client is updated to use payment links directly
+      // Check if stripe is available
+      if (!global.stripe) {
+        return res.status(500).json({ message: "Payment service is not available" });
+      }
+      
       const paymentIntent = await global.stripe.paymentIntents.create({
         amount: Math.round(ronAmount * 100), // Convert to bani (RON cents)
         currency: "ron", // Romanian currency
