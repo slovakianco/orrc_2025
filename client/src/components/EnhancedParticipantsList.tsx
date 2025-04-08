@@ -53,7 +53,12 @@ const MASTER_CATEGORIES = [
 ];
 
 // Function to determine the master category of a participant
-const getMasterCategory = (gender: string, age: number) => {
+const getMasterCategory = (gender: string, age: number, isEmaParticipant: boolean) => {
+  // Only return master category if participant is 35+ years old and is registered as EMA participant
+  if (!isEmaParticipant || age < 35) {
+    return null;
+  }
+  
   const category = MASTER_CATEGORIES.find(
     cat => cat.gender === gender && age >= cat.minAge && age <= cat.maxAge
   );
@@ -110,10 +115,10 @@ const EnhancedParticipantsList = () => {
       if (filters.ageCategory) {
         // Special case for 'masters' filter - show all master age categories
         if (filters.ageCategory === 'masters') {
-          const category = getMasterCategory(participant.gender, participant.age);
+          const category = getMasterCategory(participant.gender, participant.age, participant.isEmaParticipant || participant.isemaparticipant || false);
           return category !== null; // Return true if participant has a master category
         } else {
-          const category = getMasterCategory(participant.gender, participant.age);
+          const category = getMasterCategory(participant.gender, participant.age, participant.isEmaParticipant || participant.isemaparticipant || false);
           if (category !== filters.ageCategory) {
             return false;
           }
@@ -604,7 +609,7 @@ const EnhancedParticipantsList = () => {
                     ) : (
                       currentParticipants.map(participant => {
                         const race = races?.find(r => r.id === participant.raceId || r.id === participant.raceid);
-                        const masterCategory = getMasterCategory(participant.gender, participant.age);
+                        const masterCategory = getMasterCategory(participant.gender, participant.age, participant.isEmaParticipant || participant.isemaparticipant || false);
                         
                         return (
                           <tr key={participant.id} className="hover:bg-neutral-light hover:bg-opacity-20 transition-colors duration-150">
@@ -702,7 +707,7 @@ const EnhancedParticipantsList = () => {
                 ) : (
                   currentParticipants.map(participant => {
                     const race = races?.find(r => r.id === participant.raceId || r.id === participant.raceid);
-                    const masterCategory = getMasterCategory(participant.gender, participant.age);
+                    const masterCategory = getMasterCategory(participant.gender, participant.age, participant.isEmaParticipant || participant.isemaparticipant || false);
                     
                     return (
                       <Card key={participant.id} className="overflow-hidden transition-transform hover:scale-105 duration-300">

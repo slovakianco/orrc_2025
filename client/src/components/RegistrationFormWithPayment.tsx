@@ -11,6 +11,19 @@ import { getLocalizedRaceName } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import StripePaymentForm from "./StripePaymentForm";
 
+// Function to calculate age for validation
+const calculateAgeForValidation = (birthDate: string): number => {
+  const birthDateObj = new Date(birthDate);
+  // Race date is set to August 22, 2025
+  const eventDate = new Date(2025, 7, 22); // Month is 0-indexed (7 = August)
+  let age = eventDate.getFullYear() - birthDateObj.getFullYear();
+  const m = eventDate.getMonth() - birthDateObj.getMonth();
+  if (m < 0 || (m === 0 && eventDate.getDate() < birthDateObj.getDate())) {
+    age--;
+  }
+  return age;
+};
+
 // Extend schema to add form-specific validations
 const registrationFormSchema = z.object({
   firstName: z.string().min(2, { message: "First name must be at least 2 characters" }),
@@ -36,6 +49,42 @@ const registrationFormSchema = z.object({
 }, {
   message: "T-shirt size is required for EMA participants",
   path: ["tshirtSize"]
+}).refine((data) => {
+  // Calculate age based on race date
+  const age = calculateAgeForValidation(data.birthDate);
+  
+  // EMA participants must be at least 35 years old
+  if (data.isEmaParticipant && age < 35) {
+    return false;
+  }
+  return true;
+}, {
+  message: "You must be at least 35 years old to register as an EMA participant",
+  path: ["isEmaParticipant"]
+}).refine((data) => {
+  // Calculate age based on race date
+  const age = calculateAgeForValidation(data.birthDate);
+  
+  // For 11km race (id=2), participants must be at least 16 years old
+  if (data.raceId === 2 && age < 16) {
+    return false;
+  }
+  return true;
+}, {
+  message: "You must be at least 16 years old to participate in the 11km race",
+  path: ["birthDate"]
+}).refine((data) => {
+  // Calculate age based on race date
+  const age = calculateAgeForValidation(data.birthDate);
+  
+  // For 33km race (id=1), participants must be at least 18 years old
+  if (data.raceId === 1 && age < 18) {
+    return false;
+  }
+  return true;
+}, {
+  message: "You must be at least 18 years old to participate in the 33km race",
+  path: ["birthDate"]
 });
 
 type RegistrationFormInputs = z.infer<typeof registrationFormSchema>;
@@ -196,13 +245,14 @@ const RegistrationFormWithPayment = () => {
     }
   });
 
-  // Function to calculate age from birthDate
+  // Function to calculate age from birthDate based on event date (August 22, 2025)
   const calculateAge = (birthDate: string): number => {
     const birthDateObj = new Date(birthDate);
-    const today = new Date();
-    let age = today.getFullYear() - birthDateObj.getFullYear();
-    const m = today.getMonth() - birthDateObj.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDateObj.getDate())) {
+    // Race date is set to August 22, 2025
+    const eventDate = new Date(2025, 7, 22); // Month is 0-indexed (7 = August)
+    let age = eventDate.getFullYear() - birthDateObj.getFullYear();
+    const m = eventDate.getMonth() - birthDateObj.getMonth();
+    if (m < 0 || (m === 0 && eventDate.getDate() < birthDateObj.getDate())) {
       age--;
     }
     return age;
