@@ -180,28 +180,30 @@ const RegistrationFormWithPayment = () => {
       // Make sure isEmaParticipant is correctly transformed to a boolean
       const transformedData = {
         ...data,
-        // Convert camelCase to lowercase for database column names
-        emergencycontactname: data.emergencyContactName,
-        emergencycontactphone: data.emergencyContactPhone,
+        // Include BOTH camelCase AND lowercase versions for fields to ensure compatibility
+        emergencyContactName: data.emergencyContactName || "",
+        emergencycontactname: data.emergencyContactName || "",
+        emergencyContactPhone: data.emergencyContactPhone || "", 
+        emergencycontactphone: data.emergencyContactPhone || "",
         // For isEmaParticipant, include both camelCase and lowercase versions for backend compatibility
         isEmaParticipant: data.isEmaParticipant === true, // Ensure it's a boolean
         isemaparticipant: data.isEmaParticipant === true, // Ensure it's a boolean
         // For t-shirt size, include both camelCase and lowercase versions for backend compatibility
-        tshirtSize: data.tshirtSize,
-        tshirtsize: data.tshirtSize
+        tshirtSize: data.tshirtSize || "",
+        tshirtsize: data.tshirtSize || ""
       };
       
       console.log("Transformed data for API:", {
         ...transformedData,
+        emergencyContactName: transformedData.emergencyContactName,
+        emergencycontactname: transformedData.emergencycontactname,
+        emergencyContactPhone: transformedData.emergencyContactPhone,
+        emergencycontactphone: transformedData.emergencycontactphone,
         isEmaParticipant: transformedData.isEmaParticipant,
         isemaparticipant: transformedData.isemaparticipant,
         tshirtSize: transformedData.tshirtSize,
         tshirtsize: transformedData.tshirtsize
       });
-      
-      // Remove redundant original properties 
-      delete (transformedData as any).emergencyContactName;
-      delete (transformedData as any).emergencyContactPhone;
       
       return apiRequest("POST", "/api/participants", transformedData);
     },
@@ -288,7 +290,12 @@ const RegistrationFormWithPayment = () => {
       raceId: typeof apiData.raceId === 'string' ? parseInt(apiData.raceId) : apiData.raceId,
       age, // Add calculated age
       language: i18n.language, // Add current language for email localization
-      isEmaParticipant: apiData.isEmaParticipant === true // Ensure it's a boolean
+      isEmaParticipant: apiData.isEmaParticipant === true, // Ensure it's a boolean
+      // Add both camelCase and lowercase versions for emergency contact fields
+      emergencyContactName: apiData.emergencyContactName || "",
+      emergencycontactname: apiData.emergencyContactName || "",
+      emergencyContactPhone: apiData.emergencyContactPhone || "",
+      emergencycontactphone: apiData.emergencyContactPhone || ""
     };
     
     // Log EMA participant flag to debug
