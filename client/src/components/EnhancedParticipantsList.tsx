@@ -603,7 +603,7 @@ const EnhancedParticipantsList = () => {
                       </tr>
                     ) : (
                       currentParticipants.map(participant => {
-                        const race = races?.find(r => r.id === participant.raceId);
+                        const race = races?.find(r => r.id === participant.raceId || r.id === participant.raceid);
                         const masterCategory = getMasterCategory(participant.gender, participant.age);
                         
                         return (
@@ -701,7 +701,7 @@ const EnhancedParticipantsList = () => {
                   </div>
                 ) : (
                   currentParticipants.map(participant => {
-                    const race = races?.find(r => r.id === participant.raceId);
+                    const race = races?.find(r => r.id === participant.raceId || r.id === participant.raceid);
                     const masterCategory = getMasterCategory(participant.gender, participant.age);
                     
                     return (

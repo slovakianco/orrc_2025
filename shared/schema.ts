@@ -168,10 +168,12 @@ export type Participant = typeof participants.$inferSelect & {
   // Add lowercase variants for type safety (matching Supabase column names)
   firstname?: string;
   lastname?: string;
+  raceid?: number;
   isemaparticipant?: boolean;
   tshirtsize?: string;
   emergencycontactname?: string;
   emergencycontactphone?: string;
+  bibnumber?: string;
 };
 export type InsertParticipant = z.infer<typeof insertParticipantSchema>;
 
