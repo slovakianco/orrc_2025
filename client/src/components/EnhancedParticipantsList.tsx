@@ -637,8 +637,12 @@ const EnhancedParticipantsList = () => {
                             <td className="px-6 py-4 whitespace-nowrap">
                               <div className="group relative">
                                 <div className="flex items-center cursor-pointer">
-                                  <div className="text-2xl mr-2 transform transition-transform group-hover:scale-125">
-                                    {getCountryFlag(participant.country)}
+                                  <div className="w-6 h-6 mr-2 transform transition-transform group-hover:scale-125">
+                                    <img 
+                                      src={getCountryFlag(participant.country)} 
+                                      alt={participant.country}
+                                      className="w-full h-full object-cover rounded-sm"
+                                    />
                                   </div>
                                   <span className="text-sm">{participant.country}</span>
                                 </div>
@@ -646,8 +650,12 @@ const EnhancedParticipantsList = () => {
                                 {/* Tooltip that appears on hover */}
                                 <div className="absolute left-0 top-full mt-2 z-10 bg-white p-3 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                                   <div className="flex items-center">
-                                    <div className="text-3xl mr-3">
-                                      {getCountryFlag(participant.country)}
+                                    <div className="w-8 h-8 mr-3">
+                                      <img 
+                                        src={getCountryFlag(participant.country)} 
+                                        alt={participant.country}
+                                        className="w-full h-full object-cover rounded-sm"
+                                      />
                                     </div>
                                     <div>
                                       <div className="font-medium">{getCountryName(participant.country)}</div>
@@ -728,8 +736,12 @@ const EnhancedParticipantsList = () => {
                                 )}
                               </div>
                             </div>
-                            <div className="text-3xl">
-                              {getCountryFlag(participant.country)}
+                            <div className="w-8 h-8">
+                              <img 
+                                src={getCountryFlag(participant.country)} 
+                                alt={participant.country}
+                                className="w-full h-full object-cover rounded-sm" 
+                              />
                             </div>
                           </div>
                           <CardTitle className="mt-3 text-xl">

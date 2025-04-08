@@ -206,49 +206,15 @@ export function groupEventsByDate(events: ProgramEvent[]): { [key: string]: Prog
   }, {} as { [key: string]: ProgramEvent[] });
 }
 
-// Get country flag emoji from country code
+// Get country flag URL from country code
 export function getCountryFlag(countryCode: string): string {
-  if (!countryCode) return '🌍';
+  if (!countryCode) return 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/XX.svg';
   
-  // Use emoji flags instead of images for better compatibility
-  const countryToFlag: { [key: string]: string } = {
-    'RO': '🇷🇴',
-    'FR': '🇫🇷',
-    'DE': '🇩🇪',
-    'UK': '🇬🇧',
-    'US': '🇺🇸',
-    'IT': '🇮🇹',
-    'ES': '🇪🇸',
-    'PT': '🇵🇹',
-    'BE': '🇧🇪',
-    'NL': '🇳🇱',
-    'CH': '🇨🇭',
-    'AT': '🇦🇹',
-    'HU': '🇭🇺',
-    'PL': '🇵🇱',
-    'CZ': '🇨🇿',
-    'CA': '🇨🇦',
-    'AU': '🇦🇺',
-    'NZ': '🇳🇿',
-    'JP': '🇯🇵',
-    'CN': '🇨🇳',
-    'IN': '🇮🇳',
-    'RU': '🇷🇺',
-    'BR': '🇧🇷',
-    'MX': '🇲🇽',
-    'ZA': '🇿🇦',
-    'AR': '🇦🇷',
-    'SE': '🇸🇪',
-    'NO': '🇳🇴',
-    'DK': '🇩🇰',
-    'FI': '🇫🇮',
-    'IE': '🇮🇪',
-    'GR': '🇬🇷',
-    'IL': '🇮🇱'
-  };
-  
+  // Get the uppercase country code
   const code = countryCode.toUpperCase();
-  return countryToFlag[code] || '🌍';
+  
+  // Return the flag URL
+  return `https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/${code}.svg`;
 }
 
 // Get country name from country code

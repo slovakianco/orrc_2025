@@ -9,14 +9,14 @@ import {
 } from './ui/dropdown-menu';
 import { cn } from '@/lib/utils';
 
-// Map of language codes to flag emojis
-const languageFlags: Record<string, string> = {
-  en: '🇬🇧',
-  ro: '🇷🇴',
-  fr: '🇫🇷',
-  de: '🇩🇪',
-  it: '🇮🇹',
-  es: '🇪🇸',
+// Map of language codes to flag image URLs (using reliable SVG sources)
+const languageFlagUrls: Record<string, string> = {
+  en: "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/GB.svg",
+  ro: "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/RO.svg",
+  fr: "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/FR.svg",
+  de: "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/DE.svg",
+  it: "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/IT.svg",
+  es: "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/ES.svg",
 };
 
 // Map of language codes to full names
@@ -38,8 +38,8 @@ export default function LanguageSelectorWithFlags() {
     setOpen(false);
   };
 
-  const getCurrentLanguageFlag = () => {
-    return languageFlags[i18n.language] || languageFlags['en'];
+  const getCurrentLanguageFlagUrl = () => {
+    return languageFlagUrls[i18n.language] || languageFlagUrls['en'];
   };
 
   const getCurrentLanguageName = () => {
@@ -53,13 +53,17 @@ export default function LanguageSelectorWithFlags() {
           className="flex items-center gap-1 px-2 py-1 rounded-md bg-sunset/20 hover:bg-sunset/30 transition-colors duration-200 border border-sunset/20 shadow-sm"
           aria-label={`Language: ${getCurrentLanguageName()}`}
         >
-          <span className="text-base">{getCurrentLanguageFlag()}</span>
+          <img 
+            src={getCurrentLanguageFlagUrl()} 
+            alt={getCurrentLanguageName()} 
+            className="w-5 h-5 min-w-5"
+          />
           <span className="hidden md:inline text-white text-xs font-medium ml-1">{getCurrentLanguageName()}</span>
           <ChevronDown className="h-3 w-3 text-white ml-1" />
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[150px] border border-slate-gray/20 shadow-xl">
-        {Object.keys(languageFlags).map((lang) => (
+        {Object.keys(languageFlagUrls).map((lang) => (
           <DropdownMenuItem
             key={lang}
             className={cn(
@@ -70,7 +74,11 @@ export default function LanguageSelectorWithFlags() {
             )}
             onClick={() => changeLanguage(lang)}
           >
-            <span className="text-lg">{languageFlags[lang]}</span>
+            <img 
+              src={languageFlagUrls[lang]} 
+              alt={languageNames[lang]} 
+              className="w-5 h-5 min-w-5"
+            />
             <span>{languageNames[lang]}</span>
             {i18n.language === lang && (
               <Check className="h-3 w-3 ml-auto text-sunset" />
