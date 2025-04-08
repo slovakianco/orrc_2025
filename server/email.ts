@@ -437,8 +437,11 @@ export async function sendRegistrationConfirmationEmail(
   const lang = language in subjects ? (language as SupportedLanguages) : "en";
 
   // Create payment URL for the participant
-  const baseUrl = "https://www.stanatrailrace.ro";
-  const paymentUrl = `${baseUrl}/registration?pay=true&participantId=${participantId}&raceId=${raceId}`;
+  // Get the current app URL from environment or default to localhost for development
+  const baseUrl = process.env.APP_URL || `https://${process.env.REPL_SLUG}.replit.app`;
+  
+  // For local development and testing, use a relative URL
+  const paymentUrl = `${baseUrl}/registration-success?participantId=${participantId}&raceId=${raceId}`;
   
   // First try with custom domain
   try {

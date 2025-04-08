@@ -226,7 +226,10 @@
       "andText": "and",
       "privacyLink": "privacy policy",
       "riskText": "I understand the risks associated with trail running.",
-      "submitButton": "Complete Registration"
+      "submitButton": "Complete Registration",
+      "name": "Name",
+      "race": "Race",
+      "amount": "Amount"
     },
     "success": {
       "title": "Registration Successful",
@@ -236,9 +239,14 @@
     "successMessage": "Thank you for your payment! Your registration has been confirmed.",
     "checkEmail": "Please check your email for a confirmation message with all the details of your registration.",
     "viewParticipants": "View Participants List",
+    "completePayment": "Complete Your Registration Payment",
+    "completePaymentInfo": "Please complete the payment process to finalize your race registration.",
+    "yourRegistration": "Your Registration Details",
+    "startNewRegistration": "Start a new registration or go to the participants list to view currently registered runners.",
     "error": {
       "title": "Registration Failed",
-      "message": "There was an error processing your registration. Please try again."
+      "message": "There was an error processing your registration. Please try again.",
+      "participantNotFound": "Participant not found. The registration information could not be retrieved."
     }
   },
   "participants": {

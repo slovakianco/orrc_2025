@@ -23,6 +23,63 @@ const stripe = process.env.STRIPE_SECRET_KEY
     })
   : null;
 
+// Helper function to create a Stripe Payment Link
+export async function createPaymentLink(
+  amount: number, 
+  participantId: number, 
+  raceId: number, 
+  isEmaParticipant: boolean
+): Promise<string | null> {
+  try {
+    if (!stripe) {
+      console.error("Stripe is not configured. Payment link cannot be created.");
+      return null;
+    }
+    
+    // Calculate the correct amount based on the race and EMA status
+    // 33km race: 200 lei (EMA) or 170 lei (non-EMA)
+    // 11km race: 150 lei (EMA) or 120 lei (non-EMA)
+    let ronAmount = 0;
+    if (raceId === 1) { // 33km race
+      ronAmount = isEmaParticipant ? 200 : 170; // 200 lei for EMA, 170 lei for non-EMA
+    } else { // 11km race
+      ronAmount = isEmaParticipant ? 150 : 120; // 150 lei for EMA, 120 lei for non-EMA
+    }
+    
+    // Create a payment link
+    const paymentLink = await stripe.paymentLinks.create({
+      line_items: [
+        {
+          price_data: {
+            currency: 'ron',
+            product_data: {
+              name: `Stana de Vale Trail Race - ${raceId === 1 ? '33km' : '11km'} ${isEmaParticipant ? '(EMA Circuit)' : ''}`,
+            },
+            unit_amount: Math.round(ronAmount * 100), // Convert to bani (RON cents)
+          },
+          quantity: 1,
+        },
+      ],
+      metadata: {
+        participantId: participantId.toString(),
+        raceId: raceId.toString(),
+        isEmaParticipant: isEmaParticipant ? "true" : "false"
+      },
+      after_completion: {
+        type: 'redirect',
+        redirect: {
+          url: `${process.env.APP_URL || `https://${process.env.REPL_SLUG}.replit.app`}/registration-success?completed=true`,
+        },
+      },
+    });
+    
+    return paymentLink.url;
+  } catch (error: any) {
+    console.error("Error creating Stripe payment link:", error.message);
+    return null;
+  }
+}
+
 export async function registerRoutes(app: Express): Promise<Server> {
   // Serve static files from public directory
   app.use(express.static(path.join(process.cwd(), 'public')));
@@ -129,6 +186,30 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.error("Error fetching participants:", error);
       // Return an empty array instead of an error
       res.json([]);
+    }
+  });
+  
+  // Get a single participant by ID
+  apiRouter.get("/participants/:id", async (req: Request, res: Response) => {
+    try {
+      const id = parseInt(req.params.id);
+      
+      if (isNaN(id)) {
+        return res.status(400).json({ message: "Invalid participant ID" });
+      }
+      
+      console.log(`Fetching participant with ID: ${id}`);
+      const participant = await storage.getParticipantById(id);
+      
+      if (!participant) {
+        return res.status(404).json({ message: "Participant not found" });
+      }
+      
+      // Success - return the participant
+      res.json(participant);
+    } catch (error) {
+      console.error("Error fetching participant:", error);
+      res.status(500).json({ message: "Failed to fetch participant" });
     }
   });
   

@@ -153,7 +153,7 @@ const EnhancedParticipantsList = () => {
   const countries = useMemo(() => {
     if (!participants) return [];
     return Array.from(new Set(participants.map((p) => p.country))).sort();
-  });
+  }, [participants]);
 
   // Apply filters to participants
   const filteredParticipants = useMemo(() => {
@@ -362,7 +362,7 @@ const EnhancedParticipantsList = () => {
           className="mb-8"
         >
           <div className="flex justify-center mb-4">
-            <TabsList className="grid grid-cols-5 w-full max-w-3xl bg-primary">
+            <TabsList className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 w-full max-w-3xl bg-primary">
               <TabsTrigger
                 value="all"
                 className="flex items-center gap-2 text-white data-[state=active]:text-white"
@@ -400,7 +400,6 @@ const EnhancedParticipantsList = () => {
               </TabsTrigger>
             </TabsList>
           </div>
-
           {/* Tab content */}
           <TabsContent value={activeTab}>
             {/* Search and Filter Bar */}
