@@ -41,7 +41,9 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
     return false;
   }
 
-  console.log(`Attempting to send email to: ${params.to}, From: ${params.from}, Subject: ${params.subject}`);
+  console.log(
+    `Attempting to send email to: ${params.to}, From: ${params.from}, Subject: ${params.subject}`,
+  );
 
   const msg = {
     to: params.to,
@@ -60,9 +62,13 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
 
     // Common error messaging without exposing sensitive data
     if (error.code === 401) {
-      console.error("Authentication error: The SendGrid API key may be invalid or expired.");
+      console.error(
+        "Authentication error: The SendGrid API key may be invalid or expired.",
+      );
     } else if (error.code === 403) {
-      console.error("Authorization error: The SendGrid account may not have permission to send emails.");
+      console.error(
+        "Authorization error: The SendGrid account may not have permission to send emails.",
+      );
     } else if (error.code === 400) {
       // Check for common domain verification issues
       const errors = error.response?.body?.errors || [];
@@ -75,7 +81,9 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
       );
 
       if (hasDomainIssue) {
-        console.error("Sender verification error: The 'from' email address may not be verified in your SendGrid account.");
+        console.error(
+          "Sender verification error: The 'from' email address may not be verified in your SendGrid account.",
+        );
       }
     }
 
@@ -96,7 +104,7 @@ function getEmailTranslations(language: SupportedLanguages = "en") {
       fr: "Stana de Vale Trail Race - Confirmation de Paiement",
       de: "Stana de Vale Trail Race - Zahlungsbestätigung",
       it: "Stana de Vale Trail Race - Conferma di Pagamento",
-      es: "Stana de Vale Trail Race - Confirmación de Pago"
+      es: "Stana de Vale Trail Race - Confirmación de Pago",
     },
     paymentConfirmationTitle: {
       en: "Payment Confirmation",
@@ -104,7 +112,7 @@ function getEmailTranslations(language: SupportedLanguages = "en") {
       fr: "Confirmation de Paiement",
       de: "Zahlungsbestätigung",
       it: "Conferma di Pagamento",
-      es: "Confirmación de Pago"
+      es: "Confirmación de Pago",
     },
     paymentConfirmationSubtitle: {
       en: "Your registration is now complete!",
@@ -112,7 +120,7 @@ function getEmailTranslations(language: SupportedLanguages = "en") {
       fr: "Votre inscription est maintenant complète!",
       de: "Ihre Anmeldung ist jetzt vollständig!",
       it: "La tua registrazione è ora completata!",
-      es: "¡Tu registro ahora está completo!"
+      es: "¡Tu registro ahora está completo!",
     },
     greeting: {
       en: "Dear",
@@ -120,7 +128,7 @@ function getEmailTranslations(language: SupportedLanguages = "en") {
       fr: "Cher/Chère",
       de: "Liebe(r)",
       it: "Gentile",
-      es: "Estimado/a"
+      es: "Estimado/a",
     },
     paymentConfirmationMessage: {
       en: "Thank you for completing your payment for the Stana de Vale Trail Race! Your registration is now confirmed, and we're excited to welcome you to this amazing mountain running event.",
@@ -128,7 +136,7 @@ function getEmailTranslations(language: SupportedLanguages = "en") {
       fr: "Merci d'avoir effectué votre paiement pour la Stana de Vale Trail Race! Votre inscription est maintenant confirmée et nous sommes ravis de vous accueillir à cet incroyable événement de course en montagne.",
       de: "Vielen Dank für die Zahlung für das Stana de Vale Trail Race! Ihre Anmeldung ist nun bestätigt, und wir freuen uns, Sie bei diesem erstaunlichen Berglauf-Event begrüßen zu dürfen.",
       it: "Grazie per aver completato il pagamento per la Stana de Vale Trail Race! La tua registrazione è ora confermata e siamo entusiasti di accoglierti a questo incredibile evento di corsa in montagna.",
-      es: "¡Gracias por completar tu pago para la Stana de Vale Trail Race! Tu registro ahora está confirmado y estamos emocionados de darte la bienvenida a este increíble evento de carrera de montaña."
+      es: "¡Gracias por completar tu pago para la Stana de Vale Trail Race! Tu registro ahora está confirmado y estamos emocionados de darte la bienvenida a este increíble evento de carrera de montaña.",
     },
     raceDetails: {
       en: "Race Details",
@@ -136,7 +144,7 @@ function getEmailTranslations(language: SupportedLanguages = "en") {
       fr: "Détails de la Course",
       de: "Renndetails",
       it: "Dettagli della Gara",
-      es: "Detalles de la Carrera"
+      es: "Detalles de la Carrera",
     },
     raceCategory: {
       en: "Race Category",
@@ -144,7 +152,7 @@ function getEmailTranslations(language: SupportedLanguages = "en") {
       fr: "Catégorie de Course",
       de: "Rennkategorie",
       it: "Categoria Gara",
-      es: "Categoría de Carrera"
+      es: "Categoría de Carrera",
     },
     raceDate: {
       en: "Race Date",
@@ -152,7 +160,7 @@ function getEmailTranslations(language: SupportedLanguages = "en") {
       fr: "Date de la Course",
       de: "Renndatum",
       it: "Data della Gara",
-      es: "Fecha de la Carrera"
+      es: "Fecha de la Carrera",
     },
     raceLocation: {
       en: "Location",
@@ -160,7 +168,7 @@ function getEmailTranslations(language: SupportedLanguages = "en") {
       fr: "Lieu",
       de: "Ort",
       it: "Posizione",
-      es: "Ubicación"
+      es: "Ubicación",
     },
     bibCollectionInfo: {
       en: "You will be able to collect your race bib and participant package at the race office on the day before the race or on race day. Please bring a valid ID for verification.",
@@ -168,7 +176,7 @@ function getEmailTranslations(language: SupportedLanguages = "en") {
       fr: "Vous pourrez récupérer votre dossard et votre pack participant au bureau de course la veille de la course ou le jour de la course. Veuillez apporter une pièce d'identité valide pour vérification.",
       de: "Sie können Ihre Startnummer und Ihr Teilnehmerpaket am Vortag des Rennens oder am Renntag im Rennbüro abholen. Bitte bringen Sie einen gültigen Ausweis zur Überprüfung mit.",
       it: "Potrai ritirare il tuo pettorale e il pacco gara presso l'ufficio gara il giorno prima della gara o il giorno della gara. Si prega di portare un documento d'identità valido per la verifica.",
-      es: "Podrás recoger tu dorsal y paquete de participante en la oficina de la carrera el día anterior a la carrera o el día de la carrera. Por favor, trae una identificación válida para la verificación."
+      es: "Podrás recoger tu dorsal y paquete de participante en la oficina de la carrera el día anterior a la carrera o el día de la carrera. Por favor, trae una identificación válida para la verificación.",
     },
     whatToExpectNext: {
       en: "In the coming weeks, we'll be sending you additional information about the race, including the detailed schedule, course maps, and recommendations for your stay in Stana de Vale.",
@@ -176,7 +184,7 @@ function getEmailTranslations(language: SupportedLanguages = "en") {
       fr: "Dans les semaines à venir, nous vous enverrons des informations supplémentaires sur la course, y compris le programme détaillé, les cartes du parcours et des recommandations pour votre séjour à Stana de Vale.",
       de: "In den kommenden Wochen werden wir Ihnen zusätzliche Informationen über das Rennen zusenden, einschließlich des detaillierten Zeitplans, Streckenkarten und Empfehlungen für Ihren Aufenthalt in Stana de Vale.",
       it: "Nelle prossime settimane, ti invieremo ulteriori informazioni sulla gara, inclusi il programma dettagliato, le mappe del percorso e i consigli per il tuo soggiorno a Stana de Vale.",
-      es: "En las próximas semanas, te enviaremos información adicional sobre la carrera, incluido el cronograma detallado, mapas de la ruta y recomendaciones para tu estancia en Stana de Vale."
+      es: "En las próximas semanas, te enviaremos información adicional sobre la carrera, incluido el cronograma detallado, mapas de la ruta y recomendaciones para tu estancia en Stana de Vale.",
     },
     preparationTips: {
       en: "Preparation Tips",
@@ -184,7 +192,7 @@ function getEmailTranslations(language: SupportedLanguages = "en") {
       fr: "Conseils de Préparation",
       de: "Vorbereitungstipps",
       it: "Consigli di Preparazione",
-      es: "Consejos de Preparación"
+      es: "Consejos de Preparación",
     },
     preparationTip1: {
       en: "Train on similar terrain with elevation changes",
@@ -192,7 +200,7 @@ function getEmailTranslations(language: SupportedLanguages = "en") {
       fr: "Entraînez-vous sur un terrain similaire avec des changements d'altitude",
       de: "Trainieren Sie auf ähnlichem Gelände mit Höhenunterschieden",
       it: "Allenati su terreni simili con cambi di elevazione",
-      es: "Entrena en terreno similar con cambios de elevación"
+      es: "Entrena en terreno similar con cambios de elevación",
     },
     preparationTip2: {
       en: "Ensure you have proper trail running shoes and equipment",
@@ -200,7 +208,7 @@ function getEmailTranslations(language: SupportedLanguages = "en") {
       fr: "Assurez-vous d'avoir des chaussures et de l'équipement de trail running appropriés",
       de: "Stellen Sie sicher, dass Sie geeignete Trail-Running-Schuhe und Ausrüstung haben",
       it: "Assicurati di avere scarpe ed equipaggiamento adeguati per il trail running",
-      es: "Asegúrate de tener calzado y equipo adecuados para trail running"
+      es: "Asegúrate de tener calzado y equipo adecuados para trail running",
     },
     preparationTip3: {
       en: "Check the weather forecast and pack accordingly",
@@ -208,7 +216,7 @@ function getEmailTranslations(language: SupportedLanguages = "en") {
       fr: "Vérifiez les prévisions météorologiques et préparez-vous en conséquence",
       de: "Überprüfen Sie die Wettervorhersage und packen Sie entsprechend",
       it: "Controlla le previsioni meteo e preparati di conseguenza",
-      es: "Revisa el pronóstico del tiempo y prepárate adecuadamente"
+      es: "Revisa el pronóstico del tiempo y prepárate adecuadamente",
     },
     preparationTip4: {
       en: "Familiarize yourself with the race route and elevation profile",
@@ -216,7 +224,7 @@ function getEmailTranslations(language: SupportedLanguages = "en") {
       fr: "Familiarisez-vous avec le parcours de la course et le profil d'altitude",
       de: "Machen Sie sich mit der Rennstrecke und dem Höhenprofil vertraut",
       it: "Familiarizza con il percorso di gara e il profilo altimetrico",
-      es: "Familiarízate con la ruta de la carrera y el perfil de elevación"
+      es: "Familiarízate con la ruta de la carrera y el perfil de elevación",
     },
     questions: {
       en: "If you have any questions about the race, accommodation, or anything else, please don't hesitate to contact us at contact@stanatrailrace.ro.",
@@ -224,7 +232,7 @@ function getEmailTranslations(language: SupportedLanguages = "en") {
       fr: "Si vous avez des questions sur la course, l'hébergement ou autre chose, n'hésitez pas à nous contacter à contact@stanatrailrace.ro.",
       de: "Wenn Sie Fragen zum Rennen, zur Unterkunft oder zu anderen Dingen haben, zögern Sie bitte nicht, uns unter contact@stanatrailrace.ro zu kontaktieren.",
       it: "Se hai domande sulla gara, l'alloggio o qualsiasi altra cosa, non esitare a contattarci a contact@stanatrailrace.ro.",
-      es: "Si tienes alguna pregunta sobre la carrera, el alojamiento o cualquier otra cosa, no dudes en contactarnos en contact@stanatrailrace.ro."
+      es: "Si tienes alguna pregunta sobre la carrera, el alojamiento o cualquier otra cosa, no dudes en contactarnos en contact@stanatrailrace.ro.",
     },
     closingMessage: {
       en: "We look forward to seeing you at the starting line!",
@@ -232,7 +240,7 @@ function getEmailTranslations(language: SupportedLanguages = "en") {
       fr: "Nous avons hâte de vous voir sur la ligne de départ!",
       de: "Wir freuen uns darauf, Sie an der Startlinie zu sehen!",
       it: "Non vediamo l'ora di vederti alla linea di partenza!",
-      es: "¡Esperamos verte en la línea de salida!"
+      es: "¡Esperamos verte en la línea de salida!",
     },
     signature: {
       en: "Best regards,",
@@ -240,7 +248,7 @@ function getEmailTranslations(language: SupportedLanguages = "en") {
       fr: "Cordialement,",
       de: "Mit freundlichen Grüßen,",
       it: "Cordiali saluti,",
-      es: "Saludos cordiales,"
+      es: "Saludos cordiales,",
     },
     allRightsReserved: {
       en: "All rights reserved",
@@ -248,20 +256,20 @@ function getEmailTranslations(language: SupportedLanguages = "en") {
       fr: "Tous droits réservés",
       de: "Alle Rechte vorbehalten",
       it: "Tutti i diritti riservati",
-      es: "Todos los derechos reservados"
-    }
+      es: "Todos los derechos reservados",
+    },
   };
 
   // Return translations in requested language or English as fallback
   const lang = translations.greeting[language] ? language : "en";
-  
+
   const result: Record<string, string> = {};
-  
+
   // Collect all translations for the requested language
-  Object.keys(translations).forEach(key => {
+  Object.keys(translations).forEach((key) => {
     result[key] = translations[key][lang];
   });
-  
+
   return result;
 }
 
@@ -270,29 +278,29 @@ export async function sendPaymentConfirmationEmail(
   firstname: string,
   lastname: string,
   raceCategory: string,
-  language: SupportedLanguages = "en"
+  language: SupportedLanguages = "en",
 ): Promise<boolean> {
   try {
     // Get translations for the email
     const translations = getEmailTranslations(language);
-    
+
     // Payment confirmation email content
     const subject = translations.paymentConfirmationSubject;
-    
+
     // Format the dates 5 july 2025
-    const eventDate = new Date('2025-07-05');
+    const eventDate = new Date("2025-07-05");
     const formattedEventDate = eventDate.toLocaleDateString(language, {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
-    
+
     // Ensure firstname and lastname are not undefined and properly trimmed
-    const safeFirstName = firstname ? firstname.trim() : 'Runner';
-    const safeLastName = lastname ? lastname.trim() : '';
-    const fullName = safeFirstName + (safeLastName ? ' ' + safeLastName : '');
-    
+    const safeFirstName = firstname ? firstname.trim() : "Runner";
+    const safeLastName = lastname ? lastname.trim() : "";
+    const fullName = safeFirstName + (safeLastName ? " " + safeLastName : "");
+
     // HTML email content
     const html = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e6dfd9; border-radius: 8px;">
@@ -331,7 +339,7 @@ export async function sendPaymentConfirmationEmail(
         </div>
       </div>
     `;
-    
+
     // Plain text content for email clients that don't support HTML
     const text = `
 ${translations.paymentConfirmationTitle}
@@ -366,22 +374,22 @@ Stana de Vale Trail Race Team
 Stana de Vale Trail Race 2025 • Stâna de Vale, Romania
 © 2025 Stana de Vale Trail Race. ${translations.allRightsReserved}.
     `;
-    
+
     // Send the email
     return await sendEmail({
       to,
       from: DEFAULT_FROM_EMAIL,
       subject,
       text,
-      html
+      html,
     });
   } catch (error) {
-    console.error('Error sending payment confirmation email:', error);
+    console.error("Error sending payment confirmation email:", error);
     return false;
   }
 }
 
-import { createPaymentLink } from './routes';
+import { createPaymentLink } from "./routes";
 
 export async function sendRegistrationConfirmationEmail(
   email: string,
@@ -391,13 +399,13 @@ export async function sendRegistrationConfirmationEmail(
   language: string = "en",
   participantId: number = 0,
   raceid: number = 0,
-  paymentLink?: string // Optional payment link parameter
+  paymentLink?: string, // Optional payment link parameter
 ): Promise<boolean> {
   type SupportedLanguages = "en" | "ro" | "fr" | "de" | "it" | "es";
-  
+
   // Import Stripe to create a payment link if one wasn't provided
   const stripe = global.stripe;
-  
+
   // We'll create a payment link without storage dependency to avoid circular issues
 
   const subjects: Record<SupportedLanguages, string> = {
@@ -410,9 +418,9 @@ export async function sendRegistrationConfirmationEmail(
   };
 
   // Ensure firstname and lastname are not undefined
-  const safeFirstName = firstname ? firstname.trim() : 'Runner';
-  const safeLastName = lastname ? lastname.trim() : '';
-  const fullName = safeFirstName + (safeLastName ? ' ' + safeLastName : '');
+  const safeFirstName = firstname ? firstname.trim() : "Runner";
+  const safeLastName = lastname ? lastname.trim() : "";
+  const fullName = safeFirstName + (safeLastName ? " " + safeLastName : "");
 
   const greetings: Record<SupportedLanguages, string> = {
     en: `Dear ${fullName},`,
@@ -422,7 +430,7 @@ export async function sendRegistrationConfirmationEmail(
     it: `Gentile ${fullName},`,
     es: `Estimado/a ${fullName},`,
   };
-  
+
   // Payment links and instructions
   const paymentInfo: Record<SupportedLanguages, string> = {
     en: `To complete your registration, please make the payment by clicking the payment link below:\n\nIf you have any issues with the payment process, please contact us at contact@stanatrailrace.ro.`,
@@ -432,7 +440,7 @@ export async function sendRegistrationConfirmationEmail(
     it: `Per completare la registrazione, effettua il pagamento utilizzando il link qui sotto:\n\nSe riscontri problemi con il processo di pagamento, contattaci all'indirizzo contact@stanatrailrace.ro.`,
     es: `Para completar tu registro, realiza el pago utilizando el enlace a continuación:\n\nSi tienes algún problema con el proceso de pago, contáctanos en contact@stanatrailrace.ro.`,
   };
-  
+
   // Payment link text
   const paymentLinkTexts: Record<SupportedLanguages, string> = {
     en: "Click here to pay",
@@ -455,47 +463,54 @@ export async function sendRegistrationConfirmationEmail(
   const lang = language in subjects ? (language as SupportedLanguages) : "en";
 
   try {
-    // Get participant data to check if they're an EMA participant
-    // Import storage directly to avoid TypeScript errors with dynamic imports
-    const { storage } = await import('./storage');
-    
-    // Retrieve participant data
+    // Import getStorage function from storage-provider
+    const { getStorage } = await import("./storage-provider");
+    const storage = getStorage();
+
+    // Retrieve participant data using the current storage instance
     const participant = await storage.getParticipantById(participantId);
-    
+
     // Default to false if we can't determine
-    const isemaparticipant = participant?.isemaparticipant === true || 
-                            participant?.isemaparticipant === true || 
-                            false;
-    
-    console.log(`Generating payment link for participant ID: ${participantId}, race ID: ${raceid}, EMA status: ${isemaparticipant}`);
-    
+    console.log(`Participant data for email: ${JSON.stringify(participant)}`);
+    const isemaparticipant = participant?.isemaparticipant === true || false;
+
+    console.log(
+      `Generating payment link for participant ID: ${participantId}, race ID: ${raceid}, EMA status: ${isemaparticipant}`,
+    );
+
     // Create Stripe payment link
     // For amount, we'll use 0 since the actual amount will be calculated in the createPaymentLink function
-    const stripePaymentLink = await createPaymentLink(0, participantId, raceid, isemaparticipant);
-    
+    const stripePaymentLink = await createPaymentLink(
+      0,
+      participantId,
+      raceid,
+      isemaparticipant,
+    );
+
     // If we couldn't create a payment link, fall back to the registration success page
     const fallbackPaymentUrl = `https://stanatrailrace.ro/registration-success?participantId=${participantId}&raceid=${raceid}`;
-    
+
     // Use the Stripe payment link if available, otherwise use the fallback
     const paymentUrl = stripePaymentLink || fallbackPaymentUrl;
-    
+
     console.log(`Using payment URL: ${paymentUrl}`);
-    
+
     // First try with custom domain
-    
+
     // Create greeting with the safe name
-    const greetingWithName = lang === 'en' ? 
-      `Dear ${fullName},` : 
-      lang === 'ro' ? 
-        `Dragă ${fullName},` : 
-        lang === 'fr' ? 
-          `Cher/Chère ${fullName},` : 
-          lang === 'de' ? 
-            `Liebe(r) ${fullName},` : 
-            lang === 'it' ? 
-              `Gentile ${fullName},` : 
-              `Estimado/a ${fullName},`;
-    
+    const greetingWithName =
+      lang === "en"
+        ? `Dear ${fullName},`
+        : lang === "ro"
+          ? `Dragă ${fullName},`
+          : lang === "fr"
+            ? `Cher/Chère ${fullName},`
+            : lang === "de"
+              ? `Liebe(r) ${fullName},`
+              : lang === "it"
+                ? `Gentile ${fullName},`
+                : `Estimado/a ${fullName},`;
+
     const result = await sendEmail({
       to: email,
       from: DEFAULT_FROM_EMAIL, // Make sure this domain matches what you've verified in SendGrid
