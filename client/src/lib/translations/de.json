@@ -83,6 +83,8 @@
     "subtitle": "Von anfängerfreundlichen Trails bis hin zu anspruchsvollen Berg-Ultras – finde das perfekte Rennen für dein Niveau und deine Ambitionen.",
     "filterTitle": "Rennen filtern",
     "filterBy": "Filtern nach",
+    "shortTrail": "Kurzer Trail-Lauf",
+    "longTrail": "Langer Trail-Lauf",
     "filter": {
       "all": "Alle Rennen",
       "beginner": "Anfängerfreundlich",

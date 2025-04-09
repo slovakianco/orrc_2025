@@ -83,6 +83,8 @@
     "subtitle": "Dai sentieri adatti ai principianti alle ultra montane impegnative, trova la gara perfetta per il tuo livello e le tue ambizioni.",
     "filterTitle": "Filtra Gare",
     "filterBy": "Filtra per",
+    "shortTrail": "Percorso Corto",
+    "longTrail": "Percorso Lungo",
     "filter": {
       "all": "Tutte le Gare",
       "beginner": "Adatte ai Principianti",
