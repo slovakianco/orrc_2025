@@ -143,6 +143,42 @@ const RegistrationSuccessPage: React.FC = () => {
     console.log("Race ID from URL:", raceId);
     console.log("Payment success flag:", paymentSuccess);
     
+    // Check for stored payment token
+    const paymentToken = localStorage.getItem('paymentToken');
+    console.log("Payment token from localStorage:", paymentToken ? "Found" : "Not found");
+    
+    // Function to confirm payment using token
+    const confirmPaymentByToken = async (token: string) => {
+      try {
+        console.log("Confirming payment using token...");
+        const response = await apiRequest('POST', '/api/confirm-payment-by-token', {
+          token
+        });
+        
+        if (response.ok) {
+          const result = await response.json();
+          console.log("Payment confirmed with token:", result);
+          
+          if (result.success) {
+            toast({
+              title: t('payment.success'),
+              description: t('payment.successMessage'),
+            });
+            
+            // Remove token from localStorage after use
+            localStorage.removeItem('paymentToken');
+            return true;
+          }
+        } else {
+          console.error("Failed to confirm payment with token");
+        }
+      } catch (error) {
+        console.error("Error confirming payment with token:", error);
+      }
+      
+      return false;
+    };
+    
     // Function to confirm payment using payment intent
     const confirmPaymentByIntent = async () => {
       if (!paymentIntentId || !paymentIntentClientSecret) {
@@ -216,18 +252,40 @@ const RegistrationSuccessPage: React.FC = () => {
     const handlePaymentConfirmation = async () => {
       let success = false;
       
-      // First, try to confirm via payment intent if we have one
-      if (paymentIntentId && paymentIntentClientSecret) {
-        success = await confirmPaymentByIntent();
+      // First try with the payment token if available
+      if (paymentToken) {
+        success = await confirmPaymentByToken(paymentToken);
+        
+        // If token confirmation worked, we're done
+        if (success) {
+          return success;
+        }
       }
       
-      // If that didn't work or we don't have a payment intent but we have the payment_success flag,
+      // Next, try to confirm via payment intent if we have one
+      if (paymentIntentId && paymentIntentClientSecret) {
+        success = await confirmPaymentByIntent();
+        
+        // If intent confirmation worked, we're done
+        if (success) {
+          return success;
+        }
+      }
+      
+      // If the above didn't work or we don't have those details but we have the payment_success flag,
       // try to confirm via participant ID
-      if (!success && paymentSuccess && participantId) {
+      if (paymentSuccess && participantId) {
         success = await confirmPaymentByParticipant();
       }
       
-      // If either method succeeded, redirect to participants page
+      return success;
+    };
+    
+    // Execute payment confirmation and handle the result
+    const processPaymentConfirmation = async () => {
+      const success = await handlePaymentConfirmation();
+      
+      // If any method succeeded, redirect to participants page
       if (success) {
         setTimeout(() => {
           setLocation('/participants');
@@ -235,9 +293,9 @@ const RegistrationSuccessPage: React.FC = () => {
       }
     };
     
-    // Execute payment confirmation if we have either a payment intent or payment success flag
-    if ((paymentIntentId && paymentIntentClientSecret) || (paymentSuccess && participantId)) {
-      handlePaymentConfirmation();
+    // Execute payment confirmation if we have any of the required details
+    if (paymentToken || (paymentIntentId && paymentIntentClientSecret) || (paymentSuccess && participantId)) {
+      processPaymentConfirmation();
     }
   }, [paymentIntentId, paymentIntentClientSecret, paymentSuccess, participantId, toast, t, setLocation]);
 
@@ -384,8 +442,44 @@ const RegistrationSuccessPage: React.FC = () => {
             </>
           )}
           
-          {/* Default view when no parameters are provided */}
-          {!paymentSuccess && !paymentIntentId && !participantId && !raceId && (
+          {/* Success view from token (when redirected from Stripe with no URL params) */}
+          {!paymentSuccess && !paymentIntentId && !participantId && !raceId && localStorage.getItem('paymentToken') && (
+            <>
+              <div className="mb-6">
+                <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto" />
+              </div>
+              <h1 className="text-3xl font-bold text-primary mb-4">
+                {t('registration.successTitle')}
+              </h1>
+              <p className="text-lg mb-8">
+                {t('registration.successMessage')}
+              </p>
+              
+              <div className="space-y-4">
+                <p>
+                  {t('registration.checkEmail')}
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                  <Button 
+                    onClick={() => setLocation('/participants')}
+                    className="bg-primary hover:bg-primary/90"
+                  >
+                    {t('registration.viewParticipants')}
+                  </Button>
+                  <Button 
+                    variant="outline"
+                    onClick={() => setLocation('/')}
+                  >
+                    {t('general.backToHome')}
+                  </Button>
+                </div>
+              </div>
+            </>
+          )}
+          
+          {/* Default view when no parameters are provided and no token */}
+          {!paymentSuccess && !paymentIntentId && !participantId && !raceId && !localStorage.getItem('paymentToken') && (
             <>
               <h1 className="text-3xl font-bold text-primary mb-4">
                 {t('registration.title')}

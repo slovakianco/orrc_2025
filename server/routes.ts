@@ -2,12 +2,21 @@ import express, { type Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
 import fs from "fs";
 import path from "path";
+import crypto from "crypto";
 // Use the storage provider to get the correct storage implementation
 import { getStorage } from "./storage-provider";
 import { insertParticipantSchema, insertContactInquirySchema, type InsertParticipant } from "@shared/schema";
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 import { sendRegistrationConfirmationEmail, sendPaymentConfirmationEmail } from "./email";
+
+// Map to store payment confirmation tokens
+const paymentConfirmationTokens = new Map<string, number>();
+
+// Function to generate a secure random token
+function generateConfirmationToken(): string {
+  return crypto.randomBytes(32).toString('hex');
+}
 import Stripe from "stripe";
 
 // Initialize Stripe
@@ -114,7 +123,7 @@ export async function createPaymentLink(
       after_completion: {
         type: 'redirect',
         redirect: {
-          url: `${process.env.APP_URL || `https://${process.env.REPL_SLUG}.replit.app`}/registration-success?payment_success=true&participantId=${participantId}`,
+          url: `https://stanatrailrace.ro/registration-success?payment_success=true`,
         },
       },
       // Make the payment link single-use
@@ -677,6 +686,13 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       
       console.log(`Processing payment for participant: ${participantId}, race: ${raceId}, isEmaParticipant: ${isEma}`);
       
+      // Generate a secure token for this payment
+      const paymentToken = generateConfirmationToken();
+      
+      // Store the token with the participant ID
+      paymentConfirmationTokens.set(paymentToken, participantId);
+      console.log(`Generated payment confirmation token for participant ${participantId}`);
+      
       // First check if we have a payment link stored in the database
       try {
         const existingPaymentLink = await storage.getParticipantPaymentLink(participantId);
@@ -688,9 +704,12 @@ This message was sent from the Stana de Vale Trail Race website contact form.
           if (existingPaymentLink.expiresAt && existingPaymentLink.expiresAt < new Date()) {
             console.log(`Payment link for participant ${participantId} has expired. Creating a new one.`);
           } else {
-            // The link is still valid
+            // The link is still valid but we want to append our secure token
+            const paymentLinkWithToken = existingPaymentLink.paymentLink;
+            
             res.json({
-              paymentLink: existingPaymentLink.paymentLink,
+              paymentLink: paymentLinkWithToken,
+              paymentToken: paymentToken,
               success: true,
             });
             return;
@@ -710,9 +729,10 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       if (cachedPaymentLink) {
         console.log(`Using cached payment link for participant ${participantId}: ${cachedPaymentLink}`);
         
-        // Return the cached payment link - no need to create a new one
+        // Return the cached payment link with the new token
         res.json({
           paymentLink: cachedPaymentLink,
+          paymentToken: paymentToken,
           success: true,
         });
         return;
@@ -725,9 +745,10 @@ This message was sent from the Stana de Vale Trail Race website contact form.
         return res.status(500).json({ message: "Failed to create payment link" });
       }
       
-      // Return the payment link
+      // Return the payment link with token
       res.json({
         paymentLink: paymentLink,
+        paymentToken: paymentToken,
         success: true
       });
       
@@ -1131,6 +1152,127 @@ This message was sent from the Stana de Vale Trail Race website contact form.
     }
   });
   
+  // Confirm payment using token
+  apiRouter.post("/confirm-payment-by-token", async (req: Request, res: Response) => {
+    try {
+      const { token } = req.body;
+      
+      if (!token) {
+        return res.status(400).json({ success: false, message: "Token is required" });
+      }
+      
+      // Look up the participant ID from the token
+      const participantId = paymentConfirmationTokens.get(token);
+      
+      if (!participantId) {
+        return res.status(404).json({ 
+          success: false, 
+          message: "Invalid or expired token" 
+        });
+      }
+      
+      // Update participant status to 'confirmed'
+      const participant = await storage.updateParticipantStatus(
+        participantId, 
+        'confirmed'
+      );
+      
+      if (!participant) {
+        return res.status(404).json({ 
+          success: false, 
+          message: "Participant not found" 
+        });
+      }
+      
+      // Get race details for the confirmation email
+      const race = await storage.getRaceById(participant.raceId);
+      const raceCategory = race ? `${race.distance}km ${race.difficulty}` : "Trail Race";
+      
+      // Send payment confirmation email
+      try {
+        const emailSent = await sendPaymentConfirmationEmail(
+          participant.email,
+          participant.firstName,
+          participant.lastName,
+          raceCategory
+        );
+        
+        if (emailSent) {
+          console.log(`Payment confirmation email sent to ${participant.email}`);
+        } else {
+          console.warn(`Failed to send payment confirmation email to ${participant.email}`);
+        }
+      } catch (emailError) {
+        console.error("Error sending payment confirmation email:", emailError);
+        // Continue even if email fails
+      }
+      
+      // Remove the token after successful use
+      paymentConfirmationTokens.delete(token);
+      
+      return res.json({
+        success: true,
+        message: "Payment confirmed successfully",
+        participant: {
+          id: participant.id,
+          name: `${participant.firstName} ${participant.lastName}`,
+          status: participant.status
+        }
+      });
+    } catch (error) {
+      console.error("Error confirming payment by token:", error);
+      return res.status(500).json({ 
+        success: false, 
+        message: "Failed to confirm payment" 
+      });
+    }
+  });
+  
+  // Verify payment token and return participant ID
+  apiRouter.get("/verify-payment-token/:token", async (req: Request, res: Response) => {
+    try {
+      const { token } = req.params;
+      
+      if (!token) {
+        return res.status(400).json({ success: false, message: "Token is required" });
+      }
+      
+      // Look up the participant ID from the token
+      const participantId = paymentConfirmationTokens.get(token);
+      
+      if (!participantId) {
+        return res.status(404).json({ 
+          success: false, 
+          message: "Invalid or expired token" 
+        });
+      }
+      
+      // Get the participant details
+      const participant = await storage.getParticipantById(participantId);
+      
+      if (!participant) {
+        return res.status(404).json({ 
+          success: false, 
+          message: "Participant not found" 
+        });
+      }
+      
+      // Return minimal information to verify the participant
+      return res.json({
+        success: true,
+        participantId: participantId,
+        name: `${participant.firstName} ${participant.lastName}`,
+        status: participant.status
+      });
+    } catch (error) {
+      console.error("Error verifying payment token:", error);
+      return res.status(500).json({ 
+        success: false, 
+        message: "Failed to verify payment token" 
+      });
+    }
+  });
+
   // Check SendGrid status
   apiRouter.get("/email-status", (req: Request, res: Response) => {
     const sendgridConfigured = !!process.env.SENDGRID_API_KEY;

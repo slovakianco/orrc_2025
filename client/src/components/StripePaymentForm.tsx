@@ -180,6 +180,12 @@ const StripePaymentForm: React.FC<StripePaymentFormProps> = ({
         if (response.ok && data.paymentLink) {
           console.log("Payment link received, redirecting to:", data.paymentLink);
           
+          // Store the payment token in localStorage for access after redirect
+          if (data.paymentToken) {
+            localStorage.setItem('paymentToken', data.paymentToken);
+            console.log("Payment token stored:", data.paymentToken);
+          }
+          
           // Show loading toast before redirecting
           toast({
             title: t('payment.redirecting'),
