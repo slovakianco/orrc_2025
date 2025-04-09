@@ -173,11 +173,9 @@ const RegistrationFormWithPayment = () => {
         emergencycontactname: data.emergencyContactName || "",
         emergencyContactPhone: data.emergencyContactPhone || "", 
         emergencycontactphone: data.emergencyContactPhone || "",
-        // For isemaparticipant, include both camelCase and lowercase versions for backend compatibility
+        // For isemaparticipant, include only lowercase version for backend compatibility
         isemaparticipant: data.isemaparticipant === true, // Ensure it's a boolean
-        isemaparticipant: data.isemaparticipant === true, // Ensure it's a boolean
-        // For t-shirt size, include both camelCase and lowercase versions for backend compatibility
-        tshirtsize: data.tshirtsize || "",
+        // For t-shirt size, include only lowercase version for backend compatibility
         tshirtsize: data.tshirtsize || ""
       };
       

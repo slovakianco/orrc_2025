@@ -82,10 +82,19 @@ export async function createPaymentLink(
     // 33km race: 200 lei (EMA) or 170 lei (non-EMA)
     // 11km race: 150 lei (EMA) or 120 lei (non-EMA)
     let ronAmount = 0;
-    if (raceid === 1) { // 33km race
-      ronAmount = isemaparticipant ? 200 : 170; // 200 lei for EMA, 170 lei for non-EMA
-    } else { // 11km race
-      ronAmount = isemaparticipant ? 150 : 120; // 150 lei for EMA, 120 lei for non-EMA
+    
+    // If amount is provided and > 0, use it (client-side calculation)
+    if (amount && amount > 0) {
+      console.log(`Using provided amount: ${amount} RON`);
+      ronAmount = amount;
+    } else {
+      // Fallback to server-side calculation
+      if (raceid === 1) { // 33km race
+        ronAmount = isemaparticipant ? 200 : 170; // 200 lei for EMA, 170 lei for non-EMA
+      } else { // 11km race
+        ronAmount = isemaparticipant ? 150 : 120; // 150 lei for EMA, 120 lei for non-EMA
+      }
+      console.log(`Calculated amount: ${ronAmount} RON (Race: ${raceid}, EMA: ${isemaparticipant})`);
     }
     
     // Create a payment link using the correct approach
@@ -719,7 +728,7 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       }
       
       // No cached payment link, create one using our existing function
-      const paymentLink = await createPaymentLink(0, participantId, raceid, isema);
+      const paymentLink = await createPaymentLink(amount, participantId, raceid, isema);
       
       if (!paymentLink) {
         return res.status(500).json({ message: "Failed to create payment link" });
