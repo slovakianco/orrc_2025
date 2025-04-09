@@ -22,49 +22,37 @@ export default function RulesContent() {
         return [
           "Nr. concurs vizibil pe tot parcursul",
           "Telefon mobil încărcat cu numere de urgență",
-          "Recipient apă min. 500 ml",
-          "Foiță impermeabilă",
-          "Încălțăminte munte Trail",
+          "Recipient apă min. 500 ml"
         ];
       case "fr":
         return [
           "Numéro de course visible en tout temps",
           "Téléphone mobile chargé avec numéros d'urgence",
-          "Contenant d'eau (minimum 500ml)",
-          "Veste imperméable",
-          "Chaussures de trail running",
+          "Contenant d'eau (minimum 500ml)"
         ];
       case "de":
         return [
           "Startnummer jederzeit sichtbar",
           "Aufgeladenes Mobiltelefon mit Notfallnummern",
-          "Wasserbehälter (mindestens 500ml)",
-          "Wasserdichte Jacke",
-          "Trail-Running-Schuhe",
+          "Wasserbehälter (mindestens 500ml)"
         ];
       case "it":
         return [
           "Numero di gara visibile in ogni momento",
           "Telefono cellulare carico con numeri di emergenza",
-          "Contenitore d'acqua (minimo 500ml)",
-          "Giacca impermeabile",
-          "Scarpe da trail running",
+          "Contenitore d'acqua (minimo 500ml)"
         ];
       case "es":
         return [
           "Número de carrera visible en todo momento",
           "Teléfono móvil cargado con números de emergencia",
           "Recipiente de agua (mínimo 500ml)",
-          "Chaqueta impermeable",
-          "Zapatillas de trail running",
         ];
       default: // English
         return [
           "Race bib visible at all times",
           "Fully charged mobile phone with emergency numbers",
-          "Water container (minimum 500ml)",
-          "Waterproof jacket",
-          "Trail running shoes",
+          "Water container (minimum 500ml)"
         ];
     }
   };

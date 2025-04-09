@@ -83,8 +83,8 @@
     "subtitle": "Des sentiers adaptés aux débutants aux ultras montagneuses exigeantes, trouvez la course parfaite pour votre niveau et vos ambitions.",
     "filterTitle": "Filtrer les courses",
     "filterBy": "Filtrer par",
-    "shortTrail": "Course Trail Court",
-    "longTrail": "Course Trail Long",
+    "shortTrail": "Up/Down",
+    "longTrail": "Long Trail",
     "filter": {
       "all": "Toutes les courses",
       "beginner": "Adaptée aux débutants",

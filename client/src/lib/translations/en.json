@@ -108,8 +108,8 @@
     "subtitle": "From beginner-friendly trails to challenging mountain ultras, find the perfect race for your level and ambition.",
     "filterTitle": "Filter Races",
     "filterBy": "Filter by",
-    "shortTrail": "Short Trail Race",
-    "longTrail": "Long Trail Race",
+    "shortTrail": "Up/Down",
+    "longTrail": "Long Trail",
     "filter": {
       "all": "All Races",
       "beginner": "Beginner Friendly",
