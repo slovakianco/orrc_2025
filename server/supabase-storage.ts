@@ -542,7 +542,8 @@ export class SupabaseStorage implements IStorage {
   async saveParticipantPaymentLink(
     id: number, 
     paymentLink: string,
-    expiresAt?: Date
+    expiresAt?: Date,
+    paymentToken?: string
   ): Promise<Participant | undefined> {
     // Retrieve the current participant
     const participant = await this.getParticipantById(id);
@@ -555,7 +556,8 @@ export class SupabaseStorage implements IStorage {
     const updateData = {
       payment_link: paymentLink,
       payment_link_created_at: new Date().toISOString(),
-      payment_link_expires_at: expiresAt ? expiresAt.toISOString() : null
+      payment_link_expires_at: expiresAt ? expiresAt.toISOString() : null,
+      payment_token: paymentToken || null
     };
     
     // Update in Supabase
@@ -571,16 +573,39 @@ export class SupabaseStorage implements IStorage {
       throw new Error(`Failed to save payment link: ${error?.message}`);
     }
     
+    // If we have a token, also record it in the payment_tokens table
+    if (paymentToken && expiresAt) {
+      try {
+        const { error: tokenError } = await supabase
+          .from('payment_tokens')
+          .insert({
+            token: paymentToken,
+            participant_id: id,
+            created_at: new Date().toISOString(),
+            expires_at: expiresAt.toISOString(),
+            used: false
+          });
+          
+        if (tokenError) {
+          console.error(`Error saving payment token record for participant ${id}:`, tokenError);
+          // Not throwing here as the main update succeeded
+        }
+      } catch (tokenErr: any) {
+        console.error(`Error creating payment token record for participant ${id}:`, tokenErr);
+        // Not throwing here as the main update succeeded
+      }
+    }
+    
     // Map Supabase data to our Participant type
     return this.mapParticipantData(data);
   }
   
   async getParticipantPaymentLink(
     id: number
-  ): Promise<{ paymentLink: string; createdAt: Date; expiresAt?: Date } | undefined> {
+  ): Promise<{ paymentLink: string; createdAt: Date; expiresAt?: Date; paymentToken?: string } | undefined> {
     const { data, error } = await supabase
       .from('participants')
-      .select('payment_link, payment_link_created_at, payment_link_expires_at')
+      .select('payment_link, payment_link_created_at, payment_link_expires_at, payment_token')
       .eq('id', id)
       .single();
     
@@ -593,8 +618,82 @@ export class SupabaseStorage implements IStorage {
     return {
       paymentLink: data.payment_link,
       createdAt: new Date(data.payment_link_created_at),
-      expiresAt: data.payment_link_expires_at ? new Date(data.payment_link_expires_at) : undefined
+      expiresAt: data.payment_link_expires_at ? new Date(data.payment_link_expires_at) : undefined,
+      paymentToken: data.payment_token || undefined
     };
+  }
+  
+  async getParticipantByToken(token: string): Promise<Participant | undefined> {
+    // First check the payment_tokens table
+    const { data: tokenData, error: tokenError } = await supabase
+      .from('payment_tokens')
+      .select('participant_id, used, expires_at')
+      .eq('token', token)
+      .single();
+      
+    if (tokenError || !tokenData) {
+      console.log(`No token record found for token: ${token}`);
+      
+      // Fallback to checking participants table directly
+      const { data: participantData, error: participantError } = await supabase
+        .from('participants')
+        .select('*')
+        .eq('payment_token', token)
+        .single();
+        
+      if (participantError || !participantData) {
+        console.log(`No participant found with token: ${token}`);
+        return undefined;
+      }
+      
+      return this.mapParticipantData(participantData);
+    }
+    
+    // Check if token is expired
+    if (tokenData.expires_at && new Date(tokenData.expires_at) < new Date()) {
+      console.log(`Token expired: ${token}, expired at ${tokenData.expires_at}`);
+      return undefined;
+    }
+    
+    // Check if token has been used already
+    if (tokenData.used) {
+      console.log(`Token already used: ${token}`);
+      return undefined;
+    }
+    
+    // Get the participant
+    const { data: participantData, error: participantError } = await supabase
+      .from('participants')
+      .select('*')
+      .eq('id', tokenData.participant_id)
+      .single();
+      
+    if (participantError || !participantData) {
+      console.log(`No participant found with ID: ${tokenData.participant_id} for token: ${token}`);
+      return undefined;
+    }
+    
+    return this.mapParticipantData(participantData);
+  }
+  
+  async markTokenAsUsed(token: string): Promise<boolean> {
+    try {
+      // Mark the token as used in the payment_tokens table
+      const { error: tokenError } = await supabase
+        .from('payment_tokens')
+        .update({ used: true })
+        .eq('token', token);
+        
+      if (tokenError) {
+        console.error(`Error marking token as used: ${token}`, tokenError);
+        return false;
+      }
+      
+      return true;
+    } catch (error) {
+      console.error(`Error marking token as used: ${token}`, error);
+      return false;
+    }
   }
   
   // Helper methods

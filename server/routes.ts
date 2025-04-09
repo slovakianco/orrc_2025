@@ -48,7 +48,7 @@ export async function createPaymentLink(
   participantId: number, 
   raceId: number, 
   isEmaParticipant: boolean
-): Promise<string | null> {
+): Promise<{ paymentLink: string; paymentToken?: string } | null> {
   try {
     if (!global.stripe) {
       console.error("Stripe is not configured. Payment link cannot be created.");
@@ -70,7 +70,10 @@ export async function createPaymentLink(
           console.log(`Payment link for participant ${participantId} has expired. Creating a new one.`);
         } else {
           // The link is still valid
-          return existingPaymentLink.paymentLink;
+          return { 
+            paymentLink: existingPaymentLink.paymentLink,
+            paymentToken: existingPaymentLink.paymentToken 
+          };
         }
       }
     } catch (dbError) {
@@ -84,7 +87,7 @@ export async function createPaymentLink(
     const cachedPaymentLink = paymentLinkCache.get(participantCacheKey);
     if (cachedPaymentLink) {
       console.log(`Using cached payment link for participant ${participantId}: ${cachedPaymentLink}`);
-      return cachedPaymentLink;
+      return { paymentLink: cachedPaymentLink };
     }
     
     // Calculate the correct amount based on the race and EMA status
@@ -145,6 +148,7 @@ export async function createPaymentLink(
     expiresAt.setHours(expiresAt.getHours() + 48); // Link expires after 48 hours
     
     try {
+      // Note: at this point we don't have a payment token yet, so we pass just the required args
       await storage.saveParticipantPaymentLink(participantId, paymentLink.url, expiresAt);
       console.log(`Stored payment link in database for participant ${participantId}: ${paymentLink.url}, expires at ${expiresAt.toISOString()}`);
     } catch (dbError) {
@@ -154,7 +158,24 @@ export async function createPaymentLink(
       console.log(`Stored payment link in cache (backup) for participant ${participantId}: ${paymentLink.url}`);
     }
     
-    return paymentLink.url;
+    // Generate a secure token for payment verification
+    const crypto = require('crypto');
+    const paymentToken = crypto.randomBytes(32).toString('hex');
+    console.log(`Generated payment token for participant ${participantId}: ${paymentToken}`);
+    
+    // Update the payment link with the token
+    try {
+      await storage.saveParticipantPaymentLink(participantId, paymentLink.url, expiresAt, paymentToken);
+      console.log(`Updated payment link with token for participant ${participantId}`);
+    } catch (tokenError) {
+      console.error(`Error saving payment token:`, tokenError);
+      // Continue even if token update fails
+    }
+    
+    return { 
+      paymentLink: paymentLink.url,
+      paymentToken
+    };
   } catch (error: any) {
     console.error("Error creating Stripe payment link:", error.message);
     return null;
@@ -1161,26 +1182,88 @@ This message was sent from the Stana de Vale Trail Race website contact form.
         return res.status(400).json({ success: false, message: "Token is required" });
       }
       
-      // Look up the participant ID from the token
-      const participantId = paymentConfirmationTokens.get(token);
+      console.log(`Processing payment confirmation for token: ${token}`);
       
-      if (!participantId) {
-        return res.status(404).json({ 
-          success: false, 
-          message: "Invalid or expired token" 
+      // Fetch participant directly from the token using our new database lookup function
+      const participant = await storage.getParticipantByToken(token);
+      
+      if (!participant) {
+        // Fallback to legacy in-memory token storage
+        const participantId = paymentConfirmationTokens.get(token);
+        
+        if (!participantId) {
+          return res.status(404).json({ 
+            success: false, 
+            message: "Invalid or expired token" 
+          });
+        }
+        
+        // Update participant status to 'confirmed' using the legacy token
+        const legacyParticipant = await storage.updateParticipantStatus(
+          participantId, 
+          'confirmed'
+        );
+        
+        if (!legacyParticipant) {
+          return res.status(404).json({ 
+            success: false, 
+            message: "Participant not found" 
+          });
+        }
+        
+        // Get race details for the confirmation email
+        const race = await storage.getRaceById(legacyParticipant.raceId);
+        const raceCategory = race ? `${race.distance}km ${race.difficulty}` : "Trail Race";
+        
+        // Send payment confirmation email
+        try {
+          const emailSent = await sendPaymentConfirmationEmail(
+            legacyParticipant.email,
+            legacyParticipant.firstName,
+            legacyParticipant.lastName,
+            raceCategory
+          );
+          
+          if (emailSent) {
+            console.log(`Payment confirmation email sent to ${legacyParticipant.email}`);
+          } else {
+            console.warn(`Failed to send payment confirmation email to ${legacyParticipant.email}`);
+          }
+        } catch (emailError) {
+          console.error("Error sending payment confirmation email:", emailError);
+          // Continue even if email fails
+        }
+        
+        // Remove the token after successful use
+        paymentConfirmationTokens.delete(token);
+        
+        return res.json({
+          success: true,
+          message: "Payment confirmed successfully (legacy token)",
+          participant: {
+            id: legacyParticipant.id,
+            name: `${legacyParticipant.firstName} ${legacyParticipant.lastName}`,
+            status: legacyParticipant.status
+          }
         });
       }
       
+      // Mark token as used in database
+      const tokenMarkingResult = await storage.markTokenAsUsed(token);
+      if (!tokenMarkingResult) {
+        console.warn(`Failed to mark token as used in database: ${token}`);
+      }
+      
       // Update participant status to 'confirmed'
-      const participant = await storage.updateParticipantStatus(
-        participantId, 
+      const updatedParticipant = await storage.updateParticipantStatus(
+        participant.id, 
         'confirmed'
       );
       
-      if (!participant) {
-        return res.status(404).json({ 
+      if (!updatedParticipant) {
+        return res.status(500).json({ 
           success: false, 
-          message: "Participant not found" 
+          message: "Failed to update participant status" 
         });
       }
       
@@ -1207,16 +1290,13 @@ This message was sent from the Stana de Vale Trail Race website contact form.
         // Continue even if email fails
       }
       
-      // Remove the token after successful use
-      paymentConfirmationTokens.delete(token);
-      
       return res.json({
         success: true,
         message: "Payment confirmed successfully",
         participant: {
           id: participant.id,
           name: `${participant.firstName} ${participant.lastName}`,
-          status: participant.status
+          status: updatedParticipant.status
         }
       });
     } catch (error) {
@@ -1237,30 +1317,45 @@ This message was sent from the Stana de Vale Trail Race website contact form.
         return res.status(400).json({ success: false, message: "Token is required" });
       }
       
-      // Look up the participant ID from the token
-      const participantId = paymentConfirmationTokens.get(token);
+      console.log(`Verifying payment token: ${token}`);
       
-      if (!participantId) {
-        return res.status(404).json({ 
-          success: false, 
-          message: "Invalid or expired token" 
-        });
-      }
-      
-      // Get the participant details
-      const participant = await storage.getParticipantById(participantId);
+      // Get the participant using the token (using our new database storage method)
+      const participant = await storage.getParticipantByToken(token);
       
       if (!participant) {
-        return res.status(404).json({ 
-          success: false, 
-          message: "Participant not found" 
+        // If not found in database, check legacy in-memory token storage
+        const participantId = paymentConfirmationTokens.get(token);
+        
+        if (!participantId) {
+          return res.status(404).json({ 
+            success: false, 
+            message: "Invalid or expired token" 
+          });
+        }
+        
+        // Get the participant details from the ID
+        const legacyParticipant = await storage.getParticipantById(participantId);
+        
+        if (!legacyParticipant) {
+          return res.status(404).json({ 
+            success: false, 
+            message: "Participant not found" 
+          });
+        }
+        
+        // Return minimal information to verify the participant (legacy flow)
+        return res.json({
+          success: true,
+          participantId: participantId,
+          name: `${legacyParticipant.firstName} ${legacyParticipant.lastName}`,
+          status: legacyParticipant.status
         });
       }
       
       // Return minimal information to verify the participant
       return res.json({
         success: true,
-        participantId: participantId,
+        participantId: participant.id,
         name: `${participant.firstName} ${participant.lastName}`,
         status: participant.status
       });

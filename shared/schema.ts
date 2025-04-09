@@ -69,6 +69,8 @@ export const participants = pgTable("participants", {
   payment_link: text("payment_link"),
   payment_link_created_at: timestamp("payment_link_created_at"),
   payment_link_expires_at: timestamp("payment_link_expires_at"),
+  payment_token: text("payment_token"),
+  payment_token_used: boolean("payment_token_used").default(false),
 });
 
 export const insertParticipantSchema = createInsertSchema(participants).omit({
@@ -180,6 +182,8 @@ export type Participant = typeof participants.$inferSelect & {
   payment_link?: string;
   payment_link_created_at?: Date;
   payment_link_expires_at?: Date;
+  payment_token?: string;
+  payment_token_used?: boolean;
 };
 export type InsertParticipant = z.infer<typeof insertParticipantSchema>;
 
