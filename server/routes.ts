@@ -147,29 +147,23 @@ export async function createPaymentLink(
     const expiresAt = new Date();
     expiresAt.setHours(expiresAt.getHours() + 48); // Link expires after 48 hours
     
+    // Generate a secure token for payment verification using the imported crypto module
+    const paymentToken = generateConfirmationToken();
+    console.log(`Generated payment token for participant ${participantId}: ${paymentToken}`);
+    
+    // Save the payment link with the token in a single operation
     try {
-      // Note: at this point we don't have a payment token yet, so we pass just the required args
-      await storage.saveParticipantPaymentLink(participantId, paymentLink.url, expiresAt);
-      console.log(`Stored payment link in database for participant ${participantId}: ${paymentLink.url}, expires at ${expiresAt.toISOString()}`);
+      await storage.saveParticipantPaymentLink(participantId, paymentLink.url, expiresAt, paymentToken);
+      console.log(`Stored payment link in database for participant ${participantId}: ${paymentLink.url}, expires at ${expiresAt.toISOString()}, token: ${paymentToken}`);
     } catch (dbError) {
       console.error(`Error saving payment link to database:`, dbError);
       // Still save in memory cache as a fallback
       paymentLinkCache.set(participantCacheKey, paymentLink.url);
       console.log(`Stored payment link in cache (backup) for participant ${participantId}: ${paymentLink.url}`);
-    }
-    
-    // Generate a secure token for payment verification
-    const crypto = require('crypto');
-    const paymentToken = crypto.randomBytes(32).toString('hex');
-    console.log(`Generated payment token for participant ${participantId}: ${paymentToken}`);
-    
-    // Update the payment link with the token
-    try {
-      await storage.saveParticipantPaymentLink(participantId, paymentLink.url, expiresAt, paymentToken);
-      console.log(`Updated payment link with token for participant ${participantId}`);
-    } catch (tokenError) {
-      console.error(`Error saving payment token:`, tokenError);
-      // Continue even if token update fails
+      
+      // Also store the token in memory as a fallback
+      paymentConfirmationTokens.set(paymentToken, participantId);
+      console.log(`Stored payment token in memory for participant ${participantId}`);
     }
     
     return { 
@@ -710,7 +704,8 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       // Generate a secure token for this payment
       const paymentToken = generateConfirmationToken();
       
-      // Store the token with the participant ID
+      // Store the token with the participant ID (in-memory fallback only)
+      // The token will be properly saved in the database when we save the payment link
       paymentConfirmationTokens.set(paymentToken, participantId);
       console.log(`Generated payment confirmation token for participant ${participantId}`);
       
@@ -725,14 +720,20 @@ This message was sent from the Stana de Vale Trail Race website contact form.
           if (existingPaymentLink.expiresAt && existingPaymentLink.expiresAt < new Date()) {
             console.log(`Payment link for participant ${participantId} has expired. Creating a new one.`);
           } else {
-            // The link is still valid but we want to append our secure token
-            const paymentLinkWithToken = existingPaymentLink.paymentLink;
-            
-            res.json({
-              paymentLink: paymentLinkWithToken,
-              paymentToken: paymentToken,
-              success: true,
-            });
+            // The link is still valid
+          const paymentLinkWithToken = existingPaymentLink.paymentLink;
+          
+          // If we already have a token stored, use that instead of generating a new one
+          const existingToken = existingPaymentLink.paymentToken || paymentToken;
+          
+          // Update token mapping in memory as a fallback
+          paymentConfirmationTokens.set(existingToken, participantId);
+          
+          res.json({
+            paymentLink: paymentLinkWithToken,
+            paymentToken: existingToken,
+            success: true,
+          });
             return;
           }
         }
