@@ -212,22 +212,21 @@ export class HybridStorage implements IStorage {
   async saveParticipantPaymentLink(
     id: number, 
     paymentLink: string,
-    expiresAt?: Date,
-    paymentToken?: string
+    expiresAt?: Date
   ): Promise<Participant | undefined> {
     if (!this.supabaseAvailable) {
       console.log(`Supabase not available, using MemStorage for payment link: ${id}`);
-      return this.memStorage.saveParticipantPaymentLink(id, paymentLink, expiresAt, paymentToken);
+      return this.memStorage.saveParticipantPaymentLink(id, paymentLink, expiresAt);
     }
 
     try {
       // Try to save in Supabase first
-      const updatedParticipant = await this.supabaseStorage.saveParticipantPaymentLink(id, paymentLink, expiresAt, paymentToken);
+      const updatedParticipant = await this.supabaseStorage.saveParticipantPaymentLink(id, paymentLink, expiresAt);
       console.log(`Payment link for participant ${id} successfully saved in Supabase`);
       
       // Also update in memory to keep in sync (best effort)
       try {
-        await this.memStorage.saveParticipantPaymentLink(id, paymentLink, expiresAt, paymentToken);
+        await this.memStorage.saveParticipantPaymentLink(id, paymentLink, expiresAt);
       } catch (e) {
         console.warn(`Failed to save payment link for participant ${id} in MemStorage: ${e}`);
       }
@@ -236,72 +235,13 @@ export class HybridStorage implements IStorage {
     } catch (error) {
       console.error(`Error saving payment link for participant ${id} in Supabase:`, error);
       console.warn("Falling back to in-memory storage for payment link");
-      return this.memStorage.saveParticipantPaymentLink(id, paymentLink, expiresAt, paymentToken);
-    }
-  }
-  
-  // Payment token management
-  async getParticipantByToken(token: string): Promise<Participant | undefined> {
-    if (!this.supabaseAvailable) {
-      console.log(`Supabase not available, using MemStorage for token lookup: ${token}`);
-      return this.memStorage.getParticipantByToken(token);
-    }
-    
-    try {
-      // Try to get from Supabase first
-      const participant = await this.supabaseStorage.getParticipantByToken(token);
-      
-      if (participant) {
-        console.log(`Participant found by token in Supabase: ${token}`);
-        return participant;
-      }
-      
-      // Fallback to memory storage if not found
-      console.log(`Participant not found by token in Supabase, trying MemStorage: ${token}`);
-      return this.memStorage.getParticipantByToken(token);
-    } catch (error) {
-      console.error(`Error getting participant by token from Supabase:`, error);
-      console.warn("Falling back to in-memory storage for token lookup");
-      return this.memStorage.getParticipantByToken(token);
-    }
-  }
-  
-  async markTokenAsUsed(token: string): Promise<boolean> {
-    if (!this.supabaseAvailable) {
-      console.log(`Supabase not available, using MemStorage to mark token as used: ${token}`);
-      return this.memStorage.markTokenAsUsed(token);
-    }
-    
-    try {
-      // Try to mark in Supabase first
-      const success = await this.supabaseStorage.markTokenAsUsed(token);
-      
-      if (success) {
-        console.log(`Token marked as used in Supabase: ${token}`);
-        
-        // Also mark in memory storage (best effort)
-        try {
-          await this.memStorage.markTokenAsUsed(token);
-        } catch (e) {
-          console.warn(`Failed to mark token as used in MemStorage: ${e}`);
-        }
-        
-        return true;
-      } else {
-        // Fallback to memory storage
-        console.warn(`Failed to mark token as used in Supabase, trying MemStorage: ${token}`);
-        return this.memStorage.markTokenAsUsed(token);
-      }
-    } catch (error) {
-      console.error(`Error marking token as used in Supabase:`, error);
-      console.warn("Falling back to in-memory storage to mark token as used");
-      return this.memStorage.markTokenAsUsed(token);
+      return this.memStorage.saveParticipantPaymentLink(id, paymentLink, expiresAt);
     }
   }
   
   async getParticipantPaymentLink(
     id: number
-  ): Promise<{ paymentLink: string; createdAt: Date; expiresAt?: Date; paymentToken?: string } | undefined> {
+  ): Promise<{ paymentLink: string; createdAt: Date; expiresAt?: Date } | undefined> {
     if (!this.supabaseAvailable) {
       console.log(`Supabase not available, using MemStorage for getting payment link: ${id}`);
       return this.memStorage.getParticipantPaymentLink(id);

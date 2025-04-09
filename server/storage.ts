@@ -51,17 +51,12 @@ export interface IStorage {
   saveParticipantPaymentLink(
     id: number, 
     paymentLink: string,
-    expiresAt?: Date,
-    paymentToken?: string
+    expiresAt?: Date
   ): Promise<Participant | undefined>;
   
   getParticipantPaymentLink(
     id: number
-  ): Promise<{ paymentLink: string; createdAt: Date; expiresAt?: Date; paymentToken?: string } | undefined>;
-  
-  // Payment token management
-  getParticipantByToken(token: string): Promise<Participant | undefined>;
-  markTokenAsUsed(token: string): Promise<boolean>;
+  ): Promise<{ paymentLink: string; createdAt: Date; expiresAt?: Date } | undefined>;
 
   // Contact Inquiries
   createContactInquiry(inquiry: InsertContactInquiry): Promise<ContactInquiry>;
@@ -333,8 +328,7 @@ export class MemStorage implements IStorage {
   async saveParticipantPaymentLink(
     id: number, 
     paymentLink: string,
-    expiresAt?: Date,
-    paymentToken?: string
+    expiresAt?: Date
   ): Promise<Participant | undefined> {
     const participant = await this.getParticipantById(id);
     if (!participant) return undefined;
@@ -346,8 +340,7 @@ export class MemStorage implements IStorage {
       ...participant, 
       payment_link: paymentLink,
       payment_link_created_at: now,
-      payment_link_expires_at: expiresAt,
-      payment_token: paymentToken
+      payment_link_expires_at: expiresAt
     };
     
     this.participants.set(id, updatedParticipant);
@@ -356,41 +349,15 @@ export class MemStorage implements IStorage {
   
   async getParticipantPaymentLink(
     id: number
-  ): Promise<{ paymentLink: string; createdAt: Date; expiresAt?: Date; paymentToken?: string } | undefined> {
+  ): Promise<{ paymentLink: string; createdAt: Date; expiresAt?: Date } | undefined> {
     const participant = await this.getParticipantById(id);
     if (!participant || !participant.payment_link) return undefined;
     
     return {
       paymentLink: participant.payment_link,
       createdAt: participant.payment_link_created_at || new Date(),
-      expiresAt: participant.payment_link_expires_at,
-      paymentToken: participant.payment_token
+      expiresAt: participant.payment_link_expires_at
     };
-  }
-
-  // Token management
-  async getParticipantByToken(token: string): Promise<Participant | undefined> {
-    // Find the participant with the specified token
-    return Array.from(this.participants.values()).find(
-      (participant) => 
-        participant.payment_token === token && 
-        participant.payment_token_used !== true
-    );
-  }
-
-  async markTokenAsUsed(token: string): Promise<boolean> {
-    // Find the participant with the specified token
-    const participant = await this.getParticipantByToken(token);
-    if (!participant) return false;
-    
-    // Mark the token as used
-    const updatedParticipant: Participant = { 
-      ...participant, 
-      payment_token_used: true
-    };
-    
-    this.participants.set(participant.id, updatedParticipant);
-    return true;
   }
 
   // Helper methods

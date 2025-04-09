@@ -2,21 +2,12 @@ import express, { type Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
 import fs from "fs";
 import path from "path";
-import crypto from "crypto";
 // Use the storage provider to get the correct storage implementation
 import { getStorage } from "./storage-provider";
 import { insertParticipantSchema, insertContactInquirySchema, type InsertParticipant } from "@shared/schema";
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 import { sendRegistrationConfirmationEmail, sendPaymentConfirmationEmail } from "./email";
-
-// Map to store payment confirmation tokens
-const paymentConfirmationTokens = new Map<string, number>();
-
-// Function to generate a secure random token
-function generateConfirmationToken(): string {
-  return crypto.randomBytes(32).toString('hex');
-}
 import Stripe from "stripe";
 
 // Initialize Stripe
@@ -48,7 +39,7 @@ export async function createPaymentLink(
   participantId: number, 
   raceId: number, 
   isEmaParticipant: boolean
-): Promise<{ paymentLink: string; paymentToken?: string } | null> {
+): Promise<string | null> {
   try {
     if (!global.stripe) {
       console.error("Stripe is not configured. Payment link cannot be created.");
@@ -70,10 +61,7 @@ export async function createPaymentLink(
           console.log(`Payment link for participant ${participantId} has expired. Creating a new one.`);
         } else {
           // The link is still valid
-          return { 
-            paymentLink: existingPaymentLink.paymentLink,
-            paymentToken: existingPaymentLink.paymentToken 
-          };
+          return existingPaymentLink.paymentLink;
         }
       }
     } catch (dbError) {
@@ -87,7 +75,7 @@ export async function createPaymentLink(
     const cachedPaymentLink = paymentLinkCache.get(participantCacheKey);
     if (cachedPaymentLink) {
       console.log(`Using cached payment link for participant ${participantId}: ${cachedPaymentLink}`);
-      return { paymentLink: cachedPaymentLink };
+      return cachedPaymentLink;
     }
     
     // Calculate the correct amount based on the race and EMA status
@@ -126,7 +114,7 @@ export async function createPaymentLink(
       after_completion: {
         type: 'redirect',
         redirect: {
-          url: `${process.env.BASE_URL || 'http://localhost:5000'}/registration-success?payment_success=true&participantId=${participantId}`,
+          url: `${process.env.APP_URL || `https://${process.env.REPL_SLUG}.replit.app`}/registration-success?payment_success=true&participantId=${participantId}`,
         },
       },
       // Make the payment link single-use
@@ -147,29 +135,17 @@ export async function createPaymentLink(
     const expiresAt = new Date();
     expiresAt.setHours(expiresAt.getHours() + 48); // Link expires after 48 hours
     
-    // Generate a secure token for payment verification using the imported crypto module
-    const paymentToken = generateConfirmationToken();
-    console.log(`Generated payment token for participant ${participantId}: ${paymentToken}`);
-    
-    // Save the payment link with the token in a single operation
     try {
-      await storage.saveParticipantPaymentLink(participantId, paymentLink.url, expiresAt, paymentToken);
-      console.log(`Stored payment link in database for participant ${participantId}: ${paymentLink.url}, expires at ${expiresAt.toISOString()}, token: ${paymentToken}`);
+      await storage.saveParticipantPaymentLink(participantId, paymentLink.url, expiresAt);
+      console.log(`Stored payment link in database for participant ${participantId}: ${paymentLink.url}, expires at ${expiresAt.toISOString()}`);
     } catch (dbError) {
       console.error(`Error saving payment link to database:`, dbError);
       // Still save in memory cache as a fallback
       paymentLinkCache.set(participantCacheKey, paymentLink.url);
       console.log(`Stored payment link in cache (backup) for participant ${participantId}: ${paymentLink.url}`);
-      
-      // Also store the token in memory as a fallback
-      paymentConfirmationTokens.set(paymentToken, participantId);
-      console.log(`Stored payment token in memory for participant ${participantId}`);
     }
     
-    return { 
-      paymentLink: paymentLink.url,
-      paymentToken
-    };
+    return paymentLink.url;
   } catch (error: any) {
     console.error("Error creating Stripe payment link:", error.message);
     return null;
@@ -701,14 +677,6 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       
       console.log(`Processing payment for participant: ${participantId}, race: ${raceId}, isEmaParticipant: ${isEma}`);
       
-      // Generate a secure token for this payment
-      const paymentToken = generateConfirmationToken();
-      
-      // Store the token with the participant ID (in-memory fallback only)
-      // The token will be properly saved in the database when we save the payment link
-      paymentConfirmationTokens.set(paymentToken, participantId);
-      console.log(`Generated payment confirmation token for participant ${participantId}`);
-      
       // First check if we have a payment link stored in the database
       try {
         const existingPaymentLink = await storage.getParticipantPaymentLink(participantId);
@@ -721,19 +689,10 @@ This message was sent from the Stana de Vale Trail Race website contact form.
             console.log(`Payment link for participant ${participantId} has expired. Creating a new one.`);
           } else {
             // The link is still valid
-          const paymentLinkWithToken = existingPaymentLink.paymentLink;
-          
-          // If we already have a token stored, use that instead of generating a new one
-          const existingToken = existingPaymentLink.paymentToken || paymentToken;
-          
-          // Update token mapping in memory as a fallback
-          paymentConfirmationTokens.set(existingToken, participantId);
-          
-          res.json({
-            paymentLink: paymentLinkWithToken,
-            paymentToken: existingToken,
-            success: true,
-          });
+            res.json({
+              paymentLink: existingPaymentLink.paymentLink,
+              success: true,
+            });
             return;
           }
         }
@@ -751,10 +710,9 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       if (cachedPaymentLink) {
         console.log(`Using cached payment link for participant ${participantId}: ${cachedPaymentLink}`);
         
-        // Return the cached payment link with the new token
+        // Return the cached payment link - no need to create a new one
         res.json({
           paymentLink: cachedPaymentLink,
-          paymentToken: paymentToken,
           success: true,
         });
         return;
@@ -767,10 +725,9 @@ This message was sent from the Stana de Vale Trail Race website contact form.
         return res.status(500).json({ message: "Failed to create payment link" });
       }
       
-      // Return the payment link with token
+      // Return the payment link
       res.json({
         paymentLink: paymentLink,
-        paymentToken: paymentToken,
         success: true
       });
       
@@ -1174,201 +1131,6 @@ This message was sent from the Stana de Vale Trail Race website contact form.
     }
   });
   
-  // Confirm payment using token
-  apiRouter.post("/confirm-payment-by-token", async (req: Request, res: Response) => {
-    try {
-      const { token } = req.body;
-      
-      if (!token) {
-        return res.status(400).json({ success: false, message: "Token is required" });
-      }
-      
-      console.log(`Processing payment confirmation for token: ${token}`);
-      
-      // Fetch participant directly from the token using our new database lookup function
-      const participant = await storage.getParticipantByToken(token);
-      
-      if (!participant) {
-        // Fallback to legacy in-memory token storage
-        const participantId = paymentConfirmationTokens.get(token);
-        
-        if (!participantId) {
-          return res.status(404).json({ 
-            success: false, 
-            message: "Invalid or expired token" 
-          });
-        }
-        
-        // Update participant status to 'confirmed' using the legacy token
-        const legacyParticipant = await storage.updateParticipantStatus(
-          participantId, 
-          'confirmed'
-        );
-        
-        if (!legacyParticipant) {
-          return res.status(404).json({ 
-            success: false, 
-            message: "Participant not found" 
-          });
-        }
-        
-        // Get race details for the confirmation email
-        const race = await storage.getRaceById(legacyParticipant.raceId);
-        const raceCategory = race ? `${race.distance}km ${race.difficulty}` : "Trail Race";
-        
-        // Send payment confirmation email
-        try {
-          const emailSent = await sendPaymentConfirmationEmail(
-            legacyParticipant.email,
-            legacyParticipant.firstName,
-            legacyParticipant.lastName,
-            raceCategory
-          );
-          
-          if (emailSent) {
-            console.log(`Payment confirmation email sent to ${legacyParticipant.email}`);
-          } else {
-            console.warn(`Failed to send payment confirmation email to ${legacyParticipant.email}`);
-          }
-        } catch (emailError) {
-          console.error("Error sending payment confirmation email:", emailError);
-          // Continue even if email fails
-        }
-        
-        // Remove the token after successful use
-        paymentConfirmationTokens.delete(token);
-        
-        return res.json({
-          success: true,
-          message: "Payment confirmed successfully (legacy token)",
-          participant: {
-            id: legacyParticipant.id,
-            name: `${legacyParticipant.firstName} ${legacyParticipant.lastName}`,
-            status: legacyParticipant.status
-          }
-        });
-      }
-      
-      // Mark token as used in database
-      const tokenMarkingResult = await storage.markTokenAsUsed(token);
-      if (!tokenMarkingResult) {
-        console.warn(`Failed to mark token as used in database: ${token}`);
-      }
-      
-      // Update participant status to 'confirmed'
-      const updatedParticipant = await storage.updateParticipantStatus(
-        participant.id, 
-        'confirmed'
-      );
-      
-      if (!updatedParticipant) {
-        return res.status(500).json({ 
-          success: false, 
-          message: "Failed to update participant status" 
-        });
-      }
-      
-      // Get race details for the confirmation email
-      const race = await storage.getRaceById(participant.raceId);
-      const raceCategory = race ? `${race.distance}km ${race.difficulty}` : "Trail Race";
-      
-      // Send payment confirmation email
-      try {
-        const emailSent = await sendPaymentConfirmationEmail(
-          participant.email,
-          participant.firstName,
-          participant.lastName,
-          raceCategory
-        );
-        
-        if (emailSent) {
-          console.log(`Payment confirmation email sent to ${participant.email}`);
-        } else {
-          console.warn(`Failed to send payment confirmation email to ${participant.email}`);
-        }
-      } catch (emailError) {
-        console.error("Error sending payment confirmation email:", emailError);
-        // Continue even if email fails
-      }
-      
-      return res.json({
-        success: true,
-        message: "Payment confirmed successfully",
-        participant: {
-          id: participant.id,
-          name: `${participant.firstName} ${participant.lastName}`,
-          status: updatedParticipant.status
-        }
-      });
-    } catch (error) {
-      console.error("Error confirming payment by token:", error);
-      return res.status(500).json({ 
-        success: false, 
-        message: "Failed to confirm payment" 
-      });
-    }
-  });
-  
-  // Verify payment token and return participant ID
-  apiRouter.get("/verify-payment-token/:token", async (req: Request, res: Response) => {
-    try {
-      const { token } = req.params;
-      
-      if (!token) {
-        return res.status(400).json({ success: false, message: "Token is required" });
-      }
-      
-      console.log(`Verifying payment token: ${token}`);
-      
-      // Get the participant using the token (using our new database storage method)
-      const participant = await storage.getParticipantByToken(token);
-      
-      if (!participant) {
-        // If not found in database, check legacy in-memory token storage
-        const participantId = paymentConfirmationTokens.get(token);
-        
-        if (!participantId) {
-          return res.status(404).json({ 
-            success: false, 
-            message: "Invalid or expired token" 
-          });
-        }
-        
-        // Get the participant details from the ID
-        const legacyParticipant = await storage.getParticipantById(participantId);
-        
-        if (!legacyParticipant) {
-          return res.status(404).json({ 
-            success: false, 
-            message: "Participant not found" 
-          });
-        }
-        
-        // Return minimal information to verify the participant (legacy flow)
-        return res.json({
-          success: true,
-          participantId: participantId,
-          name: `${legacyParticipant.firstName} ${legacyParticipant.lastName}`,
-          status: legacyParticipant.status
-        });
-      }
-      
-      // Return minimal information to verify the participant
-      return res.json({
-        success: true,
-        participantId: participant.id,
-        name: `${participant.firstName} ${participant.lastName}`,
-        status: participant.status
-      });
-    } catch (error) {
-      console.error("Error verifying payment token:", error);
-      return res.status(500).json({ 
-        success: false, 
-        message: "Failed to verify payment token" 
-      });
-    }
-  });
-
   // Check SendGrid status
   apiRouter.get("/email-status", (req: Request, res: Response) => {
     const sendgridConfigured = !!process.env.SENDGRID_API_KEY;
