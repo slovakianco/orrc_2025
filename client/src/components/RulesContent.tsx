@@ -15,112 +15,203 @@ export default function RulesContent() {
   // Get current language
   const currentLang = i18n.language;
 
-  // Define mandatory equipment based on language
-  const getMandatoryEquipment = () => {
+  // Define mandatory equipment for 11km race based on language
+  const getMandatoryEquipment11k = () => {
     switch (currentLang) {
       case "ro":
         return [
           "Nr. concurs vizibil pe tot parcursul",
-          "Telefon mobil încărcat",
-          "Foiță impermeabilă",
+          "Telefon mobil încărcat cu numere de urgență",
           "Recipient apă min. 500 ml",
-          "Pătură termică",
+          "Foiță impermeabilă",
           "Încălțăminte munte Trail",
         ];
       case "fr":
         return [
           "Numéro de course visible en tout temps",
-          "Téléphone mobile chargé",
-          "Veste imperméable",
+          "Téléphone mobile chargé avec numéros d'urgence",
           "Contenant d'eau (minimum 500ml)",
-          "Couverture thermique d'urgence",
+          "Veste imperméable",
           "Chaussures de trail running",
         ];
       case "de":
         return [
           "Startnummer jederzeit sichtbar",
-          "Aufgeladenes Mobiltelefon",
-          "Wasserdichte Jacke",
+          "Aufgeladenes Mobiltelefon mit Notfallnummern",
           "Wasserbehälter (mindestens 500ml)",
-          "Rettungsdecke",
+          "Wasserdichte Jacke",
           "Trail-Running-Schuhe",
         ];
       case "it":
         return [
           "Numero di gara visibile in ogni momento",
-          "Telefono cellulare carico",
-          "Giacca impermeabile",
+          "Telefono cellulare carico con numeri di emergenza",
           "Contenitore d'acqua (minimo 500ml)",
-          "Coperta termica d'emergenza",
+          "Giacca impermeabile",
           "Scarpe da trail running",
         ];
       case "es":
         return [
           "Número de carrera visible en todo momento",
-          "Teléfono móvil cargado",
-          "Chaqueta impermeable",
+          "Teléfono móvil cargado con números de emergencia",
           "Recipiente de agua (mínimo 500ml)",
-          "Manta térmica de emergencia",
+          "Chaqueta impermeable",
           "Zapatillas de trail running",
         ];
       default: // English
         return [
-          "Race number visible at all times",
-          "Charged mobile phone",
-          "Waterproof jacket",
+          "Race bib visible at all times",
+          "Fully charged mobile phone with emergency numbers",
           "Water container (minimum 500ml)",
-          "Emergency thermal blanket",
+          "Waterproof jacket",
           "Trail running shoes",
         ];
     }
   };
 
-  const mandatoryEquipment = getMandatoryEquipment();
+  // Define mandatory equipment for 33km race based on language
+  const getMandatoryEquipment33k = () => {
+    switch (currentLang) {
+      case "ro":
+        return [
+          "Nr. concurs vizibil pe tot parcursul",
+          "Telefon mobil încărcat cu numere de urgență",
+          "Foiță impermeabilă",
+          "Recipient apă min. 1000 ml",
+          "Pătură termică",
+          "Încălțăminte munte Trail",
+          "Mâncare energizantă (batoane, geluri)",
+          "Fluier de urgență",
+          "Bandă elastică sau bandaj",
+          "Șapcă sau bandană",
+        ];
+      case "fr":
+        return [
+          "Numéro de course visible en tout temps",
+          "Téléphone mobile chargé avec numéros d'urgence",
+          "Veste imperméable",
+          "Contenant d'eau (minimum 1000ml)",
+          "Couverture thermique d'urgence",
+          "Chaussures de trail running",
+          "Nourriture énergétique (barres, gels)",
+          "Sifflet d'urgence",
+          "Bande élastique ou bandage",
+          "Casquette ou bandana",
+        ];
+      case "de":
+        return [
+          "Startnummer jederzeit sichtbar",
+          "Aufgeladenes Mobiltelefon mit Notfallnummern",
+          "Wasserdichte Jacke",
+          "Wasserbehälter (mindestens 1000ml)",
+          "Rettungsdecke",
+          "Trail-Running-Schuhe",
+          "Energiereiche Nahrung (Riegel, Gels)",
+          "Notfallpfeife",
+          "Elastische Binde oder Verband",
+          "Kappe oder Bandana",
+        ];
+      case "it":
+        return [
+          "Numero di gara visibile in ogni momento",
+          "Telefono cellulare carico con numeri di emergenza",
+          "Giacca impermeabile",
+          "Contenitore d'acqua (minimo 1000ml)",
+          "Coperta termica d'emergenza",
+          "Scarpe da trail running",
+          "Cibo energetico (barrette, gel)",
+          "Fischietto di emergenza",
+          "Fascia elastica o benda",
+          "Cappello o bandana",
+        ];
+      case "es":
+        return [
+          "Número de carrera visible en todo momento",
+          "Teléfono móvil cargado con números de emergencia",
+          "Chaqueta impermeable",
+          "Recipiente de agua (mínimo 1000ml)",
+          "Manta térmica de emergencia",
+          "Zapatillas de trail running",
+          "Comida energética (barras, geles)",
+          "Silbato de emergencia",
+          "Venda elástica o vendaje",
+          "Gorra o bandana",
+        ];
+      default: // English
+        return [
+          "Race bib visible at all times",
+          "Fully charged mobile phone with emergency numbers",
+          "Waterproof jacket",
+          "Water container (minimum 1000ml)",
+          "Thermal emergency blanket",
+          "Trail running shoes",
+          "Energy food (bars, gels)",
+          "Emergency whistle",
+          "Elastic band or bandage",
+          "Cap or bandana",
+        ];
+    }
+  };
 
-  // Define recommended equipment based on language
+  const mandatoryEquipment11k = getMandatoryEquipment11k();
+  const mandatoryEquipment33k = getMandatoryEquipment33k();
+
+  // Define recommended equipment based on language - common for both races
   const getRecommendedEquipment = () => {
     switch (currentLang) {
       case "ro":
         return [
-          "Gel sau baton energizant",
-          "Fluier",
-          "Colanți sau jambiere",
-          "Bețe",
+          "Bețe de trail running",
+          "Ochelari de soare",
+          "Cremă de protecție solară",
+          "Mănuși ușoare",
+          "Buff/bandană multifuncțională",
+          "Baterie externă pentru telefon",
         ];
       case "fr":
         return [
-          "Gel ou barre énergétique",
-          "Sifflet",
-          "Collants ou guêtres",
-          "Bâtons de trekking",
+          "Bâtons de trail running",
+          "Lunettes de soleil",
+          "Crème solaire",
+          "Gants légers",
+          "Buff/bandana multifonction",
+          "Batterie externe pour téléphone",
         ];
       case "de":
         return [
-          "Energiegel oder -riegel",
-          "Pfeife",
-          "Tights oder Gamaschen",
-          "Trekkingstöcke",
+          "Trail-Running-Stöcke",
+          "Sonnenbrille",
+          "Sonnenschutzcreme",
+          "Leichte Handschuhe",
+          "Multifunktionaler Buff/Bandana",
+          "Powerbank fürs Handy",
         ];
       case "it":
         return [
-          "Gel o barretta energetica",
-          "Fischietto",
-          "Calzamaglia o ghette",
-          "Bastoncini da trekking",
+          "Bastoncini da trail running",
+          "Occhiali da sole",
+          "Crema solare",
+          "Guanti leggeri",
+          "Buff/bandana multifunzionale",
+          "Batteria esterna per telefono",
         ];
       case "es":
         return [
-          "Gel o barra energética",
-          "Silbato",
-          "Mallas o polainas",
-          "Bastones de trekking",
+          "Bastones de trail running",
+          "Gafas de sol",
+          "Protector solar",
+          "Guantes ligeros",
+          "Buff/bandana multifuncional",
+          "Batería externa para teléfono",
         ];
       default: // English
         return [
-          "Energy gel or bar",
-          "Whistle",
-          "Tights or leggings",
-          "Trekking poles",
+          "Trail running poles",
+          "Sunglasses",
+          "Sunscreen",
+          "Lightweight gloves",
+          "Multifunctional buff/bandana",
+          "Phone power bank",
         ];
     }
   };
@@ -517,11 +608,23 @@ export default function RulesContent() {
                     {t("rules.sections.equipment.title")}
                   </AccordionTrigger>
                   <AccordionContent>
-                    <ul className="list-disc pl-6 space-y-2">
-                      {mandatoryEquipment.map((rule, index) => (
-                        <li key={index}>{rule}</li>
-                      ))}
-                    </ul>
+                    <div className="mb-4">
+                      <h4 className="font-semibold text-lg mb-2 text-primary-dark">11km Race - {t("races.shortTrail")}</h4>
+                      <ul className="list-disc pl-6 space-y-2">
+                        {mandatoryEquipment11k.map((rule, index) => (
+                          <li key={index}>{rule}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div className="mt-6 mb-4">
+                      <h4 className="font-semibold text-lg mb-2 text-primary-dark">33km Race - {t("races.longTrail")}</h4>
+                      <ul className="list-disc pl-6 space-y-2">
+                        {mandatoryEquipment33k.map((rule, index) => (
+                          <li key={index}>{rule}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
 
