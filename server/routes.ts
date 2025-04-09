@@ -30,6 +30,10 @@ if (!global.stripe && process.env.STRIPE_SECRET_KEY) {
 }
 
 // Function to create a payment link - exported for use in email.ts
+// Global storage to keep payment link IDs in memory
+// This will help prevent duplicate payment links when server restarts
+export const paymentLinkCache = new Map<string, string>();
+
 export async function createPaymentLink(
   amount: number, 
   participantId: number, 
@@ -40,6 +44,16 @@ export async function createPaymentLink(
     if (!global.stripe) {
       console.error("Stripe is not configured. Payment link cannot be created.");
       return null;
+    }
+    
+    // Create a unique key for this participant and race combo
+    const participantCacheKey = `${participantId}-${raceId}`;
+    
+    // Check if we already have a payment link for this participant
+    const cachedPaymentLink = paymentLinkCache.get(participantCacheKey);
+    if (cachedPaymentLink) {
+      console.log(`Using cached payment link for participant ${participantId}: ${cachedPaymentLink}`);
+      return cachedPaymentLink;
     }
     
     // Calculate the correct amount based on the race and EMA status
@@ -78,7 +92,7 @@ export async function createPaymentLink(
       after_completion: {
         type: 'redirect',
         redirect: {
-          url: `${process.env.APP_URL || `https://${process.env.REPL_SLUG}.replit.app`}/registration-success?completed=true`,
+          url: `${process.env.APP_URL || `https://${process.env.REPL_SLUG}.replit.app`}/registration-success?payment_success=true&participantId=${participantId}`,
         },
       },
       // Make the payment link single-use
@@ -94,6 +108,10 @@ export async function createPaymentLink(
         enabled: false
       },
     });
+    
+    // Store the payment link in the cache
+    paymentLinkCache.set(participantCacheKey, paymentLink.url);
+    console.log(`Stored payment link in cache for participant ${participantId}: ${paymentLink.url}`);
     
     return paymentLink.url;
   } catch (error: any) {
@@ -617,102 +635,44 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       
       const { amount, participantId, raceId, isEmaParticipant } = req.body;
       
-      if (!amount || amount <= 0) {
-        return res.status(400).json({ message: "Invalid amount provided" });
+      // Check for required parameters
+      if (!participantId || !raceId) {
+        return res.status(400).json({ message: "Missing participantId or raceId" });
       }
       
       // Convert isEmaParticipant to boolean to handle various input formats
       const isEma = isEmaParticipant === true || isEmaParticipant === "true" || isEmaParticipant === 1;
       
-      console.log(`Creating payment link for amount: ${amount}, participant: ${participantId}, race: ${raceId}, isEmaParticipant: ${isEmaParticipant}, parsed as: ${isEma}`);
+      console.log(`Processing payment for participant: ${participantId}, race: ${raceId}, isEmaParticipant: ${isEma}`);
       
-      // Calculate the correct amount based on the race and EMA status
-      // 33km race: 200 lei (EMA) or 170 lei (non-EMA)
-      // 11km race: 150 lei (EMA) or 120 lei (non-EMA)
-      let ronAmount = 0;
-      if (raceId === 1) { // 33km race
-        ronAmount = isEma ? 200 : 170; // 200 lei for EMA, 170 lei for non-EMA
-      } else { // 11km race
-        ronAmount = isEma ? 150 : 120; // 150 lei for EMA, 120 lei for non-EMA
-      }
-
-      const storage = getStorage();
-
-      // Get the participant's details to include in the payment link
-      const participant = await storage.getParticipantById(participantId);
-      if (!participant) {
-        return res.status(404).json({ message: "Participant not found" });
-      }
-
-      // Get the race details
-      const race = await storage.getRaceById(raceId);
-      if (!race) {
-        return res.status(404).json({ message: "Race not found" });
-      }
-
-      const raceDisplayName = race.name || (race.distance + "km " + race.difficulty);
+      // Create a unique key for this participant and race combo
+      const participantCacheKey = `${participantId}-${raceId}`;
       
-      // Create a payment link with Stripe Payment Links
-      // Check if stripe is available
-      if (!global.stripe) {
-        return res.status(500).json({ message: "Payment service is not available" });
+      // Check if we already have a payment link for this participant in the cache
+      const cachedPaymentLink = paymentLinkCache.get(participantCacheKey);
+      
+      if (cachedPaymentLink) {
+        console.log(`Using cached payment link for participant ${participantId}: ${cachedPaymentLink}`);
+        
+        // Return the cached payment link - no need to create a new one
+        res.json({
+          paymentLink: cachedPaymentLink,
+          success: true,
+        });
+        return;
       }
       
-      // First, create a Price object for the registration
-      const price = await global.stripe.prices.create({
-        currency: 'ron',
-        unit_amount: Math.round(ronAmount * 100), // Convert to bani (RON cents)
-        product_data: {
-          name: `Race Registration: ${raceDisplayName} - ${participant.firstName} ${participant.lastName}` + 
-                (isEma ? ' (EMA Circuit)' : '')
-        },
-      });
+      // No cached payment link, create one using our existing function
+      const paymentLink = await createPaymentLink(0, participantId, raceId, isEma);
       
-      // Then create a payment link with the price ID
-      const paymentLink = await global.stripe.paymentLinks.create({
-        line_items: [
-          {
-            price: price.id,
-            quantity: 1,
-          },
-        ],
-        after_completion: {
-          type: 'redirect',
-          redirect: {
-            url: `${req.protocol}://${req.get('host')}/registration-success?payment_success=true&participantId=${participantId}`,
-          },
-        },
-        metadata: {
-          participantId: participantId.toString(),
-          raceId: raceId.toString(),
-          isEmaParticipant: isEma ? "true" : "false"
-        }
-      });
-      
-      // For backward compatibility with the client, also create a payment intent
-      // This can be removed once the client is updated to use payment links directly
-      // Check if stripe is available
-      if (!global.stripe) {
-        return res.status(500).json({ message: "Payment service is not available" });
+      if (!paymentLink) {
+        return res.status(500).json({ message: "Failed to create payment link" });
       }
       
-      const paymentIntent = await global.stripe.paymentIntents.create({
-        amount: Math.round(ronAmount * 100), // Convert to bani (RON cents)
-        currency: "ron", // Romanian currency
-        metadata: {
-          participantId: participantId ? participantId.toString() : "",
-          raceId: raceId ? raceId.toString() : "",
-          isEmaParticipant: isEma ? "true" : "false",
-          paymentLinkId: paymentLink.id
-        }
-      });
-      
-      // Return both the payment link and client secret to the client
+      // Return the payment link
       res.json({
-        paymentLink: paymentLink.url,
-        paymentLinkId: paymentLink.id,
-        clientSecret: paymentIntent.client_secret,
-        id: paymentIntent.id
+        paymentLink: paymentLink,
+        success: true
       });
       
     } catch (error: any) {

@@ -135,21 +135,23 @@ const RegistrationSuccessPage: React.FC = () => {
     }
   }, [participantId, raceId, toast, t, setLocation]);
   
-  // Handle payment confirmation from Stripe redirect
+  // Handle payment confirmation from any payment method
   useEffect(() => {
     // Log params for debugging
     console.log("Payment Intent ID:", paymentIntentId);
     console.log("Participant ID from URL:", participantId);
     console.log("Race ID from URL:", raceId);
+    console.log("Payment success flag:", paymentSuccess);
     
-    const confirmPayment = async () => {
+    // Function to confirm payment using payment intent
+    const confirmPaymentByIntent = async () => {
       if (!paymentIntentId || !paymentIntentClientSecret) {
         console.warn("Missing payment intent information");
-        return;
+        return false;
       }
       
       try {
-        // Call to manually confirm the payment by participant ID
+        // Call to manually confirm the payment by payment intent ID
         // This is a backup in case the webhook didn't work
         const response = await apiRequest('POST', '/api/confirm-payment-by-intent', {
           paymentIntentId
@@ -157,7 +159,7 @@ const RegistrationSuccessPage: React.FC = () => {
         
         if (response.ok) {
           const result = await response.json();
-          console.log("Payment confirmed:", result);
+          console.log("Payment confirmed by intent:", result);
           
           if (result.success) {
             toast({
@@ -165,58 +167,79 @@ const RegistrationSuccessPage: React.FC = () => {
               description: t('payment.successMessage'),
             });
             
-            // Important: Redirect to participants page after successful payment confirmation
-            setTimeout(() => {
-              setLocation('/participants');
-            }, 2000);
+            return true;
           }
         } else {
-          console.error("Failed to confirm payment");
+          console.error("Failed to confirm payment by intent");
+        }
+      } catch (error) {
+        console.error("Error confirming payment by intent:", error);
+      }
+      
+      return false;
+    };
+    
+    // Function to confirm payment using participant ID directly
+    const confirmPaymentByParticipant = async () => {
+      if (!participantId) {
+        console.warn("Missing participant ID");
+        return false;
+      }
+      
+      try {
+        // Call to manually confirm the payment by participant ID
+        const response = await apiRequest('POST', '/api/confirm-payment', {
+          participantId
+        });
+        
+        if (response.ok) {
+          const result = await response.json();
+          console.log("Payment confirmed via participant ID:", result);
+          
+          toast({
+            title: t('payment.success'),
+            description: t('payment.successMessage'),
+          });
+          
+          return true;
+        } else {
+          console.error("Failed to confirm payment via participant ID");
         }
       } catch (error) {
         console.error("Error confirming payment:", error);
       }
+      
+      return false;
     };
     
-    if (paymentIntentId && paymentIntentClientSecret) {
-      confirmPayment();
-    }
-  }, [paymentIntentId, paymentIntentClientSecret, toast, t, participantId, raceId, setLocation]);
-  
-  // Update participant status when payment success parameter is present
-  useEffect(() => {
-    if (paymentSuccess && participantId) {
-      const updateParticipantStatus = async () => {
-        try {
-          // Call to manually confirm the payment by participant ID
-          const response = await apiRequest('POST', '/api/confirm-payment', {
-            participantId
-          });
-          
-          if (response.ok) {
-            const result = await response.json();
-            console.log("Payment confirmed via redirect:", result);
-            
-            toast({
-              title: t('payment.success'),
-              description: t('payment.successMessage'),
-            });
-            
-            // Redirect to participants page after a delay
-            setTimeout(() => {
-              setLocation('/participants');
-            }, 2000);
-          } else {
-            console.error("Failed to confirm payment via redirect");
-          }
-        } catch (error) {
-          console.error("Error confirming payment:", error);
-        }
-      };
+    // Main function to handle payment confirmation from any source
+    const handlePaymentConfirmation = async () => {
+      let success = false;
       
-      updateParticipantStatus();
+      // First, try to confirm via payment intent if we have one
+      if (paymentIntentId && paymentIntentClientSecret) {
+        success = await confirmPaymentByIntent();
+      }
+      
+      // If that didn't work or we don't have a payment intent but we have the payment_success flag,
+      // try to confirm via participant ID
+      if (!success && paymentSuccess && participantId) {
+        success = await confirmPaymentByParticipant();
+      }
+      
+      // If either method succeeded, redirect to participants page
+      if (success) {
+        setTimeout(() => {
+          setLocation('/participants');
+        }, 2000);
+      }
+    };
+    
+    // Execute payment confirmation if we have either a payment intent or payment success flag
+    if ((paymentIntentId && paymentIntentClientSecret) || (paymentSuccess && participantId)) {
+      handlePaymentConfirmation();
     }
-  }, [paymentSuccess, participantId, toast, t, setLocation]);
+  }, [paymentIntentId, paymentIntentClientSecret, paymentSuccess, participantId, toast, t, setLocation]);
 
   return (
     <div className="py-20 px-4">

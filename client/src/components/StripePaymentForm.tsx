@@ -150,17 +150,28 @@ const StripePaymentForm: React.FC<StripePaymentFormProps> = ({
     // Create a PaymentIntent as soon as the component mounts
     const createPaymentIntent = async () => {
       try {
+        // Validate required fields
+        if (!participantId || !raceId) {
+          setError(t('payment.missingParticipantData'));
+          toast({
+            title: t('payment.error'),
+            description: t('payment.missingParticipantData'),
+            variant: 'destructive',
+          });
+          return;
+        }
+        
         console.log("Creating payment link with params:", {
-          amount,
-          raceId,
           participantId,
+          raceId,
           isEmaParticipant: isEmaParticipant // Log the value to debug
         });
         
+        // Note: We're still using create-payment-intent, but our backend will now
+        // handle this with the improved payment link caching system
         const response = await apiRequest('POST', '/api/create-payment-intent', {
-          amount,
-          raceId,
           participantId,
+          raceId,
           isEmaParticipant: isEmaParticipant === true // Ensure it's a boolean
         });
         
@@ -168,8 +179,19 @@ const StripePaymentForm: React.FC<StripePaymentFormProps> = ({
         
         if (response.ok && data.paymentLink) {
           console.log("Payment link received, redirecting to:", data.paymentLink);
-          // Direct redirect to Stripe payment link
-          window.location.href = data.paymentLink;
+          
+          // Show loading toast before redirecting
+          toast({
+            title: t('payment.redirecting'),
+            description: t('payment.redirectingToStripe'),
+          });
+          
+          // Set a short timeout to allow the toast to appear before redirect
+          setTimeout(() => {
+            // Direct redirect to Stripe payment link
+            window.location.href = data.paymentLink;
+          }, 500);
+          
           return; // Stop execution after redirect
         } else if (response.ok && data.clientSecret) {
           // Fall back to Elements if paymentLink is not available
@@ -194,7 +216,7 @@ const StripePaymentForm: React.FC<StripePaymentFormProps> = ({
     };
 
     createPaymentIntent();
-  }, [amount, raceId, participantId, isEmaParticipant, t, toast]);
+  }, [participantId, raceId, isEmaParticipant, t, toast]);
 
   if (error) {
     return (
