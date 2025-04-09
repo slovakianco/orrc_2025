@@ -288,6 +288,11 @@ export async function sendPaymentConfirmationEmail(
       day: 'numeric'
     });
     
+    // Ensure firstName and lastName are not undefined
+    const safeFirstName = firstName || 'Runner';
+    const safeLastName = lastName || '';
+    const fullName = safeFirstName + (safeLastName ? ' ' + safeLastName : '');
+    
     // HTML email content
     const html = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e6dfd9; border-radius: 8px;">
@@ -297,7 +302,7 @@ export async function sendPaymentConfirmationEmail(
         </div>
         
         <div style="font-size: 16px; line-height: 1.5; color: #3E4A59;">
-          <p>${translations.greeting} ${firstName} ${lastName},</p>
+          <p>${translations.greeting} ${fullName},</p>
           
           <p>${translations.paymentConfirmationMessage}</p>
           
@@ -332,7 +337,7 @@ export async function sendPaymentConfirmationEmail(
 ${translations.paymentConfirmationTitle}
 ${translations.paymentConfirmationSubtitle}
 
-${translations.greeting} ${firstName} ${lastName},
+${translations.greeting} ${fullName},
 
 ${translations.paymentConfirmationMessage}
 
@@ -473,16 +478,34 @@ export async function sendRegistrationConfirmationEmail(
     console.log(`Using payment URL: ${paymentUrl}`);
     
     // First try with custom domain
+    // Ensure firstName and lastName are not undefined
+    const safeFirstName = firstName || 'Runner';
+    const safeLastName = lastName || '';
+    const fullName = safeFirstName + (safeLastName ? ' ' + safeLastName : '');
+    
+    // Create greeting with the safe name
+    const greetingWithName = lang === 'en' ? 
+      `Dear ${fullName},` : 
+      lang === 'ro' ? 
+        `Dragă ${fullName},` : 
+        lang === 'fr' ? 
+          `Cher/Chère ${fullName},` : 
+          lang === 'de' ? 
+            `Liebe(r) ${fullName},` : 
+            lang === 'it' ? 
+              `Gentile ${fullName},` : 
+              `Estimado/a ${fullName},`;
+    
     const result = await sendEmail({
       to: email,
       from: DEFAULT_FROM_EMAIL, // Make sure this domain matches what you've verified in SendGrid
       subject: subjects[lang],
-      text: `${greetings[lang]}\n\n${messages[lang]}\n\nPayment Link: ${paymentUrl}`,
+      text: `${greetingWithName}\n\n${messages[lang]}\n\nPayment Link: ${paymentUrl}`,
       html: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e6dfd9; border-radius: 8px;">
         <div style="text-align: center; margin-bottom: 20px;">
           <h1 style="color: #2A6D50; margin-bottom: 10px;">Stana de Vale Trail Race</h1>
         </div>
-        <p style="font-size: 16px; line-height: 1.5; color: #3E4A59;">${greetings[lang]}</p>
+        <p style="font-size: 16px; line-height: 1.5; color: #3E4A59;">${greetingWithName}</p>
         <div style="font-size: 16px; line-height: 1.5; color: #3E4A59;">
           ${messages[lang].replace(/\n\n/g, '</p><p style="font-size: 16px; line-height: 1.5; color: #3E4A59;">').replace(/\n/g, "<br>")}
         </div>
@@ -510,12 +533,12 @@ export async function sendRegistrationConfirmationEmail(
       to: email,
       from: DEFAULT_FROM_EMAIL,
       subject: subjects[lang],
-      text: `${greetings[lang]}\n\n${messages[lang]}\n\nPayment Link: ${paymentUrl}`,
+      text: `${greetingWithName}\n\n${messages[lang]}\n\nPayment Link: ${paymentUrl}`,
       html: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e6dfd9; border-radius: 8px;">
         <div style="text-align: center; margin-bottom: 20px;">
           <h1 style="color: #2A6D50; margin-bottom: 10px;">Stana de Vale Trail Race</h1>
         </div>
-        <p style="font-size: 16px; line-height: 1.5; color: #3E4A59;">${greetings[lang]}</p>
+        <p style="font-size: 16px; line-height: 1.5; color: #3E4A59;">${greetingWithName}</p>
         <div style="font-size: 16px; line-height: 1.5; color: #3E4A59;">
           ${messages[lang].replace(/\n\n/g, '</p><p style="font-size: 16px; line-height: 1.5; color: #3E4A59;">').replace(/\n/g, "<br>")}
         </div>
