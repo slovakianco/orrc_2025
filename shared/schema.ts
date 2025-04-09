@@ -66,6 +66,9 @@ export const participants = pgTable("participants", {
   emergencyContactPhone: text("emergencycontactphone"),
   isEmaParticipant: boolean("isemaparticipant").default(false),
   tshirtSize: text("tshirtsize"),
+  payment_link: text("payment_link"),
+  payment_link_created_at: timestamp("payment_link_created_at"),
+  payment_link_expires_at: timestamp("payment_link_expires_at"),
 });
 
 export const insertParticipantSchema = createInsertSchema(participants).omit({
@@ -174,6 +177,9 @@ export type Participant = typeof participants.$inferSelect & {
   emergencycontactname?: string;
   emergencycontactphone?: string;
   bibnumber?: string;
+  payment_link?: string;
+  payment_link_created_at?: Date;
+  payment_link_expires_at?: Date;
 };
 export type InsertParticipant = z.infer<typeof insertParticipantSchema>;
 

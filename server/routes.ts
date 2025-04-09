@@ -46,10 +46,32 @@ export async function createPaymentLink(
       return null;
     }
     
-    // Create a unique key for this participant and race combo
-    const participantCacheKey = `${participantId}-${raceId}`;
+    // Import the storage instance
+    const storage = getStorage();
     
-    // Check if we already have a payment link for this participant
+    // First, check if we already have a payment link for this participant in the database
+    try {
+      const existingPaymentLink = await storage.getParticipantPaymentLink(participantId);
+      
+      if (existingPaymentLink && existingPaymentLink.paymentLink) {
+        console.log(`Using existing payment link from database for participant ${participantId}: ${existingPaymentLink.paymentLink}`);
+        
+        // Check if the link has expired
+        if (existingPaymentLink.expiresAt && existingPaymentLink.expiresAt < new Date()) {
+          console.log(`Payment link for participant ${participantId} has expired. Creating a new one.`);
+        } else {
+          // The link is still valid
+          return existingPaymentLink.paymentLink;
+        }
+      }
+    } catch (dbError) {
+      console.error(`Error retrieving payment link from database:`, dbError);
+      // Continue with link creation even if the database check fails
+      // This provides fallback functionality
+    }
+    
+    // Fallback to memory cache for backward compatibility
+    const participantCacheKey = `${participantId}-${raceId}`;
     const cachedPaymentLink = paymentLinkCache.get(participantCacheKey);
     if (cachedPaymentLink) {
       console.log(`Using cached payment link for participant ${participantId}: ${cachedPaymentLink}`);
@@ -109,9 +131,19 @@ export async function createPaymentLink(
       },
     });
     
-    // Store the payment link in the cache
-    paymentLinkCache.set(participantCacheKey, paymentLink.url);
-    console.log(`Stored payment link in cache for participant ${participantId}: ${paymentLink.url}`);
+    // Store the payment link in the database with an expiration date (48 hours from now)
+    const expiresAt = new Date();
+    expiresAt.setHours(expiresAt.getHours() + 48); // Link expires after 48 hours
+    
+    try {
+      await storage.saveParticipantPaymentLink(participantId, paymentLink.url, expiresAt);
+      console.log(`Stored payment link in database for participant ${participantId}: ${paymentLink.url}, expires at ${expiresAt.toISOString()}`);
+    } catch (dbError) {
+      console.error(`Error saving payment link to database:`, dbError);
+      // Still save in memory cache as a fallback
+      paymentLinkCache.set(participantCacheKey, paymentLink.url);
+      console.log(`Stored payment link in cache (backup) for participant ${participantId}: ${paymentLink.url}`);
+    }
     
     return paymentLink.url;
   } catch (error: any) {
@@ -645,10 +677,34 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       
       console.log(`Processing payment for participant: ${participantId}, race: ${raceId}, isEmaParticipant: ${isEma}`);
       
-      // Create a unique key for this participant and race combo
+      // First check if we have a payment link stored in the database
+      try {
+        const existingPaymentLink = await storage.getParticipantPaymentLink(participantId);
+        
+        if (existingPaymentLink && existingPaymentLink.paymentLink) {
+          console.log(`Found payment link in database for participant ${participantId}: ${existingPaymentLink.paymentLink}`);
+          
+          // Check if the link has expired
+          if (existingPaymentLink.expiresAt && existingPaymentLink.expiresAt < new Date()) {
+            console.log(`Payment link for participant ${participantId} has expired. Creating a new one.`);
+          } else {
+            // The link is still valid
+            res.json({
+              paymentLink: existingPaymentLink.paymentLink,
+              success: true,
+            });
+            return;
+          }
+        }
+      } catch (dbError) {
+        console.error(`Error checking payment link in database:`, dbError);
+        // Continue with the rest of the code as a fallback
+      }
+      
+      // Create a unique key for this participant and race combo (for backward compatibility with in-memory cache)
       const participantCacheKey = `${participantId}-${raceId}`;
       
-      // Check if we already have a payment link for this participant in the cache
+      // Check if we already have a payment link for this participant in the cache (fallback)
       const cachedPaymentLink = paymentLinkCache.get(participantCacheKey);
       
       if (cachedPaymentLink) {

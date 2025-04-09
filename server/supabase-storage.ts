@@ -172,7 +172,7 @@ export class SupabaseStorage implements IStorage {
       return undefined;
     }
     
-    return data as Participant;
+    return this.mapParticipantData(data);
   }
 
   async getParticipantsByRace(raceId: number): Promise<Participant[]> {
@@ -538,7 +538,96 @@ export class SupabaseStorage implements IStorage {
     } as Sponsor;
   }
   
+  // Payment link management
+  async saveParticipantPaymentLink(
+    id: number, 
+    paymentLink: string,
+    expiresAt?: Date
+  ): Promise<Participant | undefined> {
+    // Retrieve the current participant
+    const participant = await this.getParticipantById(id);
+    if (!participant) {
+      console.error(`Participant with ID ${id} not found`);
+      return undefined;
+    }
+    
+    // Prepare update data
+    const updateData = {
+      payment_link: paymentLink,
+      payment_link_created_at: new Date().toISOString(),
+      payment_link_expires_at: expiresAt ? expiresAt.toISOString() : null
+    };
+    
+    // Update in Supabase
+    const { data, error } = await supabase
+      .from('participants')
+      .update(updateData)
+      .eq('id', id)
+      .select()
+      .single();
+    
+    if (error || !data) {
+      console.error(`Error saving payment link for participant ${id}:`, error);
+      throw new Error(`Failed to save payment link: ${error?.message}`);
+    }
+    
+    // Map Supabase data to our Participant type
+    return this.mapParticipantData(data);
+  }
+  
+  async getParticipantPaymentLink(
+    id: number
+  ): Promise<{ paymentLink: string; createdAt: Date; expiresAt?: Date } | undefined> {
+    const { data, error } = await supabase
+      .from('participants')
+      .select('payment_link, payment_link_created_at, payment_link_expires_at')
+      .eq('id', id)
+      .single();
+    
+    if (error || !data || !data.payment_link) {
+      // Not treating this as an error as no payment link is a valid state
+      console.log(`No payment link found for participant ${id}`);
+      return undefined;
+    }
+    
+    return {
+      paymentLink: data.payment_link,
+      createdAt: new Date(data.payment_link_created_at),
+      expiresAt: data.payment_link_expires_at ? new Date(data.payment_link_expires_at) : undefined
+    };
+  }
+  
   // Helper methods
+  private mapParticipantData(data: any): Participant {
+    // Map Supabase data to our Participant type
+    // Need to handle potential case differences between database columns
+    // and our expected schema
+    return {
+      ...data,
+      id: data.id,
+      firstName: data.firstname || data.firstName,
+      lastName: data.lastname || data.lastName,
+      email: data.email,
+      phoneNumber: data.phonenumber || data.phoneNumber,
+      country: data.country,
+      birthDate: data.birthdate || data.birthDate,
+      raceId: data.raceid || data.raceId,
+      bibNumber: data.bibnumber || data.bibNumber,
+      status: data.status,
+      medicalInfo: data.medicalinfo || data.medicalInfo,
+      registrationDate: data.registrationdate || data.registrationDate,
+      gender: data.gender,
+      age: data.age,
+      emergencyContactName: data.emergencycontactname || data.emergencyContactName,
+      emergencyContactPhone: data.emergencycontactphone || data.emergencyContactPhone,
+      isEmaParticipant: data.isemaparticipant || data.isEmaParticipant,
+      tshirtSize: data.tshirtsize || data.tshirtSize,
+      payment_link: data.payment_link,
+      payment_link_created_at: data.payment_link_created_at,
+      payment_link_expires_at: data.payment_link_expires_at
+    };
+  }
+  
   private getRaceCodeForBib(race: any): string {
     // Create a code based on the race distance
     const distance = race.distance || 0;

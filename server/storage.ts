@@ -46,6 +46,17 @@ export interface IStorage {
     id: number,
     status: string,
   ): Promise<Participant | undefined>;
+  
+  // Payment link management
+  saveParticipantPaymentLink(
+    id: number, 
+    paymentLink: string,
+    expiresAt?: Date
+  ): Promise<Participant | undefined>;
+  
+  getParticipantPaymentLink(
+    id: number
+  ): Promise<{ paymentLink: string; createdAt: Date; expiresAt?: Date } | undefined>;
 
   // Contact Inquiries
   createContactInquiry(inquiry: InsertContactInquiry): Promise<ContactInquiry>;
@@ -311,6 +322,42 @@ export class MemStorage implements IStorage {
     const newSponsor: Sponsor = { ...sponsor, id };
     this.sponsors.set(id, newSponsor);
     return newSponsor;
+  }
+
+  // Payment link management
+  async saveParticipantPaymentLink(
+    id: number, 
+    paymentLink: string,
+    expiresAt?: Date
+  ): Promise<Participant | undefined> {
+    const participant = await this.getParticipantById(id);
+    if (!participant) return undefined;
+
+    const now = new Date();
+    
+    // Add payment link info to the participant object
+    const updatedParticipant: Participant = { 
+      ...participant, 
+      payment_link: paymentLink,
+      payment_link_created_at: now,
+      payment_link_expires_at: expiresAt
+    };
+    
+    this.participants.set(id, updatedParticipant);
+    return updatedParticipant;
+  }
+  
+  async getParticipantPaymentLink(
+    id: number
+  ): Promise<{ paymentLink: string; createdAt: Date; expiresAt?: Date } | undefined> {
+    const participant = await this.getParticipantById(id);
+    if (!participant || !participant.payment_link) return undefined;
+    
+    return {
+      paymentLink: participant.payment_link,
+      createdAt: participant.payment_link_created_at || new Date(),
+      expiresAt: participant.payment_link_expires_at
+    };
   }
 
   // Helper methods

@@ -208,6 +208,63 @@ export class HybridStorage implements IStorage {
     }
   }
 
+  // Payment link management
+  async saveParticipantPaymentLink(
+    id: number, 
+    paymentLink: string,
+    expiresAt?: Date
+  ): Promise<Participant | undefined> {
+    if (!this.supabaseAvailable) {
+      console.log(`Supabase not available, using MemStorage for payment link: ${id}`);
+      return this.memStorage.saveParticipantPaymentLink(id, paymentLink, expiresAt);
+    }
+
+    try {
+      // Try to save in Supabase first
+      const updatedParticipant = await this.supabaseStorage.saveParticipantPaymentLink(id, paymentLink, expiresAt);
+      console.log(`Payment link for participant ${id} successfully saved in Supabase`);
+      
+      // Also update in memory to keep in sync (best effort)
+      try {
+        await this.memStorage.saveParticipantPaymentLink(id, paymentLink, expiresAt);
+      } catch (e) {
+        console.warn(`Failed to save payment link for participant ${id} in MemStorage: ${e}`);
+      }
+      
+      return updatedParticipant;
+    } catch (error) {
+      console.error(`Error saving payment link for participant ${id} in Supabase:`, error);
+      console.warn("Falling back to in-memory storage for payment link");
+      return this.memStorage.saveParticipantPaymentLink(id, paymentLink, expiresAt);
+    }
+  }
+  
+  async getParticipantPaymentLink(
+    id: number
+  ): Promise<{ paymentLink: string; createdAt: Date; expiresAt?: Date } | undefined> {
+    if (!this.supabaseAvailable) {
+      console.log(`Supabase not available, using MemStorage for getting payment link: ${id}`);
+      return this.memStorage.getParticipantPaymentLink(id);
+    }
+
+    try {
+      // Try to get from Supabase first
+      const paymentLinkData = await this.supabaseStorage.getParticipantPaymentLink(id);
+      if (paymentLinkData) {
+        console.log(`Payment link for participant ${id} successfully retrieved from Supabase`);
+        return paymentLinkData;
+      } else {
+        console.log(`No payment link found for participant ${id} in Supabase`);
+        // Try memory storage as backup
+        return this.memStorage.getParticipantPaymentLink(id);
+      }
+    } catch (error) {
+      console.error(`Error getting payment link for participant ${id} from Supabase:`, error);
+      console.warn("Falling back to in-memory storage for payment link retrieval");
+      return this.memStorage.getParticipantPaymentLink(id);
+    }
+  }
+
   // Contact Inquiries - delegate to MemStorage
   async createContactInquiry(inquiry: InsertContactInquiry): Promise<ContactInquiry> {
     return this.memStorage.createContactInquiry(inquiry);
