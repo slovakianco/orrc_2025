@@ -33,7 +33,7 @@ const registrationFormSchema = z.object({
   birthDate: z.string().min(1, { message: "Please enter your date of birth" }),
   isEmaParticipant: z.boolean().default(false),
   tshirtSize: z.string().optional(),
-  raceId: z.number({ invalid_type_error: "Please select a race" }),
+  raceid: z.number({ invalid_type_error: "Please select a race" }),
   emergencyContactName: z.string().min(2, { message: "Emergency contact name is required" }),
   emergencyContactPhone: z.string().min(6, { message: "Emergency contact phone is required" }),
   medicalInfo: z.string().optional(),
@@ -65,7 +65,7 @@ const registrationFormSchema = z.object({
   const age = calculateAgeForValidation(data.birthDate);
   
   // For 11km race (id=2), participants must be at least 16 years old
-  if (data.raceId === 2 && age < 16) {
+  if (data.raceid === 2 && age < 16) {
     return false;
   }
   return true;
@@ -77,7 +77,7 @@ const registrationFormSchema = z.object({
   const age = calculateAgeForValidation(data.birthDate);
   
   // For 33km race (id=1), participants must be at least 18 years old
-  if (data.raceId === 1 && age < 18) {
+  if (data.raceid === 1 && age < 18) {
     return false;
   }
   return true;
@@ -108,7 +108,7 @@ const RegistrationFormWithPayment = () => {
       birthDate: "1989-01-01",
       isEmaParticipant: false,
       tshirtSize: "",
-      raceId: 0,
+      raceid: 0,
       emergencyContactName: "",
       emergencyContactPhone: "",
       medicalInfo: "",
@@ -117,7 +117,7 @@ const RegistrationFormWithPayment = () => {
     }
   });
 
-  const selectedRaceId = watch("raceId");
+  const selectedRaceId = watch("raceid");
   const isEmaParticipant = watch("isEmaParticipant");
   const birthDateValue = watch("birthDate");
   
@@ -158,7 +158,7 @@ const RegistrationFormWithPayment = () => {
   // Set default race if available and not already selected
   useEffect(() => {
     if (races && races.length > 0 && (!selectedRaceId || selectedRaceId === 0)) {
-      setValue("raceId", races[0].id);
+      setValue("raceid", races[0].id);
     }
   }, [races, selectedRaceId, setValue]);
 
@@ -197,20 +197,20 @@ const RegistrationFormWithPayment = () => {
           // Get the necessary data from the participant - normalizing field names
           // The server may return either camelCase or lowercase field names
           const participantId = participant.id;
-          const raceId = participant.raceId || participant.raceid;
+          const raceid = participant.raceid || participant.raceid;
           const isEmaParticipant = participant.isEmaParticipant || participant.isemaparticipant || false;
           
           // Calculate the price for the payment
-          const race = races?.find(r => r.id === Number(raceId));
+          const race = races?.find(r => r.id === Number(raceid));
           const calculatedPrice = calculatePrice(race, isEmaParticipant);
           
-          console.log("Creating payment link for participant:", participantId, "race:", raceId, "isEma:", isEmaParticipant, "price:", calculatedPrice);
+          console.log("Creating payment link for participant:", participantId, "race:", raceid, "isEma:", isEmaParticipant, "price:", calculatedPrice);
           
           // Make API request to create payment link
           const paymentResponse = await apiRequest("POST", "/api/create-payment-intent", {
             amount: calculatedPrice,
             participantId: participantId,
-            raceId: raceId,
+            raceid: raceid,
             isEmaParticipant: isEmaParticipant
           });
           
@@ -319,11 +319,11 @@ const RegistrationFormWithPayment = () => {
     // Calculate age from birthDate
     const age = calculateAge(apiData.birthDate);
     
-    // Convert raceId from string to number if needed
+    // Convert raceid from string to number if needed
     // Also add current language for email localization
     const formattedData = {
       ...apiData,
-      raceId: typeof apiData.raceId === 'string' ? parseInt(apiData.raceId) : apiData.raceId,
+      raceid: typeof apiData.raceid === 'string' ? parseInt(apiData.raceid) : apiData.raceid,
       age, // Add calculated age
       language: i18n.language, // Add current language for email localization
       isEmaParticipant: apiData.isEmaParticipant === true, // Ensure it's a boolean
@@ -552,7 +552,7 @@ const RegistrationFormWithPayment = () => {
                       className={`bg-white border-2 rounded-lg p-4 cursor-pointer transition-colors duration-200 ${
                         Number(selectedRaceId) === race.id ? 'border-primary bg-primary/5' : 'border-neutral-light hover:border-primary hover:bg-primary/5'
                       }`}
-                      onClick={() => setValue("raceId", race.id)}
+                      onClick={() => setValue("raceid", race.id)}
                     >
                       <label htmlFor={`race${race.id}`} className="flex items-start cursor-pointer">
                         <input 
@@ -560,7 +560,7 @@ const RegistrationFormWithPayment = () => {
                           id={`race${race.id}`} 
                           value={race.id} 
                           checked={Number(selectedRaceId) === race.id}
-                          onChange={() => setValue("raceId", race.id)}
+                          onChange={() => setValue("raceid", race.id)}
                           className="hidden"
                         />
                         <span className={`w-5 h-5 border-2 rounded-full flex-shrink-0 mr-2 mt-1 ${
@@ -577,8 +577,8 @@ const RegistrationFormWithPayment = () => {
                     </div>
                   ))}
                 </div>
-                {errors.raceId && (
-                  <p className="text-sm text-red-500 mt-1">{errors.raceId.message}</p>
+                {errors.raceid && (
+                  <p className="text-sm text-red-500 mt-1">{errors.raceid.message}</p>
                 )}
               </div>
               

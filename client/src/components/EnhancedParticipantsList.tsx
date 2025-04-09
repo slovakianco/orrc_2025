@@ -131,8 +131,8 @@ const EnhancedParticipantsList = () => {
   // Get participants with filters
   const { data: participants, isLoading } = useQuery<ExtendedParticipant[]>({
     queryKey: [
-      filters.raceId
-        ? `/api/participants?raceId=${filters.raceId}`
+      filters.raceid
+        ? `/api/participants?raceid=${filters.raceid}`
         : filters.country
           ? `/api/participants?country=${filters.country}`
           : filters.search
@@ -241,9 +241,9 @@ const EnhancedParticipantsList = () => {
   // Filter by race
   const handleRaceFilter = (value: string) => {
     if (value && value !== "all_races") {
-      setFilters({ ...filters, raceId: parseInt(value) });
+      setFilters({ ...filters, raceid: parseInt(value) });
     } else {
-      const { raceId, ...restFilters } = filters;
+      const { raceid, ...restFilters } = filters;
       setFilters(restFilters);
     }
     setPage(1);
@@ -426,7 +426,7 @@ const EnhancedParticipantsList = () => {
 
                   <div>
                     <Select
-                      value={filters.raceId?.toString() || ""}
+                      value={filters.raceid?.toString() || ""}
                       onValueChange={handleRaceFilter}
                     >
                       <SelectTrigger className="w-[180px]">
@@ -648,20 +648,20 @@ const EnhancedParticipantsList = () => {
                   </Badge>
                 )}
 
-                {filters.raceId && races && (
+                {filters.raceid && races && (
                   <Badge
                     variant="secondary"
                     className="flex items-center gap-1"
                   >
                     <Map className="h-3 w-3" />
                     {getLocalizedRaceName(
-                      races.find((r) => r.id === filters.raceId) || races[0],
+                      races.find((r) => r.id === filters.raceid) || races[0],
                       i18n.language as any,
                     )}
                     <button
                       className="ml-1"
                       onClick={() => {
-                        const { raceId, ...rest } = filters;
+                        const { raceid, ...rest } = filters;
                         setFilters(rest);
                       }}
                     >
@@ -834,7 +834,7 @@ const EnhancedParticipantsList = () => {
                       currentParticipants.map((participant) => {
                         const race = races?.find(
                           (r) =>
-                            r.id === participant.raceId ||
+                            r.id === participant.raceid ||
                             r.id === participant.raceid,
                         );
                         const masterCategory = getMasterCategory(
@@ -959,7 +959,7 @@ const EnhancedParticipantsList = () => {
                   currentParticipants.map((participant) => {
                     const race = races?.find(
                       (r) =>
-                        r.id === participant.raceId ||
+                        r.id === participant.raceid ||
                         r.id === participant.raceid,
                     );
                     const masterCategory = getMasterCategory(

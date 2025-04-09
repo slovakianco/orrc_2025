@@ -198,8 +198,8 @@ export class PostgresStorage implements IStorage {
     return results.length > 0 ? results[0] : undefined;
   }
   
-  async getParticipantsByRace(raceId: number): Promise<Participant[]> {
-    return await db.select().from(participants).where(eq(participants.raceId, raceId)).orderBy(asc(participants.id));
+  async getParticipantsByRace(raceid: number): Promise<Participant[]> {
+    return await db.select().from(participants).where(eq(participants.raceid, raceid)).orderBy(asc(participants.id));
   }
   
   async getParticipantsByCountry(country: string): Promise<Participant[]> {
@@ -223,7 +223,7 @@ export class PostgresStorage implements IStorage {
   }
   
   async createParticipant(participant: InsertParticipant): Promise<Participant> {
-    const race = await this.getRaceById(participant.raceId);
+    const race = await this.getRaceById(participant.raceid);
     
     if (!race) {
       throw new Error("Race not found");
@@ -237,7 +237,7 @@ export class PostgresStorage implements IStorage {
     const age = currentYear - birthYear;
     
     // Generate BIB number
-    const participantsByRace = await this.getParticipantsByRace(participant.raceId);
+    const participantsByRace = await this.getParticipantsByRace(participant.raceid);
     const count = participantsByRace.length + 1;
     const bibNumber = `${this.getRaceCodeForBib(race)}${count.toString().padStart(3, '0')}`;
     

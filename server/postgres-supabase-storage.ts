@@ -113,11 +113,11 @@ export class PostgresSupabaseStorage implements IStorage {
     }
   }
 
-  async getParticipantsByRace(raceId: number): Promise<Participant[]> {
+  async getParticipantsByRace(raceid: number): Promise<Participant[]> {
     try {
-      return await db.select().from(participants).where(eq(participants.raceId, raceId)).orderBy(participants.lastname);
+      return await db.select().from(participants).where(eq(participants.raceid, raceid)).orderBy(participants.lastname);
     } catch (error) {
-      console.error(`Error fetching participants for race ${raceId}:`, error);
+      console.error(`Error fetching participants for race ${raceid}:`, error);
       return [];
     }
   }
@@ -148,16 +148,16 @@ export class PostgresSupabaseStorage implements IStorage {
   async createParticipant(participant: InsertParticipant): Promise<Participant> {
     try {
       // Get the race for bib number generation
-      const race = await this.getRaceById(participant.raceId);
+      const race = await this.getRaceById(participant.raceid);
       if (!race) {
-        throw new Error(`Race with ID ${participant.raceId} not found`);
+        throw new Error(`Race with ID ${participant.raceid} not found`);
       }
       
       // Generate bib number
       const raceCode = this.getRaceCodeForBib(race);
       
       // Count participants to generate a sequential bib number
-      const participantCount = await db.select({ count: sql`count(*)` }).from(participants).where(eq(participants.raceId, participant.raceId));
+      const participantCount = await db.select({ count: sql`count(*)` }).from(participants).where(eq(participants.raceid, participant.raceid));
       const count = Number(participantCount[0].count) || 0;
       
       const bibNumber = `${raceCode}-${count + 1}`;
@@ -174,7 +174,7 @@ export class PostgresSupabaseStorage implements IStorage {
         phoneNumber: participant.phoneNumber,
         country: participant.country,
         birthDate: participant.birthDate, 
-        raceId: participant.raceId,
+        raceid: participant.raceid,
         gender: participant.gender,
         age: participant.age,
         medicalInfo: participant.medicalInfo || null,

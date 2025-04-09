@@ -40,8 +40,8 @@ BEGIN
   IF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'participants' AND column_name = 'raceid') THEN
     -- Column already has correct name, do nothing
     RAISE NOTICE 'raceid column already exists with correct lowercase name';
-  ELSIF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'participants' AND column_name = 'raceId') THEN
-    ALTER TABLE participants RENAME COLUMN "raceId" TO raceid;
+  ELSIF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'participants' AND column_name = 'raceid') THEN
+    ALTER TABLE participants RENAME COLUMN "raceid" TO raceid;
   ELSIF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'participants' AND column_name = 'raceid') THEN
     ALTER TABLE participants RENAME COLUMN "RaceId" TO raceid;
   END IF;

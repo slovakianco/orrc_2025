@@ -97,7 +97,7 @@ export interface Database {
           phoneNumber: string
           country: string
           birthDate: string
-          raceId: number
+          raceid: number
           bibNumber: string | null
           status: string
           medicalInfo: string | null
@@ -113,7 +113,7 @@ export interface Database {
           phoneNumber: string
           country: string
           birthDate: string
-          raceId: number
+          raceid: number
           bibNumber?: string | null
           status?: string
           medicalInfo?: string | null
@@ -129,7 +129,7 @@ export interface Database {
           phoneNumber?: string
           country?: string
           birthDate?: string
-          raceId?: number
+          raceid?: number
           bibNumber?: string | null
           status?: string
           medicalInfo?: string | null

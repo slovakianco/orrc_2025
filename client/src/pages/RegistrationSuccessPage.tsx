@@ -12,7 +12,7 @@ interface ParticipantData {
   id: number;
   firstname: string;
   lastname: string;
-  raceId: number;
+  raceid: number;
   raceName: string;
   isEmaParticipant: boolean;
 }
@@ -35,16 +35,16 @@ const RegistrationSuccessPage: React.FC = () => {
   const paymentIntentId = searchParams.get('payment_intent');
   const paymentIntentClientSecret = searchParams.get('payment_intent_client_secret');
   
-  // Extract participantId and raceId from URL (from email link)
+  // Extract participantId and raceid from URL (from email link)
   const participantId = searchParams.get('participantId');
-  const raceId = searchParams.get('raceId');
+  const raceid = searchParams.get('raceid');
   
   // Check if we've been redirected after payment completion
   const paymentSuccess = searchParams.get('payment_success') === 'true';
   
   // Calculate price based on race and EMA status
-  const calculatePrice = (raceId: number, isEma: boolean): number => {
-    if (raceId === 1) { // 33km race
+  const calculatePrice = (raceid: number, isEma: boolean): number => {
+    if (raceid === 1) { // 33km race
       return isEma ? 200 : 170;
     } else { // 11km race
       return isEma ? 150 : 120;
@@ -78,7 +78,7 @@ const RegistrationSuccessPage: React.FC = () => {
   // Load participant data if we have the IDs
   useEffect(() => {
     const loadParticipantData = async () => {
-      if (!participantId || !raceId) return;
+      if (!participantId || !raceid) return;
       
       setLoading(true);
       try {
@@ -91,7 +91,7 @@ const RegistrationSuccessPage: React.FC = () => {
         const participantData = await participantResponse.json();
         
         // Get race data
-        const raceResponse = await apiRequest('GET', `/api/races/${raceId}`);
+        const raceResponse = await apiRequest('GET', `/api/races/${raceid}`);
         if (!raceResponse.ok) {
           throw new Error('Failed to fetch race data');
         }
@@ -100,7 +100,7 @@ const RegistrationSuccessPage: React.FC = () => {
         
         // Calculate the correct price
         const calculatedAmount = calculatePrice(
-          parseInt(raceId), 
+          parseInt(raceid), 
           participantData.isemaparticipant || participantData.isEmaParticipant
         );
         
@@ -111,7 +111,7 @@ const RegistrationSuccessPage: React.FC = () => {
           id: parseInt(participantId),
           firstname: participantData.firstname || participantData.firstname,
           lastname: participantData.lastname || participantData.lastname,
-          raceId: parseInt(raceId),
+          raceid: parseInt(raceid),
           raceName: raceData.name,
           isEmaParticipant: participantData.isemaparticipant || participantData.isEmaParticipant
         });
@@ -129,18 +129,18 @@ const RegistrationSuccessPage: React.FC = () => {
       }
     };
     
-    // If we have participantId and raceId from the URL, load the participant data
-    if (participantId && raceId) {
+    // If we have participantId and raceid from the URL, load the participant data
+    if (participantId && raceid) {
       loadParticipantData();
     }
-  }, [participantId, raceId, toast, t, setLocation]);
+  }, [participantId, raceid, toast, t, setLocation]);
   
   // Handle payment confirmation from any payment method
   useEffect(() => {
     // Log params for debugging
     console.log("Payment Intent ID:", paymentIntentId);
     console.log("Participant ID from URL:", participantId);
-    console.log("Race ID from URL:", raceId);
+    console.log("Race ID from URL:", raceid);
     console.log("Payment success flag:", paymentSuccess);
     
     // Function to confirm payment using payment intent
@@ -317,8 +317,8 @@ const RegistrationSuccessPage: React.FC = () => {
             </>
           )}
           
-          {/* From email link with participantId and raceId */}
-          {!paymentSuccess && !paymentIntentId && participantId && raceId && (
+          {/* From email link with participantId and raceid */}
+          {!paymentSuccess && !paymentIntentId && participantId && raceid && (
             <>
               {loading ? (
                 <div className="py-8">
@@ -347,7 +347,7 @@ const RegistrationSuccessPage: React.FC = () => {
                     
                     <StripePaymentForm 
                       amount={amount}
-                      raceId={participant.raceId}
+                      raceid={participant.raceid}
                       participantId={participant.id}
                       raceName={participant.raceName}
                       isEmaParticipant={participant.isEmaParticipant}
@@ -385,7 +385,7 @@ const RegistrationSuccessPage: React.FC = () => {
           )}
           
           {/* Default view when no parameters are provided */}
-          {!paymentSuccess && !paymentIntentId && !participantId && !raceId && (
+          {!paymentSuccess && !paymentIntentId && !participantId && !raceid && (
             <>
               <h1 className="text-3xl font-bold text-primary mb-4">
                 {t('registration.title')}

@@ -124,7 +124,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
 
 interface StripePaymentFormProps {
   amount: number;
-  raceId?: number;
+  raceid?: number;
   participantId?: number;
   raceName: string;
   isEmaParticipant?: boolean;
@@ -134,7 +134,7 @@ interface StripePaymentFormProps {
 
 const StripePaymentForm: React.FC<StripePaymentFormProps> = ({
   amount,
-  raceId,
+  raceid,
   participantId,
   raceName,
   isEmaParticipant,
@@ -151,7 +151,7 @@ const StripePaymentForm: React.FC<StripePaymentFormProps> = ({
     const createPaymentIntent = async () => {
       try {
         // Validate required fields
-        if (!participantId || !raceId) {
+        if (!participantId || !raceid) {
           setError(t('payment.missingParticipantData'));
           toast({
             title: t('payment.error'),
@@ -163,7 +163,7 @@ const StripePaymentForm: React.FC<StripePaymentFormProps> = ({
         
         console.log("Creating payment link with params:", {
           participantId,
-          raceId,
+          raceid,
           isEmaParticipant: isEmaParticipant // Log the value to debug
         });
         
@@ -171,7 +171,7 @@ const StripePaymentForm: React.FC<StripePaymentFormProps> = ({
         // handle this with the improved payment link caching system
         const response = await apiRequest('POST', '/api/create-payment-intent', {
           participantId,
-          raceId,
+          raceid,
           isEmaParticipant: isEmaParticipant === true // Ensure it's a boolean
         });
         
@@ -216,7 +216,7 @@ const StripePaymentForm: React.FC<StripePaymentFormProps> = ({
     };
 
     createPaymentIntent();
-  }, [participantId, raceId, isEmaParticipant, t, toast]);
+  }, [participantId, raceid, isEmaParticipant, t, toast]);
 
   if (error) {
     return (

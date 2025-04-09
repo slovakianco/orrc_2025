@@ -38,7 +38,7 @@ export interface Participant {
   phoneNumber: string;
   country: string;
   birthDate: string;
-  raceId: number;
+  raceid: number;
   bibNumber?: string;
   status: 'pending' | 'confirmed' | 'cancelled';
   medicalInfo?: string;
@@ -52,7 +52,7 @@ export interface Participant {
 }
 
 export interface ParticipantFilters {
-  raceId?: number;
+  raceid?: number;
   country?: string;
   search?: string;
   isEmaParticipant?: boolean;
@@ -69,7 +69,7 @@ export interface RegistrationForm {
   phoneNumber: string;
   country: string;
   birthDate: string;
-  raceId: number;
+  raceid: number;
   medicalInfo?: string;
   gender: 'M' | 'F';
   termsAccepted: boolean;

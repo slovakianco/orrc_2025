@@ -78,7 +78,7 @@ const ParticipantsList = () => {
   // Get participants with filters
   const { data: participants, isLoading } = useQuery<Participant[]>({
     queryKey: [
-      filters.raceId ? `/api/participants?raceId=${filters.raceId}` : 
+      filters.raceid ? `/api/participants?raceid=${filters.raceid}` : 
       filters.country ? `/api/participants?country=${filters.country}` : 
       filters.search ? `/api/participants?search=${filters.search}` : 
       '/api/participants'
@@ -153,9 +153,9 @@ const ParticipantsList = () => {
   // Filter by race
   const handleRaceFilter = (value: string) => {
     if (value) {
-      setFilters({ ...filters, raceId: parseInt(value) });
+      setFilters({ ...filters, raceid: parseInt(value) });
     } else {
-      const { raceId, ...restFilters } = filters;
+      const { raceid, ...restFilters } = filters;
       setFilters(restFilters);
     }
     setPage(1);
@@ -290,7 +290,7 @@ const ParticipantsList = () => {
               <select 
                 className="px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white"
                 onChange={handleRaceFilter}
-                value={filters.raceId || ""}
+                value={filters.raceid || ""}
               >
                 <option value="">{t('participants.allRaces')}</option>
                 {races?.map(race => (
@@ -379,7 +379,7 @@ const ParticipantsList = () => {
                   </tr>
                 ) : (
                   currentParticipants.map(participant => {
-                    const race = races?.find(r => r.id === participant.raceId);
+                    const race = races?.find(r => r.id === participant.raceid);
                     
                     return (
                       <tr key={participant.id} className="hover:bg-neutral-light hover:bg-opacity-20 transition-colors duration-150">
@@ -465,7 +465,7 @@ const ParticipantsList = () => {
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 {currentParticipants.map(participant => {
-                  const race = races?.find(r => r.id === participant.raceId);
+                  const race = races?.find(r => r.id === participant.raceid);
                   
                   return (
                     <div key={participant.id} 

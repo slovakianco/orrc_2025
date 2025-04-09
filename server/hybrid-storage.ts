@@ -126,18 +126,18 @@ export class HybridStorage implements IStorage {
     }
   }
   
-  async getParticipantsByRace(raceId: number): Promise<Participant[]> {
+  async getParticipantsByRace(raceid: number): Promise<Participant[]> {
     if (!this.supabaseAvailable) {
-      console.log(`Supabase not available, using MemStorage for participants in race ${raceId}`);
-      return this.memStorage.getParticipantsByRace(raceId);
+      console.log(`Supabase not available, using MemStorage for participants in race ${raceid}`);
+      return this.memStorage.getParticipantsByRace(raceid);
     }
 
     try {
-      return await this.supabaseStorage.getParticipantsByRace(raceId);
+      return await this.supabaseStorage.getParticipantsByRace(raceid);
     } catch (error) {
-      console.error(`Error fetching participants for race ${raceId} from Supabase:`, error);
+      console.error(`Error fetching participants for race ${raceid} from Supabase:`, error);
       console.warn("Falling back to in-memory participants data");
-      return this.memStorage.getParticipantsByRace(raceId);
+      return this.memStorage.getParticipantsByRace(raceid);
     }
   }
   

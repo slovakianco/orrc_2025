@@ -22,15 +22,15 @@ import {
 const RaceDetail = () => {
   const { t, i18n } = useTranslation();
   const { id } = useParams<{ id: string }>();
-  const raceId = parseInt(id);
+  const raceid = parseInt(id);
 
   const {
     data: race,
     isLoading,
     error,
   } = useQuery<Race>({
-    queryKey: [`/api/races/${raceId}`],
-    enabled: !isNaN(raceId),
+    queryKey: [`/api/races/${raceid}`],
+    enabled: !isNaN(raceid),
   });
 
   if (isLoading) {

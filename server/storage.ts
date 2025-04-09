@@ -38,7 +38,7 @@ export interface IStorage {
   // Participants
   getParticipants(): Promise<Participant[]>;
   getParticipantById(id: number): Promise<Participant | undefined>;
-  getParticipantsByRace(raceId: number): Promise<Participant[]>;
+  getParticipantsByRace(raceid: number): Promise<Participant[]>;
   getParticipantsByCountry(country: string): Promise<Participant[]>;
   searchParticipants(query: string): Promise<Participant[]>;
   createParticipant(participant: InsertParticipant): Promise<Participant>;
@@ -87,7 +87,7 @@ export class MemStorage implements IStorage {
   private sponsors: Map<number, Sponsor>;
 
   private userId: number;
-  private raceId: number;
+  private raceid: number;
   private participantId: number;
   private contactInquiryId: number;
   private faqId: number;
@@ -104,7 +104,7 @@ export class MemStorage implements IStorage {
     this.sponsors = new Map();
 
     this.userId = 1;
-    this.raceId = 1;
+    this.raceid = 1;
     this.participantId = 1;
     this.contactInquiryId = 1;
     this.faqId = 1;
@@ -148,7 +148,7 @@ export class MemStorage implements IStorage {
   }
 
   async createRace(race: InsertRace): Promise<Race> {
-    const id = this.raceId++;
+    const id = this.raceid++;
     const newRace: Race = {
       ...race,
       id,
@@ -180,9 +180,9 @@ export class MemStorage implements IStorage {
     return this.participants.get(id);
   }
 
-  async getParticipantsByRace(raceId: number): Promise<Participant[]> {
+  async getParticipantsByRace(raceid: number): Promise<Participant[]> {
     return Array.from(this.participants.values()).filter(
-      (participant) => participant.raceId === raceId,
+      (participant) => participant.raceid === raceid,
     );
   }
 
@@ -209,12 +209,12 @@ export class MemStorage implements IStorage {
     const id = this.participantId++;
 
     // Generate bib number based on race
-    const race = await this.getRaceById(participant.raceId);
+    const race = await this.getRaceById(participant.raceid);
     const raceCode = race ? this.getRaceCodeForBib(race) : "X";
 
     // Count participants in the same race to determine number
     const raceParticipants = await this.getParticipantsByRace(
-      participant.raceId,
+      participant.raceid,
     );
     const participantNumber = raceParticipants.length + 1;
 
@@ -714,7 +714,7 @@ export class MemStorage implements IStorage {
       phoneNumber: "+40123456789",
       country: "Romania",
       birthDate: "1992-05-15",
-      raceId: 3, // Summit Ultra
+      raceid: 3, // Summit Ultra
       medicalInfo: "No allergies",
       status: "confirmed",
       gender: "M",
@@ -728,7 +728,7 @@ export class MemStorage implements IStorage {
       phoneNumber: "+33678901234",
       country: "France",
       birthDate: "1995-08-20",
-      raceId: 2, // Forest Challenge
+      raceid: 2, // Forest Challenge
       medicalInfo: "Mild pollen allergy",
       status: "confirmed",
       gender: "F",
@@ -742,7 +742,7 @@ export class MemStorage implements IStorage {
       phoneNumber: "+49987654321",
       country: "Germany",
       birthDate: "1979-03-10",
-      raceId: 1, // Mountain Explorer
+      raceid: 1, // Mountain Explorer
       medicalInfo: "Previous knee injury, fully healed",
       status: "pending",
       gender: "M",

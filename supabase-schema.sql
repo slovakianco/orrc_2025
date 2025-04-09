@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS participants (
   "phoneNumber" TEXT NOT NULL,
   country TEXT NOT NULL,
   "birthDate" TEXT NOT NULL,
-  "raceId" INTEGER NOT NULL REFERENCES races(id),
+  "raceid" INTEGER NOT NULL REFERENCES races(id),
   "bibNumber" TEXT,
   status TEXT NOT NULL DEFAULT 'pending',
   "medicalInfo" TEXT,

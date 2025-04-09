@@ -74,7 +74,7 @@ export default function Participants() {
     
     // Apply race filter
     if (raceFilter) {
-      filtered = filtered.filter(p => p.raceId === raceFilter);
+      filtered = filtered.filter(p => p.raceid === raceFilter);
     }
     
     // Apply sorting
@@ -92,8 +92,8 @@ export default function Participants() {
             valueB = b.country?.toLowerCase() || '';
             break;
           case 'race':
-            valueA = a.raceId;
-            valueB = b.raceId;
+            valueA = a.raceid;
+            valueB = b.raceid;
             break;
           case 'status':
             valueA = a.status;
@@ -122,8 +122,8 @@ export default function Participants() {
   };
 
   // Get race name by ID
-  const getRaceName = (raceId: number) => {
-    const race = races.find(r => r.id === raceId);
+  const getRaceName = (raceid: number) => {
+    const race = races.find(r => r.id === raceid);
     return race ? getLocalizedRaceName(race, i18n.language as any) : t('participants.unknownRace');
   };
 
@@ -385,7 +385,7 @@ export default function Participants() {
                                 </div>
                               </td>
                               <td className="px-6 py-4 text-sm text-gray-800">
-                                {getRaceName(participant.raceId)}
+                                {getRaceName(participant.raceid)}
                               </td>
                               <td className="px-6 py-4">
                                 <Badge variant="outline" className={`${getStatusColor(participant.status)} px-3 py-1`}>
@@ -432,7 +432,7 @@ export default function Participants() {
                             <div className="grid grid-cols-2 gap-4">
                               <div>
                                 <div className="text-xs text-gray-500">{t("participants.table.race")}</div>
-                                <div className="font-medium">{getRaceName(participant.raceId)}</div>
+                                <div className="font-medium">{getRaceName(participant.raceid)}</div>
                               </div>
                               <div>
                                 <div className="text-xs text-gray-500">{t("participants.table.bibNumber")}</div>

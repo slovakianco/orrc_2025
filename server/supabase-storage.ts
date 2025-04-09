@@ -175,15 +175,15 @@ export class SupabaseStorage implements IStorage {
     return this.mapParticipantData(data);
   }
 
-  async getParticipantsByRace(raceId: number): Promise<Participant[]> {
+  async getParticipantsByRace(raceid: number): Promise<Participant[]> {
     const { data, error } = await supabase
       .from('participants')
       .select('*')
-      .eq('raceid', raceId) // Using lowercase column name to match database
+      .eq('raceid', raceid) // Using lowercase column name to match database
       .order('lastname'); // Using lowercase column name
     
     if (error) {
-      console.error(`Error fetching participants for race ${raceId}:`, error);
+      console.error(`Error fetching participants for race ${raceid}:`, error);
       return [];
     }
     
@@ -227,23 +227,23 @@ export class SupabaseStorage implements IStorage {
     const { data: race, error: raceError } = await supabase
       .from('races')
       .select('*')
-      .eq('id', participant.raceId)
+      .eq('id', participant.raceid)
       .single();
     
     if (raceError || !race) {
-      console.error(`Error fetching race ${participant.raceId} for participant creation:`, raceError);
-      throw new Error(`Race with ID ${participant.raceId} not found`);
+      console.error(`Error fetching race ${participant.raceid} for participant creation:`, raceError);
+      throw new Error(`Race with ID ${participant.raceid} not found`);
     }
     
     // Generate bib number
     const raceCode = this.getRaceCodeForBib(race);
     
     // Count participants to generate a sequential bib number
-    console.log("Using raceid with value:", participant.raceId);
+    console.log("Using raceid with value:", participant.raceid);
     const { count, error: countError } = await supabase
       .from('participants')
       .select('*', { count: 'exact' })
-      .eq('raceid', participant.raceId); // Use lowercase column name exactly as in database
+      .eq('raceid', participant.raceid); // Use lowercase column name exactly as in database
     
     if (countError) {
       console.error('Error counting participants for bib number generation:', countError);
@@ -265,7 +265,7 @@ export class SupabaseStorage implements IStorage {
       phonenumber: participant.phoneNumber,
       country: participant.country,
       birthdate: participant.birthDate,
-      raceid: participant.raceId,
+      raceid: participant.raceid,
       gender: participant.gender,
       age: participant.age,
       medicalinfo: participant.medicalInfo,
@@ -611,7 +611,7 @@ export class SupabaseStorage implements IStorage {
       phoneNumber: data.phonenumber || data.phoneNumber,
       country: data.country,
       birthDate: data.birthdate || data.birthDate,
-      raceId: data.raceid || data.raceId,
+      raceid: data.raceid || data.raceid,
       bibNumber: data.bibnumber || data.bibNumber,
       status: data.status,
       medicalInfo: data.medicalinfo || data.medicalInfo,

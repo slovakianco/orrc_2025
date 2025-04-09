@@ -55,7 +55,7 @@ export const participants = pgTable("participants", {
   phoneNumber: text("phonenumber").notNull(),
   country: text("country").notNull(),
   birthDate: text("birthdate").notNull(), // ISO date string
-  raceId: integer("raceid").notNull(),
+  raceid: integer("raceid").notNull(),
   bibNumber: text("bibnumber"),
   status: text("status").notNull().default("pending"), // pending, confirmed, cancelled
   medicalInfo: text("medicalinfo"),

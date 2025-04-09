@@ -24,10 +24,10 @@ const AdminPage = () => {
   });
 
   const updateRaceImageMutation = useMutation({
-    mutationFn: async ({ raceId, imageUrl }: { raceId: number, imageUrl: string }) => {
+    mutationFn: async ({ raceid, imageUrl }: { raceid: number, imageUrl: string }) => {
       const response = await apiRequest(
         'PATCH',
-        `/api/races/${raceId}`,
+        `/api/races/${raceid}`,
         { imageUrl }
       );
       return response.json();
@@ -67,7 +67,7 @@ const AdminPage = () => {
     if (!selectedRace || !newImageUrl.trim()) return;
     
     updateRaceImageMutation.mutate({
-      raceId: selectedRace.id,
+      raceid: selectedRace.id,
       imageUrl: newImageUrl.trim()
     });
   };

@@ -21,7 +21,7 @@ const registrationFormSchema = z.object({
   birthDate: z.string().min(1, { message: "Please enter your date of birth" }),
   isEmaParticipant: z.boolean().default(false),
   tshirtSize: z.string().optional(),
-  raceId: z.number({ invalid_type_error: "Please select a race" }),
+  raceid: z.number({ invalid_type_error: "Please select a race" }),
   emergencyContactName: z.string().min(2, { message: "Emergency contact name is required" }),
   emergencyContactPhone: z.string().min(6, { message: "Emergency contact phone is required" }),
   medicalInfo: z.string().optional(),
@@ -60,7 +60,7 @@ const RegistrationForm = () => {
       birthDate: "",
       isEmaParticipant: false,
       tshirtSize: "",
-      raceId: 0,
+      raceid: 0,
       emergencyContactName: "",
       emergencyContactPhone: "",
       medicalInfo: "",
@@ -69,14 +69,14 @@ const RegistrationForm = () => {
     }
   });
 
-  const selectedRaceId = watch("raceId");
+  const selectedRaceId = watch("raceid");
   const isEmaParticipant = watch("isEmaParticipant");
   const selectedRace = races?.find(race => race.id === Number(selectedRaceId));
   
   // Set default race if available and not already selected
   useEffect(() => {
     if (races && races.length > 0 && (!selectedRaceId || selectedRaceId === 0)) {
-      setValue("raceId", races[0].id);
+      setValue("raceid", races[0].id);
     }
   }, [races, selectedRaceId, setValue]);
 
@@ -84,7 +84,7 @@ const RegistrationForm = () => {
     id: number;
     firstname: string;
     lastname: string;
-    raceId: number;
+    raceid: number;
     amount: number;
     raceName: string;
   } | null>(null);
@@ -126,7 +126,7 @@ const RegistrationForm = () => {
           id: participantData.id,
           firstname: participantData.firstname,
           lastname: participantData.lastname,
-          raceId: race.id,
+          raceid: race.id,
           amount: race.price,
           raceName: getLocalizedRaceName(race, i18n.language as any)
         });
@@ -163,11 +163,11 @@ const RegistrationForm = () => {
     // Calculate age from birthDate
     const age = calculateAge(apiData.birthDate);
     
-    // Convert raceId from string to number if needed
+    // Convert raceid from string to number if needed
     // Also add current language for email localization
     const formattedData = {
       ...apiData,
-      raceId: typeof apiData.raceId === 'string' ? parseInt(apiData.raceId) : apiData.raceId,
+      raceid: typeof apiData.raceid === 'string' ? parseInt(apiData.raceid) : apiData.raceid,
       age, // Add calculated age
       language: i18n.language // Add current language for email localization
     };
@@ -226,7 +226,7 @@ const RegistrationForm = () => {
                 {/* Import StripePaymentForm with proper props */}
                 <StripePaymentForm
                   amount={registeredParticipant.amount}
-                  raceId={registeredParticipant.raceId}
+                  raceid={registeredParticipant.raceid}
                   participantId={registeredParticipant.id}
                   raceName={registeredParticipant.raceName}
                   onSuccess={handlePaymentSuccess}
@@ -429,7 +429,7 @@ const RegistrationForm = () => {
                       className={`bg-white border-2 rounded-lg p-4 cursor-pointer transition-colors duration-200 ${
                         Number(selectedRaceId) === race.id ? 'border-primary bg-primary/5' : 'border-neutral-light hover:border-primary hover:bg-primary/5'
                       }`}
-                      onClick={() => setValue("raceId", race.id)}
+                      onClick={() => setValue("raceid", race.id)}
                     >
                       <label htmlFor={`race${race.id}`} className="flex items-start cursor-pointer">
                         <input 
@@ -437,7 +437,7 @@ const RegistrationForm = () => {
                           id={`race${race.id}`} 
                           value={race.id} 
                           checked={Number(selectedRaceId) === race.id}
-                          onChange={() => setValue("raceId", race.id)}
+                          onChange={() => setValue("raceid", race.id)}
                           className="hidden"
                         />
                         <span className={`w-5 h-5 border-2 rounded-full flex-shrink-0 mr-2 mt-1 ${
@@ -451,8 +451,8 @@ const RegistrationForm = () => {
                     </div>
                   ))}
                 </div>
-                {errors.raceId && (
-                  <p className="text-sm text-red-500 mt-1">{errors.raceId.message}</p>
+                {errors.raceid && (
+                  <p className="text-sm text-red-500 mt-1">{errors.raceid.message}</p>
                 )}
               </div>
               

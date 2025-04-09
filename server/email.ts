@@ -390,7 +390,7 @@ export async function sendRegistrationConfirmationEmail(
   raceCategory: string,
   language: string = "en",
   participantId: number = 0,
-  raceId: number = 0,
+  raceid: number = 0,
   paymentLink?: string // Optional payment link parameter
 ): Promise<boolean> {
   type SupportedLanguages = "en" | "ro" | "fr" | "de" | "it" | "es";
@@ -467,14 +467,14 @@ export async function sendRegistrationConfirmationEmail(
                             participant?.isEmaParticipant === true || 
                             false;
     
-    console.log(`Generating payment link for participant ID: ${participantId}, race ID: ${raceId}, EMA status: ${isEmaParticipant}`);
+    console.log(`Generating payment link for participant ID: ${participantId}, race ID: ${raceid}, EMA status: ${isEmaParticipant}`);
     
     // Create Stripe payment link
     // For amount, we'll use 0 since the actual amount will be calculated in the createPaymentLink function
-    const stripePaymentLink = await createPaymentLink(0, participantId, raceId, isEmaParticipant);
+    const stripePaymentLink = await createPaymentLink(0, participantId, raceid, isEmaParticipant);
     
     // If we couldn't create a payment link, fall back to the registration success page
-    const fallbackPaymentUrl = `https://stanatrailrace.ro/registration-success?participantId=${participantId}&raceId=${raceId}`;
+    const fallbackPaymentUrl = `https://stanatrailrace.ro/registration-success?participantId=${participantId}&raceid=${raceid}`;
     
     // Use the Stripe payment link if available, otherwise use the fallback
     const paymentUrl = stripePaymentLink || fallbackPaymentUrl;

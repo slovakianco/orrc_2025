@@ -37,7 +37,7 @@ export const paymentLinkCache = new Map<string, string>();
 export async function createPaymentLink(
   amount: number, 
   participantId: number, 
-  raceId: number, 
+  raceid: number, 
   isEmaParticipant: boolean
 ): Promise<string | null> {
   try {
@@ -71,7 +71,7 @@ export async function createPaymentLink(
     }
     
     // Fallback to memory cache for backward compatibility
-    const participantCacheKey = `${participantId}-${raceId}`;
+    const participantCacheKey = `${participantId}-${raceid}`;
     const cachedPaymentLink = paymentLinkCache.get(participantCacheKey);
     if (cachedPaymentLink) {
       console.log(`Using cached payment link for participant ${participantId}: ${cachedPaymentLink}`);
@@ -82,7 +82,7 @@ export async function createPaymentLink(
     // 33km race: 200 lei (EMA) or 170 lei (non-EMA)
     // 11km race: 150 lei (EMA) or 120 lei (non-EMA)
     let ronAmount = 0;
-    if (raceId === 1) { // 33km race
+    if (raceid === 1) { // 33km race
       ronAmount = isEmaParticipant ? 200 : 170; // 200 lei for EMA, 170 lei for non-EMA
     } else { // 11km race
       ronAmount = isEmaParticipant ? 150 : 120; // 150 lei for EMA, 120 lei for non-EMA
@@ -94,7 +94,7 @@ export async function createPaymentLink(
       currency: 'ron',
       unit_amount: Math.round(ronAmount * 100), // Convert to bani (RON cents)
       product_data: {
-        name: `Stana de Vale Trail Race - ${raceId === 1 ? '33km' : '11km'} ${isEmaParticipant ? '(EMA Circuit)' : ''}`,
+        name: `Stana de Vale Trail Race - ${raceid === 1 ? '33km' : '11km'} ${isEmaParticipant ? '(EMA Circuit)' : ''}`,
       },
     });
     
@@ -108,7 +108,7 @@ export async function createPaymentLink(
       ],
       metadata: {
         participantId: participantId.toString(),
-        raceId: raceId.toString(),
+        raceid: raceid.toString(),
         isEmaParticipant: isEmaParticipant ? "true" : "false"
       },
       after_completion: {
@@ -122,7 +122,7 @@ export async function createPaymentLink(
         capture_method: 'automatic',
         metadata: {
           participantId: participantId.toString(),
-          raceId: raceId.toString()
+          raceid: raceid.toString()
         }
       },
       // Set tax options - required for Stripe links
@@ -232,15 +232,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Participants
   apiRouter.get("/participants", async (req: Request, res: Response) => {
     try {
-      const raceId = req.query.raceId ? parseInt(req.query.raceId as string) : undefined;
+      const raceid = req.query.raceid ? parseInt(req.query.raceid as string) : undefined;
       const country = req.query.country as string | undefined;
       const search = req.query.search as string | undefined;
       
       let participants;
       
-      if (raceId) {
-        console.log(`Fetching participants for race ID: ${raceId}`);
-        participants = await storage.getParticipantsByRace(raceId);
+      if (raceid) {
+        console.log(`Fetching participants for race ID: ${raceid}`);
+        participants = await storage.getParticipantsByRace(raceid);
       } else if (country) {
         console.log(`Fetching participants for country: ${country}`);
         participants = await storage.getParticipantsByCountry(country);
@@ -299,7 +299,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       // Get race info for this participant
-      const race = await storage.getRaceById(participant.raceId);
+      const race = await storage.getRaceById(participant.raceid);
       
       // Return participant status information
       res.json({
@@ -349,7 +349,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       // Check if the race exists
-      const race = await storage.getRaceById(result.data.raceId);
+      const race = await storage.getRaceById(result.data.raceid);
       if (!race) {
         return res.status(400).json({ message: "Invalid race selected" });
       }
@@ -381,7 +381,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         phoneNumber: result.data.phoneNumber,
         country: result.data.country,
         birthDate: result.data.birthDate,
-        raceId: result.data.raceId,
+        raceid: result.data.raceid,
         gender: result.data.gender as "M" | "F",
         age: age,
         // Handle optional fields
@@ -441,7 +441,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           raceCategory,
           emailLanguage,
           participant.id,
-          participant.raceId
+          participant.raceid
         );
         
         if (emailSent) {
@@ -665,17 +665,17 @@ This message was sent from the Stana de Vale Trail Race website contact form.
         });
       }
       
-      const { amount, participantId, raceId, isEmaParticipant } = req.body;
+      const { amount, participantId, raceid, isEmaParticipant } = req.body;
       
       // Check for required parameters
-      if (!participantId || !raceId) {
-        return res.status(400).json({ message: "Missing participantId or raceId" });
+      if (!participantId || !raceid) {
+        return res.status(400).json({ message: "Missing participantId or raceid" });
       }
       
       // Convert isEmaParticipant to boolean to handle various input formats
       const isEma = isEmaParticipant === true || isEmaParticipant === "true" || isEmaParticipant === 1;
       
-      console.log(`Processing payment for participant: ${participantId}, race: ${raceId}, isEmaParticipant: ${isEma}`);
+      console.log(`Processing payment for participant: ${participantId}, race: ${raceid}, isEmaParticipant: ${isEma}`);
       
       // First check if we have a payment link stored in the database
       try {
@@ -702,7 +702,7 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       }
       
       // Create a unique key for this participant and race combo (for backward compatibility with in-memory cache)
-      const participantCacheKey = `${participantId}-${raceId}`;
+      const participantCacheKey = `${participantId}-${raceid}`;
       
       // Check if we already have a payment link for this participant in the cache (fallback)
       const cachedPaymentLink = paymentLinkCache.get(participantCacheKey);
@@ -719,7 +719,7 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       }
       
       // No cached payment link, create one using our existing function
-      const paymentLink = await createPaymentLink(0, participantId, raceId, isEma);
+      const paymentLink = await createPaymentLink(0, participantId, raceid, isEma);
       
       if (!paymentLink) {
         return res.status(500).json({ message: "Failed to create payment link" });
@@ -840,7 +840,7 @@ This message was sent from the Stana de Vale Trail Race website contact form.
                 // Send payment confirmation email
                 try {
                   // Get race details
-                  const race = await storage.getRaceById(participant.raceId);
+                  const race = await storage.getRaceById(participant.raceid);
                   const raceCategory = race ? `${race.distance}km ${race.difficulty}` : "Trail Race";
                   
                   const emailSent = await sendPaymentConfirmationEmail(
@@ -906,7 +906,7 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       }
       
       // Get race details
-      const race = await storage.getRaceById(participant.raceId);
+      const race = await storage.getRaceById(participant.raceid);
       const raceCategory = race ? `${race.distance}km ${race.difficulty}` : "Trail Race";
       
       // Send payment confirmation email
@@ -1025,7 +1025,7 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       }
       
       // Get race details
-      const race = await storage.getRaceById(participant.raceId);
+      const race = await storage.getRaceById(participant.raceid);
       const raceCategory = race ? `${race.distance}km ${race.difficulty}` : "Trail Race";
       
       // Send payment confirmation email

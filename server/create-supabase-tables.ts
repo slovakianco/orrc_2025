@@ -128,7 +128,7 @@ async function createParticipantsTable() {
         phoneNumber: '+12345678',
         country: 'US',
         birthDate: '1990-01-01',
-        raceId: 1,
+        raceid: 1,
         status: 'pending',
         gender: 'M',
         age: 33
