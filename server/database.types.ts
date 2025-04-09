@@ -91,8 +91,8 @@ export interface Database {
       participants: {
         Row: {
           id: number
-          firstName: string
-          lastName: string
+          firstname: string
+          lastname: string
           email: string
           phoneNumber: string
           country: string
@@ -107,8 +107,8 @@ export interface Database {
         }
         Insert: {
           id?: number
-          firstName: string
-          lastName: string
+          firstname: string
+          lastname: string
           email: string
           phoneNumber: string
           country: string
@@ -123,8 +123,8 @@ export interface Database {
         }
         Update: {
           id?: number
-          firstName?: string
-          lastName?: string
+          firstname?: string
+          lastname?: string
           email?: string
           phoneNumber?: string
           country?: string

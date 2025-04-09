@@ -853,11 +853,11 @@ const EnhancedParticipantsList = () => {
                                 <div className="ml-4">
                                   <div className="text-sm font-medium">
                                     {capitalizeFirstLetter(
-                                      participant.firstName ||
+                                      participant.firstname ||
                                         participant.firstname,
                                     )}{" "}
                                     {capitalizeFirstLetter(
-                                      participant.lastName ||
+                                      participant.lastname ||
                                         participant.lastname,
                                     )}
                                   </div>
@@ -1002,10 +1002,10 @@ const EnhancedParticipantsList = () => {
                           </div>
                           <CardTitle className="mt-3 text-xl text-white">
                             {capitalizeFirstLetter(
-                              participant.firstName || participant.firstname,
+                              participant.firstname || participant.firstname,
                             )}{" "}
                             {capitalizeFirstLetter(
-                              participant.lastName || participant.lastname,
+                              participant.lastname || participant.lastname,
                             )}
                           </CardTitle>
                           <CardDescription className="text-white flex items-center">

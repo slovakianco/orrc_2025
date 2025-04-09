@@ -286,9 +286,9 @@ export function formatDistance(distance: number): string {
 }
 
 // Generate initials from full name
-export function getInitials(firstName: string, lastName: string): string {
-  const firstInitial = firstName?.charAt(0) || '';
-  const lastInitial = lastName?.charAt(0) || '';
+export function getInitials(firstname: string, lastname: string): string {
+  const firstInitial = firstname?.charAt(0) || '';
+  const lastInitial = lastname?.charAt(0) || '';
   return (firstInitial + lastInitial).toUpperCase();
 }
 

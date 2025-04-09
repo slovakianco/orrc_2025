@@ -10,8 +10,8 @@ import StripePaymentForm from '@/components/StripePaymentForm';
 
 interface ParticipantData {
   id: number;
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   raceId: number;
   raceName: string;
   isEmaParticipant: boolean;
@@ -109,8 +109,8 @@ const RegistrationSuccessPage: React.FC = () => {
         // Store participant data for payment form
         setParticipant({
           id: parseInt(participantId),
-          firstName: participantData.firstname || participantData.firstName,
-          lastName: participantData.lastname || participantData.lastName,
+          firstname: participantData.firstname || participantData.firstname,
+          lastname: participantData.lastname || participantData.lastname,
           raceId: parseInt(raceId),
           raceName: raceData.name,
           isEmaParticipant: participantData.isemaparticipant || participantData.isEmaParticipant
@@ -340,7 +340,7 @@ const RegistrationSuccessPage: React.FC = () => {
                   <div className="bg-gray-50 rounded-lg p-6 mb-6">
                     <h3 className="text-xl font-medium mb-2">{t('registration.yourRegistration')}</h3>
                     <div className="text-left">
-                      <p className="mb-1"><strong>{t('registration.form.name')}:</strong> {participant.firstName} {participant.lastName}</p>
+                      <p className="mb-1"><strong>{t('registration.form.name')}:</strong> {participant.firstname} {participant.lastname}</p>
                       <p className="mb-1"><strong>{t('registration.form.race')}:</strong> {participant.raceName}</p>
                       <p className="mb-4"><strong>{t('registration.form.amount')}:</strong> {amount} RON</p>
                     </div>

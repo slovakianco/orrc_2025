@@ -13,8 +13,8 @@ import StripePaymentForm from "./StripePaymentForm";
 
 // Extend schema to add form-specific validations
 const registrationFormSchema = z.object({
-  firstName: z.string().min(2, { message: "First name must be at least 2 characters" }),
-  lastName: z.string().min(2, { message: "Last name must be at least 2 characters" }),
+  firstname: z.string().min(2, { message: "First name must be at least 2 characters" }),
+  lastname: z.string().min(2, { message: "Last name must be at least 2 characters" }),
   email: z.string().email({ message: "Please enter a valid email address" }),
   phoneNumber: z.string().min(6, { message: "Please enter a valid phone number" }),
   country: z.string().min(1, { message: "Please select your country" }),
@@ -52,8 +52,8 @@ const RegistrationForm = () => {
   const { register, handleSubmit, reset, watch, setValue, formState: { errors, isSubmitting } } = useForm<RegistrationFormInputs>({
     resolver: zodResolver(registrationFormSchema),
     defaultValues: {
-      firstName: "",
-      lastName: "",
+      firstname: "",
+      lastname: "",
       email: "",
       phoneNumber: "",
       country: "",
@@ -82,8 +82,8 @@ const RegistrationForm = () => {
 
   const [registeredParticipant, setRegisteredParticipant] = useState<{
     id: number;
-    firstName: string;
-    lastName: string;
+    firstname: string;
+    lastname: string;
     raceId: number;
     amount: number;
     raceName: string;
@@ -124,8 +124,8 @@ const RegistrationForm = () => {
         // Store the participant data for payment processing
         setRegisteredParticipant({
           id: participantData.id,
-          firstName: participantData.firstName,
-          lastName: participantData.lastName,
+          firstname: participantData.firstname,
+          lastname: participantData.lastname,
           raceId: race.id,
           amount: race.price,
           raceName: getLocalizedRaceName(race, i18n.language as any)
@@ -240,31 +240,31 @@ const RegistrationForm = () => {
               <form onSubmit={handleSubmit(onSubmit)}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium text-neutral-gray mb-2">
-                    {t('registration.form.firstName')} *
+                  <label htmlFor="firstname" className="block text-sm font-medium text-neutral-gray mb-2">
+                    {t('registration.form.firstname')} *
                   </label>
                   <input 
                     type="text" 
-                    id="firstName" 
-                    {...register("firstName")}
+                    id="firstname" 
+                    {...register("firstname")}
                     className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                   />
-                  {errors.firstName && (
-                    <p className="text-sm text-red-500 mt-1">{errors.firstName.message}</p>
+                  {errors.firstname && (
+                    <p className="text-sm text-red-500 mt-1">{errors.firstname.message}</p>
                   )}
                 </div>
                 <div>
-                  <label htmlFor="lastName" className="block text-sm font-medium text-neutral-gray mb-2">
-                    {t('registration.form.lastName')} *
+                  <label htmlFor="lastname" className="block text-sm font-medium text-neutral-gray mb-2">
+                    {t('registration.form.lastname')} *
                   </label>
                   <input 
                     type="text" 
-                    id="lastName" 
-                    {...register("lastName")}
+                    id="lastname" 
+                    {...register("lastname")}
                     className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                   />
-                  {errors.lastName && (
-                    <p className="text-sm text-red-500 mt-1">{errors.lastName.message}</p>
+                  {errors.lastname && (
+                    <p className="text-sm text-red-500 mt-1">{errors.lastname.message}</p>
                   )}
                 </div>
                 <div>

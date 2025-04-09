@@ -259,8 +259,8 @@ export class SupabaseStorage implements IStorage {
     // Create an object with lowercase field names for Supabase 
     // Map InsertParticipant fields to the actual column names in the database
     const supabaseParticipant = {
-      firstname: participant.firstName,
-      lastname: participant.lastName,
+      firstname: participant.firstname,
+      lastname: participant.lastname,
       email: participant.email,
       phonenumber: participant.phoneNumber,
       country: participant.country,
@@ -605,8 +605,8 @@ export class SupabaseStorage implements IStorage {
     return {
       ...data,
       id: data.id,
-      firstName: data.firstname || data.firstName,
-      lastName: data.lastname || data.lastName,
+      firstname: data.firstname || data.firstname,
+      lastname: data.lastname || data.lastname,
       email: data.email,
       phoneNumber: data.phonenumber || data.phoneNumber,
       country: data.country,

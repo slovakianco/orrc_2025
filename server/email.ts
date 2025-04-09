@@ -267,8 +267,8 @@ function getEmailTranslations(language: SupportedLanguages = "en") {
 
 export async function sendPaymentConfirmationEmail(
   to: string,
-  firstName: string,
-  lastName: string,
+  firstname: string,
+  lastname: string,
   raceCategory: string,
   language: SupportedLanguages = "en"
 ): Promise<boolean> {
@@ -288,9 +288,9 @@ export async function sendPaymentConfirmationEmail(
       day: 'numeric'
     });
     
-    // Ensure firstName and lastName are not undefined and properly trimmed
-    const safeFirstName = firstName ? firstName.trim() : 'Runner';
-    const safeLastName = lastName ? lastName.trim() : '';
+    // Ensure firstname and lastname are not undefined and properly trimmed
+    const safeFirstName = firstname ? firstname.trim() : 'Runner';
+    const safeLastName = lastname ? lastname.trim() : '';
     const fullName = safeFirstName + (safeLastName ? ' ' + safeLastName : '');
     
     // HTML email content
@@ -385,8 +385,8 @@ import { createPaymentLink } from './routes';
 
 export async function sendRegistrationConfirmationEmail(
   email: string,
-  firstName: string,
-  lastName: string,
+  firstname: string,
+  lastname: string,
   raceCategory: string,
   language: string = "en",
   participantId: number = 0,
@@ -409,9 +409,9 @@ export async function sendRegistrationConfirmationEmail(
     es: "Stana de Vale Trail Race - Confirmación de Registro",
   };
 
-  // Ensure firstName and lastName are not undefined
-  const safeFirstName = firstName ? firstName.trim() : 'Runner';
-  const safeLastName = lastName ? lastName.trim() : '';
+  // Ensure firstname and lastname are not undefined
+  const safeFirstName = firstname ? firstname.trim() : 'Runner';
+  const safeLastName = lastname ? lastname.trim() : '';
   const fullName = safeFirstName + (safeLastName ? ' ' + safeLastName : '');
 
   const greetings: Record<SupportedLanguages, string> = {

@@ -198,8 +198,8 @@
     "completePayment": "Pentru a confirma înregistrarea, te rugăm să completezi plata de mai jos.",
     "paymentLater": "Poți finaliza plata mai târziu. Înregistrarea ta este salvată, dar nu este încă confirmată.",
     "form": {
-      "firstName": "Prenume",
-      "lastName": "Nume de familie",
+      "firstname": "Prenume",
+      "lastname": "Nume de familie",
       "email": "Adresa de email",
       "phone": "Număr de telefon",
       "country": "Țară",

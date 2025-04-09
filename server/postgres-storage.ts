@@ -213,8 +213,8 @@ export class PostgresStorage implements IStorage {
     return await db.select().from(participants)
       .where(
         or(
-          ilike(participants.firstName, lowerQuery),
-          ilike(participants.lastName, lowerQuery),
+          ilike(participants.firstname, lowerQuery),
+          ilike(participants.lastname, lowerQuery),
           ilike(participants.country, lowerQuery),
           ilike(participants.bibNumber || '', lowerQuery)
         )

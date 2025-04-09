@@ -47,18 +47,18 @@ BEGIN
   END IF;
   
   -- Similar checks for other important columns
-  -- firstName to firstname
+  -- firstname to firstname
   IF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'participants' AND column_name = 'firstname') THEN
     RAISE NOTICE 'firstname column already exists with correct lowercase name';
-  ELSIF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'participants' AND column_name = 'firstName') THEN
-    ALTER TABLE participants RENAME COLUMN "firstName" TO firstname;
+  ELSIF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'participants' AND column_name = 'firstname') THEN
+    ALTER TABLE participants RENAME COLUMN "firstname" TO firstname;
   END IF;
   
-  -- lastName to lastname
+  -- lastname to lastname
   IF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'participants' AND column_name = 'lastname') THEN
     RAISE NOTICE 'lastname column already exists with correct lowercase name';
-  ELSIF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'participants' AND column_name = 'lastName') THEN
-    ALTER TABLE participants RENAME COLUMN "lastName" TO lastname;
+  ELSIF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'participants' AND column_name = 'lastname') THEN
+    ALTER TABLE participants RENAME COLUMN "lastname" TO lastname;
   END IF;
   
   -- phoneNumber to phonenumber

@@ -122,8 +122,8 @@ async function createParticipantsTable() {
     const { error: participantsError } = await supabase
       .from('participants')
       .insert({
-        firstName: 'Test',
-        lastName: 'User',
+        firstname: 'Test',
+        lastname: 'User',
         email: 'test@example.com',
         phoneNumber: '+12345678',
         country: 'US',

@@ -49,8 +49,8 @@ export const insertRaceSchema = createInsertSchema(races).omit({
 // Participant schema
 export const participants = pgTable("participants", {
   id: serial("id").primaryKey(),
-  firstName: text("firstname").notNull(),
-  lastName: text("lastname").notNull(),
+  firstname: text("firstname").notNull(),
+  lastname: text("lastname").notNull(),
   email: text("email").notNull(),
   phoneNumber: text("phonenumber").notNull(),
   country: text("country").notNull(),

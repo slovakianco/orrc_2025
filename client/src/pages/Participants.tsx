@@ -63,7 +63,7 @@ export default function Participants() {
     if (searchTerm) {
       const search = searchTerm.toLowerCase();
       filtered = filtered.filter(p => 
-        `${p.firstName} ${p.lastName}`.toLowerCase().includes(search)
+        `${p.firstname} ${p.lastname}`.toLowerCase().includes(search)
       );
     }
     
@@ -84,8 +84,8 @@ export default function Participants() {
         
         switch (sortColumn) {
           case 'name':
-            valueA = `${a.firstName} ${a.lastName}`.toLowerCase();
-            valueB = `${b.firstName} ${b.lastName}`.toLowerCase();
+            valueA = `${a.firstname} ${a.lastname}`.toLowerCase();
+            valueB = `${b.firstname} ${b.lastname}`.toLowerCase();
             break;
           case 'country':
             valueA = a.country?.toLowerCase() || '';
@@ -370,10 +370,10 @@ export default function Participants() {
                               <td className="px-6 py-4 text-sm text-gray-800">
                                 <div className="flex items-center">
                                   <div className="w-8 h-8 flex items-center justify-center rounded-full bg-[#2E7D32]/10 text-[#2E7D32] font-semibold mr-3">
-                                    {participant.firstName?.[0]}{participant.lastName?.[0]}
+                                    {participant.firstname?.[0]}{participant.lastname?.[0]}
                                   </div>
                                   <div>
-                                    <div className="font-medium">{participant.firstName} {participant.lastName}</div>
+                                    <div className="font-medium">{participant.firstname} {participant.lastname}</div>
                                     <div className="text-xs text-gray-500">#{participant.bibNumber || '---'}</div>
                                   </div>
                                 </div>
@@ -413,10 +413,10 @@ export default function Participants() {
                           <div className="flex justify-between items-start">
                             <div className="flex items-center mb-4">
                               <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#2E7D32]/10 text-[#2E7D32] font-bold mr-3 text-xl">
-                                {participant.firstName?.[0]}{participant.lastName?.[0]}
+                                {participant.firstname?.[0]}{participant.lastname?.[0]}
                               </div>
                               <div>
-                                <h3 className="font-semibold text-lg">{participant.firstName} {participant.lastName}</h3>
+                                <h3 className="font-semibold text-lg">{participant.firstname} {participant.lastname}</h3>
                                 <div className="flex items-center text-gray-500 text-sm">
                                   <span className="mr-1 text-lg">{getCountryFlag(participant.country)}</span>
                                   {participant.country}

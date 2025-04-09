@@ -165,8 +165,8 @@
     "title": "Înregistrare",
     "subtitle": "Înscrie-te la competiția noastră de alergare pe traseu",
     "formTitle": "Formular de Înregistrare",
-    "firstName": "Prenume",
-    "lastName": "Nume",
+    "firstname": "Prenume",
+    "lastname": "Nume",
     "email": "Email",
     "phone": "Număr de Telefon",
     "country": "Țară",
@@ -439,8 +439,8 @@
     }
   },
   "validation": {
-    "firstName": "Prenumele trebuie să aibă cel puțin 2 caractere",
-    "lastName": "Numele trebuie să aibă cel puțin 2 caractere",
+    "firstname": "Prenumele trebuie să aibă cel puțin 2 caractere",
+    "lastname": "Numele trebuie să aibă cel puțin 2 caractere",
     "email": "Te rugăm să introduci o adresă de email validă",
     "phone": "Numărul de telefon trebuie să aibă cel puțin 6 caractere",
     "country": "Te rugăm să selectezi țara ta",

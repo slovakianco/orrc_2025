@@ -172,8 +172,8 @@
     "title": "Inscrivez-vous à la compétition",
     "subtitle": "Remplissez le formulaire ci-dessous pour réserver votre place dans l'une de nos courses. Une inscription anticipée garantit les meilleurs tarifs.",
     "form": {
-      "firstName": "Prénom",
-      "lastName": "Nom de famille",
+      "firstname": "Prénom",
+      "lastname": "Nom de famille",
       "email": "Adresse e-mail",
       "phone": "Numéro de téléphone",
       "country": "Pays",

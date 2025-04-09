@@ -198,8 +198,8 @@
     "completePayment": "To confirm your registration, please complete the payment below.",
     "paymentLater": "You can complete your payment later. Your registration is saved but not confirmed yet.",
     "form": {
-      "firstName": "First Name",
-      "lastName": "Last Name",
+      "firstname": "First Name",
+      "lastname": "Last Name",
       "email": "Email Address",
       "phone": "Phone Number",
       "country": "Country",

@@ -172,8 +172,8 @@
     "title": "Registrati per la Competizione",
     "subtitle": "Compila il modulo qui sotto per assicurarti un posto in una delle nostre gare. La registrazione anticipata garantisce le migliori tariffe.",
     "form": {
-      "firstName": "Nome",
-      "lastName": "Cognome",
+      "firstname": "Nome",
+      "lastname": "Cognome",
       "email": "Indirizzo Email",
       "phone": "Numero di Telefono",
       "country": "Paese",

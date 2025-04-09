@@ -197,8 +197,8 @@ export class MemStorage implements IStorage {
     const lowercaseQuery = query.toLowerCase();
     return Array.from(this.participants.values()).filter(
       (participant) =>
-        participant.firstName.toLowerCase().includes(lowercaseQuery) ||
-        participant.lastName.toLowerCase().includes(lowercaseQuery) ||
+        participant.firstname.toLowerCase().includes(lowercaseQuery) ||
+        participant.lastname.toLowerCase().includes(lowercaseQuery) ||
         participant.country.toLowerCase().includes(lowercaseQuery),
     );
   }
@@ -708,8 +708,8 @@ export class MemStorage implements IStorage {
 
     // Sample Participants
     this.createParticipant({
-      firstName: "Alex",
-      lastName: "Muntean",
+      firstname: "Alex",
+      lastname: "Muntean",
       email: "alex.muntean@example.com",
       phoneNumber: "+40123456789",
       country: "Romania",
@@ -722,8 +722,8 @@ export class MemStorage implements IStorage {
     });
 
     this.createParticipant({
-      firstName: "Sophie",
-      lastName: "Dubois",
+      firstname: "Sophie",
+      lastname: "Dubois",
       email: "sophie.dubois@example.com",
       phoneNumber: "+33678901234",
       country: "France",
@@ -736,8 +736,8 @@ export class MemStorage implements IStorage {
     });
 
     this.createParticipant({
-      firstName: "Markus",
-      lastName: "Klein",
+      firstname: "Markus",
+      lastname: "Klein",
       email: "markus.klein@example.com",
       phoneNumber: "+49987654321",
       country: "Germany",

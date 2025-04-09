@@ -20,8 +20,8 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
-  firstName: z.string().min(2, { message: "validation.firstName" }),
-  lastName: z.string().min(2, { message: "validation.lastName" }),
+  firstname: z.string().min(2, { message: "validation.firstname" }),
+  lastname: z.string().min(2, { message: "validation.lastname" }),
   email: z.string().email({ message: "validation.email" }),
   phone: z.string().min(6, { message: "validation.phone" }),
   country: z.string().min(1, { message: "validation.country" }),
@@ -44,8 +44,8 @@ export default function Registration() {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      firstName: "",
-      lastName: "",
+      firstname: "",
+      lastname: "",
       email: "",
       phone: "",
       country: "",
@@ -99,11 +99,11 @@ export default function Registration() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
                     control={form.control}
-                    name="firstName"
+                    name="firstname"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel className="text-sm font-accent font-medium text-neutral-dark">
-                          {t("registration.firstName")} *
+                          {t("registration.firstname")} *
                         </FormLabel>
                         <FormControl>
                           <Input 
@@ -118,11 +118,11 @@ export default function Registration() {
                   
                   <FormField
                     control={form.control}
-                    name="lastName"
+                    name="lastname"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel className="text-sm font-accent font-medium text-neutral-dark">
-                          {t("registration.lastName")} *
+                          {t("registration.lastname")} *
                         </FormLabel>
                         <FormControl>
                           <Input 

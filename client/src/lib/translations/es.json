@@ -172,8 +172,8 @@
     "title": "Regístrate para la Competencia",
     "subtitle": "Completa el formulario a continuación para asegurar tu lugar en una de nuestras carreras. El registro anticipado garantiza las mejores tarifas.",
     "form": {
-      "firstName": "Nombre",
-      "lastName": "Apellido",
+      "firstname": "Nombre",
+      "lastname": "Apellido",
       "email": "Dirección de Correo Electrónico",
       "phone": "Número de Teléfono",
       "country": "País",

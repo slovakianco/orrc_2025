@@ -25,8 +25,8 @@ const calculateAgeForValidation = (birthDate: string): number => {
 
 // Extend schema to add form-specific validations
 const registrationFormSchema = z.object({
-  firstName: z.string().min(2, { message: "First name must be at least 2 characters" }),
-  lastName: z.string().min(2, { message: "Last name must be at least 2 characters" }),
+  firstname: z.string().min(2, { message: "First name must be at least 2 characters" }),
+  lastname: z.string().min(2, { message: "Last name must be at least 2 characters" }),
   email: z.string().email({ message: "Please enter a valid email address" }),
   phoneNumber: z.string().min(6, { message: "Please enter a valid phone number" }),
   country: z.string().min(1, { message: "Please select your country" }),
@@ -100,8 +100,8 @@ const RegistrationFormWithPayment = () => {
   const { register, handleSubmit, reset, watch, setValue, formState: { errors, isSubmitting } } = useForm<RegistrationFormInputs>({
     resolver: zodResolver(registrationFormSchema),
     defaultValues: {
-      firstName: "",
-      lastName: "",
+      firstname: "",
+      lastname: "",
       email: "",
       phoneNumber: "",
       country: "",
@@ -354,31 +354,31 @@ const RegistrationFormWithPayment = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium text-neutral-gray mb-2">
-                    {t('registration.form.firstName')} *
+                  <label htmlFor="firstname" className="block text-sm font-medium text-neutral-gray mb-2">
+                    {t('registration.form.firstname')} *
                   </label>
                   <input 
                     type="text" 
-                    id="firstName" 
-                    {...register("firstName")}
+                    id="firstname" 
+                    {...register("firstname")}
                     className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                   />
-                  {errors.firstName && (
-                    <p className="text-sm text-red-500 mt-1">{errors.firstName.message}</p>
+                  {errors.firstname && (
+                    <p className="text-sm text-red-500 mt-1">{errors.firstname.message}</p>
                   )}
                 </div>
                 <div>
-                  <label htmlFor="lastName" className="block text-sm font-medium text-neutral-gray mb-2">
-                    {t('registration.form.lastName')} *
+                  <label htmlFor="lastname" className="block text-sm font-medium text-neutral-gray mb-2">
+                    {t('registration.form.lastname')} *
                   </label>
                   <input 
                     type="text" 
-                    id="lastName" 
-                    {...register("lastName")}
+                    id="lastname" 
+                    {...register("lastname")}
                     className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                   />
-                  {errors.lastName && (
-                    <p className="text-sm text-red-500 mt-1">{errors.lastName.message}</p>
+                  {errors.lastname && (
+                    <p className="text-sm text-red-500 mt-1">{errors.lastname.message}</p>
                   )}
                 </div>
                 <div>
@@ -647,9 +647,20 @@ const RegistrationFormWithPayment = () => {
                 <button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="bg-accent hover:bg-accent-dark text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300 shadow-lg disabled:opacity-50"
+                  className={`bg-accent text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300 shadow-lg
+                    ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-accent-dark'}`}
                 >
-                  {isSubmitting ? t('common.submitting') : t('registration.form.submitButton')}
+                  {isSubmitting ? (
+                    <span className="flex items-center justify-center">
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      {t('common.submitting')}
+                    </span>
+                  ) : (
+                    t('registration.form.submitButton')
+                  )}
                 </button>
               </div>
             </form>

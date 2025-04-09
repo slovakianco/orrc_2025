@@ -115,7 +115,7 @@ export class PostgresSupabaseStorage implements IStorage {
 
   async getParticipantsByRace(raceId: number): Promise<Participant[]> {
     try {
-      return await db.select().from(participants).where(eq(participants.raceId, raceId)).orderBy(participants.lastName);
+      return await db.select().from(participants).where(eq(participants.raceId, raceId)).orderBy(participants.lastname);
     } catch (error) {
       console.error(`Error fetching participants for race ${raceId}:`, error);
       return [];
@@ -124,7 +124,7 @@ export class PostgresSupabaseStorage implements IStorage {
 
   async getParticipantsByCountry(country: string): Promise<Participant[]> {
     try {
-      return await db.select().from(participants).where(eq(participants.country, country)).orderBy(participants.lastName);
+      return await db.select().from(participants).where(eq(participants.country, country)).orderBy(participants.lastname);
     } catch (error) {
       console.error(`Error fetching participants from country ${country}:`, error);
       return [];
@@ -135,10 +135,10 @@ export class PostgresSupabaseStorage implements IStorage {
     try {
       return await db.select().from(participants).where(
         or(
-          like(participants.firstName, `%${query}%`),
-          like(participants.lastName, `%${query}%`)
+          like(participants.firstname, `%${query}%`),
+          like(participants.lastname, `%${query}%`)
         )
-      ).orderBy(participants.lastName);
+      ).orderBy(participants.lastname);
     } catch (error) {
       console.error(`Error searching participants with query ${query}:`, error);
       return [];
@@ -168,8 +168,8 @@ export class PostgresSupabaseStorage implements IStorage {
       // Create a new object that conforms to the expected type
       // Since we're getting TypeScript errors about array properties
       const result = await db.insert(participants).values({
-        firstName: participant.firstName,
-        lastName: participant.lastName,
+        firstname: participant.firstname,
+        lastname: participant.lastname,
         email: participant.email,
         phoneNumber: participant.phoneNumber,
         country: participant.country,

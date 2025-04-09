@@ -18,8 +18,8 @@ export interface Race {
 // Participant types
 export interface Participant {
   id: number;
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   country: string;
   raceCategory: RaceCategory;
   bibNumber: number;
@@ -29,8 +29,8 @@ export interface Participant {
 
 // Registration types
 export interface RegistrationFormData {
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   email: string;
   phone: string;
   country: string;

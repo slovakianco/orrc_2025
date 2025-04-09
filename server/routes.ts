@@ -304,7 +304,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Return participant status information
       res.json({
         id: participant.id,
-        name: `${participant.firstName} ${participant.lastName}`,
+        name: `${participant.firstname} ${participant.lastname}`,
         email: participant.email,
         race: race ? `${race.distance}km ${race.difficulty}` : "Unknown race",
         country: participant.country,
@@ -375,8 +375,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // We need to use the exact column names that are in the database
       // Create participant data using named fields as per Drizzle schema
       const participantData: InsertParticipant = {
-        firstName: result.data.firstName,
-        lastName: result.data.lastName,
+        firstname: result.data.firstname,
+        lastname: result.data.lastname,
         email: result.data.email,
         phoneNumber: result.data.phoneNumber,
         country: result.data.country,
@@ -436,8 +436,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       try {
         const emailSent = await sendRegistrationConfirmationEmail(
           participant.email,
-          participant.firstName,
-          participant.lastName,
+          participant.firstname,
+          participant.lastname,
           raceCategory,
           emailLanguage,
           participant.id,
@@ -845,8 +845,8 @@ This message was sent from the Stana de Vale Trail Race website contact form.
                   
                   const emailSent = await sendPaymentConfirmationEmail(
                     participant.email,
-                    participant.firstName,
-                    participant.lastName,
+                    participant.firstname,
+                    participant.lastname,
                     raceCategory
                   );
                   
@@ -912,8 +912,8 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       // Send payment confirmation email
       const emailSent = await sendPaymentConfirmationEmail(
         participant.email,
-        participant.firstName,
-        participant.lastName,
+        participant.firstname,
+        participant.lastname,
         raceCategory
       );
       
@@ -1031,8 +1031,8 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       // Send payment confirmation email
       const emailSent = await sendPaymentConfirmationEmail(
         participant.email,
-        participant.firstName,
-        participant.lastName,
+        participant.firstname,
+        participant.lastname,
         raceCategory
       );
       
@@ -1047,8 +1047,8 @@ This message was sent from the Stana de Vale Trail Race website contact form.
         message: "Payment confirmed and participant status updated",
         participant: {
           id: participant.id,
-          firstName: participant.firstName,
-          lastName: participant.lastName,
+          firstname: participant.firstname,
+          lastname: participant.lastname,
           status: participant.status
         },
         emailSent

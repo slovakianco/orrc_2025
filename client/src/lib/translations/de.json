@@ -172,8 +172,8 @@
     "title": "Registriere dich für den Wettbewerb",
     "subtitle": "Fülle das Formular unten aus, um deinen Platz bei einem unserer Rennen zu sichern. Eine frühzeitige Registrierung garantiert die besten Preise.",
     "form": {
-      "firstName": "Vorname",
-      "lastName": "Nachname",
+      "firstname": "Vorname",
+      "lastname": "Nachname",
       "email": "E-Mail-Adresse",
       "phone": "Telefonnummer",
       "country": "Land",

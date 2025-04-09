@@ -32,8 +32,8 @@ export interface AidStation {
 // Participant types
 export interface Participant {
   id: number;
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   email: string;
   phoneNumber: string;
   country: string;
@@ -63,8 +63,8 @@ export interface ParticipantFilters {
 
 // Registration form types
 export interface RegistrationForm {
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   email: string;
   phoneNumber: string;
   country: string;

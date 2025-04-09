@@ -387,11 +387,11 @@ const ParticipantsList = () => {
                           <div className="flex items-center">
                             <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-white">
                               <span className="font-bold">
-                                {participant.firstName[0]}{participant.lastName[0]}
+                                {participant.firstname[0]}{participant.lastname[0]}
                               </span>
                             </div>
                             <div className="ml-4">
-                              <div className="text-sm font-medium">{participant.firstName} {participant.lastName}</div>
+                              <div className="text-sm font-medium">{participant.firstname} {participant.lastname}</div>
                               <div className="text-sm text-neutral-gray">
                                 {participant.gender}, {participant.age}
                               </div>
@@ -474,11 +474,11 @@ const ParticipantsList = () => {
                         <div className="flex items-center mb-4">
                           <div className="h-12 w-12 rounded-full bg-primary flex items-center justify-center text-white mr-4">
                             <span className="font-bold text-lg">
-                              {participant.firstName[0]}{participant.lastName[0]}
+                              {participant.firstname[0]}{participant.lastname[0]}
                             </span>
                           </div>
                           <div>
-                            <h3 className="font-bold text-lg">{participant.firstName} {participant.lastName}</h3>
+                            <h3 className="font-bold text-lg">{participant.firstname} {participant.lastname}</h3>
                             <div className="text-sm text-neutral-gray">
                               {t(`participants.gender.${participant.gender.toLowerCase()}`)} • {participant.age} {t('participants.table.age')}
                             </div>
