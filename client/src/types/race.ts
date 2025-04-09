@@ -19,6 +19,6 @@ export interface Race {
   price: number;
   imageUrl: string | null;
   raceMap: string | null;
-  isEMAcertified?: boolean;
+  isemacertified?: boolean;
   isNationalChampionship?: boolean;
 }

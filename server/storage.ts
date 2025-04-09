@@ -403,7 +403,7 @@ export class MemStorage implements IStorage {
       imageUrl: "/stana-de-vale.jpg",
       raceMap:
         '<iframe src="https://tracedetrail.fr/en/iframe/6296" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>',
-      isEMAcertified: true, // Part of 2025 EMA Off-Road Running Circuit
+      isemacertified: true, // Part of 2025 EMA Off-Road Running Circuit
       isNationalChampionship: true, // Campionatul Naţional de Alergare Montană Masters
     } as InsertRace);
 
@@ -428,7 +428,7 @@ export class MemStorage implements IStorage {
       imageUrl: "/33km.jpg",
       raceMap:
         '<iframe src="https://tracedetrail.fr/en/iframe/6297" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>',
-      isEMAcertified: true, // Also part of EMA Circuit for 2025
+      isemacertified: true, // Also part of EMA Circuit for 2025
       isNationalChampionship: true, // Campionat National only
     } as InsertRace);
 

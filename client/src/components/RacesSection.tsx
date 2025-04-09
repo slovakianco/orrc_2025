@@ -82,9 +82,9 @@ const RacesSection = ({ title, fullPage = false }: RacesSectionProps) => {
                   </div>
                   
                   {/* Add certification badges */}
-                  {(race.isEMAcertified || race.isNationalChampionship) && (
+                  {(race.isemacertified || race.isNationalChampionship) && (
                     <div className="absolute bottom-3 right-3 md:bottom-4 md:right-4 flex flex-col gap-2">
-                      {race.isEMAcertified && (
+                      {race.isemacertified && (
                         <div className="bg-blue-600 text-white text-xs md:text-sm py-1 px-2 rounded-md font-semibold flex items-center shadow-md">
                           <Award className="h-3 w-3 md:h-4 md:w-4 mr-1" />
                           <span>EMA 2025</span>
@@ -103,9 +103,9 @@ const RacesSection = ({ title, fullPage = false }: RacesSectionProps) => {
                   <h3 className="font-heading font-bold text-lg md:text-xl mb-2 text-primary line-clamp-1">{getLocalizedRaceName(race, i18n.language as any)}</h3>
                   
                   {/* Certification information under title */}
-                  {(race.isEMAcertified || race.isNationalChampionship) && (
+                  {(race.isemacertified || race.isNationalChampionship) && (
                     <div className="mb-3">
-                      {race.isEMAcertified && (
+                      {race.isemacertified && (
                         <div className="text-blue-600 text-xs md:text-sm mb-1 font-medium">
                           {t('races.certification.ema')}
                         </div>

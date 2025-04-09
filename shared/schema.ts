@@ -38,7 +38,7 @@ export const races = pgTable("races", {
   price: integer("price").notNull(), // in EUR
   imageUrl: text("imageurl"),
   raceMap: text("racemap"), // Embedded iframe code for the race map
-  isEMAcertified: boolean("isemacertified").default(false), // EMA Off-Road Running Circuit certification
+  isemacertified: boolean("isemacertified").default(false), // EMA Off-Road Running Circuit certification
   isNationalChampionship: boolean("isnationalchampionship").default(false), // National Championship status
 });
 
@@ -64,8 +64,8 @@ export const participants = pgTable("participants", {
   age: integer("age").notNull(),
   emergencyContactName: text("emergencycontactname"),
   emergencyContactPhone: text("emergencycontactphone"),
-  isEmaParticipant: boolean("isemaparticipant").default(false),
-  tshirtSize: text("tshirtsize"),
+  isemaparticipant: boolean("isemaparticipant").default(false),
+  tshirtsize: text("tshirtsize"),
   payment_link: text("payment_link"),
   payment_link_created_at: timestamp("payment_link_created_at"),
   payment_link_expires_at: timestamp("payment_link_expires_at"),

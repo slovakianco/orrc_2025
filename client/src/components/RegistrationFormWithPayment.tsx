@@ -31,8 +31,8 @@ const registrationFormSchema = z.object({
   phoneNumber: z.string().min(6, { message: "Please enter a valid phone number" }),
   country: z.string().min(1, { message: "Please select your country" }),
   birthDate: z.string().min(1, { message: "Please enter your date of birth" }),
-  isEmaParticipant: z.boolean().default(false),
-  tshirtSize: z.string().optional(),
+  isemaparticipant: z.boolean().default(false),
+  tshirtsize: z.string().optional(),
   raceid: z.number({ invalid_type_error: "Please select a race" }),
   emergencyContactName: z.string().min(2, { message: "Emergency contact name is required" }),
   emergencyContactPhone: z.string().min(6, { message: "Emergency contact phone is required" }),
@@ -41,25 +41,25 @@ const registrationFormSchema = z.object({
   termsAccepted: z.boolean().refine(val => val === true, { message: "You must accept the terms and conditions" }),
 }).refine((data) => {
   // If EMA participant is selected, t-shirt size is required
-  if (data.isEmaParticipant && (!data.tshirtSize || data.tshirtSize === "")) {
+  if (data.isemaparticipant && (!data.tshirtsize || data.tshirtsize === "")) {
     return false;
   }
   return true;
 }, {
   message: "T-shirt size is required for EMA participants",
-  path: ["tshirtSize"]
+  path: ["tshirtsize"]
 }).refine((data) => {
   // Calculate age based on race date
   const age = calculateAgeForValidation(data.birthDate);
   
   // EMA participants must be at least 35 years old
-  if (data.isEmaParticipant && age < 35) {
+  if (data.isemaparticipant && age < 35) {
     return false;
   }
   return true;
 }, {
   message: "You must be at least 35 years old to register as an EMA participant",
-  path: ["isEmaParticipant"]
+  path: ["isemaparticipant"]
 }).refine((data) => {
   // Calculate age based on race date
   const age = calculateAgeForValidation(data.birthDate);
@@ -106,8 +106,8 @@ const RegistrationFormWithPayment = () => {
       phoneNumber: "",
       country: "",
       birthDate: "1989-01-01",
-      isEmaParticipant: false,
-      tshirtSize: "",
+      isemaparticipant: false,
+      tshirtsize: "",
       raceid: 0,
       emergencyContactName: "",
       emergencyContactPhone: "",
@@ -118,7 +118,7 @@ const RegistrationFormWithPayment = () => {
   });
 
   const selectedRaceId = watch("raceid");
-  const isEmaParticipant = watch("isEmaParticipant");
+  const isemaparticipant = watch("isemaparticipant");
   const birthDateValue = watch("birthDate");
   
   // Calculate if the participant is eligible for EMA based on age
@@ -131,29 +131,29 @@ const RegistrationFormWithPayment = () => {
   
   // Auto-uncheck the EMA checkbox when age becomes invalid
   useEffect(() => {
-    if (!isEligibleForEma && isEmaParticipant) {
-      setValue('isEmaParticipant', false);
+    if (!isEligibleForEma && isemaparticipant) {
+      setValue('isemaparticipant', false);
     }
-  }, [isEligibleForEma, isEmaParticipant, setValue]);
+  }, [isEligibleForEma, isemaparticipant, setValue]);
   
   const selectedRace = races?.find(race => race.id === Number(selectedRaceId));
   
   // Calculate the dynamic price based on race and EMA participation
-  const calculatePrice = (race: Race | undefined, isEma: boolean): number => {
+  const calculatePrice = (race: Race | undefined, isema: boolean): number => {
     if (!race) return 0;
     
     // Race ID 1 is typically the 33km race, Race ID 2 is the 11km race
     if (race.id === 1) { // 33km race
       // Prices in lei - 200 lei for EMA (€40), 170 lei for non-EMA (€34)
-      return isEma ? 200 : 170; // Return the RON value for payment processing
+      return isema ? 200 : 170; // Return the RON value for payment processing
     } else { // 11km race or others
       // Prices in lei - 150 lei for EMA (€30), 120 lei for non-EMA (€24)
-      return isEma ? 150 : 120; // Return the RON value for payment processing
+      return isema ? 150 : 120; // Return the RON value for payment processing
     }
   };
   
   // Get the dynamic price for display and payment
-  const dynamicPrice = calculatePrice(selectedRace, isEmaParticipant);
+  const dynamicPrice = calculatePrice(selectedRace, isemaparticipant);
   
   // Set default race if available and not already selected
   useEffect(() => {
@@ -165,7 +165,7 @@ const RegistrationFormWithPayment = () => {
   const registerMutation = useMutation({
     mutationFn: async (data: Omit<RegistrationFormInputs, "termsAccepted">) => {
       // Transform data to match database column names
-      // Make sure isEmaParticipant is correctly transformed to a boolean
+      // Make sure isemaparticipant is correctly transformed to a boolean
       const transformedData = {
         ...data,
         // Include BOTH camelCase AND lowercase versions for fields to ensure compatibility
@@ -173,12 +173,12 @@ const RegistrationFormWithPayment = () => {
         emergencycontactname: data.emergencyContactName || "",
         emergencyContactPhone: data.emergencyContactPhone || "", 
         emergencycontactphone: data.emergencyContactPhone || "",
-        // For isEmaParticipant, include both camelCase and lowercase versions for backend compatibility
-        isEmaParticipant: data.isEmaParticipant === true, // Ensure it's a boolean
-        isemaparticipant: data.isEmaParticipant === true, // Ensure it's a boolean
+        // For isemaparticipant, include both camelCase and lowercase versions for backend compatibility
+        isemaparticipant: data.isemaparticipant === true, // Ensure it's a boolean
+        isemaparticipant: data.isemaparticipant === true, // Ensure it's a boolean
         // For t-shirt size, include both camelCase and lowercase versions for backend compatibility
-        tshirtSize: data.tshirtSize || "",
-        tshirtsize: data.tshirtSize || ""
+        tshirtsize: data.tshirtsize || "",
+        tshirtsize: data.tshirtsize || ""
       };
       
       console.log("Transformed data for API:", transformedData);
@@ -198,20 +198,20 @@ const RegistrationFormWithPayment = () => {
           // The server may return either camelCase or lowercase field names
           const participantId = participant.id;
           const raceid = participant.raceid || participant.raceid;
-          const isEmaParticipant = participant.isEmaParticipant || participant.isemaparticipant || false;
+          const isemaparticipant = participant.isemaparticipant || participant.isemaparticipant || false;
           
           // Calculate the price for the payment
           const race = races?.find(r => r.id === Number(raceid));
-          const calculatedPrice = calculatePrice(race, isEmaParticipant);
+          const calculatedPrice = calculatePrice(race, isemaparticipant);
           
-          console.log("Creating payment link for participant:", participantId, "race:", raceid, "isEma:", isEmaParticipant, "price:", calculatedPrice);
+          console.log("Creating payment link for participant:", participantId, "race:", raceid, "isema:", isemaparticipant, "price:", calculatedPrice);
           
           // Make API request to create payment link
           const paymentResponse = await apiRequest("POST", "/api/create-payment-intent", {
             amount: calculatedPrice,
             participantId: participantId,
             raceid: raceid,
-            isEmaParticipant: isEmaParticipant
+            isemaparticipant: isemaparticipant
           });
           
           const paymentData = await paymentResponse.json();
@@ -326,7 +326,7 @@ const RegistrationFormWithPayment = () => {
       raceid: typeof apiData.raceid === 'string' ? parseInt(apiData.raceid) : apiData.raceid,
       age, // Add calculated age
       language: i18n.language, // Add current language for email localization
-      isEmaParticipant: apiData.isEmaParticipant === true, // Ensure it's a boolean
+      isemaparticipant: apiData.isemaparticipant === true, // Ensure it's a boolean
       // Add both camelCase and lowercase versions for emergency contact fields
       emergencyContactName: apiData.emergencyContactName || "",
       emergencycontactname: apiData.emergencyContactName || "",
@@ -336,7 +336,7 @@ const RegistrationFormWithPayment = () => {
     
     // Log EMA participant flag to debug
     console.log("Submitting registration with data:", formattedData);
-    console.log("Is EMA participant:", formattedData.isEmaParticipant, "Type:", typeof formattedData.isEmaParticipant);
+    console.log("Is EMA participant:", formattedData.isemaparticipant, "Type:", typeof formattedData.isemaparticipant);
     await registerMutation.mutate(formattedData);
   };
 
@@ -487,13 +487,13 @@ const RegistrationFormWithPayment = () => {
                 <div className="flex items-start mb-3">
                   <input 
                     type="checkbox" 
-                    id="isEmaParticipant" 
-                    {...register("isEmaParticipant")}
+                    id="isemaparticipant" 
+                    {...register("isemaparticipant")}
                     className="mr-2 mt-1"
                     disabled={!isEligibleForEma}
                   />
                   <label 
-                    htmlFor="isEmaParticipant" 
+                    htmlFor="isemaparticipant" 
                     className={`text-sm font-medium ${!isEligibleForEma ? 'text-neutral-light' : ''}`}
                   >
                     {t('registration.form.emaParticipation')}
@@ -511,17 +511,17 @@ const RegistrationFormWithPayment = () => {
                     <p className="text-gray-600">{t('registration.form.emaEligibilityCriteria')}</p>
                   </div>
                   
-                  {isEmaParticipant && (
+                  {isemaparticipant && (
                     <div className="mt-4">
-                      <label htmlFor="tshirtSize" className="block text-sm font-medium text-neutral-gray mb-2">
-                        {t('registration.form.tshirtSize')} *
+                      <label htmlFor="tshirtsize" className="block text-sm font-medium text-neutral-gray mb-2">
+                        {t('registration.form.tshirtsize')} *
                       </label>
                       <select 
-                        id="tshirtSize" 
-                        {...register("tshirtSize")}
+                        id="tshirtsize" 
+                        {...register("tshirtsize")}
                         className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white"
                       >
-                        <option value="">{t('registration.form.selectTshirtSize')}</option>
+                        <option value="">{t('registration.form.selecttshirtsize')}</option>
                         <option value="XS">XS</option>
                         <option value="S">S</option>
                         <option value="M">M</option>
@@ -529,8 +529,8 @@ const RegistrationFormWithPayment = () => {
                         <option value="XL">XL</option>
                         <option value="XXL">XXL</option>
                       </select>
-                      {errors.tshirtSize && (
-                        <p className="text-sm text-red-500 mt-1">{errors.tshirtSize.message}</p>
+                      {errors.tshirtsize && (
+                        <p className="text-sm text-red-500 mt-1">{errors.tshirtsize.message}</p>
                       )}
                     </div>
                   )}
@@ -568,7 +568,7 @@ const RegistrationFormWithPayment = () => {
                         }`}></span>
                         <div>
                           <span className="block font-bold">{getLocalizedRaceName(race, i18n.language as any)}</span>
-                          <span className="text-sm text-neutral-gray">{race.distance}km | {isEmaParticipant ? 
+                          <span className="text-sm text-neutral-gray">{race.distance}km | {isemaparticipant ? 
                             <span className="font-medium text-primary-dark">{race.id === 1 ? '200 RON' : '150 RON'} (€{race.id === 1 ? '40' : '30'}) ({t('registration.form.emaPrice')})</span> : 
                             <span>{race.id === 1 ? '170 RON' : '120 RON'} (€{race.id === 1 ? '34' : '24'})</span>
                           }</span>

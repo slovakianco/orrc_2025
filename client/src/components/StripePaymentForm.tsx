@@ -127,7 +127,7 @@ interface StripePaymentFormProps {
   raceid?: number;
   participantId?: number;
   raceName: string;
-  isEmaParticipant?: boolean;
+  isemaparticipant?: boolean;
   onSuccess: () => void;
   onCancel: () => void;
 }
@@ -137,7 +137,7 @@ const StripePaymentForm: React.FC<StripePaymentFormProps> = ({
   raceid,
   participantId,
   raceName,
-  isEmaParticipant,
+  isemaparticipant,
   onSuccess,
   onCancel
 }) => {
@@ -164,7 +164,7 @@ const StripePaymentForm: React.FC<StripePaymentFormProps> = ({
         console.log("Creating payment link with params:", {
           participantId,
           raceid,
-          isEmaParticipant: isEmaParticipant // Log the value to debug
+          isemaparticipant: isemaparticipant // Log the value to debug
         });
         
         // Note: We're still using create-payment-intent, but our backend will now
@@ -172,7 +172,7 @@ const StripePaymentForm: React.FC<StripePaymentFormProps> = ({
         const response = await apiRequest('POST', '/api/create-payment-intent', {
           participantId,
           raceid,
-          isEmaParticipant: isEmaParticipant === true // Ensure it's a boolean
+          isemaparticipant: isemaparticipant === true // Ensure it's a boolean
         });
         
         const data = await response.json();
@@ -216,7 +216,7 @@ const StripePaymentForm: React.FC<StripePaymentFormProps> = ({
     };
 
     createPaymentIntent();
-  }, [participantId, raceid, isEmaParticipant, t, toast]);
+  }, [participantId, raceid, isemaparticipant, t, toast]);
 
   if (error) {
     return (

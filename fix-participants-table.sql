@@ -110,18 +110,18 @@ BEGIN
     ALTER TABLE participants RENAME COLUMN "emergencyContactPhone" TO emergencycontactphone;
   END IF;
   
-  -- isEmaParticipant to isemaparticipant
+  -- isemaparticipant to isemaparticipant
   IF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'participants' AND column_name = 'isemaparticipant') THEN
     RAISE NOTICE 'isemaparticipant column already exists with correct lowercase name';
-  ELSIF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'participants' AND column_name = 'isEmaParticipant') THEN
-    ALTER TABLE participants RENAME COLUMN "isEmaParticipant" TO isemaparticipant;
+  ELSIF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'participants' AND column_name = 'isemaparticipant') THEN
+    ALTER TABLE participants RENAME COLUMN "isemaparticipant" TO isemaparticipant;
   END IF;
   
-  -- tshirtSize to tshirtsize
+  -- tshirtsize to tshirtsize
   IF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'participants' AND column_name = 'tshirtsize') THEN
     RAISE NOTICE 'tshirtsize column already exists with correct lowercase name';
-  ELSIF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'participants' AND column_name = 'tshirtSize') THEN
-    ALTER TABLE participants RENAME COLUMN "tshirtSize" TO tshirtsize;
+  ELSIF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'participants' AND column_name = 'tshirtsize') THEN
+    ALTER TABLE participants RENAME COLUMN "tshirtsize" TO tshirtsize;
   END IF;
 END $$;
 

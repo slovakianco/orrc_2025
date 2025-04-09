@@ -85,10 +85,10 @@ const MASTER_CATEGORIES = [
 const getMasterCategory = (
   gender: string,
   age: number,
-  isEmaParticipant: boolean,
+  isemaparticipant: boolean,
 ) => {
   // Only return master category if participant is 35+ years old and is registered as EMA participant
-  if (!isEmaParticipant || age < 35) {
+  if (!isemaparticipant || age < 35) {
     return null;
   }
 
@@ -100,7 +100,7 @@ const getMasterCategory = (
 
 // Helper function to get EMA status from participant regardless of property name
 const getEmaStatus = (participant: ExtendedParticipant): boolean => {
-  return Boolean(participant.isEmaParticipant || participant.isemaparticipant);
+  return Boolean(participant.isemaparticipant || participant.isemaparticipant);
 };
 
 // Helper function to get age from participant regardless of property name
@@ -162,8 +162,8 @@ const EnhancedParticipantsList = () => {
     return participants.filter((participant) => {
       // EMA filter
       if (
-        filters.isEmaParticipant !== undefined &&
-        getEmaStatus(participant) !== filters.isEmaParticipant
+        filters.isemaparticipant !== undefined &&
+        getEmaStatus(participant) !== filters.isemaparticipant
       ) {
         return false;
       }
@@ -263,7 +263,7 @@ const EnhancedParticipantsList = () => {
   // Filter by EMA participation
   const handleEmaFilter = (checked: boolean | "indeterminate") => {
     if (typeof checked === "boolean") {
-      setFilters({ ...filters, isEmaParticipant: checked });
+      setFilters({ ...filters, isemaparticipant: checked });
     }
     setPage(1);
   };
@@ -320,10 +320,10 @@ const EnhancedParticipantsList = () => {
         setFilters({});
         break;
       case "ema":
-        setFilters({ isEmaParticipant: true });
+        setFilters({ isemaparticipant: true });
         break;
       case "open":
-        setFilters({ isEmaParticipant: false });
+        setFilters({ isemaparticipant: false });
         break;
       case "masters":
         // Show only participants 35 years and older
@@ -519,7 +519,7 @@ const EnhancedParticipantsList = () => {
                       <div className="flex items-center space-x-2">
                         <Switch
                           id="ema-mode"
-                          checked={filters.isEmaParticipant || false}
+                          checked={filters.isemaparticipant || false}
                           onCheckedChange={handleEmaFilter}
                         />
                         <Label htmlFor="ema-mode">
@@ -627,19 +627,19 @@ const EnhancedParticipantsList = () => {
             {/* Filter tags/badges */}
             {Object.keys(filters).length > 0 && (
               <div className="flex flex-wrap gap-2 mb-4">
-                {filters.isEmaParticipant !== undefined && (
+                {filters.isemaparticipant !== undefined && (
                   <Badge
                     variant="secondary"
                     className="flex items-center gap-1"
                   >
                     <Award className="h-3 w-3" />
-                    {filters.isEmaParticipant
+                    {filters.isemaparticipant
                       ? t("participants.filters.ema")
                       : t("participants.filters.open")}
                     <button
                       className="ml-1"
                       onClick={() => {
-                        const { isEmaParticipant, ...rest } = filters;
+                        const { isemaparticipant, ...rest } = filters;
                         setFilters(rest);
                       }}
                     >

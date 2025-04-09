@@ -14,7 +14,7 @@ interface ParticipantData {
   lastname: string;
   raceid: number;
   raceName: string;
-  isEmaParticipant: boolean;
+  isemaparticipant: boolean;
 }
 
 const RegistrationSuccessPage: React.FC = () => {
@@ -43,11 +43,11 @@ const RegistrationSuccessPage: React.FC = () => {
   const paymentSuccess = searchParams.get('payment_success') === 'true';
   
   // Calculate price based on race and EMA status
-  const calculatePrice = (raceid: number, isEma: boolean): number => {
+  const calculatePrice = (raceid: number, isema: boolean): number => {
     if (raceid === 1) { // 33km race
-      return isEma ? 200 : 170;
+      return isema ? 200 : 170;
     } else { // 11km race
-      return isEma ? 150 : 120;
+      return isema ? 150 : 120;
     }
   };
   
@@ -101,7 +101,7 @@ const RegistrationSuccessPage: React.FC = () => {
         // Calculate the correct price
         const calculatedAmount = calculatePrice(
           parseInt(raceid), 
-          participantData.isemaparticipant || participantData.isEmaParticipant
+          participantData.isemaparticipant || participantData.isemaparticipant
         );
         
         setAmount(calculatedAmount);
@@ -113,7 +113,7 @@ const RegistrationSuccessPage: React.FC = () => {
           lastname: participantData.lastname || participantData.lastname,
           raceid: parseInt(raceid),
           raceName: raceData.name,
-          isEmaParticipant: participantData.isemaparticipant || participantData.isEmaParticipant
+          isemaparticipant: participantData.isemaparticipant || participantData.isemaparticipant
         });
         
         setShowPaymentForm(true);
@@ -350,7 +350,7 @@ const RegistrationSuccessPage: React.FC = () => {
                       raceid={participant.raceid}
                       participantId={participant.id}
                       raceName={participant.raceName}
-                      isEmaParticipant={participant.isEmaParticipant}
+                      isemaparticipant={participant.isemaparticipant}
                       onSuccess={handlePaymentSuccess}
                       onCancel={handlePaymentCancel}
                     />

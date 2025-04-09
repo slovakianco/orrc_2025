@@ -19,7 +19,7 @@ export interface Race {
   price: number;
   imageUrl?: string;
   raceMap?: string; // Embedded iframe code for the race map
-  isEMAcertified?: boolean; // EMA Off-Road Running Circuit certification
+  isemacertified?: boolean; // EMA Off-Road Running Circuit certification
   isNationalChampionship?: boolean; // National Championship status
   aidStations?: AidStation[]; // List of aid stations
 }
@@ -47,15 +47,15 @@ export interface Participant {
   age: number;
   emergencyContactName?: string;
   emergencyContactPhone?: string;
-  isEmaParticipant?: boolean;
-  tshirtSize?: string;
+  isemaparticipant?: boolean;
+  tshirtsize?: string;
 }
 
 export interface ParticipantFilters {
   raceid?: number;
   country?: string;
   search?: string;
-  isEmaParticipant?: boolean;
+  isemaparticipant?: boolean;
   genderCategory?: string; // M, F
   ageCategory?: string; // masters categories: M35, M40, M45, etc.
   status?: string; // pending, confirmed, cancelled

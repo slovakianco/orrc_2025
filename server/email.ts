@@ -463,15 +463,15 @@ export async function sendRegistrationConfirmationEmail(
     const participant = await storage.getParticipantById(participantId);
     
     // Default to false if we can't determine
-    const isEmaParticipant = participant?.isemaparticipant === true || 
-                            participant?.isEmaParticipant === true || 
+    const isemaparticipant = participant?.isemaparticipant === true || 
+                            participant?.isemaparticipant === true || 
                             false;
     
-    console.log(`Generating payment link for participant ID: ${participantId}, race ID: ${raceid}, EMA status: ${isEmaParticipant}`);
+    console.log(`Generating payment link for participant ID: ${participantId}, race ID: ${raceid}, EMA status: ${isemaparticipant}`);
     
     // Create Stripe payment link
     // For amount, we'll use 0 since the actual amount will be calculated in the createPaymentLink function
-    const stripePaymentLink = await createPaymentLink(0, participantId, raceid, isEmaParticipant);
+    const stripePaymentLink = await createPaymentLink(0, participantId, raceid, isemaparticipant);
     
     // If we couldn't create a payment link, fall back to the registration success page
     const fallbackPaymentUrl = `https://stanatrailrace.ro/registration-success?participantId=${participantId}&raceid=${raceid}`;

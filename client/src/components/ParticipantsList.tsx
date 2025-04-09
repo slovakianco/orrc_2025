@@ -97,7 +97,7 @@ const ParticipantsList = () => {
 
     return participants.filter(participant => {
       // EMA filter
-      if (filters.isEmaParticipant !== undefined && participant.isEmaParticipant !== filters.isEmaParticipant) {
+      if (filters.isemaparticipant !== undefined && participant.isemaparticipant !== filters.isemaparticipant) {
         return false;
       }
 
@@ -175,7 +175,7 @@ const ParticipantsList = () => {
   // Filter by EMA participation
   const handleEmaFilter = (checked: boolean | 'indeterminate') => {
     if (typeof checked === 'boolean') {
-      setFilters({ ...filters, isEmaParticipant: checked });
+      setFilters({ ...filters, isemaparticipant: checked });
     }
     setPage(1);
   };
@@ -232,10 +232,10 @@ const ParticipantsList = () => {
         setFilters({});
         break;
       case "ema":
-        setFilters({ isEmaParticipant: true });
+        setFilters({ isemaparticipant: true });
         break;
       case "open":
-        setFilters({ isEmaParticipant: false });
+        setFilters({ isemaparticipant: false });
         break;
       case "masters":
         // Show only participants 35 years and older

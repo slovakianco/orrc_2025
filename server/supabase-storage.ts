@@ -269,8 +269,8 @@ export class SupabaseStorage implements IStorage {
       gender: participant.gender,
       age: participant.age,
       medicalinfo: participant.medicalInfo,
-      isemaparticipant: Boolean(participant.isEmaParticipant),
-      tshirtsize: participant.tshirtSize || "",
+      isemaparticipant: Boolean(participant.isemaparticipant),
+      tshirtsize: participant.tshirtsize || "",
       emergencycontactname: participant.emergencyContactName || "",
       emergencycontactphone: participant.emergencyContactPhone || "",
       
@@ -620,8 +620,8 @@ export class SupabaseStorage implements IStorage {
       age: data.age,
       emergencyContactName: data.emergencycontactname || data.emergencyContactName,
       emergencyContactPhone: data.emergencycontactphone || data.emergencyContactPhone,
-      isEmaParticipant: data.isemaparticipant || data.isEmaParticipant,
-      tshirtSize: data.tshirtsize || data.tshirtSize,
+      isemaparticipant: data.isemaparticipant || data.isemaparticipant,
+      tshirtsize: data.tshirtsize || data.tshirtsize,
       payment_link: data.payment_link,
       payment_link_created_at: data.payment_link_created_at,
       payment_link_expires_at: data.payment_link_expires_at

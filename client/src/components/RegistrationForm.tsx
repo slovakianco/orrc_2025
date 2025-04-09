@@ -19,8 +19,8 @@ const registrationFormSchema = z.object({
   phoneNumber: z.string().min(6, { message: "Please enter a valid phone number" }),
   country: z.string().min(1, { message: "Please select your country" }),
   birthDate: z.string().min(1, { message: "Please enter your date of birth" }),
-  isEmaParticipant: z.boolean().default(false),
-  tshirtSize: z.string().optional(),
+  isemaparticipant: z.boolean().default(false),
+  tshirtsize: z.string().optional(),
   raceid: z.number({ invalid_type_error: "Please select a race" }),
   emergencyContactName: z.string().min(2, { message: "Emergency contact name is required" }),
   emergencyContactPhone: z.string().min(6, { message: "Emergency contact phone is required" }),
@@ -29,13 +29,13 @@ const registrationFormSchema = z.object({
   termsAccepted: z.boolean().refine(val => val === true, { message: "You must accept the terms and conditions" }),
 }).refine((data) => {
   // If EMA participant is selected, t-shirt size is required
-  if (data.isEmaParticipant && (!data.tshirtSize || data.tshirtSize === "")) {
+  if (data.isemaparticipant && (!data.tshirtsize || data.tshirtsize === "")) {
     return false;
   }
   return true;
 }, {
   message: "T-shirt size is required for EMA participants",
-  path: ["tshirtSize"]
+  path: ["tshirtsize"]
 });
 
 type RegistrationFormInputs = z.infer<typeof registrationFormSchema>;
@@ -58,8 +58,8 @@ const RegistrationForm = () => {
       phoneNumber: "",
       country: "",
       birthDate: "",
-      isEmaParticipant: false,
-      tshirtSize: "",
+      isemaparticipant: false,
+      tshirtsize: "",
       raceid: 0,
       emergencyContactName: "",
       emergencyContactPhone: "",
@@ -70,7 +70,7 @@ const RegistrationForm = () => {
   });
 
   const selectedRaceId = watch("raceid");
-  const isEmaParticipant = watch("isEmaParticipant");
+  const isemaparticipant = watch("isemaparticipant");
   const selectedRace = races?.find(race => race.id === Number(selectedRaceId));
   
   // Set default race if available and not already selected
@@ -373,11 +373,11 @@ const RegistrationForm = () => {
                 <div className="flex items-start mb-3">
                   <input 
                     type="checkbox" 
-                    id="isEmaParticipant" 
-                    {...register("isEmaParticipant")}
+                    id="isemaparticipant" 
+                    {...register("isemaparticipant")}
                     className="mr-2 mt-1"
                   />
-                  <label htmlFor="isEmaParticipant" className="text-sm font-medium">
+                  <label htmlFor="isemaparticipant" className="text-sm font-medium">
                     {t('registration.form.emaParticipation')}
                   </label>
                 </div>
@@ -388,17 +388,17 @@ const RegistrationForm = () => {
                     <p className="text-gray-600">{t('registration.form.emaEligibilityCriteria')}</p>
                   </div>
                   
-                  {isEmaParticipant && (
+                  {isemaparticipant && (
                     <div className="mt-4">
-                      <label htmlFor="tshirtSize" className="block text-sm font-medium text-neutral-gray mb-2">
-                        {t('registration.form.tshirtSize')} *
+                      <label htmlFor="tshirtsize" className="block text-sm font-medium text-neutral-gray mb-2">
+                        {t('registration.form.tshirtsize')} *
                       </label>
                       <select 
-                        id="tshirtSize" 
-                        {...register("tshirtSize")}
+                        id="tshirtsize" 
+                        {...register("tshirtsize")}
                         className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white"
                       >
-                        <option value="">{t('registration.form.selectTshirtSize')}</option>
+                        <option value="">{t('registration.form.selecttshirtsize')}</option>
                         <option value="XS">XS</option>
                         <option value="S">S</option>
                         <option value="M">M</option>
@@ -406,8 +406,8 @@ const RegistrationForm = () => {
                         <option value="XL">XL</option>
                         <option value="XXL">XXL</option>
                       </select>
-                      {errors.tshirtSize && (
-                        <p className="text-sm text-red-500 mt-1">{errors.tshirtSize.message}</p>
+                      {errors.tshirtsize && (
+                        <p className="text-sm text-red-500 mt-1">{errors.tshirtsize.message}</p>
                       )}
                     </div>
                   )}

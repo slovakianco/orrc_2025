@@ -38,7 +38,7 @@ export async function createPaymentLink(
   amount: number, 
   participantId: number, 
   raceid: number, 
-  isEmaParticipant: boolean
+  isemaparticipant: boolean
 ): Promise<string | null> {
   try {
     if (!global.stripe) {
@@ -83,9 +83,9 @@ export async function createPaymentLink(
     // 11km race: 150 lei (EMA) or 120 lei (non-EMA)
     let ronAmount = 0;
     if (raceid === 1) { // 33km race
-      ronAmount = isEmaParticipant ? 200 : 170; // 200 lei for EMA, 170 lei for non-EMA
+      ronAmount = isemaparticipant ? 200 : 170; // 200 lei for EMA, 170 lei for non-EMA
     } else { // 11km race
-      ronAmount = isEmaParticipant ? 150 : 120; // 150 lei for EMA, 120 lei for non-EMA
+      ronAmount = isemaparticipant ? 150 : 120; // 150 lei for EMA, 120 lei for non-EMA
     }
     
     // Create a payment link using the correct approach
@@ -94,7 +94,7 @@ export async function createPaymentLink(
       currency: 'ron',
       unit_amount: Math.round(ronAmount * 100), // Convert to bani (RON cents)
       product_data: {
-        name: `Stana de Vale Trail Race - ${raceid === 1 ? '33km' : '11km'} ${isEmaParticipant ? '(EMA Circuit)' : ''}`,
+        name: `Stana de Vale Trail Race - ${raceid === 1 ? '33km' : '11km'} ${isemaparticipant ? '(EMA Circuit)' : ''}`,
       },
     });
     
@@ -109,7 +109,7 @@ export async function createPaymentLink(
       metadata: {
         participantId: participantId.toString(),
         raceid: raceid.toString(),
-        isEmaParticipant: isEmaParticipant ? "true" : "false"
+        isemaparticipant: isemaparticipant ? "true" : "false"
       },
       after_completion: {
         type: 'redirect',
@@ -324,18 +324,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Log the original request body to debug
       console.log("Original participant request body:", {
         ...req.body,
-        isEmaParticipant: req.body.isEmaParticipant,
-        tshirtSize: req.body.tshirtSize
+        isemaparticipant: req.body.isemaparticipant,
+        tshirtsize: req.body.tshirtsize
       });
       
       // Normalize data for database column naming conventions
-      // Convert from camelCase to lowercase (isEmaParticipant -> isemaparticipant, tshirtSize -> tshirtsize)
+      // Convert from camelCase to lowercase (isemaparticipant -> isemaparticipant, tshirtsize -> tshirtsize)
       const processedBody = {
         ...req.body,
         // Handle boolean fields
-        isemaparticipant: req.body.isEmaParticipant === true || req.body.isEmaParticipant === "true",
+        isemaparticipant: req.body.isemaparticipant === true || req.body.isemaparticipant === "true",
         // Handle t-shirt size field
-        tshirtsize: req.body.tshirtSize || ""
+        tshirtsize: req.body.tshirtsize || ""
       };
       
       const result = insertParticipantSchema.safeParse(processedBody);
@@ -368,7 +368,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.log("Creating participant with data:", {
         ...result.data,
         age,
-        "isEmaParticipant from data": result.data.isEmaParticipant
+        "isemaparticipant from data": result.data.isemaparticipant
       });
       
       // Create a properly typed object for the database
@@ -386,9 +386,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
         age: age,
         // Handle optional fields
         medicalInfo: result.data.medicalInfo || null,
-        // Convert isEmaParticipant to boolean - ensure it's stored correctly 
-        isEmaParticipant: Boolean(result.data.isEmaParticipant),
-        tshirtSize: result.data.tshirtSize || "",
+        // Convert isemaparticipant to boolean - ensure it's stored correctly 
+        isemaparticipant: Boolean(result.data.isemaparticipant),
+        tshirtsize: result.data.tshirtsize || "",
         // Emergency contact information
         emergencyContactName: result.data.emergencyContactName || "",
         emergencyContactPhone: result.data.emergencyContactPhone || ""
@@ -665,17 +665,17 @@ This message was sent from the Stana de Vale Trail Race website contact form.
         });
       }
       
-      const { amount, participantId, raceid, isEmaParticipant } = req.body;
+      const { amount, participantId, raceid, isemaparticipant } = req.body;
       
       // Check for required parameters
       if (!participantId || !raceid) {
         return res.status(400).json({ message: "Missing participantId or raceid" });
       }
       
-      // Convert isEmaParticipant to boolean to handle various input formats
-      const isEma = isEmaParticipant === true || isEmaParticipant === "true" || isEmaParticipant === 1;
+      // Convert isemaparticipant to boolean to handle various input formats
+      const isema = isemaparticipant === true || isemaparticipant === "true" || isemaparticipant === 1;
       
-      console.log(`Processing payment for participant: ${participantId}, race: ${raceid}, isEmaParticipant: ${isEma}`);
+      console.log(`Processing payment for participant: ${participantId}, race: ${raceid}, isemaparticipant: ${isema}`);
       
       // First check if we have a payment link stored in the database
       try {
@@ -719,7 +719,7 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       }
       
       // No cached payment link, create one using our existing function
-      const paymentLink = await createPaymentLink(0, participantId, raceid, isEma);
+      const paymentLink = await createPaymentLink(0, participantId, raceid, isema);
       
       if (!paymentLink) {
         return res.status(500).json({ message: "Failed to create payment link" });
