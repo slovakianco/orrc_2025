@@ -288,9 +288,9 @@ export async function sendPaymentConfirmationEmail(
       day: 'numeric'
     });
     
-    // Ensure firstName and lastName are not undefined
-    const safeFirstName = firstName || 'Runner';
-    const safeLastName = lastName || '';
+    // Ensure firstName and lastName are not undefined and properly trimmed
+    const safeFirstName = firstName ? firstName.trim() : 'Runner';
+    const safeLastName = lastName ? lastName.trim() : '';
     const fullName = safeFirstName + (safeLastName ? ' ' + safeLastName : '');
     
     // HTML email content
@@ -409,13 +409,18 @@ export async function sendRegistrationConfirmationEmail(
     es: "Stana de Vale Trail Race - Confirmación de Registro",
   };
 
+  // Ensure firstName and lastName are not undefined
+  const safeFirstName = firstName ? firstName.trim() : 'Runner';
+  const safeLastName = lastName ? lastName.trim() : '';
+  const fullName = safeFirstName + (safeLastName ? ' ' + safeLastName : '');
+
   const greetings: Record<SupportedLanguages, string> = {
-    en: `Dear ${firstName} ${lastName},`,
-    ro: `Dragă ${firstName} ${lastName},`,
-    fr: `Cher/Chère ${firstName} ${lastName},`,
-    de: `Liebe(r) ${firstName} ${lastName},`,
-    it: `Gentile ${firstName} ${lastName},`,
-    es: `Estimado/a ${firstName} ${lastName},`,
+    en: `Dear ${fullName},`,
+    ro: `Dragă ${fullName},`,
+    fr: `Cher/Chère ${fullName},`,
+    de: `Liebe(r) ${fullName},`,
+    it: `Gentile ${fullName},`,
+    es: `Estimado/a ${fullName},`,
   };
   
   // Payment links and instructions
@@ -469,8 +474,7 @@ export async function sendRegistrationConfirmationEmail(
     const stripePaymentLink = await createPaymentLink(0, participantId, raceId, isEmaParticipant);
     
     // If we couldn't create a payment link, fall back to the registration success page
-    const baseUrl = process.env.APP_URL || `https://${process.env.REPL_SLUG}.replit.app`;
-    const fallbackPaymentUrl = `${baseUrl}/registration-success?participantId=${participantId}&raceId=${raceId}`;
+    const fallbackPaymentUrl = `https://stanatrailrace.ro/registration-success?participantId=${participantId}&raceId=${raceId}`;
     
     // Use the Stripe payment link if available, otherwise use the fallback
     const paymentUrl = stripePaymentLink || fallbackPaymentUrl;
@@ -478,10 +482,6 @@ export async function sendRegistrationConfirmationEmail(
     console.log(`Using payment URL: ${paymentUrl}`);
     
     // First try with custom domain
-    // Ensure firstName and lastName are not undefined
-    const safeFirstName = firstName || 'Runner';
-    const safeLastName = lastName || '';
-    const fullName = safeFirstName + (safeLastName ? ' ' + safeLastName : '');
     
     // Create greeting with the safe name
     const greetingWithName = lang === 'en' ? 

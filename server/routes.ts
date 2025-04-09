@@ -114,7 +114,7 @@ export async function createPaymentLink(
       after_completion: {
         type: 'redirect',
         redirect: {
-          url: `${process.env.APP_URL || `https://${process.env.REPL_SLUG}.replit.app`}/registration-success?payment_success=true&participantId=${participantId}`,
+          url: `https://stanatrailrace.ro/registration-success?payment_success=true&participantId=${participantId}`,
         },
       },
       // Make the payment link single-use
