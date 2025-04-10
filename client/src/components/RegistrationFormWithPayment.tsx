@@ -417,21 +417,76 @@ const RegistrationFormWithPayment = () => {
                     className="w-full px-4 py-2 border border-neutral-light rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white"
                   >
                     <option value="">{t('registration.form.selectCountry')}</option>
+                    {/* Host Country */}
                     <option value="RO">Romania</option>
-                    <option value="FR">France</option>
-                    <option value="DE">Germany</option>
-                    <option value="UK">United Kingdom</option>
-                    <option value="US">United States</option>
-                    <option value="IT">Italy</option>
-                    <option value="ES">Spain</option>
-                    <option value="PT">Portugal</option>
-                    <option value="BE">Belgium</option>
-                    <option value="NL">Netherlands</option>
-                    <option value="CH">Switzerland</option>
-                    <option value="AT">Austria</option>
-                    <option value="HU">Hungary</option>
-                    <option value="PL">Poland</option>
-                    <option value="CZ">Czech Republic</option>
+                    
+                    {/* European Countries */}
+                    <optgroup label="European Countries">
+                      <option value="AL">Albania</option>
+                      <option value="AD">Andorra</option>
+                      <option value="AT">Austria</option>
+                      <option value="BY">Belarus</option>
+                      <option value="BE">Belgium</option>
+                      <option value="BA">Bosnia and Herzegovina</option>
+                      <option value="BG">Bulgaria</option>
+                      <option value="HR">Croatia</option>
+                      <option value="CY">Cyprus</option>
+                      <option value="CZ">Czech Republic</option>
+                      <option value="DK">Denmark</option>
+                      <option value="EE">Estonia</option>
+                      <option value="FI">Finland</option>
+                      <option value="FR">France</option>
+                      <option value="DE">Germany</option>
+                      <option value="GR">Greece</option>
+                      <option value="HU">Hungary</option>
+                      <option value="IS">Iceland</option>
+                      <option value="IE">Ireland</option>
+                      <option value="IT">Italy</option>
+                      <option value="LV">Latvia</option>
+                      <option value="LI">Liechtenstein</option>
+                      <option value="LT">Lithuania</option>
+                      <option value="LU">Luxembourg</option>
+                      <option value="MT">Malta</option>
+                      <option value="MD">Moldova</option>
+                      <option value="MC">Monaco</option>
+                      <option value="ME">Montenegro</option>
+                      <option value="NL">Netherlands</option>
+                      <option value="MK">North Macedonia</option>
+                      <option value="NO">Norway</option>
+                      <option value="PL">Poland</option>
+                      <option value="PT">Portugal</option>
+                      <option value="RS">Serbia</option>
+                      <option value="SK">Slovakia</option>
+                      <option value="SI">Slovenia</option>
+                      <option value="ES">Spain</option>
+                      <option value="SE">Sweden</option>
+                      <option value="CH">Switzerland</option>
+                      <option value="UA">Ukraine</option>
+                      <option value="GB">United Kingdom</option>
+                      <option value="VA">Vatican City</option>
+                    </optgroup>
+
+                    {/* Other Major Countries */}
+                    <optgroup label="Other Countries">
+                      <option value="AU">Australia</option>
+                      <option value="BR">Brazil</option>
+                      <option value="CA">Canada</option>
+                      <option value="CN">China</option>
+                      <option value="IN">India</option>
+                      <option value="IL">Israel</option>
+                      <option value="JP">Japan</option>
+                      <option value="MX">Mexico</option>
+                      <option value="NZ">New Zealand</option>
+                      <option value="SG">Singapore</option>
+                      <option value="ZA">South Africa</option>
+                      <option value="KR">South Korea</option>
+                      <option value="TR">Turkey</option>
+                      <option value="AE">United Arab Emirates</option>
+                      <option value="US">United States</option>
+                    </optgroup>
+
+                    {/* Other option */}
+                    <option value="OTHER">Other</option>
                   </select>
                   {errors.country && (
                     <p className="text-sm text-red-500 mt-1">{errors.country.message}</p>
