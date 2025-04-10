@@ -79,7 +79,7 @@ export async function createPaymentLink(
     }
     
     // Calculate the correct amount based on the race and EMA status
-    // 33km race: 200 lei (EMA) or 170 lei (non-EMA)
+    // 33km race: 200 lei (EMA) or 150 lei (non-EMA)
     // 11km race: 150 lei (EMA) or 120 lei (non-EMA)
     let ronAmount = 0;
     
@@ -90,7 +90,7 @@ export async function createPaymentLink(
     } else {
       // Fallback to server-side calculation
       if (raceid === 1) { // 33km race
-        ronAmount = isemaparticipant ? 200 : 170; // 200 lei for EMA, 170 lei for non-EMA
+        ronAmount = isemaparticipant ? 200 : 150; // 200 lei for EMA, 150 lei for non-EMA
       } else { // 11km race
         ronAmount = isemaparticipant ? 150 : 120; // 150 lei for EMA, 120 lei for non-EMA
       }

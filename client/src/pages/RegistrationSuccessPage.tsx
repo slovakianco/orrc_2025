@@ -45,7 +45,7 @@ const RegistrationSuccessPage: React.FC = () => {
   // Calculate price based on race and EMA status
   const calculatePrice = (raceid: number, isema: boolean): number => {
     if (raceid === 1) { // 33km race
-      return isema ? 200 : 170;
+      return isema ? 200 : 150;
     } else { // 11km race
       return isema ? 150 : 120;
     }
