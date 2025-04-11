@@ -425,7 +425,7 @@
       },
       "stations": {
         "question": "Gibt es Verpflegungsstationen auf der Strecke?",
-        "answer": "Ja, es gibt Verpflegungsstationen entlang aller Rennstrecken. Das 10-km-Rennen hat 2 Stationen, das 21-km-Rennen hat 4 und das 50-km-Rennen hat 8. Jede Station bietet Wasser, Sportgetränke und verschiedene Snacks."
+        "answer": "Ja, es gibt Verpflegungsstationen entlang aller Rennstrecken. Das 11-km-Rennen hat 1 Station, das 33-km-Rennen hat 5."
       },
       "change": {
         "question": "Kann ich mein Rennen nach der Anmeldung ändern?",

@@ -389,7 +389,7 @@
       },
       "stations": {
         "question": "¿Hay puntos de ayuda en el recorrido?",
-        "answer": "Sí, hay puntos de ayuda a lo largo de todas las rutas de las carreras. La carrera de 10 km tiene 2 puntos de ayuda, la de 21 km tiene 4 y la de 50 km tiene 8. Cada punto de ayuda proporciona agua, bebidas deportivas y varios refrigerios."
+        "answer": "Sí, hay puntos de ayuda a lo largo de todas las rutas de las carreras. La carrera de 11 km tiene 1 punto de ayuda, la de 33 km tiene 5."
       },
       "change": {
         "question": "¿Puedo cambiar de carrera después de registrarme?",

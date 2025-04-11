@@ -528,7 +528,7 @@
       },
       "stations": {
         "question": "Există puncte de alimentare pe traseu?",
-        "answer": "Da, există puncte de alimentare de-a lungul tuturor traseelor cursei. Cursa de 10km are 2 puncte de alimentare, cursa de 21km are 4 puncte de alimentare, iar cursa de 50km are 8 puncte de alimentare. Fiecare punct de alimentare oferă apă, băuturi sportive și diverse gustări."
+        "answer": "Da, există puncte de alimentare de-a lungul tuturor traseelor cursei. Cursa de 11km are 1 punct de alimentare, cursa de 33km are 5 puncte de alimentare."
       },
       "change": {
         "question": "Pot schimba cursa după înregistrare?",

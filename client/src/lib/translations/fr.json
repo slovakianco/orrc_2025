@@ -426,7 +426,7 @@
       },
       "stations": {
         "question": "Y a-t-il des postes de ravitaillement sur le parcours ?",
-        "answer": "Oui, il y a des postes de ravitaillement le long de tous les parcours de course. La course de 10 km a 2 postes, celle de 21 km en a 4, et celle de 50 km en a 8. Chaque poste propose de l'eau, des boissons sportives et divers en-cas."
+        "answer": "Oui, il y a des postes de ravitaillement le long de tous les parcours de course. La course de 11 km a 1 poste, la course de 33 km en a 5."
       },
       "change": {
         "question": "Puis-je changer de course après m'être inscrit ?",

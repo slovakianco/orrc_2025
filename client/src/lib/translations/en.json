@@ -551,7 +551,7 @@
       },
       "stations": {
         "question": "Are there refreshment points on the course?",
-        "answer": "Yes, there are refreshment points along all race routes. The 10km race has 2 refreshment points, the 21km race has 4 refreshment points, and the 50km race has 8 refreshment points. Each refreshment point provides water, sports drinks, and various snacks."
+        "answer": "Yes, there are refreshment points along all race routes. The 11km race has 1 refreshment point, the 33km race has 5 refreshment points."
       },
       "change": {
         "question": "Can I change my race after registering?",

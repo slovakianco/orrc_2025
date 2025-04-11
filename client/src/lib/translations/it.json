@@ -389,7 +389,7 @@
       },
       "stations": {
         "question": "Ci sono punti di ristoro sul percorso?",
-        "answer": "Sì, ci sono punti di ristoro lungo tutti i percorsi delle gare. La gara di 10km ha 2 punti di ristoro, quella di 21km ne ha 4 e quella di 50km ne ha 8. Ogni punto di ristoro offre acqua, bevande sportive e vari snack."
+        "answer": "Sì, ci sono punti di ristoro lungo tutti i percorsi delle gare. La gara di 11km ha 1 punto di ristoro, quella di 33km ne ha 5."
       },
       "change": {
         "question": "Posso cambiare gara dopo essermi registrato?",
