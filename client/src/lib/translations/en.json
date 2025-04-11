@@ -873,16 +873,16 @@
         "shuttle": "Minibus Schedule:",
         "toDestination": {
           "title": "Beiuș to Stana de Vale:",
-          "friday": "Friday, July 5:",
+          "friday": "Friday, July 4:",
           "fridayTimes": "Departures: 10:00, 13:00, 15:00, 17:00",
-          "saturday": "Saturday, July 6:",
+          "saturday": "Saturday, July 5:",
           "saturdayTimes": "Departures: 07:00, 08:00"
         },
         "fromDestination": {
           "title": "Return from Stana de Vale to Beiuș:",
-          "friday": "Friday, July 5:",
+          "friday": "Friday, July 4:",
           "fridayTimes": "Departures: 11:00, 14:00, 16:00, 20:00",
-          "saturday": "Saturday, July 6:",
+          "saturday": "Saturday, July 5:",
           "saturdayTimes": "Departures: 17:00, 22:00"
         }
       }
