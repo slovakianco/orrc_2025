@@ -357,6 +357,28 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
       
+      // Check for duplicate registration based on name, email, phone, and race
+      const existingParticipant = await storage.checkDuplicateRegistration(
+        processedBody.firstname,
+        processedBody.lastname,
+        processedBody.email, 
+        processedBody.phoneNumber,
+        processedBody.raceid
+      );
+      
+      if (existingParticipant) {
+        return res.status(400).json({
+          message: "Duplicate registration detected",
+          error: "You have already registered for this race. Each participant can only register once per race.",
+          participant: {
+            id: existingParticipant.id,
+            name: `${existingParticipant.firstname} ${existingParticipant.lastname}`,
+            status: existingParticipant.status,
+            date: existingParticipant.registrationDate
+          }
+        });
+      }
+      
       // Check if the race exists
       const race = await storage.getRaceById(result.data.raceid);
       if (!race) {
