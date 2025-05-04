@@ -221,7 +221,7 @@ export class SupabaseStorage implements IStorage {
     
     return data as Participant[];
   }
-  
+
   async checkDuplicateRegistration(
     firstname: string,
     lastname: string,
@@ -253,7 +253,7 @@ export class SupabaseStorage implements IStorage {
         .eq('raceid', raceid)
         .ilike('firstname', firstname)
         .ilike('lastname', lastname)
-        .eq('phoneNumber', phoneNumber);
+        .eq('phonenumber', phoneNumber); // Using lowercase column name as in database
         
       if (namePhoneError) {
         console.error('Error checking for duplicate registration (name+phone):', namePhoneError);
