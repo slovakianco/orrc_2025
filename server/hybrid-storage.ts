@@ -171,6 +171,45 @@ export class HybridStorage implements IStorage {
     }
   }
   
+  async checkDuplicateRegistration(
+    firstname: string,
+    lastname: string,
+    email: string,
+    phoneNumber: string,
+    raceid: number
+  ): Promise<Participant | null> {
+    if (!this.supabaseAvailable) {
+      console.log("Supabase not available, using MemStorage for duplicate registration check");
+      return this.memStorage.checkDuplicateRegistration(
+        firstname,
+        lastname,
+        email,
+        phoneNumber,
+        raceid
+      );
+    }
+
+    try {
+      return await this.supabaseStorage.checkDuplicateRegistration(
+        firstname,
+        lastname,
+        email,
+        phoneNumber,
+        raceid
+      );
+    } catch (error) {
+      console.error("Error checking for duplicate registration from Supabase:", error);
+      console.warn("Falling back to in-memory participants data for duplicate check");
+      return this.memStorage.checkDuplicateRegistration(
+        firstname,
+        lastname,
+        email,
+        phoneNumber,
+        raceid
+      );
+    }
+  }
+  
   async createParticipant(participant: InsertParticipant): Promise<Participant> {
     if (!this.supabaseAvailable) {
       console.log("Supabase not available, storing participant data in memory only");
