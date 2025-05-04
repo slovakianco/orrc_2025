@@ -221,53 +221,6 @@ export class SupabaseStorage implements IStorage {
     
     return data as Participant[];
   }
-  
-  async checkDuplicateRegistration(
-    firstname: string,
-    lastname: string,
-    email: string,
-    phoneNumber: string,
-    raceid: number
-  ): Promise<Participant | null> {
-    try {
-      // First check for same name with same email in the same race
-      const { data: nameEmailMatch, error: nameEmailError } = await supabase
-        .from('participants')
-        .select('*')
-        .eq('raceid', raceid)
-        .ilike('firstname', firstname)
-        .ilike('lastname', lastname)
-        .ilike('email', email);
-        
-      if (nameEmailError) {
-        console.error('Error checking for duplicate registration (name+email):', nameEmailError);
-      } else if (nameEmailMatch && nameEmailMatch.length > 0) {
-        console.log(`Found duplicate registration by name and email: ${firstname} ${lastname}, ${email}`);
-        return nameEmailMatch[0] as Participant;
-      }
-      
-      // Then check for same name with same phone in the same race
-      const { data: namePhoneMatch, error: namePhoneError } = await supabase
-        .from('participants')
-        .select('*')
-        .eq('raceid', raceid)
-        .ilike('firstname', firstname)
-        .ilike('lastname', lastname)
-        .eq('phoneNumber', phoneNumber);
-        
-      if (namePhoneError) {
-        console.error('Error checking for duplicate registration (name+phone):', namePhoneError);
-      } else if (namePhoneMatch && namePhoneMatch.length > 0) {
-        console.log(`Found duplicate registration by name and phone: ${firstname} ${lastname}, ${phoneNumber}`);
-        return namePhoneMatch[0] as Participant;
-      }
-      
-      return null;
-    } catch (error) {
-      console.error('Exception checking duplicate registration:', error);
-      return null;
-    }
-  }
 
   async createParticipant(participant: InsertParticipant): Promise<Participant> {
     // Get the race for bib number generation
