@@ -41,6 +41,13 @@ export interface IStorage {
   getParticipantsByRace(raceid: number): Promise<Participant[]>;
   getParticipantsByCountry(country: string): Promise<Participant[]>;
   searchParticipants(query: string): Promise<Participant[]>;
+  checkDuplicateRegistration(
+    firstname: string,
+    lastname: string,
+    email: string,
+    phoneNumber: string,
+    raceid: number
+  ): Promise<Participant | null>;
   createParticipant(participant: InsertParticipant): Promise<Participant>;
   updateParticipantStatus(
     id: number,
@@ -201,6 +208,29 @@ export class MemStorage implements IStorage {
         participant.lastname.toLowerCase().includes(lowercaseQuery) ||
         participant.country.toLowerCase().includes(lowercaseQuery),
     );
+  }
+  
+  async checkDuplicateRegistration(
+    firstname: string,
+    lastname: string,
+    email: string,
+    phoneNumber: string,
+    raceid: number
+  ): Promise<Participant | null> {
+    // Get all participants for the selected race
+    const raceParticipants = await this.getParticipantsByRace(raceid);
+    
+    // Case-insensitive search for a match on name + email/phone
+    const existingParticipant = raceParticipants.find(p => 
+      // Check if the same person (case insensitive comparison)
+      (p.firstname.toLowerCase() === firstname.toLowerCase() && 
+       p.lastname.toLowerCase() === lastname.toLowerCase()) &&
+      // And either the same email or phone number
+      (p.email.toLowerCase() === email.toLowerCase() || 
+       p.phoneNumber === phoneNumber)
+    );
+    
+    return existingParticipant || null;
   }
 
   async createParticipant(
