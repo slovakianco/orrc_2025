@@ -475,6 +475,7 @@ const RegistrationFormWithPayment = () => {
                       <option value="IN">India</option>
                       <option value="IL">Israel</option>
                       <option value="JP">Japan</option>
+                      <option value="MA">Morocco</option>
                       <option value="MX">Mexico</option>
                       <option value="NZ">New Zealand</option>
                       <option value="SG">Singapore</option>
