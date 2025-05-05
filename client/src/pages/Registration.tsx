@@ -200,6 +200,7 @@ export default function Registration() {
                           <SelectItem value="de">Germany</SelectItem>
                           <SelectItem value="es">Spain</SelectItem>
                           <SelectItem value="it">Italy</SelectItem>
+                          <SelectItem value="ma">Morocco</SelectItem>
                           <SelectItem value="us">United States</SelectItem>
                         </SelectContent>
                       </Select>

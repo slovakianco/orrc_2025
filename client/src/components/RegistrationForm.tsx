@@ -318,6 +318,7 @@ const RegistrationForm = () => {
                     <option value="CH">Switzerland</option>
                     <option value="AT">Austria</option>
                     <option value="HU">Hungary</option>
+                    <option value="MA">Morocco</option>
                     <option value="PL">Poland</option>
                     <option value="CZ">Czech Republic</option>
                   </select>
