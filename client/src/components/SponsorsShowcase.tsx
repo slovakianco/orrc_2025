@@ -86,6 +86,38 @@ const SponsorsShowcase = () => {
       level: "premium",
       order_index: 3,
     },
+    {
+      id: 4,
+      name: "European Drinks",
+      description:
+        "Premium beverage company providing high-quality drinks for sports and outdoor activities.",
+      descriptionRo:
+        "Companie premium de băuturi care oferă băuturi de înaltă calitate pentru sport și activități în aer liber.",
+      descriptionFr:
+        "Entreprise de boissons premium fournissant des boissons de haute qualité pour le sport et les activités de plein air.",
+      descriptionDe:
+        "Premium-Getränkeunternehmen, das hochwertige Getränke für Sport und Outdoor-Aktivitäten anbietet.",
+      logoUrl: "/logo_4.png",
+      website: "https://europeandrinks.com",
+      level: "standard",
+      order_index: 4,
+    },
+    {
+      id: 5,
+      name: "EuropeanFood",
+      description:
+        "Leading food company specializing in quality nutrition and healthy food products.",
+      descriptionRo:
+        "Companie alimentară de top specializată în nutriție de calitate și produse alimentare sănătoase.",
+      descriptionFr:
+        "Entreprise alimentaire leader spécialisée dans la nutrition de qualité et les produits alimentaires sains.",
+      descriptionDe:
+        "Führendes Lebensmittelunternehmen, das sich auf hochwertige Ernährung und gesunde Lebensmittelprodukte spezialisiert hat.",
+      logoUrl: "/logo_5.png",
+      website: "https://europeanfood.com",
+      level: "standard",
+      order_index: 5,
+    },
   ];
 
   // Split sponsors by level
