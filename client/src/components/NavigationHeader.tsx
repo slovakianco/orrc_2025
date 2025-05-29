@@ -49,6 +49,11 @@ const NavigationHeader = () => {
       path: "/how-to-get-there",
       isActive: location === "/how-to-get-there",
     },
+    {
+      label: t("nav.accommodation"),
+      path: "/accommodation",
+      isActive: location === "/accommodation",
+    },
   ];
 
   const toggleMenu = () => {
