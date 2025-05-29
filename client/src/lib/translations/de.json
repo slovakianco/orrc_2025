@@ -773,6 +773,9 @@
           "title": "Camping",
           "description": "Für Abenteuerlustige gibt es ausgewiesene Campingplätze in der Nähe des Resorts. Bringe deine eigene Ausrüstung mit oder miete vor Ort."
         }
+      },
+      "hotelIadolina": {
+        "description": "Empfohlenes Hotel, wo Athleten, die am Stâna de Vale Trail Race teilnehmen, einen Rabatt erhalten. Doppelzimmer 300 lei und Einzelzimmer 280 lei mit Frühstück inklusive."
       }
     }
   },

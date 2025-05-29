@@ -737,6 +737,9 @@
           "title": "Camping",
           "description": "Para los aventureros, hay áreas de camping designadas cerca del resort. Trae tu propio equipo o alquílalo en el lugar."
         }
+      },
+      "hotelIadolina": {
+        "description": "Hotel recomendado donde los atletas que participen en el trail race de Stâna de Vale tendrán descuento. Habitación doble 300 lei e individual 280 lei con desayuno incluido."
       }
     }
   },
