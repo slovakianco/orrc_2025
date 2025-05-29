@@ -90,15 +90,15 @@ const SponsorsShowcase = () => {
       id: 4,
       name: "European Drinks",
       description:
-        "Premium beverage company providing high-quality drinks for sports and outdoor activities.",
+        "Romanian producer of soft drinks and mineral waters with international presence.",
       descriptionRo:
-        "Companie premium de băuturi care oferă băuturi de înaltă calitate pentru sport și activități în aer liber.",
+        "Producător român de băuturi răcoritoare și ape minerale, cu prezență internațională.",
       descriptionFr:
-        "Entreprise de boissons premium fournissant des boissons de haute qualité pour le sport et les activités de plein air.",
+        "Producteur roumain de boissons rafraîchissantes et d'eaux minérales avec présence internationale.",
       descriptionDe:
-        "Premium-Getränkeunternehmen, das hochwertige Getränke für Sport und Outdoor-Aktivitäten anbietet.",
+        "Rumänischer Hersteller von Erfrischungsgetränken und Mineralwasser mit internationaler Präsenz.",
       logoUrl: "/logo_4.png",
-      website: "https://europeandrinks.com",
+      website: "https://edinternational.ro/",
       level: "standard",
       order_index: 4,
     },
@@ -106,15 +106,15 @@ const SponsorsShowcase = () => {
       id: 5,
       name: "EuropeanFood",
       description:
-        "Leading food company specializing in quality nutrition and healthy food products.",
+        "Leader in snacks, cereals and food products exported to over 27 countries.",
       descriptionRo:
-        "Companie alimentară de top specializată în nutriție de calitate și produse alimentare sănătoase.",
+        "Lider în snacksuri, cereale și produse alimentare exportate în peste 27 de țări.",
       descriptionFr:
-        "Entreprise alimentaire leader spécialisée dans la nutrition de qualité et les produits alimentaires sains.",
+        "Leader dans les collations, céréales et produits alimentaires exportés dans plus de 27 pays.",
       descriptionDe:
-        "Führendes Lebensmittelunternehmen, das sich auf hochwertige Ernährung und gesunde Lebensmittelprodukte spezialisiert hat.",
+        "Marktführer bei Snacks, Cerealien und Lebensmitteln, die in über 27 Länder exportiert werden.",
       logoUrl: "/logo_5.png",
-      website: "https://europeanfood.com",
+      website: "https://europeanfoodinternational.ro/",
       level: "standard",
       order_index: 5,
     },
