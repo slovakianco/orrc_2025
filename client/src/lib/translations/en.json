@@ -1097,6 +1097,9 @@
     },
     "hotel5": {
       "description": "A modern hotel in Beiuș with all amenities, including a restaurant, bar, and conference facilities. A good option for those who prefer staying in town."
+    },
+    "hotelIadolina": {
+      "description": "Recommended hotel where athletes participating in the Stâna de Vale trail race will receive a discount. Double room 300 lei and single 280 lei with breakfast included."
     }
   },
   "emailTest": {

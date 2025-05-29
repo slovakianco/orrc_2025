@@ -30,7 +30,7 @@ const AccommodationPage = () => {
     {
       id: 1,
       name: "Hotel Iadolina",
-      description: "Hotel Iadolina recomandat unde sportivi care vor participa la Stâna de Vale trail race vor avea reducere, camera dublă va fi de 300 lei și single 280 lei cu mic dejun.",
+      description: t('accommodation.hotelIadolina.description'),
       image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       stars: 3,
       address: "Stâna de Vale, Bihor County, Romania",
@@ -149,39 +149,7 @@ const AccommodationPage = () => {
           ))}
         </div>
         
-        {/* Additional accommodation options */}
-        <div className="bg-white rounded-lg shadow-md p-6 md:p-8 mb-10">
-          <h2 className="text-xl md:text-2xl font-bold text-primary mb-4">
-            {t('accommodation.alternativesTitle')}
-          </h2>
-          <p className="text-neutral-dark mb-6">
-            {t('accommodation.alternativesText')}
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-stone-beige/30 p-5 rounded-lg">
-              <h3 className="font-bold text-lg mb-3">{t('accommodation.camping.title')}</h3>
-              <p className="text-neutral-dark mb-4">
-                {t('accommodation.camping.description')}
-              </p>
-              <div className="text-sm bg-white p-3 rounded">
-                <p className="font-medium mb-1">{t('accommodation.camping.priceTitle')}</p>
-                <p className="text-neutral-dark">{t('accommodation.camping.priceDetails')}</p>
-              </div>
-            </div>
-            
-            <div className="bg-stone-beige/30 p-5 rounded-lg">
-              <h3 className="font-bold text-lg mb-3">{t('accommodation.beius.title')}</h3>
-              <p className="text-neutral-dark mb-4">
-                {t('accommodation.beius.description')}
-              </p>
-              <div className="text-sm bg-white p-3 rounded">
-                <p className="font-medium mb-1">{t('accommodation.beius.distanceTitle')}</p>
-                <p className="text-neutral-dark">{t('accommodation.beius.distanceDetails')}</p>
-              </div>
-            </div>
-          </div>
-        </div>
+
         
         {/* Contact for assistance */}
         <div className="bg-primary/10 rounded-lg p-6 md:p-8 text-center">
