@@ -99,7 +99,7 @@ const SponsorsShowcase = () => {
         "Rumänischer Hersteller von Erfrischungsgetränken und Mineralwasser mit internationaler Präsenz.",
       logoUrl: "/logo_4.png",
       website: "https://edinternational.ro/",
-      level: "standard",
+      level: "premium",
       order_index: 4,
     },
     {
@@ -115,7 +115,7 @@ const SponsorsShowcase = () => {
         "Marktführer bei Snacks, Cerealien und Lebensmitteln, die in über 27 Länder exportiert werden.",
       logoUrl: "/logo_5.png",
       website: "https://europeanfoodinternational.ro/",
-      level: "standard",
+      level: "premium",
       order_index: 5,
     },
   ];

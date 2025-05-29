@@ -160,7 +160,7 @@ const AccommodationPage = () => {
             {t('accommodation.needHelpText')}
           </p>
           <a 
-            href="mailto:info@stanadevaletrail.ro" 
+            href="mailto:contact@stanatrailrace.ro" 
             className="inline-block bg-primary hover:bg-primary-dark text-white font-bold py-2 px-6 rounded-lg transition-colors duration-300"
           >
             {t('accommodation.contactButton')}
