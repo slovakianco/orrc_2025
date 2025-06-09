@@ -741,6 +741,21 @@
       },
       "hotelIadolina": {
         "description": "Hotel recomendado donde los atletas que participen en el trail race de Stâna de Vale tendrán descuento. Habitación doble 300 lei e individual 280 lei con desayuno incluido."
+      },
+      "camping": {
+        "title": "Camping",
+        "subtitle": "Alojamiento al aire libre asequible en la naturaleza",
+        "description": "Vive la belleza de Stâna de Vale con nuestras instalaciones de camping. Perfecto para los amantes de la naturaleza y aquellos que buscan una experiencia auténtica de montaña.",
+        "ruralTariff": "Tarifa Rural",
+        "shortStayMachine": "Estancia Corta + Máquina",
+        "shortStaySimple": "Estancia Corta Simple",
+        "dogTariff": "Tarifa Perro",
+        "stationTax": "Tasa de Estación",
+        "perNight": "por noche",
+        "perDayTourist": "por día / turista",
+        "contactInfo": "Reservas de Camping",
+        "website": "Sitio Web",
+        "phone": "Teléfono"
       }
     }
   },
