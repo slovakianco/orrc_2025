@@ -1044,6 +1044,21 @@
     "needHelpTitle": "Ai nevoie de ajutor?",
     "needHelpText": "Dacă ai nevoie de ajutor pentru a găsi cazare potrivită sau ai cerințe speciale, nu ezita să contactezi echipa noastră. Putem oferi recomandări bazate pe preferințele și mărimea grupului tău.",
     "contactButton": "Contact pentru ajutor cazare",
+    "camping": {
+      "title": "Camping",
+      "subtitle": "Cazare în aer liber la prețuri accesibile în natură",
+      "description": "Experimentează frumusețea Stânei de Vale cu facilitățile noastre de camping. Perfect pentru iubitorii naturii și cei care caută o experiență autentică de munte.",
+      "ruralTariff": "Tarif Rulotă",
+      "shortStayMachine": "Tarif Scurt + Mașină",
+      "shortStaySimple": "Tarif Scurt Simplu",
+      "dogTariff": "Tarif Câine",
+      "stationTax": "Taxa de Stațiune",
+      "perNight": "pe noapte",
+      "perDayTourist": "pe zi / turist",
+      "contactInfo": "Rezervări Camping",
+      "website": "Website",
+      "phone": "Telefon"
+    },
     "hotel1": {
       "description": "Hotelul central din Stâna de Vale, care oferă camere confortabile, un restaurant care servește bucătărie tradițională românească și acces facil la zona de start/sosire a cursei."
     },

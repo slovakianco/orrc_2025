@@ -42,6 +42,40 @@ const AccommodationPage = () => {
     },
   ];
 
+  // Camping options
+  const campingOptions = [
+    {
+      id: 1,
+      name: t('accommodation.camping.ruralTariff'),
+      price: "135 lei",
+      period: t('accommodation.camping.perNight'),
+    },
+    {
+      id: 2,
+      name: t('accommodation.camping.shortStayMachine'),
+      price: "105 lei", 
+      period: t('accommodation.camping.perNight'),
+    },
+    {
+      id: 3,
+      name: t('accommodation.camping.shortStaySimple'),
+      price: "90 lei",
+      period: t('accommodation.camping.perNight'),
+    },
+    {
+      id: 4,
+      name: t('accommodation.camping.dogTariff'),
+      price: "10 lei",
+      period: t('accommodation.camping.perNight'),
+    },
+    {
+      id: 5,
+      name: t('accommodation.camping.stationTax'),
+      price: "2 lei",
+      period: t('accommodation.camping.perDayTourist'),
+    },
+  ];
+
   // Feature icons mapping
   const featureIcons: Record<string, any> = {
     restaurant: <Utensils className="h-5 w-5" />,
@@ -148,9 +182,67 @@ const AccommodationPage = () => {
             </div>
           ))}
         </div>
-        
 
-        
+        {/* Camping Section */}
+        <div className="bg-white rounded-lg shadow-md p-6 md:p-8 mb-10">
+          <div className="flex items-center mb-6">
+            <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+              <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3l7 7-7 7-7-7 7-7z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 13l-4-4h8l-4 4z" />
+              </svg>
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-primary">
+                {t('accommodation.camping.title')}
+              </h2>
+              <p className="text-neutral-dark">
+                {t('accommodation.camping.subtitle')}
+              </p>
+            </div>
+          </div>
+
+          <div className="mb-6">
+            <img 
+              src="/0_1749491186771.jpg" 
+              alt="Camping Stâna de Vale"
+              className="w-full h-64 object-cover rounded-lg shadow-md"
+            />
+          </div>
+
+          <p className="text-neutral-dark mb-6">
+            {t('accommodation.camping.description')}
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+            {campingOptions.map((option) => (
+              <div key={option.id} className="bg-stone-beige/30 rounded-lg p-4 border border-stone-beige">
+                <h4 className="font-semibold text-primary mb-2">{option.name}</h4>
+                <div className="flex justify-between items-center">
+                  <span className="text-2xl font-bold text-green-600">{option.price}</span>
+                  <span className="text-sm text-neutral-dark">{option.period}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-green-50 border-l-4 border-green-500 p-4">
+            <h4 className="text-green-800 font-semibold mb-2">{t('accommodation.camping.contactInfo')}</h4>
+            <p className="text-green-700 mb-2">
+              <strong>{t('accommodation.camping.website')}:</strong> 
+              <a href="https://hoteliadolina.ro" target="_blank" rel="noopener noreferrer" className="ml-2 text-green-600 hover:underline">
+                hoteliadolina.ro
+              </a>
+            </p>
+            <p className="text-green-700">
+              <strong>{t('accommodation.camping.phone')}:</strong> 
+              <a href="tel:+40744599334" className="ml-2 text-green-600 hover:underline">
+                +40744599334
+              </a>
+            </p>
+          </div>
+        </div>
+
         {/* Contact for assistance */}
         <div className="bg-primary/10 rounded-lg p-6 md:p-8 text-center">
           <h3 className="font-bold text-lg md:text-xl text-primary mb-3">
