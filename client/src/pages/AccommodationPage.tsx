@@ -202,11 +202,11 @@ const AccommodationPage = () => {
             </div>
           </div>
 
-          <div className="mb-6">
+          <div className="mb-6 -mx-6 md:-mx-8">
             <img 
               src="/0_1749491186771.jpg" 
               alt="Camping Stâna de Vale"
-              className="w-full h-64 object-cover rounded-lg shadow-md"
+              className="w-full h-96 object-cover"
             />
           </div>
 
