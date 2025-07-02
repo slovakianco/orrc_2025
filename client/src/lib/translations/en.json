@@ -249,6 +249,12 @@
       "title": "Registration Failed",
       "message": "There was an error processing your registration. Please try again.",
       "participantNotFound": "Participant not found. The registration information could not be retrieved."
+    },
+    "closed": {
+      "title": "REGISTRATIONS ARE CLOSED",
+      "message": "Registration for this event has ended. Thank you for your interest!",
+      "thankYou": "Thank You for Your Interest!",
+      "futureEvents": "Stay tuned for future trail running events and competitions. Follow us on social media for updates!"
     }
   },
   "participants": {

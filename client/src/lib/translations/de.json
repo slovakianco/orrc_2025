@@ -210,6 +210,12 @@
     "error": {
       "title": "Registrierung fehlgeschlagen",
       "message": "Es gab einen Fehler bei der Verarbeitung deiner Registrierung. Bitte versuche es erneut."
+    },
+    "closed": {
+      "title": "REGISTRIERUNGEN SIND GESCHLOSSEN",
+      "message": "Die Registrierung für diese Veranstaltung ist beendet. Vielen Dank für Ihr Interesse!",
+      "thankYou": "Vielen Dank für Ihr Interesse!",
+      "futureEvents": "Bleiben Sie dran für zukünftige Trail-Running-Events und Wettkämpfe. Folgen Sie uns in den sozialen Medien für Updates!"
     }
   },
   "participants": {

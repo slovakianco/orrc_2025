@@ -241,6 +241,12 @@
     "error": {
       "title": "Înregistrarea a eșuat",
       "message": "A apărut o eroare la procesarea înregistrării tale. Te rugăm să încerci din nou."
+    },
+    "closed": {
+      "title": "ÎNREGISTRĂRILE SUNT ÎNCHISE",
+      "message": "Înregistrarea pentru acest eveniment s-a încheiat. Vă mulțumim pentru interesul dumneavoastră!",
+      "thankYou": "Vă mulțumim pentru interesul dumneavoastră!",
+      "futureEvents": "Rămâneți la curent cu viitoarele evenimente de alergare montană și competiții. Urmăriți-ne pe rețelele sociale pentru actualizări!"
     }
   },
   "participants": {

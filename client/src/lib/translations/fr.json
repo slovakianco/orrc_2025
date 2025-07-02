@@ -211,6 +211,12 @@
     "error": {
       "title": "Échec de l'inscription",
       "message": "Une erreur s'est produite lors du traitement de votre inscription. Veuillez réessayer."
+    },
+    "closed": {
+      "title": "LES INSCRIPTIONS SONT FERMÉES",
+      "message": "L'inscription pour cet événement est terminée. Merci pour votre intérêt !",
+      "thankYou": "Merci pour votre intérêt !",
+      "futureEvents": "Restez à l'écoute pour les futurs événements de course en montagne et compétitions. Suivez-nous sur les réseaux sociaux pour les mises à jour !"
     }
   },
   "participants": {
