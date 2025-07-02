@@ -210,6 +210,12 @@
     "error": {
       "title": "Fallo en el Registro",
       "message": "Hubo un error al procesar tu registro. Por favor, intenta de nuevo."
+    },
+    "closed": {
+      "title": "LAS INSCRIPCIONES ESTÁN CERRADAS",
+      "message": "La inscripción para este evento ha terminado. ¡Gracias por tu interés!",
+      "thankYou": "¡Gracias por tu interés!",
+      "futureEvents": "Mantente atento a futuros eventos de trail running y competiciones. ¡Síguenos en las redes sociales para actualizaciones!"
     }
   },
   "participants": {
