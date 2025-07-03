@@ -2,6 +2,7 @@ import express, { type Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
 import fs from "fs";
 import path from "path";
+import * as cheerio from "cheerio";
 // Use the storage provider to get the correct storage implementation
 import { getStorage } from "./storage-provider";
 import { insertParticipantSchema, insertContactInquirySchema, type InsertParticipant } from "@shared/schema";
@@ -1178,6 +1179,50 @@ This message was sent from the Stana de Vale Trail Race website contact form.
         "4. Test sending an email from this page to confirm everything works"
       ]
     });
+  });
+
+  // Fetch results content from external site
+  apiRouter.get("/results-content", async (req: Request, res: Response) => {
+    try {
+      const response = await fetch('https://my-run.ro/stana-de-vale-trail-race-2025-rezultate/');
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch results page');
+      }
+      
+      const html = await response.text();
+      const $ = cheerio.load(html);
+      
+      // Try to extract content from .entry-content class
+      let content = $('.entry-content').html();
+      
+      // If no .entry-content, try other common selectors
+      if (!content || content.trim().length === 0) {
+        content = $('.content').html() || 
+                  $('.main-content').html() || 
+                  $('.post-content').html() || 
+                  $('article').html() || 
+                  $('.page-content').html() || 
+                  $('#content').html() || 
+                  $('main').html();
+      }
+      
+      // Clean up and sanitize the content
+      if (content) {
+        // Remove scripts and styles
+        const cleanContent = content
+          .replace(/<script[^>]*>.*?<\/script>/gim, '')
+          .replace(/<style[^>]*>.*?<\/style>/gim, '')
+          .replace(/<noscript[^>]*>.*?<\/noscript>/gim, '');
+        
+        res.json({ content: cleanContent });
+      } else {
+        res.json({ content: '' });
+      }
+    } catch (error) {
+      console.error('Error fetching results content:', error);
+      res.status(500).json({ error: 'Failed to fetch results content' });
+    }
   });
 
   // Mount the API router

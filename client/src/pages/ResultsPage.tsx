@@ -1,10 +1,39 @@
 import { useTranslation } from 'react-i18next';
-import { Trophy, Medal, Award, ExternalLink } from 'lucide-react';
+import { Trophy, Medal, Award, ExternalLink, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useEffect, useState } from 'react';
 
 export default function ResultsPage() {
   const { t } = useTranslation();
+  const [content, setContent] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string>('');
+
+  useEffect(() => {
+    const fetchContent = async () => {
+      try {
+        setLoading(true);
+        // Since we can't directly fetch from the external site due to CORS,
+        // we'll create a backend endpoint to fetch the content
+        const response = await fetch('/api/results-content');
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch results content');
+        }
+        
+        const data = await response.json();
+        setContent(data.content || '');
+      } catch (err) {
+        console.error('Error fetching results content:', err);
+        setError('Failed to load results content');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchContent();
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50">
@@ -23,109 +52,111 @@ export default function ResultsPage() {
         </div>
       </div>
 
-      {/* Main Content */}
+      {/* Race Categories */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Results Categories */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-          <Card className="overflow-hidden shadow-lg">
-            <CardHeader className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white">
-              <CardTitle className="flex items-center text-2xl">
-                <Medal className="mr-3 h-8 w-8" />
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <Card className="border-green-200 shadow-lg hover:shadow-xl transition-shadow">
+            <CardHeader className="bg-green-50">
+              <CardTitle className="flex items-center gap-2 text-green-800">
+                <Medal className="h-6 w-6" />
                 {t('results.33km.title', 'Trail Run 33K Results')}
               </CardTitle>
             </CardHeader>
             <CardContent className="p-6">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold">{t('results.categories.open', 'Open Category')}</span>
-                  <Award className="h-6 w-6 text-yellow-500" />
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <Award className="h-4 w-4" />
+                  {t('results.categories.open', 'Open Category')}
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold">{t('results.categories.national', 'National Championship')}</span>
-                  <Award className="h-6 w-6 text-red-500" />
+                <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <Award className="h-4 w-4" />
+                  {t('results.categories.national', 'National Championship')}
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold">{t('results.categories.ema', 'EMA Classification')}</span>
-                  <Award className="h-6 w-6 text-blue-500" />
+                <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <Award className="h-4 w-4" />
+                  {t('results.categories.ema', 'EMA Classification')}
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="overflow-hidden shadow-lg">
-            <CardHeader className="bg-gradient-to-r from-green-400 to-teal-500 text-white">
-              <CardTitle className="flex items-center text-2xl">
-                <Medal className="mr-3 h-8 w-8" />
+          <Card className="border-blue-200 shadow-lg hover:shadow-xl transition-shadow">
+            <CardHeader className="bg-blue-50">
+              <CardTitle className="flex items-center gap-2 text-blue-800">
+                <Medal className="h-6 w-6" />
                 {t('results.11km.title', 'Trail Run 11K Results')}
               </CardTitle>
             </CardHeader>
             <CardContent className="p-6">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold">{t('results.categories.open', 'Open Category')}</span>
-                  <Award className="h-6 w-6 text-yellow-500" />
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold">{t('results.categories.national', 'National Championship')}</span>
-                  <Award className="h-6 w-6 text-red-500" />
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold">{t('results.categories.ema', 'EMA Classification')}</span>
-                  <Award className="h-6 w-6 text-blue-500" />
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <Award className="h-4 w-4" />
+                  {t('results.categories.open', 'Open Category')}
                 </div>
               </div>
             </CardContent>
           </Card>
         </div>
 
-        {/* Embedded Results */}
-        <Card className="shadow-xl">
-          <CardHeader className="bg-gradient-to-r from-[#2E7D32] to-[#1B5E20] text-white">
-            <CardTitle className="text-2xl md:text-3xl text-center">
+        {/* Results Content */}
+        <Card className="shadow-lg">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-2xl">
+              <Trophy className="h-8 w-8 text-yellow-600" />
               {t('results.official.title', 'Official Race Results')}
             </CardTitle>
-            <p className="text-center text-green-100 mt-2">
+            <p className="text-gray-600">
               {t('results.official.subtitle', 'Complete rankings and classifications')}
             </p>
           </CardHeader>
-          <CardContent className="p-0">
-            {/* Embedded Results iframe */}
-            <div className="w-full min-h-screen">
-              <iframe
-                src="https://my-run.ro/stana-de-vale-trail-race-2025-rezultate/"
-                title="Race Results"
-                className="w-full h-screen border-0"
-                allowFullScreen
-                loading="lazy"
-                style={{ minHeight: '800px' }}
+          <CardContent className="p-6">
+            {loading && (
+              <div className="flex items-center justify-center py-12">
+                <Loader2 className="h-8 w-8 animate-spin text-green-600" />
+                <span className="ml-2 text-gray-600">Loading results...</span>
+              </div>
+            )}
+            
+            {error && (
+              <div className="text-center py-12">
+                <p className="text-red-600 mb-4">{error}</p>
+                <Button 
+                  onClick={() => window.open('https://my-run.ro/stana-de-vale-trail-race-2025-rezultate/', '_blank')}
+                  className="bg-[#2E7D32] hover:bg-[#1B5E20] text-white"
+                >
+                  <ExternalLink className="h-4 w-4 mr-2" />
+                  View Results on Official Site
+                </Button>
+              </div>
+            )}
+            
+            {content && (
+              <div 
+                className="prose prose-lg max-w-none"
+                dangerouslySetInnerHTML={{ __html: content }}
               />
-            </div>
+            )}
           </CardContent>
         </Card>
 
-        {/* Additional Information */}
-        <div className="mt-12 text-center">
-          <Card className="bg-yellow-50 border-yellow-200 shadow-lg">
-            <CardContent className="p-8">
-              <div className="flex items-center justify-center mb-4">
-                <ExternalLink className="h-8 w-8 text-yellow-600 mr-3" />
-                <h3 className="text-2xl font-bold text-yellow-800">
-                  {t('results.external.title', 'View Full Results')}
-                </h3>
-              </div>
-              <p className="text-yellow-700 mb-6 text-lg">
-                {t('results.external.description', 'For the complete results with all details, visit the official results page.')}
-              </p>
-              <Button 
-                className="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-8 rounded-lg shadow-md"
-                onClick={() => window.open('https://my-run.ro/stana-de-vale-trail-race-2025-rezultate/', '_blank')}
-              >
-                {t('results.external.button', 'Open Full Results Page')}
-                <ExternalLink className="ml-2 h-5 w-5" />
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
+        {/* Fallback Link */}
+        <Card className="mt-8 bg-gray-50">
+          <CardContent className="p-6 text-center">
+            <h3 className="text-lg font-semibold mb-2">
+              {t('results.external.title', 'View Full Results')}
+            </h3>
+            <p className="text-gray-600 mb-4">
+              {t('results.external.description', 'For the complete results with all details, visit the official results page.')}
+            </p>
+            <Button 
+              onClick={() => window.open('https://my-run.ro/stana-de-vale-trail-race-2025-rezultate/', '_blank')}
+              className="bg-[#2E7D32] hover:bg-[#1B5E20] text-white"
+            >
+              <ExternalLink className="h-4 w-4 mr-2" />
+              {t('results.external.button', 'Open Full Results Page')}
+            </Button>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
