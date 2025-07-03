@@ -1,98 +1,10 @@
 import { useTranslation } from 'react-i18next';
-import { useEffect } from 'react';
 import { Trophy, Medal, Award, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-// Declare global RRPublish for TypeScript
-declare global {
-  interface Window {
-    RRPublish: any;
-  }
-}
-
 export default function ResultsPage() {
   const { t } = useTranslation();
-
-  useEffect(() => {
-    // Load external CSS
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = 'https://my.raceresult.com/RRPublish/style.css?v=v1.0.549';
-    document.head.appendChild(link);
-
-    // Add custom styling to match page design
-    const customStyle = document.createElement('style');
-    customStyle.textContent = `
-      .RRPublish {
-        font-family: inherit !important;
-      }
-      .RRPublish .TileHead {
-        background: linear-gradient(135deg, #2E7D32, #1B5E20) !important;
-        color: white !important;
-        border-radius: 8px 8px 0 0 !important;
-        font-weight: 600 !important;
-      }
-      .RRPublish .TilesList {
-        border-radius: 0 0 8px 8px !important;
-        border: 1px solid #e0e0e0 !important;
-      }
-      .RRPublish .Tile {
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-        border-radius: 8px !important;
-        margin-bottom: 16px !important;
-        border: none !important;
-      }
-      .RRPublish .TilesList tr:nth-child(odd) {
-        background-color: #f8f9fa !important;
-      }
-      .RRPublish .TilesList tr:hover {
-        background-color: #e8f5e8 !important;
-      }
-    `;
-    document.head.appendChild(customStyle);
-
-    // Load external scripts
-    const loadScript = (src: string) => {
-      return new Promise((resolve, reject) => {
-        const script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = src;
-        script.async = true;
-        script.onload = resolve;
-        script.onerror = reject;
-        document.head.appendChild(script);
-      });
-    };
-
-    // Load scripts in sequence
-    Promise.all([
-      loadScript('//my.raceresult.com/RRPublish/load.js.php?lang=en'),
-      loadScript('https://my.raceresult.com/RRPublish/lang.js?lang=en&v=v1.0.549'),
-      loadScript('https://my.raceresult.com/RRPublish/RRPublish.js?v=v1.0.549')
-    ]).then(() => {
-      // Initialize the widget after scripts are loaded
-      setTimeout(() => {
-        if ((window as any).RRPublish) {
-          const element = document.getElementById('divRRPublish_results');
-          if (element) {
-            new (window as any).RRPublish(element, 349747, 'results');
-          }
-        }
-      }, 500);
-    }).catch(error => {
-      console.error('Error loading race results scripts:', error);
-    });
-
-    return () => {
-      // Cleanup
-      const scripts = document.querySelectorAll('script[src*="raceresult.com"]');
-      scripts.forEach(script => script.remove());
-      const links = document.querySelectorAll('link[href*="raceresult.com"]');
-      links.forEach(link => link.remove());
-    };
-  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50">
@@ -176,22 +88,23 @@ export default function ResultsPage() {
               {t('results.official.subtitle', 'Complete rankings and classifications')}
             </p>
           </CardHeader>
-          <CardContent className="p-6">
-            {/* Race Results Widget */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <div 
-                id="divRRPublish_results" 
-                className="RRPublish min-h-[400px]" 
-                style={{ marginLeft: '0px', marginRight: '0px' }}
-              >
-                <div className="text-center py-8">
-                  <div className="animate-spin w-8 h-8 border-4 border-[#2E7D32] border-t-transparent rounded-full mx-auto mb-4"></div>
-                  <p className="text-gray-600">Loading race results...</p>
-                </div>
-              </div>
+          <CardContent className="p-0 relative overflow-hidden">
+            {/* Embedded Results iframe */}
+            <div className="w-full min-h-screen relative">
+              {/* Overlay to hide the header */}
+              <div className="absolute top-0 left-0 right-0 h-20 bg-white z-10"></div>
+              <iframe
+                src="https://my-run.ro/stana-de-vale-trail-race-2025-rezultate/"
+                title="Race Results"
+                className="w-full h-screen border-0 relative -mt-20"
+                allowFullScreen
+                loading="lazy"
+                style={{ 
+                  minHeight: '820px', // Increased to compensate for negative margin
+                  transform: 'translateY(-20px)' // Additional adjustment
+                }}
+              />
             </div>
-            
-            {/* Custom styling for race results will be injected via CSS */}
           </CardContent>
         </Card>
 
