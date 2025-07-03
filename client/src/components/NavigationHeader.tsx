@@ -18,6 +18,11 @@ const NavigationHeader = () => {
       path: "/participants",
       isActive: location === "/participants",
     },
+    {
+      label: t("nav.results"),
+      path: "/results",
+      isActive: location === "/results",
+    },
     { label: t("nav.rules"), path: "/rules", isActive: location === "/rules" },
     {
       label: t("nav.program"),
