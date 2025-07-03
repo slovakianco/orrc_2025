@@ -74,13 +74,6 @@ const SectionsOverview = () => {
       colorClass: 'bg-trail-brown'
     },
     {
-      title: t('nav.registration'),
-      description: t('sectionsOverview.registration'),
-      icon: <Flag className="h-6 w-6 text-white" />,
-      to: '/registration',
-      colorClass: 'bg-alpine'
-    },
-    {
       title: t('nav.contact'),
       description: t('sectionsOverview.contact'),
       icon: <Phone className="h-6 w-6 text-white" />,

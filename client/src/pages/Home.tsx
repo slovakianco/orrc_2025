@@ -78,12 +78,7 @@ export default function Home() {
             <p className="text-xl mb-8">
               {t("home.hero.subtitle")}
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/registration">
-                <Button className="bg-[#FF5722] hover:bg-[#E64A19] text-white font-accent font-bold py-3 px-6 rounded-md transition duration-300 ease-in-out transform hover:scale-105">
-                  {t("home.hero.registerButton")}
-                </Button>
-              </Link>
+            <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/races">
                 <Button variant="outline" className="bg-transparent hover:bg-white/20 text-white font-accent font-bold py-3 px-6 rounded-md border-2 border-white transition duration-300 ease-in-out">
                   {t("home.hero.exploreButton")}
@@ -186,7 +181,7 @@ export default function Home() {
                       {t("home.featuredRaces.viewDetails")}
                     </Button>
                   </Link>
-                </div>
+                </CardContent>
               </Card>
             ))}
           </div>

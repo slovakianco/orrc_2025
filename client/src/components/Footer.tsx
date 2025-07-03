@@ -96,14 +96,6 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/registration"
-                  className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300 text-sm md:text-base"
-                >
-                  {t("nav.registration")}
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/participants"
                   className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300 text-sm md:text-base"
                 >

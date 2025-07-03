@@ -71,27 +71,7 @@ const HeroSection = ({ imageUrl }: HeroSectionProps) => {
             </div>
 
             {/* Action buttons */}
-            <div className="flex flex-wrap gap-4 mt-8">
-              <Link
-                href="/registration"
-                className="btn btn-lg bg-sunset hover:bg-sunset/90 text-stone-beige font-bold px-8 py-4 rounded-lg transition-all duration-300 shadow-lg flex items-center gap-2"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                  />
-                </svg>
-                {t("hero.registerButton")}
-              </Link>
+            <div className="flex flex-wrap gap-4 mt-8 justify-center">
               <Link
                 href="/races"
                 className="btn btn-lg bg-alpine hover:bg-alpine/90 text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 shadow-lg flex items-center gap-2"

@@ -320,13 +320,6 @@ const RaceDetail = () => {
                   </div>
 
                   <div className="mt-6 space-y-3">
-                    <Link
-                      href="/registration"
-                      className="block w-full bg-accent hover:bg-accent-dark text-white font-bold py-3 rounded-lg transition-colors duration-300 text-center shadow-md hover:shadow-lg"
-                    >
-                      {t("races.details.registerButton")}
-                    </Link>
-
                     <a
                       href={`/api/races/${race.id}/gpx`}
                       download

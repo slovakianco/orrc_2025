@@ -14,11 +14,6 @@ const NavigationHeader = () => {
     { label: t("nav.home"), path: "/", isActive: location === "/" },
     { label: t("nav.races"), path: "/races", isActive: location === "/races" },
     {
-      label: t("nav.registration"),
-      path: "/registration",
-      isActive: location === "/registration",
-    },
-    {
       label: t("nav.participants"),
       path: "/participants",
       isActive: location === "/participants",
@@ -118,14 +113,6 @@ const NavigationHeader = () => {
 
             {/* Desktop language selector */}
             <LanguageSelectorWithFlags />
-
-            {/* Registration button */}
-            <Link
-              href="/registration"
-              className="ml-2 bg-sunset hover:bg-sunset-dark text-white font-bold py-1 px-3 rounded-lg transition-colors duration-300 hidden lg:flex items-center text-sm"
-            >
-              {t("nav.registerButton")}
-            </Link>
           </div>
         </div>
 
@@ -147,13 +134,6 @@ const NavigationHeader = () => {
                   {item.label}
                 </Link>
               ))}
-              <Link
-                href="/registration"
-                onClick={() => setIsMenuOpen(false)}
-                className="bg-sunset hover:bg-sunset/90 text-white font-bold py-2 px-4 rounded-lg text-center transition-colors duration-300 mt-1 shadow-md"
-              >
-                {t("nav.registerButton")}
-              </Link>
             </nav>
           </div>
         )}

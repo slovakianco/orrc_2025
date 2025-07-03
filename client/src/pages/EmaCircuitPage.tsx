@@ -219,13 +219,10 @@ const EmaCircuitPage = () => {
                   <td className="py-3 px-4 border">Romania</td>
                   <td className="py-3 px-4 border">
                     <div className="space-y-2">
-                      <span className="text-sm font-bold text-primary">You are here</span>
-                      <a 
-                        href="/registration" 
-                        className="text-primary hover:underline block text-sm"
-                      >
-                        Registration
-                      </a>
+                      <span className="text-sm font-bold text-red-600">Registration Closed</span>
+                      <span className="text-gray-500 text-sm block">
+                        No longer available
+                      </span>
                     </div>
                   </td>
                 </tr>

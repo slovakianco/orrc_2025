@@ -934,15 +934,12 @@ export default function RulesContent() {
                       <td className="border p-3">Romania 🇷🇴</td>
                       <td className="border p-3">
                         <div className="space-y-1 text-sm">
-                          <span className="text-blue-600 font-bold">
-                            You are here
+                          <span className="text-red-600 font-bold">
+                            Registration Closed
                           </span>
-                          <a
-                            href="/registration"
-                            className="text-blue-600 hover:underline block"
-                          >
-                            Registration
-                          </a>
+                          <span className="text-gray-500 text-sm block">
+                            No longer available
+                          </span>
                         </div>
                       </td>
                     </tr>
