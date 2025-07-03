@@ -88,16 +88,21 @@ export default function ResultsPage() {
               {t('results.official.subtitle', 'Complete rankings and classifications')}
             </p>
           </CardHeader>
-          <CardContent className="p-0">
+          <CardContent className="p-0 relative overflow-hidden">
             {/* Embedded Results iframe */}
-            <div className="w-full min-h-screen">
+            <div className="w-full min-h-screen relative">
+              {/* Overlay to hide the header */}
+              <div className="absolute top-0 left-0 right-0 h-20 bg-white z-10"></div>
               <iframe
                 src="https://my-run.ro/stana-de-vale-trail-race-2025-rezultate/"
                 title="Race Results"
-                className="w-full h-screen border-0"
+                className="w-full h-screen border-0 relative -mt-20"
                 allowFullScreen
                 loading="lazy"
-                style={{ minHeight: '800px' }}
+                style={{ 
+                  minHeight: '820px', // Increased to compensate for negative margin
+                  transform: 'translateY(-20px)' // Additional adjustment
+                }}
               />
             </div>
           </CardContent>
