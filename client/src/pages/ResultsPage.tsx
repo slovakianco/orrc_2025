@@ -104,32 +104,10 @@ export default function ResultsPage() {
             </p>
           </CardHeader>
           <CardContent className="p-0 relative overflow-hidden">
-            {/* Custom CSS to hide elements in iframe */}
+            {/* Custom CSS to hide elements */}
             <style>{`
-              iframe[title="Race Results"] {
-                filter: none;
-              }
-              .results-iframe-container::after {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 200px;
-                background: white;
-                z-index: 10;
-                pointer-events: none;
-              }
-              .results-iframe-container::before {
-                content: "";
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 300px;
-                background: white;
-                z-index: 10;
-                pointer-events: none;
+              .results-iframe-container iframe {
+                clip-path: inset(200px 0 300px 0);
               }
             `}</style>
             {/* Embedded Results iframe */}
@@ -156,7 +134,30 @@ export default function ResultsPage() {
                   border: "none",
                   outline: "none"
                 }}
-
+                onLoad={(e) => {
+                  // Try to inject CSS to hide header and footer
+                  const iframe = e.target as HTMLIFrameElement;
+                  try {
+                    const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
+                    if (iframeDoc) {
+                      const style = iframeDoc.createElement('style');
+                      style.innerHTML = `
+                        #main-header {
+                          visibility: hidden !important;
+                          display: none !important;
+                        }
+                        #main-footer {
+                          visibility: hidden !important;
+                          display: none !important;
+                        }
+                      `;
+                      iframeDoc.head.appendChild(style);
+                    }
+                  } catch (error) {
+                    // CORS will prevent this, but we try anyway
+                    console.log('Cannot inject CSS due to CORS policy');
+                  }
+                }}
               />
             </div>
           </CardContent>
