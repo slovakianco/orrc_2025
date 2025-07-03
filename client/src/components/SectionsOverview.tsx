@@ -46,6 +46,13 @@ const SectionsOverview = () => {
       colorClass: 'bg-sky'
     },
     {
+      title: t('nav.results'),
+      description: t('sectionsOverview.results'),
+      icon: <Award className="h-6 w-6 text-white" />,
+      to: '/results',
+      colorClass: 'bg-yellow-600'
+    },
+    {
       title: t('nav.program'),
       description: t('sectionsOverview.program'),
       icon: <Calendar className="h-6 w-6 text-white" />,

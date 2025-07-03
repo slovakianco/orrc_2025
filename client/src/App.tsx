@@ -27,6 +27,7 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsConditions from "@/pages/TermsConditions";
 import CookiePolicy from "@/pages/CookiePolicy";
 import AdminPage from "@/pages/AdminPage";
+import ResultsPage from "@/pages/ResultsPage";
 
 // Import Components
 import NavigationHeader from "@/components/NavigationHeader";
@@ -53,6 +54,7 @@ function Router() {
           <Route path="/registration" component={RegistrationPage} />
           <Route path="/registration-success" component={RegistrationSuccessPage} />
           <Route path="/participants" component={ParticipantsPage} />
+          <Route path="/results" component={ResultsPage} />
           <Route path="/rules" component={RulesPage} />
           <Route path="/program" component={ProgramPage} />
           <Route path="/contact" component={ContactPage} />

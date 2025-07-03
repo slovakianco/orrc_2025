@@ -104,6 +104,14 @@ const Footer = () => {
               </li>
               <li>
                 <Link
+                  href="/results"
+                  className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300 text-sm md:text-base"
+                >
+                  {t("nav.results")}
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/rules"
                   className="text-neutral-light text-opacity-80 hover:text-accent transition-colors duration-300 text-sm md:text-base"
                 >

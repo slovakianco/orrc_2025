@@ -8,6 +8,7 @@ const routes = [
   { href: "/", label: "nav.home" },
   { href: "/races", label: "nav.races" },
   { href: "/participants", label: "nav.participants" },
+  { href: "/results", label: "nav.results" },
   { href: "/rules", label: "nav.rules" },
   { href: "/program", label: "nav.program" },
   { href: "/contact", label: "nav.contact" },
