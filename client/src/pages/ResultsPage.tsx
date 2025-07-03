@@ -105,22 +105,28 @@ export default function ResultsPage() {
           </CardHeader>
           <CardContent className="p-0 relative overflow-hidden">
             {/* Embedded Results iframe */}
-            <div className="w-full min-h-screen relative">
-              {/* Overlay to hide the header */}
-              <div className="absolute top-0 left-0 right-0 h-20 bg-white z-10"></div>
-              {/* Overlay to hide the footer */}
-              <div className="absolute bottom-0 left-0 right-0 h-32 bg-white z-10"></div>
+            <div 
+              className="w-full"
+              style={{
+                height: "900px",
+                overflow: "hidden",
+                position: "relative"
+              }}
+            >
               <iframe
                 src="https://my-run.ro/stana-de-vale-trail-race-2025-rezultate/"
                 title="Race Results"
-                className="w-full h-screen border-0 relative"
+                className="border-0"
                 allowFullScreen
                 loading="lazy"
                 style={{
-                  minHeight: "900px",
-                  marginTop: "-80px", // Hide header
-                  marginBottom: "-120px", // Hide footer
-                  height: "calc(100vh + 200px)" // Extend height to compensate
+                  width: "100%",
+                  height: "1400px",
+                  position: "absolute",
+                  top: "-200px",
+                  left: "0",
+                  border: "none",
+                  outline: "none"
                 }}
               />
             </div>
