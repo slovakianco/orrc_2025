@@ -1,7 +1,7 @@
-import { useTranslation } from 'react-i18next';
-import { Trophy, Medal, Award, ExternalLink } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useTranslation } from "react-i18next";
+import { Trophy, Medal, Award, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function ResultsPage() {
   const { t } = useTranslation();
@@ -9,15 +9,18 @@ export default function ResultsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50">
       {/* Header Section */}
-      <div className="bg-[#2E7D32] text-white py-16">
+      <div className="bg-white text-black py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <Trophy className="mx-auto h-16 w-16 text-yellow-400 mb-4" />
+            <Trophy className="mx-auto h-16 w-16 text-black-400 mb-4" />
             <h1 className="text-4xl md:text-6xl font-heading font-bold mb-4">
-              {t('results.title', 'Race Results')}
+              {t("results.title", "Race Results")}
             </h1>
-            <p className="text-xl md:text-2xl text-green-100 max-w-3xl mx-auto">
-              {t('results.subtitle', 'Official results from Stana de Vale Trail Race 2025')}
+            <p className="text-xl md:text-2xl text-black-100 max-w-3xl mx-auto">
+              {t(
+                "results.subtitle",
+                "Official results from Stana de Vale Trail Race 2025",
+              )}
             </p>
           </div>
         </div>
@@ -31,21 +34,27 @@ export default function ResultsPage() {
             <CardHeader className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white">
               <CardTitle className="flex items-center text-2xl">
                 <Medal className="mr-3 h-8 w-8" />
-                {t('results.33km.title', 'Trail Run 33K Results')}
+                {t("results.33km.title", "Trail Run 33K Results")}
               </CardTitle>
             </CardHeader>
             <CardContent className="p-6">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold">{t('results.categories.open', 'Open Category')}</span>
+                  <span className="text-lg font-semibold">
+                    {t("results.categories.open", "Open Category")}
+                  </span>
                   <Award className="h-6 w-6 text-yellow-500" />
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold">{t('results.categories.national', 'National Championship')}</span>
+                  <span className="text-lg font-semibold">
+                    {t("results.categories.national", "National Championship")}
+                  </span>
                   <Award className="h-6 w-6 text-red-500" />
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold">{t('results.categories.ema', 'EMA Classification')}</span>
+                  <span className="text-lg font-semibold">
+                    {t("results.categories.ema", "EMA Classification")}
+                  </span>
                   <Award className="h-6 w-6 text-blue-500" />
                 </div>
               </div>
@@ -56,21 +65,27 @@ export default function ResultsPage() {
             <CardHeader className="bg-gradient-to-r from-green-400 to-teal-500 text-white">
               <CardTitle className="flex items-center text-2xl">
                 <Medal className="mr-3 h-8 w-8" />
-                {t('results.11km.title', 'Trail Run 11K Results')}
+                {t("results.11km.title", "Trail Run 11K Results")}
               </CardTitle>
             </CardHeader>
             <CardContent className="p-6">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold">{t('results.categories.open', 'Open Category')}</span>
+                  <span className="text-lg font-semibold">
+                    {t("results.categories.open", "Open Category")}
+                  </span>
                   <Award className="h-6 w-6 text-yellow-500" />
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold">{t('results.categories.national', 'National Championship')}</span>
+                  <span className="text-lg font-semibold">
+                    {t("results.categories.national", "National Championship")}
+                  </span>
                   <Award className="h-6 w-6 text-red-500" />
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold">{t('results.categories.ema', 'EMA Classification')}</span>
+                  <span className="text-lg font-semibold">
+                    {t("results.categories.ema", "EMA Classification")}
+                  </span>
                   <Award className="h-6 w-6 text-blue-500" />
                 </div>
               </div>
@@ -81,11 +96,11 @@ export default function ResultsPage() {
         {/* Embedded Results */}
         <Card className="shadow-xl">
           <CardHeader className="bg-gradient-to-r from-[#2E7D32] to-[#1B5E20] text-white">
-            <CardTitle className="text-2xl md:text-3xl text-center">
-              {t('results.official.title', 'Official Race Results')}
-            </CardTitle>
             <p className="text-center text-green-100 mt-2">
-              {t('results.official.subtitle', 'Complete rankings and classifications')}
+              {t(
+                "results.official.subtitle",
+                "Complete rankings and classifications",
+              )}
             </p>
           </CardHeader>
           <CardContent className="p-0 relative overflow-hidden">
@@ -93,15 +108,19 @@ export default function ResultsPage() {
             <div className="w-full min-h-screen relative">
               {/* Overlay to hide the header */}
               <div className="absolute top-0 left-0 right-0 h-20 bg-white z-10"></div>
+              {/* Overlay to hide the footer */}
+              <div className="absolute bottom-0 left-0 right-0 h-32 bg-white z-10"></div>
               <iframe
                 src="https://my-run.ro/stana-de-vale-trail-race-2025-rezultate/"
                 title="Race Results"
-                className="w-full h-screen border-0 relative -mt-20"
+                className="w-full h-screen border-0 relative"
                 allowFullScreen
                 loading="lazy"
-                style={{ 
-                  minHeight: '820px', // Increased to compensate for negative margin
-                  transform: 'translateY(-20px)' // Additional adjustment
+                style={{
+                  minHeight: "900px",
+                  marginTop: "-80px", // Hide header
+                  marginBottom: "-120px", // Hide footer
+                  height: "calc(100vh + 200px)" // Extend height to compensate
                 }}
               />
             </div>
@@ -115,17 +134,25 @@ export default function ResultsPage() {
               <div className="flex items-center justify-center mb-4">
                 <ExternalLink className="h-8 w-8 text-yellow-600 mr-3" />
                 <h3 className="text-2xl font-bold text-yellow-800">
-                  {t('results.external.title', 'View Full Results')}
+                  {t("results.external.title", "View Full Results")}
                 </h3>
               </div>
               <p className="text-yellow-700 mb-6 text-lg">
-                {t('results.external.description', 'For the complete results with all details, visit the official results page.')}
+                {t(
+                  "results.external.description",
+                  "For the complete results with all details, visit the official results page.",
+                )}
               </p>
-              <Button 
+              <Button
                 className="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-8 rounded-lg shadow-md"
-                onClick={() => window.open('https://my-run.ro/stana-de-vale-trail-race-2025-rezultate/', '_blank')}
+                onClick={() =>
+                  window.open(
+                    "https://my-run.ro/stana-de-vale-trail-race-2025-rezultate/",
+                    "_blank",
+                  )
+                }
               >
-                {t('results.external.button', 'Open Full Results Page')}
+                {t("results.external.button", "Open Full Results Page")}
                 <ExternalLink className="ml-2 h-5 w-5" />
               </Button>
             </CardContent>
