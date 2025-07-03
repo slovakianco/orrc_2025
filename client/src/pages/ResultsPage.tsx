@@ -104,9 +104,37 @@ export default function ResultsPage() {
             </p>
           </CardHeader>
           <CardContent className="p-0 relative overflow-hidden">
+            {/* Custom CSS to hide elements in iframe */}
+            <style>{`
+              iframe[title="Race Results"] {
+                filter: none;
+              }
+              .results-iframe-container::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 200px;
+                background: white;
+                z-index: 10;
+                pointer-events: none;
+              }
+              .results-iframe-container::before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 300px;
+                background: white;
+                z-index: 10;
+                pointer-events: none;
+              }
+            `}</style>
             {/* Embedded Results iframe */}
             <div 
-              className="w-full"
+              className="w-full results-iframe-container"
               style={{
                 height: "900px",
                 overflow: "hidden",
@@ -128,6 +156,7 @@ export default function ResultsPage() {
                   border: "none",
                   outline: "none"
                 }}
+
               />
             </div>
           </CardContent>
