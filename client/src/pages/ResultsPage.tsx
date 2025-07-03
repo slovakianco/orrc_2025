@@ -93,6 +93,10 @@ export default function ResultsPage() {
             <div className="w-full min-h-screen relative">
               {/* Overlay to hide the header */}
               <div className="absolute top-0 left-0 right-0 h-20 bg-white z-10"></div>
+              {/* Overlay to hide the sidebar */}
+              <div className="absolute top-0 left-0 bottom-0 w-64 bg-white z-10"></div>
+              {/* Overlay to hide the footer */}
+              <div className="absolute bottom-0 left-0 right-0 h-32 bg-white z-10"></div>
               <iframe
                 src="https://my-run.ro/stana-de-vale-trail-race-2025-rezultate/"
                 title="Race Results"
@@ -101,7 +105,9 @@ export default function ResultsPage() {
                 loading="lazy"
                 style={{ 
                   minHeight: '820px', // Increased to compensate for negative margin
-                  transform: 'translateY(-20px)' // Additional adjustment
+                  transform: 'translateY(-20px)', // Additional adjustment
+                  marginLeft: '-250px', // Shift content left to hide sidebar
+                  paddingLeft: '250px' // Add padding to maintain content position
                 }}
               />
             </div>
