@@ -88,7 +88,7 @@ const SponsorsShowcase = () => {
     },
     {
       id: 4,
-      name: "European Drinks",
+      name: "European Drinks International",
       description:
         "Romanian producer of soft drinks and mineral waters with international presence.",
       descriptionRo:
