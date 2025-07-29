@@ -120,6 +120,72 @@ DATABASE_URL=your_postgresql_connection_string (optional)
 
 The application gracefully degrades when external services are unavailable, ensuring core functionality remains accessible.
 
+## TraceDeTrail Integration & GPX Downloads
+
+### TraceDeTrail Map Display
+The platform integrates TraceDeTrail interactive maps for race visualization:
+
+**Database Storage:**
+- Race maps are stored in the `raceMap` field as HTML iframe embed code
+- Each race has a unique TraceDeTrail iframe URL pointing to specific race routes:
+  - 33km race: `https://tracedetrail.fr/en/iframe/6296`
+  - 11km race: `https://tracedetrail.fr/en/iframe/6297`
+
+**Frontend Rendering:**
+- Located in `client/src/pages/RaceDetail.tsx` (lines 246-257)
+- Maps are displayed using `dangerouslySetInnerHTML` to render the iframe embed code
+- Conditional rendering: maps only appear if `race.raceMap` exists
+- Styled with responsive design in white rounded container with shadow
+
+**Display Location:**
+- Appears in race detail pages after the aid stations section
+- Titled "races.details.map" (multilingual support)
+- Uses full-width responsive layout with 800px height iframe
+
+### GPX File Download System
+
+**File Storage:**
+- GPX files stored in `attached_assets/` directory:
+  - `long-trail-33km.gpx` - for races ≥30km distance
+  - `short-trail-11km.gpx` - for races <30km distance
+  - `long-trail-33km_old.gpx` - backup/archive file
+
+**Backend Implementation:**
+- API endpoint: `GET /api/races/:id/gpx` in `server/routes.ts`
+- Dynamic file selection based on race distance
+- Proper headers set for GPX download:
+  - Content-Type: `application/gpx+xml`
+  - Content-Disposition: `attachment; filename="{filename}"`
+- File streaming using Node.js `fs.createReadStream()`
+- Error handling for missing files and invalid race IDs
+
+**Frontend Integration:**
+- Download button in race detail sidebar (lines 323-330)
+- Styled as primary-colored button with download icon
+- Direct link to `/api/races/{id}/gpx` with `download` attribute
+- Multilingual label: "races.details.downloadGPX"
+
+**User Experience:**
+- One-click download from race detail pages
+- Automatic filename based on race distance
+- Browser initiates file download without page navigation
+- Works across all supported languages
+
+### Technical Implementation Details
+
+**Security & Error Handling:**
+- Race ID validation (must be numeric)
+- File existence verification before serving
+- Graceful error responses with appropriate HTTP status codes
+- Path traversal protection using `path.join()`
+
+**Performance Considerations:**
+- File streaming prevents memory issues with large GPX files
+- Conditional map loading reduces page load time
+- TraceDeTrail iframes load externally, reducing server bandwidth
+
+The integration provides seamless access to both interactive trail visualization and downloadable GPS data for offline navigation.
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
@@ -127,4 +193,5 @@ Preferred communication style: Simple, everyday language.
 ## Changelog
 
 Changelog:
-- July 02, 2025. Initial setup
+- January 30, 2025: Added comprehensive TraceDeTrail integration and GPX download documentation
+- July 02, 2025: Initial setup
