@@ -3,6 +3,41 @@
 @tailwind utilities;
 
 :root {
+  /* shadcn/ui theme variables (replaces Replit theme plugin) */
+  --background: 40 20% 96%;
+  --foreground: 200 15% 25%;
+  --card: 40 20% 98%;
+  --card-foreground: 200 15% 25%;
+  --popover: 40 20% 98%;
+  --popover-foreground: 200 15% 25%;
+  --primary: 145 35% 28%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 200 35% 42%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 40 15% 92%;
+  --muted-foreground: 200 10% 45%;
+  --accent: 25 70% 55%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 40 15% 88%;
+  --input: 40 15% 88%;
+  --ring: 145 35% 28%;
+  --radius: 0.5rem;
+  --chart-1: 145 35% 28%;
+  --chart-2: 200 35% 42%;
+  --chart-3: 25 70% 55%;
+  --chart-4: 45 80% 60%;
+  --chart-5: 0 70% 50%;
+  --sidebar-background: 40 20% 96%;
+  --sidebar-foreground: 200 15% 25%;
+  --sidebar-primary: 145 35% 28%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 40 15% 92%;
+  --sidebar-accent-foreground: 200 15% 25%;
+  --sidebar-border: 40 15% 88%;
+  --sidebar-ring: 145 35% 28%;
+
   --color-alpine-green: #2A6D50;
   --color-sky-blue: #4A90BF;
   --color-sunset-orange: #E67A3C;
