@@ -8,7 +8,7 @@ import {
   FAQ, InsertFAQ, 
   ProgramEvent, InsertProgramEvent, 
   Sponsor, InsertSponsor
-} from "@shared/schema";
+} from "../shared/schema";
 
 // HybridStorage uses Supabase for participants data and in-memory storage for other entities
 export class HybridStorage implements IStorage {

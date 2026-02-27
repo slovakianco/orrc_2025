@@ -20,7 +20,7 @@ import {
   Sponsor,
   InsertSponsor,
   sponsors,
-} from "@shared/schema";
+} from "../shared/schema";
 
 export interface IStorage {
   // Users

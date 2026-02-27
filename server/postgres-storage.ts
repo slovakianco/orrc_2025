@@ -6,7 +6,7 @@ import {
   FAQ, InsertFAQ, faqs,
   ProgramEvent, InsertProgramEvent, programEvents,
   Sponsor, InsertSponsor, sponsors
-} from "@shared/schema";
+} from "../shared/schema";
 import { eq, like, desc, asc, ilike, or, and, sql } from 'drizzle-orm';
 import { db } from './db';
 import { IStorage } from './storage';

@@ -9,7 +9,7 @@ import {
   faqs, FAQ, InsertFAQ, 
   programEvents, ProgramEvent, InsertProgramEvent, 
   sponsors, Sponsor, InsertSponsor
-} from "@shared/schema";
+} from "../shared/schema";
 
 export class PostgresSupabaseStorage implements IStorage {
   constructor() {

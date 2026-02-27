@@ -4,7 +4,7 @@ import fs from "fs";
 import path from "path";
 // Use the storage provider to get the correct storage implementation
 import { getStorage } from "./storage-provider";
-import { insertParticipantSchema, insertContactInquirySchema, type InsertParticipant } from "@shared/schema";
+import { insertParticipantSchema, insertContactInquirySchema, type InsertParticipant } from "../shared/schema";
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 import { sendRegistrationConfirmationEmail, sendPaymentConfirmationEmail } from "./email";

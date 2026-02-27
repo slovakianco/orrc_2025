@@ -8,7 +8,7 @@ import {
   FAQ, InsertFAQ, 
   ProgramEvent, InsertProgramEvent, 
   Sponsor, InsertSponsor
-} from "@shared/schema";
+} from "../shared/schema";
 
 export class SupabaseStorage implements IStorage {
   constructor() {

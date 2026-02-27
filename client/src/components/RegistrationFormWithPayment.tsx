@@ -5,7 +5,7 @@ import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
-import { insertParticipantSchema } from "@shared/schema";
+import { insertParticipantSchema } from "../../../shared/schema";
 import { Race } from "@/lib/types";
 import { getLocalizedRaceName } from "@/lib/utils";
 import { useEffect, useMemo, useState } from "react";
