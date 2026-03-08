@@ -643,8 +643,8 @@ This message was sent from the Stana de Vale Trail Race website contact form.
   // EMA Circuit PDF download
   apiRouter.get("/ema-circuit/regulations", async (req: Request, res: Response) => {
     try {
-      const pdfFileName = 'Regulation2025_ORRCircuit.pdf';
-      const pdfFilePath = path.join(process.cwd(), 'attached_assets', pdfFileName);
+      const pdfFileName = 'Regulation2026_ORRCircuit.pdf';
+      const pdfFilePath = path.join(process.cwd(), 'public', 'regulations', pdfFileName);
       
       // Check if file exists
       if (!fs.existsSync(pdfFilePath)) {
@@ -653,7 +653,7 @@ This message was sent from the Stana de Vale Trail Race website contact form.
       
       // Set appropriate headers
       res.setHeader('Content-Type', 'application/pdf');
-      res.setHeader('Content-Disposition', `attachment; filename="EMA_Off-Road_Running_Circuit_2025_Regulations.pdf"`);
+      res.setHeader('Content-Disposition', `attachment; filename="EMA_Off-Road_Running_Circuit_2026_Regulations.pdf"`);
       
       // Stream the file
       const fileStream = fs.createReadStream(pdfFilePath);

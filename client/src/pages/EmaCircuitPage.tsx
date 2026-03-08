@@ -13,6 +13,9 @@ import { useEffect } from "react";
 
 const EmaCircuitPage = () => {
   const { t } = useTranslation();
+  const officialEmaCircuitUrl = "https://european-masters-athletics.org/ema-off-road-running-circuit-2026/";
+  const pageTitle = t("emaCircuit.title");
+  const calendarContent = t("emaCircuit.calendar.content");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,7 +30,7 @@ const EmaCircuitPage = () => {
     <div className="container mx-auto px-4 py-8 max-w-6xl">
       <div className="text-center mb-12">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-green-400 bg-clip-text text-transparent">
-          {t("emaCircuit.title")}
+          {pageTitle}
         </h1>
         <p className="text-xl font-medium mb-6">{t("emaCircuit.subtitle")}</p>
         <Button
@@ -118,16 +121,38 @@ const EmaCircuitPage = () => {
               {t("emaCircuit.rankings.eligibility")}
             </p>
             <p className="mb-4">{t("emaCircuit.rankings.points")}</p>
-            <p className="mb-4 text-primary font-medium">
-              {t("emaCircuit.rankings.specialPrize")}
-            </p>
-            <p className="mb-4">{t("emaCircuit.rankings.ceremony")}</p>
+
+            <div className="mb-4 rounded-md bg-primary/5 p-4">
+              <p className="text-sm font-medium">
+                {t("emaCircuit.rankings.pointAllocation.note")}
+              </p>
+            </div>
+
+            <div className="mb-4">
+              <p className="mb-2 font-semibold">
+                {t("emaCircuit.rankings.categories.title")}
+              </p>
+              <ul className="list-disc pl-6 space-y-1 text-sm text-neutral-700">
+                <li>{t("emaCircuit.rankings.categories.item1")}</li>
+                <li>{t("emaCircuit.rankings.categories.item2")}</li>
+              </ul>
+            </div>
+
+            <div className="mb-4">
+              <p className="mb-2 font-semibold">
+                {t("emaCircuit.rankings.tieBreakers.title")}
+              </p>
+              <ul className="list-disc pl-6 space-y-1 text-sm text-neutral-700">
+                <li>{t("emaCircuit.rankings.tieBreakers.item1")}</li>
+                <li>{t("emaCircuit.rankings.tieBreakers.item2")}</li>
+              </ul>
+            </div>
             
             <div className="mt-4 bg-primary/5 p-4 rounded-md">
               <p className="text-sm">
                 For detailed ranking rules and complete information, visit the{" "}
                 <a 
-                  href="https://european-masters-athletics.org/ema-off-road-running-circuit-2025/" 
+                  href={officialEmaCircuitUrl}
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-primary hover:underline font-semibold"
@@ -146,10 +171,10 @@ const EmaCircuitPage = () => {
             <Calendar className="h-6 w-6 text-primary" />
             {t("emaCircuit.calendar.title")}
           </CardTitle>
-          <CardDescription>Official EMA Off-Road Running Circuit 2025</CardDescription>
+          <CardDescription>Official EMA Off-Road Running Circuit 2026</CardDescription>
         </CardHeader>
         <CardContent className="pt-6">
-          <p className="mb-6">{t("emaCircuit.calendar.content")}</p>
+          <p className="mb-6">{calendarContent}</p>
           
           <div className="overflow-x-auto">
             <table className="min-w-full border-collapse">
@@ -163,7 +188,33 @@ const EmaCircuitPage = () => {
               </thead>
               <tbody>
                 <tr>
-                  <td className="py-3 px-4 border">May 25, 2025</td>
+                  <td className="py-3 px-4 border">May 10, 2026</td>
+                  <td className="py-3 px-4 border">Lloretrail</td>
+                  <td className="py-3 px-4 border">Spain</td>
+                  <td className="py-3 px-4 border">
+                    <div className="space-y-2">
+                      <a 
+                        href="https://www.lasansi.com/es/lloretdemartrail"
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline block text-sm"
+                      >
+                        Website
+                      </a>
+                      <a 
+                        href="https://www.lasansi.com/es/lloretdemartrail"
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline block text-sm"
+                      >
+                        Registration
+                      </a>
+                      <span className="text-sm">Contact: lasansi@lasansi.com</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="py-3 px-4 border">May 24, 2026</td>
                   <td className="py-3 px-4 border">Ventoux Mountain Running</td>
                   <td className="py-3 px-4 border">France</td>
                   <td className="py-3 px-4 border">
@@ -188,8 +239,8 @@ const EmaCircuitPage = () => {
                     </div>
                   </td>
                 </tr>
-                <tr className="bg-gray-50">
-                  <td className="py-3 px-4 border">June 22, 2025</td>
+                <tr>
+                  <td className="py-3 px-4 border">June 21, 2026</td>
                   <td className="py-3 px-4 border">10 Miglia Internazionale Aviano Piancavallo</td>
                   <td className="py-3 px-4 border">Italy</td>
                   <td className="py-3 px-4 border">
@@ -210,11 +261,12 @@ const EmaCircuitPage = () => {
                       >
                         Registration
                       </a>
+                      <span className="text-sm">Contact: atleticaaviano@gmail.com</span>
                     </div>
                   </td>
                 </tr>
                 <tr className="bg-primary/5 font-semibold">
-                  <td className="py-3 px-4 border">July 5, 2025</td>
+                  <td className="py-3 px-4 border">July 10–11, 2026</td>
                   <td className="py-3 px-4 border">Stana de Vale Trail Race</td>
                   <td className="py-3 px-4 border">Romania</td>
                   <td className="py-3 px-4 border">
@@ -226,32 +278,7 @@ const EmaCircuitPage = () => {
                       >
                         Registration
                       </a>
-                    </div>
-                  </td>
-                </tr>
-                <tr className="bg-gray-50">
-                  <td className="py-3 px-4 border">September 13, 2025</td>
-                  <td className="py-3 px-4 border">Camporredondo de Alba</td>
-                  <td className="py-3 px-4 border">Spain</td>
-                  <td className="py-3 px-4 border">
-                    <div className="space-y-2">
-                      <a 
-                        href="https://utmp.run" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-primary hover:underline block text-sm"
-                      >
-                        Website
-                      </a>
-                      <a 
-                        href="https://www.rockthesport.com/es/evento/ultra-montana-palentina-2025?frm=0&men=0&tit=0" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-primary hover:underline block text-sm"
-                      >
-                        Registration
-                      </a>
-                      <span className="text-sm">Contact: utmp70@gmail.com</span>
+                      <span className="text-sm">Contact: lazafmarcel@gmail.com</span>
                     </div>
                   </td>
                 </tr>
@@ -261,15 +288,15 @@ const EmaCircuitPage = () => {
           
           <div className="mt-6 p-4 rounded-md bg-yellow-50 border border-yellow-200">
             <p className="text-sm font-medium text-yellow-800">
-              {t("emaCircuit.calendar.updateNote") || "Please note: This calendar has been updated as per the official 2025 EMA Off-Road Running Circuit regulations. Check back regularly for any additional event announcements or changes."}
+              {t("emaCircuit.calendar.updateNote") || "Please note: This calendar reflects the published 2026 EMA Off-Road Running Circuit information. Check back regularly for any additional event announcements or changes."}
             </p>
           </div>
           
           <div className="mt-6 bg-primary/5 p-4 rounded-md">
             <p className="font-medium text-sm">
-              Official calendar of the EMA Off-Road Running Circuit 2025. For more information, visit the{" "}
+              Official calendar of the EMA Off-Road Running Circuit 2026. For more information, visit the{" "}
               <a 
-                href="https://european-masters-athletics.org/ema-off-road-running-circuit-2025/" 
+                href={officialEmaCircuitUrl}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-primary hover:underline font-semibold"

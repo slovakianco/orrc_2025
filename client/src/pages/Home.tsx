@@ -186,7 +186,7 @@ export default function Home() {
                       {t("home.featuredRaces.viewDetails")}
                     </Button>
                   </Link>
-                </div>
+                </CardContent>
               </Card>
             ))}
           </div>

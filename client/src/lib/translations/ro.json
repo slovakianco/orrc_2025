@@ -53,7 +53,7 @@
     "program": "Program",
     "contact": "Contact",
     "sponsors": "Sponsori",
-    "emaCircuit": "Circuitul EMA 2025",
+    "emaCircuit": "Circuitul EMA 2026",
     "cnMasters": "CN Masters",
     "howToGet": "Cum să ajungi",
     "accommodation": "Cazare",
@@ -62,11 +62,11 @@
   "hero": {
     "title": "Provocarea Munților",
     "subtitle": "Experimentează emoția alergării pe trasee montane prin peisaje montane uluitoare. Alătură-te alergătorilor din întreaga lume în această competiție de neuitat.",
-    "date": "4-5 iulie 2024",
+    "date": "10-11 iulie 2026",
     "registerButton": "Înregistrează-te acum",
     "exploreButton": "Explorează cursele",
     "imageAlt": "Alergare pe trasee montane",
-    "enhancedDescription": "Cursele de 11K și 33K fac parte din Circuitul EMA de Alergare Off-Road 2025. De asemenea, ele sunt incluse în Campionatul Național de Alergare Montană pentru Veterani, promițând o aventură de neuitat în spectaculoșii Munți Carpați.",
+    "enhancedDescription": "Stâna de Vale Trail Race face parte din Circuitul EMA Off-Road Running 2026 și aduce alergători masters în Munții Carpați pentru un weekend memorabil de concurs.",
     "mainTitle": "Stâna de Vale Trail Race",
     "landscapeAlt": "Peisaj montan Stâna de Vale",
     "trailAlt": "Peisaj traseu Stâna de Vale"
@@ -79,7 +79,7 @@
     },
     "date": {
       "title": "Dată",
-      "content": "4-5 iulie 2025",
+      "content": "10-11 iulie 2026",
       "linkText": "Vezi programul complet"
     },
     "participants": {
@@ -90,17 +90,17 @@
   },
   "home": {
     "featuredRaces": "Curse Recomandate",
-    "details": "Experimentează frumusețea alergării pe trasee cu cursele noastre de 11km și 33km în Munții Carpați. Ambele curse fac parte din Circuitul EMA Off-Road Running 2025.",
+    "details": "Experimentează frumusețea alergării pe trasee cu cursele noastre de 11km și 33km în Munții Carpați, în cadrul weekendului Stâna de Vale Trail Race, parte din Circuitul EMA Off-Road Running 2026.",
     "aboutCompetition": "Despre Competiție",
     "competitionDescription1": "Alătură-te nouă pentru o experiență de alergare pe traseu de neuitat în impresionanții Munți Carpați. Cursele noastre oferă terenuri provocatoare cu vederi spectaculoase, concepute atât pentru începători, cât și pentru alergătorii experimentați pe trasee.",
-    "competitionDescription2": "Ambele curse de 11km și 33km fac parte din Circuitul EMA Off-Road Running 2025. Cursa de 33km este, de asemenea, parte a Campionatului Național de Alergare Montană pentru Masters. Cursa de 11km este perfectă pentru cei noi în alergarea pe traseu sau care caută o provocare mai scurtă.",
-    "competitionDescription3": "Ambele curse au loc pe 5 iulie 2025, cu cronometrare profesională, trasee bine marcate și suport complet pe parcursul traseului.",
+    "competitionDescription2": "Weekendul Stâna de Vale Trail Race face parte din Circuitul EMA Off-Road Running 2026. Consultați regulamentul oficial și detaliile fiecărei curse pentru eligibilitate, categorii și punctajul de etapă.",
+    "competitionDescription3": "Weekendul evenimentului are loc în 10-11 iulie 2026, cu cronometrare profesională, trasee bine marcate și suport complet pe parcursul traseului.",
     "stanaDeVale": {
       "title": "Stâna de Vale",
-      "description1": "În primul weekend din iulie, Stâna de Vale va găzdui a doua etapă a Circuitului EMA Off-Road 2025. Stâna de Vale este astăzi o bine-cunoscută stațiune montană – altitudine 1000m – situată în nord-vestul României, județul Bihor. Inițial, faima stațiunii a provenit din izvoarele de apă minerală din zonă, recomandate în special pentru diverse tratamente.",
+      "description1": "În 10-11 iulie 2026, Stâna de Vale va găzdui etapa din România a Circuitului EMA Off-Road Running 2026. Stâna de Vale este astăzi o bine-cunoscută stațiune montană – altitudine 1000m – situată în nord-vestul României, județul Bihor. Inițial, faima stațiunii a provenit din izvoarele de apă minerală din zonă, recomandate în special pentru diverse tratamente.",
       "description2": "În ultimii ani, zona a fost dezvoltată pentru a atrage turiști cu peisajele sale relaxante și ca stațiune de schi.",
       "hostTitle": "Gazdă",
-      "hostDescription": "ACS Atletic Beiuș și-a câștigat un renume în comunitatea românească a alergătorilor off-road pentru organizarea anuală a foarte apreciatului „Beiuș Running Day”, o alergare pe traseu de 10k/21k în dealurile din vecinătatea orașului. Calitatea organizării și geografia regiunii au determinat Comisia Masters din cadrul FRA să provoace gazda să organizeze ediția 2024 a Campionatelor Naționale de Alergare Montană mai sus, în apropierea Stânei de Vale. Întâlnirea de o zi, incluzând un traseu clasic de 11k urcare/coborâre D+470m și un traseu lung de 33k D+1300m, a fost foarte apreciată de competitori, care au insistat pentru repetarea evenimentului în 2025. Contribuția generoasă a sponsorilor locali la petrecerea de după cursă trebuie să fi influențat în mare măsură cererea participanților pentru o reeditare."
+      "hostDescription": "ACS Atletic Beiuș și-a construit un renume puternic în comunitatea românească a alergătorilor off-road prin organizarea apreciatului „Beiuș Running Day”, o alergare de trail de 10k/21k în dealurile din jurul orașului. După evenimentul național de alergare montană din 2024 organizat la Stâna de Vale, echipa continuă să dezvolte weekendul competițional cu un traseu clasic de 11k up&down, un long trail solicitant de 33k, sprijin local consistent și o atmosferă primitoare după cursă."
     }
   },
   "races": {
@@ -145,7 +145,7 @@
     "aidStations": "{{count}} Punct de hidratare",
     "aidStations_plural": "{{count}} Puncte de hidratare",
     "certification": {
-      "ema": "Circuitul EMA Off-Road Running 2025",
+      "ema": "Circuitul EMA Off-Road Running 2026",
       "national": "Campionatul Național de Alergare Montană Masters",
       "nationalShort": "Campionat Național"
     },
@@ -219,7 +219,7 @@
       "emaParticipation": "Vreau să particip la Circuitul EMA Off-Road Running",
       "emaInfo": "Prin selectarea acestei opțiuni, îți indici interesul de a participa la competiția Circuitului EMA Off-Road Running.",
       "emaIncludesTshirt": "Include un tricou al evenimentului cu branding-ul Circuitului EMA Off-Road Running.",
-      "emaEligibilityCriteria": "Participarea la Liga EMA Off-Road Running este deschisă tuturor atleților care îndeplinesc criteriile Masters Off-Road, în special cei cu vârste între 35-79 de ani, și care dețin o licență valabilă de la federația lor respectivă, conform regulilor WMA. Validarea licenței va fi necesară în ziua cursei.",
+      "emaEligibilityCriteria": "Participarea la Circuitul EMA Off-Road Running este deschisă sportivilor cu vârste între 35 și 79 de ani care dețin o licență valabilă emisă de Federația Națională, în conformitate cu regulile WMA. Validarea licenței va fi necesară în ziua cursei.",
       "mustBe35": "Trebuie să ai peste 35 de ani",
       "tshirtsize": "Mărime tricou",
       "selecttshirtsize": "Selectează mărimea tricoului tău",
@@ -896,12 +896,12 @@
     "contact": "Ia legătura cu echipa noastră pentru orice întrebări despre competiție."
   },
   "emaCircuit": {
-    "title": "CIRCUITUL E.M.A. OFF-ROAD RUNNING 2025",
-    "subtitle": "Ediție experimentală",
+    "title": "CIRCUITUL E.M.A. OFF-ROAD RUNNING 2026",
+    "subtitle": "Calendar oficial și regulament",
     "overview": {
       "title": "Prezentare generală",
-      "content": "European Masters Athletics (EMA) este mândră să anunțe ediția experimentală inaugurală a Circuitului EMA Off-Road Running, un circuit dedicat atleților Masters, care include evenimente de alergare montană, verticală și off-road.",
-      "objectives": "Obiectivele ligii:",
+      "content": "European Masters Athletics (EMA) a publicat calendarul și regulamentul Circuitului EMA Off-Road Running 2026 pentru evenimentele de alergare montană și trail dedicate atleților masters din Europa.",
+      "objectives": "Obiectivele circuitului:",
       "objectivesList": [
         "Să ofere condiții optime pentru ca atleții să obțină performanțe remarcabile.",
         "Să crească oportunitățile de competiție într-un mediu stimulant și divers.",
@@ -913,9 +913,9 @@
     },
     "participation": {
       "title": "Participare",
-      "content": "Participarea la Liga EMA Off-Road Running este deschisă tuturor atleților care îndeplinesc criteriile Masters Off-Road, în special cei cu vârste între 35-79 de ani, și care dețin o licență valabilă de la federația lor respectivă, conform regulilor WMA.",
-      "note1": "Vă rugăm să rețineți, Liga EMA Off-Road Running nu este un eveniment de campionat, iar atleții nu vor reprezenta oficial țările lor în aceste evenimente.",
-      "note2": "Liga este, de asemenea, deschisă atleților non-europeni, care vor concura pentru premiile individuale ale evenimentului, precum și pentru premiile finale."
+      "content": "Participarea la Circuitul EMA Off-Road Running este deschisă tuturor atleților cu vârste între 35 și 79 de ani care dețin o licență valabilă de la Federația Națională, în conformitate cu regulile WMA.",
+      "note1": "Vă rugăm să rețineți: Circuitul EMA Off-Road Running nu este un campionat, iar echipamentul național este opțional.",
+      "note2": "Circuitul este deschis și atleților din afara Europei."
     },
     "liability": {
       "title": "Răspundere și asigurare",
@@ -927,10 +927,8 @@
       "title": "Clasamente",
       "content": "Circuitul EMA Off-Road Running va include atât clasamente individuale ale evenimentelor, cât și un clasament general final al Circuitului.",
       "local": "Fiecare Comitet Local de Organizare (LOC) poate oferi unul sau mai multe evenimente (cum ar fi urcare, vertical, alergare montană, traseu etc.), cu câștigătorii și campionii pe categorii de vârstă premiați conform reglementărilor locale. Fiecare eveniment va avea o secțiune dedicată pe site-ul EMA.",
-      "eligibility": "Eligibilitate clasament final: Pentru a se califica în clasamentele finale EMA, atleții trebuie să participe la cel puțin două evenimente în locații diferite.",
-      "points": "Alocarea punctelor: Câștigătorul fiecărui eveniment (general și în fiecare categorie de vârstă) va primi 1 punct, pozițiile ulterioare primind puncte astfel (2 puncte pentru locul doi, 3 puncte pentru locul trei etc.). EMA va lua în considerare cele mai bune două performanțe ale fiecărui atlet la calcularea clasamentului final.",
-      "specialPrize": "Un premiu special va fi acordat tuturor atleților care participă la cel puțin trei etape ale Circuitului, indiferent de rezultatele lor generale.",
-      "ceremony": "Ceremonia oficială de premiere va avea loc în timpul Campionatului EMA Off-Road Running 2026.",
+      "eligibility": "Eligibilitate clasament final: Pentru a se califica în clasamentele finale EMA, atleții trebuie să finalizeze cel puțin două evenimente în locații diferite.",
+      "points": "Un total mai mic de puncte este mai bun. EMA ia în calcul cele mai bune două performanțe ale fiecărui atlet obținute la evenimente diferite, iar dacă există mai multe curse în aceeași etapă contează doar cel mai bun rezultat din acea etapă.",
       "structure": {
         "title": "Structura clasamentului",
         "item1": "Include clasamente individuale ale evenimentelor și un clasament general final al Circuitului.",
@@ -946,39 +944,39 @@
         "item1": "Câștigătorul evenimentului (general și pe categorie de vârstă) primește 1 punct",
         "item2": "Locul doi primește 2 puncte",
         "item3": "Locul trei primește 3 puncte și așa mai departe",
-        "item4": "Clasamentele finale se bazează pe cele mai bune două performanțe ale unui atlet",
-        "note": "Notă: Totalul mai mic de puncte este mai bun, deoarece acesta este un sistem de punctaj în stil golf unde locul 1 = 1 punct."
+        "item4": "Clasamentele finale se bazează pe cele mai bune două performanțe ale unui atlet obținute la evenimente diferite",
+        "note": "Notă: Doar cel mai bun rezultat dintr-o singură etapă contează, iar totalul mai mic de puncte clasează mai sus."
       },
       "categories": {
         "title": "Categorii de clasament",
         "item1": "Primii trei atleți bărbați și femei clasați ca Câștigători Generali",
-        "item2": "Câștigători pe categorii de vârstă pentru bărbați și femei (35-75)"
+        "item2": "Clasamente pe categorii de vârstă pentru bărbați și femei la categoriile 35, 40, 45, 50, 55, 60, 65, 70 și 75."
       },
       "tieBreakers": {
         "title": "Departajare",
-        "item1": "În caz de egalitate, atletul cu poziția superioară în evenimente are prioritate",
-        "item2": "Dacă egalitatea persistă, numărul de curse la care a participat servește ca factor de departajare"
+        "item1": "În caz de egalitate, departajarea se face mai întâi după rezultatele directe între atleți.",
+        "item2": "Dacă egalitatea persistă, se ia în calcul numărul total de curse finalizate."
       },
       "specialPrize": {
-        "title": "Premiu special",
-        "content": "Un premiu special este acordat atleților care participă la cel puțin trei etape, indiferent de rezultate."
+        "title": "Premii ale organizatorului",
+        "content": "Orice premii locale sau distincții de etapă sunt stabilite prin regulamentul propriu al fiecărui organizator."
       },
       "awardCeremony": {
-        "title": "Ceremonia de premiere",
-        "item1": "Organizată în timpul Campionatului EMA Off-Road Running 2026",
-        "item2": "Dacă un atlet nu poate participa, se vor face aranjamente pentru livrarea premiului"
+        "title": "Premii finale",
+        "item1": "Detaliile privind premierea finală a circuitului sunt publicate de EMA împreună cu regulamentul oficial.",
+        "item2": "Consultați pagina oficială EMA pentru actualizări."
       }
     },
     "calendar": {
       "title": "Calendar",
-      "content": "Evenimentele din Circuitul EMA Off-Road Running 2025 vor avea loc conform următorului program:",
+      "content": "Evenimentele din Circuitul EMA Off-Road Running 2026 vor avea loc conform următorului program:",
       "date": "Dată",
       "event": "Eveniment",
       "country": "Țară",
       "links": "Linkuri",
       "stage": "Etapă",
       "finalNote": "Pentru cele mai actualizate informații, vă rugăm să vizitați site-ul oficial EMA.",
-      "updateNote": "Vă rugăm să rețineți: Acest calendar a fost actualizat conform reglementărilor oficiale ale Circuitului EMA Off-Road Running 2025. Verificați periodic pentru orice anunțuri suplimentare sau modificări ale evenimentelor."
+      "updateNote": "Vă rugăm să rețineți: Acest calendar reflectă publicarea oficială a Circuitului EMA Off-Road Running 2026. Verificați periodic pentru orice anunțuri suplimentare sau modificări ale evenimentelor."
     },
     "downloadButton": "Descarcă PDF-ul cu reglementările complete"
   },

@@ -830,22 +830,6 @@ export default function RulesContent() {
                     </ul>
                   </div>
 
-                  <div className="mb-6 bg-blue-50 p-4 rounded-md">
-                    <h4 className="font-bold text-blue-700 mb-2">
-                      {t("emaCircuit.rankings.specialPrize.title")}
-                    </h4>
-                    <p>{t("emaCircuit.rankings.specialPrize.content")}</p>
-                  </div>
-
-                  <div className="mb-3">
-                    <h4 className="font-bold text-blue-700 mb-2">
-                      {t("emaCircuit.rankings.awardCeremony.title")}
-                    </h4>
-                    <ul className="list-disc pl-6 mb-3 space-y-1 text-neutral-700">
-                      <li>{t("emaCircuit.rankings.awardCeremony.item1")}</li>
-                      <li>{t("emaCircuit.rankings.awardCeremony.item2")}</li>
-                    </ul>
-                  </div>
                 </CardContent>
               </Card>
             </div>
@@ -853,7 +837,7 @@ export default function RulesContent() {
             {/* EMA Circuit Calendar */}
             <div className="mt-10 mb-8">
               <h3 className="text-xl font-bold mb-6 text-blue-600 border-b pb-2">
-                {t("emaCircuit.calendar.title")} - 2025
+                {t("emaCircuit.calendar.title")} - 2026
               </h3>
 
               <div className="overflow-x-auto">
@@ -876,7 +860,33 @@ export default function RulesContent() {
                   </thead>
                   <tbody>
                     <tr className="bg-white">
-                      <td className="border p-3">May 25, 2025</td>
+                      <td className="border p-3">May 10, 2026</td>
+                      <td className="border p-3">Lloretrail</td>
+                      <td className="border p-3">Spain 🇪🇸</td>
+                      <td className="border p-3">
+                        <div className="space-y-1 text-sm">
+                          <a
+                            href="https://www.lasansi.com/es/lloretdemartrail"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:underline block"
+                          >
+                            Website
+                          </a>
+                          <a
+                            href="https://www.lasansi.com/es/lloretdemartrail"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:underline block"
+                          >
+                            Registration
+                          </a>
+                          <span>Contact: lasansi@lasansi.com</span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr className="bg-blue-50">
+                      <td className="border p-3">May 24, 2026</td>
                       <td className="border p-3">Ventoux Mountain Running</td>
                       <td className="border p-3">France 🇫🇷</td>
                       <td className="border p-3">
@@ -901,8 +911,8 @@ export default function RulesContent() {
                         </div>
                       </td>
                     </tr>
-                    <tr className="bg-blue-50">
-                      <td className="border p-3">June 22, 2025</td>
+                    <tr className="bg-white">
+                      <td className="border p-3">June 21, 2026</td>
                       <td className="border p-3">
                         10 Miglia Internazionale Aviano Piancavallo
                       </td>
@@ -925,11 +935,12 @@ export default function RulesContent() {
                           >
                             Registration
                           </a>
+                          <span>Contact: atleticaaviano@gmail.com</span>
                         </div>
                       </td>
                     </tr>
-                    <tr className="bg-white font-semibold">
-                      <td className="border p-3">July 5, 2025</td>
+                    <tr className="bg-blue-50 font-semibold">
+                      <td className="border p-3">July 10–11, 2026</td>
                       <td className="border p-3">Stâna de Vale Trail Race</td>
                       <td className="border p-3">Romania 🇷🇴</td>
                       <td className="border p-3">
@@ -943,32 +954,7 @@ export default function RulesContent() {
                           >
                             Registration
                           </a>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr className="bg-blue-50">
-                      <td className="border p-3">September 13, 2025</td>
-                      <td className="border p-3">Camporredondo de Alba</td>
-                      <td className="border p-3">Spain 🇪🇸</td>
-                      <td className="border p-3">
-                        <div className="space-y-1 text-sm">
-                          <a
-                            href="https://utmp.run"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 hover:underline block"
-                          >
-                            Website
-                          </a>
-                          <a
-                            href="https://www.rockthesport.com/es/evento/ultra-montana-palentina-2025?frm=0&men=0&tit=0"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 hover:underline block"
-                          >
-                            Registration
-                          </a>
-                          <span>Contact: utmp70@gmail.com</span>
+                          <span>Contact: lazafmarcel@gmail.com</span>
                         </div>
                       </td>
                     </tr>

@@ -53,7 +53,7 @@
     "program": "Program",
     "contact": "Contact",
     "sponsors": "Sponsors",
-    "emaCircuit": "EMA Circuit 2025",
+    "emaCircuit": "EMA Circuit 2026",
     "cnMasters": "CN Masters",
     "howToGet": "How to Get There",
     "accommodation": "Accommodation",
@@ -62,11 +62,11 @@
   "hero": {
     "title": "Challenge The Mountains",
     "subtitle": "Experience the thrill of trail running through breathtaking mountain landscapes. Join runners from around the world in this unforgettable competition.",
-    "date": "July 4-5, 2024",
+    "date": "July 10-11, 2026",
     "registerButton": "Register Now",
     "exploreButton": "Explore Races",
     "imageAlt": "Trail running in mountains",
-    "enhancedDescription": "The 11K and 33K races are both part of the 2025 EMA Off-Road Running Circuit. They are also included in the National Mountain Running Masters Championship, promising an unforgettable adventure in the breathtaking Carpathian Mountains.",
+    "enhancedDescription": "Stâna de Vale Trail Race is part of the 2026 EMA Off-Road Running Circuit, bringing masters trail runners to the Carpathian Mountains for an unforgettable race weekend.",
     "mainTitle": "Stâna de Vale Trail Race",
     "landscapeAlt": "Stana de Vale Mountain Landscape",
     "trailAlt": "Stana de Vale Trail Landscape"
@@ -79,7 +79,7 @@
     },
     "date": {
       "title": "Date",
-      "content": "July 4-5, 2025",
+      "content": "July 10-11, 2026",
       "linkText": "View full program"
     },
     "participants": {
@@ -90,17 +90,17 @@
   },
   "home": {
     "featuredRaces": "Featured Races",
-    "details": "Experience the beauty of trail running with our 11km and 33km races in the Carpathian Mountains. Both races are part of the 2025 EMA Off-Road Running Circuit.",
+    "details": "Experience the beauty of trail running with our 11km and 33km races in the Carpathian Mountains during the Stâna de Vale Trail Race weekend, part of the 2026 EMA Off-Road Running Circuit.",
     "aboutCompetition": "About The Competition",
     "competitionDescription1": "Join us for an unforgettable trail running experience in the breathtaking Carpathian Mountains. Our races offer challenging terrains with spectacular views, designed for both beginners and experienced trail runners.",
-    "competitionDescription2": "Both the 11km and 33km races are part of the 2025 EMA Off-Road Running Circuit. The 33km race is also part of the National Mountain Running Championship for Masters. The 11km race is perfect for those new to trail running or looking for a shorter challenge.",
-    "competitionDescription3": "Both races take place on July 5, 2025, with professional timing, well-marked trails, and comprehensive support throughout the course.",
+    "competitionDescription2": "The Stâna de Vale Trail Race weekend is part of the 2026 EMA Off-Road Running Circuit. Check the official regulations and individual race details for eligibility, categories, and stage scoring.",
+    "competitionDescription3": "The event weekend takes place on July 10-11, 2026, with professional timing, well-marked trails, and comprehensive support throughout the course.",
     "stanaDeVale": {
       "title": "Stâna de Vale",
-      "description1": "In the 1st week-end of July, Stâna de Vale will host the 2nd leg of the EMA Off Road Circuit 2025. Stâna de Vale is nowadays a well known mountain resort –elevation 1000m- situated in the north-west of Romania, Bihor County. Initially the fame of the resort originated from the mineral water springs in the area, particularly recommended for a range of cures.",
-      "description2": "In recent years the area has been developed to attract tourists with its relaxing landscapes and as a sky resort.",
+      "description1": "On July 10-11, 2026, Stâna de Vale will host the Romanian stage of the EMA Off-Road Running Circuit 2026. Stâna de Vale is a well-known mountain resort – elevation 1000m – situated in the north-west of Romania, Bihor County. Initially the fame of the resort originated from the mineral water springs in the area, particularly recommended for a range of cures.",
+      "description2": "In recent years the area has been developed to attract tourists with its relaxing landscapes and as a ski resort.",
       "hostTitle": "The Host",
-      "hostDescription": "ACS Atletic Beiuş has got a name in the Romanian community of off road runners for having yearly organized the highly successful \"Beiuş Running Day\", a 10k/21k trail run in the hills neighbouring the town. The quality of the organization and the geography of the region prompted the Masters Commission within the FRA to challenge the host to organize the 2024 edition of the National Championships of Mountain Running higher up in nearby Stâna de Vale. The one day meeting, including a classical 11k up&down D+470m and a 33k long trail D+1300m, was highly appreciated by the competitors who insisted for a repeat of the event in 2025. The generous contribution of the local sponsors to the after race party must have impacted greatly on the attendants request for an encore."
+      "hostDescription": "ACS Atletic Beiuş has built a strong reputation in the Romanian off-road running community through the successful \"Beiuş Running Day\", a 10k/21k trail event in the hills around the town. After the appreciated 2024 national mountain running event at nearby Stâna de Vale, the organizers continue to develop the race weekend with a classic 11k up&down course, a demanding 33k long trail, strong local support, and a welcoming post-race atmosphere."
     }
   },
   "races": {
@@ -145,7 +145,7 @@
     "aidStations": "{{count}} Refreshment Point",
     "aidStations_plural": "{{count}} Refreshment Points",
     "certification": {
-      "ema": "2025 EMA Off-Road Running Circuit",
+      "ema": "2026 EMA Off-Road Running Circuit",
       "national": "National Mountain Running Championship Masters",
       "nationalShort": "National Championship"
     },
@@ -219,7 +219,7 @@
       "emaParticipation": "I want to participate in the EMA Off-Road Running Circuit",
       "emaInfo": "By selecting this option, you indicate your interest in participating in the EMA Off-Road Running Circuit competition.",
       "emaIncludesTshirt": "Includes an event T-shirt with EMA Off-Road Running Circuit branding.",
-      "emaEligibilityCriteria": "Participation in the EMA Off-Road Running League is open to all athletes who meet the Masters Off-Road running criteria, specifically those aged 35-79, and who hold a valid license from their respective Federation, in accordance with WMA rules. License validation will be required on race day.",
+      "emaEligibilityCriteria": "Participation in the EMA Off-Road Running Circuit is open to athletes aged 35-79 who hold a valid license from their National Federation, in accordance with WMA rules. License validation will be required on race day.",
       "mustBe35": "Must be 35+ years old",
       "tshirtsize": "T-Shirt Size",
       "selecttshirtsize": "Select your T-shirt size",
@@ -935,12 +935,12 @@
     "contact": "Get in touch with our team for any questions about the competition."
   },
   "emaCircuit": {
-    "title": "E.M.A. OFF-ROAD RUNNING CIRCUIT 2025",
-    "subtitle": "Experimental Edition",
+    "title": "E.M.A. OFF-ROAD RUNNING CIRCUIT 2026",
+    "subtitle": "Official Calendar and Regulations",
     "overview": {
       "title": "Overview",
-      "content": "European Masters Athletics (EMA) is proud to announce the inaugural experimental edition of the EMA Off-Road Running Circuit, a circuit dedicated to Master athletes featuring mountain, vertical, and off-road running events.",
-      "objectives": "The League's Objectives:",
+      "content": "European Masters Athletics (EMA) has published the 2026 EMA Off-Road Running Circuit calendar and regulations for masters mountain and trail running events across Europe.",
+      "objectives": "The Circuit's Objectives:",
       "objectivesList": [
         "To provide optimal conditions for athletes to achieve outstanding performances.",
         "To increase competition opportunities in a stimulating and diverse environment.",
@@ -952,9 +952,9 @@
     },
     "participation": {
       "title": "Participation",
-      "content": "Participation in the EMA Off-Road Running League is open to all athletes who meet the Masters Off-Road running criteria, specifically those aged 35-79, and who hold a valid license from their respective Federation, in accordance with WMA rules.",
-      "note1": "Please note, the EMA Off-Road Running League is not a championship event, and athletes will not officially represent their countries in these events.",
-      "note2": "The League is also open to non-European athletes, who will compete for individual event prizes as well as final awards."
+      "content": "Participation in the EMA Off-Road Running Circuit is open to all athletes aged 35-79 who hold a valid license from their National Federation, in accordance with WMA rules.",
+      "note1": "Please note: the EMA Off-Road Running Circuit is not a championship event, and national uniforms are optional.",
+      "note2": "The Circuit is also open to non-European athletes."
     },
     "liability": {
       "title": "Liability and Insurance",
@@ -966,10 +966,8 @@
       "title": "Rankings",
       "content": "The EMA Off-Road Running Circuit will feature both individual event rankings and a final overall ranking for the Circuit.",
       "local": "Each Local Organizing Committee (LOC) may offer one or more events (such as uphill, vertical, mountain run, trail, etc.), with the winners and age category champions awarded prizes according to their local regulations. Each event will have a dedicated section on the EMA website.",
-      "eligibility": "Final Ranking Eligibility: To qualify for the EMA final rankings, athletes must participate in at least two events across different locations.",
-      "points": "Point Allocation: The winner of each event (overall and in each age category) will receive 1 point, with subsequent positions awarded points as follows (2 points for second place, 3 points for third, etc.). EMA will consider the best two performances from each athlete when calculating the final standings.",
-      "specialPrize": "A special prize will be awarded to all athletes who participate in at least three stages of the Circuit, regardless of their overall results.",
-      "ceremony": "The official award ceremony will be held during the 2026 EMA Off-Road Running Championship.",
+      "eligibility": "Final Ranking Eligibility: To qualify for the EMA final rankings, athletes must complete at least two events in different locations.",
+      "points": "Lower scores are better. EMA counts each athlete's best two performances from different events, and if multiple races are held within the same stage, only the best performance from that stage is considered.",
       "structure": {
         "title": "Ranking Structure",
         "item1": "Features individual event rankings and a final overall Circuit ranking.",
@@ -985,39 +983,39 @@
         "item1": "Event winner (overall and age category) receives 1 point",
         "item2": "Second place receives 2 points",
         "item3": "Third place receives 3 points, and so on",
-        "item4": "Final standings are based on an athlete's best two performances",
-        "note": "Note: Lower point total is better, as this is a golf-style scoring system where 1st place = 1 point."
+        "item4": "Final standings are based on an athlete's best two performances from different events",
+        "note": "Note: Only the best result from a single stage counts, and lower point totals rank higher."
       },
       "categories": {
         "title": "Ranking Categories",
         "item1": "First three male and female athletes ranked as Overall Winners",
-        "item2": "Age Category Winners for both men and women (35-75)"
+        "item2": "Age-group rankings are awarded for men and women in categories 35, 40, 45, 50, 55, 60, 65, 70, and 75."
       },
       "tieBreakers": {
         "title": "Tie-Breakers",
-        "item1": "In case of a tie, the athlete with the higher finishing position in events takes precedence",
-        "item2": "If still tied, the number of races participated in serves as the tie-breaker"
+        "item1": "Ties are decided first by head-to-head results.",
+        "item2": "If athletes are still tied, the total number of completed races is used."
       },
       "specialPrize": {
-        "title": "Special Prize",
-        "content": "A special prize is awarded to athletes participating in at least three stages, regardless of results."
+        "title": "Organizer Awards",
+        "content": "Any local prizes or stage-specific awards are defined by each organizer's own regulations."
       },
       "awardCeremony": {
-        "title": "Award Ceremony",
-        "item1": "Held during the 2026 EMA Off-Road Running Championship",
-        "item2": "If an athlete cannot attend, arrangements will be made for prize delivery"
+        "title": "Final Awards",
+        "item1": "Final circuit award details are published by EMA with the official regulations.",
+        "item2": "Check the official EMA page for updates."
       }
     },
     "calendar": {
       "title": "Calendar",
-      "content": "The events in the 2025 EMA Off-Road Running Circuit will take place according to the following schedule:",
+      "content": "The events in the 2026 EMA Off-Road Running Circuit will take place according to the following schedule:",
       "date": "Date",
       "event": "Event",
       "country": "Country",
       "links": "Links",
       "stage": "Stage",
       "finalNote": "For the most up-to-date information, please visit the official EMA website.",
-      "updateNote": "Please note: This calendar has been updated as per the official 2025 EMA Off-Road Running Circuit regulations. Check back regularly for any additional event announcements or changes."
+      "updateNote": "Please note: This calendar reflects the official 2026 EMA Off-Road Running Circuit publication. Check back regularly for any additional event announcements or changes."
     },
     "downloadButton": "Download Full Regulations PDF"
   },

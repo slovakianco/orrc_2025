@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, createElement, ReactNode } from "react";
 import i18n from "i18next";
 
 type LanguageContextType = {
@@ -33,10 +33,10 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
     document.documentElement.lang = language;
   }, [language]);
 
-  return (
-    <LanguageContext.Provider value={{ language, setLanguage }}>
-      {children}
-    </LanguageContext.Provider>
+  return createElement(
+    LanguageContext.Provider,
+    { value: { language, setLanguage } },
+    children,
   );
 };
 

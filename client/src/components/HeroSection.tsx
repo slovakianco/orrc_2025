@@ -8,7 +8,7 @@ interface HeroSectionProps {
 
 const HeroSection = ({ imageUrl }: HeroSectionProps) => {
   const { t } = useTranslation();
-  const eventDate = new Date("2025-07-05T08:30:00");
+  const eventDate = new Date("2026-07-10T00:00:00");
 
   return (
     <section className="relative min-h-[800px] bg-gradient-to-b from-stone-beige to-white">
@@ -54,7 +54,7 @@ const HeroSection = ({ imageUrl }: HeroSectionProps) => {
             {/* Main title */}
             <h1 className="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl text-slate-gray leading-tight mb-6">
               <span className="block">{t("hero.title")}</span>
-              <span className="text-alpine block mt-2">2025</span>
+              <span className="text-alpine block mt-2">2026</span>
             </h1>
 
             {/* Subtitle */}
@@ -138,7 +138,7 @@ const HeroSection = ({ imageUrl }: HeroSectionProps) => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-slate-gray mb-2">
-                    EMA Circuit 2025
+                    EMA Circuit 2026
                   </h3>
                   <p className="text-slate-gray leading-relaxed">
                     {t("hero.enhancedDescription")}
