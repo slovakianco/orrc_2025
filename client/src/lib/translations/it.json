@@ -37,7 +37,7 @@
     "program": "Programma",
     "contact": "Contatti",
     "sponsors": "Sponsor",
-    "emaCircuit": "Circuito EMA 2025",
+    "emaCircuit": "Circuito EMA 2026",
     "howToGet": "Come Arrivare",
     "accommodation": "Alloggio",
     "registerButton": "Registrati Ora"
@@ -45,11 +45,11 @@
   "hero": {
     "title": "Sfida le Montagne",
     "subtitle": "Vivi l'emozione del trail running attraverso paesaggi montani mozzafiato. Unisciti a corridori da tutto il mondo in questa competizione indimenticabile.",
-    "date": "4-5 Luglio 2024",
+    "date": "10-11 Luglio 2026",
     "registerButton": "Registrati Ora",
     "exploreButton": "Esplora le Gare",
     "imageAlt": "Trail running in montagna",
-    "enhancedDescription": "La gara di 33K fa parte del Circuito EMA Off-Road Running 2025 e del Campionato Nazionale di Corsa in Montagna per Master. Un'esperienza indimenticabile ti aspetta nelle bellissime Montagne dei Carpazi.",
+    "enhancedDescription": "Stâna de Vale Trail Race fa parte del Circuito EMA Off-Road Running 2026 e accoglie atleti master nei Carpazi per un fine settimana di gara indimenticabile.",
     "mainTitle": "Stâna de Vale Trail Race",
     "landscapeAlt": "Paesaggio montano di Stâna de Vale",
     "trailAlt": "Paesaggio dei sentieri di Stâna de Vale"
@@ -62,7 +62,7 @@
     },
     "date": {
       "title": "Data",
-      "content": "4-5 Luglio 2025",
+      "content": "10-11 Luglio 2026",
       "linkText": "Visualizza programma completo"
     },
     "participants": {
@@ -73,11 +73,11 @@
   },
   "home": {
     "featuredRaces": "Gare in Evidenza",
-    "details": "Scopri la bellezza del trail running con le nostre gare di 11km e 33km nelle Montagne dei Carpazi. La gara di 33km fa parte del Circuito EMA Off-Road Running 2025.",
+    "details": "Scopri la bellezza del trail running con le nostre gare di 11km e 33km nei Carpazi durante il weekend della Stâna de Vale Trail Race, parte del Circuito EMA Off-Road Running 2026.",
     "aboutCompetition": "Informazioni sulla Competizione",
     "competitionDescription1": "Unisciti a noi per un'esperienza di trail running indimenticabile nelle spettacolari Montagne dei Carpazi. Le nostre gare offrono terreni impegnativi con viste mozzafiato, pensati sia per principianti che per corridori esperti.",
-    "competitionDescription2": "La gara di 33km fa parte del Circuito EMA Off-Road Running 2025 e del Campionato Nazionale di Corsa in Montagna per Master. La gara di 11km è perfetta per chi è nuovo al trail running o cerca una sfida più breve.",
-    "competitionDescription3": "Entrambe le gare si svolgono il 5 luglio 2025, con cronometraggio professionale, percorsi ben segnalati e supporto completo lungo il tracciato."
+    "competitionDescription2": "Il weekend della Stâna de Vale Trail Race fa parte del Circuito EMA Off-Road Running 2026. Consulta il regolamento ufficiale e i dettagli delle singole gare per eleggibilità, categorie e punteggio di tappa.",
+    "competitionDescription3": "Il weekend dell'evento si svolgerà il 10 e 11 luglio 2026, con cronometraggio professionale, percorsi ben segnalati e supporto completo lungo il tracciato."
   },
   "races": {
     "title": "Esplora le Nostre Gare",
@@ -123,7 +123,7 @@
     "noRacesFound": "Nessuna gara trovata",
     "tryDifferentFilter": "Prova un'opzione di filtro diversa",
     "certification": {
-      "ema": "Circuito EMA Off-Road Running 2025",
+      "ema": "Circuito EMA Off-Road Running 2026",
       "national": "Campionato Nazionale di Corsa in Montagna Master",
       "nationalShort": "Campionato Nazionale"
     },
@@ -193,7 +193,7 @@
       "emaParticipation": "Voglio partecipare al Circuito EMA Off-Road Running",
       "emaInfo": "Selezionando questa opzione, indichi il tuo interesse a partecipare alla competizione EMA Off-Road Running Circuit.",
       "emaIncludesTshirt": "Include una maglietta dell'evento con il marchio EMA Off-Road Running Circuit.",
-      "emaEligibilityCriteria": "La partecipazione alla EMA Off-Road Running League è aperta a tutti gli atleti che soddisfano i criteri Masters Off-Road running, in particolare quelli di età compresa tra 35 e 79 anni, e che possiedono una licenza valida della rispettiva Federazione, in conformità con le regole WMA. La validazione della licenza sarà richiesta il giorno della gara.",
+      "emaEligibilityCriteria": "La partecipazione al Circuito EMA Off-Road Running è aperta agli atleti di età compresa tra 35 e 79 anni in possesso di una licenza valida della propria Federazione Nazionale, in conformità con le regole WMA. La validazione della licenza sarà richiesta il giorno della gara.",
       "tshirtsize": "Taglia della Maglietta",
       "selecttshirtsize": "Seleziona la taglia della tua maglietta",
       "termsText": "Ho letto e accetto i",
@@ -772,17 +772,17 @@
     "participants": "Scopri chi si è già registrato e controlla i partecipanti da tutto il mondo.",
     "program": "Esplora il programma completo degli eventi, inclusi gli orari di partenza delle gare, le cerimonie di premiazione e altro.",
     "rules": "Comprendi le regole della competizione, i requisiti di equipaggiamento e tutte le normative di sicurezza.",
-    "emaCircuit": "Scopri il Circuito EMA Off-Road Running 2025 e la sua importanza per il trail running.",
+    "emaCircuit": "Scopri il Circuito EMA Off-Road Running 2026 e la sua importanza per il trail running.",
     "sponsors": "Scopri le organizzazioni e le aziende che supportano questo evento di trail running.",
     "registration": "Registrati per la tua gara scelta e assicurati un posto in questa emozionante sfida montana.",
     "contact": "Contatta il nostro team per qualsiasi domanda sulla competizione."
   },
   "emaCircuit": {
-    "title": "CIRCUITO E.M.A. OFF-ROAD RUNNING 2025",
-    "subtitle": "Edizione Sperimentale",
+    "title": "CIRCUITO E.M.A. OFF-ROAD RUNNING 2026",
+    "subtitle": "Calendario e regolamento ufficiali",
     "overview": {
       "title": "Panoramica",
-      "content": "European Masters Athletics (EMA) è orgogliosa di annunciare l'edizione sperimentale inaugurale del Circuito EMA Off-Road Running, un circuito dedicato agli atleti Master che include eventi di corsa in montagna, verticale e off-road.",
+      "content": "European Masters Athletics (EMA) ha pubblicato il calendario e il regolamento 2026 del Circuito EMA Off-Road Running per eventi di corsa in montagna e trail dedicati agli atleti master in tutta Europa.",
       "objectives": "Obiettivi del Circuito:",
       "objectivesList": [
         "Fornire condizioni ottimali per gli atleti per ottenere prestazioni eccezionali.",
@@ -795,9 +795,9 @@
     },
     "participation": {
       "title": "Partecipazione",
-      "content": "La partecipazione al Circuito EMA Off-Road Running è aperta a tutti gli atleti che soddisfano i criteri per la corsa off-road Master, in particolare quelli di età compresa tra 35 e 79 anni e che possiedono una licenza valida dalla loro rispettiva Federazione, in conformità con le regole WMA.",
-      "note1": "Si prega di notare che il Circuito EMA Off-Road Running non è un evento di campionato e gli atleti non rappresenteranno ufficialmente i loro paesi in questi eventi.",
-      "note2": "Il Circuito è aperto anche agli atleti non europei, che competeranno per i premi individuali degli eventi e per i premi finali."
+      "content": "La partecipazione al Circuito EMA Off-Road Running è aperta a tutti gli atleti di età compresa tra 35 e 79 anni in possesso di una licenza valida della propria Federazione Nazionale, in conformità con le regole WMA.",
+      "note1": "Nota: il Circuito EMA Off-Road Running non è un campionato e l'uniforme nazionale è facoltativa.",
+      "note2": "Il Circuito è aperto anche agli atleti non europei."
     },
     "liability": {
       "title": "Responsabilità e Assicurazione",
@@ -809,10 +809,8 @@
       "title": "Classifiche",
       "content": "Il Circuito EMA Off-Road Running includerà sia classifiche per eventi individuali che una classifica finale complessiva per il Circuito.",
       "local": "Ogni Comitato Organizzatore Locale (LOC) può offrire uno o più eventi (come salita, verticale, corsa in montagna, trail, ecc.), con i vincitori e i campioni di categoria d'età premiati secondo i loro regolamenti locali. Ogni evento avrà una sezione dedicata sul sito web dell'EMA.",
-      "eligibility": "Eligibilità per la Classifica Finale: Per qualificarsi per le classifiche finali EMA, gli atleti devono partecipare ad almeno due eventi in località diverse.",
-      "points": "Assegnazione dei Punti: Il vincitore di ogni evento (generale e in ogni categoria d'età) riceverà 1 punto, con le posizioni successive che ricevono punti come segue (2 punti per il secondo posto, 3 punti per il terzo, ecc.). L'EMA considererà le due migliori prestazioni di ogni atleta nel calcolo delle classifiche finali.",
-      "specialPrize": "Un premio speciale sarà assegnato a tutti gli atleti che partecipano ad almeno tre tappe del Circuito, indipendentemente dai loro risultati complessivi.",
-      "ceremony": "La cerimonia ufficiale di premiazione si terrà durante il Campionato EMA Off-Road Running 2026.",
+      "eligibility": "Eligibilità per la classifica finale: per qualificarsi, gli atleti devono completare almeno due eventi in località diverse.",
+      "points": "Un totale di punti più basso è migliore. L'EMA considera le due migliori prestazioni di ogni atleta ottenute in eventi diversi e, se più gare si disputano nella stessa tappa, viene considerato solo il miglior risultato di quella tappa.",
       "structure": {
         "title": "Struttura delle Classifiche",
         "item1": "Include classifiche per eventi individuali e una classifica finale complessiva del Circuito.",
@@ -828,39 +826,39 @@
         "item1": "Il vincitore dell'evento (generale e categoria d'età) riceve 1 punto",
         "item2": "Il secondo posto riceve 2 punti",
         "item3": "Il terzo posto riceve 3 punti, e così via",
-        "item4": "Le classifiche finali si basano sulle due migliori prestazioni di un atleta",
-        "note": "Nota: Un totale di punti più basso è migliore, poiché si tratta di un sistema di punteggio in stile golf dove 1° posto = 1 punto."
+        "item4": "Le classifiche finali si basano sulle due migliori prestazioni di un atleta ottenute in eventi diversi",
+        "note": "Nota: conta solo il miglior risultato all'interno della stessa tappa e un totale di punti più basso classifica più in alto."
       },
       "categories": {
         "title": "Categorie di Classifica",
         "item1": "I primi tre atleti maschi e femmine classificati come Vincitori Generali",
-        "item2": "Vincitori di Categoria d'Età per uomini e donne (35-75)"
+        "item2": "Le classifiche per categoria d'età premiano uomini e donne nelle categorie 35, 40, 45, 50, 55, 60, 65, 70 e 75."
       },
       "tieBreakers": {
         "title": "Pareggi",
-        "item1": "In caso di parità, l'atleta con la posizione di arrivo migliore negli eventi ha la precedenza",
-        "item2": "Se il pareggio persiste, il numero di gare a cui l'atleta ha partecipato serve come criterio di spareggio"
+        "item1": "In caso di parità, lo spareggio viene deciso prima dai risultati diretti tra gli atleti.",
+        "item2": "Se la parità persiste, si usa il numero totale di gare concluse."
       },
       "specialPrize": {
-        "title": "Premio Speciale",
-        "content": "Un premio speciale viene assegnato agli atleti che partecipano ad almeno tre tappe, indipendentemente dai loro risultati."
+        "title": "Premi dell'organizzatore",
+        "content": "Eventuali premi locali o riconoscimenti specifici di tappa sono definiti dal regolamento di ciascun organizzatore."
       },
       "awardCeremony": {
-        "title": "Cerimonia di Premiazione",
-        "item1": "Si tiene durante il Campionato EMA Off-Road Running 2026",
-        "item2": "Se un atleta non può partecipare, verranno fatti accordi per la consegna dei premi"
+        "title": "Premi finali",
+        "item1": "I dettagli sulla premiazione finale del circuito sono pubblicati da EMA con il regolamento ufficiale.",
+        "item2": "Controlla la pagina ufficiale EMA per gli aggiornamenti."
       }
     },
     "calendar": {
       "title": "Calendario",
-      "content": "Gli eventi del Circuito EMA Off-Road Running 2025 si svolgeranno secondo il seguente programma:",
+      "content": "Gli eventi del Circuito EMA Off-Road Running 2026 si svolgeranno secondo il seguente programma:",
       "date": "Data",
       "event": "Evento",
       "country": "Paese",
       "links": "Collegamenti",
       "stage": "Tappa",
       "finalNote": "Per le informazioni più aggiornate, si prega di visitare il sito web ufficiale dell'EMA.",
-      "updateNote": "Nota: Questo calendario è stato aggiornato secondo le normative ufficiali del Circuito EMA Off-Road Running 2025. Controllare regolarmente per eventuali annunci di eventi aggiuntivi o modifiche."
+      "updateNote": "Nota: questo calendario riflette la pubblicazione ufficiale del Circuito EMA Off-Road Running 2026. Controlla regolarmente per eventuali annunci aggiuntivi o modifiche."
     },
     "downloadButton": "Scarica il PDF delle Regolamentazioni Complete"
   },

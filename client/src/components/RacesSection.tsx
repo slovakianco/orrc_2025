@@ -87,7 +87,7 @@ const RacesSection = ({ title, fullPage = false }: RacesSectionProps) => {
                       {race.isemacertified && (
                         <div className="bg-blue-600 text-white text-xs md:text-sm py-1 px-2 rounded-md font-semibold flex items-center shadow-md">
                           <Award className="h-3 w-3 md:h-4 md:w-4 mr-1" />
-                          <span>EMA 2025</span>
+                          <span>EMA 2026</span>
                         </div>
                       )}
                       {race.isNationalChampionship && (
