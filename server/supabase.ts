@@ -1,38 +1,53 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-// Check if the required environment variables are present
-if (!process.env.SUPABASE_URL) {
-  throw new Error('SUPABASE_URL environment variable is required');
-}
+let supabase: SupabaseClient | null = null;
 
-if (!process.env.SUPABASE_ANON_KEY) {
-  throw new Error('SUPABASE_ANON_KEY environment variable is required');
-}
-
-// Initialize the Supabase client
-export const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_ANON_KEY,
-  {
-    auth: {
-      persistSession: false, // Don't store user session in localStorage
-    },
-  }
-);
-
-// Test the connection
-async function testSupabaseConnection() {
+function isValidSupabaseUrl(url: string): boolean {
   try {
-    const { count, error } = await supabase.from('races').select('count', { count: 'exact' });
-    if (error) {
-      console.error('Failed to connect to Supabase:', error.message);
-    } else {
-      console.log(`Successfully connected to Supabase. Found ${count} races.`);
-    }
-  } catch (err) {
-    console.error('Error connecting to Supabase:', err);
+    const parsed = new URL(url);
+    return parsed.protocol === 'https:' && parsed.hostname.includes('supabase');
+  } catch {
+    return false;
   }
 }
 
-// Run the test
-testSupabaseConnection();
+if (process.env.SUPABASE_URL && process.env.SUPABASE_ANON_KEY) {
+  if (isValidSupabaseUrl(process.env.SUPABASE_URL)) {
+    try {
+      supabase = createClient(
+        process.env.SUPABASE_URL,
+        process.env.SUPABASE_ANON_KEY,
+        {
+          auth: {
+            persistSession: false,
+          },
+        }
+      );
+      console.log('Supabase client initialized successfully');
+    } catch (err) {
+      console.error('Failed to create Supabase client:', err);
+      supabase = null;
+    }
+  } else {
+    console.error('Invalid SUPABASE_URL format. Expected a valid Supabase URL (https://xxx.supabase.co)');
+  }
+} else {
+  console.warn('Supabase environment variables not configured. Running without Supabase.');
+}
+
+if (supabase) {
+  (async () => {
+    try {
+      const { count, error } = await supabase!.from('races').select('count', { count: 'exact' });
+      if (error) {
+        console.error('Failed to connect to Supabase:', error.message);
+      } else {
+        console.log(`Successfully connected to Supabase. Found ${count} races.`);
+      }
+    } catch (err) {
+      console.error('Error connecting to Supabase:', err);
+    }
+  })();
+}
+
+export { supabase };

@@ -2,6 +2,11 @@ import { supabase } from './supabase';
 
 // This script will create all the necessary tables in Supabase
 async function initializeSupabaseTables() {
+  if (!supabase) {
+    console.warn('Supabase client not available, skipping table initialization');
+    return;
+  }
+  
   console.log('Initializing Supabase tables...');
 
   // Create users table

@@ -9,6 +9,7 @@ channel = "stable-24_05"
 deploymentTarget = "autoscale"
 run = ["npm", "run", "start"]
 build = ["npm", "run", "build"]
+publicDir = "dist/public"
 
 [[ports]]
 localPort = 3000
@@ -56,3 +57,9 @@ args = "npm run dev"
 
 [agent]
 integrations = ["javascript_sendgrid:1.0.0", "javascript_stripe:1.0.0"]
+
+[userenv]
+
+[userenv.shared]
+SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJtYWtmbHJtdGh2ZGNvd2d4eWFyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIwOTYyNDUsImV4cCI6MjA4NzY3MjI0NX0.dzQp586K-iAM_pqZt0Yp4nU6G4MIBkecHR4Y6fgd7Ig"
+SUPABASE_URL = "https://rmakflrmthvdcowgxyar.supabase.co"
