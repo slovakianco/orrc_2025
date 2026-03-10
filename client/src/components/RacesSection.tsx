@@ -15,6 +15,13 @@ const RacesSection = ({ title, fullPage = false }: RacesSectionProps) => {
   const { t, i18n } = useTranslation();
   const [difficulty, setDifficulty] = useState<string | null>(null);
 
+  const formatRaceDate = (date: string) =>
+    new Date(date).toLocaleDateString(i18n.language, {
+      month: "long",
+      day: "numeric",
+      timeZone: "UTC",
+    });
+
   const { data: races, isLoading } = useQuery<Race[]>({
     queryKey: [difficulty ? `/api/races?difficulty=${difficulty}` : '/api/races'],
   });
@@ -129,7 +136,7 @@ const RacesSection = ({ title, fullPage = false }: RacesSectionProps) => {
                     </div>
                     <div className="flex items-center mb-1">
                       <Calendar className="text-secondary mr-1 md:mr-2 h-3 w-3 md:h-4 md:w-4" />
-                      <span className="text-neutral-dark">{t(`races.dates.${race.date.split('-')[2]}`)}</span>
+                      <span className="text-neutral-dark">{formatRaceDate(race.date)}</span>
                     </div>
                   </div>
                   <div className="elevation-chart mb-3 md:mb-4 h-[40px] md:h-[60px] bg-gradient-to-r from-primary/20 to-secondary/30 relative overflow-hidden rounded-md"></div>

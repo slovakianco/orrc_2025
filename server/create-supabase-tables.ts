@@ -87,7 +87,7 @@ async function createParticipantsTable() {
           distance: 33,
           elevation: 1200,
           difficulty: 'advanced',
-          date: '2025-05-15',
+          date: '2026-07-11',
           price: 40,
           imageUrl: '/images/race33k.jpg'
         },
@@ -103,7 +103,7 @@ async function createParticipantsTable() {
           distance: 11,
           elevation: 350,
           difficulty: 'beginner',
-          date: '2025-05-15',
+          date: '2026-07-11',
           price: 30,
           imageUrl: '/images/race11k.jpg'
         }

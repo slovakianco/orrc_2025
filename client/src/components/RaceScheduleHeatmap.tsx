@@ -86,7 +86,7 @@ const RaceScheduleHeatmap: React.FC = () => {
   
   // Event data based on our program schedule, with added intensity metrics
   const eventData: EventData[] = [
-    // Day 1 (July 4) - Friday
+    // Day 1 (July 10) - Friday
     {
       id: 1,
       name: t('program.events.kitPickup.title'),
@@ -118,7 +118,7 @@ const RaceScheduleHeatmap: React.FC = () => {
       participants: 300,
     },
     
-    // Day 2 (July 5) - Saturday
+    // Day 2 (July 11) - Saturday
     {
       id: 4,
       name: t('program.events.kitPickup.title'),

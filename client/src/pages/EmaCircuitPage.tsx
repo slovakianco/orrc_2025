@@ -127,7 +127,7 @@ const EmaCircuitPage = () => {
               <p className="text-sm">
                 For detailed ranking rules and complete information, visit the{" "}
                 <a 
-                  href="https://european-masters-athletics.org/ema-off-road-running-circuit-2025/" 
+                  href="https://european-masters-athletics.org/ema-off-road-running-circuit-2026/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-primary hover:underline font-semibold"
@@ -146,7 +146,7 @@ const EmaCircuitPage = () => {
             <Calendar className="h-6 w-6 text-primary" />
             {t("emaCircuit.calendar.title")}
           </CardTitle>
-          <CardDescription>Official EMA Off-Road Running Circuit 2025</CardDescription>
+          <CardDescription>Official EMA Off-Road Running Circuit 2026</CardDescription>
         </CardHeader>
         <CardContent className="pt-6">
           <p className="mb-6">{t("emaCircuit.calendar.content")}</p>
@@ -163,8 +163,21 @@ const EmaCircuitPage = () => {
               </thead>
               <tbody>
                 <tr>
-                  <td className="py-3 px-4 border">May 25, 2025</td>
-                  <td className="py-3 px-4 border">Ventoux Mountain Running</td>
+                  <td className="py-3 px-4 border">May 10, 2026</td>
+                  <td className="py-3 px-4 border">Lloret del Mar</td>
+                  <td className="py-3 px-4 border">Spain</td>
+                  <td className="py-3 px-4 border">
+                    <div className="space-y-2">
+                      <span className="text-sm font-bold text-primary">Information pending</span>
+                      <span className="text-gray-500 text-sm block">
+                        Check official EMA and organiser channels
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="py-3 px-4 border">May 24, 2026</td>
+                  <td className="py-3 px-4 border">Mont Ventoux</td>
                   <td className="py-3 px-4 border">France</td>
                   <td className="py-3 px-4 border">
                     <div className="space-y-2">
@@ -188,9 +201,9 @@ const EmaCircuitPage = () => {
                     </div>
                   </td>
                 </tr>
-                <tr className="bg-gray-50">
-                  <td className="py-3 px-4 border">June 22, 2025</td>
-                  <td className="py-3 px-4 border">10 Miglia Internazionale Aviano Piancavallo</td>
+                <tr>
+                  <td className="py-3 px-4 border">June 21, 2026</td>
+                  <td className="py-3 px-4 border">Aviano</td>
                   <td className="py-3 px-4 border">Italy</td>
                   <td className="py-3 px-4 border">
                     <div className="space-y-2">
@@ -214,41 +227,15 @@ const EmaCircuitPage = () => {
                   </td>
                 </tr>
                 <tr className="bg-primary/5 font-semibold">
-                  <td className="py-3 px-4 border">July 5, 2025</td>
-                  <td className="py-3 px-4 border">Stana de Vale Trail Race</td>
+                  <td className="py-3 px-4 border">July 10-11, 2026</td>
+                  <td className="py-3 px-4 border">Stâna de Vale Trail Race</td>
                   <td className="py-3 px-4 border">Romania</td>
                   <td className="py-3 px-4 border">
                     <div className="space-y-2">
-                      <span className="text-sm font-bold text-red-600">Registration Closed</span>
+                      <span className="text-sm font-bold text-primary">See current event pages</span>
                       <span className="text-gray-500 text-sm block">
-                        No longer available
+                        Check the race pages for current registration details
                       </span>
-                    </div>
-                  </td>
-                </tr>
-                <tr className="bg-gray-50">
-                  <td className="py-3 px-4 border">September 13, 2025</td>
-                  <td className="py-3 px-4 border">Camporredondo de Alba</td>
-                  <td className="py-3 px-4 border">Spain</td>
-                  <td className="py-3 px-4 border">
-                    <div className="space-y-2">
-                      <a 
-                        href="https://utmp.run" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-primary hover:underline block text-sm"
-                      >
-                        Website
-                      </a>
-                      <a 
-                        href="https://www.rockthesport.com/es/evento/ultra-montana-palentina-2025?frm=0&men=0&tit=0" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-primary hover:underline block text-sm"
-                      >
-                        Registration
-                      </a>
-                      <span className="text-sm">Contact: utmp70@gmail.com</span>
                     </div>
                   </td>
                 </tr>
@@ -258,15 +245,15 @@ const EmaCircuitPage = () => {
           
           <div className="mt-6 p-4 rounded-md bg-yellow-50 border border-yellow-200">
             <p className="text-sm font-medium text-yellow-800">
-              {t("emaCircuit.calendar.updateNote") || "Please note: This calendar has been updated as per the official 2025 EMA Off-Road Running Circuit regulations. Check back regularly for any additional event announcements or changes."}
+              {t("emaCircuit.calendar.updateNote") || "Please note: This calendar has been updated as per the official 2026 EMA Off-Road Running Circuit regulations. Check back regularly for any additional event announcements or changes."}
             </p>
           </div>
           
           <div className="mt-6 bg-primary/5 p-4 rounded-md">
             <p className="font-medium text-sm">
-              Official calendar of the EMA Off-Road Running Circuit 2025. For more information, visit the{" "}
+              Official calendar of the EMA Off-Road Running Circuit 2026. For more information, visit the{" "}
               <a 
-                href="https://european-masters-athletics.org/ema-off-road-running-circuit-2025/" 
+                href="https://european-masters-athletics.org/ema-off-road-running-circuit-2026/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-primary hover:underline font-semibold"

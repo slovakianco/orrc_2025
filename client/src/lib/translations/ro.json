@@ -130,10 +130,12 @@
       "15": "15 iunie",
       "16": "16 iunie",
       "17": "17 iunie",
-      "4": "4 iulie",
-      "5": "5 iulie",
+      "4": "10 iulie",
+      "5": "11 iulie",
       "6": "6 iulie",
-      "05": "5 iulie"
+      "05": "11 iulie",
+      "10": "10 iulie",
+      "11": "11 iulie"
     },
     "viewDetails": "Vezi detalii",
     "viewAllButton": "Vezi toate cursele",
@@ -423,8 +425,8 @@
     "detailedSchedule": "Program detaliat",
     "day": "Zi",
     "dayTitles": {
-      "day1": "Vineri, 4 iulie",
-      "day2": "Sâmbătă, 5 iulie"
+      "day1": "Vineri, 10 iulie",
+      "day2": "Sâmbătă, 11 iulie"
     },
     "raceCenter": {
       "title": "Centrul cursei - Hotel Iadolina",
@@ -566,7 +568,7 @@
     "subscribeText": "Rămâi la curent cu ultimele știri și actualizări despre competiție.",
     "emailPlaceholder": "Adresa ta de email",
     "privacyNotice": "Prin abonare, ești de acord cu politica noastră de confidențialitate și consimți să primești actualizări de la echipa noastră.",
-    "copyright": "© 2025 Competiție de alergare pe traseu. Toate drepturile rezervate.",
+    "copyright": "© 2026 Competiție de alergare pe traseu. Toate drepturile rezervate.",
     "privacy": "Politica de confidențialitate",
     "terms": "Termeni și condiții",
     "cookies": "Politica de cookie-uri"
@@ -856,16 +858,16 @@
         "shuttle": "Program minibuz:",
         "toDestination": {
           "title": "Beiuș către Stâna de Vale:",
-          "friday": "Vineri, 4 iulie:",
+          "friday": "Vineri, 10 iulie:",
           "fridayTimes": "Plecări: 10:00, 13:00, 15:00, 17:00",
-          "saturday": "Sâmbătă, 5 iulie:",
+          "saturday": "Sâmbătă, 11 iulie:",
           "saturdayTimes": "Plecări: 07:00, 08:00"
         },
         "fromDestination": {
           "title": "Întoarcere de la Stâna de Vale la Beiuș:",
-          "friday": "Vineri, 4 iulie:",
+          "friday": "Vineri, 10 iulie:",
           "fridayTimes": "Plecări: 11:00, 14:00, 16:00, 20:00",
-          "saturday": "Sâmbătă, 5 iulie:",
+          "saturday": "Sâmbătă, 11 iulie:",
           "saturdayTimes": "Plecări: 17:00, 22:00"
         }
       }
@@ -990,7 +992,7 @@
   },
   "cnMasters": {
     "title": "CN Masters - Campionatul Național de Alergare Montană",
-    "subtitle": "Campionatul Național de Alergare Montană pentru Masters - Ediția 2025",
+    "subtitle": "Campionatul Național de Alergare Montană pentru Masters - Ediția 2026",
     "introTitle": "Despre Campionatul Național",
     "introText": "Campionatul Național de Alergare Montană al României pentru Masters este una dintre cele mai prestigioase competiții de alergare montană din România, organizată cu sprijinul Federației Române de Atletism (FRA). Acest eveniment celebrează realizările excepționale ale atleților Masters cu vârsta de 35 de ani și peste, evidențiind rezistența, abilitățile și angajamentul lor față de alergarea pe traseu.",
     "race1": {
@@ -1004,7 +1006,7 @@
     "categoriesTitle": "Categorii de vârstă Masters",
     "categoryColumn": "Categorie",
     "ageColumn": "Grup de vârstă",
-    "yearColumn": "Anul nașterii (2025)",
+    "yearColumn": "Anul nașterii (2026)",
     "categoriesNote": "Vârsta este determinată pe baza vârstei atletului în ziua competiției. Toți participanții din categoriile Masters trebuie să fie membri ai cluburilor afiliate Federației Române de Atletism sau să dețină licențe individuale FRA.",
     "rulesTitle": "Reguli campionat",
     "rules": {

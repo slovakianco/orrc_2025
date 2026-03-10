@@ -15,7 +15,7 @@ const CNMastersPage = () => {
     <div className="min-h-screen bg-neutral-light/30">
       <PageHeader
         title="CN Masters"
-        subtitle="Campionatul Naţional de Alergare Montană Masters 2025"
+        subtitle="Campionatul Naţional de Alergare Montană Masters 2026"
       />
 
       <div className="container mx-auto px-4 py-8 md:py-12">
@@ -26,7 +26,7 @@ const CNMastersPage = () => {
             Campionatul Naţional de Alergare Montană Masters
           </h2>
           <p className="text-neutral-dark mb-6">
-            În 2025, Stâna de Vale găzduiește Campionatul Naţional de Alergare
+            În 2026, Stâna de Vale găzduiește Campionatul Naţional de Alergare
             Montană Masters pentru categoriile de vârstă 35-79 ani. Competiția
             este organizată sub egida Federației Române de Atletism și include
             două curse oficiale.
@@ -44,7 +44,7 @@ const CNMastersPage = () => {
               <p className="text-neutral-dark">
                 Cursa principală a Campionatului Naţional Masters de Alergare
                 Montană, cu o distanță de 33 km și 1500 m diferență de nivel.
-                Această cursă face parte din EMA Off-Road Running Circuit 2025.
+                Această cursă face parte din EMA Off-Road Running Circuit 2026.
               </p>
             </div>
 
@@ -60,7 +60,7 @@ const CNMastersPage = () => {
                 Proba scurtă a Campionatului Naţional Masters de Alergare
                 Montană, cu un traseu clasic up/down de 11 km și 500 m diferență
                 de nivel. Această cursă face parte din EMA Off-Road Running
-                Circuit 2025.
+                Circuit 2026.
               </p>
             </div>
           </div>
@@ -85,42 +85,42 @@ const CNMastersPage = () => {
                 <tr>
                   <td className="py-3 px-4 font-medium">M35/F35</td>
                   <td className="py-3 px-4">35-39</td>
-                  <td className="py-3 px-4">1986-1990</td>
+                  <td className="py-3 px-4">1987-1991</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 font-medium">M40/F40</td>
                   <td className="py-3 px-4">40-44</td>
-                  <td className="py-3 px-4">1981-1985</td>
+                  <td className="py-3 px-4">1982-1986</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 font-medium">M45/F45</td>
                   <td className="py-3 px-4">45-49</td>
-                  <td className="py-3 px-4">1976-1980</td>
+                  <td className="py-3 px-4">1977-1981</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 font-medium">M50/F50</td>
                   <td className="py-3 px-4">50-54</td>
-                  <td className="py-3 px-4">1971-1975</td>
+                  <td className="py-3 px-4">1972-1976</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 font-medium">M55/F55</td>
                   <td className="py-3 px-4">55-59</td>
-                  <td className="py-3 px-4">1966-1970</td>
+                  <td className="py-3 px-4">1967-1971</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 font-medium">M60/F60</td>
                   <td className="py-3 px-4">60-64</td>
-                  <td className="py-3 px-4">1961-1965</td>
+                  <td className="py-3 px-4">1962-1966</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 font-medium">M65/F65</td>
                   <td className="py-3 px-4">65-69</td>
-                  <td className="py-3 px-4">1956-1960</td>
+                  <td className="py-3 px-4">1957-1961</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 font-medium">M70/F70</td>
                   <td className="py-3 px-4">70+</td>
-                  <td className="py-3 px-4">1955 and earlier</td>
+                  <td className="py-3 px-4">1956 and earlier</td>
                 </tr>
               </tbody>
             </table>

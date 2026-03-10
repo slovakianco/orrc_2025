@@ -6,8 +6,8 @@ const ProgramSchedule = () => {
 
   // Days structure for our new program based on translation keys
   const days = [
-    { id: "day1", label: "program.dayTitles.day1" }, // Friday, July 4
-    { id: "day2", label: "program.dayTitles.day2" }, // Saturday, July 5
+    { id: "day1", label: "program.dayTitles.day1" }, // Friday, July 10
+    { id: "day2", label: "program.dayTitles.day2" }, // Saturday, July 11
   ];
 
   return (
@@ -27,12 +27,12 @@ const ProgramSchedule = () => {
             {t("program.detailedSchedule")}
           </h3>
 
-          {/* Day 1: Friday, July 4 */}
+          {/* Day 1: Friday, July 10 */}
           <div className="relative mb-12">
             <div className="absolute top-0 bottom-0 left-14 w-1 bg-primary bg-opacity-20"></div>
             <div className="mb-8 flex">
               <div className="bg-primary text-white rounded-lg p-3 z-10 shadow-md">
-                <span className="text-xl-white font-bold block">4</span>
+                <span className="text-xl-white font-bold block">10</span>
                 <span className="text-sm-white">{t("months.6")}</span>
               </div>
               <div className="ml-8">
@@ -132,12 +132,12 @@ const ProgramSchedule = () => {
             </div>
           </div>
 
-          {/* Day 2: Saturday, July 5 */}
+          {/* Day 2: Saturday, July 11 */}
           <div className="relative mb-12">
             <div className="absolute top-0 bottom-0 left-14 w-1 bg-primary bg-opacity-20"></div>
             <div className="mb-8 flex">
               <div className="bg-primary text-white rounded-lg p-3 z-10 shadow-md">
-                <span className="text-xl-white font-bold block">5</span>
+                <span className="text-xl-white font-bold block">11</span>
                 <span className="text-sm-white">{t("months.6")}</span>
               </div>
               <div className="ml-8">

@@ -278,6 +278,7 @@ export async function sendPaymentConfirmationEmail(
   firstname: string,
   lastname: string,
   raceCategory: string,
+  raceDate: string,
   language: SupportedLanguages = "en",
 ): Promise<boolean> {
   try {
@@ -287,8 +288,8 @@ export async function sendPaymentConfirmationEmail(
     // Payment confirmation email content
     const subject = translations.paymentConfirmationSubject;
 
-    // Format the dates 5 july 2025
-    const eventDate = new Date("2025-07-05");
+    // Format the selected race date
+    const eventDate = new Date(raceDate);
     const formattedEventDate = eventDate.toLocaleDateString(language, {
       weekday: "long",
       year: "numeric",
@@ -334,8 +335,8 @@ export async function sendPaymentConfirmationEmail(
         </div>
         
         <div style="margin-top: 30px; border-top: 1px solid #e6dfd9; padding-top: 20px; text-align: center; font-size: 14px; color: #7D5A45;">
-          <p>Stana de Vale Trail Race 2025 • Stâna de Vale, Romania</p>
-          <p>© 2025 Stana de Vale Trail Race. ${translations.allRightsReserved}.</p>
+          <p>Stana de Vale Trail Race 2026 • Stâna de Vale, Romania</p>
+          <p>© 2026 Stana de Vale Trail Race. ${translations.allRightsReserved}.</p>
         </div>
       </div>
     `;
@@ -371,8 +372,8 @@ ${translations.closingMessage}
 ${translations.signature}
 Stana de Vale Trail Race Team
 
-Stana de Vale Trail Race 2025 • Stâna de Vale, Romania
-© 2025 Stana de Vale Trail Race. ${translations.allRightsReserved}.
+Stana de Vale Trail Race 2026 • Stâna de Vale, Romania
+© 2026 Stana de Vale Trail Race. ${translations.allRightsReserved}.
     `;
 
     // Send the email
@@ -531,8 +532,8 @@ export async function sendRegistrationConfirmationEmail(
         </div>
         
         <div style="margin-top: 30px; border-top: 1px solid #e6dfd9; padding-top: 20px; text-align: center; font-size: 14px; color: #7D5A45;">
-          <p>Stana de Vale Trail Race 2025</p>
-          <p>July 4-5, 2025 • Stâna de Vale, Romania</p>
+          <p>Stana de Vale Trail Race 2026</p>
+          <p>July 10-11, 2026 • Stâna de Vale, Romania</p>
         </div>
       </div>`,
     });
@@ -564,8 +565,8 @@ export async function sendRegistrationConfirmationEmail(
         </div>
         
         <div style="margin-top: 30px; border-top: 1px solid #e6dfd9; padding-top: 20px; text-align: center; font-size: 14px; color: #7D5A45;">
-          <p>Stana de Vale Trail Race 2025</p>
-          <p>July 4-5, 2025 • Stâna de Vale, Romania</p>
+          <p>Stana de Vale Trail Race 2026</p>
+          <p>July 10-11, 2026 • Stâna de Vale, Romania</p>
         </div>
       </div>`,
     });

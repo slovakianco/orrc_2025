@@ -853,7 +853,7 @@ export default function RulesContent() {
             {/* EMA Circuit Calendar */}
             <div className="mt-10 mb-8">
               <h3 className="text-xl font-bold mb-6 text-blue-600 border-b pb-2">
-                {t("emaCircuit.calendar.title")} - 2025
+                {t("emaCircuit.calendar.title")} - 2026
               </h3>
 
               <div className="overflow-x-auto">
@@ -876,8 +876,21 @@ export default function RulesContent() {
                   </thead>
                   <tbody>
                     <tr className="bg-white">
-                      <td className="border p-3">May 25, 2025</td>
-                      <td className="border p-3">Ventoux Mountain Running</td>
+                      <td className="border p-3">May 10, 2026</td>
+                      <td className="border p-3">Lloret del Mar</td>
+                      <td className="border p-3">Spain 🇪🇸</td>
+                      <td className="border p-3">
+                        <div className="space-y-1 text-sm">
+                          <span className="text-primary font-bold">
+                            Information pending
+                          </span>
+                          <span>Check official EMA and organiser channels</span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr className="bg-blue-50">
+                      <td className="border p-3">May 24, 2026</td>
+                      <td className="border p-3">Mont Ventoux</td>
                       <td className="border p-3">France 🇫🇷</td>
                       <td className="border p-3">
                         <div className="space-y-1 text-sm">
@@ -901,11 +914,9 @@ export default function RulesContent() {
                         </div>
                       </td>
                     </tr>
-                    <tr className="bg-blue-50">
-                      <td className="border p-3">June 22, 2025</td>
-                      <td className="border p-3">
-                        10 Miglia Internazionale Aviano Piancavallo
-                      </td>
+                    <tr className="bg-white">
+                      <td className="border p-3">June 21, 2026</td>
+                      <td className="border p-3">Aviano</td>
                       <td className="border p-3">Italy 🇮🇹</td>
                       <td className="border p-3">
                         <div className="space-y-1 text-sm">
@@ -928,44 +939,18 @@ export default function RulesContent() {
                         </div>
                       </td>
                     </tr>
-                    <tr className="bg-white font-semibold">
-                      <td className="border p-3">July 5, 2025</td>
+                    <tr className="bg-blue-50 font-semibold">
+                      <td className="border p-3">July 10-11, 2026</td>
                       <td className="border p-3">Stâna de Vale Trail Race</td>
                       <td className="border p-3">Romania 🇷🇴</td>
                       <td className="border p-3">
                         <div className="space-y-1 text-sm">
-                          <span className="text-red-600 font-bold">
-                            Registration Closed
+                          <span className="text-primary font-bold">
+                            See current event pages
                           </span>
                           <span className="text-gray-500 text-sm block">
-                            No longer available
+                            Check the race pages for current registration details
                           </span>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr className="bg-blue-50">
-                      <td className="border p-3">September 13, 2025</td>
-                      <td className="border p-3">Camporredondo de Alba</td>
-                      <td className="border p-3">Spain 🇪🇸</td>
-                      <td className="border p-3">
-                        <div className="space-y-1 text-sm">
-                          <a
-                            href="https://utmp.run"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 hover:underline block"
-                          >
-                            Website
-                          </a>
-                          <a
-                            href="https://www.rockthesport.com/es/evento/ultra-montana-palentina-2025?frm=0&men=0&tit=0"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 hover:underline block"
-                          >
-                            Registration
-                          </a>
-                          <span>Contact: utmp70@gmail.com</span>
                         </div>
                       </td>
                     </tr>

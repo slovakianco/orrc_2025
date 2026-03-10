@@ -19,7 +19,7 @@ export default function ResultsPage() {
             <p className="text-xl md:text-2xl text-black-100 max-w-3xl mx-auto">
               {t(
                 "results.subtitle",
-                "Official results from Stana de Vale Trail Race 2025",
+                "Official archived results from Stana de Vale Trail Race 2025",
               )}
             </p>
           </div>
@@ -121,7 +121,7 @@ export default function ResultsPage() {
             >
               <iframe
                 src="https://my-run.ro/stana-de-vale-trail-race-2025-rezultate/"
-                title="Race Results"
+                title="Race Results Archive"
                 className="border-0"
                 allowFullScreen
                 loading="lazy"
@@ -176,7 +176,7 @@ export default function ResultsPage() {
               <p className="text-yellow-700 mb-6 text-lg">
                 {t(
                   "results.external.description",
-                  "For the complete results with all details, visit the official results page.",
+                    "For the complete 2025 results archive with all details, visit the official results page.",
                 )}
               </p>
               <Button
@@ -188,7 +188,7 @@ export default function ResultsPage() {
                   )
                 }
               >
-                {t("results.external.button", "Open Full Results Page")}
+                {t("results.external.button", "Open 2025 Results Archive")}
                 <ExternalLink className="ml-2 h-5 w-5" />
               </Button>
             </CardContent>

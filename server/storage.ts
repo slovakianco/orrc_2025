@@ -398,12 +398,12 @@ export class MemStorage implements IStorage {
       distance: 33,
       elevation: 1500,
       difficulty: "long_trail",
-      date: "2024-07-05",
+      date: "2026-07-11",
       price: 200, // 200 lei
       imageUrl: "/stana-de-vale.jpg",
       raceMap:
         '<iframe src="https://tracedetrail.fr/en/iframe/6296" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>',
-      isemacertified: true, // Part of 2025 EMA Off-Road Running Circuit
+      isemacertified: true, // Part of 2026 EMA Off-Road Running Circuit
       isNationalChampionship: true, // Campionatul Naţional de Alergare Montană Masters
     } as InsertRace);
 
@@ -423,12 +423,12 @@ export class MemStorage implements IStorage {
       distance: 11,
       elevation: 550,
       difficulty: "classic_updown",
-      date: "2024-07-05",
+      date: "2026-07-11",
       price: 150, // 150 lei
       imageUrl: "/33km.jpg",
       raceMap:
         '<iframe src="https://tracedetrail.fr/en/iframe/6297" allowfullscreen style="border: 0;width: 100%; height: 800px;" scrolling="no"></iframe>',
-      isemacertified: true, // Also part of EMA Circuit for 2025
+      isemacertified: true, // Also part of EMA Circuit for 2026
       isNationalChampionship: true, // Campionat National only
     } as InsertRace);
 
@@ -499,7 +499,7 @@ export class MemStorage implements IStorage {
 
     // Program Events - Day 1
     this.createProgramEvent({
-      date: "2025-07-04",
+      date: "2026-07-10",
       startTime: "09:00",
       endTime: "18:00",
       title: "Registration & Bib Collection",
@@ -519,7 +519,7 @@ export class MemStorage implements IStorage {
     });
 
     this.createProgramEvent({
-      date: "2025-07-04",
+      date: "2026-07-10",
       startTime: "14:00",
       endTime: "16:00",
       title: "Expo & Sponsor Showcase",
@@ -539,7 +539,7 @@ export class MemStorage implements IStorage {
     });
 
     this.createProgramEvent({
-      date: "2025-07-04",
+      date: "2026-07-10",
       startTime: "17:00",
       endTime: "18:30",
       title: "Race Briefing: Mountain Explorer",
@@ -560,7 +560,7 @@ export class MemStorage implements IStorage {
 
     // Program Events - Day 2
     this.createProgramEvent({
-      date: "2025-07-05",
+      date: "2026-07-11",
       startTime: "07:00",
       endTime: null,
       title: "Mountain Explorer Race Start",
@@ -576,7 +576,7 @@ export class MemStorage implements IStorage {
     });
 
     this.createProgramEvent({
-      date: "2025-07-05",
+      date: "2026-07-11",
       startTime: "09:00",
       endTime: null,
       title: "Forest Challenge Race Start",
@@ -593,7 +593,7 @@ export class MemStorage implements IStorage {
 
     // Program Events - Day 3
     this.createProgramEvent({
-      date: "2025-07-05",
+      date: "2026-07-11",
       startTime: "05:00",
       endTime: null,
       title: "Summit Ultra Race Start",
@@ -609,7 +609,7 @@ export class MemStorage implements IStorage {
     });
 
     this.createProgramEvent({
-      date: "2025-07-05",
+      date: "2026-07-11",
       startTime: "18:00",
       endTime: "20:00",
       title: "Award Ceremony & Closing Party",

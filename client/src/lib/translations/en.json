@@ -130,10 +130,12 @@
       "15": "June 15",
       "16": "June 16",
       "17": "June 17",
-      "4": "July 4",
-      "5": "July 5",
+      "4": "July 10",
+      "5": "July 11",
       "6": "July 6",
-      "05": "July 5"
+      "05": "July 11",
+      "10": "July 10",
+      "11": "July 11"
     },
     "viewDetails": "View Details",
     "viewAllButton": "View All Races",
@@ -446,8 +448,8 @@
     "detailedSchedule": "Detailed Schedule",
     "day": "Day",
     "dayTitles": {
-      "day1": "Friday, July 4",
-      "day2": "Saturday, July 5"
+      "day1": "Friday, July 10",
+      "day2": "Saturday, July 11"
     },
     "raceCenter": {
       "title": "Race Center - Hotel Iadolina",
@@ -589,7 +591,7 @@
     "subscribeText": "Stay up to date with the latest news and updates about the competition.",
     "emailPlaceholder": "Your email address",
     "privacyNotice": "By subscribing, you agree to our privacy policy and consent to receive updates from our team.",
-    "copyright": "© 2025 Trail Running Competition. All rights reserved.",
+    "copyright": "© 2026 Trail Running Competition. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms & Conditions",
     "cookies": "Cookie Policy"
@@ -880,16 +882,16 @@
         "shuttle": "Minibus Schedule:",
         "toDestination": {
           "title": "Beiuș to Stana de Vale:",
-          "friday": "Friday, July 4:",
+          "friday": "Friday, July 10:",
           "fridayTimes": "Departures: 10:00, 13:00, 15:00, 17:00",
-          "saturday": "Saturday, July 5:",
+          "saturday": "Saturday, July 11:",
           "saturdayTimes": "Departures: 07:00, 08:00"
         },
         "fromDestination": {
           "title": "Return from Stana de Vale to Beiuș:",
-          "friday": "Friday, July 4:",
+          "friday": "Friday, July 10:",
           "fridayTimes": "Departures: 11:00, 14:00, 16:00, 20:00",
-          "saturday": "Saturday, July 5:",
+          "saturday": "Saturday, July 11:",
           "saturdayTimes": "Departures: 17:00, 22:00"
         }
       }
@@ -1029,7 +1031,7 @@
   },
   "cnMasters": {
     "title": "CN Masters - National Mountain Running Championship",
-    "subtitle": "National Mountain Running Championship for Masters - 2025 Edition",
+    "subtitle": "National Mountain Running Championship for Masters - 2026 Edition",
     "introTitle": "About the National Championship",
     "introText": "The Romanian National Mountain Running Championship for Masters is one of the most prestigious mountain running competitions in Romania, organized with the support of the Romanian Athletics Federation (FRA). This event celebrates the exceptional achievements of Masters athletes aged 35 and above, showcasing their endurance, skill, and commitment to trail running.",
     "race1": {
@@ -1043,7 +1045,7 @@
     "categoriesTitle": "Masters Age Categories",
     "categoryColumn": "Category",
     "ageColumn": "Age Group",
-    "yearColumn": "Birth Year (2025)",
+    "yearColumn": "Birth Year (2026)",
     "categoriesNote": "Age is determined based on the athlete's age on the day of the competition. All participants in the Masters categories must be members of clubs affiliated with the Romanian Athletics Federation or hold individual FRA licenses.",
     "rulesTitle": "Championship Rules",
     "rules": {

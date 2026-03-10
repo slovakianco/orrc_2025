@@ -572,7 +572,7 @@ This message was sent from the Stana de Vale Trail Race website contact form.
             </div>
             <div style="margin-top: 30px; border-top: 1px solid #e6dfd9; padding-top: 20px; text-align: center; font-size: 14px; color: #7D5A45;">
               <p>This message was sent from the Stana de Vale Trail Race website contact form.</p>
-              <p>Stana de Vale Trail Race 2025 • Stâna de Vale, Romania</p>
+              <p>Stana de Vale Trail Race 2026 • Stâna de Vale, Romania</p>
             </div>
           </div>`,
         });
@@ -856,7 +856,8 @@ This message was sent from the Stana de Vale Trail Race website contact form.
                     participant.email,
                     participant.firstname,
                     participant.lastname,
-                    raceCategory
+                    raceCategory,
+                    race?.date ?? "2026-07-11"
                   );
                   
                   if (emailSent) {
@@ -923,7 +924,8 @@ This message was sent from the Stana de Vale Trail Race website contact form.
         participant.email,
         participant.firstname,
         participant.lastname,
-        raceCategory
+        raceCategory,
+        race?.date ?? "2026-07-11"
       );
       
       if (emailSent) {
@@ -1042,7 +1044,8 @@ This message was sent from the Stana de Vale Trail Race website contact form.
         participant.email,
         participant.firstname,
         participant.lastname,
-        raceCategory
+        raceCategory,
+        race?.date ?? "2026-07-11"
       );
       
       if (emailSent) {
