@@ -10,6 +10,13 @@ import {
   Sponsor, InsertSponsor
 } from "@shared/schema";
 
+function getSupabaseClient() {
+  if (!supabase) {
+    throw new Error('Supabase client is not available');
+  }
+  return supabase;
+}
+
 export class SupabaseStorage implements IStorage {
   constructor() {
     console.log('Initializing Supabase storage...');
@@ -17,7 +24,7 @@ export class SupabaseStorage implements IStorage {
 
   // Users
   async getUser(id: number): Promise<User | undefined> {
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('users')
       .select('*')
       .eq('id', id)
@@ -32,7 +39,7 @@ export class SupabaseStorage implements IStorage {
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('users')
       .select('*')
       .eq('username', username)
@@ -47,7 +54,7 @@ export class SupabaseStorage implements IStorage {
   }
 
   async createUser(user: InsertUser): Promise<User> {
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('users')
       .insert(user)
       .select()
@@ -63,7 +70,7 @@ export class SupabaseStorage implements IStorage {
 
   // Races
   async getRaces(): Promise<Race[]> {
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('races')
       .select('*')
       .order('id');
@@ -77,7 +84,7 @@ export class SupabaseStorage implements IStorage {
   }
 
   async getRaceById(id: number): Promise<Race | undefined> {
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('races')
       .select('*')
       .eq('id', id)
@@ -92,7 +99,7 @@ export class SupabaseStorage implements IStorage {
   }
 
   async getRacesByDifficulty(difficulty: string): Promise<Race[]> {
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('races')
       .select('*')
       .eq('difficulty', difficulty)
@@ -107,7 +114,7 @@ export class SupabaseStorage implements IStorage {
   }
 
   async createRace(race: InsertRace): Promise<Race> {
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('races')
       .insert(race)
       .select()
@@ -130,7 +137,7 @@ export class SupabaseStorage implements IStorage {
     }
     
     // Proceed with the update
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('races')
       .update(updateData)
       .eq('id', id)
@@ -147,7 +154,7 @@ export class SupabaseStorage implements IStorage {
 
   // Participants
   async getParticipants(): Promise<Participant[]> {
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('participants')
       .select('*')
       .order('id');
@@ -161,7 +168,7 @@ export class SupabaseStorage implements IStorage {
   }
 
   async getParticipantById(id: number): Promise<Participant | undefined> {
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('participants')
       .select('*')
       .eq('id', id)
@@ -176,7 +183,7 @@ export class SupabaseStorage implements IStorage {
   }
 
   async getParticipantsByRace(raceid: number): Promise<Participant[]> {
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('participants')
       .select('*')
       .eq('raceid', raceid) // Using lowercase column name to match database
@@ -191,7 +198,7 @@ export class SupabaseStorage implements IStorage {
   }
 
   async getParticipantsByCountry(country: string): Promise<Participant[]> {
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('participants')
       .select('*')
       .eq('country', country)
@@ -208,7 +215,7 @@ export class SupabaseStorage implements IStorage {
   async searchParticipants(query: string): Promise<Participant[]> {
     // Supabase doesn't support full text search in the same way as SQL
     // We'll do a simple ILIKE search on first name and last name
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('participants')
       .select('*')
       .or(`firstname.ilike.%${query}%,lastname.ilike.%${query}%`) // Using lowercase column names
@@ -224,7 +231,7 @@ export class SupabaseStorage implements IStorage {
 
   async createParticipant(participant: InsertParticipant): Promise<Participant> {
     // Get the race for bib number generation
-    const { data: race, error: raceError } = await supabase
+    const { data: race, error: raceError } = await getSupabaseClient()
       .from('races')
       .select('*')
       .eq('id', participant.raceid)
@@ -240,7 +247,7 @@ export class SupabaseStorage implements IStorage {
     
     // Count participants to generate a sequential bib number
     console.log("Using raceid with value:", participant.raceid);
-    const { count, error: countError } = await supabase
+    const { count, error: countError } = await getSupabaseClient()
       .from('participants')
       .select('*', { count: 'exact' })
       .eq('raceid', participant.raceid); // Use lowercase column name exactly as in database
@@ -282,7 +289,7 @@ export class SupabaseStorage implements IStorage {
     
     console.log("Supabase participant data:", supabaseParticipant);
     
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('participants')
       .insert(supabaseParticipant)
       .select()
@@ -297,7 +304,7 @@ export class SupabaseStorage implements IStorage {
   }
 
   async updateParticipantStatus(id: number, status: string): Promise<Participant | undefined> {
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('participants')
       .update({ status })
       .eq('id', id)
@@ -324,7 +331,7 @@ export class SupabaseStorage implements IStorage {
       createdat: now // Using lowercase column name
     };
     
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('contact_inquiries')
       .insert(inquiryWithDate)
       .select()
@@ -339,7 +346,7 @@ export class SupabaseStorage implements IStorage {
   }
 
   async getContactInquiries(): Promise<ContactInquiry[]> {
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('contact_inquiries')
       .select('*')
       .order('createdat', { ascending: false }); // Using lowercase column name
@@ -354,7 +361,7 @@ export class SupabaseStorage implements IStorage {
 
   // FAQs
   async getFAQs(): Promise<FAQ[]> {
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('faqs')
       .select('*')
       .order('order_index');
@@ -376,7 +383,7 @@ export class SupabaseStorage implements IStorage {
       order_index: faq.order
     };
     
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('faqs')
       .insert(faqData)
       .select()
@@ -395,7 +402,7 @@ export class SupabaseStorage implements IStorage {
 
   // Program Events
   async getProgramEvents(): Promise<ProgramEvent[]> {
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('program_events')
       .select('*')
       .order('date')
@@ -413,7 +420,7 @@ export class SupabaseStorage implements IStorage {
   }
 
   async getProgramEventsByDate(date: string): Promise<ProgramEvent[]> {
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('program_events')
       .select('*')
       .eq('date', date)
@@ -453,7 +460,7 @@ export class SupabaseStorage implements IStorage {
       order_index: event.order // match database column name
     };
     
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('program_events')
       .insert(eventData)
       .select()
@@ -472,7 +479,7 @@ export class SupabaseStorage implements IStorage {
 
   // Sponsors
   async getSponsors(): Promise<Sponsor[]> {
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('sponsors')
       .select('*')
       .order('level')
@@ -490,7 +497,7 @@ export class SupabaseStorage implements IStorage {
   }
 
   async getSponsorsByLevel(level: string): Promise<Sponsor[]> {
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('sponsors')
       .select('*')
       .eq('level', level)
@@ -521,7 +528,7 @@ export class SupabaseStorage implements IStorage {
       order_index: sponsor.order // match database column name
     };
     
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('sponsors')
       .insert(sponsorData)
       .select()
@@ -559,7 +566,7 @@ export class SupabaseStorage implements IStorage {
     };
     
     // Update in Supabase
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('participants')
       .update(updateData)
       .eq('id', id)
@@ -578,7 +585,7 @@ export class SupabaseStorage implements IStorage {
   async getParticipantPaymentLink(
     id: number
   ): Promise<{ paymentLink: string; createdAt: Date; expiresAt?: Date } | undefined> {
-    const { data, error } = await supabase
+    const { data, error } = await getSupabaseClient()
       .from('participants')
       .select('payment_link, payment_link_created_at, payment_link_expires_at')
       .eq('id', id)
