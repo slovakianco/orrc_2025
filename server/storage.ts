@@ -432,6 +432,36 @@ export class MemStorage implements IStorage {
       isNationalChampionship: true, // Campionat National only
     } as InsertRace);
 
+    this.createRace({
+      name: "Vertical 8K",
+      nameRo: "Verticală 8K",
+      nameFr: "Verticale 8K",
+      nameDe: "Vertikal 8K",
+      nameIt: "Verticale 8K",
+      nameEs: "Vertical 8K",
+      description:
+        "A fierce 8km vertical challenge with 1100 meters of elevation gain, built for runners who thrive on steep and relentless climbing. This explosive uphill race demands strength, focus, and strong mountain running legs from start to finish.",
+      descriptionRo:
+        "O provocare verticală intensă de 8 km cu 1100 de metri diferență pozitivă de nivel, creată pentru alergătorii care excelează pe urcări abrupte și neîntrerupte. Această cursă explozivă în urcare cere forță, concentrare și picioare puternice de alergare montană de la start până la sosire.",
+      descriptionFr:
+        "Un défi vertical intense de 8 km avec 1100 mètres de dénivelé positif, conçu pour les coureurs qui excellent dans les montées raides et continues. Cette course explosive en montée exige de la force, de la concentration et de solides jambes de trail du départ à l'arrivée.",
+      descriptionDe:
+        "Eine intensive vertikale Herausforderung über 8 km mit 1100 Höhenmetern, geschaffen für Läuferinnen und Läufer, die auf steilen und unnachgiebigen Anstiegen glänzen. Dieses explosive Bergauflaufrennen verlangt vom Start bis ins Ziel Kraft, Fokus und starke Berglaufbeine.",
+      descriptionIt:
+        "Una intensa sfida verticale di 8 km con 1100 metri di dislivello positivo, pensata per i runner che danno il meglio sulle salite ripide e continue. Questa gara esplosiva tutta in salita richiede forza, concentrazione e gambe solide da trail dall'inizio alla fine.",
+      descriptionEs:
+        "Un intenso desafío vertical de 8 km con 1100 metros de desnivel positivo, diseñado para corredores que rinden al máximo en subidas empinadas y constantes. Esta carrera explosiva en ascenso exige fuerza, concentración y sólidas piernas de montaña desde la salida hasta la meta.",
+      distance: 8,
+      elevation: 1100,
+      difficulty: "classic_updown",
+      date: "2026-07-11",
+      price: 100, // 100 lei
+      imageUrl: "/stana-de-vale.jpg",
+      raceMap: "",
+      isemacertified: true,
+      isNationalChampionship: true,
+    } as InsertRace);
+
     // Sample FAQs
     this.createFAQ({
       question: "How do I register for the competition?",
