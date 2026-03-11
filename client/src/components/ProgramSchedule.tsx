@@ -72,6 +72,41 @@ const ProgramSchedule = () => {
                 </div>
               </div>
 
+              {/* Vertical 8K Race Start */}
+              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative">
+                <div className="absolute -left-16 top-6 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white">
+                  <Clock className="h-4 w-4" />
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+                  <div className="flex items-center">
+                    <Clock className="w-5 h-5 mr-2 text-primary" />
+                    <span className="text-base font-medium text-gray-700">
+                      10:00
+                    </span>
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold">
+                      {t("program.events.vertical.title", "Start cursă Vertical 8K")}
+                    </h4>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <p className="text-primary-dark font-medium flex items-center">
+                    <MapPin className="w-4 h-4 mr-2" />
+                    {t(
+                      "program.events.vertical.location",
+                      "Start: satul Budureasa • Sosire: Vârful Poieni, Stâna de Vale"
+                    )}
+                  </p>
+                  <p className="text-gray-600 leading-relaxed">
+                    {t(
+                      "program.events.vertical.description",
+                      "Cursa Vertical 8K are loc vineri, de la ora 10:00, pe traseul Budureasa – Vârful Poieni, Stâna de Vale."
+                    )}
+                  </p>
+                </div>
+              </div>
+
               {/* Technical Meeting */}
               <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow relative">
                 <div className="absolute -left-16 top-6 flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white">

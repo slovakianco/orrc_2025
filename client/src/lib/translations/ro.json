@@ -332,7 +332,7 @@
     "downloadButton": "Descarcă PDF-ul cu regulile complete",
     "important": "Notificare importantă",
     "importantDescription": "Toți participanții trebuie să respecte aceste reguli pentru siguranța lor și integritatea competiției. Nerespectarea poate duce la penalizări sau descalificare.",
-    "introduction": "Cursa pe traseu Stâna de Vale este organizată în conformitate cu standardele și reglementările internaționale de alergare pe traseu. Următoarele reguli se aplică tuturor participanților la cursele de 11km și 33km.",
+    "introduction": "Cursa pe traseu Stâna de Vale este organizată în conformitate cu standardele și reglementările internaționale de alergare pe traseu. Următoarele reguli se aplică tuturor participanților la cursele Vertical 8K, 11km și 33km.",
     "contactQuestion": "Ai întrebări despre reguli? Contactează-ne la: contact@stanatrailrace.ro sau +40744534802",
     "sections": {
       "general": {
@@ -451,6 +451,11 @@
         "title": "Pasta Party",
         "time": "Vineri, 18:30",
         "location": "Hotel Iadolina"
+      },
+      "vertical": {
+        "title": "Start cursă Vertical 8K",
+        "location": "Start: satul Budureasa • Sosire: Vârful Poieni, Stâna de Vale",
+        "description": "Cursa Vertical 8K are loc vineri, de la ora 10:00, pe traseul Budureasa – Vârful Poieni, Stâna de Vale."
       },
       "raceStart33k": {
         "title": "Start cursă 33km",

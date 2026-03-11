@@ -14,6 +14,7 @@ export default function RulesContent() {
 
   // Get current language
   const currentLang = i18n.language;
+  const isRomanian = currentLang === "ro";
 
   // Define mandatory equipment for 11km race based on language
   const getMandatoryEquipment11k = () => {
@@ -550,6 +551,50 @@ export default function RulesContent() {
 
   const registrationRules = getRegistrationRules();
 
+  const verticalRules = isRomanian
+    ? {
+        general: [
+          "Vertical 8K are loc vineri, 10 iulie 2026, cu startul în Budureasa și sosirea la Vârful Poieni, Stâna de Vale.",
+          "Startul cursei Vertical 8K este la ora 10:00.",
+          "Pentru Vertical 8K se întocmesc clasamente open feminin și masculin, precum și clasamente pe categorii de vârstă, pe baza rezultatelor oficiale validate de organizator.",
+          "Premierea Vertical 8K se face pe baza clasamentelor oficiale ale cursei."
+        ],
+        equipment: [
+          "Număr de concurs vizibil pe tot parcursul cursei",
+          "Telefon mobil încărcat, cu numărul de urgență al organizatorului salvat în telefon",
+          "Recipient de apă de minimum 500 ml"
+        ],
+        recommendations: [
+          "Bețele de trail sau trekking sunt permise la Vertical 8K, cu utilizarea lor responsabilă pe tot traseul."
+        ],
+        timeLimits: [
+          "Limită totală de timp: 3 ore.",
+          "CP1: km 4, timp limită 1 h 30 min."
+        ],
+        aidStations: [
+          "CP1 este amplasat la km 4 și reprezintă punctul intermediar de control al cursei Vertical 8K."
+        ],
+        penalties: [
+          "Nerespectarea traseului oficial, a trecerii prin CP1 sau a indicațiilor organizatorilor poate duce la penalizare sau descalificare.",
+          "Nerespectarea regulilor privind coborârea de la sosire poate duce la descalificare."
+        ],
+        safety: [
+          "Organizatorul poate opri din cursă orice participant care nu mai poate continua în condiții de siguranță.",
+          "Coborârea de la sosire se face numai pe varianta indicată de organizatori, cu respectarea instrucțiunilor arbitrilor și voluntarilor."
+        ],
+        environment: [
+          "Pe traseul Vertical 8K este interzisă abandonarea recipientelor, gelurilor sau a oricărui alt echipament în afara zonelor indicate de organizatori."
+        ],
+        registration: [
+          "La Vertical 8K pot participa concurenții apți pentru efort intens în alergare montană și care respectă toate cerințele organizatorului.",
+          "Taxa de înscriere pentru Vertical 8K este 100 lei.",
+          "Pentru înscrierea cumulată la două curse se acordă o reducere totală de 50 de lei.",
+          "Prin înscriere, participantul confirmă că a citit, a înțeles și acceptă regulamentul Vertical 8K.",
+          "La Vertical 8K, categoriile de vârstă pentru feminin și masculin sunt: 35-39, 40-44, 45-49, 50-54, 55-59, 60-64, 65-69, 70-74, 75-79 și 80+."
+        ]
+      }
+    : null;
+
   return (
     <div>
       <section className="py-8 bg-[WHITE] text-white">
@@ -588,6 +633,16 @@ export default function RulesContent() {
                         <li key={index}>{rule}</li>
                       ))}
                     </ul>
+                    {verticalRules && (
+                      <div className="mt-6">
+                        <h4 className="font-semibold text-lg mb-2 text-primary-dark">Vertical 8K</h4>
+                        <ul className="list-disc pl-6 space-y-2">
+                          {verticalRules.general.map((rule, index) => (
+                            <li key={index}>{rule}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </AccordionContent>
                 </AccordionItem>
 
@@ -613,6 +668,17 @@ export default function RulesContent() {
                         ))}
                       </ul>
                     </div>
+
+                    {verticalRules && (
+                      <div className="mt-6 mb-4">
+                        <h4 className="font-semibold text-lg mb-2 text-primary-dark">Vertical 8K</h4>
+                        <ul className="list-disc pl-6 space-y-2">
+                          {verticalRules.equipment.map((rule, index) => (
+                            <li key={index}>{rule}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </AccordionContent>
                 </AccordionItem>
 
@@ -626,6 +692,16 @@ export default function RulesContent() {
                         <li key={index}>{rule}</li>
                       ))}
                     </ul>
+                    {verticalRules && (
+                      <div className="mt-6">
+                        <h4 className="font-semibold text-lg mb-2 text-primary-dark">Vertical 8K</h4>
+                        <ul className="list-disc pl-6 space-y-2">
+                          {verticalRules.recommendations.map((rule, index) => (
+                            <li key={index}>{rule}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </AccordionContent>
                 </AccordionItem>
 
@@ -639,6 +715,16 @@ export default function RulesContent() {
                         <li key={index}>{rule}</li>
                       ))}
                     </ul>
+                    {verticalRules && (
+                      <div className="mt-6">
+                        <h4 className="font-semibold text-lg mb-2 text-primary-dark">Vertical 8K</h4>
+                        <ul className="list-disc pl-6 space-y-2">
+                          {verticalRules.timeLimits.map((rule, index) => (
+                            <li key={index}>{rule}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </AccordionContent>
                 </AccordionItem>
 
@@ -652,6 +738,16 @@ export default function RulesContent() {
                         <li key={index}>{rule}</li>
                       ))}
                     </ul>
+                    {verticalRules && (
+                      <div className="mt-6">
+                        <h4 className="font-semibold text-lg mb-2 text-primary-dark">Vertical 8K</h4>
+                        <ul className="list-disc pl-6 space-y-2">
+                          {verticalRules.aidStations.map((rule, index) => (
+                            <li key={index}>{rule}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </AccordionContent>
                 </AccordionItem>
 
@@ -665,6 +761,16 @@ export default function RulesContent() {
                         <li key={index}>{rule}</li>
                       ))}
                     </ul>
+                    {verticalRules && (
+                      <div className="mt-6">
+                        <h4 className="font-semibold text-lg mb-2 text-primary-dark">Vertical 8K</h4>
+                        <ul className="list-disc pl-6 space-y-2">
+                          {verticalRules.penalties.map((rule, index) => (
+                            <li key={index}>{rule}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </AccordionContent>
                 </AccordionItem>
 
@@ -678,6 +784,16 @@ export default function RulesContent() {
                         <li key={index}>{rule}</li>
                       ))}
                     </ul>
+                    {verticalRules && (
+                      <div className="mt-6">
+                        <h4 className="font-semibold text-lg mb-2 text-primary-dark">Vertical 8K</h4>
+                        <ul className="list-disc pl-6 space-y-2">
+                          {verticalRules.safety.map((rule, index) => (
+                            <li key={index}>{rule}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </AccordionContent>
                 </AccordionItem>
 
@@ -691,6 +807,16 @@ export default function RulesContent() {
                         <li key={index}>{rule}</li>
                       ))}
                     </ul>
+                    {verticalRules && (
+                      <div className="mt-6">
+                        <h4 className="font-semibold text-lg mb-2 text-primary-dark">Vertical 8K</h4>
+                        <ul className="list-disc pl-6 space-y-2">
+                          {verticalRules.environment.map((rule, index) => (
+                            <li key={index}>{rule}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </AccordionContent>
                 </AccordionItem>
 
@@ -704,6 +830,16 @@ export default function RulesContent() {
                         <li key={index}>{rule}</li>
                       ))}
                     </ul>
+                    {verticalRules && (
+                      <div className="mt-6">
+                        <h4 className="font-semibold text-lg mb-2 text-primary-dark">Vertical 8K</h4>
+                        <ul className="list-disc pl-6 space-y-2">
+                          {verticalRules.registration.map((rule, index) => (
+                            <li key={index}>{rule}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
