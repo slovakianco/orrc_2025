@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import { useState, useEffect, useMemo } from "react";
 import { Race, Participant, ParticipantFilters } from "@/lib/types";
-import { getStatusColor, getCountryFlag, getCountryName, getLocalizedRaceName } from "@/lib/utils";
+import { getStatusColor, getCountryFlag, getCountryName, getLocalizedRaceName, getDifficultyBadgeColor } from "@/lib/utils";
 import { 
   Search, ChevronLeft, ChevronRight, Globe, Map, Info, List, Grid, 
   Filter, Award, UserCheck, Trophy, Users
@@ -429,11 +429,7 @@ const ParticipantsList = () => {
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <span className={`px-2 py-1 text-xs font-medium ${
-                            race?.difficulty === 'beginner' ? 'bg-accent bg-opacity-10 text-accent' :
-                            race?.difficulty === 'intermediate' ? 'bg-secondary bg-opacity-10 text-secondary' :
-                            'bg-primary bg-opacity-10 text-primary'
-                          } rounded-full`}>
+                          <span className={`px-2 py-1 text-xs font-medium ${getDifficultyBadgeColor(race?.difficulty || '')} rounded-full`}>
                             {race ? getLocalizedRaceName(race, i18n.language as any) : t('participants.unknownRace')}
                           </span>
                         </td>
@@ -496,11 +492,7 @@ const ParticipantsList = () => {
                           <div className="flex items-center">
                             <Map className="w-5 h-5 mr-3 ml-1.5 text-neutral-gray" />
                             <div>
-                              <span className={`px-2 py-1 text-xs font-medium ${
-                                race?.difficulty === 'beginner' ? 'bg-accent bg-opacity-10 text-accent' :
-                                race?.difficulty === 'intermediate' ? 'bg-secondary bg-opacity-10 text-secondary' :
-                                'bg-primary bg-opacity-10 text-primary'
-                              } rounded-full`}>
+                              <span className={`px-2 py-1 text-xs font-medium ${getDifficultyBadgeColor(race?.difficulty || '')} rounded-full`}>
                                 {race ? getLocalizedRaceName(race, i18n.language as any) : t('participants.unknownRace')}
                               </span>
                             </div>

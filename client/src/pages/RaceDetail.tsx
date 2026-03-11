@@ -87,7 +87,7 @@ const RaceDetail = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6 md:p-8">
               <div
-                className={`inline-block py-1 px-3 rounded-full text-sm font-bold mb-3 bg-difficulty-${race.difficulty} text-white`}
+                className={`inline-block py-1 px-3 rounded-full text-sm font-bold mb-3 ${getDifficultyColor(race.difficulty)}`}
               >
                 {t(`races.difficulty.${race.difficulty}`)}
               </div>

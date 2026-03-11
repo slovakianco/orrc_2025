@@ -148,6 +148,12 @@ export function getLocalizedSponsorDescription(sponsor: Sponsor, language: Langu
 // Get difficulty badge color for background
 export function getDifficultyColor(difficulty: string): string {
   switch (difficulty) {
+    case 'classic_updown':
+      return 'bg-blue-600 text-white';
+    case 'long_trail':
+      return 'bg-green-700 text-white';
+    case 'vertical':
+      return 'bg-orange-600 text-white';
     case 'beginner':
       return 'bg-green-600 text-white';
     case 'intermediate':
@@ -164,6 +170,12 @@ export function getDifficultyColor(difficulty: string): string {
 // Get difficulty badge color for inline badges
 export function getDifficultyBadgeColor(difficulty: string): string {
   switch (difficulty) {
+    case 'classic_updown':
+      return 'bg-blue-100/80 text-blue-800';
+    case 'long_trail':
+      return 'bg-green-100/80 text-green-800';
+    case 'vertical':
+      return 'bg-orange-100/80 text-orange-800';
     case 'beginner':
       return 'bg-green-100/80 text-green-800';
     case 'intermediate':

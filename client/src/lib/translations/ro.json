@@ -119,11 +119,13 @@
     "filters": {
       "all": "Toate cursele",
       "classic_updown": "Clasic UP/DOWN",
+      "vertical": "Vertical",
       "long_trail": "Long Trail"
     },
     "difficulty": {
       "label": "Tip",
       "classic_updown": "UP/DOWN",
+      "vertical": "Vertical",
       "long_trail": "Long Trail"
     },
     "dates": {

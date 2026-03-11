@@ -14,7 +14,7 @@ export const insertUserSchema = createInsertSchema(users).pick({
 });
 
 // Race difficulty enum
-export const difficultyEnum = pgEnum('difficulty', ['classic_updown', 'long_trail']);
+export const difficultyEnum = pgEnum('difficulty', ['classic_updown', 'long_trail', 'vertical']);
 
 // Race schema
 export const races = pgTable("races", {

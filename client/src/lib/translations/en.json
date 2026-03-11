@@ -119,11 +119,13 @@
     "filters": {
       "all": "All Races",
       "classic_updown": "Classic UP/DOWN",
+      "vertical": "Vertical",
       "long_trail": "Long Trail"
     },
     "difficulty": {
       "label": "Type",
       "classic_updown": "Classic UP/DOWN",
+      "vertical": "Vertical",
       "long_trail": "Long Trail"
     },
     "dates": {

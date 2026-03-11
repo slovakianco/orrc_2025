@@ -6,9 +6,9 @@ import { MapPin, Calendar, Mountain, TrendingUp, Award, Users, Info } from "luci
 import { useQuery } from "@tanstack/react-query";
 import { Race } from "@/lib/types";
 import { Link } from "wouter";
-import { getLocalizedRaceName, getDifficultyColor } from "@/lib/utils";
+import { getLocalizedRaceName, getDifficultyBadgeColor, getDifficultyColor } from "@/lib/utils";
 
-type RaceCategory = "all" | "beginner" | "advanced";
+type RaceCategory = "all" | "classic_updown" | "vertical" | "long_trail";
 
 export default function Races() {
   const { t, i18n } = useTranslation();
@@ -38,28 +38,28 @@ export default function Races() {
   const filterCategories: { value: RaceCategory; label: string; icon: React.ReactNode }[] = [
     { 
       value: "all", 
-      label: t("races.filter.all"), 
+      label: t("races.filters.all"), 
       icon: <Info className="w-4 h-4 mr-2" /> 
     },
     { 
-      value: "beginner", 
-      label: t("races.filter.beginner"), 
+      value: "classic_updown", 
+      label: t("races.filters.classic_updown"), 
       icon: <Mountain className="w-4 h-4 mr-2" /> 
     },
     { 
-      value: "advanced", 
-      label: t("races.filter.advanced"), 
+      value: "vertical", 
+      label: t("races.filters.vertical"), 
+      icon: <TrendingUp className="w-4 h-4 mr-2" /> 
+    },
+    { 
+      value: "long_trail", 
+      label: t("races.filters.long_trail"), 
       icon: <Award className="w-4 h-4 mr-2" /> 
     }
   ];
 
   // Filter races based on selected difficulty
-  const filteredRaces = races?.filter(race => {
-    if (filter === "all") return true;
-    if (filter === "beginner" && (race.difficulty === "beginner")) return true;
-    if (filter === "advanced" && (race.difficulty === "advanced" || race.difficulty === "ultra")) return true;
-    return false;
-  });
+  const filteredRaces = races?.filter(race => filter === "all" || race.difficulty === filter);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
@@ -162,12 +162,10 @@ export default function Races() {
                         </h3>
                         <div className="flex mt-1 gap-2">
                           <span 
-                            className={`text-xs bg-${race.difficulty === 'beginner' ? 'green' : race.difficulty === 'intermediate' ? 'yellow' : 'red'}-100/80 
-                            text-${race.difficulty === 'beginner' ? 'green' : race.difficulty === 'intermediate' ? 'yellow' : 'red'}-800 
-                            px-2 py-0.5 rounded-full font-medium flex items-center`}
+                            className={`text-xs px-2 py-0.5 rounded-full font-medium flex items-center ${getDifficultyBadgeColor(race.difficulty)}`}
                           >
                             <Award className="w-3 h-3 mr-1" />
-                            {t(`race.difficulty.${race.difficulty}`)}
+                            {t(`races.difficulty.${race.difficulty}`)}
                           </span>
                         </div>
                       </div>

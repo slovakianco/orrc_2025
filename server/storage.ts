@@ -368,6 +368,8 @@ export class MemStorage implements IStorage {
       case "beginner":
       case "classic_updown":
         return "C"; // Classic
+      case "vertical":
+        return "V"; // Vertical
       case "intermediate":
         return "F"; // Forest
       case "advanced":
@@ -453,7 +455,7 @@ export class MemStorage implements IStorage {
         "Un intenso desafío vertical de 8 km con 1100 metros de desnivel positivo, diseñado para corredores que rinden al máximo en subidas empinadas y constantes. Esta carrera explosiva en ascenso exige fuerza, concentración y sólidas piernas de montaña desde la salida hasta la meta.",
       distance: 8,
       elevation: 1100,
-      difficulty: "classic_updown",
+      difficulty: "vertical",
       date: "2026-07-11",
       price: 100, // 100 lei
       imageUrl: "/stana-de-vale.jpg",

@@ -93,17 +93,15 @@
     },
     "filters": {
       "all": "Todas las Carreras",
-      "beginner": "Principiante",
-      "intermediate": "Intermedio",
-      "advanced": "Avanzado",
-      "ultra": "Ultra"
+      "classic_updown": "Clásico UP/DOWN",
+      "vertical": "Vertical",
+      "long_trail": "Long Trail"
     },
     "difficulty": {
       "label": "Dificultad",
-      "beginner": "Principiante",
-      "intermediate": "Intermedio",
-      "advanced": "Avanzado",
-      "ultra": "Ultra"
+      "classic_updown": "Clásico UP/DOWN",
+      "vertical": "Vertical",
+      "long_trail": "Long Trail"
     },
     "dates": {
       "15": "15 de junio",

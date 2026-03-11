@@ -14,7 +14,7 @@ export interface Race {
   descriptionDe: string;
   distance: number;
   elevation: number;
-  difficulty: 'classic_updown' | 'long_trail';
+  difficulty: 'classic_updown' | 'long_trail' | 'vertical';
   date: string;
   price: number;
   imageUrl?: string;

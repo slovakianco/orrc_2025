@@ -93,17 +93,15 @@
     },
     "filters": {
       "all": "Tutte le Gare",
-      "beginner": "Principianti",
-      "intermediate": "Intermedio",
-      "advanced": "Avanzato",
-      "ultra": "Ultra"
+      "classic_updown": "Classico UP/DOWN",
+      "vertical": "Verticale",
+      "long_trail": "Long Trail"
     },
     "difficulty": {
       "label": "Difficoltà",
-      "beginner": "Principianti",
-      "intermediate": "Intermedio",
-      "advanced": "Avanzato",
-      "ultra": "Ultra"
+      "classic_updown": "Classico UP/DOWN",
+      "vertical": "Verticale",
+      "long_trail": "Long Trail"
     },
     "dates": {
       "15": "15 Giugno",

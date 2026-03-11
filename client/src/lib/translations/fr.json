@@ -93,17 +93,15 @@
     },
     "filters": {
       "all": "Toutes les courses",
-      "beginner": "Débutant",
-      "intermediate": "Intermédiaire",
-      "advanced": "Avancé",
-      "ultra": "Ultra"
+      "classic_updown": "Classique UP/DOWN",
+      "vertical": "Vertical",
+      "long_trail": "Long Trail"
     },
     "difficulty": {
       "label": "Difficulté",
-      "beginner": "Débutant",
-      "intermediate": "Intermédiaire",
-      "advanced": "Avancé",
-      "ultra": "Ultra"
+      "classic_updown": "Classique UP/DOWN",
+      "vertical": "Vertical",
+      "long_trail": "Long Trail"
     },
     "dates": {
       "15": "15 juin",

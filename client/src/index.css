@@ -139,6 +139,21 @@
     color: white;
   }
 
+  .bg-difficulty-classic_updown {
+    background-color: var(--color-sky-blue);
+    color: white;
+  }
+
+  .bg-difficulty-long_trail {
+    background-color: var(--color-alpine-green);
+    color: white;
+  }
+
+  .bg-difficulty-vertical {
+    background-color: var(--color-sunset-orange);
+    color: white;
+  }
+
   .text-difficulty-beginner {
     color: var(--color-alpine-green);
   }
@@ -153,6 +168,18 @@
 
   .text-difficulty-ultra {
     color: var(--color-trail-brown);
+  }
+
+  .text-difficulty-classic_updown {
+    color: var(--color-sky-blue);
+  }
+
+  .text-difficulty-long_trail {
+    color: var(--color-alpine-green);
+  }
+
+  .text-difficulty-vertical {
+    color: var(--color-sunset-orange);
   }
 
   /* New utility classes */
