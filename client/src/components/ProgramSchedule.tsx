@@ -86,7 +86,7 @@ const ProgramSchedule = () => {
                   </div>
                   <div>
                     <h4 className="text-xl font-semibold">
-                      {t("program.events.vertical.title", "Start cursă Vertical 8K")}
+                      {t("program.events.vertical.title", { defaultValue: "Start cursă Vertical 8K" })}
                     </h4>
                   </div>
                 </div>
@@ -95,13 +95,16 @@ const ProgramSchedule = () => {
                     <MapPin className="w-4 h-4 mr-2" />
                     {t(
                       "program.events.vertical.location",
-                      "Start: satul Budureasa • Sosire: Vârful Poieni, Stâna de Vale"
+                      { defaultValue: "Start: satul Budureasa • Sosire: Vârful Poieni, Stâna de Vale" }
                     )}
                   </p>
                   <p className="text-gray-600 leading-relaxed">
                     {t(
                       "program.events.vertical.description",
-                      "Cursa Vertical 8K are loc vineri, de la ora 10:00, pe traseul Budureasa – Vârful Poieni, Stâna de Vale."
+                      {
+                        defaultValue:
+                          "Cursa Vertical 8K are loc vineri, de la ora 10:00, pe traseul Budureasa – Vârful Poieni, Stâna de Vale."
+                      }
                     )}
                   </p>
                 </div>

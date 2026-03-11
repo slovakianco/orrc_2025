@@ -13,7 +13,7 @@ export default function RulesContent() {
   const { t, i18n } = useTranslation();
 
   // Get current language
-  const currentLang = i18n.language;
+  const currentLang = (i18n.resolvedLanguage || i18n.language || "en").split("-")[0];
   const isRomanian = currentLang === "ro";
 
   // Define mandatory equipment for 11km race based on language
