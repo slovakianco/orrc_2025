@@ -14,7 +14,6 @@ export default function RulesContent() {
 
   // Get current language
   const currentLang = (i18n.resolvedLanguage || i18n.language || "en").split("-")[0];
-  const isRomanian = currentLang === "ro";
 
   // Define mandatory equipment for 11km race based on language
   const getMandatoryEquipment11k = () => {
@@ -551,49 +550,210 @@ export default function RulesContent() {
 
   const registrationRules = getRegistrationRules();
 
-  const verticalRules = isRomanian
-    ? {
-        general: [
-          "Vertical 8K are loc vineri, 10 iulie 2026, cu startul în Budureasa și sosirea la Vârful Poieni, Stâna de Vale.",
-          "Startul cursei Vertical 8K este la ora 10:00.",
-          "Pentru Vertical 8K se întocmesc clasamente open feminin și masculin, precum și clasamente pe categorii de vârstă, pe baza rezultatelor oficiale validate de organizator.",
-          "Premierea Vertical 8K se face pe baza clasamentelor oficiale ale cursei."
-        ],
-        equipment: [
-          "Număr de concurs vizibil pe tot parcursul cursei",
-          "Telefon mobil încărcat, cu numărul de urgență al organizatorului salvat în telefon",
-          "Recipient de apă de minimum 500 ml"
-        ],
-        recommendations: [
-          "Bețele de trail sau trekking sunt permise la Vertical 8K, cu utilizarea lor responsabilă pe tot traseul."
-        ],
-        timeLimits: [
-          "Limită totală de timp: 3 ore.",
-          "CP1: km 4, timp limită 1 h 30 min."
-        ],
-        aidStations: [
-          "CP1 este amplasat la km 4 și reprezintă punctul intermediar de control al cursei Vertical 8K."
-        ],
-        penalties: [
-          "Nerespectarea traseului oficial, a trecerii prin CP1 sau a indicațiilor organizatorilor poate duce la penalizare sau descalificare.",
-          "Nerespectarea regulilor privind coborârea de la sosire poate duce la descalificare."
-        ],
-        safety: [
-          "Organizatorul poate opri din cursă orice participant care nu mai poate continua în condiții de siguranță.",
-          "Coborârea de la sosire se face numai pe varianta indicată de organizatori, cu respectarea instrucțiunilor arbitrilor și voluntarilor."
-        ],
-        environment: [
-          "Pe traseul Vertical 8K este interzisă abandonarea recipientelor, gelurilor sau a oricărui alt echipament în afara zonelor indicate de organizatori."
-        ],
-        registration: [
-          "La Vertical 8K pot participa concurenții apți pentru efort intens în alergare montană și care respectă toate cerințele organizatorului.",
-          "Taxa de înscriere pentru Vertical 8K este 100 lei.",
-          "Pentru înscrierea cumulată la două curse se acordă o reducere totală de 50 de lei.",
-          "Prin înscriere, participantul confirmă că a citit, a înțeles și acceptă regulamentul Vertical 8K.",
-          "La Vertical 8K, categoriile de vârstă pentru feminin și masculin sunt: 35-39, 40-44, 45-49, 50-54, 55-59, 60-64, 65-69, 70-74, 75-79 și 80+."
-        ]
-      }
-    : null;
+  const getVerticalRules = () => {
+    switch (currentLang) {
+      case "ro":
+        return {
+          general: [
+            "Vertical 8K are loc vineri, 10 iulie 2026, cu startul în Budureasa și sosirea la Vârful Poieni, Stâna de Vale."
+          ],
+          equipment: [
+            "Număr de concurs vizibil pe tot parcursul cursei",
+            "Telefon mobil încărcat, cu numărul de urgență al organizatorului salvat în telefon",
+            "Recipient de apă de minimum 500 ml"
+          ],
+          recommendations: [
+            "Bețele de trail sau trekking sunt permise la Vertical 8K, cu utilizarea lor responsabilă pe tot traseul."
+          ],
+          timeLimits: [
+            "Limită totală de timp: 3 ore.",
+            "CP1: km 4, timp limită 1 h 30 min."
+          ],
+          aidStations: [
+            "CP1 este amplasat la km 4 și reprezintă punctul intermediar de control al cursei Vertical 8K."
+          ],
+          penalties: [
+            "Nerespectarea traseului oficial, a trecerii prin CP1 sau a indicațiilor organizatorilor poate duce la penalizare sau descalificare.",
+            "Nerespectarea regulilor privind coborârea de la sosire poate duce la descalificare."
+          ],
+          safety: [
+            "Organizatorul poate opri din cursă orice participant care nu mai poate continua în condiții de siguranță.",
+            "Coborârea de la sosire se face numai pe varianta indicată de organizatori, cu respectarea instrucțiunilor arbitrilor și voluntarilor."
+          ],
+          environment: [],
+          registration: [
+            "Pentru înscrierea cumulată la două curse se acordă o reducere totală de 50 de lei."
+          ]
+        };
+      case "fr":
+        return {
+          general: [
+            "Le Vertical 8K a lieu le vendredi 10 juillet 2026, avec départ de Budureasa et arrivée à Vârful Poieni, Stâna de Vale."
+          ],
+          equipment: [
+            "Numéro de course visible pendant toute la course",
+            "Téléphone portable chargé, avec le numéro d'urgence de l'organisateur enregistré",
+            "Réserve d'eau d'au moins 500 ml"
+          ],
+          recommendations: [
+            "Les bâtons de trail ou de randonnée sont autorisés sur le Vertical 8K, à condition d'être utilisés de manière responsable sur tout le parcours."
+          ],
+          timeLimits: [
+            "Limite de temps totale : 3 heures.",
+            "CP1 : km 4, barrière horaire 1 h 30."
+          ],
+          aidStations: [
+            "Le CP1 est situé au km 4 et constitue le point de contrôle intermédiaire du Vertical 8K."
+          ],
+          penalties: [
+            "Le non-respect du parcours officiel, du passage par le CP1 ou des consignes des organisateurs peut entraîner une pénalité ou une disqualification.",
+            "Le non-respect des règles de descente depuis l'arrivée peut entraîner une disqualification."
+          ],
+          safety: [
+            "L'organisateur peut arrêter tout participant qui ne peut plus poursuivre en sécurité.",
+            "La descente depuis l'arrivée se fait uniquement par l'itinéraire indiqué par les organisateurs, en respectant les instructions des arbitres et des bénévoles."
+          ],
+          environment: [],
+          registration: [
+            "Une réduction totale de 50 lei est accordée pour l'inscription combinée à deux courses."
+          ]
+        };
+      case "de":
+        return {
+          general: [
+            "Vertical 8K findet am Freitag, dem 10. Juli 2026, mit Start in Budureasa und Ziel auf dem Vârful Poieni, Stâna de Vale, statt."
+          ],
+          equipment: [
+            "Startnummer während des gesamten Rennens sichtbar",
+            "Aufgeladenes Mobiltelefon mit gespeicherter Notfallnummer des Veranstalters",
+            "Wasserbehälter mit mindestens 500 ml"
+          ],
+          recommendations: [
+            "Trail- oder Trekkingstöcke sind beim Vertical 8K erlaubt, sofern sie auf der gesamten Strecke verantwortungsvoll eingesetzt werden."
+          ],
+          timeLimits: [
+            "Gesamtzeitlimit: 3 Stunden.",
+            "CP1: km 4, Zeitlimit 1 Std. 30 Min."
+          ],
+          aidStations: [
+            "CP1 befindet sich bei km 4 und ist der Zwischenkontrollpunkt des Vertical 8K."
+          ],
+          penalties: [
+            "Das Nichtbefolgen der offiziellen Strecke, das Auslassen von CP1 oder das Missachten der Anweisungen der Organisatoren kann zu einer Zeitstrafe oder Disqualifikation führen.",
+            "Das Nichtbefolgen der Regeln für den Abstieg vom Ziel kann zur Disqualifikation führen."
+          ],
+          safety: [
+            "Der Veranstalter kann jeden Teilnehmer aus dem Rennen nehmen, der nicht mehr sicher weiterlaufen kann.",
+            "Der Abstieg vom Ziel ist nur über die von den Organisatoren angegebene Route und unter Beachtung der Anweisungen von Kampfrichtern und Helfern gestattet."
+          ],
+          environment: [],
+          registration: [
+            "Bei kombinierter Anmeldung für zwei Rennen wird ein Gesamtrabatt von 50 Lei gewährt."
+          ]
+        };
+      case "it":
+        return {
+          general: [
+            "Il Vertical 8K si svolge venerdì 10 luglio 2026, con partenza da Budureasa e arrivo a Vârful Poieni, Stâna de Vale."
+          ],
+          equipment: [
+            "Pettorale visibile per tutta la gara",
+            "Telefono cellulare carico, con il numero di emergenza dell'organizzazione salvato",
+            "Contenitore d'acqua di almeno 500 ml"
+          ],
+          recommendations: [
+            "I bastoncini da trail o trekking sono consentiti nel Vertical 8K, purché siano utilizzati responsabilmente lungo tutto il percorso."
+          ],
+          timeLimits: [
+            "Tempo massimo totale: 3 ore.",
+            "CP1: km 4, tempo limite 1 h 30 min."
+          ],
+          aidStations: [
+            "Il CP1 si trova al km 4 ed è il punto di controllo intermedio della gara Vertical 8K."
+          ],
+          penalties: [
+            "Il mancato rispetto del percorso ufficiale, del passaggio al CP1 o delle indicazioni degli organizzatori può comportare una penalità o la squalifica.",
+            "Il mancato rispetto delle regole di discesa dal traguardo può comportare la squalifica."
+          ],
+          safety: [
+            "L'organizzazione può fermare qualsiasi partecipante che non sia più in grado di proseguire in sicurezza.",
+            "La discesa dal traguardo deve avvenire esclusivamente sul percorso indicato dagli organizzatori, seguendo le istruzioni di giudici e volontari."
+          ],
+          environment: [],
+          registration: [
+            "Per l'iscrizione combinata a due gare è previsto uno sconto totale di 50 lei."
+          ]
+        };
+      case "es":
+        return {
+          general: [
+            "El Vertical 8K se celebra el viernes 10 de julio de 2026, con salida en Budureasa y llegada a Vârful Poieni, Stâna de Vale."
+          ],
+          equipment: [
+            "Dorsal visible durante toda la carrera",
+            "Teléfono móvil cargado, con el número de emergencia del organizador guardado",
+            "Recipiente de agua de al menos 500 ml"
+          ],
+          recommendations: [
+            "Se permiten bastones de trail o trekking en el Vertical 8K, siempre que se utilicen de forma responsable durante todo el recorrido."
+          ],
+          timeLimits: [
+            "Límite total de tiempo: 3 horas.",
+            "CP1: km 4, tiempo límite 1 h 30 min."
+          ],
+          aidStations: [
+            "El CP1 está situado en el km 4 y es el punto intermedio de control de la carrera Vertical 8K."
+          ],
+          penalties: [
+            "No respetar el recorrido oficial, el paso por el CP1 o las indicaciones de los organizadores puede conllevar penalización o descalificación.",
+            "No respetar las normas de descenso desde meta puede conllevar descalificación."
+          ],
+          safety: [
+            "La organización puede retirar de la carrera a cualquier participante que ya no pueda continuar con seguridad.",
+            "El descenso desde meta solo puede hacerse por la ruta indicada por los organizadores, respetando las instrucciones de jueces y voluntarios."
+          ],
+          environment: [],
+          registration: [
+            "La inscripción combinada en dos carreras ofrece un descuento total de 50 lei."
+          ]
+        };
+      default:
+        return {
+          general: [
+            "Vertical 8K takes place on Friday, July 10, 2026, starting in Budureasa and finishing at Vârful Poieni, Stâna de Vale."
+          ],
+          equipment: [
+            "Race bib visible throughout the race",
+            "Fully charged mobile phone with the organizer's emergency number saved",
+            "Water container of at least 500 ml"
+          ],
+          recommendations: [
+            "Trail or trekking poles are allowed in the Vertical 8K, provided they are used responsibly throughout the course."
+          ],
+          timeLimits: [
+            "Total time limit: 3 hours.",
+            "CP1: km 4, cut-off time 1 h 30 min."
+          ],
+          aidStations: [
+            "CP1 is located at km 4 and serves as the intermediate control point for the Vertical 8K race."
+          ],
+          penalties: [
+            "Failure to follow the official route, pass through CP1, or obey organizers' instructions may lead to a penalty or disqualification.",
+            "Failure to follow the finish descent rules may lead to disqualification."
+          ],
+          safety: [
+            "The organizer may stop any participant who can no longer continue safely.",
+            "Descent from the finish is allowed only on the route indicated by the organizers, following the instructions of marshals and volunteers."
+          ],
+          environment: [],
+          registration: [
+            "A total discount of 50 lei is granted for combined registration to two races."
+          ]
+        };
+    }
+  };
+
+  const verticalRules = getVerticalRules();
 
   return (
     <div>
@@ -807,7 +967,7 @@ export default function RulesContent() {
                         <li key={index}>{rule}</li>
                       ))}
                     </ul>
-                    {verticalRules && (
+                    {verticalRules.environment.length > 0 && (
                       <div className="mt-6">
                         <h4 className="font-semibold text-lg mb-2 text-primary-dark">Vertical 8K</h4>
                         <ul className="list-disc pl-6 space-y-2">
