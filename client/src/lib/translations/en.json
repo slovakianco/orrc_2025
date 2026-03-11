@@ -101,7 +101,7 @@
       "description1": "On July 10-11, 2026, Stâna de Vale will host the Romanian stage of the EMA Off-Road Running Circuit 2026. Stâna de Vale is a well-known mountain resort – elevation 1000m – situated in the north-west of Romania, Bihor County. Initially the fame of the resort originated from the mineral water springs in the area, particularly recommended for a range of cures.",
       "description2": "In recent years the area has been developed to attract tourists with its relaxing landscapes and as a ski resort.",
       "hostTitle": "The Host",
-      "hostDescription": "ACS Atletic Beiuş has built a strong reputation in the Romanian off-road running community through the successful \"Beiuş Running Day\", a 10k/21k trail event in the hills around the town. After the appreciated 2024 national mountain running event at nearby Stâna de Vale, the organizers continue to develop the race weekend with a classic 11k up&down course, a demanding 33k long trail, strong local support, and a welcoming post-race atmosphere."
+      "hostDescription": "ACS Atletic Beiuş has built a strong reputation in the Romanian off-road running community through the successful \"Beiuş Running Day\", a 10k/21k trail event in the hills around the town. After the appreciated 2024 national mountain running event at nearby Stâna de Vale, the organizers continue to develop the race weekend with the Vertical 8K uphill race, a classic 11k up&down course, a demanding 33k long trail, strong local support, and a welcoming post-race atmosphere."
     }
   },
   "races": {
@@ -355,7 +355,7 @@
     "downloadButton": "Download Full Rules PDF",
     "important": "Important Notice",
     "importantDescription": "All participants must adhere to these rules for their safety and the integrity of the competition. Non-compliance may result in penalties or disqualification.",
-    "introduction": "The Stana de Vale Trail Race is organized in accordance with international trail running standards and regulations. The following rules apply to all participants in both the 11km and 33km races.",
+    "introduction": "The Stana de Vale Trail Race is organized in accordance with international trail running standards and regulations. The following rules apply to all participants in the Vertical 8K, 11km, and 33km races.",
     "contactQuestion": "Have questions about the rules? Contact us at: contact@stanatrailrace.ro or +40744534802",
     "sections": {
       "general": {
@@ -562,7 +562,7 @@
       },
       "stations": {
         "question": "Are there refreshment points on the course?",
-        "answer": "Yes, there are refreshment points along all race routes. The 11km race has 1 refreshment point, the 33km race has 5 refreshment points."
+        "answer": "Yes, there are support points along all race routes. The Vertical 8K includes CP1 at km 4, the 11km race has 1 refreshment point, and the 33km race has 5 refreshment points."
       },
       "change": {
         "question": "Can I change my race after registering?",
@@ -688,7 +688,7 @@
       "title": "Registration Requirements",
       "intro": "To participate in our events, you must meet the following requirements:",
       "requirements": {
-        "age": "Minimum age requirement: 18 years for the 33km race and 16 years for the 11km race (with parental consent for minors)",
+        "age": "Minimum age requirements apply according to the registered race. Participants must be 18 years old for the 33km race and 16 years old for the 11km race (with parental consent for minors), and all runners, including those registered for Vertical 8K, must meet the eligibility conditions of their chosen race.",
         "health": "Be in good health and physically fit to participate in a trail running event",
         "equipment": "Possess all mandatory equipment specified in the race rules",
         "information": "Provide accurate personal information during registration",

@@ -101,7 +101,7 @@
       "description1": "În 10-11 iulie 2026, Stâna de Vale va găzdui etapa din România a Circuitului EMA Off-Road Running 2026. Stâna de Vale este astăzi o bine-cunoscută stațiune montană – altitudine 1000m – situată în nord-vestul României, județul Bihor. Inițial, faima stațiunii a provenit din izvoarele de apă minerală din zonă, recomandate în special pentru diverse tratamente.",
       "description2": "În ultimii ani, zona a fost dezvoltată pentru a atrage turiști cu peisajele sale relaxante și ca stațiune de schi.",
       "hostTitle": "Gazdă",
-      "hostDescription": "ACS Atletic Beiuș și-a construit un renume puternic în comunitatea românească a alergătorilor off-road prin organizarea apreciatului „Beiuș Running Day”, o alergare de trail de 10k/21k în dealurile din jurul orașului. După evenimentul național de alergare montană din 2024 organizat la Stâna de Vale, echipa continuă să dezvolte weekendul competițional cu un traseu clasic de 11k up&down, un long trail solicitant de 33k, sprijin local consistent și o atmosferă primitoare după cursă."
+      "hostDescription": "ACS Atletic Beiuș și-a construit un renume puternic în comunitatea românească a alergătorilor off-road prin organizarea apreciatului „Beiuș Running Day”, o alergare de trail de 10k/21k în dealurile din jurul orașului. După evenimentul național de alergare montană din 2024 organizat la Stâna de Vale, echipa continuă să dezvolte weekendul competițional cu cursa Vertical 8K, un traseu clasic de 11k up&down, un long trail solicitant de 33k, sprijin local consistent și o atmosferă primitoare după cursă."
     }
   },
   "races": {
@@ -544,7 +544,7 @@
       },
       "stations": {
         "question": "Există puncte de alimentare pe traseu?",
-        "answer": "Da, există puncte de alimentare de-a lungul tuturor traseelor cursei. Cursa de 11km are 1 punct de alimentare, cursa de 33km are 5 puncte de alimentare."
+        "answer": "Da, există puncte de suport de-a lungul tuturor traseelor de concurs. Vertical 8K include CP1 la km 4, cursa de 11km are 1 punct de alimentare, iar cursa de 33km are 5 puncte de alimentare."
       },
       "change": {
         "question": "Pot schimba cursa după înregistrare?",
@@ -670,7 +670,7 @@
       "title": "Cerințe de înregistrare",
       "intro": "Pentru a participa la evenimentele noastre, trebuie să îndeplinești următoarele cerințe:",
       "requirements": {
-        "age": "Cerința minimă de vârstă: 18 ani pentru cursa de 33km și 16 ani pentru cursa de 11km (cu acordul părinților pentru minori)",
+        "age": "Cerințele minime de vârstă se aplică în funcție de cursa aleasă. Participanții trebuie să aibă 18 ani pentru cursa de 33km și 16 ani pentru cursa de 11km (cu acordul părinților pentru minori), iar toți alergătorii, inclusiv cei înscriși la Vertical 8K, trebuie să respecte condițiile de eligibilitate ale cursei alese.",
         "health": "Să fii în stare bună de sănătate și apt fizic pentru a participa la un eveniment de alergare pe traseu",
         "equipment": "Să deții tot echipamentul obligatoriu specificat în regulile cursei",
         "information": "Să furnizezi informații personale exacte în timpul înregistrării",

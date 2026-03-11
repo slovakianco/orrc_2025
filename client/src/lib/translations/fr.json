@@ -431,7 +431,7 @@
       },
       "stations": {
         "question": "Y a-t-il des postes de ravitaillement sur le parcours ?",
-        "answer": "Oui, il y a des postes de ravitaillement le long de tous les parcours de course. La course de 11 km a 1 poste, la course de 33 km en a 5."
+        "answer": "Oui, il y a des points de support le long de tous les parcours. Le Vertical 8K comprend le CP1 au km 4, la course de 11 km a 1 poste de ravitaillement et la course de 33 km en a 5."
       },
       "change": {
         "question": "Puis-je changer de course après m'être inscrit ?",
@@ -557,7 +557,7 @@
       "title": "Conditions d'inscription",
       "intro": "Pour participer à nos événements, vous devez remplir les conditions suivantes :",
       "requirements": {
-        "age": "Âge minimum requis : 18 ans pour la course de 33 km et 16 ans pour la course de 11 km (avec le consentement parental pour les mineurs)",
+        "age": "Les exigences d'âge minimum s'appliquent selon la course choisie. Les participants doivent avoir 18 ans pour la course de 33 km et 16 ans pour la course de 11 km (avec le consentement parental pour les mineurs), et tous les coureurs, y compris ceux inscrits au Vertical 8K, doivent respecter les conditions d'éligibilité de leur course.",
         "health": "Être en bonne santé et physiquement apte à participer à un événement de course sur sentier",
         "equipment": "Posséder tout l'équipement obligatoire spécifié dans les règles de course",
         "information": "Fournir des informations personnelles exactes lors de l'inscription",

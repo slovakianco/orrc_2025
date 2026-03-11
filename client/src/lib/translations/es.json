@@ -394,7 +394,7 @@
       },
       "stations": {
         "question": "¿Hay puntos de ayuda en el recorrido?",
-        "answer": "Sí, hay puntos de ayuda a lo largo de todas las rutas de las carreras. La carrera de 11 km tiene 1 punto de ayuda, la de 33 km tiene 5."
+        "answer": "Sí, hay puntos de apoyo a lo largo de todos los recorridos. El Vertical 8K incluye el CP1 en el km 4, la carrera de 11 km tiene 1 punto de ayuda y la de 33 km tiene 5."
       },
       "change": {
         "question": "¿Puedo cambiar de carrera después de registrarme?",
@@ -520,7 +520,7 @@
       "title": "Requisitos de registro",
       "intro": "Para participar en nuestros eventos, debes cumplir con los siguientes requisitos:",
       "requirements": {
-        "age": "Requisito de edad mínima: 18 años para la carrera de 33 km y 16 años para la carrera de 11 km (con consentimiento de los padres para menores)",
+        "age": "Los requisitos de edad mínima se aplican según la carrera elegida. Los participantes deben tener 18 años para la carrera de 33 km y 16 años para la carrera de 11 km (con consentimiento de los padres para menores), y todos los corredores, incluidos los inscritos en el Vertical 8K, deben cumplir las condiciones de elegibilidad de su carrera.",
         "health": "Estar en buen estado de salud y físicamente apto para participar en un evento de trail running",
         "equipment": "Poseer todo el equipo obligatorio especificado en las reglas de la carrera",
         "information": "Proporcionar información personal precisa durante el registro",

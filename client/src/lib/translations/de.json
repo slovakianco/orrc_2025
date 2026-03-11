@@ -430,7 +430,7 @@
       },
       "stations": {
         "question": "Gibt es Verpflegungsstationen auf der Strecke?",
-        "answer": "Ja, es gibt Verpflegungsstationen entlang aller Rennstrecken. Das 11-km-Rennen hat 1 Station, das 33-km-Rennen hat 5."
+        "answer": "Ja, es gibt Versorgungspunkte entlang aller Rennstrecken. Das Vertical 8K umfasst CP1 bei km 4, das 11-km-Rennen hat 1 Verpflegungsstation und das 33-km-Rennen 5."
       },
       "change": {
         "question": "Kann ich mein Rennen nach der Anmeldung ändern?",
@@ -556,7 +556,7 @@
       "title": "Anmeldeanforderungen",
       "intro": "Um an unseren Veranstaltungen teilnehmen zu können, müssen Sie folgende Anforderungen erfüllen:",
       "requirements": {
-        "age": "Mindestalteranforderung: 18 Jahre für das 33-km-Rennen und 16 Jahre für das 11-km-Rennen (mit Zustimmung der Eltern für Minderjährige)",
+        "age": "Die Mindestalteranforderungen gelten je nach gewähltem Rennen. Teilnehmer müssen für das 33-km-Rennen 18 Jahre alt und für das 11-km-Rennen 16 Jahre alt sein (mit Zustimmung der Eltern für Minderjährige); alle Läufer, einschließlich der für Vertical 8K Gemeldeten, müssen die Teilnahmebedingungen ihres gewählten Rennens erfüllen.",
         "health": "Gesund und körperlich fit sein, um an einer Trail-Running-Veranstaltung teilzunehmen",
         "equipment": "Besitz aller in den Rennregeln angegebenen Pflichtausrüstung",
         "information": "Genaue persönliche Informationen bei der Anmeldung angeben",

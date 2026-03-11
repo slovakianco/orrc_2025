@@ -582,7 +582,7 @@ export default function RulesContent() {
           ],
           environment: [],
           registration: [
-            "Pentru înscrierea cumulată la două curse se acordă o reducere totală de 50 de lei."
+            "Pentru înscrierea cumulată la cel puțin două curse se acordă o reducere totală de 50 de lei."
           ]
         };
       case "fr":
@@ -615,7 +615,7 @@ export default function RulesContent() {
           ],
           environment: [],
           registration: [
-            "Une réduction totale de 50 lei est accordée pour l'inscription combinée à deux courses."
+            "Une réduction totale de 50 lei est accordée pour l'inscription combinée à au moins deux courses."
           ]
         };
       case "de":
@@ -648,7 +648,7 @@ export default function RulesContent() {
           ],
           environment: [],
           registration: [
-            "Bei kombinierter Anmeldung für zwei Rennen wird ein Gesamtrabatt von 50 Lei gewährt."
+            "Bei kombinierter Anmeldung für mindestens zwei Rennen wird ein Gesamtrabatt von 50 Lei gewährt."
           ]
         };
       case "it":
@@ -681,7 +681,7 @@ export default function RulesContent() {
           ],
           environment: [],
           registration: [
-            "Per l'iscrizione combinata a due gare è previsto uno sconto totale di 50 lei."
+            "Per l'iscrizione combinata ad almeno due gare è previsto uno sconto totale di 50 lei."
           ]
         };
       case "es":
@@ -714,7 +714,7 @@ export default function RulesContent() {
           ],
           environment: [],
           registration: [
-            "La inscripción combinada en dos carreras ofrece un descuento total de 50 lei."
+            "La inscripción combinada en al menos dos carreras ofrece un descuento total de 50 lei."
           ]
         };
       default:
@@ -747,7 +747,7 @@ export default function RulesContent() {
           ],
           environment: [],
           registration: [
-            "A total discount of 50 lei is granted for combined registration to two races."
+            "A total discount of 50 lei is granted for combined registration to at least two races."
           ]
         };
     }
