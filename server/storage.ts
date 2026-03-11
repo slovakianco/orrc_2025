@@ -436,7 +436,7 @@ export class MemStorage implements IStorage {
 
     this.createRace({
       name: "Vertical 8K",
-      nameRo: "Verticală 8K",
+      nameRo: "Vertical 8K",
       nameFr: "Verticale 8K",
       nameDe: "Vertikal 8K",
       nameIt: "Verticale 8K",
