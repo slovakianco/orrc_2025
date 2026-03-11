@@ -436,7 +436,7 @@ export class MemStorage implements IStorage {
 
     this.createRace({
       name: "Vertical 8K",
-      nameRo: "Vertical 8K",
+      nameRo: "Verticalgi 8K",
       nameFr: "Verticale 8K",
       nameDe: "Vertikal 8K",
       nameIt: "Verticale 8K",
@@ -456,7 +456,7 @@ export class MemStorage implements IStorage {
       distance: 8,
       elevation: 1100,
       difficulty: "vertical",
-      date: "2026-07-11",
+      date: "2026-07-10",
       price: 100, // 100 lei
       imageUrl: "/stana-de-vale.jpg",
       raceMap: "",

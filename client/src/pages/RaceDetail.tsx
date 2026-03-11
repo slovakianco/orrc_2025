@@ -60,6 +60,9 @@ const RaceDetail = () => {
     );
   }
 
+  const startTime = race.id === 1 ? "08:30" : race.id === 3 ? "10:00" : "09:30";
+  const aidStationCount = race.id === 1 ? 5 : 1;
+
   return (
     <div className="bg-neutral-light/30 min-h-screen py-8 md:py-12">
       <div className="container mx-auto px-4">
@@ -111,8 +114,7 @@ const RaceDetail = () => {
                 </div>
                 <div className="flex items-center">
                   <Clock className="mr-2 h-4 w-4" />
-                  <span className="text-white">{race.id === 1 ? "08:30" : "09:30"}</span>{" "}
-                  {/* Different start times for each race */}
+                  <span className="text-white">{startTime}</span>
                 </div>
               </div>
             </div>
@@ -218,6 +220,25 @@ const RaceDetail = () => {
                           </div>
                         </div>
                       </div>
+                    ) : race.id === 3 ? (
+                      <div className="space-y-3">
+                        <h3 className="font-bold text-base md:text-lg text-primary">
+                          {t("races.details.aidStationsLocations")} (Vertical 8K)
+                        </h3>
+                        <div className="relative pl-8 before:absolute before:left-3 before:top-0 before:bottom-0 before:w-0.5 before:bg-blue-200">
+                          <div className="relative mb-6">
+                            <div className="absolute left-[-24px] top-0 w-6 h-6 bg-white rounded-full border-2 border-blue-400 flex items-center justify-center text-blue-600 text-xs font-bold">
+                              1
+                            </div>
+                            <div className="bg-white p-3 rounded-lg shadow-sm border border-blue-100">
+                              <p className="font-semibold text-primary">CP1 - km 4</p>
+                              <p className="text-sm text-gray-600">
+                                {t("races.details.waterAndSnacks")}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     ) : (
                       <div className="space-y-3">
                         <h3 className="font-bold text-base md:text-lg text-primary">
@@ -283,9 +304,7 @@ const RaceDetail = () => {
                       <span className="text-neutral-dark">
                         {t("races.details.startTime")}
                       </span>
-                      <span className="font-medium">
-                        {race.id === 1 ? "08:30" : "09:30"}
-                      </span>
+                      <span className="font-medium">{startTime}</span>
                     </div>
                     <div className="flex justify-between items-center pb-3 border-b border-neutral-light">
                       <span className="text-neutral-dark">
@@ -313,9 +332,7 @@ const RaceDetail = () => {
                       <span className="text-neutral-dark">
                         {t("races.details.aidStations")}
                       </span>
-                      <span className="font-medium">
-                        {race.id === 1 ? 5 : 1}
-                      </span>
+                      <span className="font-medium">{aidStationCount}</span>
                     </div>
                   </div>
 
