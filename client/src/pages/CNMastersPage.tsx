@@ -29,10 +29,10 @@ const CNMastersPage = () => {
             În 2026, Stâna de Vale găzduiește Campionatul Naţional de Alergare
             Montană Masters pentru categoriile de vârstă 35-79 ani. Competiția
             este organizată sub egida Federației Române de Atletism și include
-            două curse oficiale.
+            trei curse oficiale.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
             <div className="bg-red-50 rounded-lg p-5 border-l-4 border-red-600">
               <h3 className="font-bold text-lg mb-3 text-red-700">
                 Cursa Long Trail 33km
@@ -61,6 +61,22 @@ const CNMastersPage = () => {
                 Montană, cu un traseu clasic up/down de 11 km și 500 m diferență
                 de nivel. Această cursă face parte din EMA Off-Road Running
                 Circuit 2026.
+              </p>
+            </div>
+
+            <div className="bg-red-50 rounded-lg p-5 border-l-4 border-red-600">
+              <h3 className="font-bold text-lg mb-3 text-red-700">
+                Cursa Vertical 8K
+              </h3>
+              <div className="flex items-center mb-2">
+                <Mountain className="h-5 w-5 mr-2 text-red-600" />
+                <span>8 km / 1100 m D+</span>
+              </div>
+              <p className="text-neutral-dark">
+                Proba verticală a Campionatului Naţional Masters de Alergare
+                Montană, desfășurată pe traseul Budureasa – Vârful Poieni,
+                Stâna de Vale. Această cursă face parte din EMA Off-Road
+                Running Circuit 2026.
               </p>
             </div>
           </div>
